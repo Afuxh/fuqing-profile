@@ -2,112 +2,248 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>阿扶的读书笔记·思考与心得 | 原文全收录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="阿扶的读书笔记与思考心得 - 心理学、个人成长、阿德勒、非暴力沟通等完整收录">
+    <meta name="keywords" content="阿扶, 读书笔记, 被讨厌的勇气, 自卑与超越, 非暴力沟通, 自控力, 阿德勒心理学">
+    <meta name="author" content="阿扶">
+    <title>阿扶 · 读书笔记 | 完整收录 · 星际典藏版</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ========== 星际主题设计系统 ========== */
+        :root {
+            --bg: #0a0d22;
+            --bg-gradient: linear-gradient(135deg, #0a0d22 0%, #1a1f3a 50%, #0d1128 100%);
+            --card: rgba(18, 24, 51, 0.85);
+            --text: #e6f7ff;
+            --text2: #a0c4e0;
+            --text3: #6b8cae;
+            --blue: #4dabf7;
+            --cyan: #3bc9db;
+            --orange: #ffaa55;
+            --pink: #ff66aa;
+            --purple: #7d5fff;
+            --border: rgba(77, 171, 247, 0.25);
+            --max-width: 1000px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --nav-height: 60px;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
-            background: #fefcf8;
-            color: #1f2a1e;
-            font-family: -apple-system, "Noto Serif SC", "Times New Roman", serif;
-            line-height: 1.75;
-            padding: 2rem 1rem;
-        }
-        .container {
-            max-width: 880px;
+            font-family: 'Orbitron', 'Noto Serif SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text);
+            line-height: 1.8;
+            width: 100%;
+            max-width: var(--max-width);
             margin: 0 auto;
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 2rem 1.8rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            padding: 20px;
+            position: relative;
+            min-height: 100vh;
+            scroll-behavior: smooth;
         }
-        h1 {
-            font-size: 1.8rem;
+        /* 动态星空背景 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 200%; height: 200%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(77,171,247,0.08) 0%, transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(125,95,255,0.1) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(255,170,85,0.05) 0%, transparent 35%),
+                radial-gradient(circle at 30% 70%, rgba(59,201,219,0.06) 0%, transparent 25%);
+            z-index: -3;
+            animation: drift 150s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes drift { 0% { transform: translate(0, 0); } 100% { transform: translate(-50%, -50%); } }
+        /* 太阳系动态装饰 */
+        .solar-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 4s infinite ease-in-out;
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+        @keyframes twinkle { 0%,100% { opacity:0.3; transform:scale(0.8); } 50% { opacity:1; transform:scale(1.2); } }
+        .floating-light {
+            position: fixed;
+            width: 4px; height: 4px;
+            background: var(--blue);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--blue);
+            animation: float 20s infinite linear;
+            z-index: -2;
+            pointer-events: none;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+        /* 滚动进度条 + 返回顶部 */
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            width: 0%; height: 3px;
+            background: linear-gradient(90deg, var(--orange), var(--pink));
+            z-index: 1000;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px rgba(255,170,85,0.5);
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(77,171,247,0.5);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top::before { content: "↑"; font-size: 24px; color: white; font-weight: 700; }
+        /* 主容器 */
+        .container {
+            background: rgba(10, 13, 34, 0.3);
+            border-radius: 28px;
+            backdrop-filter: blur(5px);
+            padding: 12px;
+        }
+        /* 头部风格 */
+        .hero {
             text-align: center;
-            font-weight: 600;
-            color: #2c4b2c;
-            margin-bottom: 0.5rem;
+            padding: 40px 20px 30px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
         }
-        .sub {
-            text-align: center;
-            color: #7f8c6d;
-            font-size: 0.85rem;
-            border-bottom: 1px solid #e2dbcf;
-            padding-bottom: 1.2rem;
-            margin-bottom: 2rem;
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--orange), var(--pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
         }
+        .hero .sub {
+            color: var(--text2);
+            font-size: 0.9rem;
+            margin-top: 12px;
+        }
+        /* 笔记块样式 */
         .note-block {
-            margin-bottom: 2rem;
-            border-left: 2px solid #dad1c2;
-            padding-left: 1.4rem;
+            margin-bottom: 28px;
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            padding: 24px 28px;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .note-block.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .note-block:hover {
+            transform: translateY(-4px);
+            border-color: rgba(77,171,247,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3), 0 0 20px rgba(77,171,247,0.2);
         }
         .note-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #2e5c2c;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--orange);
             margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid var(--blue);
+            padding-left: 18px;
         }
-        .note-content p, .note-content ul, .note-content ol {
-            margin-bottom: 0.9rem;
-            color: #2c2a24;
+        .note-content {
+            color: var(--text2);
+            font-size: 1rem;
+            line-height: 1.85;
         }
-        .note-content ul, .note-content ol {
-            padding-left: 1.5rem;
-        }
-        .note-content li {
-            margin-bottom: 0.3rem;
-        }
+        .note-content p { margin-bottom: 1rem; }
+        .note-content ul, .note-content ol { margin: 0.8rem 0 1rem 1.8rem; }
+        .note-content li { margin-bottom: 0.4rem; }
         blockquote {
             margin: 1rem 0;
-            padding: 0.8rem 1rem;
-            background: #faf7f2;
-            border-left: 4px solid #c9b386;
-            font-style: normal;
-            color: #4a4132;
+            padding: 0.8rem 1.2rem;
+            background: rgba(77,171,247,0.12);
+            border-left: 4px solid var(--orange);
+            border-radius: 0 16px 16px 0;
+            font-style: italic;
+            color: var(--text);
         }
         hr {
             margin: 2rem 0;
             border: none;
-            border-top: 1px solid #e6dfd4;
+            border-top: 1px solid var(--border);
         }
         .separator {
             text-align: center;
-            margin: 2rem 0 1rem;
-            font-size: 0.75rem;
-            color: #bcae91;
-            letter-spacing: 2px;
+            margin: 1.5rem 0;
+            font-size: 0.8rem;
+            color: var(--text3);
+            letter-spacing: 3px;
         }
+        /* 书内高亮 */
+        strong { color: var(--cyan); font-weight: 600; }
+        em { color: var(--orange); font-style: italic; }
         footer {
             margin-top: 2rem;
             text-align: center;
-            font-size: 0.75rem;
-            color: #a59982;
-            border-top: 1px solid #ece2d6;
-            padding-top: 1.5rem;
+            padding: 2rem 1rem;
+            border-top: 1px solid var(--border);
+            color: var(--text3);
+            font-size: 0.8rem;
         }
         @media (max-width: 640px) {
-            .container {
-                padding: 1.2rem;
-            }
-            .note-block {
-                padding-left: 0.8rem;
-            }
-            .note-title {
-                font-size: 1.2rem;
-            }
+            body { padding: 12px; }
+            .note-block { padding: 18px 16px; }
+            .note-title { font-size: 1.3rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>📖 阿扶的读书笔记 · 思考与心得</h1>
-    <div class="sub">按原文顺序完整收录 · 未经修改 · 不增加任何概括</div>
 
-    <!-- 以下严格按照用户提供的笔记顺序排列，不做增删改 -->
+<div class="scroll-progress" id="scroll-progress"></div>
+<div class="back-to-top" id="back-to-top"></div>
+<div class="solar-bg" id="solar-bg"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1>📖 阿扶的读书笔记 · 思考与心得</h1>
+        <div class="sub">按原文顺序完整收录 · 未经修改 · 不增加任何概括</div>
+        <div class="sub" style="font-size:0.75rem; margin-top:6px;">星际典藏版 · 心理学·阿德勒·自控力·非暴力沟通·个体崛起</div>
+    </div>
+
+    <!-- 以下严格按照用户提供的笔记顺序排列，不做增删改，仅优化视觉 -->
     <div class="note-block"><div class="note-title">《被讨厌的勇气》第一夜</div><div class="note-content">
         <p>1. 人住在自己的主观世界里。客观事实不容否定，但主观上的“如何看待”却成了全部。</p>
         <p>2. 决定（原因）论。我们的现在甚至未来，都由过去决定，而且根本无法改变。目的论。在阿德勒心理学中，过去并不决定现在，目的才决定现在。<br>（目的论的前提是人是可以改变的）<br>（就目的论认为，愤怒是可控的，是用来达到目的的手段）<br>（人都是为了某种目的而行动的）<br>（无论过去的人生发生什么，都与今后的人生无关）</p>
@@ -139,6 +275,7 @@
     </div></div>
 
     <div class="separator">———— ✦ ————</div>
+
     <div class="note-block"><div class="note-title">《幸福的勇气》第一章 至 第三章</div><div class="note-content">
         <p><strong>第一章</strong>：阿德勒心理学被定义为哲学。教育的目标是“自立”，第一步是“尊重”。尊重就是实事求是地看待一个人并认识到其独特个性的能力。过去不存在，人是“现在”决定着过去。阿德勒心理学要谈论的是“以后怎么做”。</p>
         <p><strong>第二章</strong>：为什么要否定赏罚？赏罚是不平等纵向关系的体现。班级管理应通过民主程序制定规则。关于孩子“问题行为”的五个阶段：称赞的要求→引起关注→权力斗争→复仇→证明无能。背后目的都是“归属感”。</p>
@@ -204,9 +341,60 @@
     </div></div>
 
     <div class="separator">———— ✦ ————</div>
+
     <div class="note-block"><div class="note-title">📌 后记 · 阿扶的保留</div><div class="note-content"><p>以上，是我从2023年至2026年阅读与思考的全部笔记摘录。不掠夺，只滋养。每一段文字都保留最初的模样。感谢你的阅读，愿这些来自书籍和心路的碎片，能陪你走过一段自我重建的路。<br>—— 阿扶，完整收录版</p></div></div>
 
-    <footer>内容来自个人读书笔记及原创思考，按原始顺序收录，未作任何修改。</footer>
+    <footer>内容来自个人读书笔记及原创思考，按原始顺序收录，未作任何修改。 | 星际主题 · 沉浸阅读</footer>
 </div>
+
+<script>
+    // 动态星空背景生成
+    function createStars() {
+        const container = document.getElementById('solar-bg');
+        const starCount = window.innerWidth < 768 ? 80 : 150;
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.width = star.style.height = (Math.random() * 2 + 1) + 'px';
+            star.style.animationDelay = Math.random() * 4 + 's';
+            container.appendChild(star);
+        }
+        // 浮游光点
+        for (let i = 0; i < 20; i++) {
+            const light = document.createElement('div');
+            light.className = 'floating-light';
+            light.style.left = Math.random() * 100 + '%';
+            light.style.animationDelay = Math.random() * 20 + 's';
+            light.style.background = ['#4dabf7', '#3bc9db', '#7d5fff', '#ffaa55'][Math.floor(Math.random() * 4)];
+            container.appendChild(light);
+        }
+    }
+    createStars();
+
+    // 滚动进度条
+    window.addEventListener('scroll', () => {
+        const progress = document.getElementById('scroll-progress');
+        const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        progress.style.width = scrollPercent + '%';
+        const backBtn = document.getElementById('back-to-top');
+        backBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+    document.getElementById('back-to-top').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 滚动渐显动画
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.note-block').forEach(block => observer.observe(block));
+    document.querySelectorAll('.note-block').forEach((b, i) => {
+        if (b.getBoundingClientRect().top < window.innerHeight) b.classList.add('visible');
+    });
+</script>
 </body>
 </html>
