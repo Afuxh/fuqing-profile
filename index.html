@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="扶清闲话 - 阿扶的个人创作旅程。2025届应届，专注个人IP×心理学×AI工作流探索，用真实经历陪伴同路人。">
-<meta name="keywords" content="阿扶, 扶清闲话, 个人成长, 心理学, AI, 用户运营, 客户成功, 创作, 求职, 武汉">
+<meta name="description" content="扶清闲话 - 阿扶的个人创作旅程。原创79篇，关注116人。正在学AI，期待与同频的人交流心理学、写作与用户洞察。">
+<meta name="keywords" content="阿扶, 扶清闲话, AI学习, 心理学, 个人成长, 写作交流, 社群学习, 武汉">
 <meta name="author" content="阿扶">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://你的用户名.github.io/你的仓库名/">
-<meta property="og:title" content="扶清闲话 | 阿扶的创作旅程">
-<meta property="og:description" content="2025届应届，懂产品·懂用户·懂表达。在AI时代探索成长，用文字陪伴同路人。">
-<meta property="og:image" content="https://你的用户名.github.io/你的仓库名/og-image.jpg">
+<meta property="og:url" content="https://afuxh.github.io/fuqing-profile/">
+<meta property="og:title" content="扶清闲话 | 阿扶的AI学习与交流空间">
+<meta property="og:description" content="原创79篇，关注116人。正在学AI，期待在社群中与你共同成长。">
+<meta property="og:image" content="https://afuxh.github.io/fuqing-profile/og-image.jpg">
 
-<title>扶清闲话 | 阿扶的创作旅程</title>
+<title>扶清闲话 | 阿扶的AI学习与交流空间</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,6 @@
 --bg: #0a0d22;
 --bg-gradient: linear-gradient(135deg, #0a0d22 0%, #1a1f3a 50%, #0d1128 100%);
 --card: rgba(18, 24, 51, 0.75);
---card-hover: rgba(26, 34, 69, 0.9);
 --text: #e6f7ff;
 --text2: #a0c4e0;
 --text3: #6b8cae;
@@ -51,7 +50,6 @@ width: 100%;
 max-width: var(--max-width);
 margin: 0 auto;
 padding: 20px;
-padding-top: calc(var(--nav-height) + 20px);
 position: relative;
 min-height: 100vh;
 scroll-behavior: smooth;
@@ -74,29 +72,13 @@ pointer-events: none;
 }
 @keyframes drift { 0% { transform: translate(0, 0); } 100% { transform: translate(-50%, -50%); } }
 
-/* 导航 */
-.top-nav {
-position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height);
-background: rgba(18, 24, 51, 0.85); backdrop-filter: blur(15px);
-border-bottom: 1px solid rgba(77, 171, 247, 0.25);
-display: flex; align-items: center; justify-content: space-between;
-padding: 0 20px; z-index: 1001; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-.nav-logo { font-weight: 800; font-size: 20px; color: var(--orange); text-shadow: 0 0 10px rgba(255,170,85,0.5); text-decoration: none; cursor: pointer; }
-.nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
-.nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 600; transition: var(--transition); cursor: pointer; }
-.nav-links a:hover { color: var(--orange); }
-.hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; background: none; border: none; padding: 4px; }
-.hamburger span { width: 22px; height: 2px; background: var(--text); transition: 0.3s; }
-
-/* 太阳系 */
+/* 太阳系/飞船/星星/光点 */
 .background-solar-system { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; pointer-events:none; overflow:hidden; }
 .solar-center { position: absolute; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, var(--orange), var(--pink)); box-shadow: 0 0 40px rgba(255, 170, 85, 0.8), 0 0 80px rgba(255, 170, 85, 0.5); animation: starPulse 4s ease-in-out infinite; }
 @keyframes starPulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(255, 170, 85, 0.8), 0 0 80px rgba(255, 170, 85, 0.5); } 50% { transform: scale(1.08); box-shadow: 0 0 55px rgba(255, 170, 85, 1), 0 0 95px rgba(255, 170, 85, 0.7); } }
 .solar-orbit { position: absolute; border: 1px solid rgba(77, 171, 247, 0.15); border-radius: 50%; }
 .solar-planet { position: absolute; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px currentColor; }
 
-/* 飞船 */
 .spaceship { position: fixed; width: 80px; height: 30px; z-index: -1; pointer-events: none; opacity: 0; }
 .spaceship-body { width: 60px; height: 20px; background: linear-gradient(90deg, var(--blue), var(--cyan)); border-radius: 10px 20px 20px 10px; position: relative; }
 .spaceship-window { position: absolute; width: 12px; height: 12px; background: rgba(255, 255, 255, 0.8); border-radius: 50%; top: 4px; left: 10px; box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
@@ -105,20 +87,17 @@ padding: 0 20px; z-index: 1001; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 .spaceship-fly { animation: flyAcross 15s linear forwards; }
 @keyframes flyAcross { 0% { transform: translateX(-100px) translateY(0) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateX(calc(100vw + 100px)) translateY(100px) rotate(5deg); opacity: 0; } }
 
-/* 星星 */
 .stars { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events: none; }
 .star { position: absolute; background: white; border-radius: 50%; animation: twinkle 4s infinite ease-in-out; box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
 @keyframes twinkle { 0%,100% { opacity:0.3; transform:scale(0.8); } 50% { opacity:1; transform:scale(1.2); } }
 .floating-light { position: fixed; width: 4px; height: 4px; background: var(--blue); border-radius: 50%; box-shadow: 0 0 15px var(--blue); animation: float 20s infinite linear; z-index: -2; pointer-events: none; }
 @keyframes float { 0% { transform: translateY(100vh) translateX(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-100vh) translateX(50px); opacity: 0; } }
 
-/* 进度条+返回 */
-.scroll-progress { position: fixed; top: var(--nav-height); left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--orange), var(--pink)); z-index: 1000; transition: width 0.1s ease; box-shadow: 0 0 10px rgba(255, 170, 85, 0.5); }
+.scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--orange), var(--pink)); z-index: 1000; transition: width 0.1s ease; box-shadow: 0 0 10px rgba(255, 170, 85, 0.5); }
 .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: linear-gradient(135deg, var(--blue), var(--purple)); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999; box-shadow: 0 5px 20px rgba(77, 171, 247, 0.5); border: 2px solid rgba(255, 255, 255, 0.2); }
 .back-to-top.visible { opacity: 1; visibility: visible; }
 .back-to-top::before { content: "↑"; font-size: 24px; color: white; font-weight: 700; }
 
-/* 内容块 */
 section { background: rgba(18, 24, 51, 0.85); margin-bottom: 30px; padding: 25px; border-radius: 18px; backdrop-filter: blur(15px); border: 1px solid rgba(77, 171, 247, 0.25); opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease, transform 0.6s ease; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25); }
 section.visible { opacity: 1; transform: translateY(0); }
 h2 { font-size: clamp(24px, 4.5vw, 32px); font-weight: 700; color: var(--blue); margin-bottom: 20px; display: flex; align-items: center; }
@@ -129,74 +108,49 @@ p { margin-bottom: 14px; font-size: clamp(14px, 2vw, 16px); line-height: 1.8; }
 @media (min-width: 768px) { .container { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .content-grid .container { grid-template-columns: repeat(3, 1fr); } }
 
-.card { background: rgba(26, 34, 69, 0.85); padding: 22px; border-radius: 14px; transition: var(--transition); border: 1px solid rgba(77, 171, 247, 0.18); cursor: pointer; position: relative; overflow: hidden; }
+.card { background: rgba(26, 34, 69, 0.85); padding: 22px; border-radius: 14px; transition: var(--transition); border: 1px solid rgba(77, 171, 247, 0.18); cursor: default; position: relative; overflow: hidden; }
 .card::before { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(77, 171, 247, 0.1), transparent); transition: left 0.5s ease; }
 .card:hover::before { left: 100%; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), 0 0 25px rgba(77, 171, 247, 0.15); border-color: rgba(77, 171, 247, 0.4); }
-.card:active { transform: translateY(-3px) scale(0.98); }
 .interactive-btn { display: inline-block; padding: 8px 20px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; transition: var(--transition); border: none; margin-top: 10px; }
 .interactive-btn:hover { transform: scale(1.08); box-shadow: 0 0 20px rgba(77, 171, 247, 0.5); }
-.tag { display: inline-block; padding: 5px 14px; border-radius: 18px; font-size: 13px; margin: 3px; background: rgba(77, 171, 247, 0.2); color: var(--blue); border: 1px solid rgba(77, 171, 247, 0.35); transition: var(--transition); cursor: pointer; }
-.tag:hover { background: rgba(77, 171, 247, 0.35); transform: scale(1.08); box-shadow: 0 0 12px rgba(77, 171, 247, 0.35); }
+.tag { display: inline-block; padding: 5px 14px; border-radius: 18px; font-size: 13px; margin: 3px; background: rgba(77, 171, 247, 0.2); color: var(--blue); border: 1px solid rgba(77, 171, 247, 0.35); }
 
-/* 引用块 */
-.quote-box { background: linear-gradient(135deg, rgba(77, 171, 247, 0.18), rgba(125, 95, 255, 0.18)); padding: 22px; border-radius: 14px; border-left: 4px solid var(--orange); margin: 20px 0; font-style: italic; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); transition: var(--transition); cursor: pointer; }
-.quote-box:hover { transform: scale(1.02); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); }
+/* 引导卡片样式（这次是纯展示，不可点击） */
+.guide-cards { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 768px) { .guide-cards { grid-template-columns: repeat(3, 1fr); } }
+.guide-card {
+background: linear-gradient(135deg, rgba(77, 171, 247, 0.15), rgba(125, 95, 255, 0.15));
+border: 1px solid rgba(77, 171, 247, 0.3);
+border-radius: 18px;
+padding: 30px 20px;
+text-align: center;
+transition: var(--transition);
+color: var(--text);
+}
+.guide-card-icon { font-size: 40px; margin-bottom: 15px; display: block; }
+.guide-card-title { font-size: 20px; font-weight: 700; color: var(--orange); margin-bottom: 10px; }
+.guide-card-desc { font-size: 14px; color: var(--text2); line-height: 1.6; margin-bottom: 12px; }
+.guide-card-url { font-size: 12px; color: var(--text3); word-break: break-all; opacity: 0.8; }
+
+.quote-box { background: linear-gradient(135deg, rgba(77, 171, 247, 0.18), rgba(125, 95, 255, 0.18)); padding: 22px; border-radius: 14px; border-left: 4px solid var(--orange); margin: 20px 0; font-style: italic; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); }
 .quote-text { font-size: clamp(17px, 3.5vw, 20px); color: var(--text); margin-bottom: 10px; line-height: 1.8; }
 .quote-author { color: var(--text2); font-size: 14px; }
-
-/* 时间线 */
-.timeline-compact { position: relative; padding-left: 24px; }
-.timeline-compact::before { content: ""; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--blue), var(--purple)); border-radius: 2px; }
-.timeline-item-compact { position: relative; margin-bottom: 16px; padding: 14px 18px; background: rgba(26, 34, 69, 0.7); border-radius: 10px; border: 1px solid rgba(77, 171, 247, 0.18); transition: var(--transition); cursor: pointer; display: flex; gap: 15px; align-items: flex-start; }
-.timeline-item-compact:hover { transform: translateX(6px); border-color: rgba(77, 171, 247, 0.4); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 12px rgba(77, 171, 247, 0.15); }
-.timeline-item-compact::before { content: ""; position: absolute; left: -22px; top: 18px; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; border: 2px solid var(--bg); box-shadow: 0 0 10px rgba(255, 170, 85, 0.5); transition: var(--transition); }
-.timeline-item-compact:hover::before { transform: scale(1.25); box-shadow: 0 0 18px rgba(255, 170, 85, 0.7); }
-.timeline-date { font-size: 15px; font-weight: 700; color: var(--blue); min-width: 65px; flex-shrink: 0; }
-.timeline-content { flex: 1; }
-.timeline-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-.timeline-desc { font-size: 12px; color: var(--text2); line-height: 1.5; margin-bottom: 6px; }
-
-.feature-list { list-style: none; }
-.feature-list li { padding: 11px 0; border-bottom: 1px solid rgba(77, 171, 247, 0.18); display: flex; align-items: flex-start; gap: 12px; transition: var(--transition); font-size: clamp(14px, 2vw, 15px); }
-.feature-list li:hover { transform: translateX(5px); }
-.feature-list li:last-child { border-bottom: none; }
-.feature-list li::before { content: "✦"; color: var(--orange); font-size: 16px; flex-shrink: 0; text-shadow: 0 0 8px rgba(255, 170, 85, 0.5); }
 
 footer { text-align: center; padding: 35px 0; margin-top: 50px; background: rgba(18, 24, 51, 0.85); color: var(--text2); font-size: 14px; border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid rgba(77, 171, 247, 0.25); box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25); }
 footer p { margin-bottom: 12px; }
 .final-quote { font-size: clamp(20px, 5vw, 26px); color: var(--orange); font-weight: 700; margin-top: 25px; text-shadow: 0 0 20px rgba(255, 170, 85, 0.5), 0 0 40px rgba(255, 170, 85, 0.3); line-height: 1.6; }
-.signature { margin-top: 25px; color: var(--text); font-weight: 600; font-size: 18px; }
 
 @media (max-width: 767px) {
-body { padding: 10px; padding-top: calc(var(--nav-height) + 10px); }
-.nav-links { position: fixed; top: var(--nav-height); left: 0; right: 0; background: rgba(18, 24, 51, 0.95); backdrop-filter: blur(15px); flex-direction: column; padding: 20px; gap: 15px; transform: translateY(-120%); transition: 0.3s; z-index: 1000; }
-.nav-links.open { transform: translateY(0); }
-.hamburger { display: flex; }
+body { padding: 10px; }
 header, section, footer { padding: 20px 14px; }
-.timeline-item-compact { flex-direction: column; gap: 8px; padding: 12px 15px; }
-.timeline-date { min-width: auto; }
 .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
 }
-@media print { body::before, .stars, .loading-overlay, .floating-light, .scroll-progress, .back-to-top, .background-solar-system, .spaceship, .top-nav { display: none; } body { background: white; color: black; } section { break-inside: avoid; background: white; border: 1px solid #ccc; } }
+@media print { body::before, .stars, .loading-overlay, .floating-light, .scroll-progress, .back-to-top, .background-solar-system, .spaceship { display: none; } body { background: white; color: black; } section { break-inside: avoid; background: white; border: 1px solid #ccc; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
 </style>
 </head>
 <body>
-
-<!-- 导航栏 -->
-<nav class="top-nav">
-<a class="nav-logo" href="#header">🚀 扶清闲话</a>
-<ul class="nav-links" id="navLinks">
-<li><a href="#header">关于</a></li>
-<li><a href="#timeline-title">历程</a></li>
-<li><a href="#excerpts-title">书摘</a></li>
-<li><a href="#footer">联系</a></li>
-</ul>
-<button class="hamburger" id="hamburger" aria-label="菜单">
-<span></span><span></span><span></span>
-</button>
-</nav>
 
 <!-- 背景装饰 -->
 <div class="background-solar-system" id="background-solar-system"></div>
@@ -207,7 +161,7 @@ header, section, footer { padding: 20px 14px; }
 <div class="stars" id="stars"></div>
 <div id="floating-lights"></div>
 
-<!-- 主内容 -->
+<!-- 主内容区 -->
 <div id="main-content">
 
 <header id="header">
@@ -215,29 +169,58 @@ header, section, footer { padding: 20px 14px; }
 <p style="text-align:center; color:var(--text2); font-style:italic;">个人IP × 心理学 × AI工作流探索</p>
 <p style="text-align:center; margin-top:15px; font-size:14px; line-height:1.6; max-width:700px; margin-left:auto; margin-right:auto;">
 你好，这里是阿扶。<br>
-21 岁，<strong>2025 年 6 月毕业</strong>，现任职东风卓联客服。<br>
-运营公众号「扶清闲话」3 年+，75+篇原创。<br>
+21 岁，运营公众号「扶清闲话」3 年+。<br>
+原创 <strong>79 篇</strong>（不含通知），有 <strong>116 位</strong> 读者在关注。<br>
+最近报名了 AI 学习课，期待认识更多同频的朋友。<br>
 专注：个人IP × 心理学 × AI协同。<br>
 懂产品·懂用户·懂表达。<br>
 未来不是被决定的，是被创造的。
 </p>
 <div class="meta-info" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:20px;">
 <span>📅 始于 2022.10</span>
-<span>📝 文章 75+篇</span>
-<span>🎯 IP×心理×AI</span>
-<span>💼 求职中</span>
+<span>📝 原创 79 篇</span>
+<span>👥 关注 116 人</span>
+<span>🤖 正在学 AI</span>
 </div>
 </header>
 
-<!-- 1. 创作者视角 -->
-<section aria-labelledby="creator-title">
-<h2 id="creator-title">✍️ 创作者视角：为什么写</h2>
-<div class="container">
-<div class="card"><h3>写作是我的恋人</h3><p>除了写作，我找不到一个地方，可以不用解释，就只是说：“我今天很难过。”它不要求完美，只等待真实。</p><button class="interactive-btn" onclick="showLikeAnimation(event)">💖 有共鸣</button></div>
-<div class="card"><h3>记录真实经历</h3><p>不伪装不鸡汤。从崩溃到重启，从回避到面对。每一篇都是真诚的对话，记录读书、工作、关系与自我挣扎。</p><button class="interactive-btn" onclick="showLikeAnimation(event)">👍 支持你</button></div>
-<div class="card"><h3>陪伴同路人</h3><p>如果你也在寻找成长的方向，探索 AI 时代的可能性，需要一些不贩卖焦虑的真诚陪伴。欢迎常来看看。</p><button class="interactive-btn" onclick="showLikeAnimation(event)">🤝 一起走</button></div>
+<!-- 🆕 更多内容入口（纯展示，附链接） -->
+<section aria-labelledby="guide-title" style="text-align:center;">
+<h2 id="guide-title" style="justify-content:center;">🔍 了解更多我的创作与思考</h2>
+<p style="color:var(--text2); margin-bottom:30px; max-width:600px; margin-left:auto; margin-right:auto;">
+这里有我三年的全部创作、AI学习的思考工具，以及精读心理学的心得。你可以复制下方网址，在浏览器中打开对应页面。
+</p>
+<div class="guide-cards">
+<div class="guide-card">
+<span class="guide-card-icon">📚</span>
+<div class="guide-card-title">创作档案馆</div>
+<div class="guide-card-desc">79篇原创文章，按系列整理。从《你不是你》到《绿色书脊的缺席》，每一篇都是我存在过的证明。</div>
+<div class="guide-card-url">afuxh.github.io/fuqing-profile/archive.html</div>
 </div>
-<div class="quote-box"><p class="quote-text">"未来不是被决定的，是被创造的"</p><p class="quote-author">—— 核心创作理念</p></div>
+<div class="guide-card">
+<span class="guide-card-icon">🤖</span>
+<div class="guide-card-title">交流群手册</div>
+<div class="guide-card-desc">AI工具实用指南、成长思维框架、注意力管理方法。和你分享我正在使用的工具箱。</div>
+<div class="guide-card-url">afuxh.github.io/fuqing-profile/handbook.html</div>
+</div>
+<div class="guide-card">
+<span class="guide-card-icon">📖</span>
+<div class="guide-card-title">读书笔记</div>
+<div class="guide-card-desc">《被讨厌的勇气》《自控力》《自卑与超越》……一份完整的心理学阅读记录。</div>
+<div class="guide-card-url">afuxh.github.io/fuqing-profile/margins.html</div>
+</div>
+</div>
+</section>
+
+<!-- 1. 我在学什么 -->
+<section aria-labelledby="learning-title">
+<h2 id="learning-title">📚 我在学什么</h2>
+<div class="container">
+<div class="card"><h3>🤖 AI 应用与提效</h3><p>正在系统学习 AI 辅助写作、信息处理、自动化工作流。希望把 AI 变成有力的学习伙伴，也想把踩坑经验和你分享。</p><button class="interactive-btn">我也在学</button></div>
+<div class="card"><h3>🧠 心理学与自我认知</h3><p>长期阅读阿德勒、弗兰克尔等，关注回避型依恋、自我接纳。如果你也对向内探索感兴趣，我们可以交换书单和感悟。</p><button class="interactive-btn">聊聊心理</button></div>
+<div class="card"><h3>✍️ 写作与内容创作</h3><p>写了三年公众号，79篇原创。怎么把想法写清楚、怎么坚持输出，我有些心得，也还在摸索。欢迎一起交流创作路上的酸甜苦辣。</p><button class="interactive-btn">交流写作</button></div>
+</div>
+<div class="quote-box"><p class="quote-text">"学习最好的方式，就是和正在路上的人一起走"</p><p class="quote-author">—— 我的学习信条</p></div>
 </section>
 
 <!-- 2. 核心优势 -->
@@ -245,7 +228,7 @@ header, section, footer { padding: 20px 14px; }
 <h2 id="strengths-title">⚡ 核心优势</h2>
 <div class="container">
 <div class="card"><h3>🔗 服务全链路</h3><p>产品端（面点工艺）→ 门店端（好利来/肯德基）→ 客服端（车企）。懂产品怎么造，懂用户为什么买，懂问题怎么解。</p></div>
-<div class="card"><h3>✍️ 3年内容实战</h3><p>公众号持续运营3年+，75+篇原创。聚焦心理学×个人成长×AI探索，证明长期主义与稳定输出能力。</p></div>
+<div class="card"><h3>✍️ 3年内容实战</h3><p>公众号持续运营3年+，79篇原创。聚焦心理学×个人成长×AI探索，证明长期主义与稳定输出能力。</p></div>
 <div class="card"><h3>🤖 AI协同思维</h3><p>善用AI辅助选题、文案迭代、反馈分析。AI负责广度与效率，我负责深度、审美与人性判断。</p></div>
 </div>
 </section>
@@ -263,83 +246,44 @@ header, section, footer { padding: 20px 14px; }
 <!-- 4. 创作历程 -->
 <section aria-labelledby="timeline-title">
 <h2 id="timeline-title">📍 创作历程</h2>
-<div class="timeline-compact">
-<div class="timeline-item-compact"><div class="timeline-date">2022.10</div><div class="timeline-content"><div class="timeline-title">创作启程</div><div class="timeline-desc">公众号"扶清闲话"第1篇文章发布</div></div></div>
-<div class="timeline-item-compact"><div class="timeline-date">2024.10</div><div class="timeline-content"><div class="timeline-title">好利来入职学习</div><div class="timeline-desc">工厂培训+门店现烤，接触标准化服务与品控</div></div></div>
-<div class="timeline-item-compact"><div class="timeline-date">2025.06</div><div class="timeline-content"><div class="timeline-title">大学毕业</div><div class="timeline-desc">中西面点工艺专业大专毕业</div></div></div>
-<div class="timeline-item-compact"><div class="timeline-date">2025.07</div><div class="timeline-content"><div class="timeline-title">入职东风卓联</div><div class="timeline-desc">奕派汽车厂家客服中心，转向用户沟通与情绪管理</div></div></div>
-<div class="timeline-item-compact"><div class="timeline-date">2026.02</div><div class="timeline-content"><div class="timeline-title">书摘启动</div><div class="timeline-desc">开始收录阅读金句，不定期精选分享</div></div></div>
+<div class="timeline-compact" style="position:relative; padding-left:24px;">
+<div style="position:absolute; left:7px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom, var(--blue), var(--purple)); border-radius:2px;"></div>
+<div class="timeline-item-compact" style="position:relative; margin-bottom:16px; padding:14px 18px; background:rgba(26,34,69,0.7); border-radius:10px; border:1px solid rgba(77,171,247,0.18); display:flex; gap:15px; align-items:flex-start;">
+<div style="font-size:15px; font-weight:700; color:var(--blue); min-width:65px;">2022.10</div>
+<div><div style="font-size:15px; font-weight:600; color:var(--text);">创作启程</div><div style="font-size:12px; color:var(--text2);">公众号"扶清闲话"第1篇文章发布</div></div>
 </div>
-</section>
-
-<!-- 5. 近期共鸣 -->
-<section aria-labelledby="insights-title">
-<h2 id="insights-title">💭 近期共鸣</h2>
-<div class="quote-box"><p class="quote-text">"身心健康地活着，就是一种特权"</p><p class="quote-author">—— 历经疲惫后的清醒认知</p></div>
-<div class="quote-box"><p class="quote-text">"我活成这样的自己，已经是我这么多年打磨出来的最好的作品了"</p><p class="quote-author">—— 友邻朋友圈分享 · 深感认同并收录</p></div>
-<div class="quote-box"><p class="quote-text">"平凡本身，就是不期而遇的神奇"</p><p class="quote-author">—— 42 老师</p></div>
-</section>
-
-<!-- 6. 核心主题 -->
-<section aria-labelledby="themes-title">
-<h2 id="themes-title">🎯 核心主题</h2>
-<div class="container">
-<div class="card"><h3>崩溃与重启</h3><p>崩溃不是终点，而是身体在喊停。痛苦提醒你要改变，低谷是准备的开始。每一次重启，都是重新认识自己的机会。</p></div>
-<div class="card"><h3>回避与靠近</h3><p>深入探讨回避型依恋的形成与自救。理解自己，理解他人，在关系中练习勇敢，找到舒适的安全距离。</p></div>
-<div class="card"><h3>工作与意义</h3><p>人不是工具。感受痛苦并喊停的能力比效率更可贵。找到归属感，赋予工作以意义，而非被KPI定义。</p></div>
-<div class="card"><h3>存在即被爱</h3><p>你不需要用优秀兑换被爱。存在本身，就是最深的爱意。春天不问花是否鲜艳，夜空不嫌星是否暗淡。</p></div>
+<div class="timeline-item-compact" style="position:relative; margin-bottom:16px; padding:14px 18px; background:rgba(26,34,69,0.7); border-radius:10px; border:1px solid rgba(77,171,247,0.18); display:flex; gap:15px; align-items:flex-start;">
+<div style="font-size:15px; font-weight:700; color:var(--blue); min-width:65px;">2024.10</div>
+<div><div style="font-size:15px; font-weight:600; color:var(--text);">接触服务业</div><div style="font-size:12px; color:var(--text2);">好利来培训 + 门店现烤，学习标准化与用户品控</div></div>
 </div>
-</section>
-
-<!-- 7. 求职方向 -->
-<section aria-labelledby="job-title">
-<h2 id="job-title">🎯 求职方向</h2>
-<div class="container">
-<div class="card"><h3>目标岗位</h3><ul class="feature-list"><li>用户运营（非销售性质）</li><li>客户成功经理/助理</li><li>内容编辑/新媒体运营</li><li>心理学产品运营（加分项）</li></ul></div>
-<div class="card"><h3>地域偏好</h3><ul class="feature-list"><li>✅ 武汉本地（优先）</li><li>✅ 远程/混合办公</li><li>⚠️ 北上广（需评估成本）</li></ul></div>
-<div class="card"><h3>我能提供</h3><ul class="feature-list"><li>一线用户沟通与情绪管理经验</li><li>3 年内容创作与 IP 运营能力</li><li>心理学视角的用户洞察</li><li>AI 工具提效的实战经验</li></ul></div>
+<div class="timeline-item-compact" style="position:relative; margin-bottom:16px; padding:14px 18px; background:rgba(26,34,69,0.7); border-radius:10px; border:1px solid rgba(77,171,247,0.18); display:flex; gap:15px; align-items:flex-start;">
+<div style="font-size:15px; font-weight:700; color:var(--blue); min-width:65px;">2025.07</div>
+<div><div style="font-size:15px; font-weight:600; color:var(--text);">进入车企客服</div><div style="font-size:12px; color:var(--text2);">东风卓联客服，大量练习用户沟通与情绪管理</div></div>
 </div>
-<div class="quote-box" style="margin-top:20px;"><p class="quote-text">"学历是起点，不是终点。作品和实战能力，才是最好的简历。"</p></div>
-</section>
-
-<!-- 8. 未来规划 -->
-<section aria-labelledby="future-title">
-<h2 id="future-title">🚀 未来规划</h2>
-<div class="container">
-<div class="card"><h3>短期计划</h3><ul class="feature-list"><li>保持周更节奏，稳定输出优质内容</li><li>书摘系列持续精选收录</li><li>完善读者群互动，增加主题讨论</li><li>探索多元化内容形式（语音/短图文）</li></ul></div>
-<div class="card"><h3>长期愿景</h3><ul class="feature-list"><li>建立个人品牌，成为成长领域优质创作者</li><li>出版个人作品集，让更多读者受益</li><li>探索 AI 与人文创作结合的更多可能</li><li>帮助更多人找到自我接纳与成长的路径</li></ul></div>
+<div class="timeline-item-compact" style="position:relative; margin-bottom:16px; padding:14px 18px; background:rgba(26,34,69,0.7); border-radius:10px; border:1px solid rgba(77,171,247,0.18); display:flex; gap:15px; align-items:flex-start;">
+<div style="font-size:15px; font-weight:700; color:var(--blue); min-width:65px;">2026.02</div>
+<div><div style="font-size:15px; font-weight:600; color:var(--text);">开始收录书摘</div><div style="font-size:12px; color:var(--text2);">在读者群分享阅读金句，开启碎片化输出</div></div>
 </div>
-</section>
-
-<!-- 9. 书摘精选 -->
-<section aria-labelledby="excerpts-title">
-<h2 id="excerpts-title">📖 书摘精选</h2>
-<p style="text-align:center; color:var(--text2); margin-bottom:20px;">自 2026.02 起收录 · 读者群分享 · 不定期精选整理</p>
-<div class="container content-grid">
-<div class="card"><p class="quote-text" style="font-size:16px;">"许多年之后，面对行刑队，奥雷里亚诺·布恩迪亚上校将会回想起父亲带他去见识冰块的那个遥远的下午。"</p><p class="quote-author" style="color:var(--orange); margin-top:10px;">——《百年孤独》</p></div>
-<div class="card"><p class="quote-text" style="font-size:16px;">"为你，千千万万遍。"</p><p class="quote-author" style="color:var(--orange); margin-top:10px;">——《追风筝的人》</p></div>
-<div class="card"><p class="quote-text" style="font-size:16px;">"完成比完美重要，因为完成可以改进，完美永远无法开始。"</p><p class="quote-author" style="color:var(--orange); margin-top:10px;">——《鸟由鸟》</p></div>
-<div class="card"><p class="quote-text" style="font-size:16px;">"别人怎么看你，是别人的事。你怎么看自己，才是你的事。"</p><p class="quote-author" style="color:var(--orange); margin-top:10px;">——《被讨厌的勇气》</p></div>
+<div class="timeline-item-compact" style="position:relative; margin-bottom:16px; padding:14px 18px; background:rgba(26,34,69,0.7); border-radius:10px; border:1px solid rgba(77,171,247,0.18); display:flex; gap:15px; align-items:flex-start;">
+<div style="font-size:15px; font-weight:700; color:var(--blue); min-width:65px;">2026.05</div>
+<div><div style="font-size:15px; font-weight:600; color:var(--text);">数据更新 & AI 学习</div><div style="font-size:12px; color:var(--text2);">原创突破79篇，关注突破116人；报名 AI 学习课</div></div>
+</div>
 </div>
 </section>
 
 <footer id="footer">
-<p>© 2022-2026 扶清闲话 · 用文字陪伴同路人</p>
+<p>© 2022-2026 扶清闲话 · 79篇原创 · 116位读者 · 学在路上</p>
 <p class="final-quote">未来不是被决定的，是被创造的。</p>
-<p style="margin-top:15px; font-size:14px; opacity:0.9; line-height:1.6;">微信公众号搜索：<strong>扶清闲话</strong><br>关注后回复"读者群"或点击底部菜单加入交流</p>
+<p style="margin-top:15px; font-size:14px; opacity:0.9; line-height:1.6;">
+<strong>欢迎加我微信，一起交流学习</strong><br>
+微信号：fqxh_17343414886<br>
+备注“AI学习+你的名字”，我会通过～
+</p>
 </footer>
 
 </div>
 
 <script>
-// 移动端菜单
-document.getElementById('hamburger').addEventListener('click', () => {
-document.getElementById('navLinks').classList.toggle('open');
-});
-document.querySelectorAll('#navLinks a').forEach(link => {
-link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-});
-
 // 背景太阳系
 function createBackgroundSolarSystem() {
 const container = document.getElementById('background-solar-system');
@@ -420,19 +364,7 @@ entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('
 }, { threshold: 0.1 });
 document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-// 点赞动画
-function showLikeAnimation(event) {
-event.stopPropagation();
-const rect = event.target.getBoundingClientRect();
-const like = document.createElement('div');
-like.className = 'like-animation';
-like.textContent = '💖';
-like.style.cssText = `position:absolute; font-size:24px; animation:likeFloat 1s ease-out forwards; pointer-events:none; left:${rect.left + rect.width/2}px; top:${rect.top}px;`;
-document.body.appendChild(like);
-setTimeout(() => like.remove(), 1000);
-}
-
-// 加载完成
+// 加载
 setTimeout(() => {
 document.getElementById('loading-overlay').classList.add('hidden');
 document.getElementById('main-content').style.opacity = '1';
