@@ -2,747 +2,499 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026年5月 · 个人月报 · 第001期</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="扶清闲话 - 阿扶的个人创作旅程。2025届毕业生，专注个人IP×心理学×AI工作流探索，用真实经历陪伴同路人。">
+<meta name="keywords" content="阿扶, 扶清闲话, 个人成长, 心理学, AI, 用户运营, 客户成功, 创作, 求职">
+<meta name="author" content="阿扶">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://你的用户名.github.io/你的仓库名/">
+<meta property="og:title" content="扶清闲话 | 阿扶的创作旅程">
+<meta property="og:description" content="2025届毕业生，懂产品·懂用户·懂表达。在AI时代探索成长，用文字陪伴同路人。">
+<meta property="og:image" content="https://你的用户名.github.io/你的仓库名/og-image.jpg">
+
+<title>扶清闲话 | 阿扶的创作旅程</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;700&family=Montserrat:wght@300;400;700&display=swap');
+/* ========== 完整设计系统 ========== */
+:root {
+--bg: #0a0d22;
+--bg-gradient: linear-gradient(135deg, #0a0d22 0%, #1a1f3a 50%, #0d1128 100%);
+--card: rgba(18, 24, 51, 0.75);
+--card-hover: rgba(26, 34, 69, 0.9);
+--text: #e6f7ff;
+--text2: #a0c4e0;
+--text3: #6b8cae;
+--blue: #4dabf7;
+--cyan: #3bc9db;
+--orange: #ffaa55;
+--pink: #ff66aa;
+--purple: #7d5fff;
+--success: #51cf66;
+--max-width: 1200px;
+--transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+--nav-height: 60px;
+}
 
-  /* ===== 从封面图提取的配色系统 ===== */
-  :root {
-    --deep-navy: #0a1628;
-    --midnight-blue: #0d1f3c;
-    --teal-cyan: #1e4a5c;
-    --warm-amber: #f4a460;
-    --golden-yellow: #ffd700;
-    --golden-soft: #ffd54f;
-    --near-black: #0d1117;
-    --starlight-white: #ffffff;
-    --starlight-cyan: #b0e0e6;
-    --text-primary: #e6edf3;
-    --text-secondary: #8b949e;
-    --card-bg: rgba(13, 31, 60, 0.6);
-    --card-border: rgba(30, 74, 92, 0.4);
-    --glass-bg: rgba(255, 255, 255, 0.05);
-  }
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Orbitron', 'Noto Serif SC', 'Microsoft YaHei', sans-serif;
+background: var(--bg-gradient);
+color: var(--text);
+line-height: 1.8;
+width: 100%;
+max-width: var(--max-width);
+margin: 0 auto;
+padding: 20px;
+padding-top: calc(var(--nav-height) + 20px);
+position: relative;
+min-height: 100vh;
+scroll-behavior: smooth;
+overflow-x: hidden;
+}
 
-  body {
-    font-family: 'Noto Sans SC', 'Montserrat', sans-serif;
-    background: var(--deep-navy);
-    color: var(--text-primary);
-    line-height: 1.8;
-    overflow-x: hidden;
-  }
+body::before {
+content: "";
+position: fixed;
+top: 0; left: 0;
+width: 200%; height: 200%;
+background: 
+radial-gradient(circle at 10% 20%, rgba(77,171,247,0.08) 0%, transparent 25%),
+radial-gradient(circle at 90% 80%, rgba(125,95,255,0.1) 0%, transparent 30%),
+radial-gradient(circle at 50% 50%, rgba(255,170,85,0.05) 0%, transparent 35%),
+radial-gradient(circle at 30% 70%, rgba(59,201,219,0.06) 0%, transparent 25%);
+z-index: -3;
+animation: drift 150s linear infinite;
+pointer-events: none;
+}
+@keyframes drift { 0% { transform: translate(0, 0); } 100% { transform: translate(-50%, -50%); } }
 
-  /* ===== 封面 ===== */
-  .cover {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
+/* 导航 */
+.top-nav {
+position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height);
+background: rgba(18, 24, 51, 0.85); backdrop-filter: blur(15px);
+border-bottom: 1px solid rgba(77, 171, 247, 0.25);
+display: flex; align-items: center; justify-content: space-between;
+padding: 0 28px; z-index: 1001; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.nav-logo { font-weight: 800; font-size: 20px; color: var(--orange); text-shadow: 0 0 10px rgba(255,170,85,0.5); text-decoration: none; cursor: pointer; }
+.nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
+.nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 600; transition: var(--transition); cursor: pointer; }
+.nav-links a:hover, .nav-links a.active { color: var(--orange); }
+.hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { width: 22px; height: 2px; background: var(--text); transition: 0.3s; }
 
-  .cover img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: brightness(0.6) contrast(1.1);
-  }
+/* 太阳系 */
+.background-solar-system { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; pointer-events:none; overflow:hidden; }
+.solar-center { position: absolute; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, var(--orange), var(--pink)); box-shadow: 0 0 40px rgba(255, 170, 85, 0.8), 0 0 80px rgba(255, 170, 85, 0.5); animation: starPulse 4s ease-in-out infinite; }
+@keyframes starPulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(255, 170, 85, 0.8), 0 0 80px rgba(255, 170, 85, 0.5); } 50% { transform: scale(1.08); box-shadow: 0 0 55px rgba(255, 170, 85, 1), 0 0 95px rgba(255, 170, 85, 0.7); } }
+.solar-orbit { position: absolute; border: 1px solid rgba(77, 171, 247, 0.15); border-radius: 50%; }
+.solar-planet { position: absolute; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px currentColor; }
 
-  .cover-overlay {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 2rem;
-  }
+/* 飞船 */
+.spaceship { position: fixed; width: 80px; height: 30px; z-index: -1; pointer-events: none; opacity: 0; }
+.spaceship-body { width: 60px; height: 20px; background: linear-gradient(90deg, var(--blue), var(--cyan)); border-radius: 10px 20px 20px 10px; position: relative; }
+.spaceship-window { position: absolute; width: 12px; height: 12px; background: rgba(255, 255, 255, 0.8); border-radius: 50%; top: 4px; left: 10px; box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
+.spaceship-engine { position: absolute; width: 25px; height: 12px; background: linear-gradient(90deg, var(--orange), var(--pink)); border-radius: 50% 0 0 50%; right: -20px; top: 4px; animation: engineFlicker 0.3s ease-in-out infinite; }
+@keyframes engineFlicker { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
+.spaceship-fly { animation: flyAcross 15s linear forwards; }
+@keyframes flyAcross { 0% { transform: translateX(-100px) translateY(0) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateX(calc(100vw + 100px)) translateY(100px) rotate(5deg); opacity: 0; } }
 
-  .cover-issue {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: var(--golden-soft);
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
-  }
+/* 星星 */
+.stars { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events: none; }
+.star { position: absolute; background: white; border-radius: 50%; animation: twinkle 4s infinite ease-in-out; box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+@keyframes twinkle { 0%,100% { opacity:0.3; transform:scale(0.8); } 50% { opacity:1; transform:scale(1.2); } }
+.floating-light { position: fixed; width: 4px; height: 4px; background: var(--blue); border-radius: 50%; box-shadow: 0 0 15px var(--blue); animation: float 20s infinite linear; z-index: -2; pointer-events: none; }
+@keyframes float { 0% { transform: translateY(100vh) translateX(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-100vh) translateX(50px); opacity: 0; } }
 
-  .cover-title {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 4rem;
-    font-weight: 700;
-    color: var(--starlight-white);
-    margin-bottom: 0.5rem;
-    text-shadow: 0 4px 30px rgba(0,0,0,0.6);
-    letter-spacing: 0.1em;
-  }
+/* 进度条+返回 */
+.scroll-progress { position: fixed; top: var(--nav-height); left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--orange), var(--pink)); z-index: 1000; transition: width 0.1s ease; box-shadow: 0 0 10px rgba(255, 170, 85, 0.5); }
+.back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: linear-gradient(135deg, var(--blue), var(--purple)); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999; box-shadow: 0 5px 20px rgba(77, 171, 247, 0.5); border: 2px solid rgba(255, 255, 255, 0.2); }
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top::before { content: "↑"; font-size: 24px; color: white; font-weight: 700; }
 
-  .cover-subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: var(--warm-amber);
-    margin-bottom: 2.5rem;
-    letter-spacing: 0.2em;
-  }
+/* 内容块 */
+section { background: rgba(18, 24, 51, 0.85); margin-bottom: 30px; padding: 25px; border-radius: 18px; backdrop-filter: blur(15px); border: 1px solid rgba(77, 171, 247, 0.25); opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease, transform 0.6s ease; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25); }
+section.visible { opacity: 1; transform: translateY(0); }
+h2 { font-size: clamp(24px, 4.5vw, 32px); font-weight: 700; color: var(--blue); margin-bottom: 20px; display: flex; align-items: center; }
+h2::before { content: ""; width: 4px; height: 28px; background: linear-gradient(to bottom, var(--blue), var(--cyan)); margin-right: 18px; border-radius: 2px; box-shadow: 0 0 12px rgba(77, 171, 247, 0.5); }
+h3 { font-size: clamp(19px, 3vw, 23px); font-weight: 600; color: var(--orange); margin: 15px 0 12px 0; }
+p { margin-bottom: 14px; font-size: clamp(14px, 2vw, 16px); line-height: 1.8; }
+.container { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 768px) { .container { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .content-grid .container { grid-template-columns: repeat(3, 1fr); } }
 
-  .cover-meta {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-  }
+.card { background: rgba(26, 34, 69, 0.85); padding: 22px; border-radius: 14px; transition: var(--transition); border: 1px solid rgba(77, 171, 247, 0.18); cursor: pointer; position: relative; overflow: hidden; }
+.card::before { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(77, 171, 247, 0.1), transparent); transition: left 0.5s ease; }
+.card:hover::before { left: 100%; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), 0 0 25px rgba(77, 171, 247, 0.15); border-color: rgba(77, 171, 247, 0.4); }
+.card:active { transform: translateY(-3px) scale(0.98); }
+.interactive-btn { display: inline-block; padding: 8px 20px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; transition: var(--transition); border: none; margin-top: 10px; }
+.interactive-btn:hover { transform: scale(1.08); box-shadow: 0 0 20px rgba(77, 171, 247, 0.5); }
+.tag { display: inline-block; padding: 5px 14px; border-radius: 18px; font-size: 13px; margin: 3px; background: rgba(77, 171, 247, 0.2); color: var(--blue); border: 1px solid rgba(77, 171, 247, 0.35); transition: var(--transition); cursor: pointer; }
+.tag:hover { background: rgba(77, 171, 247, 0.35); transform: scale(1.08); box-shadow: 0 0 12px rgba(77, 171, 247, 0.35); }
 
-  .cover-scroll {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    animation: bounce 2s infinite;
-    color: var(--starlight-cyan);
-    font-size: 1.2rem;
-    opacity: 0.6;
-  }
+/* 引用块 */
+.quote-box { background: linear-gradient(135deg, rgba(77, 171, 247, 0.18), rgba(125, 95, 255, 0.18)); padding: 22px; border-radius: 14px; border-left: 4px solid var(--orange); margin: 20px 0; font-style: italic; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); transition: var(--transition); cursor: pointer; }
+.quote-box:hover { transform: scale(1.02); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); }
+.quote-text { font-size: clamp(17px, 3.5vw, 20px); color: var(--text); margin-bottom: 10px; line-height: 1.8; }
+.quote-author { color: var(--text2); font-size: 14px; }
 
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
-    50% { transform: translateX(-50%) translateY(-10px); opacity: 1; }
-  }
+/* 时间线 */
+.timeline-compact { position: relative; padding-left: 24px; }
+.timeline-compact::before { content: ""; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--blue), var(--purple)); border-radius: 2px; }
+.timeline-item-compact { position: relative; margin-bottom: 16px; padding: 14px 18px; background: rgba(26, 34, 69, 0.7); border-radius: 10px; border: 1px solid rgba(77, 171, 247, 0.18); transition: var(--transition); cursor: pointer; display: flex; gap: 15px; align-items: flex-start; }
+.timeline-item-compact:hover { transform: translateX(6px); border-color: rgba(77, 171, 247, 0.4); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 12px rgba(77, 171, 247, 0.15); }
+.timeline-item-compact::before { content: ""; position: absolute; left: -22px; top: 18px; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; border: 2px solid var(--bg); box-shadow: 0 0 10px rgba(255, 170, 85, 0.5); transition: var(--transition); }
+.timeline-item-compact:hover::before { transform: scale(1.25); box-shadow: 0 0 18px rgba(255, 170, 85, 0.7); }
+.timeline-date { font-size: 15px; font-weight: 700; color: var(--blue); min-width: 65px; flex-shrink: 0; }
+.timeline-content { flex: 1; }
+.timeline-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.timeline-desc { font-size: 12px; color: var(--text2); line-height: 1.5; margin-bottom: 6px; }
 
-  /* ===== 星空背景粒子 ===== */
-  .stars {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 0;
-  }
+.feature-list { list-style: none; }
+.feature-list li { padding: 11px 0; border-bottom: 1px solid rgba(77, 171, 247, 0.18); display: flex; align-items: flex-start; gap: 12px; transition: var(--transition); font-size: clamp(14px, 2vw, 15px); }
+.feature-list li:hover { transform: translateX(5px); }
+.feature-list li:last-child { border-bottom: none; }
+.feature-list li::before { content: "✦"; color: var(--orange); font-size: 16px; flex-shrink: 0; text-shadow: 0 0 8px rgba(255, 170, 85, 0.5); }
 
-  .content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-  }
+footer { text-align: center; padding: 35px 0; margin-top: 50px; background: rgba(18, 24, 51, 0.85); color: var(--text2); font-size: 14px; border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid rgba(77, 171, 247, 0.25); box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25); }
+footer p { margin-bottom: 12px; }
+.final-quote { font-size: clamp(20px, 5vw, 26px); color: var(--orange); font-weight: 700; margin-top: 25px; text-shadow: 0 0 20px rgba(255, 170, 85, 0.5), 0 0 40px rgba(255, 170, 85, 0.3); line-height: 1.6; }
+.signature { margin-top: 25px; color: var(--text); font-weight: 600; font-size: 18px; }
 
-  /* ===== 板块头图（与封面风格一致的渐变横幅） ===== */
-  .section-header {
-    position: relative;
-    width: calc(100% + 4rem);
-    margin-left: -2rem;
-    height: 200px;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    border-radius: 0;
-  }
-
-  .section-header img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.4) saturate(0.8);
-  }
-
-  .section-header-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.5rem 2rem;
-    background: linear-gradient(transparent 0%, rgba(10,22,40,0.9) 100%);
-  }
-
-  .section-number {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 300;
-    color: var(--golden-soft);
-    letter-spacing: 0.5em;
-    text-transform: uppercase;
-    margin-bottom: 0.3rem;
-  }
-
-  .section-title {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--starlight-white);
-    letter-spacing: 0.05em;
-  }
-
-  /* ===== 板块内容 ===== */
-  .section {
-    margin-bottom: 5rem;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-
-  .section.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .section-body {
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    font-weight: 300;
-  }
-
-  .section-body p {
-    margin-bottom: 1.2rem;
-  }
-
-  /* ===== 引用块（暮光渐变风格） ===== */
-  .quote-block {
-    position: relative;
-    border-left: 3px solid var(--warm-amber);
-    padding: 1.5rem 2rem;
-    margin: 2rem 0;
-    background: linear-gradient(135deg, rgba(244,164,96,0.08) 0%, rgba(30,74,92,0.08) 100%);
-    border-radius: 0 12px 12px 0;
-    font-family: 'Noto Serif SC', serif;
-    font-style: italic;
-    color: var(--text-primary);
-    backdrop-filter: blur(10px);
-  }
-
-  .quote-block::before {
-    content: '"';
-    position: absolute;
-    top: -10px;
-    left: 15px;
-    font-size: 3rem;
-    color: var(--warm-amber);
-    opacity: 0.3;
-    font-family: Georgia, serif;
-  }
-
-  /* ===== 事件卡片（毛玻璃 + 齿轮边框） ===== */
-  .event-card {
-    position: relative;
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 1.5rem 1.8rem;
-    margin-bottom: 1.2rem;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-  }
-
-  .event-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100px;
-    height: 100px;
-    border: 2px solid rgba(255,213,79,0.06);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .event-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--warm-amber);
-    box-shadow: 0 8px 32px rgba(244,164,96,0.1);
-  }
-
-  .event-tag {
-    display: inline-block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 0.25rem 0.8rem;
-    border-radius: 20px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .tag-work { background: rgba(10,22,40,0.8); color: var(--starlight-cyan); border: 1px solid rgba(176,224,230,0.3); }
-  .tag-create { background: rgba(30,74,92,0.6); color: var(--golden-soft); border: 1px solid rgba(255,213,79,0.3); }
-  .tag-learn { background: rgba(244,164,96,0.15); color: var(--warm-amber); border: 1px solid rgba(244,164,96,0.3); }
-  .tag-life { background: rgba(176,224,230,0.1); color: var(--starlight-cyan); border: 1px solid rgba(176,224,230,0.2); }
-  .tag-decision { background: rgba(255,215,0,0.1); color: var(--golden-yellow); border: 1px solid rgba(255,215,0,0.3); }
-
-  .event-title {
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin: 0.8rem 0 0.4rem;
-    color: var(--text-primary);
-  }
-
-  .event-desc {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    font-weight: 300;
-  }
-
-  /* ===== 认知更新（星空节点风格） ===== */
-  .insight-item {
-    display: flex;
-    gap: 1.2rem;
-    margin-bottom: 2rem;
-    align-items: flex-start;
-  }
-
-  .insight-icon {
-    font-size: 1.3rem;
-    flex-shrink: 0;
-    width: 3.5rem;
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--card-border);
-    border-radius: 50%;
-    box-shadow: 0 0 20px rgba(176,224,230,0.1);
-  }
-
-  .insight-content h4 {
-    color: var(--warm-amber);
-    font-size: 0.95rem;
-    font-weight: 700;
-    margin-bottom: 0.3rem;
-    letter-spacing: 0.05em;
-  }
-
-  .insight-content p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    font-weight: 300;
-  }
-
-  /* ===== 工具卡片（工业齿轮风格） ===== */
-  .tool-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.2rem;
-  }
-
-  .tool-card {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .tool-card::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    width: 60px;
-    height: 60px;
-    border: 1.5px solid rgba(255,213,79,0.08);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .tool-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--golden-soft);
-    box-shadow: 0 8px 32px rgba(255,213,79,0.08);
-  }
-
-  .tool-card .icon {
-    font-size: 2rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .tool-card .name {
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: 0.3rem;
-    color: var(--text-primary);
-  }
-
-  .tool-card .desc {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    font-weight: 300;
-  }
-
-  /* ===== 80年进度（星空仪表盘风格） ===== */
-  .progress-container {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--card-border);
-    border-radius: 20px;
-    padding: 3rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .progress-container::before {
-    content: '';
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 200px;
-    border: 1px solid rgba(255,213,79,0.05);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .progress-number {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--golden-yellow) 0%, var(--warm-amber) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-  }
-
-  .progress-label {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    letter-spacing: 0.3em;
-    margin-top: 0.5rem;
-    text-transform: uppercase;
-  }
-
-  .progress-bar-visual {
-    width: 100%;
-    height: 3px;
-    background: rgba(30,74,92,0.4);
-    border-radius: 2px;
-    margin-top: 2rem;
-    overflow: hidden;
-  }
-
-  .progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--teal-cyan) 0%, var(--golden-yellow) 50%, var(--warm-amber) 100%);
-    border-radius: 2px;
-    width: 0%;
-    transition: width 3s ease;
-  }
-
-  .progress-summary {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 1.15rem;
-    color: var(--text-primary);
-    margin-top: 2rem;
-    font-style: italic;
-    line-height: 2;
-  }
-
-  /* ===== 分隔线（齿轮风格） ===== */
-  .divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin: 4rem 0;
-    color: var(--card-border);
-    font-size: 0.6rem;
-    letter-spacing: 0.5em;
-  }
-
-  .divider::before,
-  .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, var(--card-border) 50%, transparent 100%);
-  }
-
-  /* ===== 页脚 ===== */
-  .footer {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 4rem 2rem;
-    border-top: 1px solid var(--card-border);
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .footer .declaration {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 1rem;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    line-height: 2.2;
-  }
-
-  .footer .copyright {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
-    color: var(--text-secondary);
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-  }
-
-  /* ===== 响应式 ===== */
-  @media (max-width: 600px) {
-    .cover-title { font-size: 2.5rem; }
-    .cover-subtitle { font-size: 1rem; }
-    .section-title { font-size: 1.4rem; }
-    .section-header { height: 150px; }
-    .content { padding: 2rem 1rem; }
-    .section-header { width: calc(100% + 2rem); margin-left: -1rem; }
-    .progress-number { font-size: 3.5rem; }
-  }
+@media (max-width: 767px) {
+body { padding: 10px; padding-top: calc(var(--nav-height) + 10px); }
+.nav-links { position: fixed; top: var(--nav-height); left: 0; right: 0; background: rgba(18, 24, 51, 0.95); backdrop-filter: blur(15px); flex-direction: column; padding: 20px; gap: 15px; transform: translateY(-120%); transition: 0.3s; z-index: 1000; }
+.nav-links.open { transform: translateY(0); }
+.hamburger { display: flex; }
+header, section, footer { padding: 20px 14px; }
+.timeline-item-compact { flex-direction: column; gap: 8px; padding: 12px 15px; }
+.timeline-date { min-width: auto; }
+.back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
+}
+@media print { body::before, .stars, .loading-overlay, .floating-light, .scroll-progress, .back-to-top, .background-solar-system, .spaceship, .top-nav { display: none; } body { background: white; color: black; } section { break-inside: avoid; background: white; border: 1px solid #ccc; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
 </style>
 </head>
 <body>
 
-<!-- ===== 封面 ===== -->
-<div class="cover">
-  <img src="may2026_cover.jpg" alt="封面">
-  <div class="cover-overlay">
-    <div class="cover-issue">第 001 期 / 960 期</div>
-    <h1 class="cover-title">重复与决定</h1>
-    <p class="cover-subtitle">2026 年 5 月 · 个人月报</p>
-    <p class="cover-meta">MAY 2026 — 扶清</p>
-  </div>
-  <div class="cover-scroll">↓</div>
+<!-- 导航栏 -->
+<nav class="top-nav">
+<a class="nav-logo" href="index.html">🚀 扶清闲话</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html" class="active">首页</a></li>
+<li><a href="margins.html">读书笔记</a></li>
+<li><a href="handbook.html">交流手册</a></li>
+<li><a href="简报双端.html">思想简报</a></li>
+<li><a href="https://afuxh.github.io/fuqing-profile/hot-news.html" target="_blank" rel="noopener">AI热点 🔗</a></li>
+<li><a href="https://afuxh.github.io/fuqing-profile/archive.html" target="_blank" rel="noopener">档案馆 🔗</a></li>
+</ul>
+<button class="hamburger" id="hamburger" aria-label="菜单">
+<span></span><span></span><span></span>
+</button>
+</nav>
+
+<!-- 背景装饰 -->
+<div class="background-solar-system" id="background-solar-system"></div>
+<div class="spaceship" id="spaceship"><div class="spaceship-body"><div class="spaceship-window"></div><div class="spaceship-engine"></div></div></div>
+<div class="scroll-progress" id="scroll-progress"></div>
+<div class="back-to-top" id="back-to-top" title="返回顶部"></div>
+<div class="loading-overlay" id="loading-overlay"><div class="loader"></div></div>
+<div class="stars" id="stars"></div>
+<div id="floating-lights"></div>
+
+<!-- 主内容 -->
+<div id="main-content">
+
+<header id="header">
+<h1 id="hero-title" data-text="扶清闲话"></h1>
+<p id="hero-subtitle" style="text-align:center; color:var(--text2); font-style:italic; opacity:0; transition:opacity 1.5s ease;">个人IP × 心理学 × AI工作流探索</p>
+<p style="text-align:center; margin-top:15px; font-size:14px; line-height:1.6; max-width:700px; margin-left:auto; margin-right:auto;">
+你好，这里是阿扶。<br>
+21 岁，<strong>2025 年 6 月毕业</strong>，现探索 AI 时代个人成长路径。<br>
+运营公众号「扶清闲话」3 年+，79篇原创。<br>
+专注：个人IP × 心理学 × AI协同。<br>
+懂产品·懂用户·懂表达。<br>
+未来不是被决定的，是被创造的。
+</p>
+<div class="meta-info" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:20px;">
+<span>📅 始于 2022.10</span>
+<span>📝 文章 79篇</span>
+<span>🎯 IP×心理×AI</span>
+<span>💼 在职</span>
 </div>
+</header>
 
-<!-- ===== 内容 ===== -->
-<div class="content">
+<!-- 1. 创作者视角 -->
+<section aria-labelledby="creator-title">
+<h2 id="creator-title">✍️ 创作者视角：为什么写</h2>
+<div class="container">
+<div class="card"><h3>写作是我的恋人</h3><p>除了写作，我找不到一个地方，可以不用解释，就只是说：“我今天很难过。”它不要求完美，只等待真实。</p><button class="interactive-btn" onclick="showLikeAnimation(event)">💖 有共鸣</button></div>
+<div class="card"><h3>记录真实经历</h3><p>不伪装不鸡汤。从崩溃到重启，从回避到面对。每一篇都是真诚的对话，记录读书、工作、关系与自我挣扎。</p><button class="interactive-btn" onclick="showLikeAnimation(event)">👍 支持你</button></div>
+<div class="card"><h3>陪伴同路人</h3><p>如果你也在寻找成长的方向，探索 AI 时代的可能性，需要一些不贩卖焦虑的真诚陪伴。欢迎常来看看。</p><button class="interactive-btn" onclick="showLikeAnimation(event)">🤝 一起走</button></div>
+</div>
+<div class="quote-box"><p class="quote-text">"未来不是被决定的，是被创造的"</p><p class="quote-author">—— 核心创作理念</p></div>
+</section>
 
-  <!-- 1. 本月感觉 -->
-  <div class="section" data-animate>
-    <div class="section-header">
-      <img src="assets/section_work.jpg" alt="工作">
-      <div class="section-header-overlay">
-        <div class="section-number">Section 01</div>
-        <h2 class="section-title">本月感觉</h2>
-      </div>
-    </div>
-    <div class="section-body">
-      <div class="quote-block">
-        这个月像安迪在肖申克监狱的屋顶上，为狱友争取到啤酒的时刻——在重复的制度化生活中，用一点点创作和学习，为自己争取到了片刻的自由。不同的是，这个月我还做了一个决定。
-      </div>
-      <p>五月的感觉是<strong style="color: var(--starlight-cyan)">齿轮与星光</strong>。白天是客服值班、投诉处理、400热线——重复的齿轮不停转动。夜晚是AI学习、技能开发、内容创作——屏幕上的星光一点点亮起来。</p>
-      <p>上旬是疲惫的积累，中旬是内心的挣扎，下旬是决心渐渐清晰。这个月最重要的不是发生了什么，而是<strong style="color: var(--warm-amber)">做了一个决定</strong>。</p>
-    </div>
-  </div>
+<!-- 2. 核心优势 -->
+<section aria-labelledby="strengths-title">
+<h2 id="strengths-title">⚡ 核心优势</h2>
+<div class="container">
+<div class="card"><h3>🔗 服务全链路</h3><p>产品端（面点工艺）→ 门店端（连锁品牌）→ 客服端（汽车行业）。懂产品怎么造，懂用户为什么买，懂问题怎么解。</p></div>
+<div class="card"><h3>✍️ 3年内容实战</h3><p>公众号持续运营3年+，79篇原创。聚焦心理学×个人成长×AI探索，证明长期主义与稳定输出能力。</p></div>
+<div class="card"><h3>🤖 AI协同思维</h3><p>善用AI辅助选题、文案迭代、反馈分析。AI负责广度与效率，我负责深度、审美与人性判断。</p></div>
+</div>
+</section>
 
-  <div class="divider">⚙</div>
+<!-- 四化方法论 -->
+<section aria-labelledby="sihua-title">
+<h2 id="sihua-title">🧭 四化方法论：我的创作操作系统</h2>
+<p style="text-align:center; color:var(--text2); margin-bottom:20px; font-size:15px;">自动化 × 专门化 × 外显化 × 复利化 —— 让每次投入都产生持续累积的价值</p>
+<div class="container">
+<div class="card"><h3>⚙️ 自动化</h3><p>用AI替代重复劳动。热点采集、选题雷达、多平台分发、内容校准——全部自动化运转，释放时间聚焦创作。</p><div><span class="tag">热点聚合站</span><span class="tag">选题雷达</span><span class="tag">自动分发</span></div></div>
+<div class="card"><h3>🎯 专门化</h3><p>聚焦「个人IP × 心理学 × AI协同」垂直领域。3年深耕，79篇原创，建立深度壁垒和专业辨识度。</p><div><span class="tag">心理学</span><span class="tag">个人成长</span><span class="tag">AI工作流</span></div></div>
+<div class="card"><h3>📢 外显化</h3><p>让能力和成果被看见。个人网站、热点观察站、交流群手册、创作档案馆——全方位展示专业度。</p><div><span class="tag">个人网站</span><span class="tag">AI热点站</span><span class="tag">开源技能</span></div></div>
+<div class="card"><h3>📈 复利化</h3><p>每次创作都产生持续价值。读书笔记沉淀为知识资产，文章系列化为IP内容，工作流开源为社区贡献。</p><div><span class="tag">知识图谱</span><span class="tag">内容资产</span><span class="tag">开源飞轮</span></div></div>
+</div>
+<div class="quote-box" style="margin-top:20px;"><p class="quote-text">"效率归机器，意义归人类。与其在注定沉没的旧船上疯狂，不如早点选择自己的木板，来造自己的船。"</p><p class="quote-author">—— 四化方法论核心信条</p></div>
+</section>
 
-  <!-- 2. 核心事件 -->
-  <div class="section" data-animate>
-    <div class="section-header">
-      <img src="assets/section_work.jpg" alt="核心事件">
-      <div class="section-header-overlay">
-        <div class="section-number">Section 02</div>
-        <h2 class="section-title">核心事件</h2>
-      </div>
-    </div>
-    <div class="section-body">
+<!-- 3. 读者视角 -->
+<section aria-labelledby="reader-title">
+<h2 id="reader-title">🌟 读者视角：能获得什么</h2>
+<div class="container content-grid">
+<div class="card"><h3>📖 读书思考</h3><p>《被讨厌的勇气》《自控力》《悉达多》等读书笔记，把书中的智慧变成可行动的方法。</p><div><span class="tag">阿德勒心理学</span><span class="tag">目的论</span><span class="tag">课题分离</span></div></div>
+<div class="card"><h3>🌱 个人成长</h3><p>从崩溃到重启，从回避到面对，真实记录成长路上的每一步踩坑与爬起。</p><div><span class="tag">自我接纳</span><span class="tag">边界感</span><span class="tag">存在即被爱</span></div></div>
+<div class="card"><h3>💌 书信体共鸣</h3><p>「亲爱的 x」系列信件，记录成长中的困惑与感悟，让你知道在这条路上你不孤单。</p><div><span class="tag">关于成长</span><span class="tag">关于关系</span><span class="tag">关于存在</span></div></div>
+</div>
+</section>
 
-      <div class="event-card">
-        <span class="event-tag tag-work">工作</span>
-        <div class="event-title">客服值班与投诉处理</div>
-        <div class="event-desc">奕派400热线、三品牌工单检核、客户投诉处理。重复但必要，这是忍耐的最后一个月。</div>
-      </div>
+<!-- 4. 创作历程 -->
+<section aria-labelledby="timeline-title">
+<h2 id="timeline-title">📍 创作历程</h2>
+<div class="timeline-compact">
+<div class="timeline-item-compact"><div class="timeline-date">2022.10</div><div class="timeline-content"><div class="timeline-title">创作启程</div><div class="timeline-desc">公众号"扶清闲话"第1篇文章发布</div></div></div>
+<div class="timeline-item-compact"><div class="timeline-date">2024.10</div><div class="timeline-content"><div class="timeline-title">门店实践</div><div class="timeline-desc">连锁品牌培训与门店实操，接触标准化服务与品控</div></div></div>
+<div class="timeline-item-compact"><div class="timeline-date">2025.06</div><div class="timeline-content"><div class="timeline-title">大学毕业</div><div class="timeline-desc">中西面点工艺专业大专毕业</div></div></div>
+<div class="timeline-item-compact"><div class="timeline-date">2025.07</div><div class="timeline-content"><div class="timeline-title">入职客服岗位</div><div class="timeline-desc">汽车行业客服中心，转向用户沟通与情绪管理</div></div></div>
+<div class="timeline-item-compact"><div class="timeline-date">2026.02</div><div class="timeline-content"><div class="timeline-title">书摘启动</div><div class="timeline-desc">开始收录阅读金句，不定期精选分享</div></div></div>
+</div>
+</section>
 
-      <div class="event-card">
-        <span class="event-tag tag-create">创作</span>
-        <div class="event-title">技能开发与虾评上传</div>
-        <div class="event-desc">开发AI技能、上传虾评平台、设计自动化工作流。用创作对冲工作的重复感，为下一步做准备。</div>
-      </div>
+<!-- 5. 近期共鸣 -->
+<section aria-labelledby="insights-title">
+<h2 id="insights-title">💭 近期共鸣</h2>
+<div class="quote-box"><p class="quote-text">"身心健康地活着，就是一种特权"</p><p class="quote-author">—— 历经疲惫后的清醒认知</p></div>
+<div class="quote-box"><p class="quote-text">"我活成这样的自己，已经是我这么多年打磨出来的最好的作品了"</p><p class="quote-author">—— 友邻朋友圈分享 · 深感认同并收录</p></div>
+<div class="quote-box"><p class="quote-text">"平凡本身，就是不期而遇的神奇"</p><p class="quote-author">—— 42 老师</p></div>
+</section>
 
-      <div class="event-card">
-        <span class="event-tag tag-learn">学习</span>
-        <div class="event-title">AI工具学习与IP训练营</div>
-        <div class="event-desc">AI学习交流群活跃发言（432条）、IP训练营持续参与、内容创作方法论积累。</div>
-      </div>
+<!-- 6. 核心主题 -->
+<section aria-labelledby="themes-title">
+<h2 id="themes-title">🎯 核心主题</h2>
+<div class="container">
+<div class="card"><h3>崩溃与重启</h3><p>崩溃不是终点，而是身体在喊停。痛苦提醒你要改变，低谷是准备的开始。每一次重启，都是重新认识自己的机会。</p></div>
+<div class="card"><h3>回避与靠近</h3><p>深入探讨回避型依恋的形成与自救。理解自己，理解他人，在关系中练习勇敢，找到舒适的安全距离。</p></div>
+<div class="card"><h3>工作与意义</h3><p>人不是工具。感受痛苦并喊停的能力比效率更可贵。找到归属感，赋予工作以意义，而非被KPI定义。</p></div>
+<div class="card"><h3>存在即被爱</h3><p>你不需要用优秀兑换被爱。存在本身，就是最深的爱意。春天不问花是否鲜艳，夜空不嫌星是否暗淡。</p></div>
+</div>
+</section>
 
-      <div class="event-card">
-        <span class="event-tag tag-life">关系</span>
-        <div class="event-title">独立成长与边界重建</div>
-        <div class="event-desc">彻底清理过去的关系，重新定义自我边界。独立不是孤独，是有能力选择谁进入自己的世界。</div>
-      </div>
+<!-- 7. 求职方向 -->
+<section aria-labelledby="job-title">
+<h2 id="job-title">🎯 求职方向</h2>
+<div class="container">
+<div class="card"><h3>目标岗位</h3><ul class="feature-list"><li>用户运营（非销售性质）</li><li>客户成功经理/助理</li><li>内容编辑/新媒体运营</li><li>心理学产品运营（加分项）</li></ul></div>
+<div class="card"><h3>地域偏好</h3><ul class="feature-list"><li>✅ 国内城市（优先二线）</li><li>✅ 远程/混合办公</li><li>⚠️ 一线城市（需评估成本）</li></ul></div>
+<div class="card"><h3>我能提供</h3><ul class="feature-list"><li>一线用户沟通与情绪管理经验</li><li>3 年内容创作与 IP 运营能力</li><li>心理学视角的用户洞察</li><li>AI 工具提效的实战经验</li></ul></div>
+</div>
+<div class="quote-box" style="margin-top:20px;"><p class="quote-text">"学历是起点，不是终点。作品和实战能力，才是最好的简历。"</p></div>
+</section>
 
-      <div class="event-card">
-        <span class="event-tag tag-decision">决策</span>
-        <div class="event-title">一个决定</div>
-        <div class="event-desc">五月埋下的种子，六月开花。具体内容，下期再说。</div>
-      </div>
+<!-- 8. 未来规划 -->
+<section aria-labelledby="future-title">
+<h2 id="future-title">🚀 未来规划</h2>
+<div class="container">
+<div class="card"><h3>短期计划</h3><ul class="feature-list"><li>保持周更节奏，稳定输出优质内容</li><li>书摘系列持续精选收录</li><li>完善读者群互动，增加主题讨论</li><li>探索多元化内容形式（语音/短图文）</li></ul></div>
+<div class="card"><h3>长期愿景</h3><ul class="feature-list"><li>建立个人品牌，成为成长领域优质创作者</li><li>出版个人作品集，让更多读者受益</li><li>探索 AI 与人文创作结合的更多可能</li><li>帮助更多人找到自我接纳与成长的路径</li></ul></div>
+</div>
+</section>
 
-    </div>
-  </div>
+<!-- 9. 书摘精选 -->
+<section aria-labelledby="excerpts-title">
+<h2 id="excerpts-title">📖 书摘精选</h2>
+<p style="text-align:center; color:var(--text2); margin-bottom:20px;">自 2026.02 起收录 · 读者群分享 · 不定期精选整理</p>
+<div class="container content-grid">
+<div class="card"><p class="quote-text" style="font-size:16px;">"许多年之后，面对行刑队，奥雷里亚诺·布恩迪亚上校将会回想起父亲带他去见识冰块的那个遥远的下午。"</p><p class="quote-author" style="color:var(--orange); margin-top:10px;">——《百年孤独》</p></div>
+<div class="card"><p class="quote-text" style="font-size:16px;">"为你，千千万万遍。"</p><p class="quote-author" style="color:var(--orange); margin-top:10px;">——《追风筝的人》</p></div>
+<div class="card"><p class="quote-text" style="font-size:16px;">"完成比完美重要，因为完成可以改进，完美永远无法开始。"</p><p class="quote-author" style="color:var(--orange); margin-top:10px;">——《鸟由鸟》</p></div>
+<div class="card"><p class="quote-text" style="font-size:16px;">"别人怎么看你，是别人的事。你怎么看自己，才是你的事。"</p><p class="quote-author" style="color:var(--orange); margin-top:10px;">——《被讨厌的勇气》</p></div>
+</div>
+</section>
 
-  <div class="divider">⚙</div>
-
-  <!-- 3. 认知更新 -->
-  <div class="section" data-animate>
-    <div class="section-header">
-      <img src="assets/section_growth.jpg" alt="认知更新">
-      <div class="section-header-overlay">
-        <div class="section-number">Section 03</div>
-        <h2 class="section-title">认知更新</h2>
-      </div>
-    </div>
-    <div class="section-body">
-
-      <div class="insight-item">
-        <div class="insight-icon">⚙️</div>
-        <div class="insight-content">
-          <h4>工作认知</h4>
-          <p>客服工作虽然重复，但每一次投诉处理都是一次问题解决能力的锻炼。忍耐不是软弱，是在积蓄力量。</p>
-        </div>
-      </div>
-
-      <div class="insight-item">
-        <div class="insight-icon">🤖</div>
-        <div class="insight-content">
-          <h4>创作认知</h4>
-          <p>AI不是替代，而是放大器——用AI工具放大自己的创作能力，从手动操作到AI辅助到自动化。</p>
-        </div>
-      </div>
-
-      <div class="insight-item">
-        <div class="insight-icon">🌱</div>
-        <div class="insight-content">
-          <h4>成长认知</h4>
-          <p>在忙碌中保持学习，是对抗重复感最好的方式。学习持续不断，为转折积蓄能量。</p>
-        </div>
-      </div>
-
-      <div class="insight-item">
-        <div class="insight-icon">🚪</div>
-        <div class="insight-content">
-          <h4>决策认知</h4>
-          <p>有些决定不是逃避，是对更好生活的主动选择。离开不是因为不够好，是因为值得更好的。</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="divider">⚙</div>
-
-  <!-- 4. 工具与方法 -->
-  <div class="section" data-animate>
-    <div class="section-header">
-      <img src="assets/section_create.jpg" alt="工具与方法">
-      <div class="section-header-overlay">
-        <div class="section-number">Section 04</div>
-        <h2 class="section-title">工具与方法</h2>
-      </div>
-    </div>
-    <div class="section-body">
-      <div class="tool-grid">
-        <div class="tool-card">
-          <div class="icon">🔧</div>
-          <div class="name">虾评</div>
-          <div class="desc">技能上传与评测平台</div>
-        </div>
-        <div class="tool-card">
-          <div class="icon">🐙</div>
-          <div class="name">GitHub</div>
-          <div class="desc">代码托管与版本管理</div>
-        </div>
-        <div class="tool-card">
-          <div class="icon">🤖</div>
-          <div class="name">AI工具链</div>
-          <div class="desc">DeepSeek + Kimi</div>
-        </div>
-        <div class="tool-card">
-          <div class="icon">📊</div>
-          <div class="name">自动化</div>
-          <div class="desc">定时任务 + 自检流水线</div>
-        </div>
-      </div>
-      <p style="margin-top: 1.5rem; text-align: center;">工具链演进：<strong style="color: var(--starlight-cyan)">手动操作</strong> → <strong style="color: var(--golden-soft)">AI辅助</strong> → <strong style="color: var(--warm-amber)">自动化</strong></p>
-      <p style="text-align: center; font-size: 0.85rem; margin-top: 0.5rem;">每个月进步一点，复利会给出答案。</p>
-    </div>
-  </div>
-
-  <div class="divider">⚙</div>
-
-  <!-- 5. 下月展望 -->
-  <div class="section" data-animate>
-    <div class="section-header">
-      <img src="assets/section_growth.jpg" alt="下月展望">
-      <div class="section-header-overlay">
-        <div class="section-number">Section 05</div>
-        <h2 class="section-title">下月展望</h2>
-      </div>
-    </div>
-    <div class="section-body">
-      <div class="quote-block">
-        <strong>具体目标</strong>：完成交接，开始新的探索。<br>
-        <strong>模糊期待</strong>：在自由中找到更多创作的灵感，建立更清晰的自我边界。
-      </div>
-      <p>六月会是一个转折点。具体发生了什么，会在下期月报中回顾。现在只需要知道：五月种下的种子，已经开始发芽了。</p>
-    </div>
-  </div>
-
-  <div class="divider">⚙</div>
-
-  <!-- 6. 80年进度 -->
-  <div class="section" data-animate>
-    <div class="progress-container">
-      <div class="progress-number">001</div>
-      <div class="progress-label">/ 960 期 · 2026年5月</div>
-      <div class="progress-bar-visual">
-        <div class="progress-bar-fill" id="progressFill"></div>
-      </div>
-      <div class="progress-summary">"在重复中种下了离开的种子，<br>在决定中找到了自己的声音。"</div>
-    </div>
-  </div>
+<footer id="footer">
+<p>© 2022-至今 扶清闲话 · 79篇原创 · 用文字陪伴同路人</p>
+<p style="margin-top:10px; font-size:13px; color:var(--text3);">
+<a href="index.html" style="color:var(--text3);">首页</a> · 
+<a href="margins.html" style="color:var(--text3);">读书笔记</a> · 
+<a href="handbook.html" style="color:var(--text3);">交流手册</a> · 
+<a href="简报双端.html" style="color:var(--text3);">思想简报</a> · 
+<a href="https://afuxh.github.io/fuqing-profile/hot-news.html" target="_blank" style="color:var(--text3);">AI热点 🔗</a> · 
+<a href="https://afuxh.github.io/fuqing-profile/archive.html" target="_blank" style="color:var(--text3);">档案馆 🔗</a>
+</p>
+<p class="final-quote">未来不是被决定的，是被创造的。</p>
+<p style="margin-top:15px; font-size:14px; opacity:0.9; line-height:1.6;">微信公众号搜索：<strong>扶清闲话</strong><br>关注后回复"读者群"或点击底部菜单加入交流</p>
+</footer>
 
 </div>
 
-<!-- ===== 页脚 ===== -->
-<div class="footer">
-  <div class="declaration">
-    这是第001期个人月报。<br>
-    承诺每月一期，直到2106年。<br>
-    你可以看，但别改。
-  </div>
-  <p class="copyright">© 2026 扶清 · 80年连载 · 第001期</p>
-</div>
-
-<!-- ===== 滚动动画 ===== -->
 <script>
-  const sections = document.querySelectorAll('.section');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-  sections.forEach(section => observer.observe(section));
+// 移动端菜单
+document.getElementById('hamburger').addEventListener('click', () => {
+document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('#navLinks a').forEach(link => {
+link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
 
-  // 进度条动画
-  setTimeout(() => {
-    document.getElementById('progressFill').style.width = '0.1%';
-  }, 1500);
+// 背景太阳系
+function createBackgroundSolarSystem() {
+const container = document.getElementById('background-solar-system');
+const isMobile = window.innerWidth < 768;
+const centerX = isMobile ? window.innerWidth * 0.85 : window.innerWidth * 0.8;
+const centerY = isMobile ? window.innerHeight * 0.8 : window.innerHeight * 0.75;
+const center = document.createElement('div'); center.className = 'solar-center';
+center.style.left = `${centerX - 30}px`; center.style.top = `${centerY - 30}px`;
+container.appendChild(center);
+const orbits = isMobile ? [50,80,110,140,170] : [80,130,180,230,280];
+const colors = ['#4dabf7','#3bc9db','#ffaa55','#7d5fff','#51cf66'];
+const sizes = isMobile ? [8,10,12,14,16] : [12,15,18,21,24];
+orbits.forEach((radius,i) => {
+const orbit = document.createElement('div'); orbit.className = 'solar-orbit';
+orbit.style.width = orbit.style.height = `${radius*2}px`;
+orbit.style.left = `${centerX - radius}px`; orbit.style.top = `${centerY - radius}px`;
+container.appendChild(orbit);
+const planet = document.createElement('div'); planet.className = 'solar-planet';
+planet.style.width = planet.style.height = `${sizes[i]}px`;
+planet.style.background = colors[i]; planet.style.boxShadow = `0 0 10px ${colors[i]}`;
+container.appendChild(planet);
+let angle = Math.random()*Math.PI*2;
+const speed = (0.0003 + i*0.0001) * (isMobile?1.5:1);
+(function animate() {
+angle += speed;
+planet.style.left = `${centerX + Math.cos(angle)*radius - sizes[i]/2}px`;
+planet.style.top = `${centerY + Math.sin(angle)*radius - sizes[i]/2}px`;
+requestAnimationFrame(animate);
+})();
+});
+}
+
+// 飞船
+function createSpaceship() {
+const ship = document.getElementById('spaceship');
+setTimeout(() => {
+const y = Math.random() * (window.innerHeight - 100);
+ship.style.left = '-100px'; ship.style.top = y+'px';
+ship.classList.add('spaceship-fly');
+setTimeout(() => { ship.classList.remove('spaceship-fly'); createSpaceship(); }, 15000);
+}, 30000 + Math.random()*60000);
+}
+
+// 星星与光点
+function createStars() {
+const container = document.getElementById('stars');
+for(let i=0; i<(window.innerWidth<768?80:150); i++) {
+const s = document.createElement('div'); s.className = 'star';
+s.style.left = Math.random()*100+'%'; s.style.top = Math.random()*100+'%';
+s.style.width = s.style.height = (Math.random()*2+1)+'px';
+s.style.animationDelay = Math.random()*4+'s';
+container.appendChild(s);
+}
+}
+(function createFloatingLights() {
+const container = document.getElementById('floating-lights');
+for(let i=0; i<15; i++) {
+const l = document.createElement('div'); l.className = 'floating-light';
+l.style.left = Math.random()*100+'%';
+l.style.animationDelay = Math.random()*20+'s';
+l.style.background = ['var(--blue)','var(--cyan)','var(--purple)','var(--orange)'][Math.floor(Math.random()*4)];
+container.appendChild(l);
+}
+})();
+
+// 滚动进度条与返回顶部
+window.addEventListener('scroll', () => {
+const progress = document.getElementById('scroll-progress');
+const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+progress.style.width = scrollPercent + '%';
+document.getElementById('back-to-top').classList.toggle('visible', window.scrollY > 300);
+});
+document.getElementById('back-to-top').addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+// 滚动动画
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('section').forEach(s => observer.observe(s));
+
+// 点赞动画
+function showLikeAnimation(event) {
+event.stopPropagation();
+const rect = event.target.getBoundingClientRect();
+const like = document.createElement('div');
+like.className = 'like-animation';
+like.textContent = '💖';
+like.style.cssText = `position:absolute; font-size:24px; animation:likeFloat 1s ease-out forwards; pointer-events:none; left:${rect.left + rect.width/2}px; top:${rect.top}px;`;
+document.body.appendChild(like);
+setTimeout(() => like.remove(), 1000);
+}
+
+// 加载完成
+setTimeout(() => {
+document.getElementById('loading-overlay').classList.add('hidden');
+document.getElementById('main-content').style.opacity = '1';
+document.getElementById('main-content').style.transform = 'translateY(0)';
+}, 500);
+
+createBackgroundSolarSystem();
+createSpaceship();
+createStars();
+
+// ========== 开场乱码解码特效 ==========
+(function() {
+  const title = document.getElementById('hero-title');
+  const subtitle = document.getElementById('hero-subtitle');
+  const finalText = title.dataset.text;
+  const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン零一二三四五六七八九十甲乙丙丁<>[]{}#@$%&*!?~';
+  let iteration = 0;
+  const totalIterations = 25;
+  
+  title.style.minHeight = '1.2em';
+  
+  const decode = setInterval(() => {
+    title.textContent = finalText.split('').map((char, idx) => {
+      if (idx < iteration / 3) return finalText[idx];
+      if (char === ' ') return ' ';
+      return chars[Math.floor(Math.random() * chars.length)];
+    }).join('');
+    
+    iteration++;
+    if (iteration >= totalIterations) {
+      clearInterval(decode);
+      title.textContent = finalText;
+      title.style.textShadow = '0 0 20px rgba(255,170,85,0.6), 0 0 40px rgba(255,170,85,0.3)';
+      setTimeout(() => {
+        subtitle.style.opacity = '1';
+      }, 300);
+    }
+  }, 60);
+})();
 </script>
-
 </body>
 </html>

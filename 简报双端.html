@@ -1,0 +1,585 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扶清闲话 · 思想简报</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sky: #e6f7ff;
+            --cloud: rgba(255, 255, 255, 0.85);
+            --text: #2c3e50;
+            --text-light: #5a6b7c;
+            --wind: #a0d2eb;
+            --border: #b3e5fc;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: var(--sky);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px 15px;
+            padding-top: 76px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* === 通用背景 === */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(to bottom, #b3e5fc 0%, #e1f5fe 100%);
+            z-index: -3;
+        }
+
+        /* === 云朵 - 响应式尺寸 === */
+        .cloud {
+            position: absolute;
+            background: var(--cloud);
+            border-radius: 50%;
+            opacity: 0.9;
+            z-index: -2;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(20px) translateY(-10px); }
+        }
+
+        /* === 风的流动线条 - 默认隐藏，在PC端启用 === */
+        .wind-line {
+            display: none;
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--wind), transparent);
+            z-index: -1;
+            opacity: 0.6;
+        }
+        @keyframes wind {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(1200px); }
+        }
+
+        /* === 通用容器 === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Zhi Mang Xing', cursive;
+            font-size: 2.4rem; /* 移动端主标题 */
+            color: var(--text);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .subtitle {
+            font-size: 1.2rem; /* 移动端副标题 */
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 15px;
+            line-height: 1.6;
+        }
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .meta-info span {
+            background: var(--cloud);
+            padding: 6px 16px;
+            border-radius: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        section {
+            background: var(--cloud);
+            margin-bottom: 30px;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: scaleX(0.8);
+            transform-origin: center;
+        }
+        section.unrolled {
+            opacity: 1;
+            transform: scaleX(1);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--wind);
+        }
+        h2 {
+            font-size: 1.9rem; /* 移动端章节标题 */
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text);
+            position: relative;
+            display: inline-block;
+        }
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--wind);
+        }
+        h3 {
+            font-size: 1.4rem; /* 移动端小标题 */
+            margin: 16px 0 14px 0;
+            color: var(--text);
+        }
+        p {
+            margin-bottom: 16px;
+            color: var(--text-light);
+            text-indent: 2em;
+            font-size: 1rem; /* 移动端正文 */
+        }
+        ul {
+            padding-left: 24px;
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+        li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            position: relative;
+            font-size: 1rem; /* 列表项字体 */
+            transition: transform 0.2s ease;
+        }
+        li:hover {
+            transform: translateX(4px);
+            color: var(--text);
+        }
+        li::before {
+            content: "☁";
+            position: absolute;
+            left: -20px;
+            top: 0;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        blockquote {
+            margin: 16px 0;
+            padding: 12px 20px;
+            background: rgba(160, 210, 235, 0.2);
+            border-left: 3px solid var(--wind);
+            font-style: italic;
+            color: var(--text);
+            font-size: 1rem; /* 引用块字体 */
+            transition: all 0.3s ease;
+        }
+        blockquote:hover {
+            background: rgba(160, 210, 235, 0.3);
+            transform: translateX(4px);
+        }
+
+        /* === 关于我卡片 - 默认移动端单列 === */
+        #about-me {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .about-card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: inset 0 0 10px rgba(160, 210, 235, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .about-card::before {
+            content: "☁";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        .about-card h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--wind);
+            font-size: 1.4rem;
+        }
+        .about-card p, .about-card ul {
+            margin-left: 0;
+            text-indent: 0;
+            font-size: 1rem;
+        }
+
+        /* 表格容器 */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        /* 导航 */
+        .top-nav {
+            position: fixed; top: 0; left: 0; right: 0; height: 56px;
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 28px; z-index: 100;
+        }
+        .nav-logo { font-weight: 700; font-size: 17px; color: #2c3e50; text-decoration: none; }
+        .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; font-size: 14px; padding-right: 4px; }
+        .nav-links a { color: #5a6b7c; text-decoration: none; font-weight: 500; transition: color 0.2s; white-space: nowrap; padding: 4px 0; }
+        .nav-links li::before { display: none; }
+        .nav-links a:hover, .nav-links a.active { color: #2c3e50; }
+        .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; background: none; border: none; padding: 4px; }
+        .hamburger span { width: 22px; height: 2px; background: #2c3e50; transition: 0.3s; }
+        @media (max-width: 1023px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                position: fixed; top: 56px; left: 0; right: 0;
+                background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
+                flex-direction: column; padding: 16px 20px; gap: 12px;
+                z-index: 99; border-bottom: 1px solid var(--border);
+            }
+            .hamburger { display: flex; }
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem; /* 表格字体 */
+        }
+        th {
+            background: rgba(160, 210, 235, 0.3);
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ================================== */
+        /* ============ PC 端增强 ============ */
+        /* ================================== */
+        @media (min-width: 1024px) {
+            body {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 48px;
+            }
+            .subtitle {
+                font-size: 22px;
+            }
+            h2 {
+                font-size: 30px;
+            }
+            h2::after {
+                width: 50px;
+            }
+            h3 {
+                font-size: 22px;
+            }
+            p, .about-card p, .about-card ul, li, blockquote {
+                font-size: 1rem; /* PC端保持原大小 */
+            }
+            th, td {
+                font-size: 1rem;
+            }
+            footer {
+                font-size: 0.95rem;
+            }
+
+            /* 启用风的流动线条 */
+            .wind-line {
+                display: block;
+            }
+            .wl1 { top: 15%; width: 300px; left: 10%; animation: wind 20s linear infinite; }
+            .wl2 { top: 35%; width: 250px; left: 60%; animation: wind 25s linear infinite 2s; }
+            .wl3 { top: 55%; width: 200px; left: 20%; animation: wind 18s linear infinite 4s; }
+            .wl4 { top: 75%; width: 350px; left: 40%; animation: wind 22s linear infinite 1s; }
+
+            /* 调整云朵为PC尺寸 */
+            .cloud-1 { top: 10%; left: 5%; width: 120px; height: 40px; }
+            .cloud-2 { top: 20%; right: 10%; width: 180px; height: 60px; }
+            .cloud-3 { top: 40%; left: 15%; width: 100px; height: 35px; }
+            .cloud-4 { top: 60%; right: 20%; width: 140px; height: 50px; }
+            .cloud { animation: float 25s infinite ease-in-out; }
+            .cloud-2 { animation-duration: 30s; }
+            .cloud-4 { animation-duration: 35s; }
+
+            /* “关于我”卡片变为双列 */
+            #about-me {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            .about-card {
+                padding: 25px;
+            }
+            .about-card::before {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <a class="nav-logo" href="index.html">☁ 扶清闲话</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="margins.html">读书笔记</a></li>
+            <li><a href="handbook.html">交流手册</a></li>
+            <li><a href="简报双端.html" class="active">思想简报</a></li>
+            <li><a href="hot-news.html">AI热点</a></li>
+            <li><a href="archive.html">档案馆</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="菜单">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <div class="container">
+        <!-- 云朵 -->
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        <div class="cloud cloud-4"></div>
+        
+        <!-- 风的线条 -->
+        <div class="wind-line wl1"></div>
+        <div class="wind-line wl2"></div>
+        <div class="wind-line wl3"></div>
+        <div class="wind-line wl4"></div>
+
+        <header>
+            <h1>扶清闲话 · 思想简报</h1>
+            <p class="subtitle">总有人间一两风，填我十万八千梦</p>
+            <div class="meta-info">
+                <span>对话周期：至今</span>
+                <span>核心主题：思想的生长</span>
+                <span>状态：持续对话中</span>
+            </div>
+        </header>
+
+        <!-- 个人身份与创作理念 -->
+        <section id="about-me">
+            <div class="about-card">
+                <h3>身份与创作</h3>
+                <p><strong>身份</strong>：文字创作者｜记录成长</p>
+                <p><strong>创作主题</strong>：</p>
+                <ul>
+                    <li>回避型依恋者的自我修复</li>
+                    <li>无产者视角下的日常与存在</li>
+                    <li>亲密关系中的边界与确认</li>
+                    <li>对“优秀=被爱”绩效逻辑的反思</li>
+                </ul>
+                <p><strong>备注</strong>：不接广告，不写成功学，不参与性别对立内容。</p>
+            </div>
+            <div class="about-card">
+                <h3>风格与立场</h3>
+                <p>语言克制、诗意、带疏离感，善用生活细节（热干面、路灯、游戏胜利的“Nice”）承载抽象情绪。</p>
+                <p>立场上：</p>
+                <ul>
+                    <li>反对将亲密关系工具化</li>
+                    <li>主张“存在即被爱”，无需兑换</li>
+                    <li>坚持阶级视角，警惕性别对立</li>
+                    <li>真正的平等是“相互尊重 + 共同承担”</li>
+                </ul>
+                <p><strong>联系</strong>：微信公众号「扶清闲话」</p>
+            </div>
+        </section>
+
+        <!-- 核心信念的三次跃迁 -->
+        <section>
+            <h2>一、核心信念的三次跃迁</h2>
+            <h3>1. 从“优秀才值得被爱”到“存在即被爱”</h3>
+            <p>初期，你将写作视为兑换被爱的筹码：</p>
+            <blockquote>“自卑促使我在高考后的那个暑假想要叫人看见，想要成为【万众瞩目】。”</blockquote>
+            <blockquote>“我交出去的，不是文字，是抵押自我价值的凭据。”</blockquote>
+            <p>后经反复觉察，你确认：</p>
+            <blockquote>“爱不是绩效工资，不是达成KPI后的奖金。”</blockquote>
+            <blockquote>“存在本身，就被爱。”</blockquote>
+            <p>最终，你写下：</p>
+            <blockquote>“你不必用完美来换取爱。你的存在，本身就是确认。”</blockquote>
+
+            <h3>2. 从“个人奋斗”到“阶级自觉”</h3>
+            <p>知识库指出：</p>
+            <blockquote>“真正的敌人是资产阶级，不分男女。”</blockquote>
+            <blockquote>“无产阶级自己都是被剥削的群体。”</blockquote>
+            <p>你由此确立立场：</p>
+            <blockquote>“我不需要成为‘改变世界’的英雄，只需做那个在重复中依然敢感受的人。”</blockquote>
+
+            <h3>3. 从“回避即缺陷”到“回避即策略”</h3>
+            <p>你曾自我批判：</p>
+            <blockquote>“我讨厌着这样的妈妈，也讨厌着被这样的妈妈养大的我自己。”</blockquote>
+            <p>但知识库让你看清：</p>
+            <blockquote>“回避型依恋的人……内心深处藏着极其浓烈的情感，只不过被封存了起来。”</blockquote>
+            <p>于是你和解：</p>
+            <blockquote>“我不是问题，我是一个正在学习如何安全地接受爱的人。”</blockquote>
+        </section>
+
+        <!-- 重要问答实录 -->
+        <section>
+            <h2>二、重要问答实录</h2>
+            <h3>Q：为什么我不秒回消息？</h3>
+            <blockquote>“当秒回成为自我价值的标尺，我便成了他人日程表的提线木偶……我的文字，成了客服的延伸；我的存在，成了待命的工具。”</blockquote>
+
+            <h3>Q：足够优秀才值得被爱吗？</h3>
+            <blockquote>“我把自己活成了一场交易里的抵押品，却忘了，爱从不论斤两。”</blockquote>
+
+            <h3>Q：如何应对工作压力？</h3>
+            <blockquote>“与其追求时间管理，不如关注状态管理……低能量时，1小时不如10分钟。”</blockquote>
+
+            <h3>Q：AI时代如何学习？</h3>
+            <p>你在群聊中曾表达困惑：“我主要用AI对话写作，但感觉重复，心力不足，想给生活加点新东西。”</p>
+            <p>回应中，有人建议尝试AI绘画、视频或自动化；也有人提醒：“放下自我鞭策，顺其自然，‘为有源头活水来’，新鲜感会自然涌现。”</p>
+            <blockquote>“我觉得，与其想太多，不如先去做点什么。行动本身就是答案。”</blockquote>
+
+            <h3>Q：生孩子的意义是什么？</h3>
+            <blockquote>“当两个人真正相爱时，生孩子更像是一种‘共同创造’的行为……真正的意义在于你们内心的感受。”</blockquote>
+        </section>
+
+        <!-- 有趣对话与金句 -->
+        <section>
+            <h2>三、思想星云：对话中的闪光</h2>
+            <blockquote>“对于别人来说有可能会很烦，但是我觉得挺幸福的，也许有人不理解，但是我觉得挺幸福的。”</blockquote>
+            <blockquote>“大厂是一个副本，而不是胜利之门。”</blockquote>
+            <blockquote>“人终其一生也不过是为了这些瞬间而前进着……平平淡淡是寻常，瞬间是锚点。”</blockquote>
+            <blockquote>“痛苦是在你对抗的过程中提醒自己，需要改变，需要重启。”</blockquote>
+        </section>
+
+        <!-- 话题数据可视化 -->
+        <section>
+            <h2>四、思想关键词</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>主题</th>
+                            <th>关键词</th>
+                            <th>情感走向</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>存在即被爱</td>
+                            <td>存在、被爱、优秀、抵押品</td>
+                            <td>从焦虑到确认</td>
+                        </tr>
+                        <tr>
+                            <td>回避型依恋</td>
+                            <td>试探、退缩、独立、封存</td>
+                            <td>从批判到接纳</td>
+                        </tr>
+                        <tr>
+                            <td>阶级视角</td>
+                            <td>无产阶级、资产阶级、团结</td>
+                            <td>清醒</td>
+                        </tr>
+                        <tr>
+                            <td>状态管理</td>
+                            <td>能量、躺平、不秒回</td>
+                            <td>自我保护</td>
+                        </tr>
+                        <tr>
+                            <td>AI与创造</td>
+                            <td>应用、产品、简报</td>
+                            <td>工具性探索</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>最高频信念</strong>：“存在，就值得被爱。”</p>
+        </section>
+
+        <!-- 思想成长路线 -->
+        <section>
+            <h2>五、思想成长路线：一场从“兑换”到“确认”的旅程</h2>
+            <h3>阶段1：兑换期（2024年6月–8月）</h3>
+            <p><strong>特征</strong>：用“优秀”兑换被爱，将写作视为赎罪券。</p>
+            <p><strong>代表作</strong>：《你不是你》《厌食》</p>
+            <blockquote>“我需要被看见，所以我必须万众瞩目。”</blockquote>
+
+            <h3>阶段2：崩解期（2024年9月–2025年3月）</h3>
+            <p><strong>特征</strong>：系统性耗竭，质疑“优秀=被爱”的逻辑。</p>
+            <p><strong>代表作</strong>：《牛马？犬儒才当！》《记实习至今》</p>
+            <blockquote>“我不是工具，我是人。”</blockquote>
+
+            <h3>阶段3：重建期（2025年4月–至今）</h3>
+            <p><strong>特征</strong>：确立“存在即被爱”，引入阶级视角，拒绝个人奋斗神话。</p>
+            <p><strong>代表作</strong>：《我决定不再秒回消息了》《只有优秀才值得被爱吗？》《扶清近况》</p>
+            <blockquote>“你存在，就值得被爱。”</blockquote>
+
+            <h3>未来方向</h3>
+            <p>- <strong>深化</strong>：将“回避型依恋”与“无产阶级处境”结合；</p>
+            <p>- <strong>表达</strong>：用生活细节（热干面、路灯、游戏胜利的“Nice”）承载抽象思考；</p>
+            <p>- <strong>边界</strong>：保护创作留白，拒绝“高效”绑架。</p>
+        </section>
+
+        <footer>
+            <p>数据来源：阿扶与AI的全部对话（截至2026年6月5日）</p>
+            <p>设计理念：风是人间温柔，梦是十万坚持</p>
+            <p>© 扶清闲话 · 愿思想如风，自由生长</p>
+            <p>风在吹，你在长，梦在填满</p>
+        </footer>
+    </div>
+    
+    <script>
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('#navLinks a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+    });
+
+    // 卷轴展开特效
+    const sections = document.querySelectorAll('section');
+    const unrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('unrolled'), 100);
+          unrollObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    sections.forEach(s => unrollObserver.observe(s));
+    </script>
+</body>
+</html>

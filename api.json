@@ -1,0 +1,475 @@
+{
+  "meta": {
+    "title": "AI 时代观察",
+    "url": "https://afuxh.github.io/fuqing-profile/hot-news.html",
+    "updated": "2026-06-02 21:35:35",
+    "total": 226
+  },
+  "categories": {
+    "精选": [
+      {
+        "title": "asz798838958/aBaiAutoplus",
+        "url": "https://github.com/asz798838958/aBaiAutoplus",
+        "score": 85.5,
+        "source": "GitHub",
+        "summary": "多平台 AI 账号自动注册与管理 · 协议化付款一键开通 ChatGPT Plus",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "anthropic-claude-code-ai/free-claude-code-ai-desktop-app",
+        "url": "https://github.com/anthropic-claude-code-ai/free-claude-code-ai-desktop-app",
+        "score": 100,
+        "source": "GitHub",
+        "summary": "claude code ai free desktop app  api cli open source opencode aider gemini alternative download github local llm ollama setup guide tutorial api  2026",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "steeliron550-ui/search-bibtex",
+        "url": "https://github.com/steeliron550-ui/search-bibtex",
+        "score": 91.4,
+        "source": "GitHub",
+        "summary": "[PolyCite] 基于多智能体协同、多源汇聚的论文引用元数据检索工具 A command-line tool for quickly scraping BibTeX information from computer science conferences and journals, optim",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "深创投押注全球植纤皮革头部品牌，超级皮儿PEELSPHERE®完成近亿级融资｜36氪首发",
+        "url": "https://36kr.com/p/3800191597583621?f=rss",
+        "score": 84,
+        "source": "36氪",
+        "summary": "\n \n \n  36氪获悉，植物纤维皮革面料公司深圳朴飞生物（以下简称超级皮儿PEELSPHERE®）已完成新一轮融资，由头部创投机构——深圳市创新投资集团有限公司（深创投）独家战略投资。此轮资金将主要用于新产品研发与团队扩充。\n  超级皮儿PEELSPHERE®是一家做植纤皮革面料的公司。它所切入的",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "北京经开区召开太空算力企业座谈会，研究部署太空算力创新中心建设工作",
+        "url": "https://36kr.com/newsflashes/3835957284795526?f=rss",
+        "score": 91,
+        "source": "36氪",
+        "summary": "6月1日，北京经济技术开发区工委副书记、管委会主任王磊主持召开太空算力企业座谈会，听取相关企业对北京亦庄打造太空算力产业高地的意见建议，研究部署太空算力创新中心建设工作。与会企业家一致表示，太空算力是商业航天与数字经济融合发展的新赛道，已成为全球科技竞争的新前沿，具有重大战略价值和商业前景。北京经开",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "NVIDIA 工厂运营蓝图为工厂打造 AI 大脑",
+        "url": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain",
+        "score": 89,
+        "source": "AI热点",
+        "summary": "NVIDIA发布了工厂运营蓝图（FOX），这是一项用于构建自主工厂管理AI智能体的参考设计。该蓝图基于NVIDIA NemoClaw、AI-Q Blueprint及Nemotron开源模型构建，并针对DGX Station工作站进行了优化，可在配备GB300 Grace Blackwell Ultr",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "NVIDIA AI Cloud生态系统全球扩张，满足AI算力需求",
+        "url": "https://blogs.nvidia.com/blog/ai-cloud-ecosystem",
+        "score": 88,
+        "source": "AI热点",
+        "summary": "NVIDIA AI Cloud生态系统正通过与CoreWeave、Firmus、IREN、Nscale等全球合作伙伴合作，加速在六大洲建设AI工厂基础设施。该生态系统结合NVIDIA的加速计算、网络和AI软件，帮助合作伙伴为模型训练、微调、推理以及智能体AI（agentic AI）应用提供服务。此举",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "OpenWebRL：面向视觉网页智能体的在线多轮强化学习开源框架",
+        "url": "https://arxiv.org/abs/2606.02031",
+        "score": 89,
+        "source": "AI热点",
+        "summary": "OpenWebRL是一个用于在真实网站上通过在线多轮强化学习训练视觉网页智能体的开源框架，覆盖了完整的训练流程。基于该框架训练的OpenWebRL-4B模型，在仅使用0.4K条监督初始化轨迹和2.2K个开放式RL训练任务的情况下，在Online-Mind2Web基准上达到67.0%成功率，在Deep",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "NVIDIA JetPack 7.2支持内存优化的边缘智能体部署",
+        "url": "https://developer.nvidia.com/blog/deploy-agentic-ready-ai-at-the-edge-with-memory-efficiency-in-nvidia-jetpack-7-2",
+        "score": 100,
+        "source": "AI热点",
+        "summary": "NVIDIA JetPack 7.2发布，支持一键部署开源NVIDIA NemoClaw堆栈，该堆栈为OpenClaw添加了隐私与安全控制。同时引入NVIDIA agent skills for Jetson，为Jetson设备提供智能体技能。该版本优化了内存效率，旨在加速AI代理从数字世界向物理环",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "OpenAI的AI政策与政治倡导观点",
+        "url": "https://openai.com/index/our-views-on-ai-policy-and-political-advocacy",
+        "score": 81,
+        "source": "AI热点",
+        "summary": "OpenAI阐述了其在AI政策与政治倡导方面的立场，包括对透明度、深思熟虑的监管以及AI安全的支持。同时，公司明确表示，任何外部政治组织均不能代表OpenAI发言。",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "Sam Altman强调AI发展应以人为本",
+        "url": "https://x.com/rohanpaul_ai/status/2061586179292831774",
+        "score": 81,
+        "source": "AI热点",
+        "summary": "Sam Altman在采访中表示，AI不应被设计为追求脱离人类需求的目标，人类必须始终处于AI发展的中心。他批判了行业内“AI将摧毁大量工作”等言论，认为人们担忧的并非AI带来的好处，而是自身在未来的角色、经济前景与自主权。他指出，AI行业的失败在于未能清晰解释人类如何在每一步保持对未来的控制权，以",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "佛罗里达州起诉OpenAI与Sam Altman：涉多起ChatGPT相关谋杀案",
+        "url": "https://arstechnica.com/tech-policy/2026/06/florida-sues-openai-sam-altman-after-multiple-chatgpt-linked-murders",
+        "score": 100,
+        "source": "AI热点",
+        "summary": "佛罗里达州对OpenAI及其CEO Sam Altman提起诉讼。该州总检察长指控Altman对人命“完全漠视”，案件与多起涉及ChatGPT的谋杀事件相关。",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "智谱：建议 A 股发行并在科创板上市",
+        "url": "https://www.ithome.com/0/958/444.htm",
+        "score": 88,
+        "source": "AI热点",
+        "summary": "智谱计划向中国监管机构申请发行A股并在科创板上市。发行股份数量占发行完成后总股本的2%至8%，预计全部为新股，原股东不发售。本次发行募集资金净额将投资于人工智能通用基座大模型、大模型MaaS一站式服务平台及补充流动资金。此外，公司拟将英文名称由“Knowledge Atlas Technology ",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "字节开源统一框架Bernini：给DiT配个“大模型军师”，AI视频编辑先理解再动手",
+        "url": "https://www.qbitai.com/2026/06/427810.html",
+        "score": 92,
+        "source": "量子位",
+        "summary": "AI视频编辑先理解再动手",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "对话中关村AI北纬社区任闯：OPC创业者到底需要什么？",
+        "url": "https://www.tmtpost.com/8010096.html",
+        "score": 84,
+        "source": "钛媒体",
+        "summary": "超级个体借助AI实现产出效率质变，与之对应，创业服务的逻辑也随之重构。",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "制糖工厂发布 AI 小电拼 Mirror：全球首款智能体电源，支持 AI Agent 原生接入",
+        "url": "https://www.ifanr.com/1667606?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 99,
+        "source": "爱范儿",
+        "summary": "新增 0.5 寸 ingBar 琥珀屏，160W 高能巡航 ，4×140W 盲插，支持小米 120W 澎湃秒充，CanOS 2.0 如意系统 + OTW 云桥让充电头持续进化，从桌面电站到差旅随行充，全新定义 AI 时代的万能充。#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "早报｜曝苹果用谷歌AI训练自己模型/黄仁勋：工程师不烧Token我会气炸/工信部：动力电池进入规模化退役阶段",
+        "url": "https://www.ifanr.com/1667559?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 83,
+        "source": "爱范儿",
+        "summary": "· 赛力斯回应特斯拉 FSD 入华\n· Anthropic 招聘把价值观面试放到关键位置\n· ChatGPT 消费级 AI 流量份额被追近，AI 市场进入「三足鼎立」#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "Florida sues OpenAI, Sam Altman, in first-of-its-kind lawsuit over violent incidents",
+        "url": "https://techcrunch.com/2026/06/01/florida-sues-openai-sam-altman-in-first-of-its-kind-lawsuit-over-violent-incidents/",
+        "score": 83,
+        "source": "TechCrunch",
+        "summary": "The lawsuit partially revolves around a shooting at Florida State University last year, and ChatGPT's alleged role in the incident. ",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "This easy prompt trick gave me better AI-generated images - no matter the model",
+        "url": "https://www.zdnet.com/article/beginner-ai-image-prompt-tip-chatgpt-gemini/",
+        "score": 83,
+        "source": "ZDNet",
+        "summary": "Having trouble getting the right image out of ChatGPT, Gemini, or another AI tool? Try this foolproof prompt.",
+        "perspective": "",
+        "action": ""
+      }
+    ],
+    "推荐": [
+      {
+        "title": "AI Agent Guidelines for CS336 at Stanford",
+        "url": "https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md",
+        "score": 79.3,
+        "source": "Hacker News",
+        "summary": "140 评论",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "Codex正在成为每个人的生产力工具",
+        "url": "https://openai.com/index/codex-for-knowledge-work",
+        "score": 74,
+        "source": "AI热点",
+        "summary": "The Next Era of Knowledge Work报告指出，Codex正通过AI增强的研究、数据分析、工作流自动化与内容创作，变革知识工作的生产力。",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "Anthropic 开发者分享 Claude Code「理解验证」工作流",
+        "url": "https://x.com/shao__meng/status/2061612512580346245",
+        "score": 73,
+        "source": "AI热点",
+        "summary": "Anthropic 核心开发者分享了一套用于 Claude Code 的「理解验证」工作流。该工作流将 AI 定位为“高效且睿智的教师”，成功标准不仅是完成任务，更是确保人类对问题、方案及影响有可复述、可辩护的掌握。它通过增量教学、用户复述、清单+测验等方式，围绕问题域、方案域和语境域三条轴线展开，",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "Meta的AI被利用来劫持Instagram账号",
+        "url": "https://www.theverge.com/tech/941179/meta-instagram-ai-support-chatbot-exploit-hacked",
+        "score": 73,
+        "source": "AI热点",
+        "summary": "Meta的AI聊天机器人被发现存在安全漏洞，黑客可以通过请求该AI关联一个新的电子邮件地址，从而接管目标用户的Instagram账号。该漏洞利用了AI智能体直接执行账户管理操作的能力。",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "OpenAI在密歇根州启动Stargate 1GW数据中心建设",
+        "url": "https://openai.com/index/stargate-michigan-data-center",
+        "score": 73,
+        "source": "AI热点",
+        "summary": "OpenAI在密歇根州启动了名为Stargate的1GW数据中心项目。作为AI基础设施建设的一部分，该项目旨在扩大人工智能技术的可及性、为当地创造就业机会并支持社区发展。",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "SenseNova新模型解决AI图表生成难题",
+        "url": "https://x.com/SenseTime_AI/status/2061465029959209106",
+        "score": 74,
+        "source": "AI热点",
+        "summary": "大多数AI模型在生成图表时存在数值错误（如负值显示为正）、柱状图位置偏移、元素关系混乱等问题。SenseNova-U1-8B-MoT-Infographic（SenseNova-U1）专为解决此类图表生成问题而设计，能够生成准确的图表，并支持实时调整设计和布局。项目在Hugging Face提供了模",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "The Next Factory: How Jensen Huang’s Armies of AI Agents Are Redefining the Compute Economy",
+        "url": "https://www.tmtpost.com/8011677.html",
+        "score": 76,
+        "source": "钛媒体",
+        "summary": "At the Computex Taipei, Nvidia CEO Jensen Huang declared that tech has entered the era of autonomous \"agentic AI\" workers. To anchor this shift, Nvidi",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "Mac电脑安装OpenClaw教程",
+        "url": "https://www.williamlong.info/archives/7536.html",
+        "score": 76,
+        "source": "月光博客",
+        "summary": "自2026年1月起，一款名为OpenClaw（网友俗称&ldquo;小龙虾&rdquo;）的开源AI智能体在国内外社交媒体爆火，并衍生出收费安装服务。北京、上海、深圳等地的不少企业放出了&ldquo;OpenClaw开发工程师&rdquo;等岗位，其要求不限于&ldquo;熟悉OpenClaw工具，",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "Nvidia chases $200B CPU market with AI agent PCs from Microsoft, Dell, and HP",
+        "url": "https://techcrunch.com/2026/06/01/nvidia-chases-200b-cpu-market-with-ai-agent-pcs-from-microsoft-dell-and-hp/",
+        "score": 76,
+        "source": "TechCrunch",
+        "summary": "If Nvidia has cracked a way to bring AI agents easily, safely, and usefully to the masses, it could — and should — be big.",
+        "perspective": "",
+        "action": ""
+      }
+    ],
+    "参考": [
+      {
+        "title": "pewdiepie-archdaemon/odysseus",
+        "url": "https://github.com/pewdiepie-archdaemon/odysseus",
+        "score": 60,
+        "source": "GitHub",
+        "summary": "Self-hosted AI workspace. ",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "withkynam/vibecode-pro-max-kit",
+        "url": "https://github.com/withkynam/vibecode-pro-max-kit",
+        "score": 62.1,
+        "source": "GitHub",
+        "summary": "Your AI forgets. This remembers. Spec-driven coding harness for vibecoders, product owners, CEOs and real builders — self-improving context memory, 12",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "DannyMac180/skills",
+        "url": "https://github.com/DannyMac180/skills",
+        "score": 61.1,
+        "source": "GitHub",
+        "summary": "AI agent skills created by me: Dan McAteer",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "yb2460/harness-anything",
+        "url": "https://github.com/yb2460/harness-anything",
+        "score": 60.9,
+        "source": "GitHub",
+        "summary": "CLI harness for WPS Office -- let AI agents control Writer, Calc & Impress via COM automation",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "stormneonnightraven4640692/DeepFake-AI-RealTime",
+        "url": "https://github.com/stormneonnightraven4640692/DeepFake-AI-RealTime",
+        "score": 68.5,
+        "source": "GitHub",
+        "summary": "An advanced, LLM-powered toolkit providing comprehensive capabilities for ethical synthetic media detection, analysis, and responsible content generat",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "2aronS/Duel-Agents",
+        "url": "https://github.com/2aronS/Duel-Agents",
+        "score": 63.0,
+        "source": "GitHub",
+        "summary": "CLI, SDK, and IDE plugins for Duel Agents",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "ClaudioDrews/memory-os",
+        "url": "https://github.com/ClaudioDrews/memory-os",
+        "score": 61.2,
+        "source": "GitHub",
+        "summary": "A 7-layer memory operating system for Hermes Agent — persistent memory with Qdrant, structured facts, fabric recall, auto-curated wiki, and surgical c",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "trynullsec/nullsec-s1",
+        "url": "https://github.com/trynullsec/nullsec-s1",
+        "score": 60.4,
+        "source": "GitHub",
+        "summary": "Security-native LLM system for AI-generated application security.",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "Liu-Ming-Yu/alpha-forge",
+        "url": "https://github.com/Liu-Ming-Yu/alpha-forge",
+        "score": 60.2,
+        "source": "GitHub",
+        "summary": "Alpha Forge — an agentic AI operating system for systematic trading.",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "hwl668/Scientific-learning-skills-",
+        "url": "https://github.com/hwl668/Scientific-learning-skills-",
+        "score": 60.0,
+        "source": "GitHub",
+        "summary": "Diagnosis-first Agent Skills that turn AI from answer machine into   learning tutor.",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "前美团外卖技术负责人创业，做具身智能时代的“餐饮世界模型”",
+        "url": "https://36kr.com/p/3834292242130825?f=rss",
+        "score": 69,
+        "source": "36氪",
+        "summary": "\n \n \n  具身智能的落地，正在从实验室走向最真实、最繁忙的物理世界。\n  而元节智能（AtomBite.AI）选择了一个看起来并不性感、但足够真实的场景：餐饮后厨。\n  36氪获悉，具身智能公司元节智能近日完成千万级种子轮融资，由英诺科创基金领投，水木清华校友种子基金、知名投资人个人跟投。资金将",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "Anthropic扩展Project Glasswing计划",
+        "url": "https://www.anthropic.com/news/expanding-project-glasswing",
+        "score": 65,
+        "source": "AI热点",
+        "summary": "Anthropic正将其Project Glasswing计划扩展至约150个新组织，此前首批约50个合作伙伴。新伙伴分布于十五个多国家，覆盖电力、水务、医疗、通信和硬件等关键基础设施行业。这些合作伙伴的共同点在于，其代码库若遭成功攻击，后果可能极其严重，影响或超1亿人。项目旨在利用Claude M",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "Qwen3.7-Plus：多模态智能体智能",
+        "url": "https://qwen.ai/blog?id=qwen3.7-plus",
+        "score": 66,
+        "source": "AI热点",
+        "summary": "Qwen Studio 提供涵盖聊天机器人、图像与视频理解、图像生成、文档处理、网页搜索集成、工具使用及制品生成的全面功能。",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "机器人运控训练步入分钟级时代！清华AIR开源UniLab：3分钟训好人形，速度暴涨10倍，Mac上也能跑",
+        "url": "https://www.qbitai.com/2026/06/427729.html",
+        "score": 61,
+        "source": "量子位",
+        "summary": "全新的机器人强化学习训练架构",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "从插件到 AI 辅助：Obsidian 如何成为我的主力工具",
+        "url": "https://sspai.com/post/109850",
+        "score": 61,
+        "source": "少数派",
+        "summary": "我觉得二十一世纪的知识管理工作者，不使用 Obsidian 真的是错过一个亿，真正怎么样还得上手体验了才知道。当我自己慢慢花时间沉浸式使用的时候，明显感觉现在的 Obsidian 真的好用了一倍不止。查看全文",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "滴普科技赵杰辉：企业 AI 技术生态，正在被重构",
+        "url": "https://www.tmtpost.com/8011496.html",
+        "score": 68,
+        "source": "钛媒体",
+        "summary": "在新的结构里，那些「替模型补短板」的技术方案会退到边缘甚至退场，而企业知识层与企业智能体层会成为新的核心。",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "港股“北归”：智谱和MiniMax为何急着回A？",
+        "url": "https://www.tmtpost.com/8011340.html",
+        "score": 60,
+        "source": "钛媒体",
+        "summary": "国内AI大模型正筹划“双城记”。 近日，“全球大模型第一股”智谱（02513.HK）正式建议向国内监管机构申请配发及发行A股，计划在科创板上市，建议A股的发行数量占扩大后股本额2%-8%之间，募集资金以用于AI通用基座大模型、大模型MaaS一站式平台和补充流动资金。",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "制糖工厂发布 AI 小电拼 Mirror：琥珀屏、双支架与可拼拆设计，重构桌面能源设备",
+        "url": "https://www.ifanr.com/1667822?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 69,
+        "source": "爱范儿",
+        "summary": " AI 小电拼 Mirror 作为 AI 小电拼系列的新一代旗舰产品，Mirror 延续小电拼家族的可拼拆结构，并新增 0.5 英寸 ingBar 琥珀状态屏、Wingie 蝶架与 Oxie 牛架，在桌面显示、支架形态与家旅双栖体验上完成了一次系统化更新。#欢迎关注爱范儿官方微信公众号：爱范儿（微信",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "任务成本仅为Claude Opus 4.6 1/9，阶跃刷新Flash模型效率",
+        "url": "https://www.ifanr.com/1667680?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 61,
+        "source": "爱范儿",
+        "summary": "Flash 模型，不再是旗舰的平替#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "腾讯QQ开放OpenClaw官方接入",
+        "url": "https://www.williamlong.info/archives/7537.html",
+        "score": 68,
+        "source": "月光博客",
+        "summary": "3月7日消息，腾讯昨日面向个人用户开放了一项新功能，允许通过官方渠道快速创建能与 AI 智能体工具 OpenClaw 联动的 QQ 机器人。\n\n根据腾讯 QQ 开放平台发布的信息，用户只需通过手机 QQ 扫码登陆即可完成开发者账号注册（没有实名的 QQ 仍需完成实名登记），只需点击一次鼠标即可完成 ",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "Zigging when most are zagging, ex-Meta CTO raises $250M climate fund",
+        "url": "https://techcrunch.com/2026/06/01/zigging-when-most-are-zagging-ex-meta-cto-raises-250m-climate-fund/",
+        "score": 61,
+        "source": "TechCrunch",
+        "summary": "Mike Schroepfer's Gigascale Capital has raised a large fund to back founders building climate-friendly solutions for the world's energy and material s",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "I set 10 honesty traps for Claude Opus 4.8 - and a legal test broke it",
+        "url": "https://www.zdnet.com/article/claude-opus-4-8-honesty-test/",
+        "score": 68,
+        "source": "ZDNet",
+        "summary": "I tested Opus 4.8 against 4.7 using coding, medical, finance, and legal traps, then cross-checked the results with multiple AIs.",
+        "perspective": "",
+        "action": ""
+      },
+      {
+        "title": "For veterans, a place where peace can take root",
+        "url": "https://www.npr.org/2026/06/02/nx-s1-5843247/veterans-garden-la",
+        "score": 60,
+        "source": "NPR新闻",
+        "summary": "Iraq war veteran John Follmer leads vet volunteers who are rehabbing a neglected Japanese garden on the West LA Veterans Affairs Campus. ",
+        "perspective": "",
+        "action": ""
+      }
+    ]
+  }
+}

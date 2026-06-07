@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="扶清闲话 - 阿扶的创作档案馆。原创79篇，关注116人。用真实经历陪伴同路人，探索存在、爱与成长。">
+<meta name="keywords" content="阿扶, 扶清闲话, 个人成长, 心理学, AI, 写作, 创作, 存在主义">
+<meta name="author" content="阿扶">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://afuxh.github.io/fuqing-profile/archive.html">
+<meta property="og:title" content="扶清闲话 | 阿扶的创作档案馆">
+<meta property="og:description" content="原创79篇，关注116人。用真实经历陪伴同路人，探索存在、爱与成长。">
+<meta property="og:image" content="https://afuxh.github.io/fuqing-profile/og-image.jpg">
+
+<title>扶清闲话 | 阿扶的创作档案馆</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ========== 与首页一致的设计系统 ========== */
+:root {
+--bg: #0a0d22;
+--bg-gradient: linear-gradient(135deg, #0a0d22 0%, #1a1f3a 50%, #0d1128 100%);
+--card: rgba(18, 24, 51, 0.75);
+--card-hover: rgba(26, 34, 69, 0.9);
+--text: #e6f7ff;
+--text2: #a0c4e0;
+--text3: #6b8cae;
+--blue: #4dabf7;
+--cyan: #3bc9db;
+--orange: #ffaa55;
+--pink: #ff66aa;
+--purple: #7d5fff;
+--success: #51cf66;
+--max-width: 1200px;
+--transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+--nav-height: 60px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+font-family: 'Orbitron', 'Noto Serif SC', 'Microsoft YaHei', sans-serif;
+background: var(--bg-gradient);
+color: var(--text);
+line-height: 1.8;
+width: 100%;
+max-width: var(--max-width);
+margin: 0 auto;
+padding: 20px;
+padding-top: calc(var(--nav-height) + 20px);
+position: relative;
+min-height: 100vh;
+scroll-behavior: smooth;
+overflow-x: hidden;
+}
+
+body::before {
+content: "";
+position: fixed;
+top: 0; left: 0;
+width: 200%; height: 200%;
+background: 
+radial-gradient(circle at 10% 20%, rgba(77,171,247,0.08) 0%, transparent 25%),
+radial-gradient(circle at 90% 80%, rgba(125,95,255,0.1) 0%, transparent 30%),
+radial-gradient(circle at 50% 50%, rgba(255,170,85,0.05) 0%, transparent 35%),
+radial-gradient(circle at 30% 70%, rgba(59,201,219,0.06) 0%, transparent 25%);
+z-index: -3;
+animation: drift 150s linear infinite;
+pointer-events: none;
+}
+@keyframes drift { 0% { transform: translate(0, 0); } 100% { transform: translate(-50%, -50%); } }
+
+/* 导航栏 */
+.top-nav {
+position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height);
+background: rgba(18, 24, 51, 0.85); backdrop-filter: blur(15px);
+border-bottom: 1px solid rgba(77, 171, 247, 0.25);
+display: flex; align-items: center; justify-content: space-between;
+padding: 0 28px; z-index: 1001; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.nav-logo { font-weight: 800; font-size: 20px; color: var(--orange); text-shadow: 0 0 10px rgba(255,170,85,0.5); text-decoration: none; cursor: pointer; }
+.nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
+.nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 600; transition: var(--transition); cursor: pointer; }
+.nav-links a:hover { color: var(--orange); }
+.hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { width: 22px; height: 2px; background: var(--text); transition: 0.3s; }
+
+/* 太阳系/飞船/星星/光点 */
+.background-solar-system { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; pointer-events:none; overflow:hidden; }
+.solar-center { position: absolute; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, var(--orange), var(--pink)); box-shadow: 0 0 40px rgba(255, 170, 85, 0.8), 0 0 80px rgba(255, 170, 85, 0.5); animation: starPulse 4s ease-in-out infinite; }
+@keyframes starPulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(255, 170, 85, 0.8), 0 0 80px rgba(255, 170, 85, 0.5); } 50% { transform: scale(1.08); box-shadow: 0 0 55px rgba(255, 170, 85, 1), 0 0 95px rgba(255, 170, 85, 0.7); } }
+.solar-orbit { position: absolute; border: 1px solid rgba(77, 171, 247, 0.15); border-radius: 50%; }
+.solar-planet { position: absolute; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px currentColor; }
+
+.spaceship { position: fixed; width: 80px; height: 30px; z-index: -1; pointer-events: none; opacity: 0; }
+.spaceship-body { width: 60px; height: 20px; background: linear-gradient(90deg, var(--blue), var(--cyan)); border-radius: 10px 20px 20px 10px; position: relative; }
+.spaceship-window { position: absolute; width: 12px; height: 12px; background: rgba(255, 255, 255, 0.8); border-radius: 50%; top: 4px; left: 10px; box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
+.spaceship-engine { position: absolute; width: 25px; height: 12px; background: linear-gradient(90deg, var(--orange), var(--pink)); border-radius: 50% 0 0 50%; right: -20px; top: 4px; animation: engineFlicker 0.3s ease-in-out infinite; }
+@keyframes engineFlicker { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
+.spaceship-fly { animation: flyAcross 15s linear forwards; }
+@keyframes flyAcross { 0% { transform: translateX(-100px) translateY(0) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateX(calc(100vw + 100px)) translateY(100px) rotate(5deg); opacity: 0; } }
+
+.stars { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events: none; }
+.star { position: absolute; background: white; border-radius: 50%; animation: twinkle 4s infinite ease-in-out; box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+@keyframes twinkle { 0%,100% { opacity:0.3; transform:scale(0.8); } 50% { opacity:1; transform:scale(1.2); } }
+.floating-light { position: fixed; width: 4px; height: 4px; background: var(--blue); border-radius: 50%; box-shadow: 0 0 15px var(--blue); animation: float 20s infinite linear; z-index: -2; pointer-events: none; }
+@keyframes float { 0% { transform: translateY(100vh) translateX(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-100vh) translateX(50px); opacity: 0; } }
+
+.scroll-progress { position: fixed; top: var(--nav-height); left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--orange), var(--pink)); z-index: 1000; transition: width 0.1s ease; box-shadow: 0 0 10px rgba(255, 170, 85, 0.5); }
+.back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: linear-gradient(135deg, var(--blue), var(--purple)); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999; box-shadow: 0 5px 20px rgba(77, 171, 247, 0.5); border: 2px solid rgba(255, 255, 255, 0.2); }
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top::before { content: "↑"; font-size: 24px; color: white; font-weight: 700; }
+
+section { background: rgba(18, 24, 51, 0.85); margin-bottom: 30px; padding: 25px; border-radius: 18px; backdrop-filter: blur(15px); border: 1px solid rgba(77, 171, 247, 0.25); opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease, transform 0.6s ease; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25); }
+section.visible { opacity: 1; transform: translateY(0); }
+h2 { font-size: clamp(24px, 4.5vw, 32px); font-weight: 700; color: var(--blue); margin-bottom: 20px; display: flex; align-items: center; }
+h2::before { content: ""; width: 4px; height: 28px; background: linear-gradient(to bottom, var(--blue), var(--cyan)); margin-right: 18px; border-radius: 2px; box-shadow: 0 0 12px rgba(77, 171, 247, 0.5); }
+h3 { font-size: clamp(19px, 3vw, 23px); font-weight: 600; color: var(--orange); margin: 15px 0 12px 0; }
+p { margin-bottom: 14px; font-size: clamp(14px, 2vw, 16px); line-height: 1.8; }
+
+/* 文章系列卡片 */
+.series-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+@media (min-width: 768px) { .series-grid { grid-template-columns: repeat(2, 1fr); } }
+.series-card { background: rgba(26, 34, 69, 0.7); padding: 20px; border-radius: 12px; border-left: 4px solid var(--blue); cursor: pointer; transition: var(--transition); perspective: 1000px; }
+.series-card:hover { border-left-color: var(--orange); transform: translateX(5px); box-shadow: 0 5px 18px rgba(0,0,0,0.2); }
+
+/* 3D翻转卡片 */
+.flip-card { perspective: 1000px; height: 100%; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
+.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 12px; }
+.flip-card-back { transform: rotateY(180deg); background: rgba(26, 34, 69, 0.95); border: 1px solid rgba(77, 171, 247, 0.4); padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.flip-card-back .flip-hint { color: var(--orange); font-size: 13px; margin-top: 12px; opacity: 0.8; }
+.flip-card-back .article-count { font-size: 32px; font-weight: 800; color: var(--blue); text-shadow: 0 0 20px rgba(77,171,247,0.5); }
+.flip-card-back .series-desc-back { color: var(--text2); font-size: 14px; margin-top: 8px; line-height: 1.6; }
+.series-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.series-desc { font-size: 13px; color: var(--text2); margin-bottom: 10px; line-height: 1.5; }
+.article-list { list-style: none; padding: 0; }
+.article-list li { font-size: 13px; color: var(--text3); padding: 3px 0; transition: var(--transition); cursor: pointer; }
+.article-list li:hover { color: var(--orange); padding-left: 8px; }
+.article-list li::before { content: "▹ "; color: var(--cyan); }
+
+footer { text-align: center; padding: 35px 0; margin-top: 50px; background: rgba(18, 24, 51, 0.85); color: var(--text2); font-size: 14px; border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid rgba(77, 171, 247, 0.25); box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25); }
+footer p { margin-bottom: 12px; }
+.final-quote { font-size: clamp(20px, 5vw, 26px); color: var(--orange); font-weight: 700; margin-top: 25px; text-shadow: 0 0 20px rgba(255, 170, 85, 0.5), 0 0 40px rgba(255, 170, 85, 0.3); line-height: 1.6; }
+
+@media (max-width: 767px) {
+body { padding: 10px; padding-top: calc(var(--nav-height) + 10px); }
+.nav-links { position: fixed; top: var(--nav-height); left: 0; right: 0; background: rgba(18, 24, 51, 0.95); backdrop-filter: blur(15px); flex-direction: column; padding: 20px; gap: 15px; transform: translateY(-120%); transition: 0.3s; z-index: 1000; }
+.nav-links.open { transform: translateY(0); }
+.hamburger { display: flex; }
+section, footer { padding: 20px 14px; }
+.back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
+}
+@media print { body::before, .stars, .loading-overlay, .floating-light, .scroll-progress, .back-to-top, .background-solar-system, .spaceship, .top-nav { display: none; } body { background: white; color: black; } section { break-inside: avoid; background: white; border: 1px solid #ccc; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
+</style>
+
+<!-- i18n 语言包 -->
+<script>
+const i18n = {
+  "zh-CN": {
+    "nav_home": "首页",
+    "nav_archive": "创作档案馆",
+    "nav_margins": "读书笔记",
+    "nav_hotnews": "热点聚合",
+    "lang_btn": "🌐 EN"
+  },
+  "en-US": {
+    "nav_home": "Home",
+    "nav_archive": "Archive",
+    "nav_margins": "Notes",
+    "nav_hotnews": "News",
+    "lang_btn": "🌐 中"
+  }
+};
+let currentLang = localStorage.getItem('hn_lang') || 'zh-CN';
+function applyLanguage() {
+  const texts = i18n[currentLang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (texts[key]) el.textContent = texts[key];
+  });
+  document.documentElement.lang = currentLang === 'zh-CN' ? 'zh-CN' : 'en';
+  updateLangButton();
+}
+function toggleLanguage() {
+  currentLang = currentLang === 'zh-CN' ? 'en-US' : 'zh-CN';
+  localStorage.setItem('hn_lang', currentLang);
+  applyLanguage();
+}
+function updateLangButton() {
+  const btn = document.getElementById('langToggle');
+  if (btn) btn.textContent = i18n[currentLang]['lang_btn'];
+}
+document.addEventListener('DOMContentLoaded', applyLanguage);
+</script>
+
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav class="top-nav">
+<a class="nav-logo" href="index.html">🚀 扶清闲话</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">首页</a></li>
+<li><a href="margins.html">读书笔记</a></li>
+<li><a href="handbook.html">交流手册</a></li>
+<li><a href="简报双端.html">思想简报</a></li>
+<li><a href="hot-news.html">AI热点</a></li>
+<li><a href="archive.html" class="active">档案馆</a></li>
+</ul>
+<button class="hamburger" id="hamburger" aria-label="菜单">
+<span></span><span></span><span></span>
+</button>
+</nav>
+
+<!-- 背景装饰 -->
+<div class="background-solar-system" id="background-solar-system"></div>
+<div class="spaceship" id="spaceship"><div class="spaceship-body"><div class="spaceship-window"></div><div class="spaceship-engine"></div></div></div>
+<div class="scroll-progress" id="scroll-progress"></div>
+<div class="back-to-top" id="back-to-top" title="返回顶部"></div>
+<div class="loading-overlay" id="loading-overlay"><div class="loader"></div></div>
+<div class="stars" id="stars"></div>
+<div id="floating-lights"></div>
+
+<!-- 主内容区 -->
+<div id="main-content">
+
+<header>
+<h1>📚 创作档案馆</h1>
+<p style="text-align:center; color:var(--text2); font-size:18px; margin-bottom:20px;">79篇原创，按系列整理。每一篇都是我存在过的证明。</p>
+</header>
+
+<!-- 核心代表作系列 -->
+<section aria-labelledby="core-series">
+<h2 id="core-series">🌟 核心代表作</h2>
+<div class="series-grid">
+<div class="series-card flip-card" onclick="this.classList.toggle('flipped')">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="series-title">自我觉醒五部曲</div>
+<div class="series-desc">从"你不是你"到"存在，就值得被爱"，一条清晰的向内探索路径。</div>
+<ul class="article-list">
+<li>《你不是你》- 崩溃、心理暗示与自控的起点</li>
+<li>《我依然是我》- 痛苦没有任何意义，吃苦不是必由之路</li>
+<li>《等不来花开》- 爱就像风筝断线飘走的无奈</li>
+<li>《不完美小孩》- 被爱，所以在慢慢变优秀</li>
+<li>《被讨厌的勇气》- 一切烦恼都来自人际关系</li>
+</ul>
+</div>
+<div class="flip-card-back">
+<div class="article-count">5</div>
+<div class="series-desc-back">篇深度长文<br>关于自我认知的完整路径</div>
+<div class="flip-hint">点击翻回</div>
+</div>
+</div>
+</div>
+<div class="series-card flip-card" onclick="this.classList.toggle('flipped')">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="series-title">边界与重建</div>
+<div class="series-desc">在关系中设立边界，在崩溃后重建自我。</div>
+<ul class="article-list">
+<li>《我决定不再秒回消息了》- 边界才是我所需要的</li>
+<li>《我决定不再用"想太多"惩罚自己了》- 存在，就值得被爱</li>
+<li>《复染》- 暗淡的我，好像失去了自己的颜色</li>
+<li>《只有优秀才值得被爱吗？》- 存在本身，就被爱</li>
+<li>《存在，就值得被爱》- 春天不问花是否鲜艳</li>
+</ul>
+</div>
+<div class="flip-card-back">
+<div class="article-count">5</div>
+<div class="series-desc-back">篇关系疗愈<br>从崩溃到重建的完整记录</div>
+<div class="flip-hint">点击翻回</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 书信体系列 -->
+<section aria-labelledby="letters-series">
+<h2>💌 亲爱的x · 书信体系列</h2>
+<div class="series-grid">
+<div class="series-card">
+<div class="series-title">成长与关系</div>
+<ul class="article-list">
+<li>《关于成长》- 我需要你接住我的情绪</li>
+<li>《关于过去》- 以前的事这么值得你回忆吗</li>
+<li>《关于现在》- 一个人的生活从来算不上什么生活</li>
+<li>《关于苦难》- 苦难从不带来什么</li>
+<li>《关于未来》- 人们是因为期待才选择将生活继续下去</li>
+<li>《关于关系中的自我》- 高期待带来的大失望</li>
+<li>《关于放松》- 放松从来就不是某种任务</li>
+<li>《关于写作》- 写作是我的恋人</li>
+</ul>
+</div>
+<div class="series-card">
+<div class="series-title">存在与告别</div>
+<ul class="article-list">
+<li>《致写作——破百粉篇》- 三年学会用文字告别</li>
+<li>《我来了》- 21岁生日，来赴三年之约</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- AI与时代思考 -->
+<section aria-labelledby="ai-series">
+<h2>🤖 AI与时代思考</h2>
+<div class="series-grid">
+<div class="series-card">
+<div class="series-title">AI时代生存指南</div>
+<ul class="article-list">
+<li>《AI来了，我们往哪走？》- 未来不是被决定的，而是被创造的</li>
+<li>《为什么你看到的AI新闻，都是卖课的？》- 不是月亮更圆，是喇叭更响</li>
+<li>《AI时代，普通人的务实生存指南》- 唯一的安全，是保持思考</li>
+<li>《对AI的乐观，是对人类的悲观》- AI是工具，不是神</li>
+<li>《AI，凭什么取代人类？》- 发展是必然的，风险与机遇并存</li>
+<li>《AI时代，被取代的从业者可以去往哪里？》- 你才是真正能够创造的人类</li>
+</ul>
+</div>
+<div class="series-card">
+<div class="series-title">思考与技术反思</div>
+<ul class="article-list">
+<li>《思考变少了，答案变多了》- 是工具变强了，还是我变笨了？</li>
+<li>《前额叶过热时，别逼自己自律》- 崩溃并不是可控的选项</li>
+<li>《AI永远无法替代的，是一个人有限的选择》- 同类是用来相遇的</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- 社会观察与批判 -->
+<section aria-labelledby="social-series">
+<h2>🔍 社会观察与批判</h2>
+<div class="series-grid">
+<div class="series-card">
+<div class="series-title">消费与阶层</div>
+<ul class="article-list">
+<li>《定价牌上的公投》- 79元买断表情，5元续足迹</li>
+<li>《莫氏鸡煲爆火的背后》- 历史的荒诞，与分享的代价</li>
+<li>《快跑！别让成功抓住你》- 成功是任由他人评说的</li>
+<li>《应试教育怎么你了？》- 我到底在向谁证明</li>
+<li>《应试教育怎么你了·续》- 滋养自己，就是不再需要那张考卷</li>
+</ul>
+</div>
+<div class="series-card">
+<div class="series-title">性别与结构</div>
+<ul class="article-list">
+<li>《一篇文章带你理清男女平等》- 权利斗争离不开阶级斗争</li>
+<li>《男生说美好，女生说不值得》- 这不是性别问题，是自我保护问题</li>
+<li>《绿色书脊的缺席，是滋养的缺席》- 从缺席的地方，第一个在场</li>
+<li>《插线板实验的真相，和景区厕所的真正问题》- 批判是对准那张困住所有人的旧地图</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- 生活随笔与诗歌 -->
+<section aria-labelledby="life-series">
+<h2>✍️ 生活随笔与诗歌</h2>
+<div class="series-grid">
+<div class="series-card">
+<div class="series-title">诗歌与创作</div>
+<ul class="article-list">
+<li>《云锦未尽时》- 织女的金梭碎成流萤</li>
+<li>《裂帛录》- 最利的银针也挑不出冬衣里积年的雪</li>
+<li>《游戏人生》- 崩溃是系统提示，不是Game Over</li>
+<li>《再飞行》- 所有坠落的，终将学会飞行</li>
+<li>《火种之上》- 苦难可以碾碎脊梁，也能锻造成梯子</li>
+<li>《使一颗心免于哀伤》- 所有看似破碎的时刻，不过是生命在重组发光的序列</li>
+</ul>
+</div>
+<div class="series-card">
+<div class="series-title">随笔与记录</div>
+<ul class="article-list">
+<li>《拿不住的伞》- 成长只是我们还在走的路</li>
+<li>《夜晚，我走在盲道上》- 完成比完美更重要</li>
+<li>《奶奶走后，我写下的这些字》- 亲人的离世，是一场连绵不断的阴雨</li>
+<li>《重复生活自救指南》- 在重复中认出自己</li>
+<li>《记实习至今》- 人最可贵的是感受痛苦和及时喊停的能力</li>
+<li>《牛马？犬儒才当！》- 人是会感受到痛苦的</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- 读书笔记 -->
+<section aria-labelledby="notes-series">
+<h2>📖 读书笔记系列</h2>
+<div class="series-grid">
+<div class="series-card">
+<div class="series-title">心理学与自我成长</div>
+<ul class="article-list">
+<li>《被讨厌的勇气》第一夜至第五夜 · 完整笔记</li>
+<li>《幸福的勇气》第一章至第三章 · 笔记</li>
+<li>《共情的力量》第一章 & 第二章 · 笔记</li>
+<li>《非暴力沟通》第一章 & 第二章 · 笔记</li>
+<li>《自控力》核心摘录</li>
+<li>《自卑与超越》篇章摘要</li>
+</ul>
+</div>
+<div class="series-card">
+<div class="series-title">文学与思考</div>
+<ul class="article-list">
+<li>《悉达多》黑塞读书笔记①-⑤</li>
+<li>《大学突围》阅读思维养成</li>
+<li>《个体崛起》书评/摘录</li>
+<li>《和时间做朋友》第零章</li>
+<li>《绿色书脊的缺席，是滋养的缺席》- 结构批判</li>
+</ul>
+</div>
+</div>
+</section>
+
+<footer id="footer">
+<p>© 2022-至今 扶清闲话 · 79篇原创 · 116位读者 · 用文字陪伴同路人</p>
+<p class="final-quote">未来不是被决定的，是被创造的。</p>
+<p style="margin-top:12px; font-size:13px; line-height:1.8;">
+  <a href="index.html" style="color:var(--orange);text-decoration:none;">首页</a> ·
+  <a href="archive.html" style="color:var(--orange);text-decoration:none;">创作档案馆</a> ·
+  <a href="margins.html" style="color:var(--orange);text-decoration:none;">读书笔记</a> ·
+  <a href="handbook.html" style="color:var(--orange);text-decoration:none;">交流手册</a> ·
+  <a href="hot-news.html" style="color:var(--orange);text-decoration:none;">AI热点</a>
+</p>
+<p style="margin-top:12px; font-size:14px; opacity:0.9; line-height:1.6;">
+<strong>欢迎加我微信，一起交流成长</strong><br>
+微信号：fqxh_17343414886<br>
+备注"扶清闲话+你的名字"，我会通过～
+</p>
+</footer>
+
+</div>
+
+<script>
+// 移动端菜单
+document.getElementById('hamburger').addEventListener('click', () => {
+document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('#navLinks a').forEach(link => {
+link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+
+// 背景太阳系
+function createBackgroundSolarSystem() {
+const container = document.getElementById('background-solar-system');
+const isMobile = window.innerWidth < 768;
+const centerX = isMobile ? window.innerWidth * 0.85 : window.innerWidth * 0.8;
+const centerY = isMobile ? window.innerHeight * 0.8 : window.innerHeight * 0.75;
+const center = document.createElement('div'); center.className = 'solar-center';
+center.style.left = `${centerX - 30}px`; center.style.top = `${centerY - 30}px`;
+container.appendChild(center);
+const orbits = isMobile ? [50,80,110,140,170] : [80,130,180,230,280];
+const colors = ['#4dabf7','#3bc9db','#ffaa55','#7d5fff','#51cf66'];
+const sizes = isMobile ? [8,10,12,14,16] : [12,15,18,21,24];
+orbits.forEach((radius,i) => {
+const orbit = document.createElement('div'); orbit.className = 'solar-orbit';
+orbit.style.width = orbit.style.height = `${radius*2}px`;
+orbit.style.left = `${centerX - radius}px`; orbit.style.top = `${centerY - radius}px`;
+container.appendChild(orbit);
+const planet = document.createElement('div'); planet.className = 'solar-planet';
+planet.style.width = planet.style.height = `${sizes[i]}px`;
+planet.style.background = colors[i]; planet.style.boxShadow = `0 0 10px ${colors[i]}`;
+container.appendChild(planet);
+let angle = Math.random()*Math.PI*2;
+const speed = (0.0003 + i*0.0001) * (isMobile?1.5:1);
+(function animate() {
+angle += speed;
+planet.style.left = `${centerX + Math.cos(angle)*radius - sizes[i]/2}px`;
+planet.style.top = `${centerY + Math.sin(angle)*radius - sizes[i]/2}px`;
+requestAnimationFrame(animate);
+})();
+});
+}
+
+// 飞船
+function createSpaceship() {
+const ship = document.getElementById('spaceship');
+setTimeout(() => {
+const y = Math.random() * (window.innerHeight - 100);
+ship.style.left = '-100px'; ship.style.top = y+'px';
+ship.classList.add('spaceship-fly');
+setTimeout(() => { ship.classList.remove('spaceship-fly'); createSpaceship(); }, 15000);
+}, 30000 + Math.random()*60000);
+}
+
+// 星星与光点
+function createStars() {
+const container = document.getElementById('stars');
+for(let i=0; i<(window.innerWidth<768?80:150); i++) {
+const s = document.createElement('div'); s.className = 'star';
+s.style.left = Math.random()*100+'%'; s.style.top = Math.random()*100+'%';
+s.style.width = s.style.height = (Math.random()*2+1)+'px';
+s.style.animationDelay = Math.random()*4+'s';
+container.appendChild(s);
+}
+}
+(function createFloatingLights() {
+const container = document.getElementById('floating-lights');
+for(let i=0; i<15; i++) {
+const l = document.createElement('div'); l.className = 'floating-light';
+l.style.left = Math.random()*100+'%';
+l.style.animationDelay = Math.random()*20+'s';
+l.style.background = ['var(--blue)','var(--cyan)','var(--purple)','var(--orange)'][Math.floor(Math.random()*4)];
+container.appendChild(l);
+}
+})();
+
+// 滚动进度条与返回顶部
+window.addEventListener('scroll', () => {
+const progress = document.getElementById('scroll-progress');
+const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+progress.style.width = scrollPercent + '%';
+document.getElementById('back-to-top').classList.toggle('visible', window.scrollY > 300);
+});
+document.getElementById('back-to-top').addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+// 滚动动画
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('section').forEach(s => observer.observe(s));
+
+// 加载
+setTimeout(() => {
+document.getElementById('loading-overlay').classList.add('hidden');
+document.getElementById('main-content').style.opacity = '1';
+document.getElementById('main-content').style.transform = 'translateY(0)';
+}, 500);
+
+createBackgroundSolarSystem();
+createSpaceship();
+createStars();
+</script>
+</body>
+</html>
