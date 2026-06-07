@@ -129,6 +129,21 @@
         strong { color: var(--text); font-weight: 600; }
         em { color: var(--accent-soft); font-style: italic; }
 
+        /* Tab切换样式 */
+        .plan-tabs { margin-top: 20px; }
+        .plan-tab-header { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+        .plan-tab-btn {
+            padding: 8px 16px; border: 1px solid rgba(201,169,110,0.3);
+            background: transparent; color: var(--text-soft);
+            border-radius: 20px; cursor: pointer; font-size: 14px;
+            transition: all 0.3s ease; font-family: var(--font-sans);
+        }
+        .plan-tab-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .plan-tab-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+        .plan-tab-content { display: none; animation: fadeIn 0.3s ease; }
+        .plan-tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
         blockquote {
             margin: 20px 0;
             padding: 16px 20px;
@@ -496,37 +511,54 @@
             <h2>30 天行动验证计划</h2>
             <p><em>这30天不是用来卷，是用来体验。出发是为了重建，不是为了完成KPI。</em></p>
 
-            <h3>注意力管理 30 天</h3>
-            <ul>
-                <li>第 1 周：用记录表，找出意志力消耗模式，标记“掠夺感”</li>
-                <li>第 2 周：用多巴胺卡，识别触发源</li>
-                <li>第 3 周：固定深度工作时间块</li>
-                <li>第 4 周：复盘，哪些有效，哪些无效</li>
-            </ul>
+            <div class="plan-tabs">
+                <div class="plan-tab-header">
+                    <button class="plan-tab-btn active" onclick="switchPlanTab(0)">🎯 注意力</button>
+                    <button class="plan-tab-btn" onclick="switchPlanTab(1)">✍️ 写作</button>
+                    <button class="plan-tab-btn" onclick="switchPlanTab(2)">🤖 AI使用</button>
+                    <button class="plan-tab-btn" onclick="switchPlanTab(3)">💝 情绪成长</button>
+                </div>
 
-            <h3>写作习惯 30 天</h3>
-            <ul>
-                <li>第 1 周：每天写 300 字，不限内容</li>
-                <li>第 2 周：每天写 500 字，固定时间</li>
-                <li>第 3 周：每周完成一篇完整文章</li>
-                <li>第 4 周：公开发布一篇，收集反馈</li>
-            </ul>
+                <div class="plan-tab-content active">
+                    <h3>注意力管理 30 天</h3>
+                    <ul>
+                        <li>第 1 周：用记录表，找出意志力消耗模式，标记“掠夺感”</li>
+                        <li>第 2 周：用多巴胺卡，识别触发源</li>
+                        <li>第 3 周：固定深度工作时间块</li>
+                        <li>第 4 周：复盘，哪些有效，哪些无效</li>
+                    </ul>
+                </div>
 
-            <h3>AI 使用 30 天</h3>
-            <ul>
-                <li>第 1 周：每天用 AI 完成一个小任务</li>
-                <li>第 2 周：自动化一个重复任务</li>
-                <li>第 3 周：用 AI 辅助创作一篇内容</li>
-                <li>第 4 周：复盘 AI 使用效果，优化工作流，警惕效率陷阱</li>
-            </ul>
+                <div class="plan-tab-content">
+                    <h3>写作习惯 30 天</h3>
+                    <ul>
+                        <li>第 1 周：每天写 300 字，不限内容</li>
+                        <li>第 2 周：每天写 500 字，固定时间</li>
+                        <li>第 3 周：每周完成一篇完整文章</li>
+                        <li>第 4 周：公开发布一篇，收集反馈</li>
+                    </ul>
+                </div>
 
-            <h3>情绪成长 30 天</h3>
-            <ul>
-                <li>第 1 周：用觉察表，记录谈论敏感话题时的感受</li>
-                <li>第 2 周：用练习卡，允许两种感受并存</li>
-                <li>第 3 周：执行转移计划，创造新回忆</li>
-                <li>第 4 周：复盘，有什么变化</li>
-            </ul>
+                <div class="plan-tab-content">
+                    <h3>AI 使用 30 天</h3>
+                    <ul>
+                        <li>第 1 周：每天用 AI 完成一个小任务</li>
+                        <li>第 2 周：自动化一个重复任务</li>
+                        <li>第 3 周：用 AI 辅助创作一篇内容</li>
+                        <li>第 4 周：复盘 AI 使用效果，优化工作流，警惕效率陷阱</li>
+                    </ul>
+                </div>
+
+                <div class="plan-tab-content">
+                    <h3>情绪成长 30 天</h3>
+                    <ul>
+                        <li>第 1 周：用觉察表，记录谈论敏感话题时的感受</li>
+                        <li>第 2 周：用练习卡，允许两种感受并存</li>
+                        <li>第 3 周：执行转移计划，创造新回忆</li>
+                        <li>第 4 周：复盘，有什么变化</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <!-- 附录 -->
@@ -596,6 +628,18 @@
                 s.classList.add('visible');
             }
         });
+
+        // 30天计划Tab切换
+        function switchPlanTab(index) {
+            const buttons = document.querySelectorAll('.plan-tab-btn');
+            const contents = document.querySelectorAll('.plan-tab-content');
+            buttons.forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+            contents.forEach((content, i) => {
+                content.classList.toggle('active', i === index);
+            });
+        }
     </script>
 </body>
 </html>
