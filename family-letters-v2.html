@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>给爸爸妈妈的一封信</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --desk:#3E2C20;--paper:#FFF8E7;--paper-line:#E8DCC8;
+  --warm:#E8985E;--gold:#D4A574;--brown:#4A3728;
+  --seal:#C0392B;--seal-gold:#D4A017;--text:#3E2C20;--light:#8B7355;
+  --ink:#2C1810;
+  --env-w:400px;--env-h:260px
+}
+html,body{width:100%;height:100%;overflow:hidden;
+  font-family:'Georgia','STKaiti','KaiTi','SimSun',serif;
+  -webkit-tap-highlight-color:transparent}
+body{
+  background:var(--desk);
+  background-image:
+    repeating-linear-gradient(90deg,transparent,transparent 50px,rgba(0,0,0,.02) 50px,rgba(0,0,0,.02) 100px),
+    linear-gradient(160deg,#3E2C20,#5C3D2E 40%,#4A3328 70%,#3E2C20);
+  display:flex;align-items:center;justify-content:center;
+  transition:background 1.2s ease
+}
+body.letter-mode{
+  background:linear-gradient(180deg,#E8DCC8 0%,#D4C4A8 100%);
+  overflow-y:auto;align-items:flex-start;justify-content:center
+}
+
+/* ===== Ambient particles ===== */
+.ambient-particles{
+  position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden
+}
+.dust{
+  position:absolute;width:3px;height:3px;background:rgba(212,165,116,.15);
+  border-radius:50%;animation:dustFloat linear infinite
+}
+@keyframes dustFloat{
+  0%{transform:translateY(100vh) translateX(0);opacity:0}
+  10%{opacity:1}
+  90%{opacity:1}
+  100%{transform:translateY(-10vh) translateX(40px);opacity:0}
+}
+
+/* ===== STAGE 1: ENVELOPE ===== */
+.envelope-scene{
+  display:flex;flex-direction:column;align-items:center;
+  cursor:pointer;transition:opacity 1s ease,transform 1s ease;
+  position:relative;z-index:1
+}
+.envelope-scene.gone{opacity:0;transform:scale(.8);pointer-events:none;position:absolute}
+.envelope-wrap{
+  animation:envFloat 4s ease-in-out infinite;
+  position:relative;
+  width:min(400px,84vw);height:min(290px,60vw);
+  perspective:800px
+}
+@keyframes envFloat{0%,100%{transform:translateY(0) rotateX(0)}50%{transform:translateY(-10px) rotateX(1deg)}}
+
+/* Letter peeking out - HIDDEN, envelope fully sealed */
+.env-letter-peek{
+  display:none
+}
+
+/* Envelope body - realistic paper texture */
+.envelope-body{
+  position:absolute;bottom:0;width:100%;height:92%;
+  background:
+    linear-gradient(175deg,#F5E2C8 0%,#EDD5B8 30%,#E5C9A8 70%,#DDBF9A 100%);
+  border-radius:3px;
+  box-shadow:
+    0 12px 50px rgba(0,0,0,.45),
+    0 4px 12px rgba(0,0,0,.2),
+    inset 0 1px 0 rgba(255,255,255,.6),
+    inset 0 -1px 0 rgba(0,0,0,.08);
+  z-index:2;
+  overflow:hidden
+}
+/* Realistic paper fiber texture */
+.envelope-body::before{
+  content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(139,115,85,.015) 4px,rgba(139,115,85,.015) 5px),
+    repeating-linear-gradient(90deg,transparent,transparent 4px,rgba(139,115,85,.01) 4px,rgba(139,115,85,.01) 5px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;opacity:.8
+}
+/* Inner border - double line like real envelopes */
+.envelope-body::after{
+  content:'';position:absolute;inset:8px;
+  border:1px solid rgba(180,150,100,.15);
+  outline:1px solid rgba(180,150,100,.08);
+  outline-offset:3px;
+  border-radius:2px;pointer-events:none
+}
+
+/* Envelope flap (triangle top) - behind seal */
+.envelope-flap{
+  position:absolute;top:0;left:0;width:100%;height:55%;
+  background:linear-gradient(180deg,#EDD9C0 0%,#E5CCAA 60%,#DABB90 100%);
+  clip-path:polygon(0 0,50% 100%,100% 0);
+  z-index:1;
+  transform-origin:top center;
+  transition:transform .8s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 2px 8px rgba(0,0,0,.1)
+}
+.envelope-flap.open{
+  transform:rotateX(180deg);
+  box-shadow:0 -4px 16px rgba(0,0,0,.2)
+}
+
+/* Address area - realistic positioning */
+.envelope-address{
+  position:absolute;bottom:28px;left:28px;z-index:4;
+  font-size:clamp(11px,2.2vw,14px);color:var(--brown);
+  line-height:2.2;letter-spacing:.1em;opacity:.6
+}
+.envelope-address .to{
+  font-size:clamp(14px,3vw,17px);font-weight:600;opacity:1;letter-spacing:.15em;
+  border-bottom:1px solid rgba(74,55,40,.15);padding-bottom:2px;display:inline-block
+}
+
+/* Postcode boxes */
+.envelope-postcode{
+  position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+  display:flex;gap:2px;z-index:4
+}
+.envelope-postcode span{
+  width:clamp(14px,3vw,18px);height:clamp(18px,3.5vw,22px);
+  border:1px solid rgba(74,55,40,.2);border-radius:1px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:clamp(9px,1.8vw,11px);color:var(--brown);opacity:.4
+}
+
+/* Stamp - realistic design, top-left */
+.envelope-stamp{
+  position:absolute;top:14px;left:14px;
+  width:clamp(44px,11vw,52px);height:clamp(52px,13vw,62px);
+  z-index:4;
+  background:linear-gradient(135deg,#FFF8E1,#FFECB3);
+  border:1px solid #D4A574;
+  border-radius:2px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 1px 4px rgba(0,0,0,.15)
+}
+.stamp-perforation{
+  position:absolute;inset:-2px;
+  border:2px dashed transparent;
+  background:
+    radial-gradient(circle 1.5px at 0 0, rgba(180,150,100,.3) 1.5px, transparent 1.5px),
+    radial-gradient(circle 1.5px at 100% 0, rgba(180,150,100,.3) 1.5px, transparent 1.5px),
+    radial-gradient(circle 1.5px at 0 100%, rgba(180,150,100,.3) 1.5px, transparent 1.5px),
+    radial-gradient(circle 1.5px at 100% 100%, rgba(180,150,100,.3) 1.5px, transparent 1.5px);
+  background-size:8px 8px;
+  pointer-events:none
+}
+.stamp-icon{font-size:clamp(18px,4.5vw,24px);line-height:1}
+.stamp-text{font-size:clamp(6px,1.4vw,7px);color:var(--brown);letter-spacing:.05em;margin-top:2px;font-family:sans-serif}
+.stamp-value{font-size:clamp(7px,1.6vw,8px);color:var(--seal);font-weight:700;font-family:sans-serif;margin-top:1px}
+
+/* Postmark - realistic circular stamp, relative to wrap to avoid clip */
+.envelope-postmark{
+  position:absolute;top:6px;right:6px;
+  width:clamp(56px,14vw,66px);height:clamp(56px,14vw,66px);
+  border:2px solid rgba(192,57,43,.4);border-radius:50%;
+  z-index:12;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transform:rotate(-12deg);
+  opacity:.55
+}
+.postmark-city{font-size:clamp(7px,1.6vw,9px);color:var(--seal);font-family:sans-serif;font-weight:700;letter-spacing:.05em}
+.postmark-date{font-size:clamp(5px,1.2vw,6px);color:var(--seal);font-family:sans-serif;letter-spacing:.02em;margin-top:1px}
+.postmark-line{width:70%;height:1px;background:var(--seal);margin:2px 0;opacity:.5}
+
+/* Seal - realistic wax seal */
+.envelope-seal{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:clamp(54px,14vw,66px);height:clamp(54px,14vw,66px);
+  border-radius:50%;z-index:10;
+  background:
+    radial-gradient(circle at 35% 35%,rgba(255,255,255,.15),transparent 50%),
+    radial-gradient(circle at 38% 38%,#E74C3C,#C0392B 50%,#922B21 80%,#7B241C);
+  border:3px solid var(--seal-gold);
+  box-shadow:
+    0 4px 16px rgba(0,0,0,.4),
+    inset 0 -3px 8px rgba(0,0,0,.3),
+    inset 0 2px 6px rgba(255,255,255,.12),
+    0 0 0 1px rgba(212,160,23,.3);
+  display:flex;align-items:center;justify-content:center
+}
+.envelope-seal::before{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  background:radial-gradient(circle,transparent 45%,rgba(192,57,43,.08) 50%,transparent 55%);
+  pointer-events:none
+}
+.envelope-seal::after{
+  content:'家';font-size:clamp(20px,5vw,26px);color:var(--seal-gold);
+  text-shadow:0 1px 3px rgba(0,0,0,.4),0 0 8px rgba(212,160,23,.2);
+  font-weight:700;letter-spacing:.05em
+}
+.envelope-seal.breaking{animation:sealBreak .8s .3s ease forwards}
+@keyframes sealBreak{
+  0%{transform:translate(-50%,-50%) scale(1) rotate(0);opacity:1}
+  20%{transform:translate(-50%,-50%) scale(1.15) rotate(5deg);opacity:1}
+  50%{transform:translate(-50%,-50%) scale(1.3) rotate(-8deg);opacity:.6;
+    box-shadow:0 0 20px rgba(192,57,43,.5)}
+  100%{transform:translate(-50%,-50%) scale(0) rotate(25deg);opacity:0}
+}
+
+/* Hint */
+.open-hint{
+  margin-top:clamp(20px,5vw,32px);font-size:clamp(12px,2.8vw,14px);color:var(--gold);
+  letter-spacing:.25em;opacity:0;animation:hintFade 2.5s 1s ease forwards
+}
+@keyframes hintFade{0%{opacity:0;transform:translateY(8px)}100%{opacity:.5;transform:translateY(0)}}
+.open-hint .dot-anim{animation:dotPulse 1.5s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{opacity:.3}50%{opacity:.8}}
+
+/* ===== STAGE 1.5: PULL OUT ===== */
+.pull-scene{
+  display:none;flex-direction:column;align-items:center;justify-content:center;
+  width:100%;height:100vh;
+  background:var(--desk);
+  background-image:
+    repeating-linear-gradient(90deg,transparent,transparent 50px,rgba(0,0,0,.02) 50px,rgba(0,0,0,.02) 100px),
+    linear-gradient(160deg,#3E2C20,#5C3D2E 40%,#4A3328 70%,#3E2C20);
+  position:relative;overflow:hidden
+}
+.pull-scene.active{display:flex}
+
+/* Realistic envelope with open flap */
+.pull-envelope{
+  position:absolute;bottom:12%;left:50%;transform:translateX(-50%);
+  width:min(370px,78vw);height:min(170px,36vw);
+  background:linear-gradient(170deg,#F7EBD8,#E5C9A8);
+  border-radius:0 0 6px 6px;
+  box-shadow:0 8px 30px rgba(0,0,0,.4);z-index:2;
+  animation:envSettle .6s ease forwards
+}
+@keyframes envSettle{
+  0%{transform:translateX(-50%) translateY(-20px);opacity:0}
+  100%{transform:translateX(-50%) translateY(0);opacity:1}
+}
+.pull-envelope::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:50%;
+  background:linear-gradient(180deg,#E5CCAA,#DABB90);
+  clip-path:polygon(0 0,50% 100%,100% 0);
+  transform-origin:top center;
+  animation:flapOpen .8s .3s ease forwards;
+  transform:rotateX(0deg);
+  z-index:3
+}
+@keyframes flapOpen{
+  0%{transform:rotateX(0deg)}
+  100%{transform:rotateX(180deg)}
+}
+
+/* Letter inside envelope - visible when flap opens */
+.pull-letter{
+  position:absolute;bottom:35%;left:50%;
+  width:min(330px,70vw);min-height:min(440px,68vh);
+  background:var(--paper);border-radius:3px;
+  box-shadow:0 6px 24px rgba(0,0,0,.3);
+  padding:clamp(28px,5.5vw,44px) clamp(22px,5.5vw,40px);
+  z-index:1;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23p)' opacity='0.025'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(transparent,transparent 31px,var(--paper-line) 31px,var(--paper-line) 32px);
+  background-position:0 0,0 50px;
+  /* Start: inside envelope, only top portion visible */
+  transform:translateX(-50%) translateY(60%);
+  animation:pullOut 2.5s cubic-bezier(.22,.1,.25,1) forwards;
+  animation-delay:.8s
+}
+@keyframes pullOut{
+  0%{transform:translateX(-50%) translateY(60%);opacity:1}
+  30%{transform:translateX(-50%) translateY(-30%);opacity:1}
+  60%{transform:translateX(-50%) translateY(-25%);opacity:1}
+  100%{transform:translateX(-50%) translateY(-120%);opacity:0}
+}
+.pull-letter .greeting{font-size:clamp(16px,3.4vw,21px);color:var(--brown);margin-bottom:4px;letter-spacing:.12em;font-weight:600}
+.pull-letter .date-line{font-size:clamp(10px,2.2vw,12px);color:var(--light);margin-bottom:18px;letter-spacing:.08em;font-style:italic}
+
+/* ===== STAGE 2: LETTER ===== */
+.letter-scene{
+  display:none;flex-direction:column;align-items:center;
+  width:100%;min-height:100vh;padding:clamp(24px,5vw,44px) clamp(14px,3.5vw,24px) clamp(48px,9vw,68px)
+}
+.letter-scene.active{display:flex}
+.letter-paper{
+  width:min(620px,93vw);min-height:min(700px,80vh);
+  background:var(--paper);border-radius:4px;
+  box-shadow:
+    0 6px 30px rgba(0,0,0,.18),
+    0 2px 6px rgba(0,0,0,.1),
+    inset 0 0 60px rgba(139,115,85,.04);
+  padding:clamp(40px,8vw,64px) clamp(32px,6.5vw,54px);
+  position:relative;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23p)' opacity='0.02'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(transparent,transparent 31px,var(--paper-line) 31px,var(--paper-line) 32px);
+  background-position:0 0,0 54px;
+  animation:paperIn 1s cubic-bezier(.4,0,.2,1) forwards;
+  opacity:0;transform:translateY(30px)
+}
+.letter-paper::before{
+  content:'';position:absolute;inset:0;border-radius:4px;
+  box-shadow:inset 0 0 80px rgba(139,115,85,.06);
+  pointer-events:none
+}
+.letter-paper::after{
+  content:'';position:absolute;top:40px;bottom:40px;left:clamp(52px,10vw,72px);
+  width:1px;background:rgba(192,57,43,.08);pointer-events:none
+}
+@keyframes paperIn{to{opacity:1;transform:translateY(0)}}
+.letter-paper .greeting{
+  font-size:clamp(18px,4vw,25px);color:var(--brown);margin-bottom:6px;
+  letter-spacing:.12em;font-weight:600;
+  text-shadow:0 1px 2px rgba(62,44,32,.08)
+}
+.letter-paper .date-line{
+  font-size:clamp(11px,2.4vw,13px);color:var(--light);margin-bottom:clamp(20px,3.5vw,34px);
+  letter-spacing:.08em;font-style:italic
+}
+.letter-paper .sign-off{
+  margin-top:clamp(28px,4.5vw,44px);text-align:right;
+  font-size:clamp(14px,3vw,16px);color:var(--brown);letter-spacing:.12em;
+  font-style:italic
+}
+
+.theme-label{
+  display:flex;align-items:center;gap:8px;
+  margin:clamp(20px,3.5vw,32px) 0 clamp(12px,2vw,16px);
+  font-size:clamp(16px,3.4vw,21px);color:var(--warm);font-weight:600;letter-spacing:.1em
+}
+.theme-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+
+.letter-quote{
+  margin:clamp(10px,1.8vw,14px) 0;padding:clamp(10px,2vw,14px) clamp(14px,2.5vw,18px);
+  border-left:3px solid var(--warm);background:rgba(232,152,94,.05);
+  border-radius:0 8px 8px 0;
+  font-size:clamp(13px,2.8vw,15px);line-height:2;color:var(--text);
+  position:relative
+}
+.letter-quote .q-sender{
+  font-size:clamp(11px,2.2vw,12px);color:var(--warm);font-weight:600;
+  margin-bottom:4px;letter-spacing:.06em
+}
+.letter-quote::before{
+  content:'';position:absolute;bottom:-2px;right:-2px;
+  width:8px;height:8px;background:rgba(62,44,32,.04);border-radius:50%
+}
+
+.letter-text{
+  margin:clamp(8px,1.4vw,12px) 0;
+  font-size:clamp(13px,2.8vw,15px);line-height:2.1;color:var(--text);
+  text-indent:2em;
+  text-shadow:0 0 1px rgba(62,44,32,.06)
+}
+
+.page-nav{
+  display:flex;justify-content:center;align-items:center;
+  gap:clamp(14px,3.5vw,24px);margin-top:clamp(24px,3.5vw,36px);padding-top:clamp(16px,3vw,24px);
+  border-top:1px dashed var(--paper-line)
+}
+.page-nav button{
+  padding:clamp(7px,1.8vw,10px) clamp(16px,3.5vw,22px);
+  border:1px solid var(--gold);background:transparent;color:var(--brown);
+  border-radius:22px;font-family:inherit;font-size:clamp(12px,2.5vw,13px);
+  cursor:pointer;letter-spacing:.06em;transition:all .3s ease
+}
+.page-nav button:hover:not(:disabled){background:var(--warm);color:#fff;border-color:var(--warm);transform:translateY(-1px)}
+.page-nav button:active:not(:disabled){transform:translateY(0)}
+.page-nav button:disabled{opacity:.25;cursor:default}
+.page-num{font-size:clamp(11px,2.2vw,12px);color:var(--light);letter-spacing:.12em}
+
+/* ===== REPLY ===== */
+.reply-area{margin-top:clamp(24px,3.5vw,36px)}
+.reply-area textarea{
+  width:100%;min-height:clamp(90px,20vw,130px);padding:clamp(10px,2.2vw,14px);
+  border:1px solid var(--paper-line);border-radius:10px;
+  font-family:inherit;font-size:clamp(13px,2.8vw,14px);color:var(--text);
+  background:rgba(255,255,255,.4);resize:vertical;line-height:1.9;
+  outline:none;transition:all .3s;
+  box-shadow:inset 0 1px 4px rgba(139,115,85,.06)
+}
+.reply-area textarea:focus{border-color:var(--warm);box-shadow:0 0 0 3px rgba(232,152,94,.1)}
+.reply-area textarea::placeholder{color:var(--light);font-style:italic}
+.seal-btn{
+  margin-top:clamp(12px,2.2vw,18px);padding:clamp(9px,2.2vw,12px) clamp(20px,4.5vw,32px);
+  background:linear-gradient(135deg,var(--warm),var(--gold));
+  color:#fff;border:none;border-radius:26px;
+  font-family:inherit;font-size:clamp(13px,2.8vw,14px);cursor:pointer;
+  letter-spacing:.12em;transition:all .3s;
+  box-shadow:0 3px 12px rgba(232,152,94,.3)
+}
+.seal-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,152,94,.4)}
+.seal-btn:active{transform:translateY(0)}
+
+/* ===== STAGE 3: SEALING ANIMATION ===== */
+/* Realistic flow: fold paper → slide into envelope → close flap → stamp → wax seal → drop in mailbox */
+.seal-anim-scene{
+  display:none;flex-direction:column;align-items:center;justify-content:center;
+  width:100%;height:100vh;
+  background:linear-gradient(180deg,#E8DCC8 0%,#D4C4A8 100%);
+  position:relative;overflow:hidden
+}
+.seal-anim-scene.active{display:flex}
+
+/* Step 1: Paper folding - like real letter folding (bottom up, then top down) */
+.fold-anim{
+  position:absolute;left:50%;top:50%;
+  width:min(310px,67vw);height:min(420px,58vh);
+  background:var(--paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23p)' opacity='0.025'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(transparent,transparent 31px,var(--paper-line) 31px,var(--paper-line) 32px);
+  border-radius:3px;
+  box-shadow:0 6px 24px rgba(0,0,0,.18);
+  transform:translate(-50%,-50%);z-index:3
+}
+/* Fold lines for visual effect */
+.fold-anim::before{
+  content:'';position:absolute;bottom:33%;left:0;width:100%;height:1px;
+  background:rgba(139,115,85,.15);opacity:0;
+  animation:showFoldLine .3s ease forwards
+}
+.fold-anim::after{
+  content:'';position:absolute;top:33%;left:0;width:100%;height:1px;
+  background:rgba(139,115,85,.15);opacity:0;
+  animation:showFoldLine .3s .2s ease forwards
+}
+@keyframes showFoldLine{to{opacity:1}}
+
+.fold-anim.folding{animation:foldAnim 2s ease forwards}
+@keyframes foldAnim{
+  0%{transform:translate(-50%,-50%) scale(1);opacity:1}
+  /* Bottom third folds up */
+  20%{transform:translate(-50%,-50%) scale(1);opacity:1}
+  /* Top third folds down */
+  40%{transform:translate(-50%,-50%) scale(1);opacity:1}
+  /* Paper compresses to envelope width */
+  60%{transform:translate(-50%,-50%) scaleY(.7) scaleX(.85);opacity:1}
+  /* Paper becomes thin strip (ready to slide in) */
+  80%{transform:translate(-50%,-50%) scaleY(.08) scaleX(.82);opacity:.9}
+  /* Slide into envelope position */
+  100%{transform:translate(-50%,-40%) scaleY(.06) scaleX(.8);opacity:0}
+}
+
+/* Step 2: Envelope appears (already has letter inside) */
+.stamp-envelope{
+  position:absolute;left:50%;top:55%;
+  width:min(330px,72vw);height:min(210px,30vw);
+  background:linear-gradient(175deg,#F7EBD8,#E5C9A8);
+  border-radius:0 0 6px 6px;
+  box-shadow:0 10px 36px rgba(0,0,0,.35);
+  transform:translate(-50%,-50%) scale(0);z-index:2
+}
+.stamp-envelope.show{animation:envAppear .8s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes envAppear{
+  0%{transform:translate(-50%,-50%) scale(0) rotate(-3deg);opacity:0}
+  60%{transform:translate(-50%,-50%) scale(1.05) rotate(.5deg);opacity:1}
+  100%{transform:translate(-50%,-50%) scale(1) rotate(0);opacity:1}
+}
+/* Envelope flap (initially open) */
+.stamp-envelope::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:55%;
+  background:linear-gradient(180deg,#E5CCAA,#DABB90);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top center;
+  transform:rotateX(180deg);
+  z-index:1;
+  animation:envFlapClose .6s 2.2s ease forwards
+}
+@keyframes envFlapClose{
+  0%{transform:rotateX(180deg)}
+  100%{transform:rotateX(0deg)}
+}
+.stamp-envelope::after{
+  content:'';position:absolute;bottom:0;left:0;width:100%;height:38%;
+  background:linear-gradient(0deg,#E5C9A8,#EDD9C0);
+  clip-path:polygon(0 100%,50% 0,100% 100%);z-index:1
+}
+
+/* Step 3: Stamp flies in and sticks */
+.stamp-fly{
+  position:absolute;
+  width:clamp(44px,11vw,54px);height:clamp(52px,13vw,64px);
+  background:linear-gradient(135deg,#FFF8E1,#FFECB3);
+  border:1px solid #D4A574;border-radius:2px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-size:clamp(18px,4.5vw,24px);
+  box-shadow:0 3px 10px rgba(0,0,0,.2);z-index:5;opacity:0
+}
+.stamp-fly .stamp-fly-text{font-size:clamp(6px,1.4vw,7px);color:var(--brown);font-family:sans-serif}
+.stamp-fly.fly-in{animation:stampFly 1s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes stampFly{
+  0%{top:15%;left:70%;transform:rotate(25deg) scale(1.8);opacity:0}
+  30%{opacity:1}
+  70%{transform:rotate(-3deg) scale(1.05)}
+  100%{top:calc(55% - min(210px,30vw)/2 + 12px);left:calc(50% + min(330px,72vw)/2 - clamp(44px,11vw,54px) - 16px);transform:rotate(-2deg) scale(1);opacity:1}
+}
+
+/* Step 4: Wax seal stamp */
+.seal-stamp-anim{
+  position:absolute;left:50%;top:calc(55% - min(210px,30vw)/2 + min(210px,30vw)*30%);
+  width:clamp(54px,13vw,66px);height:clamp(54px,13vw,66px);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 35%,rgba(255,255,255,.12),transparent 50%),
+    radial-gradient(circle at 38% 38%,#E74C3C,#C0392B 50%,#922B21);
+  border:3px solid var(--seal-gold);
+  box-shadow:0 4px 16px rgba(0,0,0,.35),inset 0 -2px 6px rgba(0,0,0,.25);
+  display:flex;align-items:center;justify-content:center;
+  transform:translate(-50%,-50%) scale(0);z-index:6;opacity:0
+}
+.seal-stamp-anim.stamp{animation:sealStampAnim .7s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes sealStampAnim{
+  0%{transform:translate(-50%,-50%) scale(0) rotate(-30deg);opacity:0}
+  50%{transform:translate(-50%,-50%) scale(1.3) rotate(5deg);opacity:1}
+  75%{transform:translate(-50%,-50%) scale(.95) rotate(-2deg);opacity:1}
+  100%{transform:translate(-50%,-50%) scale(1) rotate(0);opacity:1}
+}
+.seal-stamp-anim::after{content:'家';font-size:clamp(20px,5vw,26px);color:var(--seal-gold);font-weight:700}
+
+.mailbox-scene{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;z-index:10
+}
+.mailbox-scene.show{animation:fadeIn 1s ease forwards}
+@keyframes fadeIn{to{opacity:1}}
+
+.mailbox{
+  width:min(130px,30vw);height:min(170px,40vw);
+  position:relative;margin-bottom:24px
+}
+.mailbox-body{
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:80%;height:75%;
+  background:linear-gradient(135deg,#5D4037,#4E342E);
+  border-radius:6px 6px 0 0;
+  box-shadow:inset 0 2px 6px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2)
+}
+.mailbox-slot{
+  position:absolute;top:20%;left:50%;transform:translateX(-50%);
+  width:70%;height:8%;background:#3E2723;border-radius:2px;
+  box-shadow:inset 0 2px 6px rgba(0,0,0,.5)
+}
+.mailbox-roof{
+  position:absolute;bottom:75%;left:50%;transform:translateX(-50%);
+  width:100%;height:0;
+  border-left:clamp(54px,15vw,74px) solid transparent;
+  border-right:clamp(54px,15vw,74px) solid transparent;
+  border-bottom:clamp(42px,11vw,58px) solid #6D4C41
+}
+.mailbox-post{
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:12%;height:30%;background:#5D4037;border-radius:2px
+}
+
+.mini-envelope{
+  width:min(64px,15vw);height:min(42px,10vw);
+  background:linear-gradient(170deg,#F7EBD8,#E5C9A8);
+  border-radius:0 0 3px 3px;
+  box-shadow:0 3px 10px rgba(0,0,0,.3);
+  position:absolute;
+  animation:dropIn 1.4s cubic-bezier(.4,0,.2,1) forwards;
+  opacity:0;z-index:11
+}
+@keyframes dropIn{
+  0%{top:-20%;left:50%;transform:translateX(-50%) rotate(0);opacity:1}
+  50%{top:calc(50% - min(170px,40vw)*0.35);left:50%;transform:translateX(-50%) rotate(-6deg);opacity:1}
+  75%{top:calc(50% - min(170px,40vw)*0.25);left:50%;transform:translateX(-50%) rotate(4deg);opacity:1}
+  100%{top:calc(50% - min(170px,40vw)*0.3);left:50%;transform:translateX(-50%) rotate(0) scale(.2);opacity:0}
+}
+
+.mailbox-text{
+  margin-top:20px;font-size:clamp(15px,3.2vw,19px);
+  color:var(--brown);letter-spacing:.12em;line-height:2;text-align:center
+}
+.reopen-btn{
+  margin-top:clamp(14px,2.8vw,22px);padding:clamp(7px,1.8vw,10px) clamp(18px,4vw,26px);
+  border:1px solid var(--gold);background:transparent;color:var(--brown);
+  border-radius:22px;font-family:inherit;font-size:clamp(12px,2.5vw,13px);
+  cursor:pointer;letter-spacing:.06em;transition:all .3s
+}
+.reopen-btn:hover{background:var(--warm);color:#fff;border-color:var(--warm)}
+
+/* Page flip - realistic paper bending effect */
+.page-flip-out{animation:flipOut .5s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes flipOut{
+  0%{transform:rotateY(0) translateX(0) scale(1);opacity:1}
+  30%{transform:rotateY(-8deg) translateX(-10px) scale(.98);opacity:.9}
+  60%{transform:rotateY(-20deg) translateX(-30px) scale(.95);opacity:.5}
+  100%{transform:rotateY(-35deg) translateX(-60px) scale(.9);opacity:0}
+}
+.page-flip-in{animation:flipIn .55s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes flipIn{
+  0%{transform:rotateY(35deg) translateX(60px) scale(.9);opacity:0}
+  40%{transform:rotateY(20deg) translateX(30px) scale(.95);opacity:.5}
+  70%{transform:rotateY(8deg) translateX(10px) scale(.98);opacity:.9}
+  100%{transform:rotateY(0) translateX(0) scale(1);opacity:1}
+}
+
+/* Paper curl effect for page edges */
+.letter-paper{
+  transform-style:preserve-3d;
+  perspective:1200px
+}
+
+@media(max-width:380px){:root{--env-w:300px;--env-h:200px}}
+@media(min-width:768px){:root{--env-w:440px;--env-h:280px}}
+</style>
+</head>
+<body>
+
+<div class="ambient-particles" id="ambientParticles"></div>
+
+<div class="envelope-scene" id="envelopeScene" onclick="openEnvelope()">
+  <div class="envelope-wrap">
+    <div class="env-letter-peek"></div>
+    <div class="envelope-body">
+      <div class="envelope-flap" id="envelopeFlap"></div>
+      <div class="envelope-address">
+        <div class="to">致：最爱的爸爸妈妈</div>
+        <div>一封来自远方的家书</div>
+      </div>
+      <div class="envelope-postcode">
+        <span>4</span><span>3</span><span>0</span><span>0</span><span>0</span><span>0</span>
+      </div>
+      <div class="envelope-stamp">
+        <div class="stamp-perforation"></div>
+        <div class="stamp-icon">✉</div>
+        <div class="stamp-text">中国邮政</div>
+        <div class="stamp-value">80分</div>
+      </div>
+      <div class="envelope-seal" id="envelopeSeal"></div>
+    </div>
+    <div class="envelope-postmark">
+      <div class="postmark-city">武汉</div>
+      <div class="postmark-line"></div>
+      <div class="postmark-date">2025.06.07</div>
+    </div>
+  </div>
+  <div class="open-hint">— 点击信封，打开家书 <span class="dot-anim">···</span> —</div>
+</div>
+
+<div class="pull-scene" id="pullScene">
+  <div class="pull-envelope"></div>
+  <div class="pull-letter" id="pullLetter">
+    <div class="greeting">亲爱的爸爸妈妈：</div>
+    <div class="date-line">武汉 · 某个想家的夜晚</div>
+  </div>
+</div>
+
+<div class="letter-scene" id="letterScene">
+  <div class="letter-paper" id="letterPaper">
+    <div class="greeting">亲爱的爸爸妈妈：</div>
+    <div class="date-line">武汉 · 某个想家的夜晚</div>
+    <div id="letterContent"></div>
+    <div class="sign-off" id="signOff">永远爱你们的孩子</div>
+    <div class="page-nav" id="pageNav">
+      <button id="prevBtn" onclick="changePage(-1)" disabled>← 上一页</button>
+      <span class="page-num" id="pageNum">1 / 4</span>
+      <button id="nextBtn" onclick="changePage(1)">下一页 →</button>
+    </div>
+  </div>
+</div>
+
+<div class="seal-anim-scene" id="sealAnimScene">
+  <div class="fold-anim" id="foldAnim"></div>
+  <div class="stamp-envelope" id="stampEnvelope"></div>
+  <div class="stamp-fly" id="stampFly">
+    <div>✉</div>
+    <div class="stamp-fly-text">80分</div>
+  </div>
+  <div class="seal-stamp-anim" id="sealStampAnim"></div>
+  <div class="mailbox-scene" id="mailboxScene">
+    <div class="mailbox">
+      <div class="mailbox-roof"></div>
+      <div class="mailbox-body"><div class="mailbox-slot"></div></div>
+      <div class="mailbox-post"></div>
+    </div>
+    <div class="mini-envelope" id="miniEnvelope"></div>
+    <div class="mailbox-text">回信已寄出<br>心意正在路上 💌</div>
+    <button class="reopen-btn" onclick="reopenLetter()">重新打开</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var c = document.getElementById('ambientParticles');
+  for(var i = 0; i < 15; i++){
+    var d = document.createElement('div');
+    d.className = 'dust';
+    d.style.left = Math.random()*100 + '%';
+    d.style.animationDuration = (8 + Math.random()*12) + 's';
+    d.style.animationDelay = Math.random()*10 + 's';
+    d.style.width = d.style.height = (2 + Math.random()*3) + 'px';
+    d.style.opacity = .08 + Math.random()*.12;
+    c.appendChild(d);
+  }
+})();
+
+var pages = [
+  {
+    theme: '🏠 家的温度',
+    html: '<div class="theme-label">🏠 家的温度</div>' +
+      '<div class="letter-quote"><div class="q-sender">妈妈</div>后天就要变天了，注意天寒保暖，别让身体受凉。</div>' +
+      '<div class="letter-text">每次变天前，妈妈总会第一时间发来消息。那些看似普通的叮嘱，其实都是藏不住的牵挂。</div>' +
+      '<div class="letter-quote"><div class="q-sender">妈妈</div>快到武汉一月了，那里的环境怎么样，爸妈非常担心也很挂念身处武汉的你。</div>' +
+      '<div class="letter-text">一个人在外求学，最暖的莫过于知道有人在惦记着你。那些隔着屏幕传来的关心，是这世上最温柔的力量。</div>' +
+      '<div class="letter-quote"><div class="q-sender">妈妈</div>你也别太大压力，心态要调好，争取一把过了。</div>' +
+      '<div class="letter-text">妈妈总是这样，一边叮嘱一边鼓励，怕我太累又怕我不够努力。这种矛盾里，藏着一个母亲全部的爱。</div>'
+  },
+  {
+    theme: '🌱 成长足迹',
+    html: '<div class="theme-label">🌱 成长足迹</div>' +
+      '<div class="letter-text">高考完那会儿，觉得考砸了，爸还在那安慰我能有书念就不错了。</div>' +
+      '<div class="letter-text">后来去西安培训，又回到武汉实习，每天十一点起床，十二点上班，九点半下班，十点到家，凌晨一两点还在折腾AI。</div>' +
+      '<div class="letter-text">学习AI，还能领工资。这条路虽然辛苦，但每一步都算数。</div>' +
+      '<div class="letter-text">我才21岁，不想就这样被动接受必须去使用AI，我想主动拥抱变化。这是风险，也是机遇。</div>' +
+      '<div class="letter-quote"><div class="q-sender">爸爸</div>过去的已经成为历史回不去了，你现在要计划现在，规划将来。</div>' +
+      '<div class="letter-text">爸爸的话不多，但每一句都落在实处。他不会说"我为你骄傲"，但他会在我做选择的时候说"你自己决定"。</div>'
+  },
+  {
+    theme: '💬 他山之石',
+    html: '<div class="theme-label">💬 他山之石</div>' +
+      '<div class="letter-text">树林是一位我关注的博主，他的文字总能给我很多启发。</div>' +
+      '<div class="letter-text">他说过一句话让我印象很深——不夸张来讲，在接下来一两年，AI就会慢慢熟悉工作流程，去取代很多人。</div>' +
+      '<div class="letter-text">所以我更加坚定了自己的方向：主动学习AI，把它变成自己的能力，而不是被它淘汰。</div>' +
+      '<div class="letter-text">爸妈，请放心，你们的孩子正在努力成为那个掌控变化的人。</div>' +
+      '<div class="letter-text">这个世界变化太快，但有些东西不会变——比如家，比如你们。</div>'
+  },
+  {
+    theme: '✨ 写在最后',
+    html: '<div class="theme-label">✨ 写在最后</div>' +
+      '<div class="letter-quote"><div class="q-sender">爸爸</div>如果上班压力太大去看看祖国的大好河山也可以，但是你自己必须要解决经济问题。</div>' +
+      '<div class="letter-text">爸爸总是一边放飞一边务实，这种独特的幽默感大概只有亲生的才能懂。</div>' +
+      '<div class="letter-text">小时候爸爸在外地工作，妈妈也忙，我在奶奶家长大，很长一段时间都是一个人待着，不太会和人交往。</div>' +
+      '<div class="letter-text">但现在不一样了。我有想做的事，有想保护的人，有正在书写的未来。</div>' +
+      '<div class="letter-text">谢谢你们一直以来的包容和支持。这封信，是儿子想对你们说的话。</div>' +
+      '<div class="letter-text" style="text-indent:0;text-align:center;color:var(--warm);margin-top:20px;font-style:italic">纸短情长，见字如面。</div>' +
+      '<div class="reply-area">' +
+        '<div class="theme-label">✉️ 给我回信</div>' +
+        '<textarea id="replyText" placeholder="写下你想对儿子说的话..."></textarea>' +
+        '<button class="seal-btn" onclick="sealLetter()">写好了，生成分享链接</button>' +
+      '</div>'
+  }
+];
+
+var currentPage = 0;
+
+function openEnvelope() {
+  var scene = document.getElementById('envelopeScene');
+  scene.onclick = null;
+  document.getElementById('envelopeFlap').classList.add('open');
+  setTimeout(function(){
+    document.getElementById('envelopeSeal').classList.add('breaking');
+  }, 400);
+  setTimeout(function(){
+    scene.classList.add('gone');
+    document.getElementById('pullScene').classList.add('active');
+  }, 1400);
+  setTimeout(function(){
+    document.getElementById('pullScene').classList.remove('active');
+    document.body.classList.add('letter-mode');
+    document.getElementById('letterScene').classList.add('active');
+    document.getElementById('envelopeScene').style.display = 'none';
+    renderPage(0);
+  }, 3800);
+}
+
+function renderPage(idx) {
+  var content = document.getElementById('letterContent');
+  content.innerHTML = pages[idx].html;
+  document.getElementById('pageNum').textContent = (idx + 1) + ' / ' + pages.length;
+  document.getElementById('prevBtn').disabled = idx === 0;
+  document.getElementById('nextBtn').disabled = idx === pages.length - 1;
+  document.getElementById('pageNav').style.display = idx === pages.length - 1 ? 'none' : 'flex';
+  document.getElementById('signOff').style.display = idx === pages.length - 1 ? 'none' : 'block';
+  if (idx === pages.length - 1) {
+    setTimeout(function(){
+      var ta = document.getElementById('replyText');
+      if (ta) ta.focus();
+    }, 600);
+  }
+}
+
+function changePage(dir) {
+  var next = currentPage + dir;
+  if (next < 0 || next >= pages.length) return;
+  var content = document.getElementById('letterContent');
+  content.classList.add('page-flip-out');
+  setTimeout(function(){
+    currentPage = next;
+    content.classList.remove('page-flip-out');
+    content.classList.add('page-flip-in');
+    renderPage(currentPage);
+    setTimeout(function(){ content.classList.remove('page-flip-in'); }, 450);
+  }, 400);
+}
+
+function sealLetter() {
+  var text = document.getElementById('replyText').value.trim();
+  if (!text) {
+    document.getElementById('replyText').style.borderColor = '#E74C3C';
+    document.getElementById('replyText').style.boxShadow = '0 0 0 3px rgba(231,76,60,.15)';
+    setTimeout(function(){
+      document.getElementById('replyText').style.borderColor = '';
+      document.getElementById('replyText').style.boxShadow = '';
+    }, 1500);
+    return;
+  }
+  
+  // Generate shareable link with reply content
+  var replyData = {
+    from: '爸爸妈妈',
+    to: '儿子',
+    content: text,
+    timestamp: new Date().toLocaleString('zh-CN'),
+    date: new Date().toISOString()
+  };
+  var encoded = btoa(encodeURIComponent(JSON.stringify(replyData)));
+  var shareUrl = window.location.origin + window.location.pathname + '?reply=' + encoded;
+  
+  // Save to localStorage
+  localStorage.setItem('family-reply', JSON.stringify(replyData));
+  localStorage.setItem('family-reply-url', shareUrl);
+  
+  // Send to Feishu webhook
+  fetch('http://localhost:8767/reply', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(replyData)
+  }).then(function(r) { console.log('Feishu webhook sent'); })
+    .catch(function(e) { console.log('Webhook offline:', e); });
+  
+  // Show share modal instead of mailbox animation
+  showShareModal(shareUrl, replyData);
+}
+
+function showShareModal(url, data) {
+  // Create modal overlay
+  var modal = document.createElement('div');
+  modal.id = 'shareModal';
+  modal.style.cssText = 'position:fixed;inset:0;background:rgba(62,44,32,.85);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);animation:fadeIn .4s ease';
+  
+  modal.innerHTML = 
+    '<div style="background:var(--paper);border-radius:12px;padding:clamp(24px,5vw,40px);max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.4);position:relative;background-image:repeating-linear-gradient(transparent,transparent 31px,var(--paper-line) 31px,var(--paper-line) 32px);background-position:0 40px">' +
+      '<div style="text-align:center;margin-bottom:20px">' +
+        '<div style="font-size:clamp(18px,4vw,24px);color:var(--brown);margin-bottom:8px;letter-spacing:.1em">💌 回信已生成</div>' +
+        '<div style="font-size:clamp(12px,2.5vw,14px);color:var(--light);letter-spacing:.05em">请把下面的链接或二维码发给儿子</div>' +
+        '<div style="font-size:clamp(11px,2.2vw,13px);color:#27AE60;margin-top:6px;letter-spacing:.05em">✓ 已同时推送到儿子飞书</div>' +
+      '</div>' +
+      '<div style="background:rgba(232,152,94,.08);border-radius:8px;padding:16px;margin-bottom:20px;border:1px solid var(--paper-line)">' +
+        '<div style="font-size:clamp(11px,2.2vw,13px);color:var(--light);margin-bottom:8px;letter-spacing:.05em">📱 扫码查看回信</div>' +
+        '<div id="qrcode" style="display:flex;justify-content:center;padding:12px;background:#fff;border-radius:6px"></div>' +
+      '</div>' +
+      '<div style="margin-bottom:20px">' +
+        '<div style="font-size:clamp(11px,2.2vw,13px);color:var(--light);margin-bottom:8px;letter-spacing:.05em">🔗 或复制链接分享</div>' +
+        '<div style="display:flex;gap:8px">' +
+          '<input type="text" id="shareUrlInput" value="' + url + '" readonly style="flex:1;padding:10px 14px;border:1px solid var(--paper-line);border-radius:8px;font-size:clamp(11px,2.2vw,13px);color:var(--text);background:rgba(255,255,255,.6);font-family:inherit;letter-spacing:.02em">' +
+          '<button onclick="copyShareUrl()" id="copyBtn" style="padding:10px 18px;background:var(--warm);color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:clamp(12px,2.5vw,13px);cursor:pointer;letter-spacing:.06em;white-space:nowrap;transition:all .3s">复制链接</button>' +
+        '</div>' +
+      '</div>' +
+      '<div style="display:flex;gap:10px;justify-content:center">' +
+        '<button onclick="closeShareModal()" style="padding:10px 24px;background:transparent;color:var(--brown);border:1px solid var(--gold);border-radius:22px;font-family:inherit;font-size:clamp(12px,2.5vw,13px);cursor:pointer;letter-spacing:.06em;transition:all .3s">关闭</button>' +
+        '<button onclick="goToMailbox()" style="padding:10px 24px;background:linear-gradient(135deg,var(--warm),var(--gold));color:#fff;border:none;border-radius:22px;font-family:inherit;font-size:clamp(12px,2.5vw,13px);cursor:pointer;letter-spacing:.06em;transition:all .3s;box-shadow:0 3px 12px rgba(232,152,94,.3)">去邮筒投递</button>' +
+      '</div>' +
+    '</div>';
+  
+  document.body.appendChild(modal);
+  
+  // Generate QR code using QRCode.js CDN
+  generateQRCode(url);
+}
+
+function generateQRCode(url) {
+  // Use a simple SVG-based QR code generator
+  var qrContainer = document.getElementById('qrcode');
+  if (!qrContainer) return;
+  
+  // Load QRCode library dynamically
+  var script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+  script.onload = function() {
+    qrContainer.innerHTML = '';
+    new QRCode(qrContainer, {
+      text: url,
+      width: 180,
+      height: 180,
+      colorDark: '#4A3728',
+      colorLight: '#FFF8E7',
+      correctLevel: QRCode.CorrectLevel.M
+    });
+  };
+  script.onerror = function() {
+    // Fallback: show URL as text if QR library fails
+    qrContainer.innerHTML = '<div style="padding:20px;text-align:center;color:var(--brown);font-size:14px;word-break:break-all">' + url + '</div>';
+  };
+  document.head.appendChild(script);
+}
+
+function copyShareUrl() {
+  var input = document.getElementById('shareUrlInput');
+  input.select();
+  input.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(input.value).then(function() {
+    var btn = document.getElementById('copyBtn');
+    btn.textContent = '✓ 已复制';
+    btn.style.background = '#27AE60';
+    setTimeout(function() {
+      btn.textContent = '复制链接';
+      btn.style.background = '';
+    }, 2000);
+  });
+}
+
+function closeShareModal() {
+  var modal = document.getElementById('shareModal');
+  if (modal) {
+    modal.style.animation = 'fadeOut .3s ease forwards';
+    setTimeout(function() { modal.remove(); }, 300);
+  }
+}
+
+function goToMailbox() {
+  closeShareModal();
+  document.getElementById('letterScene').classList.remove('active');
+  document.getElementById('letterScene').style.display = 'none';
+  document.body.classList.remove('letter-mode');
+  document.getElementById('sealAnimScene').classList.add('active');
+  
+  /* Realistic sealing flow:
+   * 0.0s - Start paper folding
+   * 2.0s - Paper folded, envelope appears (with open flap)
+   * 2.2s - Envelope flap closes
+   * 3.0s - Stamp flies in and sticks
+   * 4.0s - Wax seal stamped
+   * 5.0s - Show mailbox, envelope drops in
+   */
+  setTimeout(function(){ document.getElementById('foldAnim').classList.add('folding'); }, 300);
+  setTimeout(function(){ document.getElementById('stampEnvelope').classList.add('show'); }, 2300);
+  setTimeout(function(){ document.getElementById('stampFly').classList.add('fly-in'); }, 3200);
+  setTimeout(function(){ document.getElementById('sealStampAnim').classList.add('stamp'); }, 4300);
+  setTimeout(function(){
+    document.getElementById('foldAnim').style.display = 'none';
+    document.getElementById('stampEnvelope').style.opacity = '0';
+    document.getElementById('stampFly').style.display = 'none';
+    document.getElementById('sealStampAnim').style.display = 'none';
+    document.getElementById('mailboxScene').classList.add('show');
+  }, 5500);
+  setTimeout(function(){ document.getElementById('miniEnvelope').classList.add('dropIn'); }, 6300);
+}
+
+function reopenLetter() {
+  document.getElementById('sealAnimScene').classList.remove('active');
+  document.getElementById('foldAnim').classList.remove('folding');
+  document.getElementById('foldAnim').style.display = '';
+  document.getElementById('stampEnvelope').classList.remove('show');
+  document.getElementById('stampEnvelope').style.opacity = '';
+  document.getElementById('stampFly').classList.remove('fly-in');
+  document.getElementById('stampFly').style.display = '';
+  document.getElementById('stampFly').style.opacity = '';
+  document.getElementById('sealStampAnim').classList.remove('stamp');
+  document.getElementById('sealStampAnim').style.display = '';
+  document.getElementById('sealStampAnim').style.opacity = '';
+  document.getElementById('mailboxScene').classList.remove('show');
+  document.getElementById('mailboxScene').style.opacity = '';
+  document.getElementById('miniEnvelope').classList.remove('dropIn');
+  document.body.classList.add('letter-mode');
+  document.getElementById('letterScene').style.display = '';
+  document.getElementById('letterScene').classList.add('active');
+  currentPage = pages.length - 1;
+  renderPage(currentPage);
+}
+
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('letterScene').classList.contains('active')) return;
+  if (e.key === 'ArrowRight' || e.key === ' ') changePage(1);
+  if (e.key === 'ArrowLeft') changePage(-1);
+});
+
+var touchStartX = 0;
+document.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, {passive:true});
+document.addEventListener('touchend', function(e) {
+  var dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 60) changePage(dx < 0 ? 1 : -1);
+});
+
+// Check URL for reply parameter on page load
+(function checkReplyUrl() {
+  var params = new URLSearchParams(window.location.search);
+  var replyParam = params.get('reply');
+  if (!replyParam) return;
+  
+  try {
+    var replyData = JSON.parse(decodeURIComponent(atob(replyParam)));
+    // Show reply view directly
+    document.getElementById('envelopeScene').style.display = 'none';
+    document.body.classList.add('letter-mode');
+    document.getElementById('letterScene').classList.add('active');
+    
+    // Replace letter content with reply
+    document.querySelector('.letter-paper .greeting').textContent = '💌 收到一封回信';
+    document.querySelector('.letter-paper .date-line').textContent = replyData.timestamp || '刚刚';
+    document.getElementById('letterContent').innerHTML = 
+      '<div style="margin:20px 0;padding:20px;background:rgba(232,152,94,.06);border-radius:12px;border:1px solid var(--paper-line)">' +
+        '<div style="font-size:clamp(13px,2.8vw,15px);line-height:2.2;color:var(--text);white-space:pre-wrap">' + escapeHtml(replyData.content) + '</div>' +
+      '</div>' +
+      '<div style="text-align:right;margin-top:20px;font-size:clamp(13px,2.8vw,15px);color:var(--warm);font-style:italic">—— ' + (replyData.from || '爸爸妈妈') + '</div>';
+    document.getElementById('signOff').style.display = 'none';
+    document.getElementById('pageNav').style.display = 'none';
+  } catch(e) {
+    console.log('Invalid reply data');
+  }
+})();
+
+function escapeHtml(text) {
+  var div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+</script>
+</body>
+</html>
