@@ -140,9 +140,14 @@ p { margin-bottom: 14px; font-size: clamp(14px, 2vw, 16px); line-height: 1.8; }
 .series-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
 .series-desc { font-size: 13px; color: var(--text2); margin-bottom: 10px; line-height: 1.5; }
 .article-list { list-style: none; padding: 0; }
-.article-list li { font-size: 13px; color: var(--text3); padding: 3px 0; transition: var(--transition); cursor: pointer; }
-.article-list li:hover { color: var(--orange); padding-left: 8px; }
+.article-list li { font-size: 13px; color: var(--text3); padding: 3px 0; transition: var(--transition); }
+.article-list li:hover { padding-left: 8px; }
 .article-list li::before { content: "▹ "; color: var(--cyan); }
+.article-list li a.article-link { color: var(--text3); text-decoration: none; transition: var(--transition); display: block; }
+.article-list li a.article-link:hover { color: var(--orange); }
+.article-list li a.article-link[href="#"] { cursor: default; opacity: 0.7; }
+.article-list li a.article-link[href="#"]:hover { color: var(--text3); }
+.article-list li a.article-link[href="#"]::after { content: " (待补充)"; font-size: 11px; color: var(--text3); opacity: 0.5; }
 
 footer { text-align: center; padding: 35px 0; margin-top: 50px; background: rgba(18, 24, 51, 0.85); color: var(--text2); font-size: 14px; border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid rgba(77, 171, 247, 0.25); box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25); }
 footer p { margin-bottom: 12px; }
@@ -246,11 +251,11 @@ document.addEventListener('DOMContentLoaded', applyLanguage);
 <div class="series-title">自我觉醒五部曲</div>
 <div class="series-desc">从"你不是你"到"存在，就值得被爱"，一条清晰的向内探索路径。</div>
 <ul class="article-list">
-<li>《你不是你》- 崩溃、心理暗示与自控的起点</li>
-<li>《我依然是我》- 痛苦没有任何意义，吃苦不是必由之路</li>
-<li>《等不来花开》- 爱就像风筝断线飘走的无奈</li>
-<li>《不完美小孩》- 被爱，所以在慢慢变优秀</li>
-<li>《被讨厌的勇气》- 一切烦恼都来自人际关系</li>
+<li><a href="#" class="article-link" data-title="你不是你">《你不是你》- 崩溃、心理暗示与自控的起点</a></li>
+<li><a href="#" class="article-link" data-title="我依然是我">《我依然是我》- 痛苦没有任何意义，吃苦不是必由之路</a></li>
+<li><a href="#" class="article-link" data-title="等不来花开">《等不来花开》- 爱就像风筝断线飘走的无奈</a></li>
+<li><a href="#" class="article-link" data-title="不完美小孩">《不完美小孩》- 被爱，所以在慢慢变优秀</a></li>
+<li><a href="#" class="article-link" data-title="被讨厌的勇气">《被讨厌的勇气》- 一切烦恼都来自人际关系</a></li>
 </ul>
 </div>
 <div class="flip-card-back">
@@ -266,11 +271,11 @@ document.addEventListener('DOMContentLoaded', applyLanguage);
 <div class="series-title">边界与重建</div>
 <div class="series-desc">在关系中设立边界，在崩溃后重建自我。</div>
 <ul class="article-list">
-<li>《我决定不再秒回消息了》- 边界才是我所需要的</li>
-<li>《我决定不再用"想太多"惩罚自己了》- 存在，就值得被爱</li>
-<li>《复染》- 暗淡的我，好像失去了自己的颜色</li>
-<li>《只有优秀才值得被爱吗？》- 存在本身，就被爱</li>
-<li>《存在，就值得被爱》- 春天不问花是否鲜艳</li>
+<li><a href="#" class="article-link" data-title="我决定不再秒回消息了">《我决定不再秒回消息了》- 边界才是我所需要的</a></li>
+<li><a href="#" class="article-link" data-title="我决定不再用想太多惩罚自己了">《我决定不再用"想太多"惩罚自己了》- 存在，就值得被爱</a></li>
+<li><a href="#" class="article-link" data-title="复染">《复染》- 暗淡的我，好像失去了自己的颜色</a></li>
+<li><a href="#" class="article-link" data-title="只有优秀才值得被爱吗">《只有优秀才值得被爱吗？》- 存在本身，就被爱</a></li>
+<li><a href="#" class="article-link" data-title="存在就值得被爱">《存在，就值得被爱》- 春天不问花是否鲜艳</a></li>
 </ul>
 </div>
 <div class="flip-card-back">
@@ -290,21 +295,21 @@ document.addEventListener('DOMContentLoaded', applyLanguage);
 <div class="series-card">
 <div class="series-title">成长与关系</div>
 <ul class="article-list">
-<li>《关于成长》- 我需要你接住我的情绪</li>
-<li>《关于过去》- 以前的事这么值得你回忆吗</li>
-<li>《关于现在》- 一个人的生活从来算不上什么生活</li>
-<li>《关于苦难》- 苦难从不带来什么</li>
-<li>《关于未来》- 人们是因为期待才选择将生活继续下去</li>
-<li>《关于关系中的自我》- 高期待带来的大失望</li>
-<li>《关于放松》- 放松从来就不是某种任务</li>
-<li>《关于写作》- 写作是我的恋人</li>
+<li><a href="family-letters.html" class="article-link">《关于成长》- 我需要你接住我的情绪</a></li>
+<li><a href="family-letters.html" class="article-link">《关于过去》- 以前的事这么值得你回忆吗</a></li>
+<li><a href="family-letters.html" class="article-link">《关于现在》- 一个人的生活从来算不上什么生活</a></li>
+<li><a href="family-letters.html" class="article-link">《关于苦难》- 苦难从不带来什么</a></li>
+<li><a href="family-letters.html" class="article-link">《关于未来》- 人们是因为期待才选择将生活继续下去</a></li>
+<li><a href="family-letters.html" class="article-link">《关于关系中的自我》- 高期待带来的大失望</a></li>
+<li><a href="family-letters.html" class="article-link">《关于放松》- 放松从来就不是某种任务</a></li>
+<li><a href="family-letters.html" class="article-link">《关于写作》- 写作是我的恋人</a></li>
 </ul>
 </div>
 <div class="series-card">
 <div class="series-title">存在与告别</div>
 <ul class="article-list">
-<li>《致写作——破百粉篇》- 三年学会用文字告别</li>
-<li>《我来了》- 21岁生日，来赴三年之约</li>
+<li><a href="family-letters.html" class="article-link">《致写作——破百粉篇》- 三年学会用文字告别</a></li>
+<li><a href="family-letters.html" class="article-link">《我来了》- 21岁生日，来赴三年之约</a></li>
 </ul>
 </div>
 </div>
@@ -317,20 +322,20 @@ document.addEventListener('DOMContentLoaded', applyLanguage);
 <div class="series-card">
 <div class="series-title">AI时代生存指南</div>
 <ul class="article-list">
-<li>《AI来了，我们往哪走？》- 未来不是被决定的，而是被创造的</li>
-<li>《为什么你看到的AI新闻，都是卖课的？》- 不是月亮更圆，是喇叭更响</li>
-<li>《AI时代，普通人的务实生存指南》- 唯一的安全，是保持思考</li>
-<li>《对AI的乐观，是对人类的悲观》- AI是工具，不是神</li>
-<li>《AI，凭什么取代人类？》- 发展是必然的，风险与机遇并存</li>
-<li>《AI时代，被取代的从业者可以去往哪里？》- 你才是真正能够创造的人类</li>
+<li><a href="#" class="article-link" data-title="AI来了我们往哪走">《AI来了，我们往哪走？》- 未来不是被决定的，而是被创造的</a></li>
+<li><a href="#" class="article-link" data-title="为什么你看到的AI新闻都是卖课的">《为什么你看到的AI新闻，都是卖课的？》- 不是月亮更圆，是喇叭更响</a></li>
+<li><a href="#" class="article-link" data-title="AI时代普通人的务实生存指南">《AI时代，普通人的务实生存指南》- 唯一的安全，是保持思考</a></li>
+<li><a href="#" class="article-link" data-title="对AI的乐观是对人类的悲观">《对AI的乐观，是对人类的悲观》- AI是工具，不是神</a></li>
+<li><a href="#" class="article-link" data-title="AI凭什么取代人类">《AI，凭什么取代人类？》- 发展是必然的，风险与机遇并存</a></li>
+<li><a href="#" class="article-link" data-title="AI时代被取代的从业者可以去往哪里">《AI时代，被取代的从业者可以去往哪里？》- 你才是真正能够创造的人类</a></li>
 </ul>
 </div>
 <div class="series-card">
 <div class="series-title">思考与技术反思</div>
 <ul class="article-list">
-<li>《思考变少了，答案变多了》- 是工具变强了，还是我变笨了？</li>
-<li>《前额叶过热时，别逼自己自律》- 崩溃并不是可控的选项</li>
-<li>《AI永远无法替代的，是一个人有限的选择》- 同类是用来相遇的</li>
+<li><a href="#" class="article-link" data-title="思考变少了答案变多了">《思考变少了，答案变多了》- 是工具变强了，还是我变笨了？</a></li>
+<li><a href="#" class="article-link" data-title="前额叶过热时别逼自己自律">《前额叶过热时，别逼自己自律》- 崩溃并不是可控的选项</a></li>
+<li><a href="#" class="article-link" data-title="AI永远无法替代的是一个人有限的选择">《AI永远无法替代的，是一个人有限的选择》- 同类是用来相遇的</a></li>
 </ul>
 </div>
 </div>
@@ -343,20 +348,20 @@ document.addEventListener('DOMContentLoaded', applyLanguage);
 <div class="series-card">
 <div class="series-title">消费与阶层</div>
 <ul class="article-list">
-<li>《定价牌上的公投》- 79元买断表情，5元续足迹</li>
-<li>《莫氏鸡煲爆火的背后》- 历史的荒诞，与分享的代价</li>
-<li>《快跑！别让成功抓住你》- 成功是任由他人评说的</li>
-<li>《应试教育怎么你了？》- 我到底在向谁证明</li>
-<li>《应试教育怎么你了·续》- 滋养自己，就是不再需要那张考卷</li>
+<li><a href="#" class="article-link" data-title="定价牌上的公投">《定价牌上的公投》- 79元买断表情，5元续足迹</a></li>
+<li><a href="#" class="article-link" data-title="莫氏鸡煲爆火的背后">《莫氏鸡煲爆火的背后》- 历史的荒诞，与分享的代价</a></li>
+<li><a href="#" class="article-link" data-title="快跑别让成功抓住你">《快跑！别让成功抓住你》- 成功是任由他人评说的</a></li>
+<li><a href="#" class="article-link" data-title="应试教育怎么你了">《应试教育怎么你了？》- 我到底在向谁证明</a></li>
+<li><a href="#" class="article-link" data-title="应试教育怎么你了续">《应试教育怎么你了·续》- 滋养自己，就是不再需要那张考卷</a></li>
 </ul>
 </div>
 <div class="series-card">
 <div class="series-title">性别与结构</div>
 <ul class="article-list">
-<li>《一篇文章带你理清男女平等》- 权利斗争离不开阶级斗争</li>
-<li>《男生说美好，女生说不值得》- 这不是性别问题，是自我保护问题</li>
-<li>《绿色书脊的缺席，是滋养的缺席》- 从缺席的地方，第一个在场</li>
-<li>《插线板实验的真相，和景区厕所的真正问题》- 批判是对准那张困住所有人的旧地图</li>
+<li><a href="#" class="article-link" data-title="一篇文章带你理清男女平等">《一篇文章带你理清男女平等》- 权利斗争离不开阶级斗争</a></li>
+<li><a href="#" class="article-link" data-title="男生说美好女生说不值得">《男生说美好，女生说不值得》- 这不是性别问题，是自我保护问题</a></li>
+<li><a href="#" class="article-link" data-title="绿色书脊的缺席是滋养的缺席">《绿色书脊的缺席，是滋养的缺席》- 从缺席的地方，第一个在场</a></li>
+<li><a href="#" class="article-link" data-title="插线板实验的真相和景区厕所的真正问题">《插线板实验的真相，和景区厕所的真正问题》- 批判是对准那张困住所有人的旧地图</a></li>
 </ul>
 </div>
 </div>
@@ -369,23 +374,23 @@ document.addEventListener('DOMContentLoaded', applyLanguage);
 <div class="series-card">
 <div class="series-title">诗歌与创作</div>
 <ul class="article-list">
-<li>《云锦未尽时》- 织女的金梭碎成流萤</li>
-<li>《裂帛录》- 最利的银针也挑不出冬衣里积年的雪</li>
-<li>《游戏人生》- 崩溃是系统提示，不是Game Over</li>
-<li>《再飞行》- 所有坠落的，终将学会飞行</li>
-<li>《火种之上》- 苦难可以碾碎脊梁，也能锻造成梯子</li>
-<li>《使一颗心免于哀伤》- 所有看似破碎的时刻，不过是生命在重组发光的序列</li>
+<li><a href="#" class="article-link" data-title="云锦未尽时">《云锦未尽时》- 织女的金梭碎成流萤</a></li>
+<li><a href="#" class="article-link" data-title="裂帛录">《裂帛录》- 最利的银针也挑不出冬衣里积年的雪</a></li>
+<li><a href="#" class="article-link" data-title="游戏人生">《游戏人生》- 崩溃是系统提示，不是Game Over</a></li>
+<li><a href="#" class="article-link" data-title="再飞行">《再飞行》- 所有坠落的，终将学会飞行</a></li>
+<li><a href="#" class="article-link" data-title="火种之上">《火种之上》- 苦难可以碾碎脊梁，也能锻造成梯子</a></li>
+<li><a href="#" class="article-link" data-title="使一颗心免于哀伤">《使一颗心免于哀伤》- 所有看似破碎的时刻，不过是生命在重组发光的序列</a></li>
 </ul>
 </div>
 <div class="series-card">
 <div class="series-title">随笔与记录</div>
 <ul class="article-list">
-<li>《拿不住的伞》- 成长只是我们还在走的路</li>
-<li>《夜晚，我走在盲道上》- 完成比完美更重要</li>
-<li>《奶奶走后，我写下的这些字》- 亲人的离世，是一场连绵不断的阴雨</li>
-<li>《重复生活自救指南》- 在重复中认出自己</li>
-<li>《记实习至今》- 人最可贵的是感受痛苦和及时喊停的能力</li>
-<li>《牛马？犬儒才当！》- 人是会感受到痛苦的</li>
+<li><a href="#" class="article-link" data-title="拿不住的伞">《拿不住的伞》- 成长只是我们还在走的路</a></li>
+<li><a href="#" class="article-link" data-title="夜晚我走在盲道上">《夜晚，我走在盲道上》- 完成比完美更重要</a></li>
+<li><a href="#" class="article-link" data-title="奶奶走后我写下的这些字">《奶奶走后，我写下的这些字》- 亲人的离世，是一场连绵不断的阴雨</a></li>
+<li><a href="#" class="article-link" data-title="重复生活自救指南">《重复生活自救指南》- 在重复中认出自己</a></li>
+<li><a href="#" class="article-link" data-title="记实习至今">《记实习至今》- 人最可贵的是感受痛苦和及时喊停的能力</a></li>
+<li><a href="#" class="article-link" data-title="牛马犬儒才当">《牛马？犬儒才当！》- 人是会感受到痛苦的</a></li>
 </ul>
 </div>
 </div>
@@ -398,22 +403,22 @@ document.addEventListener('DOMContentLoaded', applyLanguage);
 <div class="series-card">
 <div class="series-title">心理学与自我成长</div>
 <ul class="article-list">
-<li>《被讨厌的勇气》第一夜至第五夜 · 完整笔记</li>
-<li>《幸福的勇气》第一章至第三章 · 笔记</li>
-<li>《共情的力量》第一章 & 第二章 · 笔记</li>
-<li>《非暴力沟通》第一章 & 第二章 · 笔记</li>
-<li>《自控力》核心摘录</li>
-<li>《自卑与超越》篇章摘要</li>
+<li><a href="margins.html" class="article-link">《被讨厌的勇气》第一夜至第五夜 · 完整笔记</a></li>
+<li><a href="margins.html" class="article-link">《幸福的勇气》第一章至第三章 · 笔记</a></li>
+<li><a href="margins.html" class="article-link">《共情的力量》第一章 & 第二章 · 笔记</a></li>
+<li><a href="margins.html" class="article-link">《非暴力沟通》第一章 & 第二章 · 笔记</a></li>
+<li><a href="margins.html" class="article-link">《自控力》核心摘录</a></li>
+<li><a href="margins.html" class="article-link">《自卑与超越》篇章摘要</a></li>
 </ul>
 </div>
 <div class="series-card">
 <div class="series-title">文学与思考</div>
 <ul class="article-list">
-<li>《悉达多》黑塞读书笔记①-⑤</li>
-<li>《大学突围》阅读思维养成</li>
-<li>《个体崛起》书评/摘录</li>
-<li>《和时间做朋友》第零章</li>
-<li>《绿色书脊的缺席，是滋养的缺席》- 结构批判</li>
+<li><a href="margins.html" class="article-link">《悉达多》黑塞读书笔记①-⑤</a></li>
+<li><a href="margins.html" class="article-link">《大学突围》阅读思维养成</a></li>
+<li><a href="margins.html" class="article-link">《个体崛起》书评/摘录</a></li>
+<li><a href="margins.html" class="article-link">《和时间做朋友》第零章</a></li>
+<li><a href="margins.html" class="article-link">《绿色书脊的缺席，是滋养的缺席》- 结构批判</a></li>
 </ul>
 </div>
 </div>
