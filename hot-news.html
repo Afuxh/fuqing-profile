@@ -260,7 +260,9 @@ header .update-time {
   opacity: 1; transform: translateY(-1px);
   border-color: var(--accent);
   color: var(--accent);
-  background: var(--accent-bg, rgba(200,164,92,0.08));
+  background: rgba(200,164,92,0.22);
+  box-shadow: 0 2px 12px rgba(200,164,92,0.15);
+  font-weight: 600;
 }
 
 .heat-stage-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap}
@@ -3049,10 +3051,13 @@ function filterCards() {
   } else if (emptyEl) {
     emptyEl.style.display = 'none';
   }
-  // 应用卡片数量限制（MAX_CARDS=30）
+  // 卡片数量限制：仅在未进行任何筛选时应用（即默认视图）
   const _MAX = 30;
-  const _vis = Array.from(document.querySelectorAll('.topic-card')).filter(c => c.style.display !== 'none');
-  if (_vis.length > _MAX) { _vis.slice(_MAX).forEach(c => c.style.display = 'none'); }
+  const hasActiveFilter = currentValueTag !== 'all' || currentLevel !== 'all' || currentSearch;
+  if (!hasActiveFilter) {
+    const _vis = Array.from(document.querySelectorAll('.topic-card')).filter(c => c.style.display !== 'none');
+    if (_vis.length > _MAX) { _vis.slice(_MAX).forEach(c => c.style.display = 'none'); }
+  }
 }
 
 // ===== 收藏功能 =====
