@@ -2958,7 +2958,14 @@ function showLevel(level) {
 function filterByValueTag(tag) {
   currentValueTag = tag;
   document.querySelectorAll('.value-filter-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.tag === tag);
+    const isActive = btn.dataset.tag === tag;
+    btn.classList.toggle('active', isActive);
+    // 强制内联样式确保视觉反馈（绕过浏览器工具覆盖）
+    if (isActive) {
+      btn.style.cssText = 'background:rgba(200,164,92,0.22);border-color:#c8a45c;color:#c8a45c;font-weight:600;box-shadow:0 2px 12px rgba(200,164,92,0.15);opacity:1;transform:translateY(-1px);';
+    } else {
+      btn.style.cssText = '';
+    }
   });
   filterCards();
 }
