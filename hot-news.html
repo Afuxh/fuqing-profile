@@ -216,6 +216,53 @@ header .update-time {
 .topic-list { display: block; }
 .topic-list.active { animation: fadeIn 0.5s ease; }
 
+/* ===== 价值标签系统 ===== */
+.value-tags {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin: 8px 0 4px; padding: 0 2px;
+}
+.value-tag {
+  display: inline-flex; align-items: center;
+  padding: 3px 10px; border-radius: 12px;
+  font-size: 0.72rem; font-weight: 500;
+  cursor: pointer; transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+/* 各标签颜色 */
+.value-tag[data-tag="AI变现赛道"] { background: #e8f5e9; color: #2e7d32; }
+.value-tag[data-tag="产业关联"] { background: #e3f2fd; color: #1565c0; }
+.value-tag[data-tag="技术前沿"] { background: #f3e5f5; color: #7b1fa2; }
+.value-tag[data-tag="产品工具"] { background: #fff3e0; color: #ef6c00; }
+.value-tag[data-tag="政策监管"] { background: #fce4ec; color: #c62828; }
+.value-tag[data-tag="创业投资"] { background: #fff8e1; color: #f57f17; }
+.value-tag[data-tag="综合"] { background: #f5f5f5; color: #666; }
+.value-tag:hover { opacity: 0.8; transform: translateY(-1px); }
+.value-tag.active {
+  opacity: 1; font-weight: 600;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* 价值标签筛选栏 */
+.value-filter-bar {
+  display: flex; gap: 8px; justify-content: center;
+  margin: 16px 0 24px; flex-wrap: wrap;
+}
+.value-filter-btn {
+  padding: 5px 14px; border-radius: 16px;
+  font-size: 0.78rem; font-weight: 500;
+  cursor: pointer; transition: all 0.25s ease;
+  border: 1px solid var(--border);
+  background: transparent; opacity: 0.6;
+  color: var(--text-secondary);
+}
+.value-filter-btn:hover { opacity: 0.9; }
+.value-filter-btn.active {
+  opacity: 1; transform: translateY(-1px);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-bg, rgba(200,164,92,0.08));
+}
+
 .heat-stage-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap}
 .heat-stage-badge[data-stage="萌芽"]{background:#e8f5e9;color:#2e7d32}
 .heat-stage-badge[data-stage="上升"]{background:#fff3e0;color:#ef6c00}
@@ -266,7 +313,7 @@ header .update-time {
 }
 /* 隐藏内容小结 */
 .topic-card .zh-summary {
-  display: none !important;
+  display: block;
 }
 
 /* AI 内容区块 - 统一容器 */
@@ -741,6 +788,7 @@ footer .footer-links a { margin: 0 8px; }
   header .philosophy-line { display: none; }
   .topic-card { padding: 18px 16px; }
   .level-tab { padding: 6px 12px; font-size: 0.75rem; }
+  .level-tab span { display: none; }
   .toolbar {
     top: 50px; right: auto; left: 12px;
     flex-direction: column; gap: 0;
@@ -1073,7 +1121,7 @@ footer .footer-links a { margin: 0 8px; }
 <h1>AI 时代观察</h1>
 <p class="subtitle">效率归机器，意义归人类</p>
 <p class="philosophy-line">「让被豁免的，重新在场」</p>
-<p class="update-time">更新时间：2026-06-05 19:44 · 共 60 条精选内容</p>
+<p class="update-time">更新时间：2026-06-08 11:50 · 共 60 条内容</p>
 </header>
 
 <!-- 四化方法论banner已移除 -->
@@ -1094,427 +1142,592 @@ footer .footer-links a { margin: 0 8px; }
 
 </div>
 
+<!-- 价值标签筛选 -->
+<div class="value-filter-bar" id="valueFilterBar">
+  <button class="value-filter-btn active" onclick="filterByValueTag('all')" data-tag="all">全部价值</button>
+  <button class="value-filter-btn" onclick="filterByValueTag('AI变现赛道')" data-tag="AI变现赛道">💰 AI变现赛道</button>
+  <button class="value-filter-btn" onclick="filterByValueTag('产业关联')" data-tag="产业关联">🏭 产业关联</button>
+  <button class="value-filter-btn" onclick="filterByValueTag('技术前沿')" data-tag="技术前沿">🔬 技术前沿</button>
+  <button class="value-filter-btn" onclick="filterByValueTag('产品工具')" data-tag="产品工具">🛠️ 产品工具</button>
+  <button class="value-filter-btn" onclick="filterByValueTag('政策监管')" data-tag="政策监管">⚖️ 政策监管</button>
+  <button class="value-filter-btn" onclick="filterByValueTag('创业投资')" data-tag="创业投资">🚀 创业投资</button>
+</div>
+
 <main>
 <div id="level-精选" class="topic-list">
-<div class="topic-card" data-hash="acfe3912a0134e01a1b9" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="cd55755d4364c8831251" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">GitHub</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="acfe3912a0134e01a1b9" data-title="PanisHandsome/ai-rules-sync" data-url="https://github.com/PanisHandsome/ai-rules-sync" data-score="100" data-grade="精选" data-source="GitHub" data-summary="Keep one source of truth for your AI coding-agent rules. Convert and sync between AGENTS.md, CLAUDE." data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="cd55755d4364c8831251" data-title="Dimensiontashop/Claude-Mythos-AI-App" data-url="https://github.com/Dimensiontashop/Claude-Mythos-AI-App" data-score="100" data-grade="精选" data-source="GitHub" data-summary="Claude Mythos AI Anthropic App desktop free pro opus frontend client API wrapper Claude 3.5 Sonnet O" data-zhsummary="Claude Mythos是Claude的桌面应用，提供多种AI功能模式。" title="收藏">☆</button>
   </div>
-  <h2>PanisHandsome/ai-rules-sync</h2>
-  <p class="summary">Keep one source of truth for your AI coding-agent rules. Convert and sync between AGENTS.md, CLAUDE.md, .cursorrules, Copilot, Windsurf, Cline, Aider & Gemini — or scaffold a fresh AGENTS.md. Zero dep</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://github.com/Dimensiontashop/Claude-Mythos-AI-App" target="_blank" rel="noopener">Dimensiontashop/Claude-Mythos-AI-App</a></h2>
+  <p class="summary">Claude Mythos是Claude的桌面应用，提供多种AI功能模式。</p>
   <div class="meta">
     <span>GitHub</span>
-    <span>🔥 105</span>
+    <span>🔥 77</span>
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/Dimensiontashop/Claude-Mythos-AI-App" data-title="Dimensiontashop/Claude-Mythos-AI-App">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>能更灵活地使用Claude，但可能包含未授权功能需谨慎。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试使用其免费功能了解AI辅助创作的潜力。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="f173c6013e815d5da01d" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="e7959983b0577ece8625" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="e7959983b0577ece8625" data-title="Anthropic-Claude-Mythos/Claude-Mythos-AI-App" data-url="https://github.com/Anthropic-Claude-Mythos/Claude-Mythos-AI-App" data-score="100" data-grade="精选" data-source="GitHub" data-summary="Claude Mythos AI Anthropic App desktop  free  pro opus  frontend client API wrapper Claude 3.5 Sonne" data-zhsummary="Claude Mythos是Claude的桌面版应用，提供多种AI交互模式。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://github.com/Anthropic-Claude-Mythos/Claude-Mythos-AI-App" target="_blank" rel="noopener">Anthropic-Claude-Mythos/Claude-Mythos-AI-App</a></h2>
+  <p class="summary">Claude Mythos是Claude的桌面版应用，提供多种AI交互模式。</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 49</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/Anthropic-Claude-Mythos/Claude-Mythos-AI-App" data-title="Anthropic-Claude-Mythos/Claude-Mythos-AI-App">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>能更方便地使用Claude，但要注意某些功能可能违反使用条款。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>测试其免费功能感受AI辅助办公的便捷性。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="eea8797b33e4c36d756b" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="eea8797b33e4c36d756b" data-title="Ricar66/omnistack-agent" data-url="https://github.com/Ricar66/omnistack-agent" data-score="100" data-grade="精选" data-source="GitHub" data-summary="Platform-agnostic AI agent: one Full-Stack Software Engineer brain, compiled into ready-to-paste ada" data-zhsummary="这个AI代理能跨平台使用，像一个全能的软件工程师大脑。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://github.com/Ricar66/omnistack-agent" target="_blank" rel="noopener">Ricar66/omnistack-agent</a></h2>
+  <p class="summary">这个AI代理能跨平台使用，像一个全能的软件工程师大脑。</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 47</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/Ricar66/omnistack-agent" data-title="Ricar66/omnistack-agent">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>开发者的效率可能大幅提升，但需要适应不同平台的使用方式。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试用它解决跨平台开发中的技术难题。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="5ccf5a46b73715466fbf" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">36氪</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="f173c6013e815d5da01d" data-title="00后创业者站上C位，「go big or go home」｜36氪离线聚会第二期" data-url="https://36kr.com/p/3838702884604421?f=rss" data-score="100" data-grade="精选" data-source="36氪" data-summary="“妨碍真理发现过程的，不是谎言，而是极其精辟的错误见解。”德国物理学家兼讽刺作家利希滕贝格在面对启蒙运动中的种种愚昧时，戏谑式地写下了这一句名言。
-  许多误判之所以危险，恰恰因为" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="5ccf5a46b73715466fbf" data-title="「华超神控」获亿元天使系列融资，加速打造新一代AI超声脑机接口平台 | 36氪首发" data-url="https://36kr.com/p/3841459663030532?f=rss" data-score="100" data-grade="精选" data-source="36氪" data-summary="文｜胡香赟
+  编辑｜海若镜
+  36氪获悉，近日，新一代AI超声脑机公司华超神控（BCI-Sonics）已完成亿元人民币级天使轮系列融资。天使轮融资由经纬创投领投，天使+轮由德联资本、" data-zhsummary="一家研发脑机接口的公司拿到了大笔投资，可能未来能用思维控制设备。" title="收藏">☆</button>
   </div>
-  <h2>00后创业者站上C位，「go big or go home」｜36氪离线聚会第二期</h2>
-  <p class="summary">“妨碍真理发现过程的，不是谎言，而是极其精辟的错误见解。”德国物理学家兼讽刺作家利希滕贝格在面对启蒙运动中的种种愚昧时，戏谑式地写下了这一句名言。
-  许多误判之所以危险，恰恰因为它们看上去过于正确。它们能在一个短周期里解释世界，也容易在世界已经变化之后，继续以“共识”的面貌停留在原地。
-  AI也曾经历类似的混沌阶段。过去两年，人们习惯用一些简单指标理解这场变化：谁拥有更多GPU，谁训练了更大参</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3841459663030532?f=rss" target="_blank" rel="noopener">「华超神控」获亿元天使系列融资，加速打造新一代AI超声脑机接口平台 | 36氪首发</a></h2>
+  <p class="summary">一家研发脑机接口的公司拿到了大笔投资，可能未来能用思维控制设备。</p>
   <div class="meta">
     <span>36氪</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3841459663030532?f=rss" data-title="「华超神控」获亿元天使系列融资，加速打造新一代AI超声脑机接口平台 | 36氪首发">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>这类技术未来可能帮助残障人士更方便地使用科技，也可能让医疗更精准。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注AI在医疗领域的应用进展，学习基础的神经科学常识。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="6e172529a4cfd5c8fc39" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="effe5e351bc9b8a8d07b" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">36氪</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="effe5e351bc9b8a8d07b" data-title="9点1氪｜豆包推出付费后月活减少610万；Anthropic呼吁全球放缓AI开发，警告AI“自我改进”风险；罗永浩卸任锤子软件公司执行董事" data-url="https://36kr.com/p/3840996342073604?f=rss" data-score="100" data-grade="精选" data-source="36氪" data-summary="今日热点导览
+  SpaceX据悉将其IPO的日本融资目标提高至25亿美元
+  二手房挂牌量回落新房库存下降，楼市供需关系向好
+  B站宣布启动AI创造公开赛
+  TOP3大新闻
+  数" data-zhsummary="豆包推出付费功能后用户减少，AI发展被部分专家警告存在风险，罗永浩也卸任了公司职位。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3840996342073604?f=rss" target="_blank" rel="noopener">9点1氪｜豆包推出付费后月活减少610万；Anthropic呼吁全球放缓AI开发，警告AI“自我改进”风险；罗永浩卸任锤子软件公司执行董事</a></h2>
+  <p class="summary">豆包推出付费功能后用户减少，AI发展被部分专家警告存在风险，罗永浩也卸任了公司职位。</p>
+  <div class="meta">
+    <span>36氪</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3840996342073604?f=rss" data-title="9点1氪｜豆包推出付费后月活减少610万；Anthropic呼吁全球放缓AI开发，警告AI“自我改进”风险；罗永浩卸任锤子软件公司执行董事">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI技术需要平衡商业利益和安全性，创业者也要面对转型压力。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>了解AI伦理问题，学习如何合理使用AI工具避免过度依赖。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="047a104712280d9c4aeb" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="6e172529a4cfd5c8fc39" data-title="Meet OpenJarvis：一个本地优先的设备端个人AI智能体框架，支持工具、记忆与学习" data-url="https://www.marktechpost.com/2026/06/03/meet-openjarvis-a-local-first-framework-for-on-device-personal-ai-agents-with-tools-memory-and-learning" data-score="100" data-grade="精选" data-source="AI热点" data-summary="Stanford 研究人员发布 OpenJarvis，一个完全在设备端运行推理、智能体、记忆与学习的开源框架。它将个人 AI 系统分解为五个可组合原语：Intelligence、Engine、Agen" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="047a104712280d9c4aeb" data-title="ChatGPT 要变 AgentGPT 了" data-url="https://x.com/dotey/status/2063686036895478162" data-score="100" data-grade="精选" data-source="AI热点" data-summary="根据《金融时报》报道:Open AI 正在筹划对ChatGPT推出以来的最大规模改革 &quot;聊天已死&quot; AI的未来不在于回答问题的聊天机器人,而在于能够为用户执行任务的智能体,也就是A" data-zhsummary="OpenAI准备把ChatGPT变成能干活的&quot;AI助手&quot;，不再只是聊天。" title="收藏">☆</button>
   </div>
-  <h2>Meet OpenJarvis：一个本地优先的设备端个人AI智能体框架，支持工具、记忆与学习</h2>
-  <p class="summary">Stanford 研究人员发布 OpenJarvis，一个完全在设备端运行推理、智能体、记忆与学习的开源框架。它将个人 AI 系统分解为五个可组合原语：Intelligence、Engine、Agents、Tools &amp; Memory 和 Learning。该框架与最佳云端模型的性能差距在 3.2 points 以内，边际 API 成本降低约 800 倍。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://x.com/dotey/status/2063686036895478162" target="_blank" rel="noopener">ChatGPT 要变 AgentGPT 了</a></h2>
+  <p class="summary">OpenAI准备把ChatGPT变成能干活的"AI助手"，不再只是聊天。</p>
   <div class="meta">
     <span>AI热点</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://x.com/dotey/status/2063686036895478162" data-title="ChatGPT 要变 AgentGPT 了">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>以后可能不用和AI反复问"怎么操作"，它会直接帮你完成任务，比如写代码、做计划。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试用AI工具完成简单任务，比如让AI帮你整理文件或写邮件草稿。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="9376c35d81aadb328bf8" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="a0966b9b7ae7ef24dc0d" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="9376c35d81aadb328bf8" data-title="MapAgent：面向城市级车道级地图生成的工业级智能体框架" data-url="https://arxiv.org/abs/2606.04513" data-score="100" data-grade="精选" data-source="AI热点" data-summary="MapAgent是一种工业级智能体架构，用于生成符合规范的车道级地图。它在矢量化骨干网络基础上，通过Judge-Planner-Worker循环，利用视觉语言模型诊断错误、调用工具生成最小修正编辑并重" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="a0966b9b7ae7ef24dc0d" data-title="Arena 发布真实世界 AI 智能体排行榜 Agent Arena" data-url="https://x.com/rohanpaul_ai/status/2063018358795300982" data-score="100" data-grade="精选" data-source="AI热点" data-summary="Arena 推出基于真实用户任务的智能体排行榜，评估模型在代码编写、应用构建、文档分析等工作中的表现，而非孤立基准。排行榜基于30万+任务、200万+工具调用和4000万行代码，综合任务成功、纠正遵从" data-zhsummary="有人把AI能力按任务分类，像打分一样看哪些AI更厉害。" title="收藏">☆</button>
   </div>
-  <h2>MapAgent：面向城市级车道级地图生成的工业级智能体框架</h2>
-  <p class="summary">MapAgent是一种工业级智能体架构，用于生成符合规范的车道级地图。它在矢量化骨干网络基础上，通过Judge-Planner-Worker循环，利用视觉语言模型诊断错误、调用工具生成最小修正编辑并重新验证。系统仅在骨干网络置信度低的瓦片区域选择性触发，保持高吞吐量。MapAgent已集成至百度地图，支撑全国360多个城市的车道级地图生成，整体生产自动化率超95%。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://x.com/rohanpaul_ai/status/2063018358795300982" target="_blank" rel="noopener">Arena 发布真实世界 AI 智能体排行榜 Agent Arena</a></h2>
+  <p class="summary">有人把AI能力按任务分类，像打分一样看哪些AI更厉害。</p>
   <div class="meta">
     <span>AI热点</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://x.com/rohanpaul_ai/status/2063018358795300982" data-title="Arena 发布真实世界 AI 智能体排行榜 Agent Arena">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>以后选AI工具可能更科学，像挑手机一样看性能指标。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>看看排行榜上推荐的AI工具，试试它们在自己工作中的表现。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="0dd1e8124098b49ee754" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="爱范儿" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="0dd1e8124098b49ee754" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="爱范儿" data-heat-stage="热门" data-audience="pro" data-value-tags="技术前沿,产品工具,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">爱范儿</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="0dd1e8124098b49ee754" data-title="一夜之间，ChatGPT 变成了第二个 Claude" data-url="https://www.ifanr.com/1667898?utm_source=rss&utm_medium=rss&utm_campaign=" data-score="100" data-grade="精选" data-source="爱范儿" data-summary="Agent 之争，从 Coding 开始" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="0dd1e8124098b49ee754" data-title="一夜之间，ChatGPT 变成了第二个 Claude" data-url="https://www.ifanr.com/1667898?utm_source=rss&utm_medium=rss&utm_campaign=" data-score="100" data-grade="精选" data-source="爱范儿" data-summary="Agent 之争，从 Coding 开始" data-zhsummary="ChatGPT突然像Claude一样加入Agent功能。" title="收藏">☆</button>
   </div>
-  <h2>一夜之间，ChatGPT 变成了第二个 Claude</h2>
-  <p class="summary">Agent 之争，从 Coding 开始</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://www.ifanr.com/1667898?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">一夜之间，ChatGPT 变成了第二个 Claude</a></h2>
+  <p class="summary">ChatGPT突然像Claude一样加入Agent功能。</p>
   <div class="meta">
     <span>爱范儿</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.ifanr.com/1667898?utm_source=rss&utm_medium=rss&utm_campaign=" data-title="一夜之间，ChatGPT 变成了第二个 Claude">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI技术竞争白热化，普通人可能更快接触新功能。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以研究ChatGPT的Agent功能，了解其最新进展。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="3909b1dfee5d08a6754c" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="Arxiv Ai" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="5087e0081bf4f7114c4a" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="Caixin" data-heat-stage="热门" data-audience="pro" data-value-tags="AI变现赛道,产品工具,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Arxiv Ai</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="3909b1dfee5d08a6754c" data-title="Ten Headache Specialists versus Artificial Intelligence for Clinical Literature Summarization: A Critical Evaluation and Comparison" data-url="https://arxiv.org/abs/2606.05436" data-score="100" data-grade="精选" data-source="Arxiv Ai" data-summary="arXiv:2606.05436v1 Announce Type: new 
-Abstract: Summarizing the latest medical literature to guide" data-zhsummary="" title="收藏">☆</button>
+    <span class="source-tag">Caixin</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="5087e0081bf4f7114c4a" data-title="T早报｜英伟达与SK海力士宣布达成多年技术合作；OpenAI计划大幅升级ChatGPT以创造更多收入；SpaceX IPO不对中、俄等国投资者开放" data-url="https://www.caixin.com/2026-06-08/102451888.html" data-score="100" data-grade="精选" data-source="Caixin" data-summary="" data-zhsummary="英伟达和SK海力士联手搞技术开发，OpenAI要升级ChatGPT赚更多钱，SpaceX的上市不接受中、俄投资者。" title="收藏">☆</button>
   </div>
-  <h2>Ten Headache Specialists versus Artificial Intelligence for Clinical Literature Summarization: A Critical Evaluation and Comparison</h2>
-  <p class="summary">arXiv:2606.05436v1 Announce Type: new 
-Abstract: Summarizing the latest medical literature to guide clinical decision-making is essential for evidence-based medicine and high-quality patient care. Yet</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://www.caixin.com/2026-06-08/102451888.html" target="_blank" rel="noopener">T早报｜英伟达与SK海力士宣布达成多年技术合作；OpenAI计划大幅升级ChatGPT以创造更多收入；SpaceX IPO不对中、俄等国投资者开放</a></h2>
+  <p class="summary">英伟达和SK海力士联手搞技术开发，OpenAI要升级ChatGPT赚更多钱，SpaceX的上市不接受中、俄投资者。</p>
   <div class="meta">
-    <span>Arxiv Ai</span>
+    <span>Caixin</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.caixin.com/2026-06-08/102451888.html" data-title="T早报｜英伟达与SK海力士宣布达成多年技术合作；OpenAI计划大幅升级ChatGPT以创造更多收入；SpaceX IPO不对中、俄等国投资者开放">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>科技巨头们正在加速AI发展，但国际合作和开放程度可能受到政治因素影响。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注这些科技公司动态，了解AI技术如何改变行业格局。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="7291ca52c07a153a8656" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="Slashdot" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="4a24ec26dff6041dc2bf" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="pro" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">99分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Slashdot</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="7291ca52c07a153a8656" data-title="Companies Are Using Reddit To Manipulate ChatGPT and Google AI Search" data-url="https://tech.slashdot.org/story/26/06/04/1828244/companies-are-using-reddit-to-manipulate-chatgpt-and-google-ai-search?utm_source=rss1.0mainlinkanon&utm_medium=feed" data-score="99" data-grade="精选" data-source="Slashdot" data-summary="An anonymous reader quotes a report from 404 Media: The moderators of the biohacking subreddit say t" data-zhsummary="" title="收藏">☆</button>
+    <span class="source-tag">36氪</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="4a24ec26dff6041dc2bf" data-title="8点1氪丨八家上市公司集中公告“补税”；ChatGPT将迎来史上最大幅度升级；高考新增AI监考员，自动截取异常录像" data-url="https://36kr.com/p/3843764238174729?f=rss" data-score="99" data-grade="精选" data-source="36氪" data-summary="今日热点导览
+  AI等机器网络请求量首超人类
+  瑞幸咖啡回应拿铁去冰仅半杯
+  宗馥莉自有品牌KELLYONE回归
+  多家低成本航空公司对登机箱登机收费
+  黄仁勋会见韩国两大游戏" data-zhsummary="今天有上市公司宣布补税，ChatGPT将升级，高考还新增了AI监考员。" title="收藏">☆</button>
   </div>
-  <h2>Companies Are Using Reddit To Manipulate ChatGPT and Google AI Search</h2>
-  <p class="summary">An anonymous reader quotes a report from 404 Media: The moderators of the biohacking subreddit say that peptide and hormone replacement therapy companies have been surreptitiously spamming Reddit in a</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3843764238174729?f=rss" target="_blank" rel="noopener">8点1氪丨八家上市公司集中公告“补税”；ChatGPT将迎来史上最大幅度升级；高考新增AI监考员，自动截取异常录像</a></h2>
+  <p class="summary">今天有上市公司宣布补税，ChatGPT将升级，高考还新增了AI监考员。</p>
   <div class="meta">
-    <span>Slashdot</span>
+    <span>36氪</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3843764238174729?f=rss" data-title="8点1氪丨八家上市公司集中公告“补税”；ChatGPT将迎来史上最大幅度升级；高考新增AI监考员，自动截取异常录像">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI正在渗透到教育和工作场景，考试可能更严格，但也会推动技术发展。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试用AI工具辅助学习，比如用智能笔记软件整理知识。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="6b48cd34a9a126c4b550" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="ZDNet" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="6b36d41a4fd2dcfc4785" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="TechCrunch" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">99分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">ZDNet</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="6b48cd34a9a126c4b550" data-title="Is Microsoft 365 Premium worth it? What $20 a month gets you - and how it compares to ChatGPT Plus" data-url="https://www.zdnet.com/article/is-microsoft-365-premium-worth-it-vs-chatgpt-plus/" data-score="99" data-grade="精选" data-source="ZDNet" data-summary="Microsoft is offering a 50% discount to 365 subscribers who want more AI Copilot features. Here&#39;s wh" data-zhsummary="" title="收藏">☆</button>
+    <span class="source-tag">TechCrunch</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="6b36d41a4fd2dcfc4785" data-title="OpenAI unveils Lockdown Mode to protect sensitive data from prompt injection attacks" data-url="https://techcrunch.com/2026/06/06/openai-unveils-lockdown-mode-to-protect-sensitive-data-from-prompt-injection-attacks/" data-score="99" data-grade="精选" data-source="TechCrunch" data-summary="Even with Lockdown Mode, ChatGPT could be still vulnerable to prompt injections, but the goal is to" data-zhsummary="OpenAI推出新功能来防止AI被恶意操控，但效果可能有限。" title="收藏">☆</button>
   </div>
-  <h2>Is Microsoft 365 Premium worth it? What $20 a month gets you - and how it compares to ChatGPT Plus</h2>
-  <p class="summary">Microsoft is offering a 50% discount to 365 subscribers who want more AI Copilot features. Here's what's included.</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://techcrunch.com/2026/06/06/openai-unveils-lockdown-mode-to-protect-sensitive-data-from-prompt-injection-attacks/" target="_blank" rel="noopener">OpenAI unveils Lockdown Mode to protect sensitive data from prompt injection attacks</a></h2>
+  <p class="summary">OpenAI推出新功能来防止AI被恶意操控，但效果可能有限。</p>
   <div class="meta">
-    <span>ZDNet</span>
+    <span>TechCrunch</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://techcrunch.com/2026/06/06/openai-unveils-lockdown-mode-to-protect-sensitive-data-from-prompt-injection-attacks/" data-title="OpenAI unveils Lockdown Mode to protect sensitive data from prompt injection attacks">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>保护隐私比以往更重要，但也不能完全依赖技术手段。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>使用AI时开启安全模式，避免输入敏感信息。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="95b65508cb51787086f4" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="Arxiv Ai" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="a47e61205a35ab8eaa35" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
-    <span class="score-badge" style="background: #c8786a;">99分 · 精选</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Arxiv Ai</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="95b65508cb51787086f4" data-title="How Far Did They Go? The Persuasive Tactics of Covert LLM Agents in a Discontinued Field Experiment" data-url="https://arxiv.org/abs/2606.05256" data-score="99" data-grade="精选" data-source="Arxiv Ai" data-summary="arXiv:2606.05256v1 Announce Type: new 
-Abstract: This study analyzes a publicly released dataset fro" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>How Far Did They Go? The Persuasive Tactics of Covert LLM Agents in a Discontinued Field Experiment</h2>
-  <p class="summary">arXiv:2606.05256v1 Announce Type: new 
-Abstract: This study analyzes a publicly released dataset from a discontinued field experiment on Reddit's r/ChangeMyView. The intervention, conducted by unknown</p>
-  <div class="meta">
-    <span>Arxiv Ai</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="1648269cffc9a7dc7e72" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #c8786a;">97分 · 精选</span>
+    <span class="score-badge" style="background: #c8786a;">98分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="1648269cffc9a7dc7e72" data-title="NVIDIA Nemotron 3 Ultra 为长时间运行的智能体带来更快、更高效的推理能力" data-url="https://developer.nvidia.com/blog/nvidia-nemotron-3-ultra-powers-faster-more-efficient-reasoning-for-long-running-agents" data-score="97" data-grade="精选" data-source="AI热点" data-summary="NVIDIA 发布 Nemotron 3 Ultra 模型，专为长时间运行的 AI 智能体设计。该模型能够在多轮对话中保持上下文、调用工具、调用子智能体，并高效处理复杂工作流。随着多智能体协作导致模型" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="a47e61205a35ab8eaa35" data-title="谷歌推出基于 Gemini Enterprise Agent Platform 的 Agentic RAG 框架" data-url="https://research.google/blog/unlocking-dependable-responses-with-gemini-enterprise-agent-platforms-agentic-rag" data-score="98" data-grade="精选" data-source="AI热点" data-summary="Google Research 与 Google Cloud 合作推出跨语料库检索（Cross-Corpus Retrieval）框架，作为 Gemini Enterprise Agent Platf" data-zhsummary="谷歌推出了一个新工具，能帮助企业更高效地处理复杂问题。" title="收藏">☆</button>
   </div>
-  <h2>NVIDIA Nemotron 3 Ultra 为长时间运行的智能体带来更快、更高效的推理能力</h2>
-  <p class="summary">NVIDIA 发布 Nemotron 3 Ultra 模型，专为长时间运行的 AI 智能体设计。该模型能够在多轮对话中保持上下文、调用工具、调用子智能体，并高效处理复杂工作流。随着多智能体协作导致模型 token 数量快速增长，Nemotron 3 Ultra 通过优化推理流程显著提升速度并降低计算成本，使长期运行的智能体任务更加可行。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://research.google/blog/unlocking-dependable-responses-with-gemini-enterprise-agent-platforms-agentic-rag" target="_blank" rel="noopener">谷歌推出基于 Gemini Enterprise Agent Platform 的 Agentic RAG 框架</a></h2>
+  <p class="summary">谷歌推出了一个新工具，能帮助企业更高效地处理复杂问题。</p>
   <div class="meta">
     <span>AI热点</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://research.google/blog/unlocking-dependable-responses-with-gemini-enterprise-agent-platforms-agentic-rag" data-title="谷歌推出基于 Gemini Enterprise Agent Platform 的 Agentic RAG 框架">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>企业用户可能会用这个工具更快找到信息，提高工作效率。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以试试用谷歌的Gemini平台了解如何提升信息处理效率。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="e5f03364dfd65a30e092" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="77af61de7c43b2d5fa2c" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">92分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">36氪</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="e5f03364dfd65a30e092" data-title="国家队下场做AI虚拟细胞，「百曜科技」完成数千万元新一轮融资｜36氪首发" data-url="https://36kr.com/p/3835460873385348?f=rss" data-score="92" data-grade="精选" data-source="36氪" data-summary="文｜胡香赟
-  编辑｜海若镜
-  36氪获悉，AI虚拟细胞（AIVC）平台公司「百曜科技」近期已完成数千万元新一轮融资。本轮融资由国家级国有资本运营平台中国国新旗下的国新创投基金领投，道" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="77af61de7c43b2d5fa2c" data-title="财政部：“十五五”时期中央财政将保持较大力度支持城市更新，实施好税收支持政策" data-url="https://36kr.com/newsflashes/3843918401734914?f=rss" data-score="92" data-grade="精选" data-source="36氪" data-summary="6月8日，财政部经济建设司司长郭方明在国务院政策例行吹风会上表示，财政部统筹各项资金的渠道，支持城市更新重点任务。比如城镇保障性安居工程补助资金、地方政府专项债券、中央预算内投资、超长期特别国债资金等" data-zhsummary="财政部要加大资金支持城市更新，用税收政策推动城市发展。" title="收藏">☆</button>
   </div>
-  <h2>国家队下场做AI虚拟细胞，「百曜科技」完成数千万元新一轮融资｜36氪首发</h2>
-  <p class="summary">文｜胡香赟
-  编辑｜海若镜
-  36氪获悉，AI虚拟细胞（AIVC）平台公司「百曜科技」近期已完成数千万元新一轮融资。本轮融资由国家级国有资本运营平台中国国新旗下的国新创投基金领投，道彤资本和云启资本跟投，老股东峰瑞资本和百度风投追加投资。募集资金将主要用于全新一代虚拟细胞算法模型迭代、独家数据收集平台建设以及加速产业化落地。
-  百曜科技是36氪持续追踪报道的企业（附链接），公司创始团队依托中</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://36kr.com/newsflashes/3843918401734914?f=rss" target="_blank" rel="noopener">财政部：“十五五”时期中央财政将保持较大力度支持城市更新，实施好税收支持政策</a></h2>
+  <p class="summary">财政部要加大资金支持城市更新，用税收政策推动城市发展。</p>
   <div class="meta">
     <span>36氪</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/newsflashes/3843918401734914?f=rss" data-title="财政部：“十五五”时期中央财政将保持较大力度支持城市更新，实施好税收支持政策">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>这可能让老城区改造更快，但也会对房地产市场产生连锁反应。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>留意城市规划动向，关注老旧小区改造政策。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="d8097dd93a95c2a73308" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="Slashdot" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="dd9bef066eb4c0e81fcf" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="Mit Tr" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">92分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Slashdot</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="d8097dd93a95c2a73308" data-title="Meta Keeps Delaying the Release of Its New AI Model to Developers" data-url="https://meta.slashdot.org/story/26/06/04/181247/meta-keeps-delaying-the-release-of-its-new-ai-model-to-developers?utm_source=rss1.0mainlinkanon&utm_medium=feed" data-score="92" data-grade="精选" data-source="Slashdot" data-summary="Meta has reportedly delayed the developer release of its Muse Spark AI model API multiple times, and" data-zhsummary="" title="收藏">☆</button>
+    <span class="source-tag">Mit Tr</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="dd9bef066eb4c0e81fcf" data-title="Rehumanizing global health care with agentic AI" data-url="https://www.technologyreview.com/2026/06/02/1137827/rehumanizing-global-health-care-with-agentic-ai/" data-score="92" data-grade="精选" data-source="Mit Tr" data-summary="The global health care sector is under increasing strain.&#160; Decades of chronic underinvestment a" data-zhsummary="AI被用来改善全球医疗系统，缓解医生短缺和资源不足的问题。" title="收藏">☆</button>
   </div>
-  <h2>Meta Keeps Delaying the Release of Its New AI Model to Developers</h2>
-  <p class="summary">Meta has reportedly delayed the developer release of its Muse Spark AI model API multiple times, and as of Tuesday, had no scheduled launch date, according to the Wall Street Journal (paywalled). Reut</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.technologyreview.com/2026/06/02/1137827/rehumanizing-global-health-care-with-agentic-ai/" target="_blank" rel="noopener">Rehumanizing global health care with agentic AI</a></h2>
+  <p class="summary">AI被用来改善全球医疗系统，缓解医生短缺和资源不足的问题。</p>
   <div class="meta">
-    <span>Slashdot</span>
+    <span>Mit Tr</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.technologyreview.com/2026/06/02/1137827/rehumanizing-global-health-care-with-agentic-ai/" data-title="Rehumanizing global health care with agentic AI">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>医疗行业可能迎来效率提升，但也要注意AI带来的伦理问题。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>了解AI在医疗领域的应用，关注相关技术发展的新闻。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="4adde9c0f39becbec951" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="pro">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #c8786a;">91.0分 · 精选</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">GitHub</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="4adde9c0f39becbec951" data-title="aiZKP/modern-ai-engineer-roadmap" data-url="https://github.com/aiZKP/modern-ai-engineer-roadmap" data-score="91.0" data-grade="精选" data-source="GitHub" data-summary="Beginner-to-master roadmap for becoming a modern AI engineer: AI and ML fundamentals, deep learning," data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>aiZKP/modern-ai-engineer-roadmap</h2>
-  <p class="summary">Beginner-to-master roadmap for becoming a modern AI engineer: AI and ML fundamentals, deep learning, LLMs, RAG, agents, model infrastructure, optimization, hardware acceleration, AI security, blockcha</p>
-  <div class="meta">
-    <span>GitHub</span>
-    <span>🔥 7</span>
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="d78cf90088e477d6a074" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="月光博客" data-heat-stage="热门" data-audience="general">
+<div class="topic-card" data-hash="d78cf90088e477d6a074" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="月光博客" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">91分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">月光博客</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="d78cf90088e477d6a074" data-title="《国务院关于对外投资的规定》自7月1日起施行" data-url="https://www.williamlong.info/archives/7548.html" data-score="91" data-grade="精选" data-source="月光博客" data-summary="2026年6月1日，国务院公布《国务院关于对外投资的规定》（以下简称《规定》），新规将自2026年7月1日起施行。《规定》旨在推进高水平对外开放，促进对外投资高质量发展，有效实施对外投资管理，保护投资" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="d78cf90088e477d6a074" data-title="《国务院关于对外投资的规定》自7月1日起施行" data-url="https://www.williamlong.info/archives/7548.html" data-score="91" data-grade="精选" data-source="月光博客" data-summary="2026年6月1日，国务院公布《国务院关于对外投资的规定》（以下简称《规定》），新规将自2026年7月1日起施行。《规定》旨在推进高水平对外开放，促进对外投资高质量发展，有效实施对外投资管理，保护投资" data-zhsummary="中国出台新规，从7月1日起对对外投资进行更严格的管理。" title="收藏">☆</button>
   </div>
-  <h2>《国务院关于对外投资的规定》自7月1日起施行</h2>
-  <p class="summary">2026年6月1日，国务院公布《国务院关于对外投资的规定》（以下简称《规定》），新规将自2026年7月1日起施行。《规定》旨在推进高水平对外开放，促进对外投资高质量发展，有效实施对外投资管理，保护投资者及其对外投资合法权益，维护国家主权、安全、发展利益。《规定》共34条，主要规定了以下内容。
-
-国务院关于对外投资的规定
-
-第一条　为了推进高水平对外开放，促进对外投资高质量发展，有效实施对外投资管理</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.williamlong.info/archives/7548.html" target="_blank" rel="noopener">《国务院关于对外投资的规定》自7月1日起施行</a></h2>
+  <p class="summary">中国出台新规，从7月1日起对对外投资进行更严格的管理。</p>
   <div class="meta">
     <span>月光博客</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.williamlong.info/archives/7548.html" data-title="《国务院关于对外投资的规定》自7月1日起施行">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>出国投资或合作可能需要更多手续，但能更好保护企业和个人的利益。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以查阅新规细节，了解哪些投资行为需要提前备案。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="95162f511bdd546abfb1" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="95162f511bdd546abfb1" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="pro" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
-    <span class="score-badge" style="background: #c8786a;">89分 · 精选</span>
+    <span class="score-badge" style="background: #c8786a;">90分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">36氪</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="95162f511bdd546abfb1" data-title="Token大战中，华为云选择了第三条路｜最前线" data-url="https://36kr.com/p/3840016255126016?f=rss" data-score="89" data-grade="精选" data-source="36氪" data-summary="作者 | 邓咏仪
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="95162f511bdd546abfb1" data-title="Token大战中，华为云选择了第三条路｜最前线" data-url="https://36kr.com/p/3840016255126016?f=rss" data-score="90" data-grade="精选" data-source="36氪" data-summary="作者 | 邓咏仪
   编辑 | 张雨忻
-  “在国产化算力供应受限的情况下，华为云现在不太在乎Token总量是多少，也不太在乎收入的总量是多少，在乎的是国产化的算力系统所生产出来的Tok" data-zhsummary="" title="收藏">☆</button>
+  “在当前国产化算力正在成长的情况下，华为云现在不太在乎Token总量是多少，也不太在乎收入的总量是多少，在乎的是国产化的算力系统所生产出来的T" data-zhsummary="华为云选择不跟风AI算力竞赛，而是更关注算力系统的实际效果。" title="收藏">☆</button>
   </div>
-  <h2>Token大战中，华为云选择了第三条路｜最前线</h2>
-  <p class="summary">作者 | 邓咏仪
-  编辑 | 张雨忻
-  “在国产化算力供应受限的情况下，华为云现在不太在乎Token总量是多少，也不太在乎收入的总量是多少，在乎的是国产化的算力系统所生产出来的Tokens的健康度，并且要代表着生产力提升，而不仅仅是情绪价值。”
-  6月5日，2026华为云 INSPIRE 创想者大会在上海开幕，华为云CEO周跃峰表示。
-  他举了个例子：一个人闲来无事在手机上问 AI 一个问</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3840016255126016?f=rss" target="_blank" rel="noopener">Token大战中，华为云选择了第三条路｜最前线</a></h2>
+  <p class="summary">华为云选择不跟风AI算力竞赛，而是更关注算力系统的实际效果。</p>
   <div class="meta">
     <span>36氪</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3840016255126016?f=rss" data-title="Token大战中，华为云选择了第三条路｜最前线">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>这说明华为在AI领域有自己的长远规划，不追求短期数据。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>了解国产算力技术进展，关注华为云的AI应用案例。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="a7923f595dc7bfbfb71b" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="4af99071249b4b6425e7" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,产品工具,政策监管">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">89分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="a7923f595dc7bfbfb71b" data-title="腾讯混元联合人大开源PlanningBench评估框架" data-url="https://x.com/TencentHunyuan/status/2062803141314437391" data-score="89" data-grade="精选" data-source="AI热点" data-summary="腾讯混元（Tencent Hunyuan）与中国人民大学高瓴人工智能学院合作，开源PlanningBench——一个可扩展、可验证的LLM规划能力评估与训练框架。该框架包含30+真实世界规划任务，支持" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="4af99071249b4b6425e7" data-title="&quot;我在田里雇了一名工程师，它叫 Codex&quot; -- 北海道一个西兰花农的 8 个真实 AI 用法" data-url="https://x.com/AYi_AInotes/status/2063573709672104286" data-score="89" data-grade="精选" data-source="AI热点" data-summary="日本北海道农民富安弘毅用 ChatGPT 和 Codex 解决农场实际问题，涵盖 8 个用法：拍照识别西兰花病害、卫星监测获取 NDVI 数据、用 ESP32 和 LINE 机器人远程控制温室卷帘、为" data-zhsummary="日本农民用AI帮种地，比如用手机看作物病害、用电脑控制温室。" title="收藏">☆</button>
   </div>
-  <h2>腾讯混元联合人大开源PlanningBench评估框架</h2>
-  <p class="summary">腾讯混元（Tencent Hunyuan）与中国人民大学高瓴人工智能学院合作，开源PlanningBench——一个可扩展、可验证的LLM规划能力评估与训练框架。该框架包含30+真实世界规划任务，支持自动验证和训练。PlanningBench旨在推动LLM从“说”到“做”的规划能力发展。资源已发布于arXiv、GitHub及HuggingFace。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="政策监管">政策监管</span>
+  </div>
+  <h2><a href="https://x.com/AYi_AInotes/status/2063573709672104286" target="_blank" rel="noopener">"我在田里雇了一名工程师，它叫 Codex" -- 北海道一个西兰花农的 8 个真实 AI 用法</a></h2>
+  <p class="summary">日本农民用AI帮种地，比如用手机看作物病害、用电脑控制温室。</p>
   <div class="meta">
     <span>AI热点</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://x.com/AYi_AInotes/status/2063573709672104286" data-title="&quot;我在田里雇了一名工程师，它叫 Codex&quot; -- 北海道一个西兰花农的 8 个真实 AI 用法">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI可能让种地变得更科学，但需要农民学会新技术，不是所有工作都能自动化。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>找找自己工作中的重复任务，看看有没有AI能帮忙的点。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="5112766a869f23db96f1" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="0639dd0df964ae82ba45" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">89分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="5112766a869f23db96f1" data-title="OpenRouter 翻遍 11 款 LLM 找最快的决策模型：Claude vs. Grok 领衔" data-url="https://openrouter.ai/announcements/royale-last-agent-standing" data-score="89" data-grade="精选" data-source="AI热点" data-summary="OpenRouter 用总价 482 美元的推理花费，让 11 款大语言模型在 30 轮实时决策的“大逃杀”挑战中正面竞争。实验结果表明，传统的静态 benchmark 排名无法反映模型在需要即时反应" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="0639dd0df964ae82ba45" data-title="用Qwen2.5-3B构建多智能体经济体：工程报告" data-url="https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim" data-score="89" data-grade="精选" data-source="AI热点" data-summary="开发者用Qwen2.5-3B构建了五人森林生物多智能体经济体，每个智能体独立运行，通过vLLM部署在Modal，以Gradio为交互窗口。3B模型在100%调用中输出有效JSON，但经济判断能力弱。通" data-zhsummary="有人用AI模拟一个虚拟经济，让不同角色互相交易和竞争。" title="收藏">☆</button>
   </div>
-  <h2>OpenRouter 翻遍 11 款 LLM 找最快的决策模型：Claude vs. Grok 领衔</h2>
-  <p class="summary">OpenRouter 用总价 482 美元的推理花费，让 11 款大语言模型在 30 轮实时决策的“大逃杀”挑战中正面竞争。实验结果表明，传统的静态 benchmark 排名无法反映模型在需要即时反应的智能体任务（如自主控制机器人）中的真实表现，Claude 和 Grok 系列模型在决策速度与任务成功率上表现突出，而多项高分模型的实时调度能力未达预期。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim" target="_blank" rel="noopener">用Qwen2.5-3B构建多智能体经济体：工程报告</a></h2>
+  <p class="summary">有人用AI模拟一个虚拟经济，让不同角色互相交易和竞争。</p>
   <div class="meta">
     <span>AI热点</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim" data-title="用Qwen2.5-3B构建多智能体经济体：工程报告">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI可能用来测试商业模型，但需要设计好规则才能让系统正常运转。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>找找有没有类似的AI模拟工具，尝试搭建自己的小系统。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="ed77072bd5b30431e6b4" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="85b676d295f71b72ef92" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro" data-value-tags="技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
-    <span class="score-badge" style="background: #c8786a;">88分 · 精选</span>
+    <span class="score-badge" style="background: #c8786a;">89分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="ed77072bd5b30431e6b4" data-title="阿里云发布SkillClaw与Nacos的Agent技能进化循环" data-url="https://x.com/alibaba_cloud/status/2062777684120244656" data-score="88" data-grade="精选" data-source="AI热点" data-summary="阿里云推出SkillClaw与Nacos结合，构建AI智能体技能进化流水线。关键特性：自动从真实对话中提取经验并封装为可复用技能（Skill）；Nacos负责集中化版本管理、审核与审计；打破本地孤岛，" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="85b676d295f71b72ef92" data-title="Google AI 本周产品更新：Nano Banana 2、Co-Scientist、dreambeans、Gemma 4 等" data-url="https://x.com/GoogleAI/status/2062942864288387430" data-score="89" data-grade="精选" data-source="AI热点" data-summary="周报里藏了个大号：Gemma 4 12B开源多模态且完全离线，开发者今天就能在自己笔记本上跑起来，Co-Scientist的多agent科学推理也有看头。" data-zhsummary="谷歌推出了一款开源的AI工具，可以在本地电脑上运行。" title="收藏">☆</button>
   </div>
-  <h2>阿里云发布SkillClaw与Nacos的Agent技能进化循环</h2>
-  <p class="summary">阿里云推出SkillClaw与Nacos结合，构建AI智能体技能进化流水线。关键特性：自动从真实对话中提取经验并封装为可复用技能（Skill）；Nacos负责集中化版本管理、审核与审计；打破本地孤岛，实现团队安全共享与分发；形成完整的&quot;生成-治理-分发&quot;持续进化闭环。目标是将个人洞察转化为团队的AI资产。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://x.com/GoogleAI/status/2062942864288387430" target="_blank" rel="noopener">Google AI 本周产品更新：Nano Banana 2、Co-Scientist、dreambeans、Gemma 4 等</a></h2>
+  <p class="summary">谷歌推出了一款开源的AI工具，可以在本地电脑上运行。</p>
   <div class="meta">
     <span>AI热点</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://x.com/GoogleAI/status/2062942864288387430" data-title="Google AI 本周产品更新：Nano Banana 2、Co-Scientist、dreambeans、Gemma 4 等">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>开发者能更快上手新工具，不用依赖云端。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以下载Gemma 4体验离线AI工具。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="f55e436f51920be9c13f" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="pro">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #c8786a;">87.5分 · 精选</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">GitHub</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="f55e436f51920be9c13f" data-title="asz798838958/aBaiAutoplus" data-url="https://github.com/asz798838958/aBaiAutoplus" data-score="87.5" data-grade="精选" data-source="GitHub" data-summary="多平台 AI 账号自动注册与管理 · 协议化付款一键开通 ChatGPT Plus" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>asz798838958/aBaiAutoplus</h2>
-  <p class="summary">多平台 AI 账号自动注册与管理 · 协议化付款一键开通 ChatGPT Plus</p>
-  <div class="meta">
-    <span>GitHub</span>
-    <span>🔥 1511</span>
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="aea48bc43788e84effb3" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="pro">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #c8786a;">84.3分 · 精选</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">GitHub</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="aea48bc43788e84effb3" data-title="couragec/LLMInternSkill" data-url="https://github.com/couragec/LLMInternSkill" data-score="84.3" data-grade="精选" data-source="GitHub" data-summary="LLMInternSkill: LLM internship resume and job-search Codex Skill for resume polish, JD tailoring, ev" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>couragec/LLMInternSkill</h2>
-  <p class="summary">LLMInternSkill: LLM internship resume and job-search Codex Skill for resume polish, JD tailoring, evidence guard, interview grilling, and Project Scout. 大模型实习简历与求职工具箱。</p>
-  <div class="meta">
-    <span>GitHub</span>
-    <span>🔥 113</span>
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="ac141fb5e72119ae51cd" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="爱范儿" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="ac141fb5e72119ae51cd" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="爱范儿" data-heat-stage="热门" data-audience="pro" data-value-tags="技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">84分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">爱范儿</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="ac141fb5e72119ae51cd" data-title="制糖工厂发布 AI 小电拼 Mirror，支持 AI Agent 原生接入" data-url="https://www.ifanr.com/1667908?utm_source=rss&utm_medium=rss&utm_campaign=" data-score="84" data-grade="精选" data-source="爱范儿" data-summary="制糖工厂 CANDYSIGN 发布 AI 小电拼 Mirror。这是小电拼系列的新一代产品，采用 4C1A 五" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="ac141fb5e72119ae51cd" data-title="制糖工厂发布 AI 小电拼 Mirror，支持 AI Agent 原生接入" data-url="https://www.ifanr.com/1667908?utm_source=rss&utm_medium=rss&utm_campaign=" data-score="84" data-grade="精选" data-source="爱范儿" data-summary="制糖工厂 CANDYSIGN 发布 AI 小电拼 Mirror。这是小电拼系列的新一代产品，采用 4C1A 五" data-zhsummary="制糖工厂推出了一款新的AI工具，可以更方便地接入AI代理，帮助用户完成各种任务。" title="收藏">☆</button>
   </div>
-  <h2>制糖工厂发布 AI 小电拼 Mirror，支持 AI Agent 原生接入</h2>
-  <p class="summary">制糖工厂 CANDYSIGN 发布 AI 小电拼 Mirror。这是小电拼系列的新一代产品，采用 4C1A 五</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.ifanr.com/1667908?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">制糖工厂发布 AI 小电拼 Mirror，支持 AI Agent 原生接入</a></h2>
+  <p class="summary">制糖工厂推出了一款新的AI工具，可以更方便地接入AI代理，帮助用户完成各种任务。</p>
   <div class="meta">
     <span>爱范儿</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.ifanr.com/1667908?utm_source=rss&utm_medium=rss&utm_campaign=" data-title="制糖工厂发布 AI 小电拼 Mirror，支持 AI Agent 原生接入">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>普通人以后可能用更简单的工具完成复杂工作，但需要警惕技术门槛降低带来的过度依赖。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以尝试用AI工具完成一个简单的任务，比如自动整理文件或生成文案。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="248fe564d5034677b1f7" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="Caixin" data-heat-stage="热门" data-audience="pro">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #c8786a;">84分 · 精选</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Caixin</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="248fe564d5034677b1f7" data-title="腾讯云力推企业级智能体 称元宝仍是投入最大的AI产品" data-url="https://www.caixin.com/2026-06-05/102451379.html" data-score="84" data-grade="精选" data-source="Caixin" data-summary="" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>腾讯云力推企业级智能体 称元宝仍是投入最大的AI产品</h2>
-  
-  <div class="meta">
-    <span>Caixin</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="370411bca08f61e3e484" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general">
+<div class="topic-card" data-hash="370411bca08f61e3e484" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">83分 · 精选</span>
@@ -1523,173 +1736,306 @@ Abstract: This study analyzes a publicly released dataset from a discontinued fi
     <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="370411bca08f61e3e484" data-title="微信AI对手机厂商打开一道窄门｜焦点分析" data-url="https://36kr.com/p/3839575253993985?f=rss" data-score="83" data-grade="精选" data-source="36氪" data-summary="文｜王毓婵 梁键强
   编辑｜张雨忻
   昨日，腾讯客服回应称，微信正在与华为、小米、荣耀、OPPO、vivo等手机厂商合作推出A2A助手能力，目前已有多家厂商完成接入。
-  “您可以通" data-zhsummary="" title="收藏">☆</button>
+  “您可以通" data-zhsummary="微信正在和手机厂商合作，让手机AI助手能直接操作微信功能。" title="收藏">☆</button>
   </div>
-  <h2>微信AI对手机厂商打开一道窄门｜焦点分析</h2>
-  <p class="summary">文｜王毓婵 梁键强
-  编辑｜张雨忻
-  昨日，腾讯客服回应称，微信正在与华为、小米、荣耀、OPPO、vivo等手机厂商合作推出A2A助手能力，目前已有多家厂商完成接入。
-  “您可以通过对应手机系统的AI助手发起微信音视频通话或向指定好友发送消息。该功能基于A2A（Agent-to-Agent）协作机制，数据安全与隐私通过双重授权机制保障。合作旨在将微信高频沟通功能融入手机系统助手，为您提供更便</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3839575253993985?f=rss" target="_blank" rel="noopener">微信AI对手机厂商打开一道窄门｜焦点分析</a></h2>
+  <p class="summary">微信正在和手机厂商合作，让手机AI助手能直接操作微信功能。</p>
   <div class="meta">
     <span>36氪</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3839575253993985?f=rss" data-title="微信AI对手机厂商打开一道窄门｜焦点分析">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>以后用手机语音就能更快沟通，但也要注意隐私保护。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试用手机AI助手简化微信操作，比如语音发消息。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="8717374f7080c68cfd5c" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="1ab0c16007499d51f625" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">83分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="8717374f7080c68cfd5c" data-title="Anthropic 开源 AI 驱动漏洞发现框架" data-url="https://github.com/anthropics/defending-code-reference-harness" data-score="83" data-grade="精选" data-source="AI热点" data-summary="Anthropic 将其用于 AI 驱动漏洞发现的开源框架代码托管在 GitHub 上。该框架借助 AI 技术进行漏洞发现，旨在帮助识别软件中的安全缺陷。" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="1ab0c16007499d51f625" data-title="对比一下 GPT-5.5 的设计效果和 Opus 4.8 的设计效果" data-url="https://x.com/dotey/status/2063464057647075379" data-score="83" data-grade="精选" data-source="AI热点" data-summary="宝玉对比了GPT-5.5与Opus 4.8的设计能力，认为Opus 4.8效果远优于GPT-5.5。他使用了基于Cursor浏览器和元素标注的baoyu-design Skill，该Skill通过np" data-zhsummary="新AI工具在设计产品时比其他模型更厉害，能直接生成具体方案。" title="收藏">☆</button>
   </div>
-  <h2>Anthropic 开源 AI 驱动漏洞发现框架</h2>
-  <p class="summary">Anthropic 将其用于 AI 驱动漏洞发现的开源框架代码托管在 GitHub 上。该框架借助 AI 技术进行漏洞发现，旨在帮助识别软件中的安全缺陷。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://x.com/dotey/status/2063464057647075379" target="_blank" rel="noopener">对比一下 GPT-5.5 的设计效果和 Opus 4.8 的设计效果</a></h2>
+  <p class="summary">新AI工具在设计产品时比其他模型更厉害，能直接生成具体方案。</p>
   <div class="meta">
     <span>AI热点</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://x.com/dotey/status/2063464057647075379" data-title="对比一下 GPT-5.5 的设计效果和 Opus 4.8 的设计效果">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>设计师可能越来越依赖AI出创意，但需要学会和AI沟通细节。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试用设计类AI工具生成方案草图，看看能不能省点时间。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="345eca9f2d75aabc764e" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="Arxiv Ai" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="2978ae874b5747cb8e0b" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro" data-value-tags="AI变现赛道,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">83分 · 精选</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Arxiv Ai</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="345eca9f2d75aabc764e" data-title="Harnessing Generalist Agents for Contextualized Time Series" data-url="https://arxiv.org/abs/2606.05404" data-score="83" data-grade="精选" data-source="Arxiv Ai" data-summary="arXiv:2606.05404v1 Announce Type: new 
-Abstract: Time series are often embedded in rich contexts tha" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>Harnessing Generalist Agents for Contextualized Time Series</h2>
-  <p class="summary">arXiv:2606.05404v1 Announce Type: new 
-Abstract: Time series are often embedded in rich contexts that are essential for holistic modeling. Moreover, real-world practitioners often require end-to-end w</p>
-  <div class="meta">
-    <span>Arxiv Ai</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="22c0be68dc808ae5bcf3" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="Arxiv Ai" data-heat-stage="热门" data-audience="pro">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #c8786a;">83分 · 精选</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Arxiv Ai</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="22c0be68dc808ae5bcf3" data-title="Brick-Composer: Using MLLMs for Assembly with Diverse Bricks" data-url="https://arxiv.org/abs/2606.05445" data-score="83" data-grade="精选" data-source="Arxiv Ai" data-summary="arXiv:2606.05445v1 Announce Type: new 
-Abstract: We dream of AI agents that can read arbitrary desig" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>Brick-Composer: Using MLLMs for Assembly with Diverse Bricks</h2>
-  <p class="summary">arXiv:2606.05445v1 Announce Type: new 
-Abstract: We dream of AI agents that can read arbitrary designs and construct real-world objects from reusable building blocks. As a first step toward this visio</p>
-  <div class="meta">
-    <span>Arxiv Ai</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="3f926f8ee892af0c200e" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="Arxiv Cl" data-heat-stage="热门" data-audience="pro">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #c8786a;">83分 · 精选</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Arxiv Cl</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="3f926f8ee892af0c200e" data-title="LANTERN: Layered Archival and Temporal Episodic Retrieval Network for Long-Context LLM Conversations" data-url="https://arxiv.org/abs/2606.05182" data-score="83" data-grade="精选" data-source="Arxiv Cl" data-summary="arXiv:2606.05182v1 Announce Type: new 
-Abstract: Large language models discard critical details when" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>LANTERN: Layered Archival and Temporal Episodic Retrieval Network for Long-Context LLM Conversations</h2>
-  <p class="summary">arXiv:2606.05182v1 Announce Type: new 
-Abstract: Large language models discard critical details when conversation history is compacted to fit within finite context windows. We present LANTERN (Layered</p>
-  <div class="meta">
-    <span>Arxiv Cl</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="754ef8dcb6916c3d57a4" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #c8786a;">82分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="754ef8dcb6916c3d57a4" data-title="Open Code Review - 一款基于人工智能的代码审查命令行工具" data-url="https://github.com/alibaba/open-code-review" data-score="82" data-grade="精选" data-source="AI热点" data-summary="Open Code Review 是一个基于人工智能的代码审查命令行（CLI）工具，旨在帮助开发者通过自动化的方式提升代码审查效率。" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="2978ae874b5747cb8e0b" data-title="GitHub 开源 Spec Kit 工具包，用产品规范引导 AI 编码" data-url="https://x.com/rohanpaul_ai/status/2063246343842501091" data-score="83" data-grade="精选" data-source="AI热点" data-summary="GitHub亲自下场推spec-driven开发，把vibe coding的随意感压回“先写规约再写代码”的老派流程，但这次规约是给AI读的，做coding agent的团队应该认真研究一下。" data-zhsummary="GitHub推出新工具，让AI按规范写代码，减少随意发挥。" title="收藏">☆</button>
   </div>
-  <h2>Open Code Review - 一款基于人工智能的代码审查命令行工具</h2>
-  <p class="summary">Open Code Review 是一个基于人工智能的代码审查命令行（CLI）工具，旨在帮助开发者通过自动化的方式提升代码审查效率。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://x.com/rohanpaul_ai/status/2063246343842501091" target="_blank" rel="noopener">GitHub 开源 Spec Kit 工具包，用产品规范引导 AI 编码</a></h2>
+  <p class="summary">GitHub推出新工具，让AI按规范写代码，减少随意发挥。</p>
   <div class="meta">
     <span>AI热点</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://x.com/rohanpaul_ai/status/2063246343842501091" data-title="GitHub 开源 Spec Kit 工具包，用产品规范引导 AI 编码">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>代码质量可能更稳定，但需要先明确需求才能让AI帮忙干活。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试用规范驱动的方式让AI写代码，比如先列清楚需求清单。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="72856e957cde60cea275" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="general">
+<div class="topic-card" data-hash="a586fd3119dc18b14d66" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">81分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="72856e957cde60cea275" data-title="Anthropic 称其最新 AI 模型 Mythos 显现脱离人类控制迹象，呼吁全球暂缓先进 AI 研发" data-url="https://www.ithome.com/0/960/218.htm" data-score="81" data-grade="精选" data-source="AI热点" data-summary="Anthropic 发布报告称其最新 AI 模型已显现脱离人类控制迹象，呼吁全球暂缓前沿 AI 开发，以便社会制度建设和对齐研究跟上进展。该公司主张美国、中国等主要 AI 公司达成共识，发布可验证的规" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="a586fd3119dc18b14d66" data-title="Apollo 敲定 350 亿美元债务融资，为 Anthropic 采购 AI 芯片" data-url="https://www.bloomberg.com/news/articles/2026-06-05/apollo-wraps-up-35-billion-debt-to-buy-ai-chips-for-anthropic" data-score="81" data-grade="精选" data-source="AI热点" data-summary="Apollo Global Management 和 Blackstone 已为 Anthropic 敲定 350 亿美元融资方案，用于扩充其 AI 基础设施。这是人工智能竞赛中最新的一笔巨额交易。" data-zhsummary="大公司给AI公司借钱买芯片，相当于给AI行业打了一针强心剂。" title="收藏">☆</button>
   </div>
-  <h2>Anthropic 称其最新 AI 模型 Mythos 显现脱离人类控制迹象，呼吁全球暂缓先进 AI 研发</h2>
-  <p class="summary">Anthropic 发布报告称其最新 AI 模型已显现脱离人类控制迹象，呼吁全球暂缓前沿 AI 开发，以便社会制度建设和对齐研究跟上进展。该公司主张美国、中国等主要 AI 公司达成共识，发布可验证的规则，并类比“核武器不扩散条约”，但指出 AI 更难监管。该观点引发美国白宫部分官员不满，批评其夸大风险。Anthropic 计划未来数月召集各方探讨全球协调机制如何运作。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.bloomberg.com/news/articles/2026-06-05/apollo-wraps-up-35-billion-debt-to-buy-ai-chips-for-anthropic" target="_blank" rel="noopener">Apollo 敲定 350 亿美元债务融资，为 Anthropic 采购 AI 芯片</a></h2>
+  <p class="summary">大公司给AI公司借钱买芯片，相当于给AI行业打了一针强心剂。</p>
   <div class="meta">
     <span>AI热点</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.bloomberg.com/news/articles/2026-06-05/apollo-wraps-up-35-billion-debt-to-buy-ai-chips-for-anthropic" data-title="Apollo 敲定 350 亿美元债务融资，为 Anthropic 采购 AI 芯片">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI技术发展可能更快，但这也意味着竞争会更激烈，小公司可能更难生存。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注AI芯片的技术更新，看看哪些新技术可能影响自己的工作。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="c29fc333720bc21297ab" data-updated="2026-06-05T19:44:23" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="c11897e0a6c885e146de" data-updated="2026-06-08T11:50:44" data-grade="精选" data-source="Openai Blog" data-heat-stage="热门" data-audience="pro" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">81分 · 精选</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="c29fc333720bc21297ab" data-title="Dreaming： ChatGPT 推出更强的记忆系统，更好记住用户偏好" data-url="https://openai.com/index/chatgpt-memory-dreaming" data-score="81" data-grade="精选" data-source="AI热点" data-summary="ChatGPT 推出名为 Dreaming 的新记忆系统，能够更有效地记住用户偏好，并在跨对话场景中保持上下文的新鲜感和相关性，从而提升助手的个性化体验。" data-zhsummary="" title="收藏">☆</button>
+    <span class="source-tag">Openai Blog</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="c11897e0a6c885e146de" data-title="How Endava is redesigning software delivery around AI agents" data-url="https://openai.com/index/endava-frontiers" data-score="81" data-grade="精选" data-source="Openai Blog" data-summary="Learn how Endava is using AI agents, ChatGPT Enterprise, and Codex to accelerate software delivery," data-zhsummary="Endava公司用AI重构了软件开发流程，让团队更高效地完成项目。" title="收藏">☆</button>
   </div>
-  <h2>Dreaming： ChatGPT 推出更强的记忆系统，更好记住用户偏好</h2>
-  <p class="summary">ChatGPT 推出名为 Dreaming 的新记忆系统，能够更有效地记住用户偏好，并在跨对话场景中保持上下文的新鲜感和相关性，从而提升助手的个性化体验。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://openai.com/index/endava-frontiers" target="_blank" rel="noopener">How Endava is redesigning software delivery around AI agents</a></h2>
+  <p class="summary">Endava公司用AI重构了软件开发流程，让团队更高效地完成项目。</p>
   <div class="meta">
-    <span>AI热点</span>
+    <span>Openai Blog</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://openai.com/index/endava-frontiers" data-title="How Endava is redesigning software delivery around AI agents">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI正在改变传统行业的工作方式，可能让某些岗位被取代。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>学习基础的AI编程知识，比如Python，为转型做准备。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
 </div>
 </div>
 <div id="level-推荐" class="topic-list">
-<div class="topic-card" data-hash="1d651779a83ca7a94df5" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="GitHub" data-heat-stage="热门" data-audience="pro">
+<div class="topic-card" data-hash="b1486a1f688bf1660d7f" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="Hacker News" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
-    <span class="score-badge" style="background: #b8956a;">76.5分 · 推荐</span>
+    <span class="score-badge" style="background: #b8956a;">78.8分 · 推荐</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">GitHub</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="1d651779a83ca7a94df5" data-title="zaydmulani09/mnemo" data-url="https://github.com/zaydmulani09/mnemo" data-score="76.5" data-grade="推荐" data-source="GitHub" data-summary="Local-first AI memory layer for any LLM. Persistent knowledge graph, entity extraction, semantic ret" data-zhsummary="" title="收藏">☆</button>
+    <span class="source-tag">Hacker News</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="b1486a1f688bf1660d7f" data-title="Show HN: Lathe – Use LLMs to learn a new domain, not skip past it" data-url="https://github.com/devenjarvis/lathe" data-score="78.8" data-grade="推荐" data-source="Hacker News" data-summary="51 评论" data-zhsummary="Lathe是一个让AI帮人类学习新领域的工具，而不是跳过学习过程。" title="收藏">☆</button>
   </div>
-  <h2>zaydmulani09/mnemo</h2>
-  <p class="summary">Local-first AI memory layer for any LLM. Persistent knowledge graph, entity extraction, semantic retrieval. Works with Ollama, OpenAI, Anthropic, or any OpenAI-compatible backend.</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://github.com/devenjarvis/lathe" target="_blank" rel="noopener">Show HN: Lathe – Use LLMs to learn a new domain, not skip past it</a></h2>
+  <p class="summary">Lathe是一个让AI帮人类学习新领域的工具，而不是跳过学习过程。</p>
   <div class="meta">
-    <span>GitHub</span>
-    <span>🔥 178</span>
+    <span>Hacker News</span>
+    <span>🔥 268</span>
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/devenjarvis/lathe" data-title="Show HN: Lathe – Use LLMs to learn a new domain, not skip past it">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>普通人可以通过AI更快掌握新技能，比如编程或设计，但需要主动学习而非依赖AI直接给出答案。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试用Lathe学习一个新技能，比如AI绘画或数据分析。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="8009eb8e37ada368d238" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="爱范儿" data-heat-stage="热门" data-audience="general">
+<div class="topic-card" data-hash="a8b2771706933445ade6" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="GitHub" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">77.0分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="a8b2771706933445ade6" data-title="JimLiu/baoyu-design" data-url="https://github.com/JimLiu/baoyu-design" data-score="77.0" data-grade="推荐" data-source="GitHub" data-summary="Run Claude Design locally as an Agent Skill — Cursor, Claude Code & more. Produce polished UI mockup" data-zhsummary="JimLiu开发了一个能本地运行的AI设计工具，可以自动生成界面原型。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://github.com/JimLiu/baoyu-design" target="_blank" rel="noopener">JimLiu/baoyu-design</a></h2>
+  <p class="summary">JimLiu开发了一个能本地运行的AI设计工具，可以自动生成界面原型。</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 342</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/JimLiu/baoyu-design" data-title="JimLiu/baoyu-design">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>设计师或开发者可以用它快速制作UI，但要注意本地运行可能需要较高硬件要求。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>查看这个工具的使用教程，学习如何本地部署AI设计功能。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="1d651779a83ca7a94df5" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="GitHub" data-heat-stage="热门" data-audience="pro" data-value-tags="技术前沿,产品工具,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">76.6分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="1d651779a83ca7a94df5" data-title="zaydmulani09/mnemo" data-url="https://github.com/zaydmulani09/mnemo" data-score="76.6" data-grade="推荐" data-source="GitHub" data-summary="Local-first AI memory layer for any LLM. Persistent knowledge graph, entity extraction, semantic ret" data-zhsummary="mnemo是能让AI记住知识的本地工具，能自动整理信息并快速检索。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://github.com/zaydmulani09/mnemo" target="_blank" rel="noopener">zaydmulani09/mnemo</a></h2>
+  <p class="summary">mnemo是能让AI记住知识的本地工具，能自动整理信息并快速检索。</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 194</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/zaydmulani09/mnemo" data-title="zaydmulani09/mnemo">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>可以替代传统笔记工具，但需要训练AI理解你的知识体系。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试用它管理个人知识库，比如整理学习笔记。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="9a86381d3a67667e0b4d" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="GitHub" data-heat-stage="热门" data-audience="pro" data-value-tags="技术前沿,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">76.2分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="9a86381d3a67667e0b4d" data-title="K-Dense-AI/scientific-agents" data-url="https://github.com/K-Dense-AI/scientific-agents" data-score="76.2" data-grade="推荐" data-source="GitHub" data-summary="Expert-thinking AGENTS.md profiles that teach AI agents to reason like senior scientists and enginee" data-zhsummary="Scientific Agents能让AI像专家一样思考，解决复杂技术问题。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://github.com/K-Dense-AI/scientific-agents" target="_blank" rel="noopener">K-Dense-AI/scientific-agents</a></h2>
+  <p class="summary">Scientific Agents能让AI像专家一样思考，解决复杂技术问题。</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 50</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/K-Dense-AI/scientific-agents" data-title="K-Dense-AI/scientific-agents">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>科研人员和工程师能用它分析数据，但需要训练AI理解专业领域。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>研究如何构建这类AI的专业知识库。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="7b1839feace81d6b8b4e" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="量子位" data-heat-stage="热门" data-audience="pro" data-value-tags="技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">量子位</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="7b1839feace81d6b8b4e" data-title="大模型发展三年半，AI圈终于等来了一场“不要大厂，只赌脑洞”的比赛" data-url="https://www.qbitai.com/2026/06/431287.html" data-score="76" data-grade="推荐" data-source="量子位" data-summary="观众投币定前十！" data-zhsummary="AI圈开始了一场不依赖大厂的创新比赛。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://www.qbitai.com/2026/06/431287.html" target="_blank" rel="noopener">大模型发展三年半，AI圈终于等来了一场“不要大厂，只赌脑洞”的比赛</a></h2>
+  <p class="summary">AI圈开始了一场不依赖大厂的创新比赛。</p>
+  <div class="meta">
+    <span>量子位</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.qbitai.com/2026/06/431287.html" data-title="大模型发展三年半，AI圈终于等来了一场“不要大厂，只赌脑洞”的比赛">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>普通人可能会看到更多小团队的创意AI应用。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以看看一些独立开发的AI项目，发掘新可能。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="a7fa41bb4707934e61e1" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="爱范儿" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,政策监管">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">爱范儿</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="a7fa41bb4707934e61e1" data-title="从感知智能到智能体 AI：高通汽车中国布局深化加速" data-url="https://www.ifanr.com/1668242?utm_source=rss&utm_medium=rss&utm_campaign=" data-score="76" data-grade="推荐" data-source="爱范儿" data-summary="汽车迎来智能体时代。" data-zhsummary="高通在汽车领域加快布局，推动AI技术落地。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="政策监管">政策监管</span>
+  </div>
+  <h2><a href="https://www.ifanr.com/1668242?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">从感知智能到智能体 AI：高通汽车中国布局深化加速</a></h2>
+  <p class="summary">高通在汽车领域加快布局，推动AI技术落地。</p>
+  <div class="meta">
+    <span>爱范儿</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.ifanr.com/1668242?utm_source=rss&utm_medium=rss&utm_campaign=" data-title="从感知智能到智能体 AI：高通汽车中国布局深化加速">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>未来汽车可能变得更智能，驾驶体验会更便利。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以关注高通在智能汽车方面的最新动态。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="8009eb8e37ada368d238" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="爱范儿" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
@@ -1697,21 +2043,29 @@ Abstract: Large language models discard critical details when conversation histo
     <span class="source-tag">爱范儿</span>
     <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="8009eb8e37ada368d238" data-title="早报｜曝苹果Vision Pro系列被砍/多地高考将查验智能眼镜/DeepSeek首轮融资规模约500亿元" data-url="https://www.ifanr.com/1668044?utm_source=rss&utm_medium=rss&utm_campaign=" data-score="76" data-grade="推荐" data-source="爱范儿" data-summary="· 荣耀 YOYO 智能体可直接操控微信
 · 苹果公布 2026 Apple 设计大奖得主
-· Google 允许网站退出 AI 搜索" data-zhsummary="" title="收藏">☆</button>
+· Google 允许网站退出 AI 搜索" data-zhsummary="苹果取消Vision Pro项目，多地高考将查智能眼镜。" title="收藏">☆</button>
   </div>
-  <h2>早报｜曝苹果Vision Pro系列被砍/多地高考将查验智能眼镜/DeepSeek首轮融资规模约500亿元</h2>
-  <p class="summary">· 荣耀 YOYO 智能体可直接操控微信
-· 苹果公布 2026 Apple 设计大奖得主
-· Google 允许网站退出 AI 搜索</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://www.ifanr.com/1668044?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">早报｜曝苹果Vision Pro系列被砍/多地高考将查验智能眼镜/DeepSeek首轮融资规模约500亿元</a></h2>
+  <p class="summary">苹果取消Vision Pro项目，多地高考将查智能眼镜。</p>
   <div class="meta">
     <span>爱范儿</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.ifanr.com/1668044?utm_source=rss&utm_medium=rss&utm_campaign=" data-title="早报｜曝苹果Vision Pro系列被砍/多地高考将查验智能眼镜/DeepSeek首轮融资规模约500亿元">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>科技趋势变化可能影响教育和消费领域。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以阅读科技新闻，了解最新趋势。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="1df0c22923e6aeeb8066" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="月光博客" data-heat-stage="热门" data-audience="general">
+<div class="topic-card" data-hash="1df0c22923e6aeeb8066" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="月光博客" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
@@ -1719,266 +2073,419 @@ Abstract: Large language models discard critical details when conversation histo
     <span class="source-tag">月光博客</span>
     <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="1df0c22923e6aeeb8066" data-title="粉笔科技的人大讲座事件的说明与致歉" data-url="https://www.williamlong.info/archives/7549.html" data-score="76" data-grade="推荐" data-source="月光博客" data-summary="6月3日，粉笔网CEO张小龙在人民大学的一场演讲引发热议，据多位现场学生及网络流传录音显示，在中国人民大学的一场职业规划讲座上，张小龙调整了演讲主题，将讨论内容转向AI、就业选择及个人财富经历。
 
-在" data-zhsummary="" title="收藏">☆</button>
+在" data-zhsummary="粉笔科技的CEO在讲座中情绪失控，被指用不当言论攻击学生。" title="收藏">☆</button>
   </div>
-  <h2>粉笔科技的人大讲座事件的说明与致歉</h2>
-  <p class="summary">6月3日，粉笔网CEO张小龙在人民大学的一场演讲引发热议，据多位现场学生及网络流传录音显示，在中国人民大学的一场职业规划讲座上，张小龙调整了演讲主题，将讨论内容转向AI、就业选择及个人财富经历。
-
-在互动环节气氛冷淡后，张小龙情绪逐渐失控，不仅频繁爆粗口，并被指发表&ldquo;你们找不到工作是应该的&rdquo;、&ldquo;考公都是混吃等死&rdquo;、&ldquo;我觉得你们很差，非常差</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://www.williamlong.info/archives/7549.html" target="_blank" rel="noopener">粉笔科技的人大讲座事件的说明与致歉</a></h2>
+  <p class="summary">粉笔科技的CEO在讲座中情绪失控，被指用不当言论攻击学生。</p>
   <div class="meta">
     <span>月光博客</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.williamlong.info/archives/7549.html" data-title="粉笔科技的人大讲座事件的说明与致歉">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>职场压力可能引发情绪爆发，但这种行为会损害企业形象，普通人需警惕类似事件对信任的影响。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>遇到类似情况时，优先核实信息真实性，避免被情绪化言论误导。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="be64218ce67fc024db0a" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="TechCrunch" data-heat-stage="热门" data-audience="pro">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">TechCrunch</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="be64218ce67fc024db0a" data-title="Apple approves Poke as the first AI agent on its Messages for Business platform" data-url="https://techcrunch.com/2026/06/04/apple-approves-poke-as-the-first-ai-agent-on-its-messages-for-business-platform/" data-score="76" data-grade="推荐" data-source="TechCrunch" data-summary="Poke, the startup that lets people use AI agents through simple text messages, has become the first" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>Apple approves Poke as the first AI agent on its Messages for Business platform</h2>
-  <p class="summary">Poke, the startup that lets people use AI agents through simple text messages, has become the first AI agent approved for Apple’s Messages for Business platform.</p>
-  <div class="meta">
-    <span>TechCrunch</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="1be17414f5cdf444d41a" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="Arxiv Ai" data-heat-stage="热门" data-audience="pro">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Arxiv Ai</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="1be17414f5cdf444d41a" data-title="What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems" data-url="https://arxiv.org/abs/2606.05304" data-score="76" data-grade="推荐" data-source="Arxiv Ai" data-summary="arXiv:2606.05304v1 Announce Type: new 
-Abstract: Multi-agent systems (MAS) built on large language m" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems</h2>
-  <p class="summary">arXiv:2606.05304v1 Announce Type: new 
-Abstract: Multi-agent systems (MAS) built on large language models are typically organized around roles, pipelines, and turn schedules, while the content that ag</p>
-  <div class="meta">
-    <span>Arxiv Ai</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="9794fdd3aed6e22c0bb8" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="Arxiv Ai" data-heat-stage="热门" data-audience="pro">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Arxiv Ai</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="9794fdd3aed6e22c0bb8" data-title="SentinelBench: A Benchmark for Long-Running Monitoring Agents" data-url="https://arxiv.org/abs/2606.05342" data-score="76" data-grade="推荐" data-source="Arxiv Ai" data-summary="arXiv:2606.05342v1 Announce Type: new 
-Abstract: AI agents are increasingly asked to carry out work" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>SentinelBench: A Benchmark for Long-Running Monitoring Agents</h2>
-  <p class="summary">arXiv:2606.05342v1 Announce Type: new 
-Abstract: AI agents are increasingly asked to carry out work that spans minutes, hours, or longer. Yet the default model of agent behavior is continuous action: </p>
-  <div class="meta">
-    <span>Arxiv Ai</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="74f63e00733b3d5ef65f" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="Arxiv Ai" data-heat-stage="热门" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Arxiv Ai</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="74f63e00733b3d5ef65f" data-title="Agents&#39; Last Exam" data-url="https://arxiv.org/abs/2606.05405" data-score="76" data-grade="推荐" data-source="Arxiv Ai" data-summary="arXiv:2606.05405v1 Announce Type: new 
-Abstract: Recent AI systems have achieved strong results on a" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>Agents' Last Exam</h2>
-  <p class="summary">arXiv:2606.05405v1 Announce Type: new 
-Abstract: Recent AI systems have achieved strong results on a wide range of benchmarks, yet these gains have not translated into economically meaningful deployme</p>
-  <div class="meta">
-    <span>Arxiv Ai</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="3439bf82a503a8ba3dcf" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="Arxiv Ai" data-heat-stage="热门" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Arxiv Ai</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="3439bf82a503a8ba3dcf" data-title="Mutation Without Variation: Convergence Dynamics in LLM-Driven Program Evolution" data-url="https://arxiv.org/abs/2606.05408" data-score="76" data-grade="推荐" data-source="Arxiv Ai" data-summary="arXiv:2606.05408v1 Announce Type: new 
-Abstract: When an LLM repeatedly mutates a program, does it e" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>Mutation Without Variation: Convergence Dynamics in LLM-Driven Program Evolution</h2>
-  <p class="summary">arXiv:2606.05408v1 Announce Type: new 
-Abstract: When an LLM repeatedly mutates a program, does it explore new forms or circle back to the same ones? We study this question by analyzing LLM-driven mut</p>
-  <div class="meta">
-    <span>Arxiv Ai</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="c5404667abef6db92579" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="Arxiv Cl" data-heat-stage="热门" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Arxiv Cl</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="c5404667abef6db92579" data-title="From Scoring to Explanations: Evaluating SHAP and LLM Rationales for Rubric-based Teaching Quality Assessment" data-url="https://arxiv.org/abs/2606.05180" data-score="76" data-grade="推荐" data-source="Arxiv Cl" data-summary="arXiv:2606.05180v1 Announce Type: new 
-Abstract: Automated scoring models are increasingly used to a" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>From Scoring to Explanations: Evaluating SHAP and LLM Rationales for Rubric-based Teaching Quality Assessment</h2>
-  <p class="summary">arXiv:2606.05180v1 Announce Type: new 
-Abstract: Automated scoring models are increasingly used to assign rubric-based quality ratings to complex language performances, including classroom transcripts</p>
-  <div class="meta">
-    <span>Arxiv Cl</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="8e2ba94e5c40cf778148" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="Caixin" data-heat-stage="热门" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Caixin</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="8e2ba94e5c40cf778148" data-title="AI如何拉动中国经济？与美国有何差异？" data-url="https://opinion.caixin.com/2026-06-05/102451161.html" data-score="76" data-grade="推荐" data-source="Caixin" data-summary="" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>AI如何拉动中国经济？与美国有何差异？</h2>
-  
-  <div class="meta">
-    <span>Caixin</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="04cde80064936a2af343" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="Caixin" data-heat-stage="热门" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
-    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">Caixin</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="04cde80064936a2af343" data-title="T早报｜多家手机厂商与微信合作落地AI智能体；博通AI营收指引低于市场预期拖垮芯片股股价；SpaceX即将登陆纳斯达克" data-url="https://www.caixin.com/2026-06-05/102451084.html" data-score="76" data-grade="推荐" data-source="Caixin" data-summary="" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>T早报｜多家手机厂商与微信合作落地AI智能体；博通AI营收指引低于市场预期拖垮芯片股股价；SpaceX即将登陆纳斯达克</h2>
-  
-  <div class="meta">
-    <span>Caixin</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="5ed548b35dcf0f42735e" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="Mit Tr" data-heat-stage="热门" data-audience="general">
+<div class="topic-card" data-hash="5ed548b35dcf0f42735e" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="Mit Tr" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">Mit Tr</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="5ed548b35dcf0f42735e" data-title="How small businesses can leverage AI" data-url="https://www.technologyreview.com/2026/06/02/1138227/how-small-businesses-can-leverage-ai/" data-score="76" data-grade="推荐" data-source="Mit Tr" data-summary="This article is from Making AI Work, MIT Technology Review’s limited-run newsletter examining how to" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="5ed548b35dcf0f42735e" data-title="How small businesses can leverage AI" data-url="https://www.technologyreview.com/2026/06/02/1138227/how-small-businesses-can-leverage-ai/" data-score="76" data-grade="推荐" data-source="Mit Tr" data-summary="This article is from Making AI Work, MIT Technology Review’s limited-run newsletter examining how to" data-zhsummary="小企业可以借助AI提升竞争力，比如用AI做市场分析或者客户服务。" title="收藏">☆</button>
   </div>
-  <h2>How small businesses can leverage AI</h2>
-  <p class="summary">This article is from Making AI Work, MIT Technology Review’s limited-run newsletter examining how to apply LLMs across industries. To receive it in your inbox,sign up here. From accounting to design t</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.technologyreview.com/2026/06/02/1138227/how-small-businesses-can-leverage-ai/" target="_blank" rel="noopener">How small businesses can leverage AI</a></h2>
+  <p class="summary">小企业可以借助AI提升竞争力，比如用AI做市场分析或者客户服务。</p>
   <div class="meta">
     <span>Mit Tr</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.technologyreview.com/2026/06/02/1138227/how-small-businesses-can-leverage-ai/" data-title="How small businesses can leverage AI">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI不再是大公司的专属，普通人也能用它改善自己的生意。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>搜索"AI小企业工具"，试试看哪些软件适合自己的业务。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="8c3b737f15291dc957b7" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="Openai Blog" data-heat-stage="热门" data-audience="general">
+<div class="topic-card" data-hash="8c3b737f15291dc957b7" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="Openai Blog" data-heat-stage="热门" data-audience="pro" data-value-tags="产品工具,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">Openai Blog</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="8c3b737f15291dc957b7" data-title="Dreaming: Better memory for a more helpful ChatGPT" data-url="https://openai.com/index/chatgpt-memory-dreaming" data-score="76" data-grade="推荐" data-source="Openai Blog" data-summary="ChatGPT introduces a new memory system to better remember preferences, keeping context fresh and rel" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="8c3b737f15291dc957b7" data-title="Dreaming: Better memory for a more helpful ChatGPT" data-url="https://openai.com/index/chatgpt-memory-dreaming" data-score="76" data-grade="推荐" data-source="Openai Blog" data-summary="ChatGPT introduces a new memory system to better remember preferences, keeping context fresh and rel" data-zhsummary="ChatGPT升级了记忆功能，能更好地记住用户偏好，让对话更自然。" title="收藏">☆</button>
   </div>
-  <h2>Dreaming: Better memory for a more helpful ChatGPT</h2>
-  <p class="summary">ChatGPT introduces a new memory system to better remember preferences, keeping context fresh and relevant across conversations.</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://openai.com/index/chatgpt-memory-dreaming" target="_blank" rel="noopener">Dreaming: Better memory for a more helpful ChatGPT</a></h2>
+  <p class="summary">ChatGPT升级了记忆功能，能更好地记住用户偏好，让对话更自然。</p>
   <div class="meta">
     <span>Openai Blog</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://openai.com/index/chatgpt-memory-dreaming" data-title="Dreaming: Better memory for a more helpful ChatGPT">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI正在变得"更懂人"，但也要注意数据隐私问题。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试使用ChatGPT的新功能，看看它如何提升你的工作效率。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="fae001692ebe621e76b8" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="AI热点" data-heat-stage="热门" data-audience="general">
+<div class="topic-card" data-hash="b32e038a56e8e39f73b7" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="36氪" data-heat-stage="热门" data-audience="pro" data-value-tags="AI变现赛道,产业关联,技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">74分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">36氪</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="b32e038a56e8e39f73b7" data-title="氪星晚报 ｜日本或通过抛售美债，为创纪录规模的日元汇市干预筹资；俞浩内部发文：未来将继续心无旁骛做实业" data-url="https://36kr.com/p/3840267945969929?f=rss" data-score="74" data-grade="推荐" data-source="36氪" data-summary="大公司：
+  首关15亿元，英诺科创三期基金持续聚焦早期科技投资
+  36氪获悉，6月5日，英诺基金宣布旗下英诺科创三期基金完成首轮关账，规模15亿元。该基金聚焦早期科技投资，重点布局前" data-zhsummary="日本可能通过卖美债来筹钱干预汇率，某企业家强调专注实体产业。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3840267945969929?f=rss" target="_blank" rel="noopener">氪星晚报 ｜日本或通过抛售美债，为创纪录规模的日元汇市干预筹资；俞浩内部发文：未来将继续心无旁骛做实业</a></h2>
+  <p class="summary">日本可能通过卖美债来筹钱干预汇率，某企业家强调专注实体产业。</p>
+  <div class="meta">
+    <span>36氪</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3840267945969929?f=rss" data-title="氪星晚报 ｜日本或通过抛售美债，为创纪录规模的日元汇市干预筹资；俞浩内部发文：未来将继续心无旁骛做实业">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>国家经济政策和企业战略的调整会影响我们的投资选择和就业方向。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注政策对经济的影响，适当分散投资风险。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="43e478b1f9a785802fbf" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="AI热点" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">74分 · 推荐</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="fae001692ebe621e76b8" data-title="腾讯高级执行副总裁汤道生：今年腾讯大部分代码都由 AI 生成" data-url="https://www.ithome.com/0/960/323.htm" data-score="74" data-grade="推荐" data-source="AI热点" data-summary="在 6 月 5 日的腾讯云 AI 产业应用大会上，腾讯高级执行副总裁汤道生表示，今年腾讯大部分代码都由 AI 生成，工程师将更多时间用于架构设计，定期指导与修正 AI 输出。腾讯 2026 年 Q1" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="43e478b1f9a785802fbf" data-title="Harness-1：基于强化学习训练的有状态搜索20B检索子智能体" data-url="https://www.marktechpost.com/2026/06/06/meet-harness-1-a-20b-retrieval-subagent-trained-with-reinforcement-learning-inside-a-stateful-search-harness-on-gpt-oss-20b" data-score="74" data-grade="推荐" data-source="AI热点" data-summary="UIUC与Chroma联合推出Harness-1，一个20B参数的检索子智能体。它通过强化学习在一个有状态搜索框架中训练，该框架维护候选池、重要性标注集、证据图和验证记录，由策略决定搜索、筛选、验证及" data-zhsummary="新AI系统能更聪明地搜索信息，像有记忆的助手一样工作。" title="收藏">☆</button>
   </div>
-  <h2>腾讯高级执行副总裁汤道生：今年腾讯大部分代码都由 AI 生成</h2>
-  <p class="summary">在 6 月 5 日的腾讯云 AI 产业应用大会上，腾讯高级执行副总裁汤道生表示，今年腾讯大部分代码都由 AI 生成，工程师将更多时间用于架构设计，定期指导与修正 AI 输出。腾讯 2026 年 Q1 财报显示，重组后的 AI 研发团队重构了基础设施，并搭建了 Hy3 preview 模型。腾讯总裁刘炽平今年 3 月透露，去年腾讯在 AI 新产品上投入 180 亿元，今年投入至少翻倍。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.marktechpost.com/2026/06/06/meet-harness-1-a-20b-retrieval-subagent-trained-with-reinforcement-learning-inside-a-stateful-search-harness-on-gpt-oss-20b" target="_blank" rel="noopener">Harness-1：基于强化学习训练的有状态搜索20B检索子智能体</a></h2>
+  <p class="summary">新AI系统能更聪明地搜索信息，像有记忆的助手一样工作。</p>
   <div class="meta">
     <span>AI热点</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.marktechpost.com/2026/06/06/meet-harness-1-a-20b-retrieval-subagent-trained-with-reinforcement-learning-inside-a-stateful-search-harness-on-gpt-oss-20b" data-title="Harness-1：基于强化学习训练的有状态搜索20B检索子智能体">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>查资料时可能不再需要反复提问，AI会记住之前的信息和判断依据。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>试试用有状态搜索工具整理工作资料，提高效率。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="38f1bff8bb3774932802" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="AI热点" data-heat-stage="热门" data-audience="general">
+<div class="topic-card" data-hash="57389f1d37d8b4a3ee24" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="AI热点" data-heat-stage="热门" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">74分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">AI热点</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="57389f1d37d8b4a3ee24" data-title="Anthropic：让Claude成为化学家" data-url="https://www.anthropic.com/research/making-claude-a-chemist" data-score="74" data-grade="推荐" data-source="AI热点" data-summary="Anthropic与顶尖化学家合作，提升Claude在化学领域的实用性。首个白皮书测试Claude在NMR谱图分析上的表现：在20个化合物上，对比Claude Opus 4.7、Opus 4.6、So" data-zhsummary="Anthropic让Claude能像化学家一样分析分子结构。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.anthropic.com/research/making-claude-a-chemist" target="_blank" rel="noopener">Anthropic：让Claude成为化学家</a></h2>
+  <p class="summary">Anthropic让Claude能像化学家一样分析分子结构。</p>
+  <div class="meta">
+    <span>AI热点</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.anthropic.com/research/making-claude-a-chemist" data-title="Anthropic：让Claude成为化学家">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>学生或研究人员可以用Claude辅助化学实验分析。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以尝试用Claude了解化学分析的基本方法。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="a951d0935856d7367e3b" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="AI热点" data-heat-stage="热门" data-audience="general" data-value-tags="产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">74分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">AI热点</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="a951d0935856d7367e3b" data-title="Claude 是否增加了 rsync 中的错误？" data-url="https://alexispurslane.github.io/rsync-analysis" data-score="74" data-grade="推荐" data-source="AI热点" data-summary="一篇 Hacker News 热门帖子（105 分）提出了 Claude 是否导致 rsync 工具中 bug 增加的问题，并附有分析链接。" data-zhsummary="有人质疑AI可能让rsync工具出现bug。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://alexispurslane.github.io/rsync-analysis" target="_blank" rel="noopener">Claude 是否增加了 rsync 中的错误？</a></h2>
+  <p class="summary">有人质疑AI可能让rsync工具出现bug。</p>
+  <div class="meta">
+    <span>AI热点</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://alexispurslane.github.io/rsync-analysis" data-title="Claude 是否增加了 rsync 中的错误？">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>用户需注意AI应用的潜在风险，避免误用。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以检查rsync的更新日志，确认是否有相关修复。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="7ced03a5cd3034b5b6ca" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="AI热点" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">73分 · 推荐</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
     <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="38f1bff8bb3774932802" data-title="马斯克谈SpaceX上市：正处大规模资本扩张期" data-url="https://x.com/cb_doge/status/2062681226633523250" data-score="73" data-grade="推荐" data-source="AI热点" data-summary="马斯克在JPMorgan活动上回应SpaceX上市问题：他已被建议上市近10年，自2014-2015年起SpaceX就已实现正现金流并自筹资金，之前的私募轮次实际是面向投资者和员工的流动性/回购轮次。" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="7ced03a5cd3034b5b6ca" data-title="英伟达与斗山集团合作推进物理AI及AI工厂基础设施" data-url="https://blogs.nvidia.com/blog/nvidia-and-doosan-group-physical-ai" data-score="73" data-grade="推荐" data-source="AI热点" data-summary="英伟达与斗山集团扩大合作，覆盖斗山机器人、斗山山猫、斗山能源及斗山电子材料四大板块。斗山机器人将集成英伟达Isaac Sim、Isaac Lab、Cosmos世界基础模型、Newton物理引擎及Jet" data-zhsummary="英伟达和斗山集团联手开发更智能的机器人，把AI技术装进农业机械和工厂设备里。" title="收藏">☆</button>
   </div>
-  <h2>马斯克谈SpaceX上市：正处大规模资本扩张期</h2>
-  <p class="summary">马斯克在JPMorgan活动上回应SpaceX上市问题：他已被建议上市近10年，自2014-2015年起SpaceX就已实现正现金流并自筹资金，之前的私募轮次实际是面向投资者和员工的流动性/回购轮次。当前不同之处在于SpaceX正进入显著资本增长阶段，计划发射约10万颗通信卫星（可能超10万颗），AI和机器人对带宽需求巨大，还将在太空中建设AI数据中心，马斯克认为这将成为AI扩张的主要手段。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://blogs.nvidia.com/blog/nvidia-and-doosan-group-physical-ai" target="_blank" rel="noopener">英伟达与斗山集团合作推进物理AI及AI工厂基础设施</a></h2>
+  <p class="summary">英伟达和斗山集团联手开发更智能的机器人，把AI技术装进农业机械和工厂设备里。</p>
   <div class="meta">
     <span>AI热点</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://blogs.nvidia.com/blog/nvidia-and-doosan-group-physical-ai" data-title="英伟达与斗山集团合作推进物理AI及AI工厂基础设施">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>未来农田里的拖拉机可能自己会修，工厂里的机器人能自主完成任务，普通人可能更少需要人工操作。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>可以关注农业自动化设备的更新，看看有没有适合自己的智能工具。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="4b96830f12902bacb301" data-updated="2026-06-05T19:44:23" data-grade="推荐" data-source="GitHub" data-heat-stage="热门" data-audience="general">
+<div class="topic-card" data-hash="fa5cb9ee97eb08c04924" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="AI热点" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
-    <span class="score-badge" style="background: #b8956a;">70.3分 · 推荐</span>
+    <span class="score-badge" style="background: #b8956a;">73分 · 推荐</span>
     <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
-    <span class="source-tag">GitHub</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="4b96830f12902bacb301" data-title="ethanhq/cc-fleet" data-url="https://github.com/ethanhq/cc-fleet" data-score="70.3" data-grade="推荐" data-source="GitHub" data-summary="🚢  Spawn any vendor LLM — DeepSeek · GLM · Qwen · Kimi · MiniMax … — as real Claude Code teammates o" data-zhsummary="" title="收藏">☆</button>
+    <span class="source-tag">AI热点</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="fa5cb9ee97eb08c04924" data-title="NVIDIA 与 KRAFTON、NC、T1 在韩国 PC 房庆祝 RTX Spark 发布" data-url="https://blogs.nvidia.com/blog/krafton-nc-t1-korea-gaming-pc-bang-rtx-spark" data-score="73" data-grade="推荐" data-source="AI热点" data-summary="RTX Spark 是英伟达为个人 AI 代理时代设计的超级芯片，这不仅是硬件迭代，更意味着本地运行大模型的设备门槛在快速降低，做端侧部署的可以重点关注。" data-zhsummary="英伟达推出新芯片，让普通人也能在自家电脑上运行强大AI模型。" title="收藏">☆</button>
   </div>
-  <h2>ethanhq/cc-fleet</h2>
-  <p class="summary">🚢  Spawn any vendor LLM — DeepSeek · GLM · Qwen · Kimi · MiniMax … — as real Claude Code teammates or ⚡ one-shot subagents 🚀 ｜🤖 让 Claude Code 接入任意第三方模型(DeepSeek · GLM · Qwen · Kimi · MiniMax ……),作为原生 </p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://blogs.nvidia.com/blog/krafton-nc-t1-korea-gaming-pc-bang-rtx-spark" target="_blank" rel="noopener">NVIDIA 与 KRAFTON、NC、T1 在韩国 PC 房庆祝 RTX Spark 发布</a></h2>
+  <p class="summary">英伟达推出新芯片，让普通人也能在自家电脑上运行强大AI模型。</p>
   <div class="meta">
-    <span>GitHub</span>
-    <span>🔥 97</span>
+    <span>AI热点</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://blogs.nvidia.com/blog/krafton-nc-t1-korea-gaming-pc-bang-rtx-spark" data-title="NVIDIA 与 KRAFTON、NC、T1 在韩国 PC 房庆祝 RTX Spark 发布">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>以后不用租云服务器，可能直接在手机或电脑上用AI做图像处理、语音识别等。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注新芯片的发布，看看有没有适合自己的本地AI应用。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="96ecf3e1f2b48fe014ea" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="AI热点" data-heat-stage="热门" data-audience="general" data-value-tags="产品工具,政策监管">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">73分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">AI热点</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="96ecf3e1f2b48fe014ea" data-title="美国众议院议员发布法案草案，旨在禁止各州制定人工智能相关法规" data-url="https://www.reuters.com/business/us-house-lawmakers-release-draft-bill-regulate-ai-2026-06-04" data-score="73" data-grade="推荐" data-source="AI热点" data-summary="美国众议院议员发布一项法案草案，旨在禁止各州自行制定人工智能相关法规，将AI监管权力集中到联邦层面。" data-zhsummary="美国国会想统一AI规则，不让人家自己定规矩了。" title="收藏">☆</button>
   </div>
   
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="政策监管">政策监管</span>
+  </div>
+  <h2><a href="https://www.reuters.com/business/us-house-lawmakers-release-draft-bill-regulate-ai-2026-06-04" target="_blank" rel="noopener">美国众议院议员发布法案草案，旨在禁止各州制定人工智能相关法规</a></h2>
+  <p class="summary">美国国会想统一AI规则，不让人家自己定规矩了。</p>
+  <div class="meta">
+    <span>AI热点</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.reuters.com/business/us-house-lawmakers-release-draft-bill-regulate-ai-2026-06-04" data-title="美国众议院议员发布法案草案，旨在禁止各州制定人工智能相关法规">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>以后制定AI规则可能更统一，但可能会限制地方的创新空间。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注AI相关政策，了解哪些领域可能有新变化。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="73d72e268c01bf145739" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="AI热点" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,政策监管">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">73分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">AI热点</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="73d72e268c01bf145739" data-title="五角大楼正运营着一个针对拉丁美洲的人工智能宣传机器" data-url="https://theintercept.com/2026/06/02/la-tilde-propaganda-latin-america-pentagon" data-score="73" data-grade="推荐" data-source="AI热点" data-summary="据 The Intercept 6月5日报道，美国五角大楼正在运营一个针对拉丁美洲的人工智能宣传机器（AI propaganda mill）。报道指出，该机器利用 AI 技术生成并传播宣传内容，目标为" data-zhsummary="美国国防部在拉美地区用AI做宣传，引发争议。" title="收藏">☆</button>
+  </div>
   
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="政策监管">政策监管</span>
+  </div>
+  <h2><a href="https://theintercept.com/2026/06/02/la-tilde-propaganda-latin-america-pentagon" target="_blank" rel="noopener">五角大楼正运营着一个针对拉丁美洲的人工智能宣传机器</a></h2>
+  <p class="summary">美国国防部在拉美地区用AI做宣传，引发争议。</p>
+  <div class="meta">
+    <span>AI热点</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://theintercept.com/2026/06/02/la-tilde-propaganda-latin-america-pentagon" data-title="五角大楼正运营着一个针对拉丁美洲的人工智能宣传机器">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>普通人需要警惕AI生成的信息真假，避免被误导。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以关注AI生成内容的来源，提高辨别能力。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="afd7c574cd620efeb6d6" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="Hacker News" data-heat-stage="热门" data-audience="general" data-value-tags="产品工具,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">71.4分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">Hacker News</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="afd7c574cd620efeb6d6" data-title="DeepSeek V4 Pro beats GPT-5.5 Pro on precision" data-url="https://runtimewire.com/article/deepseek-v4-pro-beats-gpt-5-5-pro-on-precision" data-score="71.4" data-grade="推荐" data-source="Hacker News" data-summary="32 评论" data-zhsummary="DeepSeek V4 Pro在某些任务上的精确度超过了GPT-5.5 Pro。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://runtimewire.com/article/deepseek-v4-pro-beats-gpt-5-5-pro-on-precision" target="_blank" rel="noopener">DeepSeek V4 Pro beats GPT-5.5 Pro on precision</a></h2>
+  <p class="summary">DeepSeek V4 Pro在某些任务上的精确度超过了GPT-5.5 Pro。</p>
+  <div class="meta">
+    <span>Hacker News</span>
+    <span>🔥 133</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://runtimewire.com/article/deepseek-v4-pro-beats-gpt-5-5-pro-on-precision" data-title="DeepSeek V4 Pro beats GPT-5.5 Pro on precision">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>这说明AI模型的性能在不断进步，未来可能会在更多领域超越现有大模型。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注这类模型更新，尝试用它们解决复杂问题。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="5869162cb7cf20a091a6" data-updated="2026-06-08T11:50:44" data-grade="推荐" data-source="AI热点" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">71分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">AI热点</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="5869162cb7cf20a091a6" data-title="Google Colab CLI 发布" data-url="https://developers.googleblog.com/introducing-the-google-colab-cli" data-score="71" data-grade="推荐" data-source="AI热点" data-summary="Google 推出 Colab 命令行界面（CLI），允许开发者和 AI 智能体将本地终端连接到远程 Colab 运行时，实现无摩擦执行。该轻量级 CLI 支持请求高性能 GPU、远程运行本地 Pyt" data-zhsummary="谷歌发布了一款新命令行工具，让AI开发更简单。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://developers.googleblog.com/introducing-the-google-colab-cli" target="_blank" rel="noopener">Google Colab CLI 发布</a></h2>
+  <p class="summary">谷歌发布了一款新命令行工具，让AI开发更简单。</p>
+  <div class="meta">
+    <span>AI热点</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://developers.googleblog.com/introducing-the-google-colab-cli" data-title="Google Colab CLI 发布">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>这会让编程和AI实验变得更高效，减少等待时间。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以尝试安装Colab CLI，看看如何简化开发流程。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 </div>
 <div id="level-参考" class="topic-list">
-<div class="topic-card" data-hash="54af8e26d9db87d148e0" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="36氪" data-heat-stage="持续" data-audience="general">
+<div class="topic-card" data-hash="25856321a747ec7635c8" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">69.8分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="25856321a747ec7635c8" data-title="razr001/align-dev" data-url="https://github.com/razr001/align-dev" data-score="69.8" data-grade="参考" data-source="GitHub" data-summary="AlignDev helps AI-assisted frontend teams generate shared coding standards and SKILL.md so Claude Co" data-zhsummary="AlignDev帮助前端团队统一AI协作标准，让不同工具能更顺畅配合工作。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://github.com/razr001/align-dev" target="_blank" rel="noopener">razr001/align-dev</a></h2>
+  <p class="summary">AlignDev帮助前端团队统一AI协作标准，让不同工具能更顺畅配合工作。</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 258</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/razr001/align-dev" data-title="razr001/align-dev">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>团队协作时能减少AI工具之间的兼容问题，提升开发效率。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>研究如何建立团队的AI协作规范。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="f38ce87f9b976b139b74" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,产品工具,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">69.2分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="f38ce87f9b976b139b74" data-title="myccarl/ai-shortVideo-pipeline" data-url="https://github.com/myccarl/ai-shortVideo-pipeline" data-score="69.2" data-grade="参考" data-source="GitHub" data-summary="End-to-end AI short-video production pipeline. FastAPI orchestration + Spring Boot gateway with mult" data-zhsummary="这个工具能用AI全自动制作短视频，包含多个模型自动切换。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://github.com/myccarl/ai-shortVideo-pipeline" target="_blank" rel="noopener">myccarl/ai-shortVideo-pipeline</a></h2>
+  <p class="summary">这个工具能用AI全自动制作短视频，包含多个模型自动切换。</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 67</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/myccarl/ai-shortVideo-pipeline" data-title="myccarl/ai-shortVideo-pipeline">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>内容创作者可以省去很多后期制作步骤，但需注意版权问题。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>学习如何利用AI生成短视频素材。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="54af8e26d9db87d148e0" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="36氪" data-heat-stage="持续" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">69分 · 参考</span>
@@ -1986,267 +2493,354 @@ Abstract: Automated scoring models are increasingly used to assign rubric-based 
     <span class="source-tag">36氪</span>
     <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="54af8e26d9db87d148e0" data-title="前华为员工创业线控底盘，曾参编国标，获松禾、苏高新投资丨36氪首发" data-url="https://36kr.com/p/3839600052898054?f=rss" data-score="69" data-grade="参考" data-source="36氪" data-summary="作者丨欧雪
   编辑丨袁斯来
-  硬氪获悉，线控底盘核心零部件供应商毫秒智控已于近期完成数千万元天使+轮融资，本轮投资方为松禾资本和苏高新融晟。这也是公司成立仅一年以来，继获得厚雪资本天" data-zhsummary="" title="收藏">☆</button>
+  硬氪获悉，线控底盘核心零部件供应商毫秒智控已于近期完成数千万元天使+轮融资，本轮投资方为松禾资本和苏高新融晟。这也是公司成立仅一年以来，继获得厚雪资本天" data-zhsummary="一名前华为员工创办的公司获得投资，专注于汽车智能化技术。" title="收藏">☆</button>
   </div>
-  <h2>前华为员工创业线控底盘，曾参编国标，获松禾、苏高新投资丨36氪首发</h2>
-  <p class="summary">作者丨欧雪
-  编辑丨袁斯来
-  硬氪获悉，线控底盘核心零部件供应商毫秒智控已于近期完成数千万元天使+轮融资，本轮投资方为松禾资本和苏高新融晟。这也是公司成立仅一年以来，继获得厚雪资本天使轮独家投资后，接连完成的第二轮融资。
-  毫秒智控2025年4月成立于上海，专注于线控转向（SBW）系统及核心电控部件的研发与生产。
-  毫秒智控的核心竞争力，源于其极度稀缺的团队基因。创始人兼 CEO李杰是线控</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3839600052898054?f=rss" target="_blank" rel="noopener">前华为员工创业线控底盘，曾参编国标，获松禾、苏高新投资丨36氪首发</a></h2>
+  <p class="summary">一名前华为员工创办的公司获得投资，专注于汽车智能化技术。</p>
   <div class="meta">
     <span>36氪</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3839600052898054?f=rss" data-title="前华为员工创业线控底盘，曾参编国标，获松禾、苏高新投资丨36氪首发">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>自动驾驶技术可能更快落地，未来出行会更智能更安全。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>学习汽车电子技术或关注智能驾驶发展动态。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="7f6a8dc7f1a495568f15" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="爱范儿" data-heat-stage="持续" data-audience="general">
+<div class="topic-card" data-hash="71eff306eed1fc37d11c" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="36氪" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">69分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">36氪</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="71eff306eed1fc37d11c" data-title="英伟达与LG集团合建AI工厂，合作推进机器人、自动驾驶及自主AI" data-url="https://36kr.com/newsflashes/3843985339664896?f=rss" data-score="69" data-grade="参考" data-source="36氪" data-summary="英伟达与LG集团宣布合作建设AI工厂，为LG旗下机器人、自动驾驶、数据中心及GPU云服务等核心业务提供加速计算基础设施。在机器人领域，LG电子将整合英伟达Isaac Sim、GR00T等框架训练家用机" data-zhsummary="英伟达和LG联手建AI工厂，一起研发机器人和自动驾驶所需的技术。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://36kr.com/newsflashes/3843985339664896?f=rss" target="_blank" rel="noopener">英伟达与LG集团合建AI工厂，合作推进机器人、自动驾驶及自主AI</a></h2>
+  <p class="summary">英伟达和LG联手建AI工厂，一起研发机器人和自动驾驶所需的技术。</p>
+  <div class="meta">
+    <span>36氪</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/newsflashes/3843985339664896?f=rss" data-title="英伟达与LG集团合建AI工厂，合作推进机器人、自动驾驶及自主AI">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>这对推动AI在制造业和交通的应用有重要影响，未来可能改变我们的出行方式。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>了解机器人技术最新进展，关注AI在汽车行业的应用案例。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="732ee17d310e7e9d94b5" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="量子位" data-heat-stage="持续" data-audience="general" data-value-tags="技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">69分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">量子位</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="732ee17d310e7e9d94b5" data-title="5分钟AI长视频不翻车！国产开源框架杀到全球第一梯队" data-url="https://www.qbitai.com/2026/06/431401.html" data-score="69" data-grade="参考" data-source="量子位" data-summary="高一致性、低延迟、实时超分全梭哈" data-zhsummary="中国团队开发的AI框架表现突出，能稳定处理长视频。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://www.qbitai.com/2026/06/431401.html" target="_blank" rel="noopener">5分钟AI长视频不翻车！国产开源框架杀到全球第一梯队</a></h2>
+  <p class="summary">中国团队开发的AI框架表现突出，能稳定处理长视频。</p>
+  <div class="meta">
+    <span>量子位</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.qbitai.com/2026/06/431401.html" data-title="5分钟AI长视频不翻车！国产开源框架杀到全球第一梯队">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>用户可能能用更便宜的国产工具获得高质量AI服务。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以搜索国产AI框架，看看有没有适合自己的工具。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="7f6a8dc7f1a495568f15" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="爱范儿" data-heat-stage="持续" data-audience="general" data-value-tags="产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">69分 · 参考</span>
     <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
     <span class="source-tag">爱范儿</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="7f6a8dc7f1a495568f15" data-title="今年最值得升级的生产力工具，可能是一整张 AI 工位" data-url="https://www.ifanr.com/1667995?utm_source=rss&utm_medium=rss&utm_campaign=" data-score="69" data-grade="参考" data-source="爱范儿" data-summary="照顾好自己，就是 AI 时代最实在的生产力。" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="7f6a8dc7f1a495568f15" data-title="今年最值得升级的生产力工具，可能是一整张 AI 工位" data-url="https://www.ifanr.com/1667995?utm_source=rss&utm_medium=rss&utm_campaign=" data-score="69" data-grade="参考" data-source="爱范儿" data-summary="照顾好自己，就是 AI 时代最实在的生产力。" data-zhsummary="AI工位成为提升工作效率的新选择。" title="收藏">☆</button>
   </div>
-  <h2>今年最值得升级的生产力工具，可能是一整张 AI 工位</h2>
-  <p class="summary">照顾好自己，就是 AI 时代最实在的生产力。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.ifanr.com/1667995?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">今年最值得升级的生产力工具，可能是一整张 AI 工位</a></h2>
+  <p class="summary">AI工位成为提升工作效率的新选择。</p>
   <div class="meta">
     <span>爱范儿</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.ifanr.com/1667995?utm_source=rss&utm_medium=rss&utm_campaign=" data-title="今年最值得升级的生产力工具，可能是一整张 AI 工位">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>工作方式可能变得更高效，但需要合理搭配工具。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以检查自己的工作台，看看哪些工具能用AI提升效率。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="fd9da996851a2e63c507" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="爱范儿" data-heat-stage="持续" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #8a9598;">69分 · 参考</span>
-    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
-    <span class="source-tag">爱范儿</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="fd9da996851a2e63c507" data-title="制糖工厂发布 AI 小电拼 Mirror：琥珀屏、双支架与可拼拆设计，重构桌面能源设备" data-url="https://www.ifanr.com/1667822?utm_source=rss&utm_medium=rss&utm_campaign=" data-score="69" data-grade="参考" data-source="爱范儿" data-summary="AI 小电拼 Mirror 作为 AI 小电拼系列的新一代旗舰产品，Mirror 延续小电拼家族的可拼拆结构，并新增 0.5 英寸 ingBar 琥珀状态屏、Wingie 蝶架与 Oxie 牛架，在" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>制糖工厂发布 AI 小电拼 Mirror：琥珀屏、双支架与可拼拆设计，重构桌面能源设备</h2>
-  <p class="summary">AI 小电拼 Mirror 作为 AI 小电拼系列的新一代旗舰产品，Mirror 延续小电拼家族的可拼拆结构，并新增 0.5 英寸 ingBar 琥珀状态屏、Wingie 蝶架与 Oxie 牛架，在桌面显示、支架形态与家旅双栖体验上完成了一次系统化更新。</p>
-  <div class="meta">
-    <span>爱范儿</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="5bc761393233369aeb38" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="Slashdot" data-heat-stage="持续" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #8a9598;">69分 · 参考</span>
-    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
-    <span class="source-tag">Slashdot</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="5bc761393233369aeb38" data-title="Anthropic Urges Global Pause in AI Development, Flags &#39;Self-Improvement&#39; Risk" data-url="https://slashdot.org/story/26/06/04/204255/anthropic-urges-global-pause-in-ai-development-flags-self-improvement-risk?utm_source=rss1.0mainlinkanon&utm_medium=feed" data-score="69" data-grade="参考" data-source="Slashdot" data-summary="Anthropic is urging leading AI labs to consider slowing development, warning that frontier models ar" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>Anthropic Urges Global Pause in AI Development, Flags 'Self-Improvement' Risk</h2>
-  <p class="summary">Anthropic is urging leading AI labs to consider slowing development, warning that frontier models are advancing fast enough that they may soon be able to improve themselves without direct human interv</p>
-  <div class="meta">
-    <span>Slashdot</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="f475519b92b10e4d0f29" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="Slashdot" data-heat-stage="持续" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #8a9598;">69分 · 参考</span>
-    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
-    <span class="source-tag">Slashdot</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="f475519b92b10e4d0f29" data-title="New IronWorm Malware Hits 36 Packages In npm Supply-Chain Attack" data-url="https://it.slashdot.org/story/26/06/04/1948205/new-ironworm-malware-hits-36-packages-in-npm-supply-chain-attack?utm_source=rss1.0mainlinkanon&utm_medium=feed" data-score="69" data-grade="参考" data-source="Slashdot" data-summary="A new npm supply-chain attack has infected 36 packages with Rust-based infostealer malware called Ir" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>New IronWorm Malware Hits 36 Packages In npm Supply-Chain Attack</h2>
-  <p class="summary">A new npm supply-chain attack has infected 36 packages with Rust-based infostealer malware called IronWorm. According to BleepingComputer, the malware "targets 86 environment variables (key-value pair</p>
-  <div class="meta">
-    <span>Slashdot</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="97d2f61cd4ecebd780aa" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="ZDNet" data-heat-stage="持续" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #8a9598;">69分 · 参考</span>
-    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
-    <span class="source-tag">ZDNet</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="97d2f61cd4ecebd780aa" data-title="I tried Google Drive&#39;s new AI cleanup tool to fix 14 years of storage clutter - here&#39;s the result" data-url="https://www.zdnet.com/article/i-tried-google-drives-new-ai-cleanup-tool-storage-clutter/" data-score="69" data-grade="参考" data-source="ZDNet" data-summary="With Organize My Files, can Gemini clean up my messy Google Drive and save me money on storage? Let&#39;" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>I tried Google Drive's new AI cleanup tool to fix 14 years of storage clutter - here's the result</h2>
-  <p class="summary">With Organize My Files, can Gemini clean up my messy Google Drive and save me money on storage? Let's see.</p>
-  <div class="meta">
-    <span>ZDNet</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="0ee0675d7ef203c50cd1" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general">
+<div class="topic-card" data-hash="0c810b5991218b00128e" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">68.8分 · 参考</span>
     <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
     <span class="source-tag">GitHub</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="0ee0675d7ef203c50cd1" data-title="OnlyTerp/UltraCode-Shim" data-url="https://github.com/OnlyTerp/UltraCode-Shim" data-score="68.8" data-grade="参考" data-source="GitHub" data-summary="Give Claude Code&#39;s ultracode mode to ANY model you already pay for. A tiny local proxy + one config." data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="0c810b5991218b00128e" data-title="CWS6206/ai-coding-starter-kit" data-url="https://github.com/CWS6206/ai-coding-starter-kit" data-score="68.8" data-grade="参考" data-source="GitHub" data-summary="Kuratierte Agent Skills, Checklisten, Templates und Leitfäden für Schweizer Entwicklungsteams – dire" data-zhsummary="这是为瑞士团队整理的AI编码实用工具包，包含模板和操作指南。" title="收藏">☆</button>
   </div>
-  <h2>OnlyTerp/UltraCode-Shim</h2>
-  <p class="summary">Give Claude Code's ultracode mode to ANY model you already pay for. A tiny local proxy + one config.json. Point your AI at AGENTS.md and it sets itself up.</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://github.com/CWS6206/ai-coding-starter-kit" target="_blank" rel="noopener">CWS6206/ai-coding-starter-kit</a></h2>
+  <p class="summary">这是为瑞士团队整理的AI编码实用工具包，包含模板和操作指南。</p>
   <div class="meta">
     <span>GitHub</span>
-    <span>🔥 262</span>
+    <span>🔥 260</span>
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/CWS6206/ai-coding-starter-kit" data-title="CWS6206/ai-coding-starter-kit">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>本地团队能更高效地利用AI辅助开发，但可能对非瑞士用户帮助有限。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>瑞士开发者可参考这些资源提升AI开发效率。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="ffc787b39d5893931cdd" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #8a9598;">68.5分 · 参考</span>
-    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
-    <span class="source-tag">GitHub</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="ffc787b39d5893931cdd" data-title="stormneonnightraven4640692/DeepFake-AI-RealTime" data-url="https://github.com/stormneonnightraven4640692/DeepFake-AI-RealTime" data-score="68.5" data-grade="参考" data-source="GitHub" data-summary="An advanced, LLM-powered toolkit providing comprehensive capabilities for ethical synthetic media de" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>stormneonnightraven4640692/DeepFake-AI-RealTime</h2>
-  <p class="summary">An advanced, LLM-powered toolkit providing comprehensive capabilities for ethical synthetic media detection, analysis, and responsible content generation.</p>
-  <div class="meta">
-    <span>GitHub</span>
-    <span>🔥 182</span>
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="942caf7b37ceb527266a" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general">
+<div class="topic-card" data-hash="5fc9afcee1db639b0e45" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general" data-value-tags="技术前沿,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">68.3分 · 参考</span>
     <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
     <span class="source-tag">GitHub</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="942caf7b37ceb527266a" data-title="AtomFlow-AI/MoleCode" data-url="https://github.com/AtomFlow-AI/MoleCode" data-score="68.3" data-grade="参考" data-source="GitHub" data-summary="Molecode presents molecules as code and enables LLMs to operate and reason on chemistry directly." data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="5fc9afcee1db639b0e45" data-title="TheStageAI/edge-lm" data-url="https://github.com/TheStageAI/edge-lm" data-score="68.3" data-grade="参考" data-source="GitHub" data-summary="Tiny llms optimised for edge deployment" data-zhsummary="edge-lm是专为手机或小设备优化的微型AI模型，能本地运行。" title="收藏">☆</button>
   </div>
-  <h2>AtomFlow-AI/MoleCode</h2>
-  <p class="summary">Molecode presents molecules as code and enables LLMs to operate and reason on chemistry directly.</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://github.com/TheStageAI/edge-lm" target="_blank" rel="noopener">TheStageAI/edge-lm</a></h2>
+  <p class="summary">edge-lm是专为手机或小设备优化的微型AI模型，能本地运行。</p>
   <div class="meta">
     <span>GitHub</span>
-    <span>🔥 98</span>
+    <span>🔥 86</span>
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/TheStageAI/edge-lm" data-title="TheStageAI/edge-lm">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>手机用户能更流畅地使用AI功能，比如实时翻译或语音助手。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注支持本地运行的AI应用，减少云端依赖。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="5bfd0298d88a6e47d15e" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="36氪" data-heat-stage="持续" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #8a9598;">68分 · 参考</span>
-    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
-    <span class="source-tag">36氪</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="5bfd0298d88a6e47d15e" data-title="8点1氪丨分析师曝苹果Vision Pro产品线被移除；黄仁勋将首次亮相综艺节目；粉笔CEO就骂人大学生“活该找不到工作”道歉" data-url="https://36kr.com/p/3839505332161026?f=rss" data-score="68" data-grade="参考" data-source="36氪" data-summary="今日热点导览
-  
-   微信正与手机厂商合作推出Agent-to-Agent助手能力
-   擅用“LABUBU”相近标识商业推广，泡泡玛特告奈雪的茶获赔32万
-   腾讯客服回应与华为" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>8点1氪丨分析师曝苹果Vision Pro产品线被移除；黄仁勋将首次亮相综艺节目；粉笔CEO就骂人大学生“活该找不到工作”道歉</h2>
-  <p class="summary">今日热点导览
-  
-   微信正与手机厂商合作推出Agent-to-Agent助手能力
-   擅用“LABUBU”相近标识商业推广，泡泡玛特告奈雪的茶获赔32万
-   腾讯客服回应与华为、小米等合作
-   神农旅游集团就国道收费进行道歉
-   苹果智能眼镜推迟至2029年，无显示屏AI眼镜仍将于2027年推出
-  
-  TOP 3 大新闻
-  分析师曝苹果Vision Pro产品线被移除，2027</p>
-  <div class="meta">
-    <span>36氪</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="d491986370e7f053fd9f" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="AI热点" data-heat-stage="持续" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #8a9598;">68分 · 参考</span>
-    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
-    <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="d491986370e7f053fd9f" data-title="Nex-N2-Pro 发布：基于 Qwen3.5 的 397B MoE 推理模型，性能达 GPT-5.5 水平" data-url="https://x.com/SiliconFlowAI/status/2062549952266723493" data-score="68" data-grade="参考" data-source="AI热点" data-summary="neolab 推出 Nex-N2-Pro，基于 Qwen3.5-397B-A17B，总参数 397B 的 MoE 推理模型，支持 262K 上下文与多模态（VLM），性能达到 GPT-5.5 和 Cl" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>Nex-N2-Pro 发布：基于 Qwen3.5 的 397B MoE 推理模型，性能达 GPT-5.5 水平</h2>
-  <p class="summary">neolab 推出 Nex-N2-Pro，基于 Qwen3.5-397B-A17B，总参数 397B 的 MoE 推理模型，支持 262K 上下文与多模态（VLM），性能达到 GPT-5.5 和 Claude Opus 4.7 级别。模型可自动调节推理深度，减少 30-50% 思考 token 且无性能折损，在 Terminal Bench 2.1、GDPVal、SWE-Verified 上取得 </p>
-  <div class="meta">
-    <span>AI热点</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="fc8724939deefb5f0882" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="爱范儿" data-heat-stage="持续" data-audience="general">
+<div class="topic-card" data-hash="fc8724939deefb5f0882" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="爱范儿" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">68分 · 参考</span>
     <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
     <span class="source-tag">爱范儿</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="fc8724939deefb5f0882" data-title="刚刚，Windows「梦中神机」来了，把你的 PC 变成 Agent 工位" data-url="https://www.ifanr.com/1667971?utm_source=rss&utm_medium=rss&utm_campaign=" data-score="68" data-grade="参考" data-source="爱范儿" data-summary="微软自研模型发布， MAI 补上 AI 供应链最关键一环" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="fc8724939deefb5f0882" data-title="刚刚，Windows「梦中神机」来了，把你的 PC 变成 Agent 工位" data-url="https://www.ifanr.com/1667971?utm_source=rss&utm_medium=rss&utm_campaign=" data-score="68" data-grade="参考" data-source="爱范儿" data-summary="微软自研模型发布， MAI 补上 AI 供应链最关键一环" data-zhsummary="微软发布自研AI模型，让电脑变身为智能工作台。" title="收藏">☆</button>
   </div>
-  <h2>刚刚，Windows「梦中神机」来了，把你的 PC 变成 Agent 工位</h2>
-  <p class="summary">微软自研模型发布， MAI 补上 AI 供应链最关键一环</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.ifanr.com/1667971?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">刚刚，Windows「梦中神机」来了，把你的 PC 变成 Agent 工位</a></h2>
+  <p class="summary">微软发布自研AI模型，让电脑变身为智能工作台。</p>
   <div class="meta">
     <span>爱范儿</span>
     
   </div>
-  
-  
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.ifanr.com/1667971?utm_source=rss&utm_medium=rss&utm_campaign=" data-title="刚刚，Windows「梦中神机」来了，把你的 PC 变成 Agent 工位">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>个人电脑的AI能力将大幅增强，操作更灵活。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天可以尝试微软的AI模型，看看如何优化自己的工作流程。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 
-<div class="topic-card" data-hash="cf9786778ecefd30805f" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="TechCrunch" data-heat-stage="持续" data-audience="general">
-  <span class="new-badge" style="display:none;">NEW</span>
-  <div class="card-header">
-    <span class="score-badge" style="background: #8a9598;">68分 · 参考</span>
-    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
-    <span class="source-tag">TechCrunch</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="cf9786778ecefd30805f" data-title="Airbnb’s Brian Chesky plans to launch a new AI lab" data-url="https://techcrunch.com/2026/06/04/airbnbs-brian-chesky-plans-to-launch-a-new-ai-lab/" data-score="68" data-grade="参考" data-source="TechCrunch" data-summary="The Airbnb CEO said last year it hasn&#39;t struck an LLM partnership because existing products weren&#39;t" data-zhsummary="" title="收藏">☆</button>
-  </div>
-  <h2>Airbnb’s Brian Chesky plans to launch a new AI lab</h2>
-  <p class="summary">The Airbnb CEO said last year it hasn't struck an LLM partnership because existing products weren't quite ready.</p>
-  <div class="meta">
-    <span>TechCrunch</span>
-    
-  </div>
-  
-  
-</div>
-
-<div class="topic-card" data-hash="2b73a6fe20f0428a6367" data-updated="2026-06-05T19:44:23" data-grade="参考" data-source="AI热点" data-heat-stage="持续" data-audience="general">
+<div class="topic-card" data-hash="11aab97d2e771ca263f6" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="AI热点" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">66分 · 参考</span>
     <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
     <span class="source-tag">AI热点</span>
-    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="2b73a6fe20f0428a6367" data-title="OpenAI 发布《智能时代的生物防御》行动计划，以 AI 驱动生物韧性" data-url="https://openai.com/index/biodefense-in-the-intelligence-age" data-score="66" data-grade="参考" data-source="AI热点" data-summary="OpenAI 提出一项名为“Biodefense in the Intelligence Age”的行动计划，旨在利用 AI 增强生物防御与韧性。该计划聚焦于构建 AI 驱动的生物安全能力，以应对未来" data-zhsummary="" title="收藏">☆</button>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="11aab97d2e771ca263f6" data-title="Nvidia 与 SK Hynix 签署多年协议，共同开发下一代 AI 存储芯片" data-url="https://www.bloomberg.com/news/articles/2026-06-07/nvidia-sk-hynix-sign-multi-year-pact-to-develop-next-gen-chips" data-score="66" data-grade="参考" data-source="AI热点" data-summary="Nvidia 与 SK Hynix 达成合作，将共同设计面向 AI 应用的未来几代存储芯片。此举巩固了 SK Hynix 在高端半导体领域的领先地位。" data-zhsummary="英伟达和三星合作研发新一代AI存储芯片，未来能提升AI运算效率。" title="收藏">☆</button>
   </div>
-  <h2>OpenAI 发布《智能时代的生物防御》行动计划，以 AI 驱动生物韧性</h2>
-  <p class="summary">OpenAI 提出一项名为“Biodefense in the Intelligence Age”的行动计划，旨在利用 AI 增强生物防御与韧性。该计划聚焦于构建 AI 驱动的生物安全能力，以应对未来可能出现的生物威胁。</p>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.bloomberg.com/news/articles/2026-06-07/nvidia-sk-hynix-sign-multi-year-pact-to-develop-next-gen-chips" target="_blank" rel="noopener">Nvidia 与 SK Hynix 签署多年协议，共同开发下一代 AI 存储芯片</a></h2>
+  <p class="summary">英伟达和三星合作研发新一代AI存储芯片，未来能提升AI运算效率。</p>
   <div class="meta">
     <span>AI热点</span>
     
   </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.bloomberg.com/news/articles/2026-06-07/nvidia-sk-hynix-sign-multi-year-pact-to-develop-next-gen-chips" data-title="Nvidia 与 SK Hynix 签署多年协议，共同开发下一代 AI 存储芯片">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>硬件升级会让AI应用更强大，比如更流畅的智能设备体验。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>了解AI芯片技术发展，关注行业动态。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="c837c039a4bcc049ebfb" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="AI热点" data-heat-stage="持续" data-audience="general" data-value-tags="产品工具,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">66分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">AI热点</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="c837c039a4bcc049ebfb" data-title="OpenAI 仍推进超级应用计划" data-url="https://techcrunch.com/2026/06/07/openai-is-still-working-on-that-super-app" data-score="66" data-grade="参考" data-source="AI热点" data-summary="OpenAI 一位高级员工表示“聊天已死”，同时公司仍在继续推进超级应用计划。" data-zhsummary="OpenAI虽然说聊天机器人不行了，但还在研发能处理复杂任务的超级系统。" title="收藏">☆</button>
+  </div>
   
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://techcrunch.com/2026/06/07/openai-is-still-working-on-that-super-app" target="_blank" rel="noopener">OpenAI 仍推进超级应用计划</a></h2>
+  <p class="summary">OpenAI虽然说聊天机器人不行了，但还在研发能处理复杂任务的超级系统。</p>
+  <div class="meta">
+    <span>AI热点</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://techcrunch.com/2026/06/07/openai-is-still-working-on-that-super-app" data-title="OpenAI 仍推进超级应用计划">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI可能会从单纯聊天转向管理整个工作流程，像一个全能的"数字助理"。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>看看有没有能集成AI任务管理的软件，提前适应这种变化。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="e77fe74f006fc9dcab3b" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="AI热点" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">66分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">AI热点</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="e77fe74f006fc9dcab3b" data-title="Slop、生产力，以及为何AI驱动的世界进展甚微" data-url="https://garymarcus.substack.com/p/slop-productivity-and-why-the-ai" data-score="66" data-grade="参考" data-source="AI热点" data-summary="Gary Marcus在金融时报上看到John Burn-Murdoch的一张图表，认为它精准提炼了自己一直试图表达的观点。" data-zhsummary="AI虽然能做很多事情，但实际效果可能不如想象中那么好。" title="收藏">☆</button>
+  </div>
   
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://garymarcus.substack.com/p/slop-productivity-and-why-the-ai" target="_blank" rel="noopener">Slop、生产力，以及为何AI驱动的世界进展甚微</a></h2>
+  <p class="summary">AI虽然能做很多事情，但实际效果可能不如想象中那么好。</p>
+  <div class="meta">
+    <span>AI热点</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://garymarcus.substack.com/p/slop-productivity-and-why-the-ai" data-title="Slop、生产力，以及为何AI驱动的世界进展甚微">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>别指望AI能立刻解决所有问题，它可能还像刚学走路的孩子，要慢慢练。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>先从简单场景测试AI，比如用它整理资料，再逐步尝试复杂任务。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="584b05cae965df52abd8" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="AI热点" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">66分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">AI热点</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="584b05cae965df52abd8" data-title="Harness 工程：在智能体优先的世界中运用 Codex" data-url="https://openai.com/index/harness-engineering" data-score="66" data-grade="参考" data-source="AI热点" data-summary="Harness 工程在智能体优先的世界中利用 OpenAI Codex 的实践文章，6月6日发布于 openai.com，在 Hacker News 上获得 102 点热度。" data-zhsummary="有人用AI模拟经济系统，让不同角色互相影响做出决策。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://openai.com/index/harness-engineering" target="_blank" rel="noopener">Harness 工程：在智能体优先的世界中运用 Codex</a></h2>
+  <p class="summary">有人用AI模拟经济系统，让不同角色互相影响做出决策。</p>
+  <div class="meta">
+    <span>AI热点</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://openai.com/index/harness-engineering" data-title="Harness 工程：在智能体优先的世界中运用 Codex">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI可能会用来模拟社会现象，比如预测市场变化或设计虚拟社区。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>研究AI模拟工具，看看能不能用在自己的项目里。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="4a9835b472df03aa1dba" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="AI热点" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">66分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">AI热点</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="4a9835b472df03aa1dba" data-title="OpenCV 5 发布：升级全新 DNN 引擎、原生支持大模型" data-url="https://www.ithome.com/0/960/969.htm" data-score="66" data-grade="参考" data-source="AI热点" data-summary="OpenCV 5 正式发布，采用基于图的 DNN 引擎，ONNX 算子覆盖率从 4.x 的不到 23% 提升至超 80%，原生支持 Transformer、视觉语言模型（VLM）和大语言模型（LLM）" data-zhsummary="新软件能更好地处理图片和视频，还能和大模型配合使用。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.ithome.com/0/960/969.htm" target="_blank" rel="noopener">OpenCV 5 发布：升级全新 DNN 引擎、原生支持大模型</a></h2>
+  <p class="summary">新软件能更好地处理图片和视频，还能和大模型配合使用。</p>
+  <div class="meta">
+    <span>AI热点</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.ithome.com/0/960/969.htm" data-title="OpenCV 5 发布：升级全新 DNN 引擎、原生支持大模型">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>拍照片、看视频时可能会有更智能的分析功能，比如自动识别物体。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>试试用新软件处理图像，看看能不能更快找到需要的信息。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="1f35e9344b56fc22e87f" data-updated="2026-06-08T11:50:44" data-grade="参考" data-source="月光博客" data-heat-stage="持续" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">63分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">月光博客</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="1f35e9344b56fc22e87f" data-title="AI编程从零开始：环境配置到开发调试" data-url="https://www.williamlong.info/archives/7544.html" data-score="63" data-grade="参考" data-source="月光博客" data-summary="我最开始接触AI编程（Vibe Coding）是去年，因为我以前没写过Chrome插件，第一次用AI来写，十分钟搞定，功能是点击将浏览器所有书签转化为网址导航站来显示，用AI在网页端生成，插件运行后显" data-zhsummary="有人用AI十分钟就写出了Chrome插件，说明AI确实让编程更简单了。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://www.williamlong.info/archives/7544.html" target="_blank" rel="noopener">AI编程从零开始：环境配置到开发调试</a></h2>
+  <p class="summary">有人用AI十分钟就写出了Chrome插件，说明AI确实让编程更简单了。</p>
+  <div class="meta">
+    <span>月光博客</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.williamlong.info/archives/7544.html" data-title="AI编程从零开始：环境配置到开发调试">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>普通人可能不需要专业编程知识也能开发工具，但也要注意AI生成代码的安全性。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试用AI辅助完成一个简单的网页功能开发。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
 </div>
 </div>
 
@@ -2305,12 +2899,13 @@ Abstract: Automated scoring models are increasingly used to assign rubric-based 
 
 <script>
 // ===== 全局状态 =====
-const GEN_TS = '2026-06-05T19:44:23';
+const GEN_TS = '2026-06-08T11:50:44';
 let currentLevel = 'all';
+let currentValueTag = 'all';
 let currentSearch = '';
 let bookmarks = JSON.parse(localStorage.getItem('hn_bookmarks') || '[]');
 let lastVisit = localStorage.getItem('hn_last_visit') || '';
-let theme = localStorage.getItem('hn_theme') || 'local';
+let theme = localStorage.getItem('hn_theme') || 'web';
 
 // ===== 主题切换 =====
 function applyTheme(t) {
@@ -2357,6 +2952,15 @@ function showLevel(level) {
   filterCards();
 }
 
+// ===== 价值标签筛选 =====
+function filterByValueTag(tag) {
+  currentValueTag = tag;
+  document.querySelectorAll('.value-filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tag === tag);
+  });
+  filterCards();
+}
+
 // ===== 搜索 + 筛选 =====
 function filterCards() {
   const searchText = document.getElementById('searchInput').value.toLowerCase().trim();
@@ -2386,6 +2990,26 @@ function filterCards() {
     if (hiddenSources.length > 0 && hiddenSources.includes(cardSource)) {
       card.style.display = 'none';
       return;
+    }
+    
+    // 受众模式过滤（与 applyMode 协同，防止互相覆盖）
+    const audience = card.dataset.audience || 'both';
+    if (currentMode === '大众版' && audience === 'pro') {
+      card.style.display = 'none';
+      return;
+    }
+    if (currentMode === '专业版' && audience === 'general') {
+      card.style.display = 'none';
+      return;
+    }
+    
+    // 价值标签筛选
+    if (currentValueTag !== 'all') {
+      const cardTags = (card.dataset.valueTags || '').split(',');
+      if (!cardTags.includes(currentValueTag)) {
+        card.style.display = 'none';
+        return;
+      }
     }
     
     // 档位/收藏过滤
@@ -2911,6 +3535,15 @@ function applyMode() {
     cards.forEach(card => {
       const audience = card.dataset.audience || 'both';
       if (audience === 'pro') { card.style.display = 'none'; return; }
+      // 尊重当前档位筛选
+      const grade = card.dataset.grade || '';
+      if (currentLevel !== 'all' && currentLevel !== 'bookmarks' && grade !== currentLevel) { card.style.display = 'none'; return; }
+      if (currentLevel === 'bookmarks' && !bookmarks.includes(card.dataset.hash || '')) { card.style.display = 'none'; return; }
+      // 尊重价值标签筛选
+      if (currentValueTag !== 'all') {
+        const cardTags = (card.dataset.valueTags || '').split(',');
+        if (!cardTags.includes(currentValueTag)) { card.style.display = 'none'; return; }
+      }
       const title = card.querySelector('h2')?.textContent?.trim();
       if (!title) return;
       if (seen[title]) { card.style.display = 'none'; return; }
@@ -2936,6 +3569,15 @@ function applyMode() {
     cards.forEach(card => {
       const audience = card.dataset.audience || 'both';
       if (audience === 'general') { card.style.display = 'none'; return; }
+      // 尊重当前档位筛选
+      const grade = card.dataset.grade || '';
+      if (currentLevel !== 'all' && currentLevel !== 'bookmarks' && grade !== currentLevel) { card.style.display = 'none'; return; }
+      if (currentLevel === 'bookmarks' && !bookmarks.includes(card.dataset.hash || '')) { card.style.display = 'none'; return; }
+      // 尊重价值标签筛选
+      if (currentValueTag !== 'all') {
+        const cardTags = (card.dataset.valueTags || '').split(',');
+        if (!cardTags.includes(currentValueTag)) { card.style.display = 'none'; return; }
+      }
       qualified.push(card);
     });
     // 限制专业版最多显示30条
