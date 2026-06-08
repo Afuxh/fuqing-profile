@@ -3,7 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>给爸爸妈妈的一封信</title>
+<meta name="description" content="给爸爸妈妈的一封信 - 扶清闲话家书互动页。一封来自远方的家书，记录成长足迹、家的温度与对父母的感恩。点击信封，打开心意。">
+<meta name="keywords" content="阿扶, 扶清闲话, 家书, 爸爸妈妈, 感恩, 成长, 亲情, 信件">
+<meta name="author" content="阿扶">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://afuxh.github.io/fuqing-profile/family-letters.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💌%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://afuxh.github.io/fuqing-profile/family-letters.html">
+<meta property="og:title" content="给爸爸妈妈的一封信 | 扶清闲话">
+<meta property="og:description" content="一封来自远方的家书，记录成长足迹、家的温度与对父母的感恩。点击信封，打开心意。">
+<meta property="og:image" content="https://afuxh.github.io/fuqing-profile/og-image.jpg">
+<meta property="og:site_name" content="扶清闲话">
+<meta property="og:locale" content="zh_CN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="给爸爸妈妈的一封信 | 扶清闲话">
+<meta name="twitter:description" content="一封来自远方的家书，记录成长足迹、家的温度与对父母的感恩。点击信封，打开心意。">
+<meta name="twitter:image" content="https://afuxh.github.io/fuqing-profile/og-image.jpg">
+
+<title>给爸爸妈妈的一封信 | 扶清闲话</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "给爸爸妈妈的一封信",
+  "url": "https://afuxh.github.io/fuqing-profile/family-letters.html",
+  "description": "一封来自远方的家书，记录成长足迹、家的温度与对父母的感恩。",
+  "author": {
+    "@type": "Person",
+    "name": "阿扶"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "扶清闲话"
+  }
+}
+</script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -21,6 +60,30 @@ body{
     linear-gradient(160deg,#3E2C20,#5C3D2E 40%,#4A3328 70%,#3E2C20);
   display:flex;align-items:center;justify-content:center;
   transition:background 1s ease;
+}
+.top-nav {
+  position: fixed; top: 0; left: 0; right: 0; height: 48px;
+  background: rgba(62, 44, 32, 0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 165, 116, 0.25);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; z-index: 100;
+}
+.nav-logo { font-weight: 700; font-size: 15px; color: var(--gold); text-decoration: none; letter-spacing: 0.03em; }
+.nav-links { display: flex; gap: 18px; list-style: none; align-items: center; font-size: 13px; }
+.nav-links a { color: #c9b386; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold); }
+.hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { width: 20px; height: 2px; background: var(--gold); transition: 0.3s; }
+@media(max-width:640px){
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    position: fixed; top: 48px; left: 0; right: 0;
+    background: rgba(62, 44, 32, 0.95); backdrop-filter: blur(12px);
+    flex-direction: column; padding: 12px 16px; gap: 10px;
+    z-index: 99; border-bottom: 1px solid rgba(212, 165, 116, 0.25);
+  }
+  .hamburger { display: flex; }
 }
 body.letter-mode{
   background:linear-gradient(180deg,#E8DCC8 0%,#D4C4A8 100%);
@@ -266,6 +329,21 @@ body.letter-mode{
 </head>
 <body>
 
+<nav class="top-nav">
+  <a class="nav-logo" href="index.html">💌 扶清闲话</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="margins.html">读书笔记</a></li>
+    <li><a href="handbook.html">交流手册</a></li>
+    <li><a href="简报双端.html">思想简报</a></li>
+    <li><a href="https://afuxh.github.io/fuqing-profile/hot-news.html" target="_blank" rel="noopener">AI热点 🔗</a></li>
+    <li><a href="https://afuxh.github.io/fuqing-profile/archive.html" target="_blank" rel="noopener">档案馆 🔗</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
 <!-- STAGE 1: ENVELOPE -->
 <div class="envelope-scene" id="envelopeScene" onclick="openEnvelope()">
   <div class="envelope-wrap">
@@ -446,6 +524,14 @@ document.addEventListener('touchstart', e => { touchStartX = e.touches[0].client
 document.addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - touchStartX;
   if (Math.abs(dx) > 60) changePage(dx < 0 ? 1 : -1);
+});
+
+// Mobile menu
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('#navLinks a').forEach(link => {
+  link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
 });
 </script>
 </body>

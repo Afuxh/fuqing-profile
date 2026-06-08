@@ -3,7 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="阿扶的读书笔记·思考与心得 | 原文全收录。按原文顺序完整收录《被讨厌的勇气》《幸福的勇气》《共情的力量》《非暴力沟通》等心理学经典读书笔记，未经修改，不增加任何概括。">
+    <meta name="keywords" content="阿扶, 扶清闲话, 读书笔记, 被讨厌的勇气, 幸福的勇气, 共情的力量, 非暴力沟通, 个体崛起, 自卑与超越, 自控力, 心理学">
+    <meta name="author" content="阿扶">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://afuxh.github.io/fuqing-profile/margins.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📖%3C/text%3E%3C/svg%3E">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://afuxh.github.io/fuqing-profile/margins.html">
+    <meta property="og:title" content="阿扶的读书笔记·思考与心得 | 原文全收录">
+    <meta property="og:description" content="按原文顺序完整收录《被讨厌的勇气》《幸福的勇气》《共情的力量》《非暴力沟通》等心理学经典读书笔记，未经修改，不增加任何概括。">
+    <meta property="og:image" content="https://afuxh.github.io/fuqing-profile/og-image.jpg">
+    <meta property="og:site_name" content="扶清闲话">
+    <meta property="og:locale" content="zh_CN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="阿扶的读书笔记·思考与心得 | 原文全收录">
+    <meta name="twitter:description" content="按原文顺序完整收录心理学经典读书笔记，未经修改，不增加任何概括。">
+    <meta name="twitter:image" content="https://afuxh.github.io/fuqing-profile/og-image.jpg">
+
     <title>阿扶的读书笔记·思考与心得 | 原文全收录</title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "阿扶的读书笔记·思考与心得",
+      "url": "https://afuxh.github.io/fuqing-profile/margins.html",
+      "description": "按原文顺序完整收录《被讨厌的勇气》《幸福的勇气》《共情的力量》《非暴力沟通》等心理学经典读书笔记。",
+      "author": {
+        "@type": "Person",
+        "name": "阿扶"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "扶清闲话"
+      }
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -114,6 +153,22 @@
             border-top: 1px solid #ece2d6;
             padding-top: 1.5rem;
         }
+        .back-to-top {
+            position: fixed; bottom: 28px; right: 28px;
+            width: 44px; height: 44px;
+            background: rgba(201, 169, 110, 0.25);
+            border: 1px solid #c9b386;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+            font-size: 20px;
+            color: #2e5c2c;
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { background: rgba(201, 169, 110, 0.4); }
         .top-nav {
             position: fixed; top: 0; left: 0; right: 0; height: 56px;
             background: rgba(254, 252, 248, 0.92); backdrop-filter: blur(12px);
@@ -169,7 +224,9 @@
   </button>
 </nav>
 
-<div class="container" style="padding-top: 56px;">
+<div class="back-to-top" id="back-to-top" title="返回顶部">↑</div>
+
+<main class="container" style="padding-top: 56px;">
     <h1>📖 阿扶的读书笔记 · 思考与心得</h1>
     <div class="sub">按原文顺序完整收录 · 未经修改 · 不增加任何概括</div>
     
@@ -300,7 +357,7 @@
 <a href="https://afuxh.github.io/fuqing-profile/archive.html" target="_blank">档案馆 🔗</a>
 </p>
 </footer>
-</div>
+</main>
 
 <script>
 document.getElementById('hamburger').addEventListener('click', () => {
@@ -326,6 +383,13 @@ document.querySelectorAll('#navLinks a').forEach(link => {
     container.appendChild(span);
   }
 })();
+
+// 返回顶部
+const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  backToTop.classList.toggle('visible', window.scrollY > 400);
+});
+backToTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
 
 </body>
 </html>

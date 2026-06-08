@@ -3,7 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="扶清闲话 · 思想简报。总有人间一两风，填我十万八千梦。记录阿扶核心信念的三次跃迁：从优秀才值得被爱到存在即被爱，从个人奋斗到阶级自觉，从回避即缺陷到回避即策略。">
+    <meta name="keywords" content="阿扶, 扶清闲话, 思想简报, 存在即被爱, 回避型依恋, 阶级视角, 成长, 自我接纳">
+    <meta name="author" content="阿扶">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://afuxh.github.io/fuqing-profile/简报双端.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E☁%3C/text%3E%3C/svg%3E">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://afuxh.github.io/fuqing-profile/简报双端.html">
+    <meta property="og:title" content="扶清闲话 · 思想简报">
+    <meta property="og:description" content="总有人间一两风，填我十万八千梦。记录核心信念的三次跃迁与思想成长路线。">
+    <meta property="og:image" content="https://afuxh.github.io/fuqing-profile/og-image.jpg">
+    <meta property="og:site_name" content="扶清闲话">
+    <meta property="og:locale" content="zh_CN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="扶清闲话 · 思想简报">
+    <meta name="twitter:description" content="总有人间一两风，填我十万八千梦。记录核心信念的三次跃迁与思想成长路线。">
+    <meta name="twitter:image" content="https://afuxh.github.io/fuqing-profile/og-image.jpg">
+
     <title>扶清闲话 · 思想简报</title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "扶清闲话 · 思想简报",
+      "url": "https://afuxh.github.io/fuqing-profile/简报双端.html",
+      "description": "总有人间一两风，填我十万八千梦。记录阿扶核心信念的三次跃迁与思想成长路线。",
+      "author": {
+        "@type": "Person",
+        "name": "阿扶"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "扶清闲话"
+      }
+    }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -375,6 +414,8 @@
             <span></span><span></span><span></span>
         </button>
     </nav>
+    <div class="back-to-top" id="back-to-top" title="返回顶部" style="position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:rgba(160,210,235,0.4);border:1px solid var(--wind);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transition:all 0.3s ease;z-index:99;font-size:20px;color:var(--text);">↑</div>
+
     <div class="container">
         <!-- 云朵 -->
         <div class="cloud cloud-1"></div>
@@ -580,6 +621,13 @@
       });
     }, { threshold: 0.15 });
     sections.forEach(s => unrollObserver.observe(s));
+
+    // 返回顶部
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
     </script>
 </body>
 </html>
