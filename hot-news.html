@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 时代观察 - 效率归机器，意义归人类</title>
 <meta name="description" content="以个人成长视角追踪时代脉搏——AI、科技、时事、财经、生活方式，全领域热点一站聚合。扶清闲话 · AI时代观察。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<meta property="og:title" content="AI 时代观察 - 效率归机器，意义归人类">
+<meta property="og:description" content="以个人成长视角追踪时代脉搏——AI、科技、时事、财经、生活方式，全领域热点一站聚合。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://afuxh.github.io/fuqing-profile/hot-news.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI 时代观察 - 效率归机器，意义归人类">
+<meta name="twitter:description" content="以个人成长视角追踪时代脉搏——AI、科技、时事、财经、生活方式，全领域热点一站聚合。">
 <style>
 
 /* ===== 扶清闲话 · AI时代观察 — 设计系统 ===== */
@@ -667,6 +675,14 @@ header .update-time {
 }
 .setting-actions button.primary:hover { opacity: 0.85; }
 
+/* ===== 平板断点 ===== */
+@media (max-width: 768px) {
+  .topic-card { padding: 20px 18px; }
+  .level-tab { padding: 7px 14px; font-size: 0.78rem; }
+  .value-filter-btn { font-size: 0.78rem; padding: 6px 12px; }
+  header h1 { font-size: 1.7rem; }
+}
+
 @media (max-width: 600px) {
   .modal-box { width: 96%; max-height: 85vh; }
   .modal-header { padding: 16px 18px 12px; }
@@ -861,6 +877,31 @@ footer .footer-links a { margin: 0 8px; }
     -webkit-backdrop-filter: blur(16px);
     box-shadow: 0 4px 20px rgba(0,0,0,0.25);
   }
+}
+
+/* ===== 小屏手机断点 ===== */
+@media (max-width: 480px) {
+  header { padding: 28px 12px 20px; }
+  header h1 { font-size: 1.3rem; }
+  .topic-card { padding: 14px 12px; }
+  .value-filter-btn { font-size: 0.72rem; padding: 5px 8px; }
+  .level-tab { padding: 5px 10px; font-size: 0.7rem; }
+  .toolbar button, .toolbar a { width: 42px; height: 42px; }
+  .back-to-top { width: 42px; height: 42px; }
+  .search-bar input { padding: 8px 12px; font-size: 0.82rem; }
+  .value-tag { font-size: 0.68rem; padding: 2px 6px; }
+  .source-tag { font-size: 0.68rem; }
+}
+
+/* ===== 无障碍：减少动效 ===== */
+@media (prefers-reduced-motion: reduce) {
+  .topic-card { opacity: 1; transform: none; animation: none; transition: none; }
+  .cover-scroll { animation: none; }
+  .pulse { animation: none; }
+  .breathe { animation: none; }
+  .fade-in { opacity: 1; animation: none; }
+  .cardFadeIn { opacity: 1; animation: none; }
+  * { transition-duration: 0.01ms !important; }
 }
 
 </style>
