@@ -2975,8 +2975,8 @@ function filterCards() {
     const hash = card.dataset.hash || '';
     const title = (card.querySelector('h2')?.textContent || '').toLowerCase();
     const summary = (card.querySelector('.summary')?.textContent || '').toLowerCase();
-    // zh-summary已移除
-    const allText = title + ' ' + summary + ' ' + zh;
+    const zhSummary = (card.querySelector('.zh-summary')?.textContent || '').toLowerCase();
+    const allText = title + ' ' + summary + ' ' + zhSummary;
     
     // 搜索过滤
     if (searchText && !allText.includes(searchText)) {
