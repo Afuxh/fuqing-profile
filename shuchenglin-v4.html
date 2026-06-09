@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1A1714">
+<title>树成林 · 大学生使用手册 v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EDEAE0;--paper2:#E2DED3;--paper3:#F8F5EF;
+  --ink:#1A1714;--ink2:#4A4540;--ink3:#918B84;
+  --chop:#CC2200;--gold:#B8860B;--green:#2D6A3F;--blue:#1A4A8A;
+  --rule:#C8C3BB;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans SC','PingFang SC',system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+a{color:var(--chop);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:52px;background:var(--ink);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;
+  border-bottom:3px solid var(--chop);
+}
+.nav-brand{
+  font-family:'Noto Serif SC',serif;font-weight:900;font-size:.95rem;
+  color:var(--paper);letter-spacing:.08em;
+  display:flex;align-items:center;gap:.75rem;
+}
+.nav-ver{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--ink3);font-weight:400}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.65rem;color:rgba(237,234,224,.45);
+  text-transform:uppercase;letter-spacing:.1em;transition:color .15s;
+}
+.nav-links a:hover{color:var(--paper);text-decoration:none}
+.nav-toggle{display:none;background:none;border:none;color:var(--paper);font-size:1.2rem;cursor:pointer}
+
+/* WRAP */
+.wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
+
+/* SECTION HEADER */
+.sh{display:flex;align-items:baseline;gap:1.5rem;padding-bottom:1.25rem;border-bottom:3px solid var(--ink);margin-bottom:3rem}
+.sh-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;line-height:1;color:var(--chop);flex-shrink:0;letter-spacing:-.02em}
+.sh-en{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.15em;display:block;margin-bottom:.15rem}
+.sh-zh{font-family:'Noto Serif SC',serif;font-size:1.75rem;font-weight:900;line-height:1.2;letter-spacing:-.02em}
+.sh-desc{font-size:.83rem;color:var(--ink2);line-height:1.7;margin-top:.3rem}
+
+/* SECTIONS */
+section{padding:5rem 0;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:none}
+
+/* HERO */
+.hero{
+  min-height:100vh;padding:5.25rem 0 4rem;
+  display:flex;align-items:center;
+  border-bottom:3px solid var(--ink);
+  overflow:hidden;position:relative;
+}
+.hero::after{
+  content:'';position:absolute;right:4rem;top:50%;transform:translateY(-50%);
+  width:380px;height:380px;
+  border:60px solid rgba(204,34,0,.04);
+  border-radius:50%;pointer-events:none;
+}
+.hero-layout{display:grid;grid-template-columns:1fr 200px;gap:3rem;align-items:center;width:100%}
+.hero-badge{
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  color:var(--ink3);letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:1.25rem;display:flex;align-items:center;gap:.6rem;
+}
+.hero-badge::before{content:'';width:24px;height:2px;background:var(--chop)}
+.hero h1{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(2.6rem,5.5vw,4.75rem);
+  font-weight:900;line-height:1.12;
+  letter-spacing:-.03em;margin-bottom:1.5rem;
+}
+.hero h1 .a{color:var(--chop)}
+.hero-value{
+  font-size:1rem;color:var(--ink2);line-height:1.85;
+  max-width:540px;padding-left:1.25rem;
+  border-left:3px solid var(--ink);margin-bottom:2rem;
+}
+.hero-value strong{color:var(--ink);font-weight:700}
+.hero-flow{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.fi{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;
+  padding:.38rem .85rem;background:var(--ink);color:var(--paper);
+}
+.fi.hl{background:var(--chop)}
+.fa{font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--ink3)}
+
+/* STAMP */
+.stamp{
+  width:160px;height:160px;border:4px solid var(--chop);
+  border-radius:50%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  transform:rotate(-8deg);opacity:.8;flex-shrink:0;position:relative;
+}
+.stamp::before{
+  content:'';position:absolute;inset:7px;
+  border:1px solid rgba(204,34,0,.4);border-radius:50%;
+}
+.st{font-family:'Noto Serif SC',serif;font-size:.6rem;font-weight:700;color:var(--chop);letter-spacing:.2em;margin-bottom:.15rem}
+.sm{font-family:'Noto Serif SC',serif;font-size:1.6rem;font-weight:900;color:var(--chop);line-height:1.1;text-align:center}
+.ss{font-family:'IBM Plex Mono',monospace;font-size:.5rem;color:var(--chop);letter-spacing:.1em;margin-top:.25rem;opacity:.6}
+
+/* FOUR PRINCIPLES */
+.fp-grid{display:grid;grid-template-columns:repeat(2,1fr);border:2px solid var(--ink)}
+.fp{
+  padding:2.25rem 2rem;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  position:relative;transition:background .2s;
+}
+.fp:nth-child(2n){border-right:none}
+.fp:nth-child(3),.fp:nth-child(4){border-bottom:none}
+.fp:hover{background:var(--paper2)}
+.fp-bg{
+  font-family:'Bebas Neue',sans-serif;font-size:6rem;line-height:1;
+  color:rgba(26,23,20,.05);position:absolute;top:.75rem;right:1.25rem;
+  pointer-events:none;user-select:none;letter-spacing:-.02em;
+}
+.fp-kw{
+  font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--chop);
+  text-transform:uppercase;letter-spacing:.15em;margin-bottom:.55rem;
+}
+.fp-name{font-family:'Noto Serif SC',serif;font-size:1.6rem;font-weight:900;margin-bottom:.5rem;letter-spacing:-.02em}
+.fp-desc{font-size:.83rem;color:var(--ink2);margin-bottom:1.2rem;line-height:1.7}
+.fp-ul{list-style:none;padding:0;border-top:1px solid var(--rule);padding-top:.85rem}
+.fp-ul li{
+  font-size:.78rem;color:var(--ink2);padding:.22rem 0 .22rem 1rem;
+  position:relative;line-height:1.6;
+}
+.fp-ul li::before{content:'—';position:absolute;left:0;color:var(--chop);font-size:.72rem}
+
+/* PIPELINE */
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink)}
+.ps{padding:2rem 1.5rem;border-right:1px solid var(--ink);position:relative}
+.ps:last-child{border-right:none}
+.ps::after{
+  content:'›';position:absolute;right:-11px;top:50%;transform:translateY(-50%);
+  font-size:1.4rem;color:var(--chop);z-index:1;line-height:1;
+}
+.ps:last-child::after{display:none}
+.ps-n{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--chop);line-height:1;margin-bottom:.45rem}
+.ps-icon{font-size:1.4rem;margin-bottom:.65rem;display:block}
+.ps-title{font-family:'Noto Serif SC',serif;font-size:.95rem;font-weight:700;margin-bottom:.35rem}
+.ps-desc{font-size:.76rem;color:var(--ink2);line-height:1.6}
+
+/* CAPABILITY */
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--ink)}
+.cap{
+  padding:1.65rem 1.4rem;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  display:flex;flex-direction:column;transition:background .2s;
+}
+.cap:nth-child(3n){border-right:none}
+.cap:nth-child(7),.cap:nth-child(8),.cap:nth-child(9){border-bottom:none}
+.cap:hover{background:var(--paper2)}
+.cap-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.9rem}
+.cap-ic{font-size:1.4rem}
+.cap-idx{font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:var(--ink3)}
+.cap-name{font-family:'Noto Serif SC',serif;font-size:.9rem;font-weight:700;margin-bottom:.35rem}
+.cap-body{font-size:.76rem;color:var(--ink2);line-height:1.65;flex:1}
+.cap-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.8rem}
+.ct{font-family:'IBM Plex Mono',monospace;font-size:.58rem;font-weight:500;padding:.12rem .45rem;border:1px solid currentColor}
+.ct-a{color:#1a6b3c}.ct-s{color:#1a4a8a}.ct-e{color:#7a4a00}.ct-c{color:#6a1a8a}
+.cap-lnk{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--chop);margin-top:.7rem;display:inline-block}
+.cap-lnk:hover{text-decoration:underline}
+
+/* CASES */
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--ink)}
+.case{
+  padding:1.65rem 1.4rem;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  display:flex;flex-direction:column;transition:background .2s;
+}
+.case:nth-child(3n){border-right:none}
+.case:nth-child(4),.case:nth-child(5),.case:nth-child(6){border-bottom:none}
+.case:hover{background:var(--paper2)}
+.case-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.9rem}
+.case-ic{font-size:1.75rem}
+.badge{font-family:'IBM Plex Mono',monospace;font-size:.58rem;padding:.15rem .5rem;background:var(--ink);color:var(--paper);letter-spacing:.05em}
+.badge.live{background:var(--chop)}
+.case-name{font-family:'Noto Serif SC',serif;font-size:.95rem;font-weight:700;margin-bottom:.35rem}
+.case-body{font-size:.76rem;color:var(--ink2);line-height:1.65;flex:1}
+.case-foot{
+  margin-top:.8rem;padding-top:.7rem;border-top:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:.3rem;align-items:center;
+}
+.case-lnk{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--chop);margin-left:auto}
+
+/* MINDSET */
+.ms-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.score-block{border:2px solid var(--ink);padding:2rem}
+.score-intro{font-size:.83rem;color:var(--ink2);line-height:1.75;margin-bottom:1.4rem;padding-bottom:1.4rem;border-bottom:1px solid var(--rule)}
+.score-intro strong{color:var(--ink);font-weight:700}
+.score-rows{display:flex;flex-direction:column;gap:.65rem}
+.sr{display:flex;align-items:center;gap:.8rem}
+.sr-lbl{font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:600;min-width:42px;color:var(--ink3)}
+.sr-track{flex:1;height:3px;background:var(--rule);position:relative}
+.sr-fill{position:absolute;left:0;top:0;bottom:0;transform-origin:left;transform:scaleX(0);transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.sr.s60 .sr-fill{width:60%;background:var(--ink3)}
+.sr.s75 .sr-fill{width:75%;background:var(--gold)}
+.sr.s80 .sr-fill{width:80%;background:var(--green)}
+.sr.s85 .sr-fill{width:85%;background:var(--blue)}
+.sr.s90 .sr-fill{width:90%;background:var(--chop)}
+.sr.s95 .sr-fill{width:95%;background:var(--ink)}
+.sr-val{font-family:'IBM Plex Mono',monospace;font-size:.67rem;min-width:100px;text-align:right}
+.sr.s60 .sr-val{color:var(--ink3)}.sr.s75 .sr-val{color:var(--gold)}
+.sr.s80 .sr-val{color:var(--green)}.sr.s85 .sr-val{color:var(--blue)}
+.sr.s90 .sr-val{color:var(--chop)}.sr.s95 .sr-val{color:var(--ink);font-weight:600}
+.score-zero{
+  margin-top:1.2rem;padding:.85rem;
+  border:2px solid var(--chop);
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--chop);font-weight:600;
+}
+.q-stack{display:flex;flex-direction:column;gap:.85rem}
+.qc{padding:1.1rem 1.4rem;border-left:4px solid var(--ink);background:var(--paper2);transition:border-color .2s}
+.qc:hover{border-left-color:var(--chop)}
+.qc p{font-size:.82rem;color:var(--ink2);line-height:1.75}
+.qc p strong{color:var(--ink);font-weight:700}
+.qc-src{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--ink3);margin-top:.45rem}
+
+/* METHOD */
+.mf{border:2px solid var(--ink);padding:2rem;margin-bottom:1.5rem;background:var(--paper3);position:relative}
+.mf::before{
+  content:'REAL CASE';position:absolute;top:-1px;right:2rem;
+  font-family:'IBM Plex Mono',monospace;font-size:.58rem;font-weight:600;
+  background:var(--chop);color:var(--paper);padding:.18rem .55rem;letter-spacing:.1em;
+}
+.mf-title{font-family:'Noto Serif SC',serif;font-size:1.1rem;font-weight:900;margin-bottom:.55rem}
+.mf-body{font-size:.82rem;color:var(--ink2);line-height:1.75}
+.mf-body strong{color:var(--ink);font-weight:700}
+.mf-steps{list-style:none;margin-top:1rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.3rem}
+.mf-steps li{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--ink2);padding-left:1.2rem;position:relative}
+.mf-steps li::before{content:attr(data-n);position:absolute;left:0;color:var(--chop);font-weight:600}
+.method-grid{display:grid;grid-template-columns:repeat(5,1fr);border:2px solid var(--ink)}
+.mc{padding:1.4rem 1.2rem;border-right:1px solid var(--ink);display:flex;flex-direction:column;transition:background .2s}
+.mc:last-child{border-right:none}
+.mc:hover{background:var(--paper2)}
+.mc-n{font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:var(--ink3);margin-bottom:.55rem;letter-spacing:.08em}
+.mc-title{font-family:'Noto Serif SC',serif;font-size:.88rem;font-weight:700;margin-bottom:.35rem}
+.mc-body{font-size:.74rem;color:var(--ink2);line-height:1.6;flex:1}
+.mc-ul{list-style:none;margin-top:.65rem}
+.mc-ul li{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--ink3);padding:.12rem 0 .12rem 1rem;position:relative}
+.mc-ul li::before{content:'›';position:absolute;left:0;color:var(--chop)}
+
+/* DELIVERY */
+.dv-grid{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink)}
+.dv{padding:2rem 1.75rem;border-right:1px solid var(--ink)}
+.dv:last-child{border-right:none}
+.dv-ic{font-size:1.75rem;margin-bottom:.85rem}
+.dv-title{font-family:'Noto Serif SC',serif;font-size:.95rem;font-weight:700;margin-bottom:.35rem}
+.dv-desc{font-size:.78rem;color:var(--ink2);line-height:1.6}
+.dv-ul{list-style:none;margin-top:.8rem}
+.dv-ul li{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--ink2);
+  padding:.2rem 0 .2rem 1rem;position:relative;
+  border-bottom:1px dotted var(--rule);
+}
+.dv-ul li:last-child{border-bottom:none}
+.dv-ul li::before{content:'›';position:absolute;left:0;color:var(--chop)}
+
+/* TABLE */
+.dt{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.8rem}
+.dt th{
+  text-align:left;padding:.8rem 1.1rem;background:var(--ink);color:var(--paper);
+  font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+}
+.dt td{padding:.75rem 1.1rem;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+.dt tr:last-child td{border-bottom:none}
+.dt tr:hover td{background:var(--paper2);color:var(--ink)}
+.dt td:first-child{color:var(--ink);font-weight:500}
+.dt td:nth-child(3){font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--chop)}
+
+/* TECH */
+.tech{border:2px solid var(--ink)}
+.tc{display:flex;border-bottom:1px solid var(--ink)}
+.tc:last-child{border-bottom:none}
+.tc-name{
+  width:150px;flex-shrink:0;padding:.9rem 1.1rem;background:var(--paper2);
+  border-right:1px solid var(--ink);font-family:'IBM Plex Mono',monospace;
+  font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--ink2);display:flex;align-items:center;
+}
+.tc-tags{padding:.75rem 1.1rem;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.tt{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;
+  padding:.22rem .7rem;border:1px solid var(--ink);color:var(--ink);
+  transition:all .15s;cursor:default;
+}
+.tt:hover{background:var(--ink);color:var(--paper)}
+
+/* TICKER */
+.ticker{
+  background:var(--ink);padding:.6rem 0;overflow:hidden;
+  border-bottom:1px solid rgba(204,34,0,.4);
+  white-space:nowrap;
+}
+.ticker-inner{
+  display:inline-flex;gap:0;
+  animation:ticker-scroll 28s linear infinite;
+}
+.ticker-inner:hover{animation-play-state:paused}
+.ticker-item{
+  font-family:'IBM Plex Mono',monospace;font-size:.65rem;
+  color:rgba(237,234,224,.45);letter-spacing:.12em;text-transform:uppercase;
+  padding:0 2.5rem;border-right:1px solid rgba(237,234,224,.1);
+}
+.ticker-item.hot{color:var(--chop)}
+@keyframes ticker-scroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+
+/* FEATURED CASE */
+.case-grid-new{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--ink)}
+.case-feat{
+  grid-column:1/-1;
+  padding:2.25rem 2rem;
+  border-bottom:1px solid var(--ink);
+  display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;
+  background:var(--paper3);transition:background .2s;
+}
+.case-feat:hover{background:var(--paper2)}
+.case-feat .case-name{font-family:'Noto Serif SC',serif;font-size:1.3rem;font-weight:900;margin-bottom:.5rem;letter-spacing:-.02em}
+.case-feat .case-body{font-size:.82rem;color:var(--ink2);line-height:1.75}
+.case-feat .case-top{margin-bottom:1rem}
+.case-feat-right{display:flex;flex-direction:column;gap:.6rem;justify-content:center}
+.case-feat-point{
+  display:flex;align-items:baseline;gap:.75rem;
+  font-size:.8rem;color:var(--ink2);line-height:1.6;
+}
+.case-feat-point::before{
+  content:attr(data-n);
+  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;
+  color:var(--chop);line-height:1;flex-shrink:0;
+}
+
+/* FP COLOR ACCENTS */
+.fp:nth-child(1){border-top:3px solid #1a6b3c}
+.fp:nth-child(2){border-top:3px solid #1a4a8a}
+.fp:nth-child(3){border-top:3px solid var(--chop)}
+.fp:nth-child(4){border-top:3px solid #6a1a8a}
+.fp:nth-child(1) .fp-kw{color:#1a6b3c}
+.fp:nth-child(2) .fp-kw{color:#1a4a8a}
+.fp:nth-child(3) .fp-kw{color:var(--chop)}
+.fp:nth-child(4) .fp-kw{color:#6a1a8a}
+.fp:nth-child(1) .fp-ul li::before{color:#1a6b3c}
+.fp:nth-child(2) .fp-ul li::before{color:#1a4a8a}
+.fp:nth-child(3) .fp-ul li::before{color:var(--chop)}
+.fp:nth-child(4) .fp-ul li::before{color:#6a1a8a}
+
+/* SCORE BARS — thicker + more dramatic */
+.sr-track{flex:1;height:8px;background:var(--rule);position:relative;border-radius:0}
+.score-zero{
+  margin-top:1.4rem;padding:1rem 1.1rem;
+  border:none;border-left:4px solid var(--chop);
+  background:rgba(204,34,0,.06);
+  font-family:'IBM Plex Mono',monospace;font-size:.8rem;
+  color:var(--chop);font-weight:700;line-height:1.5;
+}
+
+/* SECTION ACCENT LINE */
+.sh{position:relative}
+.sh::after{
+  content:'';position:absolute;bottom:-3px;left:0;
+  width:3rem;height:3px;background:var(--chop);
+}
+
+/* PIPELINE — add background to active step */
+.ps:last-child{background:var(--ink)}
+.ps:last-child .ps-n{color:var(--chop)}
+.ps:last-child .ps-title{color:var(--paper)}
+.ps:last-child .ps-desc{color:rgba(237,234,224,.55)}
+.ps:last-child .ps-icon{filter:grayscale(0)}
+
+/* INFO TABLE — zebra */
+.dt tr:nth-child(even) td{background:rgba(200,195,187,.15)}
+.dt tr:nth-child(even):hover td{background:var(--paper2)}
+
+/* HERO — boss-first refinements */
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:'IBM Plex Mono',monospace;font-size:.65rem;
+  color:var(--chop);letter-spacing:.15em;text-transform:uppercase;
+  margin-bottom:.6rem;
+}
+.hero-kicker::before{content:'▶';font-size:.5rem}
+.hero-value-new{
+  font-size:1.05rem;color:var(--ink2);line-height:1.9;
+  max-width:560px;margin-bottom:2rem;
+  border-left:3px solid var(--chop);padding-left:1.25rem;
+}
+.hero-value-new strong{color:var(--ink);font-weight:700}
+.hero-value-new em{
+  display:block;margin-top:.5rem;
+  font-style:normal;font-size:.82rem;
+  color:var(--ink3);font-family:'IBM Plex Mono',monospace;
+  letter-spacing:.04em;
+}
+
+/* FOOTER — add tagline */
+.footer-tagline{
+  font-family:'Noto Serif SC',serif;font-size:.78rem;
+  color:rgba(237,234,224,.3);margin-top:.4rem;
+  font-weight:400;
+}
+
+.footer-brand{font-family:'Noto Serif SC',serif;font-weight:900;font-size:1.05rem;color:var(--paper)}
+.footer-meta{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--ink3);text-align:right;line-height:1.8}
+
+/* FP — offset top border inside grid border */
+.fp-grid{margin-top:-2px}
+.fp:nth-child(1),.fp:nth-child(2){margin-top:0}
+
+@media(max-width:1024px){
+  .case-feat{grid-template-columns:1fr}
+  .case-feat-right{display:none}
+  .case-grid-new .case:nth-child(3n){border-right:1px solid var(--ink)}
+  .case-grid-new .case:nth-child(2n){border-right:none}
+}
+@media(max-width:768px){
+  .case-grid-new .case{border-right:none!important;border-bottom:1px solid var(--ink)!important}
+  .case-grid-new .case:last-child{border-bottom:none!important}
+}
+
+/* ── PAGE ENTRANCE ── */
+@keyframes page-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+body{animation:page-in .5s ease both}
+
+/* ── SCROLL PROGRESS ── */
+.prog{
+  position:fixed;top:0;left:0;height:3px;width:0%;z-index:10000;
+  background:var(--chop);pointer-events:none;
+  transition:width .08s linear;
+}
+
+/* ── HERO STATS ── */
+.hero-stats{
+  display:flex;align-items:center;gap:0;
+  margin-top:2rem;
+  border:1px solid var(--rule);
+  width:fit-content;
+}
+.hs{
+  padding:.6rem 1.4rem;display:flex;align-items:baseline;gap:.45rem;
+  border-right:1px solid var(--rule);
+}
+.hs:last-child{border-right:none}
+.hs-n{
+  font-family:'Bebas Neue',sans-serif;font-size:1.75rem;
+  color:var(--ink);line-height:1;
+}
+.hs-l{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--ink3);letter-spacing:.05em}
+
+/* ── ACTIVE NAV ── */
+.nav-links a{position:relative}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;
+  height:1.5px;background:var(--chop);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .22s ease;
+}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--paper)!important}
+
+/* ── ANIMATED LINK UNDERLINES ── */
+.cap-lnk,.case-lnk,.method-link,.cb-list a{position:relative;text-decoration:none!important}
+.cap-lnk::after,.case-lnk::after,.method-link::after{
+  content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;
+  background:var(--chop);transform:scaleX(0);transform-origin:left;
+  transition:transform .22s ease;
+}
+.cap-lnk:hover::after,.case-lnk:hover::after,.method-link:hover::after{transform:scaleX(1)}
+a:hover{text-decoration:none!important}
+
+/* ── BODY TEXT SIZING BUMP ── */
+.case-body,.cap-body,.fp-desc,.fp-ul li,.ps-desc,.mc-body,.dv-desc,.score-intro,.qc p,.mf-body{font-size:.83rem!important;line-height:1.75!important}
+.cb-list li,.dv-ul li,.mc-ul li,.mf-steps li{font-size:.8rem!important}
+.dt td{font-size:.84rem!important}
+
+/* ── CTA SECTION ── */
+#cta{
+  background:var(--ink);border-bottom:3px solid var(--chop);
+  padding:7rem 0;text-align:center;position:relative;overflow:hidden;
+}
+#cta::before{
+  content:'树成林';
+  position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  font-family:'Noto Serif SC',serif;font-weight:900;
+  font-size:clamp(8rem,18vw,16rem);line-height:1;
+  color:rgba(255,255,255,.025);pointer-events:none;white-space:nowrap;
+  letter-spacing:-.04em;
+}
+.cta-pre{
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  color:rgba(204,34,0,.7);letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:1.25rem;
+}
+.cta-h{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(2.5rem,6vw,5rem);
+  font-weight:900;color:var(--paper);
+  line-height:1.1;letter-spacing:-.03em;margin-bottom:1.5rem;
+}
+.cta-sub{
+  font-size:1rem;color:rgba(237,234,224,.5);
+  line-height:1.85;max-width:480px;margin:0 auto 2.5rem;
+}
+.cta-divider{
+  display:flex;align-items:center;justify-content:center;gap:1.25rem;
+  margin-bottom:1.5rem;
+}
+.cta-divider-line{flex:1;max-width:80px;height:1px;background:rgba(255,255,255,.1)}
+.cta-contact{
+  font-family:'IBM Plex Mono',monospace;font-size:.8rem;
+  color:rgba(237,234,224,.35);letter-spacing:.12em;
+}
+.cta-chop{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:100px;height:100px;border:3px solid rgba(204,34,0,.4);
+  border-radius:50%;margin-top:3rem;
+  font-family:'Noto Serif SC',serif;font-size:1.5rem;font-weight:900;
+  color:rgba(204,34,0,.5);position:relative;
+  transition:border-color .3s,color .3s;
+}
+.cta-chop:hover{border-color:var(--chop);color:var(--chop)}
+.cta-chop::before{
+  content:'';position:absolute;inset:6px;
+  border:1px solid rgba(204,34,0,.2);border-radius:50%;
+}
+
+body{cursor:none}
+.cr-dot{
+  position:fixed;width:7px;height:7px;border-radius:50%;
+  background:var(--chop);pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);will-change:left,top;
+}
+.cr-ring{
+  position:fixed;width:24px;height:24px;border-radius:50%;
+  border:1.5px solid rgba(204,34,0,.45);
+  pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:width .2s ease,height .2s ease,border-color .2s ease,background .2s ease;
+  will-change:left,top;
+}
+.cr-ring.big{width:44px;height:44px;border-color:rgba(204,34,0,.2)}
+.cr-ring.click{width:14px;height:14px;background:rgba(204,34,0,.12);border-color:var(--chop)}
+
+/* ── 3D FLIP ── */
+.case{
+  perspective:900px;
+  min-height:240px;
+  display:block!important;
+}
+.case-inner{
+  position:relative;width:100%;height:100%;min-height:240px;
+  transform-style:preserve-3d;
+  transition:transform .65s cubic-bezier(.4,0,.2,1);
+}
+.case:hover .case-inner{transform:rotateY(180deg)}
+.case-front,.case-back{
+  position:absolute;inset:0;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  padding:1.65rem 1.4rem;
+  display:flex;flex-direction:column;
+}
+.case-back{
+  transform:rotateY(180deg);
+  background:var(--ink);
+  justify-content:center;overflow:hidden;
+}
+.cb-label{
+  font-family:'IBM Plex Mono',monospace;font-size:.58rem;
+  color:rgba(204,34,0,.75);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.65rem;
+}
+.cb-q{
+  font-family:'Noto Serif SC',serif;font-size:.95rem;font-weight:900;
+  color:var(--paper);margin-bottom:.85rem;line-height:1.3;
+}
+.cb-list{list-style:none;display:flex;flex-direction:column;gap:.38rem}
+.cb-list li{font-size:.76rem;color:rgba(237,234,224,.65);padding-left:1rem;position:relative;line-height:1.55}
+.cb-list li::before{content:'›';position:absolute;left:0;color:var(--chop)}
+.cb-ghost{
+  font-family:'Bebas Neue',sans-serif;font-size:5rem;
+  color:rgba(255,255,255,.03);position:absolute;bottom:-.5rem;right:.5rem;
+  line-height:1;pointer-events:none;user-select:none;
+}
+.flip-hint{
+  margin-top:auto;padding-top:.65rem;
+  font-family:'IBM Plex Mono',monospace;font-size:.58rem;
+  color:var(--ink3);letter-spacing:.06em;
+  border-top:1px dotted var(--rule);
+  display:flex;align-items:center;gap:.35rem;
+}
+.flip-hint::before{
+  content:'↻';color:var(--chop);font-size:.7rem;
+  transition:transform .3s ease;display:inline-block;
+}
+.case:hover .flip-hint::before{transform:rotate(180deg)}
+
+/* ── PAPER LIFT ── */
+.fp{transition:background .2s,transform .18s ease,box-shadow .18s ease}
+.fp:hover{transform:translate(-2px,-3px)!important;box-shadow:3px 4px 0 0 var(--ink)!important;z-index:2;position:relative}
+.ps{transition:background .2s,transform .18s ease,box-shadow .18s ease}
+.ps:hover:not(:last-child){transform:translate(-2px,-3px);box-shadow:3px 4px 0 0 var(--ink);z-index:2;position:relative}
+.mc{transition:background .2s,transform .18s ease,box-shadow .18s ease}
+.mc:hover{transform:translate(-2px,-3px)!important;box-shadow:3px 4px 0 0 var(--ink)!important;z-index:2;position:relative}
+.dv{transition:background .2s,transform .18s ease,box-shadow .18s ease}
+.dv:hover{transform:translate(-2px,-3px)!important;box-shadow:3px 4px 0 0 var(--ink)!important;z-index:2;position:relative}
+.qc{transition:border-color .2s,transform .18s ease,box-shadow .18s ease}
+.qc:hover{transform:translate(-2px,-3px);box-shadow:3px 4px 0 0 var(--ink)}
+.fi{transition:transform .15s ease,background .15s;display:inline-block}
+.stamp{will-change:transform}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+.rd1{transition-delay:.05s}.rd2{transition-delay:.1s}.rd3{transition-delay:.15s}.rd4{transition-delay:.2s}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .fp-grid{grid-template-columns:1fr}
+  .fp{border-right:none!important}
+  .fp:nth-child(3),.fp:nth-child(4){border-bottom:1px solid var(--ink)}
+  .fp:last-child{border-bottom:none}
+  .pipeline{grid-template-columns:repeat(2,1fr)}
+  .ps:nth-child(2){border-right:none}.ps:nth-child(3){border-top:1px solid var(--ink)}
+  .ps:nth-child(2)::after,.ps:nth-child(4)::after{display:none}
+  .case-feat{grid-template-columns:1fr}
+  .case-feat-right{display:none}
+  .case-grid-new .case:nth-child(3n){border-right:1px solid var(--ink)}
+  .case-grid-new .case:nth-child(2n){border-right:none}
+  .ms-layout{grid-template-columns:1fr}
+  .method-grid{grid-template-columns:repeat(3,1fr)}
+  .mc:nth-child(3n){border-right:none!important}
+  .mc:nth-child(4),.mc:nth-child(5){border-bottom:none!important}
+  .mc:nth-child(1),.mc:nth-child(2),.mc:nth-child(3){border-bottom:1px solid var(--ink)!important}
+  .dv-grid{grid-template-columns:repeat(2,1fr)}
+  .dv:nth-child(2n){border-right:none}
+  .dv:nth-child(1),.dv:nth-child(2){border-bottom:1px solid var(--ink)}
+  .tc{flex-direction:column}
+  .tc-name{width:100%;border-right:none;border-bottom:1px solid var(--ink)}
+  .hero-layout{grid-template-columns:1fr}
+  .stamp{display:none}
+  .footer{flex-direction:column;gap:1rem;text-align:center}
+  .footer-meta{text-align:center}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .nav-links.open{
+    display:flex;flex-direction:column;
+    position:absolute;top:52px;left:0;right:0;
+    background:var(--ink);padding:1.5rem 2rem;gap:1rem;
+    border-bottom:2px solid var(--chop);
+  }
+  .wrap{padding:0 1.25rem}
+  section{padding:3.5rem 0}
+  .hero{padding:5rem 0 3rem}
+  .sh-zh{font-size:1.35rem}
+  .pipeline{grid-template-columns:1fr}
+  .ps{border-right:none;border-bottom:1px solid var(--ink)}
+  .ps::after{display:none}
+  .ps:last-child{border-bottom:none}
+  .case-grid-new .case{border-right:none!important;border-bottom:1px solid var(--ink)!important}
+  .case-grid-new .case:last-child{border-bottom:none!important}
+  .method-grid{grid-template-columns:1fr!important}
+  .mc{border-right:none!important;border-bottom:1px solid var(--ink)!important}
+  .mc:last-child{border-bottom:none!important}
+  .dv-grid{grid-template-columns:1fr!important}
+  .dv{border-right:none!important;border-bottom:1px solid var(--ink)!important}
+  .dv:last-child{border-bottom:none!important}
+  .mf-steps{grid-template-columns:1fr}
+  .hero-stats{flex-wrap:wrap}
+  .hs{flex:0 0 50%}
+  .hs:nth-child(2n){border-right:none}
+  .hs:nth-child(1),.hs:nth-child(2){border-bottom:1px solid var(--rule)}
+  .case-feat{padding:1.5rem 1.25rem}
+  #cta{padding:5rem 0}
+  .cta-h{font-size:2.5rem}
+  .score-block{padding:1.5rem 1.25rem}
+}
+@media(max-width:400px){
+  .hero h1{font-size:2.2rem}
+  .hs-n{font-size:1.4rem}
+  .hs-l{font-size:.55rem}
+  .sh-num{font-size:3rem}
+}
+
+/* ── TOUCH / NO-HOVER DEVICES ── */
+@media(hover:none){
+  body{cursor:auto!important}
+  .cr-dot,.cr-ring{display:none!important}
+  /* disable paper lift (no hover) */
+  .fp:hover,.ps:hover,.mc:hover,.dv:hover,.qc:hover{
+    transform:none!important;box-shadow:none!important;
+  }
+  /* disable default case hover flip; use .flipped class instead */
+  .case:hover .case-inner{transform:none}
+  .case.flipped .case-inner{transform:rotateY(180deg)}
+  /* change hint text via attr */
+  .flip-hint::before{content:'⊕';font-size:.8rem}
+}
+
+/* ── REDUCED MOTION ── */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .ticker-inner{animation:none}
+  body{animation:none}
+  .sr-fill{transition:none!important}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+/* ── GPU HINTS ── */
+.case-inner,.stamp,.cr-dot,.cr-ring,.ticker-inner{will-change:transform}
+.sr-fill{will-change:transform}
+/* release will-change after animation by toggling class in JS */
+.sr-fill.done{will-change:auto}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-brand">树成林 <span class="nav-ver">v1.0 · 2026</span></div>
+  <button class="nav-toggle" id="navToggle">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#four-p">四化原则</a></li>
+    <li><a href="#pipeline">工作流程</a></li>
+    <li><a href="#cases">案例</a></li>
+    <li><a href="#mindset">击穿理念</a></li>
+    <li><a href="#method">拿客方法</a></li>
+    <li><a href="#delivery">交付</a></li>
+    <li><a href="#sources">信息源</a></li>
+    <li><a href="#tech">技术栈</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap" style="width:100%">
+    <div class="hero-layout">
+      <div>
+        <div class="hero-badge">给老板的说明书 · 大学生使用手册</div>
+        <h1>
+          把世界上<br>所有的信息<br>变成你需要的<br><span class="a">产出物</span>
+        </h1>
+        <p class="hero-value-new">
+          你告诉我们要什么——<strong>我们用 AI 帮你全自动搞定。</strong>
+          信息采集、内容加工、报告生成、飞书对接，批量交付，格式固定，能帮你赚钱。
+          <em>// 大学生做的，但产出不输专业团队</em>
+        </p>
+        <div class="hero-flow">
+          <span class="fi">你提需求</span>
+          <span class="fa">→</span>
+          <span class="fi">采集信息</span>
+          <span class="fa">→</span>
+          <span class="fi">AI 加工</span>
+          <span class="fa">→</span>
+          <span class="fi hl">交付成品</span>
+        </div>
+        <div class="hero-stats">
+          <div class="hs"><span class="hs-n" data-count="6">06</span><span class="hs-l">个案例在线</span></div>
+          <div class="hs"><span class="hs-n" data-count="32">32</span><span class="hs-l">个 AI 技能</span></div>
+          <div class="hs"><span class="hs-n" data-count="4">04</span><span class="hs-l">分发平台</span></div>
+          <div class="hs"><span class="hs-n" data-count="8">08</span><span class="hs-l">交付格式</span></div>
+        </div>
+      </div>
+      <div class="stamp" aria-hidden="true">
+        <span class="st">大学生使用手册</span>
+        <span class="sm">树成林</span>
+        <span class="ss">v1.0 · 2026.06</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner" id="ticker">
+    <span class="ticker-item hot">已上线运行</span>
+    <span class="ticker-item">热点聚合</span>
+    <span class="ticker-item">微信解密</span>
+    <span class="ticker-item">飞书自动化</span>
+    <span class="ticker-item hot">内容流水线</span>
+    <span class="ticker-item">多平台分发</span>
+    <span class="ticker-item">数据归档</span>
+    <span class="ticker-item hot">AI 视频生成</span>
+    <span class="ticker-item">网站集群</span>
+    <span class="ticker-item">数据报告</span>
+    <span class="ticker-item hot">Claude · GPT-4o</span>
+    <span class="ticker-item">32 个 AI 技能</span>
+    <span class="ticker-item">自动化</span>
+    <span class="ticker-item hot">专门化</span>
+    <span class="ticker-item">外显化</span>
+    <span class="ticker-item">复利化</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item hot">已上线运行</span>
+    <span class="ticker-item">热点聚合</span>
+    <span class="ticker-item">微信解密</span>
+    <span class="ticker-item">飞书自动化</span>
+    <span class="ticker-item hot">内容流水线</span>
+    <span class="ticker-item">多平台分发</span>
+    <span class="ticker-item">数据归档</span>
+    <span class="ticker-item hot">AI 视频生成</span>
+    <span class="ticker-item">网站集群</span>
+    <span class="ticker-item">数据报告</span>
+    <span class="ticker-item hot">Claude · GPT-4o</span>
+    <span class="ticker-item">32 个 AI 技能</span>
+    <span class="ticker-item">自动化</span>
+    <span class="ticker-item hot">专门化</span>
+    <span class="ticker-item">外显化</span>
+    <span class="ticker-item">复利化</span>
+  </div>
+</div>
+
+<!-- 四化原则 -->
+<section id="four-p">
+  <div class="wrap">
+    <div class="sh reveal">
+      <span class="sh-num">01</span>
+      <div>
+        <span class="sh-en">Four Principles</span>
+        <span class="sh-zh">四化原则</span>
+        <p class="sh-desc">不是空话，是我们真实遵循的工作方法论——每一条都有对应的实际产出</p>
+      </div>
+    </div>
+    <div class="fp-grid">
+      <div class="fp reveal rd1">
+        <span class="fp-bg">01</span>
+        <div class="fp-kw">Automate · 自动化</div>
+        <div class="fp-name">自动化</div>
+        <div class="fp-desc">能自动的绝不手动，减少重复劳动，效率拉满。</div>
+        <ul class="fp-ul">
+          <li>多路数据源定时采集，零人工干预</li>
+          <li>内容生产全自动流水线，从素材到终稿</li>
+          <li>一键部署，推送即上线</li>
+          <li>飞书 API 自动写入、归档、触发</li>
+        </ul>
+      </div>
+      <div class="fp reveal rd2">
+        <span class="fp-bg">02</span>
+        <div class="fp-kw">Specialize · 专门化</div>
+        <div class="fp-name">专门化</div>
+        <div class="fp-desc">深耕垂直领域，建立别人抄不走的壁垒。</div>
+        <ul class="fp-ul">
+          <li>微信生态解密与分析的技术壁垒</li>
+          <li>选题引擎多维评分 + 15 条校准规则</li>
+          <li>飞书全生态 API 集成能力</li>
+          <li>32 个专用 AI 技能，覆盖全场景</li>
+        </ul>
+      </div>
+      <div class="fp reveal rd3">
+        <span class="fp-bg">03</span>
+        <div class="fp-kw">Externalize · 外显化</div>
+        <div class="fp-name">外显化</div>
+        <div class="fp-desc">所有经验都文档化，可复制、可传承、可交接。</div>
+        <ul class="fp-ul">
+          <li>服务手册：新人按手册就能上手</li>
+          <li>Prompt 模板库：降低 AI 使用门槛</li>
+          <li>SOP 流程文档：每个环节都有标准</li>
+          <li>网站集群：能力的可视化载体</li>
+        </ul>
+      </div>
+      <div class="fp reveal rd4">
+        <span class="fp-bg">04</span>
+        <div class="fp-kw">Compound · 复利化</div>
+        <div class="fp-name">复利化</div>
+        <div class="fp-desc">每做一次能力就强一次，投入一次持续受益。</div>
+        <ul class="fp-ul">
+          <li>32 个 AI 技能持续积累，全体系受益</li>
+          <li>模板库 + 评分模型越用越好</li>
+          <li>数据资产时间越久价值越大</li>
+          <li>做一个项目，沉淀一套方法</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 工作流程 -->
+<section id="pipeline">
+  <div class="wrap">
+    <div class="sh reveal">
+      <span class="sh-num">02</span>
+      <div>
+        <span class="sh-en">How We Work</span>
+        <span class="sh-zh">四步搞定你的需求</span>
+        <p class="sh-desc">你只需要提需求，剩下全交给我们</p>
+      </div>
+    </div>
+    <div class="pipeline reveal">
+      <div class="ps">
+        <div class="ps-n">01</div>
+        <span class="ps-icon">💬</span>
+        <div class="ps-title">你提需求</div>
+        <div class="ps-desc">告诉我们要什么信息、什么格式、什么时候要，越具体越好</div>
+      </div>
+      <div class="ps">
+        <div class="ps-n">02</div>
+        <span class="ps-icon">🔍</span>
+        <div class="ps-title">采集信息</div>
+        <div class="ps-desc">AI 自动从多路数据源采集，覆盖社交媒体、新闻、飞书、公开网页等全渠道</div>
+      </div>
+      <div class="ps">
+        <div class="ps-n">03</div>
+        <span class="ps-icon">🧠</span>
+        <div class="ps-title">AI 加工</div>
+        <div class="ps-desc">32 个 AI 技能协同工作，自动完成内容生成、数据分析、视觉生成等深度处理</div>
+      </div>
+      <div class="ps">
+        <div class="ps-n">04</div>
+        <span class="ps-icon">📦</span>
+        <div class="ps-title">交付成品</div>
+        <div class="ps-desc">给你能直接用的东西——网页链接、文档文件、飞书写入、多平台内容</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 实战案例 -->
+<section id="cases">
+  <div class="wrap">
+    <div class="sh reveal">
+      <span class="sh-num">03</span>
+      <div>
+        <span class="sh-en">Case Studies</span>
+        <span class="sh-zh">实战案例</span>
+        <p class="sh-desc">真实运行中的产品——这些都是我们已经做过、能继续帮你做的事</p>
+      </div>
+    </div>
+    <div class="case-grid-new">
+      <!-- FEATURED: 热点聚合 -->
+      <div class="case-feat reveal">
+        <div>
+          <div class="case-top"><span class="case-ic">🌐</span><span class="badge live">已上线运行</span></div>
+          <div class="case-name">热点聚合网站</div>
+          <div class="case-body">多路数据源实时采集，AI 评分排序 + 评论生成，支持暗色模式、收藏、搜索、邮件订阅。每天自动更新，打开即用，不需要你手动刷任何 APP。</div>
+          <div class="case-foot" style="margin-top:1rem">
+            <span class="ct ct-a">自动化</span><span class="ct ct-s">专门化</span><span class="ct ct-e">外显化</span><span class="ct ct-c">复利化</span>
+            <a class="case-lnk" href="https://afuxh.github.io/fuqing-profile/hot-news.html" target="_blank">线上查看 →</a>
+          </div>
+        </div>
+        <div class="case-feat-right">
+          <div class="case-feat-point" data-n="01">多路数据源，AI 自动评分排序</div>
+          <div class="case-feat-point" data-n="02">每条热点附 AI 评论，帮你快速判断价值</div>
+          <div class="case-feat-point" data-n="03">支持收藏、搜索、邮件订阅，数据持续积累</div>
+          <div class="case-feat-point" data-n="04">全自动更新，零人工干预</div>
+        </div>
+      </div>
+      <!-- 其余5个 -->
+      <div class="case reveal rd1">
+        <div class="case-inner">
+          <div class="case-front">
+            <div class="case-top"><span class="case-ic">📊</span><span class="badge">定时执行</span></div>
+            <div class="case-name">微信聊天记录分析</div>
+            <div class="case-body">解密加密数据库，AI 自动生成结构化摘要，输出话题、情感、关键决策等分析报告</div>
+            <div class="case-foot"><span class="ct ct-a">自动化</span><span class="ct ct-s">专门化</span><span class="ct ct-e">外显化</span></div>
+            <div class="flip-hint">悬停查看用途</div>
+          </div>
+          <div class="case-back">
+            <div class="cb-label">老板拿它干什么</div>
+            <div class="cb-q">读懂你的客户和社群</div>
+            <ul class="cb-list">
+              <li>提取社群真实需求，找隐藏的商业信号</li>
+              <li>分析情感倾向，知道用户在乎什么</li>
+              <li>数据全程本地处理，不外泄</li>
+            </ul>
+            <span class="cb-ghost">02</span>
+          </div>
+        </div>
+      </div>
+      <div class="case reveal rd2">
+        <div class="case-inner">
+          <div class="case-front">
+            <div class="case-top"><span class="case-ic">✍️</span><span class="badge">流水线运行中</span></div>
+            <div class="case-name">内容生产流水线</div>
+            <div class="case-body">6 路信息源 → AI 选题评分 → 自动写文章 → 15 条校准检验 → 一键适配四平台</div>
+            <div class="case-foot"><span class="ct ct-a">自动化</span><span class="ct ct-s">专门化</span><span class="ct ct-c">复利化</span></div>
+            <div class="flip-hint">悬停查看用途</div>
+          </div>
+          <div class="case-back">
+            <div class="cb-label">老板拿它干什么</div>
+            <div class="cb-q">一个人干一个内容团队的活</div>
+            <ul class="cb-list">
+              <li>知乎/小红书/B站/即刻同步出稿</li>
+              <li>标题/篇幅/语气全自动适配平台</li>
+              <li>质量稳定，每篇经过 15 条校准</li>
+            </ul>
+            <span class="cb-ghost">03</span>
+          </div>
+        </div>
+      </div>
+      <div class="case reveal rd3">
+        <div class="case-inner">
+          <div class="case-front">
+            <div class="case-top"><span class="case-ic">🎬</span><span class="badge">模型已验证</span></div>
+            <div class="case-name">AI 视频 / 图片生成</div>
+            <div class="case-body">输入文字描述，AI 自动生成视频和高清配图，可用于内容配素材和产品展示</div>
+            <div class="case-foot"><span class="ct ct-a">自动化</span><span class="ct ct-e">外显化</span></div>
+            <div class="flip-hint">悬停查看用途</div>
+          </div>
+          <div class="case-back">
+            <div class="cb-label">老板拿它干什么</div>
+            <div class="cb-q">省掉剪辑师和设计师</div>
+            <ul class="cb-list">
+              <li>内容配视频，不用另找剪辑</li>
+              <li>产品展示图，不用另找设计</li>
+              <li>批量生产素材，成本极低</li>
+            </ul>
+            <span class="cb-ghost">04</span>
+          </div>
+        </div>
+      </div>
+      <div class="case reveal rd1">
+        <div class="case-inner">
+          <div class="case-front">
+            <div class="case-top"><span class="case-ic">📦</span><span class="badge">已完成归档</span></div>
+            <div class="case-name">朋友圈 / 社群数据归档</div>
+            <div class="case-body">自动导出微信朋友圈和社群数据，生成可浏览 HTML 归档，按时间/关键词检索，本地处理保隐私</div>
+            <div class="case-foot"><span class="ct ct-a">自动化</span><span class="ct ct-c">复利化</span></div>
+            <div class="flip-hint">悬停查看用途</div>
+          </div>
+          <div class="case-back">
+            <div class="cb-label">老板拿它干什么</div>
+            <div class="cb-q">永久保存你的社交资产</div>
+            <ul class="cb-list">
+              <li>不怕数据丢失，随时可查</li>
+              <li>按关键词检索历史内容</li>
+              <li>完全本地处理，隐私安全</li>
+            </ul>
+            <span class="cb-ghost">05</span>
+          </div>
+        </div>
+      </div>
+      <div class="case reveal rd2">
+        <div class="case-inner">
+          <div class="case-front">
+            <div class="case-top"><span class="case-ic">🌐</span><span class="badge live">已上线运行</span></div>
+            <div class="case-name">个人 / 企业网站集群</div>
+            <div class="case-body">多页面网站集群，一键部署到线上，涵盖主页、能力展示、热点站、数据看板等多种形态</div>
+            <div class="case-foot">
+              <span class="ct ct-e">外显化</span><span class="ct ct-c">复利化</span>
+              <a class="case-lnk" href="https://afuxh.github.io/fuqing-profile/" target="_blank">线上查看 →</a>
+            </div>
+            <div class="flip-hint">悬停查看用途</div>
+          </div>
+          <div class="case-back">
+            <div class="cb-label">老板拿它干什么</div>
+            <div class="cb-q">随时有链接给人看</div>
+            <ul class="cb-list">
+              <li>主页/展示/热点站一套齐</li>
+              <li>视觉专业，随时可更新</li>
+              <li>一键部署，不需运维</li>
+            </ul>
+            <a style="font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--chop);margin-top:.85rem;display:inline-block" href="https://afuxh.github.io/fuqing-profile/" target="_blank">线上查看 →</a>
+            <span class="cb-ghost">06</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 专注击穿 -->
+<section id="mindset">
+  <div class="wrap">
+    <div class="sh reveal">
+      <span class="sh-num">04</span>
+      <div>
+        <span class="sh-en">Focus &amp; Penetrate</span>
+        <span class="sh-zh">专注击穿，占领生态位</span>
+        <p class="sh-desc">60 分以下不管几分都是零——只有专注打透，价值才会指数级放大</p>
+      </div>
+    </div>
+    <div class="ms-layout">
+      <div class="score-block reveal">
+        <div class="score-intro">
+          AI 时代最大的陷阱：今天做 A，明天做 B，后天做 C。<strong>没有串联，没有深度，永远停在 60 分。</strong>只有专注打透一个方向，价值才会指数级放大。
+        </div>
+        <div class="score-rows">
+          <div class="sr s60"><span class="sr-lbl">60 分</span><div class="sr-track"><div class="sr-fill"></div></div><span class="sr-val">刚及格，几十元</span></div>
+          <div class="sr s75"><span class="sr-lbl">75 分</span><div class="sr-track"><div class="sr-fill"></div></div><span class="sr-val">慢慢有人买单</span></div>
+          <div class="sr s80"><span class="sr-lbl">80 分</span><div class="sr-track"><div class="sr-fill"></div></div><span class="sr-val">月入过万</span></div>
+          <div class="sr s85"><span class="sr-lbl">85 分</span><div class="sr-track"><div class="sr-fill"></div></div><span class="sr-val">月入十万</span></div>
+          <div class="sr s90"><span class="sr-lbl">90 分</span><div class="sr-track"><div class="sr-fill"></div></div><span class="sr-val">年入几千万</span></div>
+          <div class="sr s95"><span class="sr-lbl">95 分↑</span><div class="sr-track"><div class="sr-fill"></div></div><span class="sr-val">每 +1 分，多一个数量级</span></div>
+        </div>
+        <div class="score-zero">60 分以下 = 零。不管是 50、40 还是 30 分，都不值钱。</div>
+      </div>
+      <div class="q-stack reveal rd2">
+        <div class="qc">
+          <p>只有当你<strong>强到可怕、强到让人看不懂、强到断档领先</strong>时，大家才会没有任何犹豫地选择你。因为你足够强，因为性价比够高，因为你有口碑优势。</p>
+          <div class="qc-src">// 核心方法论</div>
+        </div>
+        <div class="qc">
+          <p>AI 今天有无限生成的能力——<strong>最怕今天想生成 A，明天想生成 B，后天想生成 C</strong>。这东西第一无法串联，第二没有接力的深度，导致你只做出了一个 60 分的、很平庸的东西。</p>
+          <div class="qc-src">// 关于专注</div>
+        </div>
+        <div class="qc">
+          <p>没有人能一口吃成胖子。<strong>每做一个项目，沉淀一套方法</strong>——模板、Prompt、流程、经验，全部留下来，这才叫复利。</p>
+          <div class="qc-src">// 关于复利化</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 拿客方法 -->
+<section id="method">
+  <div class="wrap">
+    <div class="sh reveal">
+      <span class="sh-num">05</span>
+      <div>
+        <span class="sh-en">How We Land Clients</span>
+        <span class="sh-zh">我们怎么拿客户</span>
+        <p class="sh-desc">从发现需求到顺利成交，有一套可复制的打单方法论</p>
+      </div>
+    </div>
+    <div class="mf reveal">
+      <div class="mf-title">🪒 理发店预约小程序——在老板一声声惊呼中顺利拿下</div>
+      <div class="mf-body">在抖音上关注了一个博主，想预约他剪头发，发现预约流程特别麻烦。想到最近在做网站，问了下 Claude Code 能不能做小程序——可以做。直接向老板表明想法，<strong>在预约日期那天带着电脑给老板现场演示小程序</strong>，顺利成交。</div>
+      <ul class="mf-steps">
+        <li data-n="①">发现真实痛点（自己就是用户）</li>
+        <li data-n="②">快速验证可行性（问 Claude Code）</li>
+        <li data-n="③">主动约见，现场 demo 打动老板</li>
+        <li data-n="④">先给成功案例，再谈合作</li>
+      </ul>
+    </div>
+    <div class="method-grid reveal">
+      <div class="mc">
+        <div class="mc-n">METHOD · 01</div>
+        <div class="mc-title">先给成功案例</div>
+        <div class="mc-body">永远用已有的作品开场——让客户先看到结果。有案例在手，信任成本降低一半。</div>
+        <ul class="mc-ul">
+          <li>整理成可直接打开的网页链接</li>
+          <li>提前备好不同风格的 demo</li>
+          <li>让案例替你说话</li>
+        </ul>
+      </div>
+      <div class="mc">
+        <div class="mc-n">METHOD · 02</div>
+        <div class="mc-title">让客户做选择题</div>
+        <div class="mc-body">客户往往说不清自己要什么，但能选出喜欢什么。给选项，不让描述。</div>
+        <ul class="mc-ul">
+          <li>准备多种风格参考图</li>
+          <li>问：简洁/丰富？深/浅色？</li>
+          <li>根据选择快速生成 demo</li>
+        </ul>
+      </div>
+      <div class="mc">
+        <div class="mc-n">METHOD · 03</div>
+        <div class="mc-title">批量出品，给一大群</div>
+        <div class="mc-body">给一个，客户很容易挑问题；给一大群，他会找出喜欢的，还觉得你很牛。</div>
+        <ul class="mc-ul">
+          <li>用自动化批量生成素材</li>
+          <li>筛选好的给客户选</li>
+          <li>客户选定后精修交付</li>
+        </ul>
+      </div>
+      <div class="mc">
+        <div class="mc-n">METHOD · 04</div>
+        <div class="mc-title">有模板，更舒服</div>
+        <div class="mc-body">客户有自己很中意的参考模板就很舒服——没有就你来提供不同风格。</div>
+        <ul class="mc-ul">
+          <li>主动问：有没有参考？</li>
+          <li>没有就给不同风格 demo</li>
+          <li>确认方向后批量精修</li>
+        </ul>
+      </div>
+      <div class="mc">
+        <div class="mc-n">METHOD · 05</div>
+        <div class="mc-title">切入真实痛点</div>
+        <div class="mc-body">最好的切入点是你自己就是用户——你用过他的服务，发现了麻烦，顺手解决了。</div>
+        <ul class="mc-ul">
+          <li>从自己的使用场景出发</li>
+          <li>快速验证可行性再去谈</li>
+          <li>现场演示，当场打动</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 交付形式 -->
+<section id="delivery">
+  <div class="wrap">
+    <div class="sh reveal">
+      <span class="sh-num">06</span>
+      <div>
+        <span class="sh-en">Deliverables</span>
+        <span class="sh-zh">交付形式</span>
+        <p class="sh-desc">所有产出物都是标准化、可交付、有链接的——给你能直接用的东西</p>
+      </div>
+    </div>
+    <div class="dv-grid reveal">
+      <div class="dv">
+        <div class="dv-ic">🔗</div>
+        <div class="dv-title">网页 / 链接</div>
+        <div class="dv-desc">给你一个链接，打开即用，无需部署</div>
+        <ul class="dv-ul">
+          <li>热点聚合站</li><li>数据看板</li><li>个人 / 企业主页</li><li>归档检索页</li>
+        </ul>
+      </div>
+      <div class="dv">
+        <div class="dv-ic">📄</div>
+        <div class="dv-title">文档 / 表格</div>
+        <div class="dv-desc">格式规范，直接能用，适合汇报和存档</div>
+        <ul class="dv-ul">
+          <li>Word / PDF 报告</li><li>Excel 数据表格</li><li>PPT 演示文稿</li><li>结构化分析报告</li>
+        </ul>
+      </div>
+      <div class="dv">
+        <div class="dv-ic">🏢</div>
+        <div class="dv-title">飞书写入</div>
+        <div class="dv-desc">直接同步到你的飞书工作区，无缝衔接工作流</div>
+        <ul class="dv-ul">
+          <li>飞书文档 / 知识库</li><li>多维表格</li><li>日程 / 审批自动化</li><li>消息通知</li>
+        </ul>
+      </div>
+      <div class="dv">
+        <div class="dv-ic">🎬</div>
+        <div class="dv-title">视频 / 图片</div>
+        <div class="dv-desc">AI 生成素材，直接用于内容创作和产品展示</div>
+        <ul class="dv-ul">
+          <li>AI 生成短视频</li><li>高清配图素材</li><li>产品展示图</li><li>批量生产，成本极低</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 信息源矩阵 -->
+<section id="sources">
+  <div class="wrap">
+    <div class="sh reveal">
+      <span class="sh-num">07</span>
+      <div>
+        <span class="sh-en">Data Sources</span>
+        <span class="sh-zh">信息源矩阵</span>
+        <p class="sh-desc">你想盯的，我们都能采</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <table class="dt">
+        <thead>
+          <tr><th>你想盯的</th><th>我们怎么采</th><th>工具 / 技能</th><th>给你什么</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>每天行业热点</td><td>多路数据源定时自动抓取</td><td>hot-news-aggregator</td><td>每日热点网页 + AI 评论</td></tr>
+          <tr><td>微信聊天记录</td><td>本地数据库解密读取</td><td>wechat-summarizer</td><td>结构化分析报告</td></tr>
+          <tr><td>微信朋友圈</td><td>自动导出归档</td><td>朋友圈导出工具</td><td>可检索 HTML 归档</td></tr>
+          <tr><td>竞品动态</td><td>小红书/知乎/微博监控</td><td>自定义爬虫</td><td>竞品动态报告</td></tr>
+          <tr><td>读者 / 用户反馈</td><td>评论区自动采集</td><td>reader-feedback-analyzer</td><td>情感分析 + 选题建议</td></tr>
+          <tr><td>飞书 / 企业数据</td><td>OpenAPI 对接</td><td>lark-cli 全套技能</td><td>文档 / 表格 / 日程 / 审批</td></tr>
+          <tr><td>任何公开网页</td><td>URL 抓取解析</td><td>WebFetch / 爬虫</td><td>结构化数据 / 表格</td></tr>
+          <tr><td>GitHub / 知乎 / V2EX</td><td>定时采集</td><td>API 对接</td><td>热门项目 / 话题 / 讨论</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 技术栈 -->
+<section id="tech">
+  <div class="wrap">
+    <div class="sh reveal">
+      <span class="sh-num">08</span>
+      <div>
+        <span class="sh-en">Tech Stack</span>
+        <span class="sh-zh">技术栈</span>
+        <p class="sh-desc">我们用什么干活</p>
+      </div>
+    </div>
+    <div class="tech reveal">
+      <div class="tc"><span class="tc-name">AI 模型</span><div class="tc-tags"><span class="tt">Claude</span><span class="tt">GPT-4o</span><span class="tt">通义万相</span><span class="tt">wan2.7-t2v</span></div></div>
+      <div class="tc"><span class="tc-name">开发语言</span><div class="tc-tags"><span class="tt">Python</span><span class="tt">Node.js</span><span class="tt">HTML5 + CSS3</span><span class="tt">SOLO Agent</span></div></div>
+      <div class="tc"><span class="tc-name">数据采集</span><div class="tc-tags"><span class="tt">WeChatDataAnalysis</span><span class="tt">RSS / Atom</span><span class="tt">GitHub API</span><span class="tt">WebFetch 爬虫</span></div></div>
+      <div class="tc"><span class="tc-name">企业协作</span><div class="tc-tags"><span class="tt">飞书 OpenAPI</span><span class="tt">lark-cli</span></div></div>
+      <div class="tc"><span class="tc-name">文档生成</span><div class="tc-tags"><span class="tt">Word / Excel / PDF</span><span class="tt">PPT / HTML</span><span class="tt">content-pipeline</span></div></div>
+      <div class="tc"><span class="tc-name">部署发布</span><div class="tc-tags"><span class="tt">GitHub Pages</span><span class="tt">EdgeOne Pages</span><span class="tt">Cloudflare Pages</span><span class="tt">Git</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="wrap">
+    <div class="cta-pre">Let's Work Together</div>
+    <div class="cta-h">准备好了？</div>
+    <p class="cta-sub">告诉我们你需要什么信息、什么格式——<br>我们用 AI 帮你全自动搞定</p>
+    <div class="cta-divider">
+      <div class="cta-divider-line"></div>
+      <span class="cta-contact">通过树成林社群对接</span>
+      <div class="cta-divider-line"></div>
+    </div>
+    <div class="cta-chop">树</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">树成林 · 大学生使用手册</div>
+  <div class="footer-meta">v1.0 · 2026年6月<br>联系方式：通过树成林社群对接</div>
+</footer>
+
+<div class="prog" id="prog"></div>
+<div class="cr-dot" id="crDot"></div>
+<div class="cr-ring" id="crRing"></div>
+
+<script>
+// ── TOUCH DETECTION ──
+const isTouch=window.matchMedia('(hover:none)').matches;
+
+// ── NAV + SCROLL PROGRESS ──
+const nav=document.getElementById('nav');
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>50);
+  if(prog){const p=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight);prog.style.width=(p*100)+'%';}
+},{passive:true});
+document.getElementById('navToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+
+// ── ACTIVE NAV ──
+const navAs=document.querySelectorAll('.nav-links a');
+const activeObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navAs.forEach(a=>a.classList.remove('active'));
+      const lnk=document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if(lnk)lnk.classList.add('active');
+    }
+  });
+},{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>activeObs.observe(s));
+
+// ── HERO STATS COUNT-UP ──
+function countUp(el,target){
+  const dur=900;let start=null;
+  const pad=s=>String(s).padStart(2,'0');
+  (function step(ts){
+    if(!start)start=ts;
+    const p=Math.min((ts-start)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    el.textContent=pad(Math.round(ease*target));
+    if(p<1)requestAnimationFrame(step);
+    else el.textContent=pad(target);
+  })(performance.now());
+}
+setTimeout(()=>{
+  document.querySelectorAll('.hs-n[data-count]').forEach(el=>countUp(el,parseInt(el.dataset.count)));
+},450);
+
+// ── CUSTOM CURSOR (desktop only) ──
+if(!isTouch){
+  const dot=document.getElementById('crDot'),ring=document.getElementById('crRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'},{passive:true});
+  (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+  document.addEventListener('mousedown',()=>{ring.classList.add('click');dot.style.transform='translate(-50%,-50%) scale(1.5)'});
+  document.addEventListener('mouseup',()=>{ring.classList.remove('click');dot.style.transform='translate(-50%,-50%) scale(1)'});
+  document.querySelectorAll('a,button,.fi,.fp,.case,.mc,.dv,.tt').forEach(el=>{
+    el.addEventListener('mouseenter',()=>ring.classList.add('big'));
+    el.addEventListener('mouseleave',()=>ring.classList.remove('big'));
+  });
+  document.addEventListener('mouseleave',()=>{dot.style.opacity='0';ring.style.opacity='0'});
+  document.addEventListener('mouseenter',()=>{dot.style.opacity='1';ring.style.opacity='1'});
+}
+
+// ── MAGNETIC FLOW ITEMS (desktop only) ──
+if(!isTouch){
+  document.querySelectorAll('.fi').forEach(el=>{
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      const x=(e.clientX-r.left-r.width/2)*.18;
+      const y=(e.clientY-r.top-r.height/2)*.18;
+      el.style.transform=`translate(${x}px,${y}px)`;
+    });
+    el.addEventListener('mouseleave',()=>el.style.transform='');
+  });
+}
+
+// ── PARALLAX STAMP (desktop only) ──
+if(!isTouch&&window.innerWidth>768){
+  const stamp=document.querySelector('.stamp');
+  const hero=document.querySelector('.hero');
+  if(stamp&&hero){
+    window.addEventListener('scroll',()=>{
+      const p=Math.min(window.scrollY/hero.offsetHeight,1);
+      stamp.style.transform=`rotate(-8deg) translateY(${p*50}px) scale(${1-p*.08})`;
+    },{passive:true});
+  }
+}
+
+// ── TOUCH FLIP FOR CASES ──
+if(isTouch){
+  document.querySelectorAll('.flip-hint').forEach(el=>{el.innerHTML='⊕ 点击查看用途'});
+  document.querySelectorAll('.case-grid-new .case').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const flip=el.classList.toggle('flipped');
+      if(flip)setTimeout(()=>el.classList.remove('flipped'),3500);
+    });
+  });
+}
+
+// ── TEXT SCRAMBLE ──
+const CHARS='树成林大学生AI自动化专门化外显化复利化ABCDEFG012345';
+function scramble(el){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const final=el.textContent;let step=0;const steps=14;
+  const id=setInterval(()=>{
+    el.textContent=final.split('').map((c,i)=>{
+      if(c===' ')return ' ';
+      if(i<step*final.length/steps)return c;
+      return CHARS[Math.floor(Math.random()*CHARS.length)];
+    }).join('');
+    step++;
+    if(step>steps){el.textContent=final;clearInterval(id);}
+  },42);
+}
+
+// ── REVEAL + SCRAMBLE ──
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      const zh=e.target.querySelector('.sh-zh');
+      if(zh)setTimeout(()=>scramble(zh),200);
+      ro.unobserve(e.target);
+    }
+  });
+},{threshold:.07,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// ── SCORE BARS + WILL-CHANGE CLEANUP ──
+const so=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.sr-fill').forEach((f,i)=>{
+        setTimeout(()=>{
+          f.style.transform='scaleX(1)';
+          // release will-change after transition completes
+          setTimeout(()=>f.classList.add('done'),1400);
+        },i*140);
+      });
+      so.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.score-block').forEach(el=>so.observe(el));
+</script>
+</body>
+</html>
