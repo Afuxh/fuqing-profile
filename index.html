@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>重复与决定 · 2026年5月 · 个人月报 第001期</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:          #f5f1eb;
+  --surface:     #ffffff;
+  --rule:        #ddd7cc;
+  --rule-light:  #eae5dd;
+  --text:        #1e1a14;
+  --muted:       #7a7268;
+  --hint:        #a89e90;
+  --amber:       #b87a1e;
+  --amber-pale:  #f2e4bc;
+  --amber-mid:   #dca840;
+  --steel:       #3a6888;
+  --steel-pale:  #ddeaf5;
+  --ink:         #0e0c08;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'Noto Sans SC','PingFang SC',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.85;
+  overflow-x:hidden;
+}
+
+/* ── SCROLL GEAR (fixed) ──────────── */
+#scroll-gear-wrap {
+  position:fixed;
+  top:1.25rem;
+  right:1.25rem;
+  z-index:200;
+  width:34px;
+  height:34px;
+  opacity:0;
+  transition:opacity 0.4s;
+  cursor:default;
+}
+#scroll-gear-wrap.visible { opacity:0.55; }
+#scroll-gear-wrap:hover   { opacity:1; }
+#scroll-gear-svg { width:100%; height:100%; }
+
+/* ── COVER ────────────────────────── */
+.cover {
+  position:relative;
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:4rem 5vw;
+  gap:2rem;
+  overflow:hidden;
+  background:var(--bg);
+}
+
+.cover-text {
+  position:relative;
+  z-index:5;
+  max-width:420px;
+}
+
+.cover-eyebrow {
+  display:flex;
+  align-items:center;
+  gap:0.85rem;
+  margin-bottom:2.5rem;
+}
+.cover-eyebrow-line { flex:1; height:1px; background:var(--rule); }
+.cover-eyebrow-text {
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem;
+  color:var(--amber);
+  letter-spacing:0.38em;
+  white-space:nowrap;
+}
+
+.cover-title {
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(2.8rem,6vw,4.8rem);
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:0.08em;
+  line-height:1.08;
+  margin-bottom:2.5rem;
+}
+
+.cover-meta-row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-top:1.4rem;
+  border-top:1px solid var(--rule);
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.cover-date   { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--muted); letter-spacing:0.2em; }
+.cover-author { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--amber); letter-spacing:0.28em; }
+
+/* ── COVER ART ────────────────────── */
+.cover-art {
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  min-height:400px;
+  cursor:pointer;
+}
+
+.cover-art-layer {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform 0.1s ease-out;
+  will-change:transform;
+}
+
+#gear-art-svg { width:min(92%,420px); height:auto; }
+
+.cover-scroll {
+  position:absolute;
+  bottom:2rem;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.6rem;
+  color:var(--hint);
+  letter-spacing:0.38em;
+  animation:bob 2.5s ease-in-out infinite;
+  z-index:10;
+}
+@keyframes bob {
+  0%,100% { opacity:0.45; transform:translateX(-50%) translateY(0); }
+  50%      { opacity:0.9;  transform:translateX(-50%) translateY(5px); }
+}
+
+/* ── STAR TWINKLE ─────────────────── */
+.star-shape {
+  animation:twinkle var(--dur,3s) ease-in-out infinite;
+  animation-delay:var(--delay,0s);
+  transform-origin:center;
+  transform-box:fill-box;
+}
+@keyframes twinkle {
+  0%,100% { opacity:0.25; transform:scale(0.8); }
+  50%      { opacity:0.85; transform:scale(1.15); }
+}
+
+/* ── GEAR CLICK SPIN ─────────────── */
+.gear-spinning { animation:spinFast 0.8s cubic-bezier(0.22,1,0.36,1) forwards !important; }
+@keyframes spinFast { from { transform:rotate(0deg); } to { transform:rotate(540deg); } }
+
+/* ── CONTENT ──────────────────────── */
+.content {
+  max-width:740px;
+  margin:0 auto;
+  padding:6rem 2rem 4rem;
+}
+
+/* ── SECTION ──────────────────────── */
+.section {
+  margin-bottom:5rem;
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.section.visible { opacity:1; transform:translateY(0); }
+
+.section-head {
+  display:flex;
+  align-items:center;
+  gap:0.9rem;
+  margin-bottom:2rem;
+  padding-bottom:1.2rem;
+  border-bottom:1px solid var(--rule);
+}
+.section-num {
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.63rem;
+  color:var(--amber);
+  letter-spacing:0.4em;
+  flex-shrink:0;
+}
+.section-title {
+  font-family:'Noto Serif SC',serif;
+  font-size:1.5rem;
+  font-weight:700;
+  color:var(--ink);
+}
+
+/* ── DIVIDER WITH GEAR ─────────────── */
+.divider {
+  display:flex;
+  align-items:center;
+  gap:0;
+  margin-bottom:5rem;
+}
+.divider::before,
+.divider::after {
+  content:'';
+  flex:1;
+  height:1px;
+  background:var(--rule-light);
+}
+.divider-gear-wrap {
+  padding:0 0.75rem;
+  flex-shrink:0;
+  line-height:0;
+}
+.divider-gear-svg {
+  width:18px;
+  height:18px;
+  animation:slowspin 18s linear infinite;
+  fill:var(--amber);
+  opacity:0.28;
+}
+@keyframes slowspin { to { transform:rotate(360deg); } }
+
+/* ── QUOTE ────────────────────────── */
+.quote-block {
+  padding:1.4rem 1.5rem 1.4rem 1.75rem;
+  margin-bottom:1.75rem;
+  border-left:3px solid var(--amber);
+  background:var(--amber-pale);
+  border-radius:0 6px 6px 0;
+  font-family:'Noto Serif SC',serif;
+  font-size:1rem;
+  color:var(--text);
+  line-height:2;
+}
+
+/* ── BODY TEXT ────────────────────── */
+.body-text p { font-size:1rem; line-height:2; color:var(--text); margin-bottom:1rem; }
+.body-text p:last-child { margin-bottom:0; }
+.body-text strong { color:var(--ink); font-weight:600; }
+
+/* ── EVENT CARDS ──────────────────── */
+.event-list { display:flex; flex-direction:column; gap:0.6rem; }
+
+.event-card {
+  background:var(--surface);
+  border:1px solid var(--rule);
+  border-radius:8px;
+  padding:1.15rem 1.4rem;
+  display:grid;
+  grid-template-columns:4px 1fr;
+  gap:0 0.9rem;
+  align-items:start;
+  transition:border-color 0.25s, box-shadow 0.25s;
+  overflow:hidden;
+  position:relative;
+}
+.event-card:hover {
+  border-color:var(--amber);
+  box-shadow:0 2px 14px rgba(184,122,30,0.09);
+}
+
+.event-stripe {
+  width:4px;
+  align-self:stretch;
+  border-radius:2px;
+  position:relative;
+  overflow:hidden;
+}
+.event-stripe::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  transform:scaleY(0);
+  transform-origin:top;
+  transition:transform 0.3s ease;
+  border-radius:inherit;
+}
+.event-card:hover .event-stripe::before { transform:scaleY(1); }
+
+.stripe-work   { background:#ddeaf5; }
+.stripe-create { background:#e4f2e6; }
+.stripe-learn  { background:var(--amber-pale); }
+.stripe-life   { background:#ede4f8; }
+.stripe-dec    { background:#fae4e4; }
+
+.stripe-work::before   { background:#3a6888; }
+.stripe-create::before { background:#4a8a52; }
+.stripe-learn::before  { background:var(--amber); }
+.stripe-life::before   { background:#7a5aa8; }
+.stripe-dec::before    { background:#a84040; }
+
+.event-tag {
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.6rem;
+  letter-spacing:0.12em;
+  padding:0.15rem 0.5rem;
+  border-radius:3px;
+  margin-bottom:0.4rem;
+}
+.tag-work   { color:#3a6888; background:var(--steel-pale); }
+.tag-create { color:#3a7042; background:#e4f2e6; }
+.tag-learn  { color:#9a6510; background:var(--amber-pale); }
+.tag-life   { color:#6040a0; background:#ede4f8; }
+.tag-dec    { color:#a84040; background:#fae4e4; }
+
+.event-title { font-weight:600; color:var(--ink); font-size:0.95rem; margin-bottom:0.3rem; }
+.event-desc  { font-size:0.875rem; color:var(--muted); line-height:1.75; }
+
+/* ── INSIGHTS ─────────────────────── */
+.insight-item { display:flex; gap:1.25rem; padding:1.5rem 0; border-bottom:1px solid var(--rule-light); }
+.insight-item:first-child { padding-top:0; }
+.insight-item:last-child  { border-bottom:none; padding-bottom:0; }
+
+.insight-icon {
+  width:36px; height:36px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--amber-pale);
+  border:1px solid rgba(184,122,30,0.2);
+  border-radius:6px; font-size:1rem;
+}
+.insight-label { font-family:'JetBrains Mono',monospace; font-size:0.63rem; letter-spacing:0.22em; color:var(--amber); text-transform:uppercase; margin-bottom:0.45rem; }
+.insight-text  { font-size:0.95rem; color:var(--text); line-height:1.85; }
+
+/* ── TOOLS ────────────────────────── */
+.tool-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(148px,1fr)); gap:0.75rem; margin-bottom:1.5rem; }
+.tool-card {
+  background:var(--surface); border:1px solid var(--rule); border-radius:8px;
+  padding:1.2rem 1rem; text-align:center;
+  transition:border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.tool-card:hover { border-color:var(--amber); box-shadow:0 2px 10px rgba(184,122,30,0.08); transform:translateY(-2px); }
+.tool-icon { font-size:1.4rem; margin-bottom:0.45rem; }
+.tool-name { font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--ink); font-weight:700; margin-bottom:0.2rem; }
+.tool-desc { font-size:0.72rem; color:var(--muted); line-height:1.5; }
+.chain-text { font-size:0.97rem; color:var(--text); line-height:1.9; }
+.chain-text strong { color:var(--ink); }
+
+/* ── PROGRESS ─────────────────────── */
+.progress-wrap { text-align:center; padding:2.5rem 0 1rem; }
+.progress-counter { display:inline-flex; align-items:baseline; gap:0.3rem; margin-bottom:1.5rem; }
+.p-num   { font-family:'JetBrains Mono',monospace; font-size:clamp(3rem,10vw,4.5rem); font-weight:700; color:var(--amber); letter-spacing:-0.02em; }
+.p-sep   { font-family:'JetBrains Mono',monospace; font-size:1.2rem; color:var(--hint); }
+.p-total { font-family:'JetBrains Mono',monospace; font-size:clamp(1rem,3vw,1.35rem); color:var(--hint); }
+
+.p-track { width:100%; max-width:420px; height:2px; background:var(--rule); margin:0 auto 1rem; border-radius:1px; position:relative; }
+.p-fill  {
+  height:100%; width:0;
+  background:linear-gradient(to right,var(--amber),var(--amber-mid));
+  border-radius:1px;
+  transition:width 1.8s cubic-bezier(0.16,1,0.3,1);
+  position:relative;
+}
+.p-fill::after {
+  content:'';
+  position:absolute; right:-5px; top:-5px;
+  width:12px; height:12px;
+  background:var(--amber); border-radius:50%;
+  box-shadow:0 0 10px rgba(184,122,30,0.55);
+}
+
+.p-pct     { font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--amber); letter-spacing:0.3em; margin-bottom:2rem; }
+.p-caption { font-family:'Noto Serif SC',serif; font-size:1.05rem; color:var(--muted); font-style:italic; line-height:2; max-width:400px; margin:0 auto; }
+
+/* ── FOOTER ───────────────────────── */
+footer {
+  border-top:1px solid var(--rule);
+  padding:3.5rem 2rem 3rem;
+  max-width:740px; margin:0 auto; text-align:center;
+}
+.footer-stmt   { font-family:'Noto Serif SC',serif; font-size:1rem; color:var(--muted); line-height:2.2; margin-bottom:1.75rem; }
+.footer-credit { font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--hint); letter-spacing:0.3em; text-transform:uppercase; }
+
+/* ── RESPONSIVE ───────────────────── */
+@media (max-width:768px) {
+  .cover { grid-template-columns:1fr; padding:5rem 1.5rem 6rem; }
+  .cover-art { min-height:260px; }
+  #gear-art-svg { width:min(75%,280px); }
+  .content { padding:4rem 1.25rem 3rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .star-shape,.divider-gear-svg,.cover-scroll { animation:none; }
+  .section { opacity:1; transform:none; }
+  .p-fill  { transition:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── SCROLL PROGRESS GEAR ── -->
+<div id="scroll-gear-wrap" title="阅读进度">
+  <svg id="scroll-gear-svg" viewBox="-16 -16 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path id="sg-path" fill="#b87a1e" fill-rule="evenodd"/>
+  </svg>
+</div>
+
+<!-- ── COVER ── -->
+<div class="cover" id="cover">
+
+  <div class="cover-text">
+    <div class="cover-eyebrow">
+      <div class="cover-eyebrow-line"></div>
+      <span class="cover-eyebrow-text">第 001 期 / 960</span>
+      <div class="cover-eyebrow-line"></div>
+    </div>
+    <h1 class="cover-title">重复<br>与决定</h1>
+    <div class="cover-meta-row">
+      <span class="cover-date">2026年5月 · 个人月报</span>
+      <span class="cover-author">扶清 MAY 2026</span>
+    </div>
+  </div>
+
+  <!-- Art layers for parallax -->
+  <div class="cover-art" id="cover-art">
+    <div class="cover-art-layer" id="gear-layer" style="will-change:transform">
+      <svg id="gear-art-svg" viewBox="0 0 320 440" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>
+            #gear-large { animation:gearCW 80s linear infinite; transform-origin:160px 270px; }
+            #gear-small { animation:gearCCW 36s linear infinite; transform-origin:160px 130px; }
+            @keyframes gearCW  { to { transform:rotate( 360deg); } }
+            @keyframes gearCCW { to { transform:rotate(-360deg); } }
+          </style>
+        </defs>
+        <!-- Gears drawn via JS -->
+        <g id="gear-large"></g>
+        <g id="gear-small"></g>
+        <!-- Stars drawn via JS -->
+        <g id="stars-group"></g>
+      </svg>
+    </div>
+    <div class="cover-art-layer" id="star-layer" style="will-change:transform"></div>
+  </div>
+
+  <div class="cover-scroll">↓ SCROLL</div>
+</div>
+
+<!-- ── CONTENT ── -->
+<main class="content">
+
+  <div class="section" data-reveal>
+    <div class="section-head">
+      <span class="section-num">S·01</span>
+      <h2 class="section-title">本月感觉</h2>
+    </div>
+    <div class="quote-block">
+      这个月像安迪在肖申克监狱的屋顶上，为狱友争取到啤酒的时刻——在重复的制度化生活中，用一点点创作和学习，为自己争取到了片刻的自由。不同的是，这个月我还做了一个决定。
+    </div>
+    <div class="body-text">
+      <p>五月的感觉是<strong>齿轮与星光</strong>。白天是客服值班、投诉处理、400热线——重复的齿轮不停转动。夜晚是AI学习、技能开发、内容创作——屏幕上的星光一点点亮起来。</p>
+      <p>上旬是疲惫的积累，中旬是内心的挣扎，下旬是决心渐渐清晰。这个月最重要的不是发生了什么，而是<strong>做了一个决定</strong>。</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-gear-wrap"><svg class="divider-gear-svg" viewBox="-12 -12 24 24" id="dg1"></svg></div></div>
+
+  <div class="section" data-reveal>
+    <div class="section-head">
+      <span class="section-num">S·02</span>
+      <h2 class="section-title">核心事件</h2>
+    </div>
+    <div class="event-list">
+      <div class="event-card">
+        <div class="event-stripe stripe-work"></div>
+        <div><div class="event-tag tag-work">WORK</div><div class="event-title">客服值班与投诉处理</div><div class="event-desc">奕派400热线、三品牌工单检核、客户投诉处理。重复但必要，这是忍耐的最后一个月。</div></div>
+      </div>
+      <div class="event-card">
+        <div class="event-stripe stripe-create"></div>
+        <div><div class="event-tag tag-create">CREATE</div><div class="event-title">技能开发与虾评上传</div><div class="event-desc">开发AI技能、上传虾评平台、设计自动化工作流。用创作对冲工作的重复感，为下一步做准备。</div></div>
+      </div>
+      <div class="event-card">
+        <div class="event-stripe stripe-learn"></div>
+        <div><div class="event-tag tag-learn">LEARN</div><div class="event-title">AI工具学习与IP训练营</div><div class="event-desc">AI学习交流群活跃发言（432条）、IP训练营持续参与、内容创作方法论积累。</div></div>
+      </div>
+      <div class="event-card">
+        <div class="event-stripe stripe-life"></div>
+        <div><div class="event-tag tag-life">LIFE</div><div class="event-title">独立成长与边界重建</div><div class="event-desc">彻底清理过去的关系，重新定义自我边界。独立不是孤独，是有能力选择谁进入自己的世界。</div></div>
+      </div>
+      <div class="event-card">
+        <div class="event-stripe stripe-dec"></div>
+        <div><div class="event-tag tag-dec">DECISION</div><div class="event-title">一个决定</div><div class="event-desc">五月埋下的种子，六月开花。具体内容，下期再说。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-gear-wrap"><svg class="divider-gear-svg" viewBox="-12 -12 24 24" id="dg2"></svg></div></div>
+
+  <div class="section" data-reveal>
+    <div class="section-head">
+      <span class="section-num">S·03</span>
+      <h2 class="section-title">认知更新</h2>
+    </div>
+    <div class="insight-item">
+      <div class="insight-icon">⚙️</div>
+      <div><div class="insight-label">工作认知</div><div class="insight-text">客服工作虽然重复，但每一次投诉处理都是一次问题解决能力的锻炼。忍耐不是软弱，是在积蓄力量。</div></div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-icon">🤖</div>
+      <div><div class="insight-label">创作认知</div><div class="insight-text">AI不是替代，而是放大器——用AI工具放大自己的创作能力。</div></div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-icon">🌱</div>
+      <div><div class="insight-label">成长认知</div><div class="insight-text">在忙碌中保持学习，是对抗重复感最好的方式。</div></div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-icon">🚪</div>
+      <div><div class="insight-label">决策认知</div><div class="insight-text">离职不是逃避，而是对更好生活的主动选择。</div></div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-gear-wrap"><svg class="divider-gear-svg" viewBox="-12 -12 24 24" id="dg3"></svg></div></div>
+
+  <div class="section" data-reveal>
+    <div class="section-head">
+      <span class="section-num">S·04</span>
+      <h2 class="section-title">工具与方法</h2>
+    </div>
+    <div class="tool-grid">
+      <div class="tool-card"><div class="tool-icon">🔧</div><div class="tool-name">虾评</div><div class="tool-desc">技能上传与评测平台</div></div>
+      <div class="tool-card"><div class="tool-icon">🐙</div><div class="tool-name">GitHub</div><div class="tool-desc">代码托管与版本管理</div></div>
+      <div class="tool-card"><div class="tool-icon">🤖</div><div class="tool-name">AI工具链</div><div class="tool-desc">DeepSeek + Claude辅助</div></div>
+      <div class="tool-card"><div class="tool-icon">📊</div><div class="tool-name">自动化</div><div class="tool-desc">定时任务 + 自检流水线</div></div>
+    </div>
+    <p class="chain-text">工具链演进：<strong>手动操作 → AI辅助 → 自动化</strong>。每个月进步一点，复利会给出答案。</p>
+  </div>
+
+  <div class="divider"><div class="divider-gear-wrap"><svg class="divider-gear-svg" viewBox="-12 -12 24 24" id="dg4"></svg></div></div>
+
+  <div class="section" data-reveal>
+    <div class="section-head">
+      <span class="section-num">S·05</span>
+      <h2 class="section-title">下月展望</h2>
+    </div>
+    <div class="quote-block">
+      <strong>具体目标</strong>：完成交接，开始新的探索。<br>
+      <strong>模糊期待</strong>：在自由中找到更多创作的灵感，建立更清晰的自我边界。
+    </div>
+    <div class="body-text">
+      <p>六月会是一个转折点。具体发生了什么，会在下期月报中回顾。现在只需要知道：五月种下的种子，已经开始发芽了。</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-gear-wrap"><svg class="divider-gear-svg" viewBox="-12 -12 24 24" id="dg5"></svg></div></div>
+
+  <div class="section" data-reveal id="progress-section">
+    <div class="section-head">
+      <span class="section-num">S·06</span>
+      <h2 class="section-title">80年进度</h2>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-counter">
+        <span class="p-num">001</span>
+        <span class="p-sep">&thinsp;/&thinsp;</span>
+        <span class="p-total">960</span>
+      </div>
+      <div class="p-track"><div class="p-fill" id="pfill"></div></div>
+      <div class="p-pct">0.104% · 2026年5月</div>
+      <div class="p-caption">「在重复中种下了离开的种子，<br>在决定中找到了自己的声音。」</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-stmt">
+    这是第001期个人月报。<br>承诺每月一期，直到2106年。<br>你可以看，但别改。
+  </div>
+  <div class="footer-credit">© 2026 扶清 · 80年连载 · MAY-001</div>
+</footer>
+
+<script>
+const NS = 'http://www.w3.org/2000/svg';
+
+/* ── GEAR PATH GENERATOR ── */
+function gearPath(cx, cy, R, r, hub, N) {
+  const step = Math.PI * 2 / N;
+  const tw = step * 0.27;
+  let d = '';
+  for (let i = 0; i < N; i++) {
+    const base = i * step - Math.PI / 2;
+    const pts = [
+      [r * Math.cos(base - step*.5 + tw), r * Math.sin(base - step*.5 + tw)],
+      [R * Math.cos(base - tw),            R * Math.sin(base - tw)],
+      [R * Math.cos(base + tw),            R * Math.sin(base + tw)],
+      [r * Math.cos(base + step*.5 - tw),  r * Math.sin(base + step*.5 - tw)],
+    ];
+    pts.forEach(([x, y], j) => {
+      const px = (cx + x).toFixed(1), py = (cy + y).toFixed(1);
+      d += (i===0&&j===0?'M':'L') + `${px},${py} `;
+    });
+  }
+  d += 'Z';
+  if (hub > 0) d += ` M${(cx+hub).toFixed(1)},${cy.toFixed(1)} A${hub},${hub} 0 1,0 ${(cx-hub).toFixed(1)},${cy.toFixed(1)} A${hub},${hub} 0 1,0 ${(cx+hub).toFixed(1)},${cy.toFixed(1)}`;
+  return d;
+}
+
+/* ── STAR PATH ── */
+function starPath(cx, cy, R, r) {
+  let d = '';
+  for (let i = 0; i < 8; i++) {
+    const a = i * Math.PI / 4 - Math.PI / 2;
+    const rad = i % 2 === 0 ? R : r;
+    const x = (cx + rad * Math.cos(a)).toFixed(1);
+    const y = (cy + rad * Math.sin(a)).toFixed(1);
+    d += (i === 0 ? 'M' : 'L') + `${x},${y}`;
+  }
+  return d + 'Z';
+}
+
+/* ── BUILD COVER GEARS ── */
+// Large gear: center (160, 270), 18 teeth
+const lgPath = document.createElementNS(NS, 'path');
+lgPath.setAttribute('d', gearPath(160, 270, 115, 94, 26, 18));
+lgPath.setAttribute('fill', 'rgba(184,122,30,0.08)');
+lgPath.setAttribute('stroke', 'rgba(184,122,30,0.28)');
+lgPath.setAttribute('stroke-width', '1.2');
+lgPath.setAttribute('fill-rule', 'evenodd');
+lgPath.id = 'gear-large-path';
+document.getElementById('gear-large').appendChild(lgPath);
+
+// Small gear: center (160, 130), 10 teeth — meshes with large
+// pitch radii approx: large=(115+94)/2≈104.5, small target≈47 → center dist≈151.5 → 270-151.5=118.5≈119
+const sgPath = document.createElementNS(NS, 'path');
+sgPath.setAttribute('d', gearPath(160, 119, 54, 44, 13, 10));
+sgPath.setAttribute('fill', 'rgba(184,122,30,0.06)');
+sgPath.setAttribute('stroke', 'rgba(184,122,30,0.22)');
+sgPath.setAttribute('stroke-width', '1');
+sgPath.setAttribute('fill-rule', 'evenodd');
+document.getElementById('gear-small').appendChild(sgPath);
+
+// Click to spin large gear
+const gearLarge = document.getElementById('gear-large');
+document.getElementById('cover-art').addEventListener('click', () => {
+  lgPath.style.animation = 'none';
+  lgPath.classList.add('gear-spinning');
+  lgPath.addEventListener('animationend', () => {
+    lgPath.classList.remove('gear-spinning');
+    lgPath.style.animation = '';
+  }, { once: true });
+});
+
+/* ── COVER STARS ── */
+const starData = [
+  { x:52,  y:55,  R:8,  r:3.5, delay:0    },
+  { x:268, y:38,  R:5,  r:2.2, delay:1.3  },
+  { x:296, y:170, R:7,  r:3,   delay:0.7  },
+  { x:38,  y:195, R:5,  r:2,   delay:2.1  },
+  { x:220, y:68,  R:4,  r:1.8, delay:0.4  },
+  { x:305, y:310, R:6,  r:2.5, delay:1.7  },
+  { x:58,  y:370, R:4,  r:1.8, delay:0.9  },
+  { x:240, y:400, R:7,  r:3,   delay:2.5  },
+  { x:100, y:28,  R:4,  r:1.7, delay:1.1  },
+  { x:182, y:420, R:5,  r:2,   delay:0.3  },
+  { x:310, y:80,  R:4,  r:1.7, delay:1.9  },
+  { x:22,  y:290, R:5,  r:2,   delay:0.6  },
+  { x:278, y:240, R:4,  r:1.7, delay:2.8  },
+  { x:130, y:430, R:5,  r:2.2, delay:1.4  },
+  { x:72,  y:130, R:4,  r:1.7, delay:3.1  },
+];
+
+const starsGroup = document.getElementById('stars-group');
+starData.forEach(s => {
+  const p = document.createElementNS(NS, 'path');
+  p.setAttribute('d', starPath(s.x, s.y, s.R, s.r));
+  p.setAttribute('fill', 'rgba(184,122,30,0.5)');
+  p.classList.add('star-shape');
+  p.style.setProperty('--dur', `${2.5 + Math.random() * 2}s`);
+  p.style.setProperty('--delay', `${s.delay}s`);
+  starsGroup.appendChild(p);
+});
+
+/* ── DIVIDER GEAR (mini) ── */
+['dg1','dg2','dg3','dg4','dg5'].forEach(id => {
+  const svg = document.getElementById(id);
+  if (!svg) return;
+  const p = document.createElementNS(NS, 'path');
+  p.setAttribute('d', gearPath(0, 0, 10, 8, 2.5, 8));
+  p.setAttribute('fill-rule', 'evenodd');
+  svg.appendChild(p);
+});
+
+/* ── SCROLL GEAR (progress indicator) ── */
+const sgWrap = document.getElementById('scroll-gear-wrap');
+const sgSvg  = document.getElementById('scroll-gear-svg');
+const sgEl   = document.createElementNS(NS, 'path');
+sgEl.setAttribute('d', gearPath(0, 0, 13, 10.5, 3.5, 10));
+sgEl.setAttribute('fill-rule', 'evenodd');
+sgSvg.appendChild(sgEl);
+
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const total = document.body.scrollHeight - window.innerHeight;
+  const pct = scrolled / (total || 1);
+  sgEl.style.transform = `rotate(${pct * 720}deg)`;
+  sgEl.style.transformOrigin = 'center';
+  sgEl.style.transformBox = 'fill-box';
+  sgWrap.classList.toggle('visible', scrolled > 80);
+}, { passive:true });
+
+/* ── MOUSE PARALLAX ── */
+const coverEl   = document.getElementById('cover');
+const gearLayer = document.getElementById('gear-layer');
+const starLayer = document.getElementById('star-layer');
+
+let ticking = false;
+coverEl.addEventListener('mousemove', (e) => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    const r   = coverEl.getBoundingClientRect();
+    const cx  = r.left + r.width / 2;
+    const cy  = r.top  + r.height / 2;
+    const dx  = (e.clientX - cx) / r.width;
+    const dy  = (e.clientY - cy) / r.height;
+    gearLayer.style.transform = `translate(${dx * 14}px, ${dy * 9}px)`;
+    starsGroup.style.transform = `translate(${dx * 22}px, ${dy * 15}px)`;
+    ticking = false;
+  });
+}, { passive:true });
+
+coverEl.addEventListener('mouseleave', () => {
+  gearLayer.style.transform = '';
+  starsGroup.style.transform = '';
+});
+
+/* ── SCROLL REVEAL ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('[data-reveal]').forEach(s => obs.observe(s));
+
+/* ── PROGRESS BAR ── */
+const pobs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      setTimeout(() => { document.getElementById('pfill').style.width = '0.104%'; }, 350);
+      pobs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+pobs.observe(document.getElementById('progress-section'));
+</script>
+</body>
+</html>
