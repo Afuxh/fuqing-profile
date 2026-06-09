@@ -1,0 +1,37 @@
+__pycache__/
+*.pyc
+*.pyo
+data/
+output/
+hugo-site/public/
+hugo-site/resources/
+hugo-site/.hugo_build.lock
+.env
+.venv/
+*.log
+.DS_Store
+xiaping_state.json
+# Runtime outputs
+outputs/
+.workbuddy/
+.edgeone/
+
+# Test files
+test_sources*.py
+
+# Generated posts
+posts/
+
+# Site generated files (except core HTML)
+site/*.html
+site/*.bak
+site/*.staging.html
+site/dashboard*
+site/api.json
+site/feed.xml
+site/sitemap.xml
+site/sources.opml
+
+# Git backups
+.git_old/
+.git_backup_old/
