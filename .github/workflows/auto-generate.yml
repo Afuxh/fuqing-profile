@@ -1,0 +1,114 @@
+name: 自动生成热点网站
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 1 * * *'    # 每天北京时间9:00
+  workflow_dispatch:         # 手动触发
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  PYTHONUNBUFFERED: "1"
+  GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+  SILICONFLOW_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install httpx pyyaml deep-translator
+
+      - name: Diagnostics
+        run: |
+          echo "=== Python version ==="
+          python --version
+          echo "=== File check ==="
+          ls -la generate_v3.7.py config.yaml inject_ai_v2.py content_cleaner.py auto_fix_ai_coverage.py ops_tool.py ai_content.json || true
+          echo "=== Syntax check ==="
+          python -c "import py_compile; py_compile.compile('generate_v3.7.py', doraise=True)" || true
+          python -c "import py_compile; py_compile.compile('inject_ai_v2.py', doraise=True)" || true
+          python -c "import py_compile; py_compile.compile('content_cleaner.py', doraise=True)" || true
+          python -c "import py_compile; py_compile.compile('auto_fix_ai_coverage.py', doraise=True)" || true
+          python -c "import py_compile; py_compile.compile('ops_tool.py', doraise=True)" || true
+
+      - name: Generate website
+        run: |
+          echo "=== 开始生成热点网站 ==="
+          python -u generate_v3.7.py --no-translate
+          echo "=== 生成完成 ==="
+
+      - name: Auto-fix AI coverage
+        run: |
+          echo "=== 自动修复AI评论覆盖率 ==="
+          python -u auto_fix_ai_coverage.py
+          echo "=== 覆盖率修复完成 ==="
+
+      - name: Validate AI content quality
+        run: |
+          echo "=== AI内容质量验证 ==="
+          python -u ai_content_validator.py fix
+          echo "=== 质量验证完成 ==="
+
+      - name: Inject AI insights (v2)
+        run: |
+          echo "=== 注入AI评论（v2改进匹配算法）==="
+          python -u inject_ai_v2.py
+          echo "=== AI注入完成 ==="
+
+      - name: Clean ad content
+        run: |
+          echo "=== 清洗广告内容 ==="
+          python -u content_cleaner.py
+          echo "=== 广告清洗完成 ==="
+
+      - name: Ops check (运维自检)
+        continue-on-error: true
+        run: |
+          echo "=== 运行运维自检 ==="
+          python -u ops_tool.py check
+          echo "=== 自检完成 ==="
+
+      - name: Copy static pages to site/
+        run: |
+          echo "=== 复制静态页面到 site/ 目录 ==="
+          cp -v index.html site/index.html 2>/dev/null || true
+          cp -v margins.html site/margins.html 2>/dev/null || true
+          cp -v archive.html site/archive.html 2>/dev/null || true
+          cp -v handbook.html site/handbook.html 2>/dev/null || true
+          cp -v "Nourishment Handbook.html" "site/Nourishment Handbook.html" 2>/dev/null || true
+          cp -v "简报双端.html" "site/简报双端.html" 2>/dev/null || true
+          echo "=== 静态页面复制完成 ==="
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: "deploy: 自动更新热点数据 ${{ github.run_number }}"
+
