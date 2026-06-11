@@ -35,3 +35,7 @@ site/sources.opml
 # Git backups
 .git_old/
 .git_backup_old/
+
+# Training camp attachments (large media, not for GitHub Pages)
+ai-work-attached/
+ai-work-guide-v5-backup.md
