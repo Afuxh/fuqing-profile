@@ -1,0 +1,5 @@
+httpx>=0.27.0
+pyyaml>=6.0
+deep-translator>=1.11.0
+# 以下为可选依赖
+# fuzzywuzzy>=0.18.0  # 高级模糊匹配（可选，内置SequenceMatcher已足够）
