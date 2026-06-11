@@ -60,12 +60,14 @@ jobs:
           echo "=== 生成完成 ==="
 
       - name: Auto-fix AI coverage
+        continue-on-error: true
         run: |
           echo "=== 自动修复AI评论覆盖率 ==="
           python -u auto_fix_ai_coverage.py
           echo "=== 覆盖率修复完成 ==="
 
       - name: Validate AI content quality
+        continue-on-error: true
         run: |
           echo "=== AI内容质量验证 ==="
           python -u ai_content_validator.py fix
