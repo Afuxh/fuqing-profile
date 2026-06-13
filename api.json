@@ -1,0 +1,826 @@
+{
+  "meta": {
+    "title": "AI 时代观察",
+    "url": "https://afuxh.github.io/fuqing-profile/hot-news.html",
+    "updated": "2026-06-08 11:50:44",
+    "total": 105
+  },
+  "categories": {
+    "精选": [
+      {
+        "title": "Dimensiontashop/Claude-Mythos-AI-App",
+        "url": "https://github.com/Dimensiontashop/Claude-Mythos-AI-App",
+        "score": 100,
+        "source": "GitHub",
+        "summary": "Claude Mythos是Claude的桌面应用，提供多种AI功能模式。",
+        "perspective": "能更灵活地使用Claude，但可能包含未授权功能需谨慎。",
+        "action": "尝试使用其免费功能了解AI辅助创作的潜力。"
+      },
+      {
+        "title": "Anthropic-Claude-Mythos/Claude-Mythos-AI-App",
+        "url": "https://github.com/Anthropic-Claude-Mythos/Claude-Mythos-AI-App",
+        "score": 100,
+        "source": "GitHub",
+        "summary": "Claude Mythos是Claude的桌面版应用，提供多种AI交互模式。",
+        "perspective": "能更方便地使用Claude，但要注意某些功能可能违反使用条款。",
+        "action": "测试其免费功能感受AI辅助办公的便捷性。"
+      },
+      {
+        "title": "Ricar66/omnistack-agent",
+        "url": "https://github.com/Ricar66/omnistack-agent",
+        "score": 100,
+        "source": "GitHub",
+        "summary": "这个AI代理能跨平台使用，像一个全能的软件工程师大脑。",
+        "perspective": "开发者的效率可能大幅提升，但需要适应不同平台的使用方式。",
+        "action": "尝试用它解决跨平台开发中的技术难题。"
+      },
+      {
+        "title": "「华超神控」获亿元天使系列融资，加速打造新一代AI超声脑机接口平台 | 36氪首发",
+        "url": "https://36kr.com/p/3841459663030532?f=rss",
+        "score": 100,
+        "source": "36氪",
+        "summary": "一家研发脑机接口的公司拿到了大笔投资，可能未来能用思维控制设备。",
+        "perspective": "这类技术未来可能帮助残障人士更方便地使用科技，也可能让医疗更精准。",
+        "action": "关注AI在医疗领域的应用进展，学习基础的神经科学常识。"
+      },
+      {
+        "title": "8点1氪丨八家上市公司集中公告“补税”；ChatGPT将迎来史上最大幅度升级；高考新增AI监考员，自动截取异常录像",
+        "url": "https://36kr.com/p/3843764238174729?f=rss",
+        "score": 99,
+        "source": "36氪",
+        "summary": "今天有上市公司宣布补税，ChatGPT将升级，高考还新增了AI监考员。",
+        "perspective": "AI正在渗透到教育和工作场景，考试可能更严格，但也会推动技术发展。",
+        "action": "尝试用AI工具辅助学习，比如用智能笔记软件整理知识。"
+      },
+      {
+        "title": "9点1氪｜豆包推出付费后月活减少610万；Anthropic呼吁全球放缓AI开发，警告AI“自我改进”风险；罗永浩卸任锤子软件公司执行董事",
+        "url": "https://36kr.com/p/3840996342073604?f=rss",
+        "score": 100,
+        "source": "36氪",
+        "summary": "豆包推出付费功能后用户减少，AI发展被部分专家警告存在风险，罗永浩也卸任了公司职位。",
+        "perspective": "AI技术需要平衡商业利益和安全性，创业者也要面对转型压力。",
+        "action": "了解AI伦理问题，学习如何合理使用AI工具避免过度依赖。"
+      },
+      {
+        "title": "Token大战中，华为云选择了第三条路｜最前线",
+        "url": "https://36kr.com/p/3840016255126016?f=rss",
+        "score": 90,
+        "source": "36氪",
+        "summary": "华为云选择不跟风AI算力竞赛，而是更关注算力系统的实际效果。",
+        "perspective": "这说明华为在AI领域有自己的长远规划，不追求短期数据。",
+        "action": "了解国产算力技术进展，关注华为云的AI应用案例。"
+      },
+      {
+        "title": "微信AI对手机厂商打开一道窄门｜焦点分析",
+        "url": "https://36kr.com/p/3839575253993985?f=rss",
+        "score": 83,
+        "source": "36氪",
+        "summary": "微信正在和手机厂商合作，让手机AI助手能直接操作微信功能。",
+        "perspective": "以后用手机语音就能更快沟通，但也要注意隐私保护。",
+        "action": "尝试用手机AI助手简化微信操作，比如语音发消息。"
+      },
+      {
+        "title": "财政部：“十五五”时期中央财政将保持较大力度支持城市更新，实施好税收支持政策",
+        "url": "https://36kr.com/newsflashes/3843918401734914?f=rss",
+        "score": 92,
+        "source": "36氪",
+        "summary": "财政部要加大资金支持城市更新，用税收政策推动城市发展。",
+        "perspective": "这可能让老城区改造更快，但也会对房地产市场产生连锁反应。",
+        "action": "留意城市规划动向，关注老旧小区改造政策。"
+      },
+      {
+        "title": "ChatGPT 要变 AgentGPT 了",
+        "url": "https://x.com/dotey/status/2063686036895478162",
+        "score": 100,
+        "source": "AI热点",
+        "summary": "OpenAI准备把ChatGPT变成能干活的\"AI助手\"，不再只是聊天。",
+        "perspective": "以后可能不用和AI反复问\"怎么操作\"，它会直接帮你完成任务，比如写代码、做计划。",
+        "action": "尝试用AI工具完成简单任务，比如让AI帮你整理文件或写邮件草稿。"
+      },
+      {
+        "title": "\"我在田里雇了一名工程师，它叫 Codex\" -- 北海道一个西兰花农的 8 个真实 AI 用法",
+        "url": "https://x.com/AYi_AInotes/status/2063573709672104286",
+        "score": 89,
+        "source": "AI热点",
+        "summary": "日本农民用AI帮种地，比如用手机看作物病害、用电脑控制温室。",
+        "perspective": "AI可能让种地变得更科学，但需要农民学会新技术，不是所有工作都能自动化。",
+        "action": "找找自己工作中的重复任务，看看有没有AI能帮忙的点。"
+      },
+      {
+        "title": "对比一下 GPT-5.5 的设计效果和 Opus 4.8 的设计效果",
+        "url": "https://x.com/dotey/status/2063464057647075379",
+        "score": 83,
+        "source": "AI热点",
+        "summary": "新AI工具在设计产品时比其他模型更厉害，能直接生成具体方案。",
+        "perspective": "设计师可能越来越依赖AI出创意，但需要学会和AI沟通细节。",
+        "action": "尝试用设计类AI工具生成方案草图，看看能不能省点时间。"
+      },
+      {
+        "title": "GitHub 开源 Spec Kit 工具包，用产品规范引导 AI 编码",
+        "url": "https://x.com/rohanpaul_ai/status/2063246343842501091",
+        "score": 83,
+        "source": "AI热点",
+        "summary": "GitHub推出新工具，让AI按规范写代码，减少随意发挥。",
+        "perspective": "代码质量可能更稳定，但需要先明确需求才能让AI帮忙干活。",
+        "action": "尝试用规范驱动的方式让AI写代码，比如先列清楚需求清单。"
+      },
+      {
+        "title": "用Qwen2.5-3B构建多智能体经济体：工程报告",
+        "url": "https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim",
+        "score": 89,
+        "source": "AI热点",
+        "summary": "有人用AI模拟一个虚拟经济，让不同角色互相交易和竞争。",
+        "perspective": "AI可能用来测试商业模型，但需要设计好规则才能让系统正常运转。",
+        "action": "找找有没有类似的AI模拟工具，尝试搭建自己的小系统。"
+      },
+      {
+        "title": "Arena 发布真实世界 AI 智能体排行榜 Agent Arena",
+        "url": "https://x.com/rohanpaul_ai/status/2063018358795300982",
+        "score": 100,
+        "source": "AI热点",
+        "summary": "有人把AI能力按任务分类，像打分一样看哪些AI更厉害。",
+        "perspective": "以后选AI工具可能更科学，像挑手机一样看性能指标。",
+        "action": "看看排行榜上推荐的AI工具，试试它们在自己工作中的表现。"
+      },
+      {
+        "title": "Apollo 敲定 350 亿美元债务融资，为 Anthropic 采购 AI 芯片",
+        "url": "https://www.bloomberg.com/news/articles/2026-06-05/apollo-wraps-up-35-billion-debt-to-buy-ai-chips-for-anthropic",
+        "score": 81,
+        "source": "AI热点",
+        "summary": "大公司给AI公司借钱买芯片，相当于给AI行业打了一针强心剂。",
+        "perspective": "AI技术发展可能更快，但这也意味着竞争会更激烈，小公司可能更难生存。",
+        "action": "关注AI芯片的技术更新，看看哪些新技术可能影响自己的工作。"
+      },
+      {
+        "title": "谷歌推出基于 Gemini Enterprise Agent Platform 的 Agentic RAG 框架",
+        "url": "https://research.google/blog/unlocking-dependable-responses-with-gemini-enterprise-agent-platforms-agentic-rag",
+        "score": 98,
+        "source": "AI热点",
+        "summary": "谷歌推出了一个新工具，能帮助企业更高效地处理复杂问题。",
+        "perspective": "企业用户可能会用这个工具更快找到信息，提高工作效率。",
+        "action": "今天可以试试用谷歌的Gemini平台了解如何提升信息处理效率。"
+      },
+      {
+        "title": "Google AI 本周产品更新：Nano Banana 2、Co-Scientist、dreambeans、Gemma 4 等",
+        "url": "https://x.com/GoogleAI/status/2062942864288387430",
+        "score": 89,
+        "source": "AI热点",
+        "summary": "谷歌推出了一款开源的AI工具，可以在本地电脑上运行。",
+        "perspective": "开发者能更快上手新工具，不用依赖云端。",
+        "action": "今天可以下载Gemma 4体验离线AI工具。"
+      },
+      {
+        "title": "一夜之间，ChatGPT 变成了第二个 Claude",
+        "url": "https://www.ifanr.com/1667898?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 100,
+        "source": "爱范儿",
+        "summary": "ChatGPT突然像Claude一样加入Agent功能。",
+        "perspective": "AI技术竞争白热化，普通人可能更快接触新功能。",
+        "action": "今天可以研究ChatGPT的Agent功能，了解其最新进展。"
+      },
+      {
+        "title": "制糖工厂发布 AI 小电拼 Mirror，支持 AI Agent 原生接入",
+        "url": "https://www.ifanr.com/1667908?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 84,
+        "source": "爱范儿",
+        "summary": "制糖工厂推出了一款新的AI工具，可以更方便地接入AI代理，帮助用户完成各种任务。",
+        "perspective": "普通人以后可能用更简单的工具完成复杂工作，但需要警惕技术门槛降低带来的过度依赖。",
+        "action": "今天可以尝试用AI工具完成一个简单的任务，比如自动整理文件或生成文案。"
+      },
+      {
+        "title": "《国务院关于对外投资的规定》自7月1日起施行",
+        "url": "https://www.williamlong.info/archives/7548.html",
+        "score": 91,
+        "source": "月光博客",
+        "summary": "中国出台新规，从7月1日起对对外投资进行更严格的管理。",
+        "perspective": "出国投资或合作可能需要更多手续，但能更好保护企业和个人的利益。",
+        "action": "今天可以查阅新规细节，了解哪些投资行为需要提前备案。"
+      },
+      {
+        "title": "OpenAI unveils Lockdown Mode to protect sensitive data from prompt injection attacks",
+        "url": "https://techcrunch.com/2026/06/06/openai-unveils-lockdown-mode-to-protect-sensitive-data-from-prompt-injection-attacks/",
+        "score": 99,
+        "source": "TechCrunch",
+        "summary": "OpenAI推出新功能来防止AI被恶意操控，但效果可能有限。",
+        "perspective": "保护隐私比以往更重要，但也不能完全依赖技术手段。",
+        "action": "使用AI时开启安全模式，避免输入敏感信息。"
+      },
+      {
+        "title": "T早报｜英伟达与SK海力士宣布达成多年技术合作；OpenAI计划大幅升级ChatGPT以创造更多收入；SpaceX IPO不对中、俄等国投资者开放",
+        "url": "https://www.caixin.com/2026-06-08/102451888.html",
+        "score": 100,
+        "source": "Caixin",
+        "summary": "英伟达和SK海力士联手搞技术开发，OpenAI要升级ChatGPT赚更多钱，SpaceX的上市不接受中、俄投资者。",
+        "perspective": "科技巨头们正在加速AI发展，但国际合作和开放程度可能受到政治因素影响。",
+        "action": "关注这些科技公司动态，了解AI技术如何改变行业格局。"
+      },
+      {
+        "title": "Rehumanizing global health care with agentic AI",
+        "url": "https://www.technologyreview.com/2026/06/02/1137827/rehumanizing-global-health-care-with-agentic-ai/",
+        "score": 92,
+        "source": "Mit Tr",
+        "summary": "AI被用来改善全球医疗系统，缓解医生短缺和资源不足的问题。",
+        "perspective": "医疗行业可能迎来效率提升，但也要注意AI带来的伦理问题。",
+        "action": "了解AI在医疗领域的应用，关注相关技术发展的新闻。"
+      },
+      {
+        "title": "How Endava is redesigning software delivery around AI agents",
+        "url": "https://openai.com/index/endava-frontiers",
+        "score": 81,
+        "source": "Openai Blog",
+        "summary": "Endava公司用AI重构了软件开发流程，让团队更高效地完成项目。",
+        "perspective": "AI正在改变传统行业的工作方式，可能让某些岗位被取代。",
+        "action": "学习基础的AI编程知识，比如Python，为转型做准备。"
+      }
+    ],
+    "推荐": [
+      {
+        "title": "DeepSeek V4 Pro beats GPT-5.5 Pro on precision",
+        "url": "https://runtimewire.com/article/deepseek-v4-pro-beats-gpt-5-5-pro-on-precision",
+        "score": 71.4,
+        "source": "Hacker News",
+        "summary": "DeepSeek V4 Pro在某些任务上的精确度超过了GPT-5.5 Pro。",
+        "perspective": "这说明AI模型的性能在不断进步，未来可能会在更多领域超越现有大模型。",
+        "action": "关注这类模型更新，尝试用它们解决复杂问题。"
+      },
+      {
+        "title": "Show HN: Lathe – Use LLMs to learn a new domain, not skip past it",
+        "url": "https://github.com/devenjarvis/lathe",
+        "score": 78.8,
+        "source": "Hacker News",
+        "summary": "Lathe是一个让AI帮人类学习新领域的工具，而不是跳过学习过程。",
+        "perspective": "普通人可以通过AI更快掌握新技能，比如编程或设计，但需要主动学习而非依赖AI直接给出答案。",
+        "action": "尝试用Lathe学习一个新技能，比如AI绘画或数据分析。"
+      },
+      {
+        "title": "JimLiu/baoyu-design",
+        "url": "https://github.com/JimLiu/baoyu-design",
+        "score": 77.0,
+        "source": "GitHub",
+        "summary": "JimLiu开发了一个能本地运行的AI设计工具，可以自动生成界面原型。",
+        "perspective": "设计师或开发者可以用它快速制作UI，但要注意本地运行可能需要较高硬件要求。",
+        "action": "查看这个工具的使用教程，学习如何本地部署AI设计功能。"
+      },
+      {
+        "title": "zaydmulani09/mnemo",
+        "url": "https://github.com/zaydmulani09/mnemo",
+        "score": 76.6,
+        "source": "GitHub",
+        "summary": "mnemo是能让AI记住知识的本地工具，能自动整理信息并快速检索。",
+        "perspective": "可以替代传统笔记工具，但需要训练AI理解你的知识体系。",
+        "action": "尝试用它管理个人知识库，比如整理学习笔记。"
+      },
+      {
+        "title": "K-Dense-AI/scientific-agents",
+        "url": "https://github.com/K-Dense-AI/scientific-agents",
+        "score": 76.2,
+        "source": "GitHub",
+        "summary": "Scientific Agents能让AI像专家一样思考，解决复杂技术问题。",
+        "perspective": "科研人员和工程师能用它分析数据，但需要训练AI理解专业领域。",
+        "action": "研究如何构建这类AI的专业知识库。"
+      },
+      {
+        "title": "氪星晚报 ｜日本或通过抛售美债，为创纪录规模的日元汇市干预筹资；俞浩内部发文：未来将继续心无旁骛做实业",
+        "url": "https://36kr.com/p/3840267945969929?f=rss",
+        "score": 74,
+        "source": "36氪",
+        "summary": "日本可能通过卖美债来筹钱干预汇率，某企业家强调专注实体产业。",
+        "perspective": "国家经济政策和企业战略的调整会影响我们的投资选择和就业方向。",
+        "action": "关注政策对经济的影响，适当分散投资风险。"
+      },
+      {
+        "title": "英伟达与斗山集团合作推进物理AI及AI工厂基础设施",
+        "url": "https://blogs.nvidia.com/blog/nvidia-and-doosan-group-physical-ai",
+        "score": 73,
+        "source": "AI热点",
+        "summary": "英伟达和斗山集团联手开发更智能的机器人，把AI技术装进农业机械和工厂设备里。",
+        "perspective": "未来农田里的拖拉机可能自己会修，工厂里的机器人能自主完成任务，普通人可能更少需要人工操作。",
+        "action": "可以关注农业自动化设备的更新，看看有没有适合自己的智能工具。"
+      },
+      {
+        "title": "NVIDIA 与 KRAFTON、NC、T1 在韩国 PC 房庆祝 RTX Spark 发布",
+        "url": "https://blogs.nvidia.com/blog/krafton-nc-t1-korea-gaming-pc-bang-rtx-spark",
+        "score": 73,
+        "source": "AI热点",
+        "summary": "英伟达推出新芯片，让普通人也能在自家电脑上运行强大AI模型。",
+        "perspective": "以后不用租云服务器，可能直接在手机或电脑上用AI做图像处理、语音识别等。",
+        "action": "关注新芯片的发布，看看有没有适合自己的本地AI应用。"
+      },
+      {
+        "title": "Harness-1：基于强化学习训练的有状态搜索20B检索子智能体",
+        "url": "https://www.marktechpost.com/2026/06/06/meet-harness-1-a-20b-retrieval-subagent-trained-with-reinforcement-learning-inside-a-stateful-search-harness-on-gpt-oss-20b",
+        "score": 74,
+        "source": "AI热点",
+        "summary": "新AI系统能更聪明地搜索信息，像有记忆的助手一样工作。",
+        "perspective": "查资料时可能不再需要反复提问，AI会记住之前的信息和判断依据。",
+        "action": "试试用有状态搜索工具整理工作资料，提高效率。"
+      },
+      {
+        "title": "美国众议院议员发布法案草案，旨在禁止各州制定人工智能相关法规",
+        "url": "https://www.reuters.com/business/us-house-lawmakers-release-draft-bill-regulate-ai-2026-06-04",
+        "score": 73,
+        "source": "AI热点",
+        "summary": "美国国会想统一AI规则，不让人家自己定规矩了。",
+        "perspective": "以后制定AI规则可能更统一，但可能会限制地方的创新空间。",
+        "action": "关注AI相关政策，了解哪些领域可能有新变化。"
+      },
+      {
+        "title": "五角大楼正运营着一个针对拉丁美洲的人工智能宣传机器",
+        "url": "https://theintercept.com/2026/06/02/la-tilde-propaganda-latin-america-pentagon",
+        "score": 73,
+        "source": "AI热点",
+        "summary": "美国国防部在拉美地区用AI做宣传，引发争议。",
+        "perspective": "普通人需要警惕AI生成的信息真假，避免被误导。",
+        "action": "今天可以关注AI生成内容的来源，提高辨别能力。"
+      },
+      {
+        "title": "Anthropic：让Claude成为化学家",
+        "url": "https://www.anthropic.com/research/making-claude-a-chemist",
+        "score": 74,
+        "source": "AI热点",
+        "summary": "Anthropic让Claude能像化学家一样分析分子结构。",
+        "perspective": "学生或研究人员可以用Claude辅助化学实验分析。",
+        "action": "今天可以尝试用Claude了解化学分析的基本方法。"
+      },
+      {
+        "title": "Claude 是否增加了 rsync 中的错误？",
+        "url": "https://alexispurslane.github.io/rsync-analysis",
+        "score": 74,
+        "source": "AI热点",
+        "summary": "有人质疑AI可能让rsync工具出现bug。",
+        "perspective": "用户需注意AI应用的潜在风险，避免误用。",
+        "action": "今天可以检查rsync的更新日志，确认是否有相关修复。"
+      },
+      {
+        "title": "Google Colab CLI 发布",
+        "url": "https://developers.googleblog.com/introducing-the-google-colab-cli",
+        "score": 71,
+        "source": "AI热点",
+        "summary": "谷歌发布了一款新命令行工具，让AI开发更简单。",
+        "perspective": "这会让编程和AI实验变得更高效，减少等待时间。",
+        "action": "今天可以尝试安装Colab CLI，看看如何简化开发流程。"
+      },
+      {
+        "title": "大模型发展三年半，AI圈终于等来了一场“不要大厂，只赌脑洞”的比赛",
+        "url": "https://www.qbitai.com/2026/06/431287.html",
+        "score": 76,
+        "source": "量子位",
+        "summary": "AI圈开始了一场不依赖大厂的创新比赛。",
+        "perspective": "普通人可能会看到更多小团队的创意AI应用。",
+        "action": "今天可以看看一些独立开发的AI项目，发掘新可能。"
+      },
+      {
+        "title": "从感知智能到智能体 AI：高通汽车中国布局深化加速",
+        "url": "https://www.ifanr.com/1668242?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 76,
+        "source": "爱范儿",
+        "summary": "高通在汽车领域加快布局，推动AI技术落地。",
+        "perspective": "未来汽车可能变得更智能，驾驶体验会更便利。",
+        "action": "今天可以关注高通在智能汽车方面的最新动态。"
+      },
+      {
+        "title": "早报｜曝苹果Vision Pro系列被砍/多地高考将查验智能眼镜/DeepSeek首轮融资规模约500亿元",
+        "url": "https://www.ifanr.com/1668044?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 76,
+        "source": "爱范儿",
+        "summary": "苹果取消Vision Pro项目，多地高考将查智能眼镜。",
+        "perspective": "科技趋势变化可能影响教育和消费领域。",
+        "action": "今天可以阅读科技新闻，了解最新趋势。"
+      },
+      {
+        "title": "粉笔科技的人大讲座事件的说明与致歉",
+        "url": "https://www.williamlong.info/archives/7549.html",
+        "score": 76,
+        "source": "月光博客",
+        "summary": "粉笔科技的CEO在讲座中情绪失控，被指用不当言论攻击学生。",
+        "perspective": "职场压力可能引发情绪爆发，但这种行为会损害企业形象，普通人需警惕类似事件对信任的影响。",
+        "action": "遇到类似情况时，优先核实信息真实性，避免被情绪化言论误导。"
+      },
+      {
+        "title": "How small businesses can leverage AI",
+        "url": "https://www.technologyreview.com/2026/06/02/1138227/how-small-businesses-can-leverage-ai/",
+        "score": 76,
+        "source": "Mit Tr",
+        "summary": "小企业可以借助AI提升竞争力，比如用AI做市场分析或者客户服务。",
+        "perspective": "AI不再是大公司的专属，普通人也能用它改善自己的生意。",
+        "action": "搜索\"AI小企业工具\"，试试看哪些软件适合自己的业务。"
+      },
+      {
+        "title": "Dreaming: Better memory for a more helpful ChatGPT",
+        "url": "https://openai.com/index/chatgpt-memory-dreaming",
+        "score": 76,
+        "source": "Openai Blog",
+        "summary": "ChatGPT升级了记忆功能，能更好地记住用户偏好，让对话更自然。",
+        "perspective": "AI正在变得\"更懂人\"，但也要注意数据隐私问题。",
+        "action": "尝试使用ChatGPT的新功能，看看它如何提升你的工作效率。"
+      }
+    ],
+    "参考": [
+      {
+        "title": "amElnagdy/guard-skills",
+        "url": "https://github.com/amElnagdy/guard-skills",
+        "score": 61.0,
+        "source": "GitHub",
+        "summary": "Guard Skills是专门用来检查AI生成代码质量的工具，能发现潜在错误。",
+        "perspective": "开发者可以用它减少代码bug，但需要理解其检测逻辑避免误判。",
+        "action": "尝试在项目中加入AI代码审查环节。"
+      },
+      {
+        "title": "CWS6206/ai-coding-starter-kit",
+        "url": "https://github.com/CWS6206/ai-coding-starter-kit",
+        "score": 68.8,
+        "source": "GitHub",
+        "summary": "这是为瑞士团队整理的AI编码实用工具包，包含模板和操作指南。",
+        "perspective": "本地团队能更高效地利用AI辅助开发，但可能对非瑞士用户帮助有限。",
+        "action": "瑞士开发者可参考这些资源提升AI开发效率。"
+      },
+      {
+        "title": "razr001/align-dev",
+        "url": "https://github.com/razr001/align-dev",
+        "score": 69.8,
+        "source": "GitHub",
+        "summary": "AlignDev帮助前端团队统一AI协作标准，让不同工具能更顺畅配合工作。",
+        "perspective": "团队协作时能减少AI工具之间的兼容问题，提升开发效率。",
+        "action": "研究如何建立团队的AI协作规范。"
+      },
+      {
+        "title": "FerroxLabs/wayland",
+        "url": "https://github.com/FerroxLabs/wayland",
+        "score": 60.6,
+        "source": "GitHub",
+        "summary": "Wayland是一个能自我进化的AI代理，能感知环境、推理问题并主动行动。",
+        "perspective": "未来AI可能像人类一样自主学习，但目前还处于实验阶段。",
+        "action": "关注这类前沿AI项目的进展动态。"
+      },
+      {
+        "title": "TheStageAI/edge-lm",
+        "url": "https://github.com/TheStageAI/edge-lm",
+        "score": 68.3,
+        "source": "GitHub",
+        "summary": "edge-lm是专为手机或小设备优化的微型AI模型，能本地运行。",
+        "perspective": "手机用户能更流畅地使用AI功能，比如实时翻译或语音助手。",
+        "action": "关注支持本地运行的AI应用，减少云端依赖。"
+      },
+      {
+        "title": "myccarl/ai-shortVideo-pipeline",
+        "url": "https://github.com/myccarl/ai-shortVideo-pipeline",
+        "score": 69.2,
+        "source": "GitHub",
+        "summary": "这个工具能用AI全自动制作短视频，包含多个模型自动切换。",
+        "perspective": "内容创作者可以省去很多后期制作步骤，但需注意版权问题。",
+        "action": "学习如何利用AI生成短视频素材。"
+      },
+      {
+        "title": "Artain-AI/ignite-ms",
+        "url": "https://github.com/Artain-AI/ignite-ms",
+        "score": 61.0,
+        "source": "GitHub",
+        "summary": "ignite-ms是用本地GPU加速的AI信息处理引擎，能快速完成搜索任务。",
+        "perspective": "适合需要快速处理大量数据的场景，比如电商或金融行业。",
+        "action": "了解如何在本地服务器部署这类工具。"
+      },
+      {
+        "title": "Wadan3/ai-api-firewall",
+        "url": "https://github.com/Wadan3/ai-api-firewall",
+        "score": 61.0,
+        "source": "GitHub",
+        "summary": "这是一个能自动识别并拦截网络攻击的智能系统，像网络世界的“保安”一样实时工作。",
+        "perspective": "咱们上网时的数据安全能被更有效地保护，比如防止个人信息被盗用或网站被黑。",
+        "action": "今天可以先了解基础的网络安全知识，比如不点击可疑链接。"
+      },
+      {
+        "title": "中国入境游距离「世界第一」还有多远？",
+        "url": "https://36kr.com/p/3840001908361472?f=rss",
+        "score": 61,
+        "source": "36氪",
+        "summary": "中国旅游专家认为自然景观是吸引外国游客的关键，山景可能成热门目的地。",
+        "perspective": "AI可能让旅游体验更智能，但自然风光仍是不可替代的吸引力。",
+        "action": "计划一次国内山景旅行，体验AI辅助的旅游服务。"
+      },
+      {
+        "title": "前华为员工创业线控底盘，曾参编国标，获松禾、苏高新投资丨36氪首发",
+        "url": "https://36kr.com/p/3839600052898054?f=rss",
+        "score": 69,
+        "source": "36氪",
+        "summary": "一名前华为员工创办的公司获得投资，专注于汽车智能化技术。",
+        "perspective": "自动驾驶技术可能更快落地，未来出行会更智能更安全。",
+        "action": "学习汽车电子技术或关注智能驾驶发展动态。"
+      },
+      {
+        "title": "英伟达与LG集团合建AI工厂，合作推进机器人、自动驾驶及自主AI",
+        "url": "https://36kr.com/newsflashes/3843985339664896?f=rss",
+        "score": 69,
+        "source": "36氪",
+        "summary": "英伟达和LG联手建AI工厂，一起研发机器人和自动驾驶所需的技术。",
+        "perspective": "这对推动AI在制造业和交通的应用有重要影响，未来可能改变我们的出行方式。",
+        "action": "了解机器人技术最新进展，关注AI在汽车行业的应用案例。"
+      },
+      {
+        "title": "摩根大通据悉正在招聘野村的国际AI策略主管",
+        "url": "https://36kr.com/newsflashes/3843954056612096?f=rss",
+        "score": 61,
+        "source": "36氪",
+        "summary": "摩根大通正在挖野村的人才，要强化AI在金融领域的应用。",
+        "perspective": "AI正在改变传统金融行业，未来可能需要更多技术型人才。",
+        "action": "学习AI基础课程，提升数据分析能力。"
+      },
+      {
+        "title": "自然资源部：坚持存量优先供地导向，经营性项目优先使用存量用地",
+        "url": "https://36kr.com/newsflashes/3843938540603650?f=rss",
+        "score": 60,
+        "source": "36氪",
+        "summary": "政府鼓励企业优先使用已有土地，减少新开发对环境的影响。",
+        "perspective": "这可能让城市更新更高效，但也会让房地产市场更复杂。",
+        "action": "关注本地土地政策变化，合理规划房产投资。"
+      },
+      {
+        "title": "韩国总统李在明称将推出大规模投资项目，承诺为经济寻找新的增长引擎",
+        "url": "https://36kr.com/newsflashes/3843937817970945?f=rss",
+        "score": 61,
+        "source": "36氪",
+        "summary": "韩国总统计划用半导体行业赚的钱推动AI和经济转型。",
+        "perspective": "国家层面的AI投资会带来更多机会，也可能改变全球科技竞争格局。",
+        "action": "了解韩国科技政策，关注AI相关职业发展。"
+      },
+      {
+        "title": "Nvidia 与 SK Hynix 签署多年协议，共同开发下一代 AI 存储芯片",
+        "url": "https://www.bloomberg.com/news/articles/2026-06-07/nvidia-sk-hynix-sign-multi-year-pact-to-develop-next-gen-chips",
+        "score": 66,
+        "source": "AI热点",
+        "summary": "英伟达和三星合作研发新一代AI存储芯片，未来能提升AI运算效率。",
+        "perspective": "硬件升级会让AI应用更强大，比如更流畅的智能设备体验。",
+        "action": "了解AI芯片技术发展，关注行业动态。"
+      },
+      {
+        "title": "OpenAI 仍推进超级应用计划",
+        "url": "https://techcrunch.com/2026/06/07/openai-is-still-working-on-that-super-app",
+        "score": 66,
+        "source": "AI热点",
+        "summary": "OpenAI虽然说聊天机器人不行了，但还在研发能处理复杂任务的超级系统。",
+        "perspective": "AI可能会从单纯聊天转向管理整个工作流程，像一个全能的\"数字助理\"。",
+        "action": "看看有没有能集成AI任务管理的软件，提前适应这种变化。"
+      },
+      {
+        "title": "Slop、生产力，以及为何AI驱动的世界进展甚微",
+        "url": "https://garymarcus.substack.com/p/slop-productivity-and-why-the-ai",
+        "score": 66,
+        "source": "AI热点",
+        "summary": "AI虽然能做很多事情，但实际效果可能不如想象中那么好。",
+        "perspective": "别指望AI能立刻解决所有问题，它可能还像刚学走路的孩子，要慢慢练。",
+        "action": "先从简单场景测试AI，比如用它整理资料，再逐步尝试复杂任务。"
+      },
+      {
+        "title": "Harness 工程：在智能体优先的世界中运用 Codex",
+        "url": "https://openai.com/index/harness-engineering",
+        "score": 66,
+        "source": "AI热点",
+        "summary": "有人用AI模拟经济系统，让不同角色互相影响做出决策。",
+        "perspective": "AI可能会用来模拟社会现象，比如预测市场变化或设计虚拟社区。",
+        "action": "研究AI模拟工具，看看能不能用在自己的项目里。"
+      },
+      {
+        "title": "OpenCV 5 发布：升级全新 DNN 引擎、原生支持大模型",
+        "url": "https://www.ithome.com/0/960/969.htm",
+        "score": 66,
+        "source": "AI热点",
+        "summary": "新软件能更好地处理图片和视频，还能和大模型配合使用。",
+        "perspective": "拍照片、看视频时可能会有更智能的分析功能，比如自动识别物体。",
+        "action": "试试用新软件处理图像，看看能不能更快找到需要的信息。"
+      },
+      {
+        "title": "5分钟AI长视频不翻车！国产开源框架杀到全球第一梯队",
+        "url": "https://www.qbitai.com/2026/06/431401.html",
+        "score": 69,
+        "source": "量子位",
+        "summary": "中国团队开发的AI框架表现突出，能稳定处理长视频。",
+        "perspective": "用户可能能用更便宜的国产工具获得高质量AI服务。",
+        "action": "今天可以搜索国产AI框架，看看有没有适合自己的工具。"
+      },
+      {
+        "title": "派早报：乘用车越造越重，12 年增重近 400 公斤",
+        "url": "https://sspai.com/post/110847",
+        "score": 61,
+        "source": "少数派",
+        "summary": "汽车越来越重，12年增加了近400公斤。",
+        "perspective": "这可能影响油耗和环保，但也可能提升安全性。",
+        "action": "今天可以了解一下轻量化汽车技术，为环保做贡献。"
+      },
+      {
+        "title": "垃圾桶里捡零件，弹幕里接需求，B 站有群人在用 AI 野生造产品",
+        "url": "https://www.ifanr.com/1668088?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 61,
+        "source": "爱范儿",
+        "summary": "B站有人用AI拼凑零件，根据弹幕需求做产品。",
+        "perspective": "普通人也能参与创意制作，AI可能成为新工具。",
+        "action": "今天可以看看B站上的AI造产品视频，激发自己的创意。"
+      },
+      {
+        "title": "今年最值得升级的生产力工具，可能是一整张 AI 工位",
+        "url": "https://www.ifanr.com/1667995?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 69,
+        "source": "爱范儿",
+        "summary": "AI工位成为提升工作效率的新选择。",
+        "perspective": "工作方式可能变得更高效，但需要合理搭配工具。",
+        "action": "今天可以检查自己的工作台，看看哪些工具能用AI提升效率。"
+      },
+      {
+        "title": "刚刚，Windows「梦中神机」来了，把你的 PC 变成 Agent 工位",
+        "url": "https://www.ifanr.com/1667971?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 68,
+        "source": "爱范儿",
+        "summary": "微软发布自研AI模型，让电脑变身为智能工作台。",
+        "perspective": "个人电脑的AI能力将大幅增强，操作更灵活。",
+        "action": "今天可以尝试微软的AI模型，看看如何优化自己的工作流程。"
+      },
+      {
+        "title": "AI编程从零开始：环境配置到开发调试",
+        "url": "https://www.williamlong.info/archives/7544.html",
+        "score": 63,
+        "source": "月光博客",
+        "summary": "有人用AI十分钟就写出了Chrome插件，说明AI确实让编程更简单了。",
+        "perspective": "普通人可能不需要专业编程知识也能开发工具，但也要注意AI生成代码的安全性。",
+        "action": "尝试用AI辅助完成一个简单的网页功能开发。"
+      },
+      {
+        "title": "Notion restores access to Anthropic after service disruption",
+        "url": "https://techcrunch.com/2026/06/07/notion-restores-access-to-anthropic-after-service-disruption/",
+        "score": 61,
+        "source": "TechCrunch",
+        "summary": "Notion恢复了对Anthropic的服务访问，产品负责人表示很惊讶。",
+        "perspective": "这说明AI服务稳定性在提升，但用户仍需关注服务商的更新动态。",
+        "action": "检查自己的AI工具是否正常运行，及时更新相关应用。"
+      },
+      {
+        "title": "OpenAI is still working on that ‘super app’",
+        "url": "https://techcrunch.com/2026/06/07/openai-is-still-working-on-that-super-app/",
+        "score": 61,
+        "source": "TechCrunch",
+        "summary": "OpenAI正在开发一个能整合所有功能的超级应用，但员工说聊天功能可能被淘汰。",
+        "perspective": "未来AI工具可能会变得更全能，但需要适应新的使用方式。",
+        "action": "关注OpenAI的最新动态，尝试使用其整合的AI功能。"
+      },
+      {
+        "title": "Sriram Krishnan is leaving his role as White House AI advisor",
+        "url": "https://techcrunch.com/2026/06/06/sriram-krishnan-is-leaving-his-role-as-white-house-ai-advisor/",
+        "score": 61,
+        "source": "TechCrunch",
+        "summary": "白宫AI顾问要离职，准备成立新机构继续推动特朗普的AI政策。",
+        "perspective": "美国AI政策方向可能有变，但核心目标仍会围绕技术发展展开。",
+        "action": "今天可以搜索特朗普的AI政策关键词，了解其未来规划。"
+      },
+      {
+        "title": "The Trump administration might take an equity stake in OpenAI",
+        "url": "https://techcrunch.com/2026/06/06/the-trump-administration-might-take-an-equity-stake-in-openai/",
+        "score": 61,
+        "source": "TechCrunch",
+        "summary": "特朗普考虑对OpenAI进行投资，声称这是为了造福美国民众。",
+        "perspective": "政府介入AI行业可能影响企业自主性，但也能推动技术普及。",
+        "action": "关注政府对AI行业的监管动向，了解政策对普通人的潜在影响。"
+      },
+      {
+        "title": "Reddit Ads Impersonate BBC and The Guardian to Push Fake AI Investment Schemes",
+        "url": "https://tech.slashdot.org/story/26/06/07/064204/reddit-ads-impersonate-bbc-and-the-guardian-to-push-fake-ai-investment-schemes?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+        "score": 61,
+        "source": "Slashdot",
+        "summary": "Reddit上的虚假广告伪装成BBC和卫报，诱导用户参与AI投资骗局。",
+        "perspective": "网络诈骗越来越聪明，需要更谨慎地辨别信息来源。",
+        "action": "今天检查社交媒体上的投资广告，确认是否来自官方渠道。"
+      },
+      {
+        "title": "Donald Trump, Bernie Sanders And Sam Altman Are All Talking About Public Ownership In AI",
+        "url": "https://news.slashdot.org/story/26/06/07/0516250/donald-trump-bernie-sanders-and-sam-altman-are-all-talking-about-public-ownership-in-ai?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+        "score": 61,
+        "source": "Slashdot",
+        "summary": "三位重要人物都在讨论让AI技术归全民所有，可能引发行业变革。",
+        "perspective": "AI可能从私人企业转向公共管理，普通人未来可能更直接参与技术发展。",
+        "action": "搜索\"AI公共所有权\"相关话题，了解政策讨论的进展。"
+      },
+      {
+        "title": "An OpenAI model solved a famous math problem that stumped humans for 80 years",
+        "url": "https://arstechnica.com/ai/2026/06/openais-math-breakthrough-played-to-ais-strengths/",
+        "score": 61,
+        "source": "Ars Technica",
+        "summary": "AI模型破解了困扰人类80年的数学难题，展示出强大的计算能力。",
+        "perspective": "AI正在突破人类认知边界，未来可能帮助解决更多复杂问题。",
+        "action": "今天可以尝试用AI工具解决一个数学或编程难题。"
+      },
+      {
+        "title": "Introducing the Services Track and Partner Hub of the Claude Partner Network",
+        "url": "https://www.anthropic.com/news/services-track-partner-hub",
+        "score": 61,
+        "source": "Anthropic News",
+        "summary": "Claude推出新的服务渠道和合作伙伴平台，让开发者更容易使用AI。",
+        "perspective": "更多企业可能借助AI提升效率，但需要选择靠谱的合作伙伴。",
+        "action": "关注Claude官方的合作伙伴信息，寻找适合自己需求的AI服务。"
+      },
+      {
+        "title": "Anthropic raises $65B in Series H funding at $965B post-money valuation",
+        "url": "https://www.anthropic.com/news/series-h",
+        "score": 61,
+        "source": "Anthropic News",
+        "summary": "Anthropic获得650亿美元融资，估值达到9650亿美元，成为AI领域巨头。",
+        "perspective": "AI公司发展速度惊人，但也要警惕资本泡沫带来的风险。",
+        "action": "今天查阅AI行业最新融资消息，了解哪些公司处于上升期。"
+      },
+      {
+        "title": "Introducing Claude Opus 4.8",
+        "url": "https://www.anthropic.com/news/claude-opus-4-8",
+        "score": 61,
+        "source": "Anthropic News",
+        "summary": "Claude推出了新版本4.8，可能带来更多实用功能。",
+        "perspective": "AI工具持续升级，用户需要不断学习新功能才能保持竞争力。",
+        "action": "今天尝试使用Claude新版本的某个功能，体验升级带来的变化。"
+      },
+      {
+        "title": "KPMG integrates Claude across its core business and workforce of more than 276,000 in strategic alliance",
+        "url": "https://www.anthropic.com/news/anthropic-kpmg",
+        "score": 61,
+        "source": "Anthropic News",
+        "summary": "KPMG这家大公司把Claude这个AI助手用到了超过27万人的团队和核心业务中，实现战略合作。",
+        "perspective": "AI正在进入我们日常生活和工作的方方面面，连专业机构都在用AI提高效率。",
+        "action": "今天可以尝试用简单的AI工具，比如聊天机器人，看看它在日常工作中能帮你做什么。"
+      },
+      {
+        "title": "Gemini for Science: AI experiments and tools for a new era of discovery",
+        "url": "https://deepmind.google/blog/gemini-for-science-ai-experiments-and-tools-for-a-new-era-of-discovery/",
+        "score": 61,
+        "source": "Deepmind",
+        "summary": "Google推出了专门用于科研的AI工具，让科学家能用更精准的方式探索新发现。",
+        "perspective": "AI正在成为科研的得力助手，未来可能会有更多突破性成果诞生。",
+        "action": "可以搜索\"AI科研工具\"看看有哪些免费或低成本的AI辅助软件。"
+      },
+      {
+        "title": "The Download: AI hacking beyond Mythos, and chatbots’ impact on our brains",
+        "url": "https://www.technologyreview.com/2026/06/05/1138452/the-download-ai-hacking-mythos-chatbots-brain-impacts/",
+        "score": 68,
+        "source": "Mit Tr",
+        "summary": "这期科技简报讲了AI黑客攻击的新方式，还有聊天机器人对人类大脑的影响。",
+        "perspective": "AI技术可能被用来做坏事，同时也在悄悄改变我们的思维方式。",
+        "action": "检查自己的账号安全设置，避免被AI生成的虚假信息误导。"
+      },
+      {
+        "title": "The Meta hack shows there’s more to AI security than Mythos",
+        "url": "https://www.technologyreview.com/2026/06/05/1138437/the-meta-hack-shows-theres-more-to-ai-security-than-mythos/",
+        "score": 68,
+        "source": "Mit Tr",
+        "summary": "有人用Meta的AI客服系统盗取Instagram账号，暴露出AI安全漏洞。",
+        "perspective": "AI虽然强大，但安全性仍需加强，保护个人信息要更谨慎。",
+        "action": "给重要账号设置双重验证，避免被自动化工具攻击。"
+      },
+      {
+        "title": "The Download: AI-generated lawsuits and virtual power plants for data centers",
+        "url": "https://www.technologyreview.com/2026/06/04/1138408/the-download-ai-lawsuits-virtual-power-plants-data-centers/",
+        "score": 61,
+        "source": "Mit Tr",
+        "summary": "科技简报提到AI能生成虚假诉讼文件，还开发出能管理数据中心的虚拟电厂。",
+        "perspective": "AI可能带来新问题，但也正在改变能源和法律行业的工作方式。",
+        "action": "了解AI在法律和能源领域的应用，学习基础的AI分析技能。"
+      },
+      {
+        "title": "How courts are coping with a flood of AI-generated lawsuits",
+        "url": "https://www.technologyreview.com/2026/06/04/1138391/courts-coping-ai-lawsuits/",
+        "score": 61,
+        "source": "Mit Tr",
+        "summary": "法院法官每天要处理大量由AI写的诉讼文件，有点手忙脚乱。",
+        "perspective": "AI正在改变法律行业，可能让法官的工作更复杂也更高效。",
+        "action": "关注AI在法律行业的应用，学习基本的法律文书知识。"
+      },
+      {
+        "title": "The Download: AI can run your admin department now",
+        "url": "https://www.technologyreview.com/2026/06/02/1138277/the-download-ai-tips-small-businesses-admin/",
+        "score": 61,
+        "source": "Mit Tr",
+        "summary": "科技简报说AI现在能接管企业的行政管理工作，比如安排会议、处理文件。",
+        "perspective": "AI可能会让一些行政工作变得更简单，但也会改变职业需求。",
+        "action": "尝试用AI工具处理日常办公任务，看看能节省多少时间。"
+      },
+      {
+        "title": "A blueprint for democratic governance of frontier AI",
+        "url": "https://openai.com/index/frontier-safety-blueprint",
+        "score": 61,
+        "source": "Openai Blog",
+        "summary": "OpenAI提出了AI治理方案，想让政府制定规则来确保AI技术的安全使用。",
+        "perspective": "AI发展需要规范，这可能影响未来的技术应用和政策走向。",
+        "action": "关注AI相关政策，参与公众讨论。"
+      },
+      {
+        "title": "OpenAI public policy agenda",
+        "url": "https://openai.com/index/public-policy-agenda",
+        "score": 61,
+        "source": "Openai Blog",
+        "summary": "OpenAI计划从安全、青少年保护到全球标准，全面推动AI的健康发展。",
+        "perspective": "AI的普及需要配套的政策保障，这关系到每个人未来的生活。",
+        "action": "了解AI相关政策，思考如何让AI技术更公平地惠及所有人。"
+      },
+      {
+        "title": "Travelers deploys AI-powered claims countrywide with OpenAI",
+        "url": "https://openai.com/index/travelers",
+        "score": 61,
+        "source": "Openai Blog",
+        "summary": "保险公司用AI助手处理理赔，能全天候服务还能应对高峰期。",
+        "perspective": "AI让服务更高效，但可能让传统客服工作减少。",
+        "action": "关注AI在保险行业的应用，学习基础的AI客服使用技巧。"
+      }
+    ]
+  }
+}

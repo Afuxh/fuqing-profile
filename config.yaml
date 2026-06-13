@@ -1,0 +1,364 @@
+# Hot News Aggregator Configuration
+# 热点聚合网站配置文件 v3.4
+
+# ============ 网站基本信息 ============
+site:
+  title: "AI 时代观察"
+  subtitle: "效率归机器，意义归人类"
+  description: "以个人成长视角追踪时代脉搏——AI、科技、时事、财经、生活方式，全领域热点一站聚合。扶清闲话 · AI时代观察。"
+  author: "扶清闲话"
+  url: "https://afuxh.github.io/fuqing-profile/hot-news.html"  # 部署后的URL
+
+# ============ 数据源配置 ============
+sources:
+  hackernews:
+    enabled: true
+    limit: 30               # 50→30 减少抓取量
+  github:
+    enabled: true
+    queries: ["ai", "llm", "machine-learning"]
+    days: 7
+    limit: 10               # 15→10
+  producthunt:
+    enabled: true
+    limit: 20               # 40→20
+  # === 中文源 ===
+  _36kr:
+    enabled: true           # 36氪 RSS
+    limit: 30
+    rss_url: "https://36kr.com/feed"
+  v2ex:
+    enabled: false          # V2EX 热门
+    limit: 30
+    api_url: "https://www.v2ex.com/api/topics/hot.json"
+  weibo:
+    enabled: false          # 微博热搜（第三方API）
+    limit: 20
+    api_url: ""             # 填写你的API地址，留空使用默认第三方源
+    # 支持的第三方API格式：返回 [{title, hot_score, url}, ...] 的JSON接口
+    # 推荐：自建RSSHub、或使用 tenapi.cn 等公共服务
+  # === AI热点源 ===
+  aihot:
+    enabled: true           # 卡兹克AI热点 https://aihot.virxact.com/
+    base_url: "https://aihot.virxact.com/"
+    limit: 40               # 抓取条数上限
+    pages: 1                # 抓取页数（每页约20条）
+    categories:             # 要抓取的分类（空=全部）
+      - ""                  # 可选: ai-models, ai-products, industry, paper, tip
+    # 该站为SSR渲染的HTML页面，通过解析正文提取
+  jiqizhixin:
+    enabled: false          # 机器之心 — WAF拦截，RSS不可用
+    rss_url: "https://www.jiqizhixin.com/rss"
+    limit: 20
+  qbitai:
+    enabled: true           # 量子位 https://www.qbitai.com
+    rss_url: "https://www.qbitai.com/feed"
+    limit: 20
+  sspai:
+    enabled: true           # 少数派 https://sspai.com
+    rss_url: "https://sspai.com/feed"
+    limit: 15
+  ithome:
+    enabled: false          # IT之家 — RSS 404，无可替代
+    rss_url: "http://www.ithome.com/rss.xml"
+    limit: 20
+  huxiu:
+    enabled: false          # 虎嗅 — RSS全部超时
+    rss_url: "https://www.huxiu.com/rss/0.xml"
+    limit: 20
+  tmtpost:
+    enabled: false          # 钛媒体 — RSS超时
+    rss_url: "http://www.tmtpost.com/rss.xml"
+    limit: 15
+  geekpark:
+    enabled: false          # 极客公园 — 站点连接超时
+    rss_url: "http://feeds.geekpark.net/"
+    limit: 15
+  ifanr:
+    enabled: true           # 爱范儿 https://www.ifanr.com/feed
+    rss_url: "https://www.ifanr.com/feed"
+    limit: 15
+  pingwest:
+    enabled: false          # 品玩 — 所有端点HTTP 405
+    rss_url: "https://www.pingwest.com/feed"
+    limit: 15
+  cnbeta:
+    enabled: true           # cnBeta https://www.cnbeta.com.tw（HTML抓取模式）
+    rss_url: "https://www.cnbeta.com.tw/backend.php?mod=news"
+    limit: 20
+  williamlong:
+    enabled: true           # 月光博客 https://feed.williamlong.info/
+    rss_url: "https://feed.williamlong.info/"
+    limit: 15
+  techcrunch:
+    enabled: true           # TechCrunch https://techcrunch.com/feed/
+    rss_url: "https://techcrunch.com/feed/"
+    limit: 15
+  slashdot:
+    enabled: true           # Slashdot https://slashdot.org/
+    rss_url: "https://rss.slashdot.org/Slashdot/slashdotMain"
+    limit: 15
+  nikkei:
+    enabled: true           # 日经亚洲 https://asia.nikkei.com/
+    rss_url: "https://asia.nikkei.com/rss/feed"
+    limit: 15
+  zdnet:
+    enabled: true           # ZDNet https://www.zdnet.com/
+    rss_url: "https://www.zdnet.com/rss.xml"
+    limit: 15
+  # === 多领域扩展源 ===
+  pengpai:
+    enabled: false          # 澎湃新闻 — RSS重定向到首页，无替代
+    rss_url: "https://www.thepaper.cn/rss/newsDetail.xml"
+    limit: 20
+  zhihu:
+    enabled: false          # 知乎热榜 — 无官方RSS，RssHub不可用
+    rss_url: "https://rsshub.app/zhihu/hotlist"
+    limit: 20
+  infzm:
+    enabled: false          # 南方周末 — 所有RSS URL返回404
+    rss_url: "https://rsshub.app/infzm/2"
+    limit: 15
+  zaobao:
+    enabled: false          # 联合早报 — RSS返回HTML非XML
+    rss_url: "https://rsshub.app/zaobao/realtime/china"
+    limit: 15
+  bbc:
+    enabled: false          # BBC中文 — 国内超时（被墙），RssHub不可用
+    rss_url: "https://rsshub.app/bbc/chinese"
+    limit: 15
+  arstechnica:
+    enabled: true           # Ars Technica https://arstechnica.com/
+    rss_url: "https://feeds.arstechnica.com/arstechnica/features"
+    limit: 15
+  theverge:
+    enabled: true           # The Verge https://www.theverge.com/
+    rss_url: "https://www.theverge.com/rss/index.xml"
+    limit: 15
+  npr:
+    enabled: true           # NPR新闻 https://www.npr.org/
+    rss_url: "https://feeds.npr.org/1001/rss.xml"
+    limit: 15
+
+  # === v3.9 价值标签驱动新增数据源（2026-06-05） ===
+  # 每个源标注关联的价值标签，按需开启
+  arxiv_ai:
+    enabled: false          # arXiv CS.AI 🔬技术突破 — AI/ML 最新论文
+    rss_url: "http://export.arxiv.org/rss/cs.AI"
+    limit: 15
+    value_tags: ["技术突破"]
+  huggingface:
+    enabled: false          # HuggingFace Blog 🔬技术突破 — 开源模型/数据集/社区动态
+    rss_url: "https://huggingface.co/blog/feed.xml"
+    limit: 15
+    value_tags: ["技术突破"]
+  openai_blog:
+    enabled: false          # OpenAI Blog 🏢巨头布局 — 官方发布/研究方向
+    rss_url: "https://openai.com/blog/rss.xml"
+    limit: 15
+    value_tags: ["巨头布局"]
+  google_ai:
+    enabled: false          # Google AI Blog 🏢巨头布局 — Google DeepMind/Research
+    rss_url: "https://blog.research.google/feeds/posts/default?alt=rss"
+    limit: 15
+    value_tags: ["巨头布局"]
+  mit_techreview:
+    enabled: false          # MIT Technology Review 🏭产业落地 🌍社会影响
+    rss_url: "https://www.technologyreview.com/feed/"
+    limit: 15
+    value_tags: ["产业落地", "社会影响"]
+  thehackernews:
+    enabled: false          # The Hacker News 🛡️安全合规 — 网络安全/AI安全
+    rss_url: "https://feeds.feedburner.com/TheHackersNews"
+    limit: 15
+    value_tags: ["安全合规"]
+  crunchbase:
+    enabled: false          # Crunchbase News 📈投资风向 — AI创投/融资动态
+    rss_url: "https://news.crunchbase.com/feed/"
+    limit: 15
+    value_tags: ["投资风向"]
+  wired:
+    enabled: false          # Wired 🌍社会影响 — 科技与社会交叉话题
+    rss_url: "https://www.wired.com/feed/rss"
+    limit: 15
+    value_tags: ["社会影响", "产业落地"]
+
+# ============ 去重配置 ============
+dedup:
+  enabled: true             # 是否启用多源去重
+  fuzzy_threshold: 0.8      # 模糊匹配相似度阈值（0-1），越高越严格
+  merge_sources: true       # 重复内容是否合并显示多来源标签
+
+# ============ 评分系统 ============
+scoring:
+  # 档位配置（三档制：精选/推荐/参考，可改为四档制 S/A/B/C）
+  levels:
+    - name: "精选"
+      threshold: 80
+      color: "#c8786a"
+      description: "高质量内容"
+    - name: "推荐"
+      threshold: 70
+      color: "#b8956a"
+      description: "值得阅读"
+    - name: "参考"
+      threshold: 60
+      color: "#8a9598"
+      description: "可作参考"
+  
+  # 关键词权重
+  keywords:
+    # --- 核心关键词（每个命中 +15 分，标题命中额外 +8） ---
+    core: ["AI", "人工智能", "大模型", "LLM", "GPT", "Claude", "ChatGPT", 
+           "Agent", "智能体", "机器学习", "深度学习", "经济", "政策", "社会", "教育", "健康",
+           "科学", "创新", "创业", "全球化", "碳中和", "太空",
+           "IP打造", "个人品牌", "内容创作", "自媒体", "知识付费",
+           "心理学", "阿德勒", "课题分离", "非暴力沟通", "认知升级",
+           # --- v3.9 价值标签关键词（核心级） ---
+           # 💰 变现赛道
+           "AI付费", "订阅制", "商业化", "变现", "SaaS", "创作者经济", "API定价",
+           # 🏭 产业落地
+           "产业落地", "制造业AI", "医疗AI", "金融AI", "智慧城市", "企业数字化",
+           # ⚡ 提效工具
+           "AI助手", "Copilot", "自动化工具", "工作流引擎",
+           # 🛡️ 安全合规
+           "AI安全", "数据隐私", "深度伪造", "Deepfake", "模型安全",
+           # 📈 投资风向
+           "融资", "IPO", "收购", "独角兽", "估值",
+           # 🏢 巨头布局
+           "OpenAI", "Google DeepMind", "Microsoft AI", "Meta AI", "NVIDIA",
+           # 🔬 技术突破
+           "开源模型", "SOTA", "多模态", "推理能力", "新架构",
+           # 🌍 社会影响
+           "AI伦理", "AI监管", "欧盟AI法案", "就业影响"]
+    extended: ["开源", "GitHub", "自动化", "工具", "效率", "生产力", 
+               "框架", "SDK", "API", "成长", "认知", "思维", "职场", "投资",
+               "生活方式", "读书", "心理学", "设计", "产品",
+               "公众号运营", "小红书", "短视频", "直播", "私域",
+               "复利", "外显化", "专门化", "MCP", "飞书", "Notion",
+               "Prompt", "RAG", "工作流", "低代码",
+               # --- v3.9 价值标签关键词（扩展级） ---
+               # 💰 变现赛道
+               "付费墙", "会员制", "广告变现", "电商AI", "PLG", "定价策略", "免费增值",
+               # 🏭 产业落地
+               "工业4.0", "数字孪生", "农业AI", "教育AI", "行业解决方案", "POC", "ROI",
+               # ⚡ 提效工具
+               "无代码", "浏览器插件", "IDE插件", "快捷键", "自动化脚本", "模板", "批量处理",
+               # 🛡️ 安全合规
+               "合规", "GDPR", "内容审核", "红队测试", "对抗攻击", "越狱", "提示注入",
+               # 📈 投资风向
+               "风投", "天使轮", "A轮", "SPAC", "并购", "退出", "二级市场", "市值",
+               # 🏢 巨头布局
+               "字节跳动", "百度AI", "阿里云", "腾讯AI", "华为AI", "战略发布", "产品矩阵", "生态",
+               # 🔬 技术突破
+               "论文", "基准测试", "benchmark", "上下文窗口", "扩散模型", "RLHF", "MoE",
+               # 🌍 社会影响
+               "失业", "数字鸿沟", "偏见", "公平性", "可解释性", "人类反馈", "教育变革"]
+    exclude: ["股票", "基金", "投资理财", "娱乐", "明星", "游戏", "八卦", "彩票"]
+
+# ============ AI 评论生成 ============
+ai_insights:
+  enabled: true            # 是否启用视角评论+行动引导
+  mode: "api"              # api=调用LLM自动生成
+  # --- API模式配置 ---
+  # 使用硅基流动 SiliconFlow（国内免费、无需翻墙）
+  # 注册地址：https://cloud.siliconflow.cn
+  api:
+    provider: "siliconflow"  # siliconflow / groq / deepseek / openai / custom
+    endpoint: "https://api.siliconflow.cn/v1/chat/completions"
+    api_key: "${SILICONFLOW_API_KEY}"  # 从环境变量读取
+    model: "Qwen/Qwen3-8B"  # 免费模型: Qwen/Qwen3-8B, deepseek-ai/DeepSeek-V3
+    max_tokens: 300
+  # --- 生成范围 ---
+  min_level: "参考"        # 为所有级别生成评论
+  max_items: 100           # 最多生成条数（需 ≥ 展示卡片数）
+  # --- 提示词模板 ---
+  prompts:
+    perspective: "你是AI时代观察者。用1-2句中文点评以下内容的行业价值，要有洞见。标题：{title}。摘要：{summary}"
+    action: "针对以下AI相关内容，用1句中文给读者具体行动建议。标题：{title}"
+
+# ============ 邮件订阅 ============
+email:
+  enabled: false
+  send_mode: "both"         # auto=生成后自动发, manual=手动命令, both=两者都支持
+  schedule: "daily"         # daily / weekly
+  min_level: "精选"         # 只推送该级别及以上
+  # --- SMTP配置 ---
+  smtp_host: "smtp.qq.com"
+  smtp_port: 587
+  smtp_use_tls: true
+  sender: ""                # 发件邮箱
+  sender_name: "热点聚合"
+  password: ""              # SMTP授权码（可从环境变量读取: ${EMAIL_PASSWORD}）
+  recipients:
+    - ""                    # 收件邮箱列表
+
+# ============ 主题配置 ============
+theme:
+  mode: "dark"  # dark 或 light
+  
+  dark:
+    background: "#121118"
+    card: "rgba(28,26,35,0.65)"
+    text_primary: "#e8e0d4"
+    text_secondary: "#9a9284"
+    accent: "#c8a45c"
+    border: "rgba(150,140,120,0.1)"
+  
+  light:
+    background: "#f8f5f0"
+    card: "rgba(255,252,245,0.85)"
+    text_primary: "#2c2822"
+    text_secondary: "#6b655c"
+    accent: "#a08050"
+    border: "rgba(160,140,110,0.15)"
+
+# ============ 动画配置 ============
+animations:
+  enabled: true
+  breathe: true
+  pulse: true
+  float: true
+  hover: true
+
+# ============ 翻译配置 ============
+translate:
+  enabled: true
+  # 翻译源：deep_translator (Google Translate)
+
+# ============ 更新配置 ============
+update:
+  schedule: "0 1 * * *"
+  timezone: "Asia/Shanghai"
+
+# ============ 其他配置 ============
+misc:
+  show_score: true
+  show_source: true
+  show_update_time: true
+  items_per_page: 20
+  show_perspective: true    # 是否显示视角评论区域
+  show_action: true         # 是否显示行动引导区域
+
+# ============ 部署配置 ============
+deployment:
+  primary:
+    platform: "edgeone-pages"        # 腾讯云 EdgeOne Pages（国内首选）
+    url: "https://fuqing-profile-fqh7n0sj.edgeone.cool/hot-news.html"
+    project_id: "pages-rxppuuwp9zu2" # EdgeOne 项目 ID
+    project_name: "fuqing-profile"   # EdgeOne 项目名
+    deploy_dir: "site/"              # 部署目录（纯静态HTML，无需构建）
+    framework: "none"                # 无框架
+    auto_deploy: true                # git push 自动部署
+    console: "https://console.cloud.tencent.com/edgeone/pages/project/pages-rxppuuwp9zu2"
+    # 部署命令: edgeone pages deploy site/ --name fuqing-profile
+    # 注意: 默认域名有 eo_token 访问保护（3小时有效）
+    # 公开访问需绑定自定义域名（项目设置 → 域名管理）
+  mirror:
+    platform: "cloudflare-pages"     # Cloudflare Pages（海外备选/兜底）
+    url: ""                          # 注册后填入: https://<project>.pages.dev/hot-news.html
+    project_name: "fuqing-profile"
+    # 部署: npx wrangler pages deploy site/ --project-name fuqing-profile
+  legacy:
+    platform: "github-pages"         # GitHub Pages（保留，海外用户入口）
+    url: "https://afuxh.github.io/fuqing-profile/hot-news.html"
