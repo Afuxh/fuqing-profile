@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 干活指南</title>
+<style>
+:root {
+  --bg: #fafaf9; --card: #ffffff; --text: #292524; --muted: #78716c;
+  --border: #e7e5e4; --accent: #2563eb; --accent-light: #eff6ff;
+  --code-bg: #f5f5f4; --table-stripe: #fafaf9;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px;
+}
+.container { max-width: 820px; margin: 0 auto; padding: 40px 24px 80px; }
+h1 { font-size: 2em; margin-bottom: 8px; letter-spacing: -0.02em; background: linear-gradient(135deg, #2563eb, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+h2 { font-size: 1.45em; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 3px solid var(--accent); padding-left: 12px; border-left: 4px solid var(--accent); }
+h3 { font-size: 1.15em; margin: 28px 0 10px; color: #44403c; }
+p { margin: 10px 0; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote {
+  border-left: 3px solid var(--accent); padding: 8px 16px; margin: 16px 0;
+  background: var(--accent-light); border-radius: 0 6px 6px 0; color: #1e40af;
+}
+code {
+  background: var(--code-bg); padding: 2px 6px; border-radius: 4px;
+  font-size: 0.9em; font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+}
+pre {
+  background: #1e1e2e; color: #cdd6f4; padding: 20px 24px; border-radius: 10px;
+  overflow-x: auto; margin: 16px 0; font-size: 0.88em; line-height: 1.6;
+}
+pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.94em; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+th { background: var(--code-bg); font-weight: 600; white-space: nowrap; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+ul, ol { padding-left: 24px; margin: 8px 0; }
+li { margin: 4px 0; }
+.header-meta { color: var(--muted); font-size: 0.92em; margin-bottom: 24px; }
+.header-meta a { color: var(--muted); text-decoration: underline; }
+.header-bar { background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; margin: -40px -24px 32px; padding: 32px 24px; border-radius: 0 0 16px 16px; }
+.header-bar h1 { color: white; -webkit-text-fill-color: white; background: none; font-size: 1.6em; }
+.header-bar .meta { color: #bfdbfe; font-size: 0.92em; }
+footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.88em; }
+.toc { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin: 20px 0; font-size: 0.92em; }
+.toc-title { font-weight: 600; margin-bottom: 8px; color: var(--accent); }
+.toc a { color: var(--text); text-decoration: none; display: block; padding: 2px 0; }
+.toc a:hover { color: var(--accent); }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.82em; font-weight: 500; }
+.tag-purple { background: #ede9fe; color: #6b21a8; }
+.tag-blue { background: #dbeafe; color: #1e40af; }
+.tag-green { background: #dcfce7; color: #166534; }
+.tag-yellow { background: #fef3c7; color: #92400e; }
+.tag-red { background: #fee2e2; color: #991b1b; }
+.step-circle { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: white; font-weight: 700; font-size: 0.85em; margin-right: 8px; }
+.card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+@media (max-width: 640px) {
+  .container { padding: 16px 14px 60px; }
+  h1 { font-size: 1.4em; }
+  h2 { font-size: 1.15em; padding-left: 8px; }
+  pre { padding: 14px 12px; font-size: 0.8em; }
+  table { font-size: 0.82em; } th, td { padding: 6px 8px; }
+  .header-bar { margin: -16px -14px 24px; padding: 24px 14px; }
+}
+@media (max-width: 380px) {
+  .container { padding: 12px 10px 40px; }
+  h1 { font-size: 1.2em; }
+  body { font-size: 15px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header-bar">
+  <h1>🤖 AI 干活指南</h1>
+  <div class="meta">零基础 · Windows 11 实测 · <a href="https://github.com/Afuxh/fuqing-profile">GitHub</a> · CC-BY 4.0</div>
+</div>
+<h1>AI 干活指南</h1>
+
+<p>零基础。Windows 11 实测。<strong>Chat + Work 全工具链 + 可执行项目。</strong>CC-BY 4.0。</p>
+
+<hr>
+
+<h2>速查：AI 工具全景</h2>
+
+<h3>先搞清楚：两类 AI，两种用法</h3>
+
+<table><tr><th></th><th>聊天 AI</th><th>干活 AI</th></tr><tr><td>能干嘛</td><td>写方案、改文案、翻译、问答</td><td>操作飞书、发邮件、操控浏览器、建日程、装 Skill</td></tr><tr><td>会动手吗</td><td>不会——只出文字</td><td>会——能调工具</td></tr><tr><td>举例</td><td>"帮我写一段文案" → 给你文字</td><td>"帮我在飞书表格里填一行" → AI 自己填好</td></tr><tr><td>你在这里</td><td>入门</td><td>进阶</td></tr></table>
+
+<hr>
+
+<h3>聊天 AI（4 个，免费）</h3>
+
+<table><tr><th>工具</th><th>链接</th><th>强项</th></tr><tr><td><strong>DeepSeek</strong></td><td><a href="https://chat.deepseek.com">chat.deepseek.com</a></td><td>便宜、中文好、推理强</td></tr><tr><td><strong>Kimi</strong></td><td><a href="https://www.kimi.com/">kimi.com</a></td><td>长文档（20 万字）、网页搜索</td></tr><tr><td><strong>通义千问</strong></td><td><a href="https://www.tongyi.com/">tongyi.com</a></td><td>阿里系、多模态（图片/视频）</td></tr><tr><td><strong>腾讯元宝</strong></td><td><a href="https://yuanbao.tencent.com/chat/naQivTmsDa">yuanbao.tencent.com</a></td><td>微信生态、腾讯文档打通</td></tr></table>
+
+<p><strong>使用顺序</strong>：DeepSeek（日常）→ Kimi（长文档）→ 通义（多模态）→ 元宝（微信生态）。</p>
+
+<hr>
+
+<h3>干活 AI（6 个）</h3>
+
+<table><tr><th>工具</th><th>链接</th><th>能干嘛</th><th>难度</th></tr><tr><td><strong>扣子</strong></td><td><a href="https://www.coze.cn/">coze.cn</a></td><td>拖拽搭 Bot、技能市场、发布到飞书/微信</td><td>⭐</td></tr><tr><td><strong>飞书 aily</strong></td><td><a href="https://www.feishu.cn/">feishu.cn</a></td><td>飞书全家桶 AI（文档/表格/审批/会议）</td><td>⭐</td></tr><tr><td><strong>WorkBuddy</strong></td><td><a href="https://www.codebuddy.cn/">codebuddy.cn</a></td><td>操控文件系统、装 Skill、Git/部署</td><td>⭐⭐</td></tr><tr><td><strong>Trae Solo</strong></td><td><a href="https://solo.trae.cn/">solo.trae.cn</a></td><td>字节 AI 编程 IDE，Agent 模式</td><td>⭐⭐</td></tr><tr><td><strong>马维斯</strong></td><td><a href="https://marvis.qq.com/">marvis.qq.com</a></td><td>腾讯桌面 AI，本地大模型，隐私优先</td><td>⭐⭐</td></tr><tr><td><strong>Qoder</strong></td><td><a href="https://qoder.com.cn/">qoder.com.cn</a></td><td>多 Agent 并行，10 万+ 文件分析，原名"灵码"</td><td>⭐⭐⭐</td></tr></table>
+
+<p><strong>使用顺序</strong>：扣子（零代码入门）→ WorkBuddy（有代码时）→ Trae Solo（写项目）→ Qoder（复杂任务）。</p>
+
+<hr>
+
+<h2>0. AI 怎么动手？四个东西，一个比喻</h2>
+
+<blockquote>比喻：你雇了个管家，家里有各种电器（飞书、邮件、日历）。管家需要四样东西才能操作电器。</blockquote>
+
+<table><tr><th></th><th>名字</th><th>比喻</th><th>你做什么</th><th>难度</th></tr><tr><td>⚡</td><td><strong>API</strong></td><td>电线——电器能跑靠它</td><td><strong>不用碰</strong></td><td>⭐⭐⭐</td></tr><tr><td>🔌</td><td><strong>MCP</strong></td><td>标准插座——所有电器插口一样</td><td>配一段 JSON</td><td>⭐⭐</td></tr><tr><td>🎮</td><td><strong>CLI</strong></td><td>遥控器——管家按按钮</td><td>装一个命令行工具</td><td>⭐</td></tr><tr><td>📖</td><td><strong>Skill</strong></td><td>说明书——告诉管家操作流程</td><td>写一个 SKILL.md</td><td>⭐</td></tr></table>
+
+<p><strong>一句话</strong>：管家读说明书（Skill）→ 走到插座前（MCP）→ 按遥控器（CLI）→ 电器开了（背后是 API）。</p>
+
+<h3>小白行动指引</h3>
+
+<pre><code>```
+✅ 先用：CLI + Skill
+🔜 了解：MCP（配 JSON 就行）
+❌ 不碰：API（知道就行）</code></pre>
+
+<p><strong>去哪找</strong>：</p>
+<ul><li>CLI：<a href="https://github.com/larksuite/cli">飞书 CLI</a>（lark-cli，群里有安装教程）、Trae Solo/Cursor 自带终端</li><li>MCP：<a href="https://modelscope.cn/mcp">魔搭 MCP 广场</a>（阿里 1000+ 服务）· <a href="https://volcengine.com/ats">火山引擎 MCP</a>（字节）· <a href="https://cloud.tencent.com/developer/mcp">腾讯云 MCP</a></li><li>Skill：扣子技能市场 · <a href="https://xiaping.coze.site">虾评</a> · 自己写</li></ul>
+
+<hr>
+
+<h2>0.2 环境搭建（5 分钟）</h2>
+
+<pre><code># 1. 装 Python：https://python.org → Download 3.13 → ⚠️勾 &quot;Add Python to PATH&quot;
+python --version  # → Python 3.13.x
+
+# 2. 建项目
+mkdir D:\ai-work; cd D:\ai-work
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+# 报错&quot;无法加载&quot;→ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# 3. 装依赖
+pip install feedparser openai anthropic google-generativeai httpx python-dotenv requests beautifulsoup4 lxml
+
+# 4. 建 .env 放 Key
+ni .env -Force; notepad .env</code></pre>
+
+<p><code>.env</code> 内容：</p>
+<pre><code>DEEPSEEK_API_KEY=sk-xxx
+SILICONFLOW_API_KEY=sk-xxx
+FEISHU_WEBHOOK_URL=https://open.feishu.cn/open-apis/bot/v2/hook/xxx</code></pre>
+
+<hr>
+
+<h2>1. 主线：30 分钟跑一条 AI 推送</h2>
+
+<blockquote>主线 = 最小可行示例。"怎么收集→怎么用→怎么展示"。</blockquote>
+
+<h3>1.1 抓 15 个 RSS 源</h3>
+
+<pre><code># rss_fetcher.py
+import feedparser, json, os
+from datetime import datetime
+
+RSS_SOURCES = {
+    &quot;36氪&quot;: &quot;https://36kr.com/feed&quot;,
+    &quot;少数派&quot;: &quot;https://sspai.com/feed&quot;,
+    &quot;量子位&quot;: &quot;https://www.qbitai.com/feed&quot;,
+    &quot;虎嗅&quot;: &quot;https://www.huxiu.com/rss/0.xml&quot;,
+    &quot;极客公园&quot;: &quot;https://www.geekpark.net/rss&quot;,
+    &quot;InfoQ&quot;: &quot;https://www.infoq.cn/feed&quot;,
+    &quot;机器之心&quot;: &quot;https://www.jiqizhixin.com/rss&quot;,
+    &quot;晚点&quot;: &quot;https://www.latepost.com/rss&quot;,
+    &quot;钛媒体&quot;: &quot;https://www.tmtpost.com/rss.xml&quot;,
+    &quot;Hacker News&quot;: &quot;https://hnrss.org/frontpage&quot;,
+    &quot;阮一峰&quot;: &quot;https://www.ruanyifeng.com/blog/atom.xml&quot;,
+    &quot;V2EX&quot;: &quot;https://www.v2ex.com/index.xml&quot;,
+    &quot;TechCrunch&quot;: &quot;https://techcrunch.com/feed/&quot;,
+    &quot;The Verge&quot;: &quot;https://www.theverge.com/rss/index.xml&quot;,
+    &quot;Wired&quot;: &quot;https://www.wired.com/feed/rss&quot;,
+}
+
+def fetch_all(max_per_source=5):
+    items = []
+    for name, url in RSS_SOURCES.items():
+        try:
+            feed = feedparser.parse(url)
+            for e in feed.entries[:max_per_source]:
+                items.append({&quot;source&quot;: name, &quot;title&quot;: e.get(&quot;title&quot;,&quot;&quot;), &quot;url&quot;: e.get(&quot;link&quot;,&quot;&quot;), &quot;summary&quot;: e.get(&quot;summary&quot;,&quot;&quot;)[:300]})
+        except: pass
+    return items
+
+if __name__ == &quot;__main__&quot;:
+    items = fetch_all()
+    os.makedirs(&quot;data&quot;, exist_ok=True)
+    json.dump(items, open(&quot;data/raw.json&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;), ensure_ascii=False, indent=2)
+    print(f&quot;共 {len(items)} 篇&quot;)</code></pre>
+
+<h3>1.2 调 AI 总结 + 推送飞书</h3>
+
+<pre><code># main.py
+import json, os
+from dotenv import load_dotenv
+from openai import OpenAI
+import requests
+
+load_dotenv()
+
+def summarize(items):
+    text = &quot;\n&quot;.join(f&quot;[{i[&#x27;source&#x27;]}] {i[&#x27;title&#x27;]}&quot; for i in items[:20])
+    client = OpenAI(base_url=&quot;https://api.deepseek.com&quot;, api_key=os.getenv(&quot;DEEPSEEK_API_KEY&quot;))
+    r = client.chat.completions.create(
+        model=&quot;deepseek-chat&quot;,
+        messages=[{&quot;role&quot;:&quot;system&quot;,&quot;content&quot;:&quot;你是新闻编辑，整理成 5 个主题分类，每类 1-2 句话总结 + 1 个最值得看的链接。&quot;},
+                  {&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:text}])
+    return r.choices[0].message.content
+
+def push(content):
+    requests.post(os.getenv(&quot;FEISHU_WEBHOOK_URL&quot;), json={
+        &quot;msg_type&quot;: &quot;interactive&quot;,
+        &quot;card&quot;: {&quot;header&quot;: {&quot;title&quot;: {&quot;tag&quot;: &quot;plain_text&quot;, &quot;content&quot;: &quot;📰 今日热点&quot;}},
+                 &quot;elements&quot;: [{&quot;tag&quot;: &quot;markdown&quot;, &quot;content&quot;: content}]}})
+
+if __name__ == &quot;__main__&quot;:
+    from rss_fetcher import fetch_all
+    items = fetch_all()
+    summary = summarize(items)
+    push(summary)
+    os.makedirs(&quot;data&quot;, exist_ok=True)
+    json.dump({&quot;summary&quot;: summary, &quot;items&quot;: items}, open(&quot;data/report.json&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;), ensure_ascii=False, indent=2)
+    print(&quot;✅ 完成&quot;)</code></pre>
+
+<h3>1.3 定时运行</h3>
+
+<ul><li><strong>Windows</strong>：搜"任务计划程序" → 创建任务 → 触发器每天 14:00 → 操作 <code>python D:\ai-work\main.py</code> 起始于 <code>D:\ai-work</code></li><li><strong>Mac</strong>：<code>crontab -e</code> → <code>0 14 * * * cd /path && venv/bin/python main.py >> logs.log 2>&1</code></li></ul>
+
+<h3>1.4 省钱策略</h3>
+
+<table><tr><th>模型</th><th>价格（每百万 token）</th><th>用在哪</th></tr><tr><td>DeepSeek V3</td><td>¥1/¥2</td><td><strong>日常全部</strong></td></tr><tr><td>SiliconFlow 代理 Claude</td><td>按量</td><td>重要分析</td></tr><tr><td>GPT-4o</td><td>$2.5/$10</td><td>综合最强，贵</td></tr></table>
+
+<p><strong>推荐</strong>：DeepSeek 做日常（冲 1 元用很久），重要分析切 Claude。</p>
+
+<hr>
+
+<h2>2. AI 手脚实操</h2>
+
+<h3>2.1 飞书 CLI 选题流水线</h3>
+
+<p><strong>4 步从"选题报告"到"内容生产"</strong>：</p>
+
+<pre><code>```
+① 创建多维表格（先聊结构再动手）
+   &quot;帮我把选题报告放进飞书多维表格，先不急着创建，先跟我聊清楚这个表的结构。&quot;
+   → AI 反过来问你需求 → 你回答 → AI 列出表结构 → 你确认 → AI 执行
+
+② 数据进表
+   AI 读飞书文档 → 按字段填表格
+   选题名称 / 方向 / 优先级 / 报告链接 → 自动入库
+
+③ 撰写笔记 + 划词评论改稿
+   AI 写小红书笔记存飞书文档
+   你在文档里划词评论：&quot;标题选最吸睛的 / 正文选方向一&quot;
+   💡 评论 = AI 能通过 CLI 读到
+   告诉 AI &quot;根据评论修改&quot; → 自动执行
+
+④ 建拍摄日程
+   &quot;明天上午 9 点拍摄&quot; → AI 直接在飞书日历建日程
+   详情 + 参考文档自动填好</code></pre>
+
+<p><strong>核心洞察</strong>：能做到多少不取决于 AI 模型，而取决于<strong>厂商的 CLI 开放了多少能力</strong>。飞书 CLI 是目前开放最多、迭代最快的。</p>
+
+<p><strong>三步法探索新 CLI</strong>：看厂商介绍 → 看别人实践 → 装到 agent 先问再测。</p>
+
+<h3>2.2 麦当劳 MCP 下单</h3>
+
+<pre><code>```
+① 麦当劳 MCP 平台 → 登录 → 激活 TOKEN（授权码）
+② 复制接入指南的 JSON 配置 → 换掉 TOKEN 占位
+③ WorkBuddy → 左侧连接器 → 自定义 MCP → 粘贴 JSON → 保存 → 绿灯
+④ &quot;附近有麦当劳吗&quot; → MCP 查询（不是网搜）
+   &quot;点 1+1 套餐&quot; → 选门店 + 选套餐 → 下单 → 扫码支付</code></pre>
+
+<p>💡 <strong>MCP 好处</strong>：服务端别人写好，你只配一段 JSON。新电器插上标准插座就能用。</p>
+
+<p><strong>一个平台三种接入</strong>（以 Get 笔记为例）：MCP（插座）+ CLI（遥控器）+ API（电线）。<strong>入门首选 CLI</strong>——AI 友好、快。</p>
+
+<hr>
+
+<h2>3. 训练营 4 项目</h2>
+
+<table><tr><th>#</th><th>项目</th><th>难度</th><th>工具</th><th>核心附件</th></tr><tr><td>A</td><td>千纸之约小程序</td><td>⭐⭐</td><td>微信开发者工具 + AI</td><td><a href="ai-work-attached/qianzhizhiyue.pdf">qianzhizhiyue.pdf</a></td></tr><tr><td>B</td><td>小红书 → Obsidian</td><td>⭐⭐</td><td>Playwright + dHash</td><td>源在 <code>社群产出汇总/xhs-crawler-share.zip</code></td></tr><tr><td>C</td><td>微信群 → 飞书</td><td>⭐⭐⭐</td><td>WeChatDataAnalysis + DeepSeek</td><td>源在 <code>社群产出汇总/微信消息自动化汇总.zip</code></td></tr><tr><td>D</td><td>飞书名人机器人</td><td>⭐⭐</td><td>飞书 WebSocket + Claude</td><td><a href="ai-work-attached/agent-runbook.md">agent-runbook.md</a></td></tr></table>
+
+<h3>A. 千纸之约小程序（12 步）</h3>
+
+<pre><code>```
+1. mp.weixin.qq.com 注册小程序 → 拿 AppID
+2. 装微信开发者工具
+3. 建项目目录
+4. 让 AI 生成连连看代码（~500 行 HTML+JS）
+5. 开发者工具 → 导入项目
+6. 手机扫码 → 真机预览
+7. 上传 → 设体验版 → 提交审核 → 发布
+8. 转网站（可选）：AI + CLI → 部署 Netlify</code></pre>
+
+<h3>B. 小红书素材采集（5 步）</h3>
+
+<pre><code>```
+1. 解压 + pip install -r requirements.txt
+2. .\setup.bat（自动装环境）
+3. .\login.bat（扫码登录）
+4. .\start.bat → http://localhost:8501
+5. 浏览器选主题 → 抓笔记 → 导出 Obsidian</code></pre>
+
+<p>参数：20-30 测试 / 50-200 实战；最小点赞 50-100（冷门）/ 1000-5000（热门）；每天 ≤ 200 条防风控。</p>
+
+<h3>C. 微信群 → 飞书</h3>
+
+<p><strong>关键</strong>：微信 DB 是 SQLCipher 加密，需解密。</p>
+
+<pre><code>```
+1. 装 WeChatDataAnalysis v1.8.1（github.com/LifeArchiveProject/WeChatDataAnalysis）
+2. 微信 PC 登录 → WeChatDataAnalysis → 检测 → 解密 → 导出 TXT
+3. 解压自动化汇总包 → cd wechat-assistant → pip install -r requirements.txt
+4. 配 .env（DeepSeek Key + 飞书凭据）
+5. python monitor_web.py → 飞书发&quot;今天群里有什么重点&quot;</code></pre>
+
+<h3>D. 飞书名人机器人（4 步）</h3>
+
+<pre><code>```
+1. git clone https://github.com/danger-English/feishu-persona-bots.git
+2. 飞书开放平台 → 新建应用 → 开机器人
+3. 配 .env（APP_ID + APP_SECRET + BOT_NAME=乔布斯）
+4. npm start → 飞书里 @机器人对话</code></pre>
+
+<p>预置：乔布斯 / 马斯克 / 芒格三种人格。</p>
+
+<hr>
+
+<h2>4. AI 微信接入（实战攻略）</h2>
+
+<blockquote>以下是我收集的微信 AI 接入实战方案，非课程录像。</blockquote>
+
+<h3>三件套标准</h3>
+
+<pre><code>```
+✅ AI 获得微信数据 → 形成本地 JSON
+✅ AI 获得 Webhook → 可发飞书
+✅ 定时任务启动 → 每日推送</code></pre>
+
+<h3>5.29 版本（推荐，修复电脑重启失效）</h3>
+
+<pre><code># scheduler.py
+import os, sys, time
+from pathlib import Path
+
+PROJECT_DIR = Path(__file__).parent.resolve()
+os.chdir(PROJECT_DIR)
+sys.path.insert(0, str(PROJECT_DIR))
+time.sleep(60)  # 启动延迟，等系统就绪
+
+from main import main
+if __name__ == &quot;__main__&quot;:
+    main()</code></pre>
+
+<p><strong>Mac launchd</strong>：<code>~/Library/LaunchAgents/com.user.aiwork.plist</code></p>
+<pre><code>&lt;plist version=&quot;1.0&quot;&gt;&lt;dict&gt;
+    &lt;key&gt;Label&lt;/key&gt;&lt;string&gt;com.user.aiwork&lt;/string&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;/Users/xxx/.pyenv/versions/3.13.0/bin/python3&lt;/string&gt;
+        &lt;string&gt;/Users/xxx/projects/ai-work/scheduler.py&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;StartCalendarInterval&lt;/key&gt;
+    &lt;dict&gt;&lt;key&gt;Hour&lt;/key&gt;&lt;integer&gt;22&lt;/integer&gt;&lt;key&gt;Minute&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;/dict&gt;
+&lt;/dict&gt;&lt;/plist&gt;</code></pre>
+
+<pre><code>launchctl load ~/Library/LaunchAgents/com.user.aiwork.plist</code></pre>
+
+<p>⚠️ <strong>项目管理</strong>：用绝对路径。选好位置就别移动——移了就失效。</p>
+
+<hr>
+
+<h2>5. 模型分工（2026）</h2>
+
+<table><tr><th>任务</th><th>海外首选</th><th>国内首选</th></tr><tr><td>知识问答</td><td>GPT-5.5</td><td>DeepSeek V3 / Kimi K2.6</td></tr><tr><td>内容创作</td><td><strong>Claude Opus 4.6</strong></td><td>DeepSeek V4 Pro</td></tr><tr><td>前端设计</td><td>Gemini 3.1 Pro</td><td>Kimi K2.6</td></tr><tr><td>代码开发</td><td>Codex + GPT-5.5</td><td>Claude Code + GLM-5.1</td></tr><tr><td>图片生成</td><td>GPT-image-2</td><td>即梦 Seedream-5.0-lite</td></tr><tr><td>视频生成</td><td>Seedance 2.0</td><td>可灵 3.0</td></tr><tr><td>音乐</td><td>Suno v5.5</td><td>MiniMax Music 2.6</td></tr><tr><td>深度研究</td><td>ChatGPT DeepResearch</td><td>豆包</td></tr></table>
+
+<p><strong>⚠️ Claude Opus 4.7 公认不好用——用 4.6。</strong></p>
+
+<hr>
+
+<h2>6. 提问心法</h2>
+
+<p><strong>元提问</strong>：让 AI 找实现路径，不直接要成品。</p>
+
+<p>❌ "帮我写个爬虫"</p>
+<p>✅ "我要每天 14:00 抓 36 氪 RSS 前 10 条，DeepSeek 总结成 5 个主题，推飞书。Python 怎么实现？需要装什么？"</p>
+
+<p><strong>推荐工具组合</strong>（无需 VPN）：DeepSeek V3 + Kimi K2.6 + SiliconFlow 代理 Claude/GPT。</p>
+
+<hr>
+
+<h2>7. 故障速查</h2>
+
+<table><tr><th>错误</th><th>解决</th></tr><tr><td><code>python</code> 不是命令</td><td>重装 Python，勾 PATH</td></tr><tr><td>无法加载脚本</td><td><code>Set-ExecutionPolicy RemoteSigned</code></td></tr><tr><td>ModuleNotFoundError</td><td><code>pip install 包名</code></td></tr><tr><td>429 限流</td><td>降速/换模型</td></tr><tr><td>401 未授权</td><td>查 .env 里的 Key</td></tr><tr><td>权限拒绝</td><td>管理员运行</td></tr></table>
+
+<p><strong>调试法</strong>：<code>print(f"DEBUG: {var}")</code> 看输出。</p>
+
+<hr>
+
+<h2>8. Agent 从零制作 + AI 复利系统（社群分享）</h2>
+
+<blockquote>社群实战经验。用本文框架统一——聊天 AI 设计 · 干活 AI 制造。</blockquote>
+
+<h3>8.1 分工：聊天 AI vs 干活 AI</h3>
+
+<pre><code>```
+聊天 AI（DeepSeek / Kimi / 通义 / 元宝）
+    ↓ 聊需求、拆结构、出提示词
+干活 AI（WorkBuddy / Trae Solo / Qoder / 扣子）
+    ↓ 跑提示词 → 生成壳子 → 改 Bug → 部署飞书</code></pre>
+
+<p><strong>聊天 AI 负责"说清楚"，干活 AI 负责"做出来"。</strong></p>
+
+<h3>8.2 Agent 制作全流程</h3>
+
+<pre><code>```
+① 跟聊天 AI 聊需求
+   打开 DeepSeek/Kimi → &quot;我要做一个什么样的 Agent&quot;
+   → 聊清楚每个细节 → 让它生成一段&quot;给干活 AI 的提示词&quot;
+
+② 干活 AI 跑出壳子
+   把提示词粘贴给 WorkBuddy/Trae Solo/Qoder
+   → 干活 AI 自动生成第一版代码和配置
+   → 这一版叫 Agent 的&quot;壳子&quot;——有骨架，还没灵魂
+
+③ 自己买 API 给灵魂
+   去平台申请 API Key（DeepSeek / Claude / 通义）
+   → 把 Key 配到壳子的配置里
+   → Agent 有了&quot;大脑&quot;——能自己调 AI 了
+
+④ 整理文档 → 交给干活 AI 后续维护
+   把跟聊天 AI 聊天的全部信息整理成文档
+   → 给干活 AI：&quot;照着这个文档，修 Bug + 部署到飞书&quot;
+   → 干活 AI 接手后续，你只负责用</code></pre>
+
+<h3>8.3 飞书部署优势</h3>
+
+<pre><code>```
+飞书里发一条命令 → 后台本地 Agent 启动运行
+不用开电脑软件，不用连服务器——在飞书聊天框就能操控。</code></pre>
+
+<h3>8.4 两种 Agent</h3>
+
+<table><tr><th>类型</th><th>新手建议</th></tr><tr><td>别人写好的（扣子市场 / 虾评 / GitHub）</td><td>❌ 第一次别用——你学不会</td></tr><tr><td>自己用聊天 AI + 干活 AI 做的</td><td>✅ <strong>第一次必须自己做</strong>——走通一次，就能造无数个</td></tr></table>
+
+<h3>8.5 看到好东西想复刻？四步法</h3>
+
+<pre><code>```
+① 结构拆解（聊天 AI）
+   把项目信息全部扔给 DeepSeek/Kimi
+   &quot;我想 1:1 复刻这个，帮我拆结构&quot;
+
+② 理解流程（聊天 AI）
+   一直问，直到搞懂每一环节在干嘛
+   &quot;刚开始我也不知道怎么接 API，就是一直问&quot;
+
+③ 直接上手（干活 AI）
+   知道流程后就做。把理解的内容写成提示词给干活 AI
+   不用等别人教——直接开始，边做边问
+
+④ 总结复制（干活 AI）
+   做完让干活 AI 把整个过程总结成文档
+   → 下次碰见类似的东西，扔文档 → 批量复制
+   核心原则：在哪步问 AI &quot;怎么做的&quot; → 就让 AI 当场沉淀</code></pre>
+
+<h3>8.6 AI 复利系统</h3>
+
+<p><strong>核心思想</strong>：每次跟 AI 聊完，都变成一个文档。日积月累，自动分类。</p>
+
+<pre><code>```
+每天：聊完任何 AI → 让它沉淀成文档 → 投到&quot;无脑存放&quot;文件夹
+每隔几天：让 AI 把文件夹里的文档分类 + 总结 + 提炼</code></pre>
+
+<p><strong>但关键在这里</strong>：</p>
+
+<pre><code>```
+第 1-3 层：AI 帮你沉淀（分类、归纳、总结）
+第 4-8 层：必须你自己来（深度洞察、审美判断、创意连接）
+
+AI 只能帮你处理信息，不能帮你建立审美。</code></pre>
+
+<p><strong>进阶方向</strong>（社群朋友的思想雏形，尚未实现）：</p>
+
+<pre><code>```
+沉淀够多之后 → 让 AI 分析&quot;我的沉淀习惯&quot;
+→ 试着让 AI 模仿我的方式自动沉淀
+→ 目前：1-3 层 AI 做，4-8 层人做</code></pre>
+
+<blockquote>💡 这个系统不止能用在 AI 上。聊天记录、读书笔记、灵感碎片都可以投进去——在<strong>人生所有维度</strong>上复利。</blockquote>
+
+
+<h2>附录</h2>
+
+<h3>项目结构</h3>
+
+<pre><code>```
+D:\ai-work\
+├── .env, .gitignore
+├── venv/
+├── data/
+├── rss_fetcher.py
+├── main.py
+└── test_env.py</code></pre>
+
+<h3>一键跑</h3>
+
+<pre><code>cd D:\ai-work
+.\venv\Scripts\Activate.ps1
+python rss_fetcher.py &amp;&amp; python main.py</code></pre>
+
+<h3>资源链接</h3>
+
+<table><tr><th>资源</th><th>地址</th></tr><tr><td>DeepSeek</td><td>chat.deepseek.com</td></tr><tr><td>Kimi</td><td>kimi.com</td></tr><tr><td>通义千问</td><td>tongyi.com</td></tr><tr><td>腾讯元宝</td><td>yuanbao.tencent.com</td></tr><tr><td>扣子</td><td>coze.cn</td></tr><tr><td>飞书 aily</td><td>feishu.cn</td></tr><tr><td>WorkBuddy</td><td>codebuddy.cn</td></tr><tr><td>Trae Solo</td><td>solo.trae.cn</td></tr><tr><td>马维斯</td><td>marvis.qq.com</td></tr><tr><td>Qoder</td><td>qoder.com.cn</td></tr><tr><td>SiliconFlow</td><td>siliconflow.cn</td></tr><tr><td>WeChatDataAnalysis</td><td>github.com/LifeArchiveProject/WeChatDataAnalysis</td></tr><tr><td>魔搭 MCP</td><td>modelscope.cn/mcp</td></tr><tr><td>火山 MCP</td><td>volcengine.com/ats</td></tr><tr><td>腾讯 MCP</td><td>cloud.tencent.com/developer/mcp</td></tr></table>
+
+<hr>
+
+<p>*AI 干活指南 · 2026-06-09 · CC-BY 4.0*</p>
+
+<footer>© 2026 阿扶（扶清） · <a href="https://github.com/Afuxh/fuqing-profile">GitHub Pages</a></footer>
+</div>
+</body>
+</html>
