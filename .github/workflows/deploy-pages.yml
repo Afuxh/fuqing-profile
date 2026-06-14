@@ -1,13 +1,18 @@
-﻿name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 on:
-  workflow_dispatch:  # 只保留手动触发
+  schedule:
+    - cron: '0 1 * * *'  # 每天 UTC 1:00 = 北京时间 9:00 自动生成+部署
+  workflow_dispatch:       # 保留手动触发
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: "pages"
   cancel-in-progress: false
+
 jobs:
   deploy:
     environment:
@@ -17,6 +22,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Check SILICONFLOW_API_KEY
+        run: |
+          if [ -z "${{ secrets.SILICONFLOW_API_KEY }}" ]; then
+            echo "::error::SILICONFLOW_API_KEY 未配置！请在 Settings → Secrets and variables → Actions 中添加此 Secret。"
+            exit 1
+          fi
+          echo "SILICONFLOW_API_KEY 已配置，继续执行。"
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: pip install httpx pyyaml deep-translator
+        
+      - name: Generate hot news
+        env:
+          SILICONFLOW_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
+        run: python generate_v3.7.py
         
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -24,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'   # 部署根目录
+          path: '.'
           
       - name: Deploy to GitHub Pages
         id: deployment
