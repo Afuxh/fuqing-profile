@@ -34,7 +34,7 @@ jobs:
 
       - name: Generate hot news
         timeout-minutes: 10
-        run: python generate_v3.7.py --no_translate
+        run: python generate_v3.7.py --no-translate
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
