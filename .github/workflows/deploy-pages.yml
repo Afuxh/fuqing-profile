@@ -1,19 +1,13 @@
-name: Deploy to GitHub Pages
-
+﻿name: Deploy to GitHub Pages
 on:
-  push:
-    branches: [main]
-  workflow_dispatch:
-
+  workflow_dispatch:  # 只保留手动触发
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
 jobs:
   deploy:
     environment:
@@ -23,15 +17,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+        
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
-
+          path: '.'   # 部署根目录
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

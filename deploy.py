@@ -1,4 +1,4 @@
-"""
+﻿"""
 热点聚合站 — 多平台部署脚本
 支持 EdgeOne Pages（国内首选）+ GitHub Pages（国际备用）
 
@@ -347,3 +347,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
