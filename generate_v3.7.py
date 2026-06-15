@@ -31,7 +31,7 @@ from difflib import SequenceMatcher
 try:
     from version import __version__, get_generator_name, get_full_title
 except ImportError:
-    __version__ = "3.8.0"
+    __version__ = "3.7.1"
     get_generator_name = lambda: f"热点聚合网站生成器 v{__version__}"
     get_full_title = lambda: "AI 时代观察 - 效率归机器，意义归人类"
 
@@ -95,47 +95,6 @@ class ProgressBar:
             h = int(seconds / 3600)
             m = int((seconds % 3600) / 60)
             return f"{h}时{m}分"
-
-
-# ============ 任务状态持久化（断点续传）v3.8 ============
-_TASK_STATE_FILE = Path(r"d:\新建文件夹") / "task_state.json"
-
-def _load_task_state() -> dict:
-    """加载上一次任务状态"""
-    if not _TASK_STATE_FILE.exists():
-        return {}
-    try:
-        import json as _json
-        with open(_TASK_STATE_FILE, "r", encoding="utf-8") as f:
-            return _json.load(f)
-    except Exception:
-        return {}
-
-def _save_task_state(state: dict):
-    """保存任务状态到文件"""
-    try:
-        import json as _json
-        _TASK_STATE_FILE.write_text(_json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
-    except Exception as e:
-        logger.warning(f"任务状态保存失败: {e}")
-
-def _update_task_state(**kwargs):
-    """更新任务状态（增量更新）"""
-    state = _load_task_state()
-    state.update(kwargs)
-    state["last_updated"] = datetime.now(CST).strftime("%Y-%m-%d %H:%M:%S")
-    _save_task_state(state)
-
-def _clear_task_state():
-    """清除任务状态（任务成功完成后调用）"""
-    if _TASK_STATE_FILE.exists():
-        try:
-            _TASK_STATE_FILE.unlink()
-            logger.info("任务状态已清除")
-        except Exception as e:
-            logger.warning(f"清除任务状态失败: {e}")
-
-
 
 
 def save_data_snapshot(topics: list, config: dict, output_dir: str = "data"):
@@ -1433,506 +1392,6 @@ async def fetch_npr(client: httpx.AsyncClient, config: dict) -> list:
     return topics
 
 
-
-
-# ============ 新增数据源 v3.8 ============
-
-async def fetch_bilibili_hot(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取B站热门/热搜 - 通过RSSHub"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://rsshub.app/bilibili/hot-search")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "B站热门内容",
-                        "hot_score": 0,
-                        "source": "bilibili",
-                        "source_name": "B站热门",
-                    })
-        logger.info(f"[B站热门] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[B站热门] 失败: {e}")
-    return topics
-
-
-async def fetch_xiaohongshu_hot(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取小红书热门 - 通过RSSHub"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://rsshub.app/xiaohongshu/user/notes/5f3f6d8a000000000101f3b0")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "小红书热门笔记",
-                        "hot_score": 0,
-                        "source": "xiaohongshu",
-                        "source_name": "小红书",
-                    })
-        logger.info(f"[小红书] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[小红书] 失败: {e}")
-    return topics
-
-
-async def fetch_douyin_hot(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取抖音热点 - 通过RSSHub"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://rsshub.app/douyin/hot-search")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "抖音热点",
-                        "hot_score": 0,
-                        "source": "douyin",
-                        "source_name": "抖音热点",
-                    })
-        logger.info(f"[抖音热点] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[抖音热点] 失败: {e}")
-    return topics
-
-
-async def fetch_kuaishou_hot(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取快手热点 - 通过RSSHub"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://rsshub.app/kuaishou/hot")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "快手热点",
-                        "hot_score": 0,
-                        "source": "kuaishou",
-                        "source_name": "快手热点",
-                    })
-        logger.info(f"[快手热点] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[快手热点] 失败: {e}")
-    return topics
-
-
-async def fetch_people_daily(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取人民日报/人民网 - 官方媒体"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://rsshub.app/people")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "人民网报道",
-                        "hot_score": 0,
-                        "source": "people_daily",
-                        "source_name": "人民网",
-                    })
-        logger.info(f"[人民网] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[人民网] 失败: {e}")
-    return topics
-
-
-async def fetch_xinhua_news(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取新华社新闻 - 官方媒体"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://rsshub.app/news/whxw")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "新华社报道",
-                        "hot_score": 0,
-                        "source": "xinhua",
-                        "source_name": "新华社",
-                    })
-        logger.info(f"[新华社] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[新华社] 失败: {e}")
-    return topics
-
-
-async def fetch_caixin(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取财新网 - 专业财经媒体"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://rsshub.app/caixin/latest")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "财新报道",
-                        "hot_score": 0,
-                        "source": "caixin",
-                        "source_name": "财新网",
-                    })
-        logger.info(f"[财新网] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[财新网] 失败: {e}")
-    return topics
-
-
-async def fetch_theinformation(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取The Information - 国际科技媒体"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://rsshub.app/theinformation/latest")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "The Information报道",
-                        "hot_score": 0,
-                        "source": "theinformation",
-                        "source_name": "The Information",
-                    })
-        logger.info(f"[The Information] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[The Information] 失败: {e}")
-    return topics
-
-
-async def fetch_reuters(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取路透社 - 国际通讯社"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://rsshub.app/reuters/world/china")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "路透社报道",
-                        "hot_score": 0,
-                        "source": "reuters",
-                        "source_name": "路透社",
-                    })
-        logger.info(f"[路透社] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[路透社] 失败: {e}")
-    return topics
-
-
-async def fetch_ft_chinese(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取FT中文网 - 国际财经媒体"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://rsshub.app/ft/chinese/hotstoryby7day")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "FT中文网报道",
-                        "hot_score": 0,
-                        "source": "ft_chinese",
-                        "source_name": "FT中文网",
-                    })
-        logger.info(f"[FT中文网] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[FT中文网] 失败: {e}")
-    return topics
-
-
-async def fetch_wired(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取Wired - 科技文化媒体"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://www.wired.com/feed/rss")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "Wired报道",
-                        "hot_score": 0,
-                        "source": "wired",
-                        "source_name": "Wired",
-                    })
-        logger.info(f"[Wired] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[Wired] 失败: {e}")
-    return topics
-
-
-async def fetch_mit_tech_review(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取MIT Technology Review - 权威科技媒体"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://www.technologyreview.com/feed/")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "MIT Technology Review报道",
-                        "hot_score": 0,
-                        "source": "mit_tech_review",
-                        "source_name": "MIT Technology Review",
-                    })
-        logger.info(f"[MIT Tech Review] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[MIT Tech Review] 失败: {e}")
-    return topics
-
-
-async def fetch_nature_ai(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取Nature AI相关 - 学术顶刊"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 15)
-    rss_url = config.get("rss_url", "https://rsshub.app/nature/news-and-comment")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "Nature报道",
-                        "hot_score": 0,
-                        "source": "nature_ai",
-                        "source_name": "Nature",
-                    })
-        logger.info(f"[Nature] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[Nature] 失败: {e}")
-    return topics
-
-
-async def fetch_solidot(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取Solidot - 中文科技社区"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://www.solidot.org/index.rss")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "Solidot报道",
-                        "hot_score": 0,
-                        "source": "solidot",
-                        "source_name": "Solidot",
-                    })
-        logger.info(f"[Solidot] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[Solidot] 失败: {e}")
-    return topics
-
-
-async def fetch_douban_hot(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取豆瓣热门 - 文化社区"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://rsshub.app/douban/group/camera")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "豆瓣热门",
-                        "hot_score": 0,
-                        "source": "douban",
-                        "source_name": "豆瓣热门",
-                    })
-        logger.info(f"[豆瓣热门] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[豆瓣热门] 失败: {e}")
-    return topics
-
-
-async def fetch_aibase(client: httpx.AsyncClient, config: dict) -> list:
-    """抓取AIbase - AI行业媒体"""
-    if not config.get("enabled", False):
-        return []
-    topics = []
-    limit = config.get("limit", 20)
-    rss_url = config.get("rss_url", "https://www.aibase.com/rss")
-    try:
-        resp = await client.get(rss_url, timeout=15, headers={"User-Agent": "HotNewsAggregator/3.8"})
-        if resp.status_code == 200:
-            root = ET.fromstring(resp.text.encode("utf-8"))
-            items = root.findall(".//item")[:limit]
-            for item in items:
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = item.findtext("description", "").strip()
-                if title and link:
-                    topics.append({
-                        "title": title,
-                        "url": link,
-                        "summary": desc[:200] if desc else "AIbase报道",
-                        "hot_score": 0,
-                        "source": "aibase",
-                        "source_name": "AIbase",
-                    })
-        logger.info(f"[AIbase] {len(topics)} 条")
-    except Exception as e:
-        logger.error(f"[AIbase] 失败: {e}")
-    return topics
-
-
 async def fetch_aihot(client: httpx.AsyncClient, config: dict) -> list:
     """抓取卡兹克AI热点 https://aihot.virxact.com/
 
@@ -2345,7 +1804,6 @@ def _parse_html_fallback(html_text: str, source_key: str, source_name: str, limi
 
 async def fetch_all(config: dict) -> list:
     """抓取所有数据源"""
-    _update_task_state(phase="fetch_start", status="running")
     all_topics = []
     sources = config.get("sources", {})
     
@@ -2382,23 +1840,6 @@ async def fetch_all(config: dict) -> list:
         "arstechnica": ("Ars Technica", fetch_arstechnica),
         "theverge": ("The Verge", fetch_theverge),
         "npr": ("NPR新闻", fetch_npr),
-        # === v3.8 新增数据源 ===
-        "bilibili": ("B站热门", fetch_bilibili_hot),
-        "xiaohongshu": ("小红书", fetch_xiaohongshu_hot),
-        "douyin": ("抖音热点", fetch_douyin_hot),
-        "kuaishou": ("快手热点", fetch_kuaishou_hot),
-        "people_daily": ("人民网", fetch_people_daily),
-        "xinhua": ("新华社", fetch_xinhua_news),
-        "caixin": ("财新网", fetch_caixin),
-        "theinformation": ("The Information", fetch_theinformation),
-        "reuters": ("路透社", fetch_reuters),
-        "ft_chinese": ("FT中文网", fetch_ft_chinese),
-        "wired": ("Wired", fetch_wired),
-        "mit_tech_review": ("MIT Technology Review", fetch_mit_tech_review),
-        "nature_ai": ("Nature", fetch_nature_ai),
-        "solidot": ("Solidot", fetch_solidot),
-        "douban": ("豆瓣热门", fetch_douban_hot),
-        "aibase": ("AIbase", fetch_aibase),
     }
     
     # 自动发现 config 中有 rss_url 但未注册的源
@@ -2446,8 +1887,6 @@ async def fetch_all(config: dict) -> list:
     dedup_cfg = config.get("dedup", {})
     all_topics = dedup_topics(all_topics, dedup_cfg)
     
-    logger.info(f"📡 数据抓取完成: {len(all_topics)} 条，耗时 {elapsed:.1f}秒")
-    _update_task_state(phase="fetch_done", total_topics=len(all_topics), status="success")
     return all_topics
 
 
@@ -2460,7 +1899,7 @@ def _get_translator():
     if _translator is None and _translator_error is None:
         try:
             from deep_translator import GoogleTranslator
-            _translator = GoogleTranslator(source="auto", target="zh-CN", timeout=5)
+            _translator = GoogleTranslator(source="auto", target="zh-CN")
         except Exception as e:
             _translator_error = str(e)
             logger.warning(f"翻译器初始化失败（将跳过翻译）: {e}")
@@ -2476,40 +1915,8 @@ def is_english(text: str) -> bool:
     return total_chars > 0 and english_chars / total_chars > 0.7
 
 
-
-
-def _translate_with_llm(text, source_lang="en", target_lang="zh-CN"):
-    """Use SiliconFlow API as fallback translation when Google Translate fails."""
-    import os, json, urllib.request
-    api_key = os.environ.get('SILICONFLOW_API_KEY', '')
-    if not api_key:
-        return text  # no key, return original
-    try:
-        url = "https://api.siliconflow.cn/v1/chat/completions"
-        headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json"
-        }
-        prompt = f"Translate the following text from {source_lang} to {target_lang}. Only output the translation, nothing else:\n\n{text}"
-        body = json.dumps({
-            "model": "Qwen/Qwen3-8B",
-            "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": 1024,
-            "temperature": 0.3
-        }).encode('utf-8')
-        req = urllib.request.Request(url, data=body, headers=headers)
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            result = json.loads(resp.read().decode('utf-8'))
-            translated = result['choices'][0]['message']['content'].strip()
-            # Remove possible <think/> tags from Qwen3
-            translated = re.sub(r'<think.*?</think\s*>', '', translated, flags=re.DOTALL).strip()
-            return translated if translated else text
-    except Exception as e:
-        print(f"  [LLM translate fallback failed: {e}]")
-        return text
-
 def translate_text(text: str) -> str:
-    """翻译英文文本为中文，使用LLM翻译（Google在国内不可用）"""
+    """使用 deep_translator (Google Translate) 翻译，带缓存，失败则返回原文"""
     if not text or not is_english(text):
         return text
     
@@ -2518,11 +1925,18 @@ def translate_text(text: str) -> str:
     if cache_key in _translate_cache:
         return _translate_cache[cache_key]
     
-    # 直接使用LLM翻译（Google Translate在国内被墙）
-    result = _translate_with_llm(text)
-    if result and result != text:
-        _translate_cache[cache_key] = result
-    return result
+    translator = _get_translator()
+    if translator is None:
+        return text
+    try:
+        result = translator.translate(text[:500])
+        if result and is_english(result) is False:
+            # 保存到缓存
+            _translate_cache[cache_key] = result
+            return result
+    except Exception as e:
+        logger.debug(f"翻译失败（将在下次重试）: {e}")
+    return text
 
 
 # ============ 翻译缓存 ============
@@ -2581,7 +1995,6 @@ def generate_action_guidance(topic: dict, config: dict, mode: str = "general") -
 
 def _batch_generate_insights(topics: list, config: dict, mode: str = "general") -> int:
     """分批生成AI评论：每批最多15条，多次API调用（支持大众版/专业版）"""
-    _update_task_state(phase="ai_comments_start", total_batches=(len(topics)+14)//15, status="running")
     insights_cfg = config.get("ai_insights", {})
     # 根据模式选择提示词风格
     prompts_cfg = insights_cfg.get("prompts", {})
@@ -2722,12 +2135,10 @@ def _batch_generate_insights(topics: list, config: dict, mode: str = "general") 
             
             logger.info(f"AI评论: 第 {batch_idx+1} 批完成，解析 {parsed} 条")
             total_parsed += parsed
-            _update_task_state(phase="ai_comments_progress", current_batch=batch_idx+1, total_parsed=total_parsed, status="running")
         except Exception as e:
             logger.warning(f"AI评论: 第 {batch_idx+1} 批失败: {e}")
     
     logger.info(f"AI评论: 全部完成，成功解析 {total_parsed} 条")
-    _update_task_state(phase="ai_comments_done", total_parsed=total_parsed, status="success")
     return total_parsed
 
 
@@ -3095,66 +2506,47 @@ def score_topic(t: dict, config: dict) -> float:
     audience_cfg = config.get("scoring", {}).get("audience_keywords", {})
     gen_kws = audience_cfg.get("general", [])
     pro_kws = audience_cfg.get("pro", [])
-    
-    # 如果配置中没有定义受众关键词，使用默认分类规则
-    if not gen_kws and not pro_kws:
-        # 大众版关键词：更通用、应用导向、产品化
-        gen_kws = ['应用', '工具', 'app', '产品', '上线', '发布', '体验', '用户', '使用', '教程', '入门', '指南', '免费', '试用', '手机', '客户端', '更新', '功能', '新手', '简单', '轻松', '快速', '效率', '办公', '写作', '绘画', '聊天', '助手', 'copilot', '插件', '扩展', '浏览器', '网站', '平台', '服务']
-        # 专业版关键词：技术深度、研究导向、底层
-        pro_kws = ['模型', '大模型', 'llm', '算法', '架构', '训练', '推理', '微调', '对齐', 'rlhf', '多模态', '视觉', '语音', 'nlp', '生成式', 'diffusion', 'transformer', '开源', 'github', '论文', '研究', '实验室', 'arxiv', '芯片', 'gpu', 'tpu', '算力', '集群', '推理加速', '量化', '蒸馏', '压缩', '边缘计算', '量子', '基准', '评测', '数据集', '参数', 'token', '上下文', '幻觉', '对齐', '安全', '伦理', '可解释']
-    
     gen_hits = sum(1 for kw in gen_kws if kw.lower() in text)
     pro_hits = sum(1 for kw in pro_kws if kw.lower() in text)
     
     # 简单的二分类，无both（both后续会重新分配）
-    if gen_hits > pro_hits:
+    if gen_hits >= pro_hits:
         audience = "general"
-    elif pro_hits > gen_hits:
-        audience = "pro"
     else:
-        # 平局时根据来源判断：技术源偏向pro，产品源偏向general
-        tech_sources = {'hackernews', 'github', 'arxiv', 'mit_tech_review', 'nature_ai', 'solidot'}
-        product_sources = {'producthunt', 'sspai', 'ifanr', 'xiaohongshu', 'douyin', 'bilibili'}
-        src = t.get("source", "")
-        if src in tech_sources:
-            audience = "pro"
-        elif src in product_sources:
-            audience = "general"
-        else:
-            # 根据分数：高分内容更可能是技术突破（pro），中等分数更可能是产品应用（general）
-            audience = "pro" if relevance > 35 else "general"
+        audience = "pro"
     
     # ===== AI 价值标签识别 =====
     value_tags = []
-    text_for_value = title_lower + ' ' + t.get("summary", "").lower()
+    summary_text = t.get('summary', '') or ''
+    text_for_value = title_lower + ' ' + summary_text.lower()
     
     # AI变现赛道
-    monetization_kws = ['变现', '盈利', '收入', '营收', '赚钱', '商业化', '商业模式', 'b2b', 'c端', '订阅', '付费', '收费', '定价', '销售', '市场', '客户', '用户增长', '获客', '转化率', 'arpu', 'ltv', 'gmv', '融资', 'ipo', '上市', '估值', '投资', '并购', '收购', '财报', '季度', '年报', '利润', '亏损', '增长', '扩张', '裁员', '招聘', '团队', '组织架构']
+    monetization_kws = ['变现', '盈利', '收入', '营收', '赚钱', '商业化', '商业模式', 'b2b', 'c端', '订阅', '付费', '收费', '定价', '销售', '市场', '客户', '用户增长', '获客', '转化率', 'arpu', 'ltv', 'gmv', '融资', 'ipo', '上市', '估值', '投资', '并购', '收购', '财报', '季度', '年报', '利润', '亏损', '增长', '扩张', '裁员', '招聘', '团队', '组织架构', 'revenue', 'profit', 'monetize', 'business model', 'saas', 'enterprise', 'consumer', 'freemium', 'license', 'royalty', 'affiliate', 'ads', 'advertising', 'sponsor', 'partnership', 'deal', 'contract', '订单', '成交额', '营收', '回本', 'roi', '投入产出']
     if any(kw in text_for_value for kw in monetization_kws):
         value_tags.append('AI变现赛道')
     
     # 产业关联
-    industry_kws = ['医疗', '医药', '医院', '医生', '诊断', '药物', '金融', '银行', '保险', '证券', '基金', '支付', '风控', '教育', '学校', '学生', '教师', '课程', '学习', '游戏', '电竞', '娱乐', '影视', '音乐', '设计', '创意', '营销', '广告', '品牌', '电商', '零售', '物流', '供应链', '制造', '工业', '农业', '法律', '政务', '城市', '交通', '能源', '环保', '建筑', '房地产', '汽车', '自动驾驶', '机器人']
+    industry_kws = ['医疗', '医药', '医院', '医生', '诊断', '药物', '临床', '病历', '影像', '病理', '金融', '银行', '保险', '证券', '基金', '支付', '风控', '信贷', '理财', '投顾', '量化', '教育', '学校', '学生', '教师', '课程', '学习', '培训', '考试', '辅导', '游戏', '电竞', '娱乐', '影视', '音乐', '动漫', '直播', '短视频', '设计', '创意', 'ui', 'ux', '营销', '广告', '品牌', '推广', '运营', '电商', '零售', '物流', '供应链', '仓储', '制造', '工业', '农业', '法律', '政务', '城市', '交通', '能源', '环保', '建筑', '房地产', '汽车', '自动驾驶', '机器人', '无人机', '航天', '航空', '旅游', '酒店', '餐饮', '体育', '健身', '美容', '时尚', '纺织', '化工', '材料', '生物', '基因', '合成生物', '农业', '养殖', '种植', '渔业', '矿业', '石油', '天然气', '电力', '水利', '通信', '电信', '5g', '6g', '物联网', 'iot', '智慧城市', '数字孪生', '元宇宙', 'vr', 'ar', 'xr', '区块链', 'nft', 'web3', '云计算', '云原生', 'devops', 'ci/cd', '容器', 'kubernetes', 'docker', 'serverless', '微服务', '中台', '大数据', '数据仓库', '数据湖', 'bi', 'etl', '数据治理', '推荐系统', '搜索引擎', '广告系统', '风控系统', '客服系统', 'crm', 'erp', 'scm', 'hrm', 'oa', 'cms', 'mes', 'wms', 'tms', 'oms', 'pms']
     if any(kw in text_for_value for kw in industry_kws):
         value_tags.append('产业关联')
     
     # 技术前沿
-    tech_kws = ['模型', '大模型', 'llm', '算法', '架构', '训练', '推理', '微调', '对齐', 'rlhf', 'agent', '多模态', '视觉', '语音', 'nlp', '生成式', 'diffusion', 'transformer', '开源', 'github', '论文', '研究', '实验室', 'arxiv', '芯片', 'gpu', 'tpu', '算力', '集群', '推理加速', '量化', '蒸馏', '压缩', '边缘计算', '量子']
+    tech_kws = ['模型', '大模型', 'llm', '算法', '架构', '训练', '推理', '微调', '对齐', 'rlhf', 'agent', '多模态', '视觉', '语音', 'nlp', '生成式', 'diffusion', 'transformer', '开源', 'github', '论文', '研究', '实验室', 'arxiv', '芯片', 'gpu', 'tpu', '算力', '集群', '推理加速', '量化', '蒸馏', '压缩', '边缘计算', '量子', '神经网络', '深度学习', '机器学习', '强化学习', '监督学习', '无监督学习', '自监督学习', '迁移学习', '联邦学习', '对比学习', '表征学习', '图神经网络', 'gnn', 'cnn', 'rnn', 'lstm', 'gru', 'attention', 'self-attention', 'moe', 'mixture of experts', '状态空间模型', 'mamba', 'rwkv', 'retnet', '线性注意力', '稀疏注意力', '长上下文', '上下文窗口', 'token', 'embedding', '向量', '检索增强', 'rag', '知识图谱', '符号推理', '神经符号', '因果推理', '贝叶斯', '概率图', '马尔可夫', '蒙特卡洛', '模拟', '仿真', '数字孪生', '具身智能', 'embodied ai', '世界模型', 'world model', '神经辐射场', 'nerf', '3d生成', '视频生成', '图像生成', '文本生成', '代码生成', '音乐生成', '语音合成', 'tts', '语音识别', 'asr', 'ocr', '目标检测', '语义分割', '实例分割', '姿态估计', '人脸识别', '情感分析', '文本分类', '命名实体识别', 'ner', '关系抽取', '事件抽取', '机器翻译', 'mt', '摘要生成', '问答系统', '对话系统', 'chatbot', '虚拟助手', '数字人', '智能体', '自主智能体', 'autoagent', '工具使用', 'function calling', '代码解释器', '插件系统', '浏览器自动化', 'gui自动化', 'rpa', '具身智能', '机器人学习', 'sim2real', '域适应', '持续学习', '终身学习', '元学习', 'few-shot', 'zero-shot', 'prompt engineering', '提示工程', 'chain of thought', 'cot', '思维链', 'tree of thoughts', 'tot', 'self-consistency', 'reflection', '迭代优化', '对抗训练', 'gan', 'vae', 'flow model', '能量模型', '玻尔兹曼机', 'hopfield网络', '脉冲神经网络', 'snn', '神经形态计算', '类脑计算', '存算一体', '近存计算', 'chiplet', '先进封装', '光计算', 'dna存储', '量子计算', '量子机器学习', '量子神经网络']
     if any(kw in text_for_value for kw in tech_kws):
         value_tags.append('技术前沿')
     
     # 产品工具
-    product_kws = ['工具', '应用', 'app', '软件', '平台', '插件', '扩展', 'api', 'sdk', '服务', '上线', '发布', '更新', '版本', '功能', '特性', '体验', '界面', '交互', '设计', '原型', 'demo', 'beta', '公测', '内测', '效率', '生产力', '自动化', '工作流', '助手', 'copilot', '编程', '代码', '开发', 'debug', '测试', '部署']
+    product_kws = ['工具', '应用', 'app', '软件', '平台', '插件', '扩展', 'api', 'sdk', '服务', '上线', '发布', '更新', '版本', '功能', '特性', '体验', '界面', '交互', '设计', '原型', 'demo', 'beta', '公测', '内测', '效率', '生产力', '自动化', '工作流', '助手', 'copilot', '编程', '代码', '开发', 'debug', '测试', '部署', 'ide', '编辑器', 'notebook', 'jupyter', 'vscode', 'cursor', 'windsurf', 'trae', 'github copilot', 'codeium', 'tabnine', 'replit', 'codesandbox', 'stackblitz', 'gitpod', 'docker', 'kubernetes', 'terraform', 'ansible', 'jenkins', 'gitlab ci', 'github actions', 'vercel', 'netlify', 'aws', 'azure', 'gcp', '阿里云', '腾讯云', '华为云', '百度云', '火山引擎', '无代码', '低代码', 'nocode', 'lowcode', 'airtable', 'notion', 'figma', 'sketch', 'adobe', 'canva', 'midjourney', 'stable diffusion', 'dall-e', 'sora', 'runway', 'pika', 'heygen', 'synthesia', 'elevenlabs', 'chatgpt', 'claude', 'gemini', 'gpt-4', 'gpt-3.5', 'llama', 'mistral', 'anthropic', 'openai', 'google ai', 'microsoft ai', 'meta ai', 'baidu ai', 'alibaba ai', 'tencent ai', '字节跳动', 'bytedance', '月之暗面', 'minimax', '智谱', '百川', '零一万物', '阶跃星辰', '面壁智能', '深度求索', 'deepseek']
     if any(kw in text_for_value for kw in product_kws):
         value_tags.append('产品工具')
     
     # 政策监管
-    policy_kws = ['政策', '法规', '监管', '合规', '安全', '隐私', '数据保护', 'gdpr', '伦理', '道德', '风险', '治理', '标准', '认证', '许可', '版权', '知识产权', '专利', '诉讼', '禁令', '限制', '审查', '审核', '问责', '透明', '可解释', '公平', '偏见', '歧视', 'deepfake', '虚假信息', '诈骗', '滥用']
+    policy_kws = ['政策', '法规', '监管', '合规', '安全', '隐私', '数据保护', 'gdpr', '伦理', '道德', '风险', '治理', '标准', '认证', '许可', '版权', '知识产权', '专利', '诉讼', '禁令', '限制', '审查', '审核', '问责', '透明', '可解释', '公平', '偏见', '歧视', 'deepfake', '虚假信息', '诈骗', '滥用', 'ai法案', 'ai act', '欧盟', '美国', '中国', '英国', '日本', '韩国', '新加坡', '联合国', 'who', 'ieee', 'iso', 'nist', '网络安全', '信息安全', '数据安全', '个人信息保护法', '数据安全法', '网络安全法', '算法推荐管理规定', '深度合成管理规定', '生成式ai管理办法', '人工智能法', 'ai治理', 'ai伦理准则', 'responsible ai', 'trustworthy ai', 'human-centric ai', 'ai for good', '可持续发展', 'esg', '碳足迹', '绿色ai', 'ai能耗', '数据中心能耗', 'pue', '可再生能源', '社会责任', '数字鸿沟', '技术普惠', 'ai普惠', '数字包容', '无障碍', '适老化', '儿童保护', '未成年人保护', '内容安全', '有害内容', '仇恨言论', '暴力内容', '色情内容', '赌博', '毒品', '恐怖主义', '极端主义', '国家秘密', '军事', '国防', '情报', '间谍', '网络战', '信息战', '认知战', '舆论操控', '选举干预', '社会工程', '钓鱼', '勒索软件', '恶意软件', '病毒', '蠕虫', '木马', '后门', '漏洞', '0day', 'cve', '渗透测试', '红队', '蓝队', ' purple team', 'soc', 'siem', 'soar', 'xdr', 'edr', 'mdr', '零信任', 'sase', 'sse', 'casb', 'swg', 'ztna', 'sdp', 'mfa', 'sso', 'iam', 'pki', '证书', '加密', '解密', '哈希', '签名', '区块链安全', '智能合约安全', 'defi安全', 'nft安全', '钱包安全', '交易所安全']
     if any(kw in text_for_value for kw in policy_kws):
         value_tags.append('政策监管')
     
     # 创业投资
-    venture_kws = ['创业', '初创', 'startup', '独角兽', '孵化器', '加速器', 'vc', 'pe', '天使', '种子', 'a轮', 'b轮', 'c轮', '战略投资', '并购', '收购', 'ipo', '上市', '退市', '估值', '市值', '股价', '股东', '董事会', 'ceo', '创始人', '高管', '离职', '加盟', '任命', '合作', '联盟', '生态', '竞争', '对手', '市场份额', '行业格局', '洗牌']
+    venture_kws = ['创业', '初创', 'startup', '独角兽', '孵化器', '加速器', 'vc', 'pe', '天使', '种子', 'a轮', 'b轮', 'c轮', 'd轮', 'e轮', 'pre-ipo', '战略投资', '并购', '收购', 'ipo', '上市', '退市', '估值', '市值', '股价', '股东', '董事会', 'ceo', '创始人', '高管', '离职', '加盟', '任命', '合作', '联盟', '生态', '竞争', '对手', '市场份额', '行业格局', '洗牌', '融资', '募资', '资本', '基金', 'lp', 'gp', '有限合伙', '风险投资', '私募', '对冲基金', '主权基金', '养老金', '家族办公室', 'fo', 'cvc', '企业风投', '战略投资', '产业投资', '财务投资', 'PIPE', '可转债', '优先股', '普通股', '期权', '股权', '股权激励', 'esop', '员工持股', '创始人股份', '控制权', '投票权', 'ab股', '同股不同权', 'vie', '红筹', '借壳', 'spac', '反向并购', '私有化', '分拆', '重组', '破产', '清算', '重整', '债务重组', '债转股', '资产剥离', '业务整合', '协同效应', '规模效应', '网络效应', '飞轮效应', '护城河', '壁垒', '护城河', '竞争优势', '差异化', '成本领先', '聚焦战略', '蓝海', '红海', '颠覆', '创新', '迭代', '试错', 'mvp', 'pmf', '产品市场匹配', '增长黑客', '病毒传播', '网络效应', '平台效应', '双边市场', '多边市场', '生态系统', '超级应用', '杀手级应用', '爆款', '现象级', '风口', '赛道', '赛道选择', '时机', '窗口期', '红利', '先发优势', '后发优势', '弯道超车', '降维打击', '跨界', '融合', '边界模糊', '重新定义', '范式转移', '技术周期', '创新周期', '经济周期', '资本周期', '行业周期', '生命周期', 's曲线', 'j曲线', '增长曲线', '指数增长', '线性增长', '爆发增长', '稳健增长', '存量博弈', '增量市场', '下沉市场', '出海', '全球化', '本地化', 'glocalization']
     if any(kw in text_for_value for kw in venture_kws):
         value_tags.append('创业投资')
     
@@ -4354,12 +3746,6 @@ def generate_html(categories: dict, config: dict, mode: str = "web") -> str:
         "zdnet": "ZDNet", "pengpai": "澎湃新闻", "zhihu": "知乎热榜",
         "infzm": "南方周末", "zaobao": "联合早报", "bbc": "BBC中文",
         "arstechnica": "Ars Technica", "theverge": "The Verge", "npr": "NPR新闻",
-        # v3.8 新增
-        "bilibili": "B站热门", "xiaohongshu": "小红书", "douyin": "抖音热点",
-        "kuaishou": "快手热点", "people_daily": "人民网", "xinhua": "新华社",
-        "caixin": "财新网", "theinformation": "The Information", "reuters": "路透社",
-        "ft_chinese": "FT中文网", "wired": "Wired", "mit_tech_review": "MIT Technology Review",
-        "nature_ai": "Nature", "solidot": "Solidot", "douban": "豆瓣热门", "aibase": "AIbase",
     }
     _sources_cfg = config.get("sources", {})
     enabled_source_names = [name for key, name in _source_map.items() if _sources_cfg.get(key, {}).get("enabled", key in ("hackernews", "github", "producthunt"))]
@@ -4380,15 +3766,6 @@ def generate_html(categories: dict, config: dict, mode: str = "web") -> str:
             "zaobao": "https://rsshub.app/zaobao/realtime/china", "bbc": "https://rsshub.app/bbc/chinese",
             "arstechnica": "https://feeds.arstechnica.com/arstechnica/features",
             "theverge": "https://www.theverge.com/rss/index.xml", "npr": "https://feeds.npr.org/1001/rss.xml",
-            # v3.8 新增
-            "bilibili": "https://rsshub.app/bilibili/hot-search", "xiaohongshu": "https://rsshub.app/xiaohongshu",
-            "douyin": "https://rsshub.app/douyin/hot-search", "kuaishou": "https://rsshub.app/kuaishou/hot",
-            "people_daily": "https://rsshub.app/people", "xinhua": "https://rsshub.app/news/whxw",
-            "caixin": "https://rsshub.app/caixin/latest", "theinformation": "https://rsshub.app/theinformation/latest",
-            "reuters": "https://rsshub.app/reuters/world/china", "ft_chinese": "https://rsshub.app/ft/chinese/hotstoryby7day",
-            "wired": "https://www.wired.com/feed/rss", "mit_tech_review": "https://www.technologyreview.com/feed/",
-            "nature_ai": "https://rsshub.app/nature/news-and-comment", "solidot": "https://www.solidot.org/index.rss",
-            "douban": "https://rsshub.app/douban", "aibase": "https://www.aibase.com/rss",
         }.items() if _sources_cfg.get(key, {}).get("enabled", key in ("hackernews", "github", "producthunt"))]
     
     # CSS
@@ -4432,8 +3809,20 @@ def generate_html(categories: dict, config: dict, mode: str = "web") -> str:
             text = re.sub(p, '', text, flags=re.IGNORECASE)
         return text.strip()
 
+    def _normalize_keys(t):
+        """兼容 api.json 中的键名"""
+        if not t.get("perspective_comment") and t.get("perspective"):
+            t["perspective_comment"] = t["perspective"]
+        if not t.get("action_guidance") and t.get("action"):
+            t["action_guidance"] = t["action"]
+        if not t.get("zh_summary") and t.get("summary"):
+            t["zh_summary"] = t["summary"]
+        if not t.get("source_name") and t.get("source"):
+            t["source_name"] = t["source"]
+
     def _build_ai_insights(t):
         """构建AI内容区块，只有当至少有一个有效内容时才创建容器"""
+        _normalize_keys(t)
         zh = t.get("zh_summary", "")
         persp = t.get("perspective_comment", "")
         action = t.get("action_guidance", "")
@@ -4509,6 +3898,7 @@ def generate_html(categories: dict, config: dict, mode: str = "web") -> str:
         
         cards = ""
         for t in sorted(items, key=lambda x: x["score"], reverse=True):
+            _normalize_keys(t)
             level_info = t["level"]
             color = level_info["color"]
             card_hash = hashlib.md5((t["title"] + t.get("url", "")).encode()).hexdigest()[:20]
@@ -4520,7 +3910,7 @@ def generate_html(categories: dict, config: dict, mode: str = "web") -> str:
             bk_esc_perspective = _escape_attr(t.get('perspective_comment', '')[:120])
             bk_esc_action = _escape_attr(t.get('action_guidance', '')[:120])
             bk_score = t["score"]
-            bk_source = t["source_name"]
+            bk_source = t.get("source_name", "")
             bk_grade = level_info["name"]
             
             # 标题：web模式可点击跳转，local模式纯文本
@@ -4535,9 +3925,10 @@ def generate_html(categories: dict, config: dict, mode: str = "web") -> str:
 
             # 热度阶段判断
             heat_stage, heat_stage_icon, heat_stage_desc = _get_heat_stage(t, prev_topics_map)
-            # 价值标签HTML
-            _vtags = t.get("value_tags", ["综合"])
-            value_tags_html = '\n  <div class="value-tags">' + ''.join(['\n    <span class="value-tag" data-tag="' + tag + '">' + tag + '</span>' for tag in _vtags]) + '\n  </div>' if _vtags else ''
+            value_tags_html = ""
+            if t.get("value_tags"):
+                tag_spans = "\n    ".join([f'<span class="value-tag" data-tag="{tag}">{tag}</span>' for tag in t.get("value_tags", ["综合"])])
+                value_tags_html = f'\n  <div class="value-tags">\n    {tag_spans}\n  </div>'
             card = f'''
 <div class="topic-card" data-hash="{card_hash}" data-updated="{gen_timestamp}" data-grade="{lvl["name"]}" data-source="{t.get("source_name", "")}" data-heat-stage="{heat_stage}" data-audience="{t.get('audience', 'both')}" data-value-tags="{",".join(t.get("value_tags", ["综合"]))}">
   <span class="new-badge" style="display:none;">NEW</span>
@@ -4648,7 +4039,8 @@ function filterCards() {{
     const hash = card.dataset.hash || '';
     const title = (card.querySelector('h2')?.textContent || '').toLowerCase();
     const summary = (card.querySelector('.summary')?.textContent || '').toLowerCase();
-    const allText = title + ' ' + summary;
+    // zh-summary已移除
+    const allText = title + ' ' + summary + ' ' + zh;
     
     // 搜索过滤
     if (searchText && !allText.includes(searchText)) {{
@@ -5592,8 +4984,8 @@ function applyMode() {{
       const sb = parseFloat(b.querySelector('.score-badge')?.textContent) || 0;
       return sb - sa;
     }});
-    // 限制专业版最多显示30条，但不超过实际数量
-    const visibleCount = expanded ? qualified.length : Math.min(qualified.length, MAX_CARDS);
+    // 限制专业版最多显示30条
+    const visibleCount = expanded ? qualified.length : Math.min(30, Math.max(MIN_CARDS, Math.min(MAX_CARDS, qualified.length)));
     qualified.forEach((card, idx) => {{
       card.style.display = idx < visibleCount ? '' : 'none';
     }});
@@ -5605,10 +4997,10 @@ function _updateCardCount(total, visible) {{
   if (!el) {{
     el = document.createElement('span');
     el.id = 'card-count';
-    el.style.cssText = 'font-size:11px;opacity:0.7;margin-left:6px;font-family:monospace;';
+    el.style.cssText = 'font-size:11px;opacity:0.7;margin-left:4px;';
     document.getElementById('mode-toggle').appendChild(el);
   }}
-  el.textContent = '(' + visible + '条)';
+  el.textContent = visible + '/' + total;
 }}
 function toggleExpand() {{
   expanded = !expanded;
@@ -5639,11 +5031,6 @@ async def main(config_path: str = "config.yaml", output_dir: str = "site",
         update_only: 仅更新内容（重新抓取+评分+生成HTML），不修改配置和代码
         quick: 快速模式（跳过翻译+AI评论），约30秒出站
     """
-    # 加载之前的状态（用于断点续传）
-    prev_state = _load_task_state()
-    if prev_state:
-        logger.info(f"检测到上次任务状态: {prev_state.get('phase', 'unknown')} - {prev_state.get('last_updated', 'unknown')}")
-    
     total_start = time.time()
     
     # 模式检查：正式运维必须使用完整模式
@@ -5736,9 +5123,6 @@ async def main(config_path: str = "config.yaml", output_dir: str = "site",
     for lvl_topics in categories.values():
         all_topics_flat.extend(lvl_topics)
     save_data_snapshot(all_topics_flat, config, output_dir="data")
-    
-    # 任务成功完成，清除状态文件
-    _clear_task_state()
     
     levels = config.get("scoring", {}).get("levels", [])
     sorted_levels = sorted(levels, key=lambda x: x["threshold"], reverse=True)
