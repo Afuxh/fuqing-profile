@@ -614,6 +614,19 @@ body {
 .insight-card__icon { font-size: 2rem; margin-bottom: 0.75rem; }
 .insight-card__title { font-size: 1rem; font-weight: 700; color: var(--gray-800); margin-bottom: 0.5rem; }
 .insight-card__text { font-size: 0.82rem; color: var(--gray-500); line-height: 1.7; }
+.insight-card__label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+.insight-card__text {
+  font-size: 0.82rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
 
 /* ============ BLOCKQUOTE ============ */
 .apple-quote {
@@ -923,43 +936,19 @@ h1, h2, h3, h4, .headline, .section-title, .hero__title {
 </section>
 
 
-  <!-- SECOND WEEK TOPICS (6/13-6/15 from web) -->
-  <div class="sub-section" style="margin-top:40px;">
-    <div class="sub-title">🆕 第二周新增话题（6/13-6/15 · 约147条）</div>
-    <p class="sub-desc">以下话题数据来源于网页端摘要，归类为6个方向：</p>
-    <div class="stat-grid stat-grid--4col">
-      <div class="stat-card">
-        <div class="stat-card__num">46</div>
-        <div class="stat-card__lbl">AI工具/提示词</div>
-        <div class="stat-card__note">提示词打磨、图片抽卡、思维导图工具</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card__num">27</div>
-        <div class="stat-card__lbl">内容创作/写作</div>
-        <div class="stat-card__note">AI视频生成、视频创作讨论</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card__num">24</div>
-        <div class="stat-card__lbl">技术讨论</div>
-        <div class="stat-card__note">代码能力、模型对比讨论</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card__num">20</div>
-        <div class="stat-card__lbl">社区活动</div>
-        <div class="stat-card__note">直播通知、小鹅通访问问题</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card__num">16</div>
-        <div class="stat-card__lbl">课程/训练营</div>
-        <div class="stat-card__note">课程回放、作业提交、学习体验</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card__num">14</div>
-        <div class="stat-card__lbl">资源分享</div>
-        <div class="stat-card__note">社群资源蒸馏、API使用经验</div>
+
+    <div class="chart-card fade-reveal" style="margin-bottom:2rem;">
+      <div class="chart-card__title">第二周话题细分（6/13-6/15 · 约147条）</div>
+      <p style="font-size:0.78rem;color:var(--gray-500);margin-bottom:1.25rem;">以下数据来源于网页端摘要，第二周讨论从工具安装转向实际应用，提示词打磨与内容创作为最热方向。</p>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-card__num">46</div><div class="stat-card__lbl">AI工具/提示词</div></div>
+        <div class="stat-card"><div class="stat-card__num">27</div><div class="stat-card__lbl">内容创作/写作</div></div>
+        <div class="stat-card"><div class="stat-card__num">24</div><div class="stat-card__lbl">技术讨论</div></div>
+        <div class="stat-card"><div class="stat-card__num">20</div><div class="stat-card__lbl">社区活动</div></div>
+        <div class="stat-card"><div class="stat-card__num">16</div><div class="stat-card__lbl">课程/训练营</div></div>
+        <div class="stat-card"><div class="stat-card__num">14</div><div class="stat-card__lbl">资源分享</div></div>
       </div>
     </div>
-  </div>
 <!-- ================================
      4. 关键内容摘要
      ================================ -->
@@ -1089,7 +1078,7 @@ h1, h2, h3, h4, .headline, .section-title, .hero__title {
     <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
       <div class="section-label">Section 07</div>
       <h2 class="section-title">每日概要</h2>
-      <p class="section-desc" style="margin:0 auto;">十一天的社群脉动——从建群狂欢到深度沉淀，6月12日达到顶峰。</p>
+      <p class="section-desc" style="margin:0 auto;">十四天的社群脉动——从建群狂欢到深度沉淀，6月12日达到顶峰。</p>
     </div>
 
     <div class="apple-timeline fade-reveal">
@@ -1323,10 +1312,117 @@ h1, h2, h3, h4, .headline, .section-title, .hero__title {
 <!-- ================================
      FOOTER
      ================================ -->
+<!-- ==========================================
+     树林核心方向指引（新增）
+     ========================================== -->
+  <section class="section section--gray" id="shulin">
+  <div class="container">
+    <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-label">Section 10</div>
+      <h2 class="section-title">树林核心方向指引</h2>
+      <p class="section-desc" style="margin:0 auto;">6月2日-12日 导师方向梳理 · 以树林为绝对核心</p>
+    </div>
+
+      <div class="insight-card fade-reveal">
+        <div class="insight-card__label">6月9日 · 养成系观察</div>
+        <div class="insight-card__text">「养成系这一块，太有意思了」「你女子也不错」—— 树林对学员成长轨迹的关注与认可。</div>
+      </div>
+
+      <div class="insight-card fade-reveal">
+        <div class="insight-card__label">6月10日 · 质量与展示</div>
+        <div class="insight-card__text">「ai原生人才指定使用表情包」「才说完群里质量高，就酷酷送一堆垃圾」—— 对产出质量的严格把控。「发朋友圈好吗」「自我介绍哈」—— 推动学员对外展示、建立个人IP。</div>
+      </div>
+
+      <div class="insight-card fade-reveal">
+        <div class="insight-card__label">6月11日 · 商业化方向大输出（86条发言）</div>
+        <div class="insight-card__text">
+          <strong>商业化方向</strong>：「信息差远比你们想象中值钱」「这些老板一个二个都不好意思问ai的...实则慌得一批」「生财最近搞这个出一个爆一个」<br><br>
+          <strong>时间窗口</strong>：「大学生还没有焦虑呢，1个半月，2个月之后吧」「3个月大学生的fomo到达顶峰」「那个时候你就是他们心中的神了」<br><br>
+          <strong>数据沉淀</strong>：「你和学生的所有数据，新建群聊的所有数据，给他，也给我」<br><br>
+          <strong>AI协作方法论</strong>：「需要顶层设计，还有底层设计，否则有个问题，你的脑子会污染ai」「不要让他识别我，讨好我，就会平庸」<br><br>
+          <strong>展示与反馈</strong>：「我需要更多的眼睛！」
+        </div>
+      </div>
+
+      <div class="insight-card fade-reveal">
+        <div class="insight-card__label">6月12日 · 信息差即机会（139条发言，全期最高）</div>
+        <div class="insight-card__text">「哈哈哈不应该开心吗，这个世界上都是聪明人你赚谁的钱，都看得懂你就不觉得自己特别了啊哈哈哈」—— 用幽默方式点出信息差商业化的本质。Shoyo发布盖洛普测试H5网页，大量学员涌入和互动，群内讨论热度达到顶峰。</div>
+      </div>
+  </div>
+</section>
+
+  <!-- ==========================================
+       学员实操成果（新增）
+       ========================================== -->
+  <section class="section section--gray" id="student-work">
+  <div class="container">
+    <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-label">Section 11</div>
+      <h2 class="section-title">学员实操成果</h2>
+      <p class="section-desc" style="margin:0 auto;">6月2日-12日 学员作品与实践汇总</p>
+    </div>
+
+      <div class="insight-card fade-reveal">
+        <div class="insight-card__label">网站开发</div>
+        <div class="insight-card__text">
+          <strong>星野</strong>：微信聊天记录导出教程网站 dengyuanxing953-eng.github.io/wechat-tutorial/<br>
+          <strong>链屿君</strong>：高考前夕备考手册网站（结合树林直播+小红书）<br>
+          <strong>惘梦</strong>：AI era主题网站 47.108.208.60/ai-era/<br>
+          <strong>虚焦</strong>：瑞士国际主义风格网站 ljx48517-dotcom.github.io/digital-syndrome/<br>
+          <strong>Gochan</strong>：树成林手册网站 shuchenglin-handbook.pages.dev/<br>
+          <strong>Shoyo</strong>：盖洛普测试H5网页（扒下300多元官网测试）<br>
+          <strong>阿诚</strong>：用Typeless做了两个网站，聊了两天才花2块钱
+        </div>
+      </div>
+
+      <div class="insight-card fade-reveal">
+        <div class="insight-card__label">AI视频制作</div>
+        <div class="insight-card__text">
+          <strong>余白</strong>：用Claude Code接Blender做3D动画视频，参考树林画风；接第一个网页单收45元<br>
+          <strong>链屿君</strong>：闲鱼AI视频获客，30元带来两个客户咨询<br>
+          <strong>青砚</strong>：初版自动化视频Agent，含20+额度可生成4个视频<br>
+          <strong>赤の破滅</strong>：持续迭代视频作品<br>
+          <strong>阿sam</strong>：第一次用Codex做视频
+        </div>
+      </div>
+
+      <div class="insight-card fade-reveal">
+        <div class="insight-card__label">工具开发</div>
+        <div class="insight-card__text">
+          <strong>知有</strong>：小鹅通视频转文字工具，本地跑2.5小时视频需1小时<br>
+          <strong>咕咕咕</strong>：AI分析视频Skill，减少token损耗<br>
+          <strong>洋</strong>：自我迭代Claude Agent，能自主上网学习、反思迭代
+        </div>
+      </div>
+
+      <div class="insight-card fade-reveal">
+        <div class="insight-card__label">变现探索</div>
+        <div class="insight-card__text">
+          <strong>链屿君</strong>：闲鱼AI视频获客，30元带来两个客户咨询<br>
+          <strong>余白</strong>：接第一个网页定制单，收45元，加了70多张图片
+        </div>
+      </div>
+
+      <!-- 第二周洞察 -->
+      <div class="insight-card fade-reveal">
+        <div class="insight-card__label">话题演变</div>
+        <div class="insight-card__text">
+          6/13-6/15期间，内容创作（27条）和AI提示词（46条）热度持续走高，反映出学员从工具安装到实际应用的自然过渡。<strong>Champion</strong>发起的直播活动进一步推动了社区互动，直播主题「AI时代下的内容应用」与群内讨论方向高度契合。
+        </div>
+      </div>
+      <div class="insight-card fade-reveal">
+        <div class="insight-card__label">数据说明</div>
+        <div class="insight-card__text" style="font-size:0.9rem;color:var(--gray-500);">
+          6/13-6/15 数据来源于 <strong>CHAT REPORT</strong> 网页端话题摘要，每日消息量（~310/~310/~280）为平台估算值。完整统计数据以本地导出日期（6/12 22:25 UTC+8）为准，6/13之后为网页补充数据。
+        </div>
+      </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="footer__title">🌲 交流2群 · 2026IP训练营</div>
   <p class="footer__text">
-    报告生成时间：2026年6月12日（更新版，补充6月9日-12日数据） &nbsp;·&nbsp; 数据来源：微信群聊记录导出文件<br>
+    报告生成时间：2026年6月15日（完整版，覆盖6月2日-15日共14天数据） &nbsp;·&nbsp; 数据来源：微信群聊记录导出文件<br>
     分析方法：Python 文本分析 + 人工内容审阅 &nbsp;·&nbsp; 消息总量：10,724 条 &nbsp;·&nbsp; 303 人
   </p>
   <p class="footer__colophon">Made with ❤️ and AI</p>
@@ -1659,112 +1755,7 @@ setTimeout(() => {
 console.log('✨ 交流2群 · 2026IP训练营 — Apple风格数据编年史已就绪');
 </script>
 
-<!-- ==========================================
-     树林核心方向指引（新增）
-     ========================================== -->
-  <section class="section section--gray" id="shulin">
-  <div class="container">
-    <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
-      <div class="section-label">Section 10</div>
-      <h2 class="section-title">树林核心方向指引</h2>
-      <p class="section-desc" style="margin:0 auto;">6月2日-12日 导师方向梳理 · 以树林为绝对核心</p>
-    </div>
 
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">6月9日 · 养成系观察</div>
-        <div class="insight-card__text">「养成系这一块，太有意思了」「你女子也不错」—— 树林对学员成长轨迹的关注与认可。</div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">6月10日 · 质量与展示</div>
-        <div class="insight-card__text">「ai原生人才指定使用表情包」「才说完群里质量高，就酷酷送一堆垃圾」—— 对产出质量的严格把控。「发朋友圈好吗」「自我介绍哈」—— 推动学员对外展示、建立个人IP。</div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">6月11日 · 商业化方向大输出（86条发言）</div>
-        <div class="insight-card__text">
-          <strong>商业化方向</strong>：「信息差远比你们想象中值钱」「这些老板一个二个都不好意思问ai的...实则慌得一批」「生财最近搞这个出一个爆一个」<br><br>
-          <strong>时间窗口</strong>：「大学生还没有焦虑呢，1个半月，2个月之后吧」「3个月大学生的fomo到达顶峰」「那个时候你就是他们心中的神了」<br><br>
-          <strong>数据沉淀</strong>：「你和学生的所有数据，新建群聊的所有数据，给他，也给我」<br><br>
-          <strong>AI协作方法论</strong>：「需要顶层设计，还有底层设计，否则有个问题，你的脑子会污染ai」「不要让他识别我，讨好我，就会平庸」<br><br>
-          <strong>展示与反馈</strong>：「我需要更多的眼睛！」
-        </div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">6月12日 · 信息差即机会（139条发言，全期最高）</div>
-        <div class="insight-card__text">「哈哈哈不应该开心吗，这个世界上都是聪明人你赚谁的钱，都看得懂你就不觉得自己特别了啊哈哈哈」—— 用幽默方式点出信息差商业化的本质。Shoyo发布盖洛普测试H5网页，大量学员涌入和互动，群内讨论热度达到顶峰。</div>
-      </div>
-  </div>
-</section>
-
-  <!-- ==========================================
-       学员实操成果（新增）
-       ========================================== -->
-  <section class="section section--gray" id="student-work">
-  <div class="container">
-    <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
-      <div class="section-label">Section 11</div>
-      <h2 class="section-title">学员实操成果</h2>
-      <p class="section-desc" style="margin:0 auto;">6月2日-12日 学员作品与实践汇总</p>
-    </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">网站开发</div>
-        <div class="insight-card__text">
-          <strong>星野</strong>：微信聊天记录导出教程网站 dengyuanxing953-eng.github.io/wechat-tutorial/<br>
-          <strong>链屿君</strong>：高考前夕备考手册网站（结合树林直播+小红书）<br>
-          <strong>惘梦</strong>：AI era主题网站 47.108.208.60/ai-era/<br>
-          <strong>虚焦</strong>：瑞士国际主义风格网站 ljx48517-dotcom.github.io/digital-syndrome/<br>
-          <strong>Gochan</strong>：树成林手册网站 shuchenglin-handbook.pages.dev/<br>
-          <strong>Shoyo</strong>：盖洛普测试H5网页（扒下300多元官网测试）<br>
-          <strong>阿诚</strong>：用Typeless做了两个网站，聊了两天才花2块钱
-        </div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">AI视频制作</div>
-        <div class="insight-card__text">
-          <strong>余白</strong>：用Claude Code接Blender做3D动画视频，参考树林画风；接第一个网页单收45元<br>
-          <strong>链屿君</strong>：闲鱼AI视频获客，30元带来两个客户咨询<br>
-          <strong>青砚</strong>：初版自动化视频Agent，含20+额度可生成4个视频<br>
-          <strong>赤の破滅</strong>：持续迭代视频作品<br>
-          <strong>阿sam</strong>：第一次用Codex做视频
-        </div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">工具开发</div>
-        <div class="insight-card__text">
-          <strong>知有</strong>：小鹅通视频转文字工具，本地跑2.5小时视频需1小时<br>
-          <strong>咕咕咕</strong>：AI分析视频Skill，减少token损耗<br>
-          <strong>洋</strong>：自我迭代Claude Agent，能自主上网学习、反思迭代
-        </div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">变现探索</div>
-        <div class="insight-card__text">
-          <strong>链屿君</strong>：闲鱼AI视频获客，30元带来两个客户咨询<br>
-          <strong>余白</strong>：接第一个网页定制单，收45元，加了70多张图片
-        </div>
-      </div>
-
-      <!-- 第二周洞察 -->
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">话题演变</div>
-        <div class="insight-card__text">
-          6/13-6/15期间，内容创作（27条）和AI提示词（46条）热度持续走高，反映出学员从工具安装到实际应用的自然过渡。<strong>Champion</strong>发起的直播活动进一步推动了社区互动，直播主题「AI时代下的内容应用」与群内讨论方向高度契合。
-        </div>
-      </div>
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">数据说明</div>
-        <div class="insight-card__text" style="font-size:0.9rem;color:var(--gray-500);">
-          6/13-6/15 数据来源于 <strong>CHAT REPORT</strong> 网页端话题摘要，每日消息量（~310/~310/~280）为平台估算值。完整统计数据以本地导出日期（6/12 22:25 UTC+8）为准，6/13之后为网页补充数据。
-        </div>
-      </div>
-  </div>
-</section>
 
 </body>
 </html>
