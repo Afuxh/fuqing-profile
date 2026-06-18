@@ -1,0 +1,124 @@
+02:49:46 [INFO] ✅ 使用完整模式，将生成AI评论和翻译（预计10-15分钟）
+02:49:46 [INFO] ==================================================
+02:49:46 [INFO]   热点聚合网站生成器 v3.7.1
+02:49:46 [INFO]   时间: 2026-06-19 02:49:46
+02:49:46 [INFO]   模式: 在线网页
+02:49:46 [INFO]   翻译: 跳过（约20-40秒）
+02:49:46 [INFO] ==================================================
+  🚀 总体进度 [████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 1/5 (20%) 预计剩余 0秒   02:49:46 [WARNING] 检测到当前目录已在 Git 仓库中:
+02:49:46 [WARNING]   origin	https://github.com/Afuxh/fuqing-profile.git (fetch)
+02:49:46 [WARNING]   origin	https://github.com/Afuxh/fuqing-profile.git (push)
+02:49:46 [WARNING] 建议：
+02:49:46 [WARNING]   1. 在新目录中初始化项目，避免影响现有仓库
+02:49:46 [WARNING]   2. 或确认当前仓库就是本项目的专用仓库
+02:49:46 [WARNING]   如需新建独立仓库，请先退出并执行：
+02:49:46 [WARNING]     mkdir my-hot-news && cd my-hot-news
+02:49:46 [WARNING]     git init
+02:49:46 [WARNING]     cp -r (本项目文件) .
+02:49:46 [WARNING]     git add . && git commit -m 'init'
+02:49:46 [WARNING]     git remote add origin <你的仓库地址>
+02:49:46 [WARNING]     git push -u origin main
+02:49:46 [INFO] 配置加载完成
+  🚀 总体进度 [████████████████░░░░░░░░░░░░░░░░░░░░░░░░] 2/5 (40%) 预计剩余 0秒   02:49:46 [INFO] 
+📡 抓取热点数据...
+02:49:47 [ERROR] [爱范儿] 失败: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1006)
+02:49:47 [INFO] HTTP Request: GET https://www.qbitai.com/feed "HTTP/1.1 200 OK"
+02:49:47 [INFO] [量子位] 10 条
+02:49:47 [INFO] HTTP Request: GET https://sspai.com/feed "HTTP/1.1 200 OK"
+02:49:47 [INFO] [少数派] 10 条
+02:49:47 [INFO] HTTP Request: GET https://aihot.virxact.com/?page=1 "HTTP/1.1 200 OK"
+02:49:47 [INFO] HTTP Request: GET https://feeds.npr.org/1001/rss.xml "HTTP/1.1 200 OK"
+02:49:47 [INFO] [NPR新闻] 10 条
+02:49:47 [INFO] HTTP Request: GET https://techcrunch.com/feed/ "HTTP/1.1 200 OK"
+02:49:47 [INFO] [TechCrunch] 15 条
+02:49:47 [INFO] [AI热点] 第1页 2 条
+02:49:47 [INFO] [AI热点] 总计 2 条
+02:49:47 [INFO] HTTP Request: GET https://36kr.com/feed "HTTP/1.1 200 OK"
+02:49:47 [INFO] [36氪] 30 条
+02:49:47 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/topstories.json "HTTP/1.1 200 OK"
+02:49:47 [INFO] HTTP Request: GET https://www.cnbeta.com.tw/backend.php?mod=news "HTTP/1.1 302 Found"
+02:49:47 [INFO] HTTP Request: GET https://feed.williamlong.info/ "HTTP/1.1 301 Moved Permanently"
+02:49:47 [INFO] HTTP Request: GET https://www.producthunt.com/feed "HTTP/1.1 200 OK"
+02:49:47 [INFO] [Product Hunt] 0 条
+02:49:47 [INFO] HTTP Request: GET https://api.github.com/search/repositories?q=ai+created:%3E2026-06-12&sort=stars&order=desc&per_page=10 "HTTP/1.1 200 OK"
+02:49:47 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48586631.json "HTTP/1.1 200 OK"
+02:49:47 [INFO] HTTP Request: GET https://www.theverge.com/rss/index.xml "HTTP/1.1 200 OK"
+02:49:47 [INFO] [The Verge] 0 条
+02:49:47 [INFO] HTTP Request: GET https://api.github.com/search/repositories?q=machine-learning+created:%3E2026-06-12&sort=stars&order=desc&per_page=10 "HTTP/1.1 200 OK"
+02:49:47 [INFO] HTTP Request: GET https://rss.slashdot.org/Slashdot/slashdotMain "HTTP/1.1 200 OK"
+02:49:47 [INFO] [Slashdot] 15 条
+02:49:47 [INFO] HTTP Request: GET https://feeds.arstechnica.com/arstechnica/features "HTTP/1.1 200 OK"
+02:49:47 [INFO] HTTP Request: GET https://www.msn.com/zh-cn/channel/source/cnBeta.COM/sr-vid-yigrey3aqwvu8msgcwqkicf3gvj43va4rtcwf4wgrgici2gi2eps "HTTP/1.1 302 Moved Temporarily"
+02:49:47 [INFO] [Ars Technica] 15 条
+02:49:47 [INFO] HTTP Request: GET https://api.github.com/search/repositories?q=llm+created:%3E2026-06-12&sort=stars&order=desc&per_page=10 "HTTP/1.1 200 OK"
+02:49:48 [INFO] [GitHub] 30 条
+02:49:48 [INFO] HTTP Request: GET https://www.zdnet.com/rss.xml "HTTP/1.1 301 Moved Permanently"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48585746.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48552767.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48584497.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48583606.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48586648.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48584135.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48586299.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48583897.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48580209.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48583356.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48585866.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48588755.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48586005.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48582794.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48583386.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48588216.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48584207.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48581458.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48589357.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48534900.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://www.williamlong.info/rss.xml "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48588413.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48583928.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] [月光博客] 10 条
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48585739.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://www.cnbeta.com.tw "HTTP/1.1 302 Found"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48589485.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48542784.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48579650.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48539971.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48583703.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://www.zdnet.com/news/rss.xml "HTTP/1.1 200 OK"
+02:49:48 [INFO] [ZDNet] 15 条
+02:49:48 [INFO] HTTP Request: GET https://hacker-news.firebaseio.com/v0/item/48587527.json "HTTP/1.1 200 OK"
+02:49:48 [INFO] HTTP Request: GET https://www.msn.com/zh-cn/channel/source/cnBeta.COM/sr-vid-yigrey3aqwvu8msgcwqkicf3gvj43va4rtcwf4wgrgici2gi2eps "HTTP/1.1 302 Moved Temporarily"
+02:49:48 [INFO] [Hacker News] 30 条
+02:49:49 [ERROR] [cnBeta] 失败: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1006)
+02:50:01 [ERROR] [日经亚洲] 失败: 
+  📡 数据抓取 [██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 1/17 (6%) 预计剩余 4分11秒     📡 数据抓取 [████████████████████████████████████████] 17/17 (100%) 用时 16秒   
+02:50:03 [INFO] 去重: 移除 1 条重复内容，保留 191 条
+02:50:03 [INFO] 共抓取 191 条原始数据
+  🚀 总体进度 [████████████████████████░░░░░░░░░░░░░░░░] 3/5 (60%) 预计剩余 12秒   02:50:03 [INFO] 
+⏭️ 跳过翻译（预计5秒）
+02:50:03 [INFO]   翻译缓存: 已加载 312 条
+02:50:03 [INFO]   翻译: 跳过（共 191 条）
+02:50:03 [INFO] 处理完成
+02:50:03 [INFO] 
+📊 智能评分分类（191 条，预计3-10秒）...
+  📊 智能评分 [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 1/191 (1%) 预计剩余 0秒     📊 智能评分 [████████████████████████████████████████] 191/191 (100%) 用时 0秒   
+02:50:03 [INFO]   历史存档: d:\新建文件夹\history_data\hot_news\snapshot_20260619_0249.json
+02:50:03 [INFO]   数据快照: snapshot_20260619_0249.json (191 条)
+02:50:03 [INFO]   [精选] 18 条 (阈值: 80)
+02:50:03 [INFO]   [推荐] 8 条 (阈值: 70)
+02:50:03 [INFO]   [参考] 13 条 (阈值: 60)
+  🚀 总体进度 [████████████████████████████████████████] 5/5 (100%) 用时 18秒   
+02:50:03 [INFO] 
+🏗️ 生成网站HTML（预计2-5秒）...
+02:50:03 [INFO]   生成 RSS Feed...
+02:50:04 [INFO]   生成 JSON API...
+02:50:04 [INFO]   生成 sitemap.xml...
+02:50:04 [INFO]   生成 OPML...
+02:50:04 [INFO] 邮件订阅: 未启用
+02:50:04 [INFO] 
+==================================================
+02:50:04 [INFO]   ✅ 完成!
+02:50:04 [INFO]   位置: C:\Users\45826\Desktop\尝试\hot-news-site-repo\site
+02:50:04 [INFO]   展示: 39 篇
+02:50:04 [INFO]   总用时: 18秒
+02:50:04 [INFO] ==================================================

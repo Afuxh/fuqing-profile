@@ -1,0 +1,376 @@
+{
+  "meta": {
+    "title": "AI 时代观察",
+    "url": "https://afuxh.github.io/fuqing-profile/hot-news.html",
+    "updated": "2026-06-19 02:08:23",
+    "total": 70
+  },
+  "categories": {
+    "精选": [
+      {
+        "title": "dzcmemory-web/bazi-ziwei-skill",
+        "url": "https://github.com/dzcmemory-web/bazi-ziwei-skill",
+        "score": 81.1,
+        "source": "GitHub",
+        "summary": "用AI算命的工具，能同时分析八字和紫微斗数，还能生成水墨风格的命盘海报。",
+        "perspective": "喜欢传统文化的人能用AI更方便地了解命理，但要注意AI算命结果可能不准确。",
+        "action": "先学习一下八字和紫微斗数的基本知识，再用AI工具辅助分析。"
+      },
+      {
+        "title": "ruvnet/agent-harness-generator",
+        "url": "https://github.com/ruvnet/agent-harness-generator",
+        "score": 91.6,
+        "source": "GitHub",
+        "summary": "🛠️ The meta-harness for AI agents — scaffold your own focused, branded agent harness with its own npx CLI, MCP server, memory, learning loop, and witness-signed releases. Works with Claude Code, Codex, pi.dev, Hermes, OpenClaw, and RVM (hardware-isolated sandbox).",
+        "perspective": "开发者可以用这个工具快速创建自己的AI助手，但需要投入时间学习框架原理。",
+        "action": "研究一下这个框架的文档，尝试搭建一个简单的AI代理系统。"
+      },
+      {
+        "title": "kingofdwarfs/DeepFake-AI-RealTime",
+        "url": "https://github.com/kingofdwarfs/DeepFake-AI-RealTime",
+        "score": 91.2,
+        "source": "GitHub",
+        "summary": "An advanced, LLM-powered toolkit providing comprehensive capabilities for ethical synthetic media detection, analysis, and responsible content generation.",
+        "perspective": "能帮助我们分辨网络上的真假信息，保护自己不受误导。",
+        "action": "关注这个工具的更新，学习如何识别深度伪造内容。"
+      },
+      {
+        "title": "ExtarDev/WorpGPT-Latest-2026",
+        "url": "https://github.com/ExtarDev/WorpGPT-Latest-2026",
+        "score": 91.2,
+        "source": "GitHub",
+        "summary": "A comprehensive Red Teaming framework for testing Large Language Model (LLM) robustness against adversarial prompt engineering and jailbreak vectors.",
+        "perspective": "这类工具主要针对技术从业者，普通用户可能用不上但值得关注安全趋势。",
+        "action": "了解AI安全的基本概念，注意不要随意输入敏感信息。"
+      },
+      {
+        "title": "agiwhitelist/tokdiet",
+        "url": "https://github.com/agiwhitelist/tokdiet",
+        "score": 88.2,
+        "source": "GitHub",
+        "summary": "Local streaming reverse proxy between AI coding agents (Claude Code, Cursor, Codex) and model APIs (Anthropic, OpenAI, Gemini, MiniMax). Meters every token + USD cost, compacts bloated context to cut pay-per-token API spend, and runs shadow-eval to prove quality held. ccusage-style metering + live local dashboard.",
+        "perspective": "如果你经常用AI生成内容，这个工具能帮你优化使用成本。",
+        "action": "查阅相关文档，看看是否能用这个工具管理自己的AI使用。"
+      },
+      {
+        "title": "Sorathiya123/claude-ai-free-desktop-app",
+        "url": "https://github.com/Sorathiya123/claude-ai-free-desktop-app",
+        "score": 100,
+        "source": "GitHub",
+        "summary": "free claude code ai github  desktop pc windows linux macOS proxy server anthropic free api local llm router nvidia nim openrouter deepseek ollama lm studio vscode extension jetbrains cli terminal coding assistant",
+        "perspective": "可以更私密地使用AI，但要注意本地运行可能有安全风险。",
+        "action": "下载试用后检查软件权限，确保数据安全。"
+      },
+      {
+        "title": "科氪 | 两轮电动车没有天花板，爱玛黑翼要用AI与硬核科技赢得年轻男性的心",
+        "url": "https://36kr.com/p/3858803016881154?f=rss",
+        "score": 92,
+        "source": "36氪",
+        "summary": "爱玛推出专为年轻男性设计的极速电动车品牌，用AI和硬核科技重新定义两轮电动车。",
+        "perspective": "以后骑电动车可能不只是代步，还能体验更酷的科技感，年轻人会更关注智能、速度和外观。",
+        "action": "可以关注爱玛黑翼的AI电动车，了解智能驾驶和升级功能。"
+      },
+      {
+        "title": "氪星晚报｜BilibiliWorld 2026成国内首个海外售票的综合性ACG展会；让AI走进千家万户，17项举措推进“人工智能+消费”发展；快舟十一号遥十三运载火箭发射成功",
+        "url": "https://36kr.com/p/3858015526704129?f=rss",
+        "score": 99,
+        "source": "36氪",
+        "summary": "B站2026展会首次卖海外票，政府推出17项措施推动AI走进日常生活。",
+        "perspective": "AI技术会越来越普及，比如智能家居、智能交通这些，生活会更便捷。",
+        "action": "尝试用AI工具做些简单的事情，比如语音助手或智能推荐。"
+      },
+      {
+        "title": "蔚来补上“智驾课”，任少卿总结：智驾技术创新将重构竞争",
+        "url": "https://36kr.com/p/3858329994875908?f=rss",
+        "score": 100,
+        "source": "36氪",
+        "summary": "蔚来给不同代的电动车都升级了智能驾驶系统，解决了硬件限制的问题。",
+        "perspective": "自动驾驶技术会更快落地，未来开车可能更安全、更省心。",
+        "action": "关注智能驾驶技术的进展，学习相关知识。"
+      },
+      {
+        "title": "北大科学家下场做脑机接口，种子轮融了近亿元",
+        "url": "https://36kr.com/p/3855480467543042?f=rss",
+        "score": 81,
+        "source": "36氪",
+        "summary": "北大科学家成立的脑机接口公司获得数亿元投资，相关技术已在医疗场景应用。",
+        "perspective": "科技可能帮助瘫痪患者重新控制设备，甚至未来能实现更高级的交互。",
+        "action": "如果对神经科技感兴趣，可以学习基础医学知识。"
+      },
+      {
+        "title": "红杉、阿里押注过的具身大脑公司再融资，上交等投资数亿元｜硬氪首发",
+        "url": "https://36kr.com/p/3856708724315400?f=rss",
+        "score": 98,
+        "source": "36氪",
+        "summary": "腾讯和年轻团队合作开发AI编程工具，专注提升代码效率。",
+        "perspective": "程序员可能用上更智能的工具，写代码会变得更简单。",
+        "action": "尝试使用AI编程辅助工具，比如GitHub Copilot。"
+      },
+      {
+        "title": "36氪「2026最具价值成长企业100」正式发布",
+        "url": "https://36kr.com/p/3857980507919622?f=rss",
+        "score": 100,
+        "source": "36氪",
+        "summary": "美图公司推出八款AI产品，不再让用户苦学PS技巧。",
+        "perspective": "未来的美图工具会更智能，普通人也能轻松制作专业级图片。",
+        "action": "试试美图的AI功能，看看能简化哪些操作。"
+      },
+      {
+        "title": "中科院博士冲上市，市值超105亿港币",
+        "url": "https://36kr.com/p/3857959588418823?f=rss",
+        "score": 100,
+        "source": "36氪",
+        "summary": "SpaceX收购Cursor，字节推出更小的AI工具，科技巨头在AI领域动作频频。",
+        "perspective": "AI技术发展速度加快，可能会出现更多实用的AI工具。",
+        "action": "关注科技新闻，了解哪些AI工具适合自己的需求。"
+      },
+      {
+        "title": "智谱等中国大模型何时赶上Fable水平？马斯克：或在2027年一季度",
+        "url": "https://36kr.com/newsflashes/3858650254791941?f=rss",
+        "score": 83,
+        "source": "36氪",
+        "summary": "蔚来给不同代的电动车都升级了智能驾驶系统，解决了硬件限制的问题。",
+        "perspective": "自动驾驶技术会更快落地，未来开车可能更安全、更省心。",
+        "action": "关注智能驾驶技术的进展，学习相关知识。"
+      },
+      {
+        "title": "Transformer作者Noam Shazeer加入OpenAI",
+        "url": "https://x.com/op7418/status/2067432296127557888",
+        "score": 81,
+        "source": "AI热点",
+        "summary": "北大科学家成立的脑机接口公司获得数亿元投资，相关技术已在医疗场景应用。",
+        "perspective": "科技可能帮助瘫痪患者重新控制设备，甚至未来能实现更高级的交互。",
+        "action": "如果对神经科技感兴趣，可以学习基础医学知识。"
+      },
+      {
+        "title": "粉笔科技的人大讲座事件的说明与致歉",
+        "url": "https://www.williamlong.info/archives/7549.html",
+        "score": 84,
+        "source": "月光博客",
+        "summary": "粉笔科技CEO张小龙在讲座中情绪失控，引发公众争议。",
+        "perspective": "公众人物的言行容易被放大，需要更谨慎地表达。",
+        "action": "遇到类似情况时，先冷静分析再发表看法。"
+      },
+      {
+        "title": "《国务院关于对外投资的规定》自7月1日起施行",
+        "url": "https://www.williamlong.info/archives/7548.html",
+        "score": 100,
+        "source": "月光博客",
+        "summary": "国务院新规定从7月1日起管理对外投资，目的是让国家在国际投资中更安全、更有效。",
+        "perspective": "普通人可能不太直接受影响，但涉及海外业务的人需要留意政策变化，比如创业或移民。",
+        "action": "关注政策对海外投资的影响，尤其是涉及创业或移民的事项，必要时咨询专业人士。"
+      },
+      {
+        "title": "I put Siri AI through the same tests I use for ChatGPT and Gemini on MacOS 27 - here's how it did",
+        "url": "https://www.zdnet.com/article/new-siri-ai-apple-intelligence-test-on-mac/",
+        "score": 99,
+        "source": "ZDNet",
+        "summary": "I tried the new Siri on my Mac, and although it's off to a promising start, Apple still has more work to do.",
+        "perspective": "AI助手之间差异大，选哪个更省事可能取决于具体需求。",
+        "action": "如果Siri不够好，可以试试其他AI助手，比如ChatGPT或Gemini。"
+      }
+    ],
+    "推荐": [
+      {
+        "title": "KorroAi/drunk-claude",
+        "url": "https://github.com/KorroAi/drunk-claude",
+        "score": 76.3,
+        "source": "GitHub",
+        "summary": "Drunk Claude : intensity slider (0.1 tipsy to 1.0 blackout), 5 moods, 8 creative techniques. The unfiltered genius skill for Claude Code. MIT.",
+        "perspective": "创作者可以用它让AI产生更天马行空的灵感，但要小心控制创意强度避免失控。",
+        "action": "尝试用不同强度参数生成创意文案，看看哪种风格更符合你的需求。"
+      },
+      {
+        "title": "哈？Q1狂烧250亿！OpenAI财报泄露全网炸锅",
+        "url": "https://www.qbitai.com/2026/06/436477.html",
+        "score": 76,
+        "source": "量子位",
+        "summary": "马斯克预测中国大模型可能在2027年一季度赶上Fable水平，但业内有不同看法。",
+        "perspective": "AI技术竞争激烈，但追赶需要时间和技术突破。",
+        "action": "保持对AI技术的关注，不要盲目跟风。"
+      },
+      {
+        "title": "WWDC26 在现场，与 Apple 设计大奖提名开发者聊聊他们的 app",
+        "url": "https://sspai.com/post/111181",
+        "score": 76,
+        "source": "少数派",
+        "summary": "Transformer算法创始人加入OpenAI，可能带来更强大的AI技术。",
+        "perspective": "顶尖人才的加入会让AI发展更快，技术壁垒可能降低。",
+        "action": "关注OpenAI的新动态，了解他们的技术突破。"
+      },
+      {
+        "title": "AI编程从零开始：环境配置到开发调试",
+        "url": "https://www.williamlong.info/archives/7544.html",
+        "score": 78,
+        "source": "月光博客",
+        "summary": "用AI编程写Chrome插件非常简单，十分钟就能完成，编程门槛大幅降低。",
+        "perspective": "普通人现在可能更容易自己开发小工具，但过度依赖AI可能导致技术能力下降。",
+        "action": "尝试学习AI编程工具，比如AI代码生成器，从简单项目开始实践。"
+      },
+      {
+        "title": "Google, Microsoft, and OpenAI Back Linux Foundation's Appia AI Standards Initiative",
+        "url": "https://linux.slashdot.org/story/26/06/17/201217/google-microsoft-and-openai-back-linux-foundations-appia-ai-standards-initiative?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+        "score": 76,
+        "source": "Slashdot",
+        "summary": "BrianFagioli writes: Google, Microsoft, OpenAI, Arm, Mastercard, Siemens, and other companies have joined the newly launched Appia Foundation under the Linux Foundation. The project aims to create common specifications and assessment frameworks that organizations can use to demonstrate AI systems meet emerging safety, trust, and compliance requirements. According to the Linux Foundation, the framework is designed to allow conformity evidence to be reused across the AI supply chain, potentially reducing duplicate assessments and compliance costs. The announcement comes as governments around the world move toward enforcing AI regulations and organizations face increasing pressure to prove AI systems are trustworthy. \"As international standards and legal frameworks become more established, global organizations need a consistent, practical way to verify that AI systems conform to new expectations,\" said Jim Zemlin, CEO of the Linux Foundation. \"The Appia Foundation establishes a neutrally ",
+        "perspective": "未来AI产品可能更容易使用，但规则不明确时容易产生混乱，统一标准能减少这些问题。",
+        "action": "关注AI行业标准进展，了解哪些技术会更稳定可靠。"
+      },
+      {
+        "title": "Rolling out AI agents? 4 ways to move fast and furious - but with extreme caution",
+        "url": "https://www.zdnet.com/article/rolling-out-ai-agents-move-fast-and-furious-but-with-extreme-caution/",
+        "score": 76,
+        "source": "ZDNet",
+        "summary": "For starters, don't just hand over the keys to AI agents. Any endeavor needs to remain a human-instigated, human-led endeavor.",
+        "perspective": "用AI干活时别完全放手，比如写报告、做决策，还是得自己检查确认。",
+        "action": "今天就试试用AI帮忙写个小文档，完成后自己再核对一遍。"
+      },
+      {
+        "title": "气象与气候科学的AI革命不是革命性的",
+        "url": "https://arstechnica.com/science/2026/06/the-weather-and-climate-science-ai-revolution-isnt-revolutionary/",
+        "score": 76,
+        "source": "Ars Technica",
+        "summary": "机器学习有其局限性——它被如何使用？",
+        "perspective": "咱们看天气预报可能还是得靠传统方法，AI暂时帮不了大忙。",
+        "action": "下雨天出门前还是多看几次天气预报，别只依赖AI预测。"
+      },
+      {
+        "title": "一个OpenAI模型解决了一个困扰人类长达80年的著名数学问题",
+        "url": "https://arstechnica.com/ai/2026/06/openais-math-breakthrough-played-to-ais-strengths/",
+        "score": 76,
+        "source": "Ars Technica",
+        "summary": "我试图比OpenAI更清晰地解释他们的解决方案。",
+        "perspective": "AI能解决复杂问题，未来可能帮科学家更快找到答案，普通人也能受益。",
+        "action": "关注AI在科研领域的应用，今天可以学点基础数学知识来了解这个突破。"
+      }
+    ],
+    "参考": [
+      {
+        "title": "Plaer1/junction",
+        "url": "https://github.com/Plaer1/junction",
+        "score": 61.5,
+        "source": "GitHub",
+        "summary": "VS Code chat sidebar for local AI coding agents",
+        "perspective": "程序员以后可能不用反复切换界面，直接在写代码时让AI帮忙解决问题，效率会更高。",
+        "action": "可以尝试在VS Code里搜索这个插件，看看是否适合自己的开发习惯。"
+      },
+      {
+        "title": "dongshuyan/compass-skills",
+        "url": "https://github.com/dongshuyan/compass-skills",
+        "score": 60.9,
+        "source": "GitHub",
+        "summary": "司南：个性化 AI 任务总控 Skills 系统 /COMPASS: Personal Alignment Skills OS for AI Agents",
+        "perspective": "未来AI助手可能更像私人助理，能主动帮我们处理各种任务，但需要明确自己的需求。",
+        "action": "尝试用这个系统规划自己的AI任务清单，比如写报告、做数据分析等。"
+      },
+      {
+        "title": "majidmanzarpour/threejs-game-skills",
+        "url": "https://github.com/majidmanzarpour/threejs-game-skills",
+        "score": 60.8,
+        "source": "GitHub",
+        "summary": "Agent skills for building playable, polished Three.js browser games with gameplay, AAA-style graphics, UI, QA, and optional AI-generated 3D, image, and audio assets.",
+        "perspective": "游戏开发者可以更快地制作出高质量游戏，但对美术和编程基础要求较高。",
+        "action": "先学习Three.js的基础知识，再尝试用AI辅助生成游戏元素。"
+      },
+      {
+        "title": "nnecrkvenuOX/formcms",
+        "url": "https://github.com/nnecrkvenuOX/formcms",
+        "score": 68.5,
+        "source": "GitHub",
+        "summary": "AI Agent: Open-source headless CMS built with ASP.NET Core (C#) and React, featuring REST APIs, GraphQL, and a GrapesJS page designer.",
+        "perspective": "内容创作者可以更高效地维护网站，但可能需要学习一些编程知识才能上手。",
+        "action": "先了解CMS的基本概念，再尝试用这个系统管理自己的个人博客。"
+      },
+      {
+        "title": "shreyashankar/plain-writing-skill",
+        "url": "https://github.com/shreyashankar/plain-writing-skill",
+        "score": 68.5,
+        "source": "GitHub",
+        "summary": "A plain-language writing skill for AI agents, with a revision view that shows what changed.",
+        "perspective": "普通用户可以让AI帮写说明书或报告，但要注意检查AI生成的内容是否准确。",
+        "action": "用这个技能写一份工作文档，然后对照原稿查看AI做了哪些修改。"
+      },
+      {
+        "title": "manticore-projects/aurscan",
+        "url": "https://github.com/manticore-projects/aurscan",
+        "score": 60.2,
+        "source": "GitHub",
+        "summary": "在使用 Claude LLM 安装前，自动扫描 AUR 包中的恶意软件",
+        "perspective": "电脑用户安装软件时可以多一层保护，但AI判断可能有误差需要人工确认。",
+        "action": "在安装开源软件前，用这个工具扫描一下是否安全。"
+      },
+      {
+        "title": "001TMF/框架工坊",
+        "url": "https://github.com/001TMF/harness-forge",
+        "score": 61.2,
+        "source": "GitHub",
+        "summary": "Turn Claude Code into its own Meta-Harness — a skill that evolves the scaffolding around a fixed model (memory, retrieval, context, prompts) via a native propose→score→Pareto loop. Native reimplementation of Meta-Harness (Lee et al. 2026).",
+        "perspective": "意味着AI助手会越来越懂你的工作习惯，但需要一定技术基础。",
+        "action": "研究这个系统的运作原理，尝试用它改进自己的AI工作流程。"
+      },
+      {
+        "title": "kerryjanes/ChainKey",
+        "url": "https://github.com/kerryjanes/ChainKey",
+        "score": 61.0,
+        "source": "GitHub",
+        "summary": "Context-Enriched Multi-Party Transaction Orchestrator leveraging Machine Learning for Scalable, Intelligent Distributed Transaction Manager",
+        "perspective": "可能影响数字货币用户的交易体验，但需要一定的技术理解才能使用。",
+        "action": "先了解区块链交易的基本知识，再考虑是否需要这类专业工具。"
+      },
+      {
+        "title": "腾讯老兵+大厂00后新锐，码上飞想做的不只是AI Coding",
+        "url": "https://www.qbitai.com/2026/06/436674.html",
+        "score": 61,
+        "source": "量子位",
+        "summary": "36氪发布了2026年最有潜力的100家成长企业，强调创新和成长的重要性。",
+        "perspective": "创业公司可能成为未来行业巨头，普通人可以关注他们的发展。",
+        "action": "研究这些成长企业，看看有没有适合自己的机会。"
+      },
+      {
+        "title": "18年前不让你苦修PS的美图，这次不让你苦修AI了",
+        "url": "https://www.qbitai.com/2026/06/436517.html",
+        "score": 61,
+        "source": "量子位",
+        "summary": "中科闻歌成功上市，市值超百亿港币，展示了科研成果的商业价值。",
+        "perspective": "科研成果转化成产品会越来越容易，科技和资本结合能创造大奇迹。",
+        "action": "关注科技创新企业的动向，了解如何将技术变为现实。"
+      },
+      {
+        "title": "派早报：SpaceX 宣布收购 Cursor、字节跳动推出 Seedance 2.0 Mini 等",
+        "url": "https://sspai.com/post/111124",
+        "score": 69,
+        "source": "少数派",
+        "summary": "美图公司推出八款AI产品，不再让用户苦学PS技巧。",
+        "perspective": "未来的美图工具会更智能，普通人也能轻松制作专业级图片。",
+        "action": "试试美图的AI功能，看看能简化哪些操作。"
+      },
+      {
+        "title": "‘Queer Eye’s’ life coach Karamo Brown launches Kē, a wellness app featuring his AI digital clone",
+        "url": "https://techcrunch.com/2026/06/18/queer-eyes-life-coach-karamo-brown-launches-ke-a-wellness-app-featuring-his-ai-digital-clone/",
+        "score": 61,
+        "source": "TechCrunch",
+        "summary": "Karamo Brown, famous for his pep talks on Netflix&#8217;s “Queer Eye,” has jumped into the wellness and AI space with his new app, Kē. After spending a year and a half focusing on his own journey—from fitness and nutrition to meditation, sobriety, relationships, and personal growth—Brown wants to help others do the same.&#160; Kē offers [&#8230;]",
+        "perspective": "普通人可以更方便地获取个性化健康建议，但AI的建议是否靠谱还值得验证。",
+        "action": "如果对AI健康应用感兴趣，可以试试看，但记得结合专业意见判断。"
+      },
+      {
+        "title": "AI Will Lead To Labor Shortages, Bezos Says In Optimistic Talk",
+        "url": "https://slashdot.org/story/26/06/17/1711214/ai-will-lead-to-labor-shortages-bezos-says-in-optimistic-talk?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+        "score": 61,
+        "source": "Slashdot",
+        "summary": "An anonymous reader quotes a report from Reuters: Artificial Intelligence will lead to labour shortages, not the replacement of humans, Amazon founder Jeff Bezos predicted in a highly optimistic appearance at the VivaTech technology conference in Paris on Wednesday. Bezos put forward a rosy vision of how technology will help humanity, speaking about projects including his space venture Blue Origin and his new AI startup Prometheus, which is aimed at speeding up physical manufacturing. \"I know there's a lot of concern that many people have, including many smart people, that AI is going to make humans redundant and so on,\" Bezos said. \"I totally disagree with this point of view. And I think, in fact, AI is going to create a labor shortage.\"\n \nHalf of Americans fear the rise of AI could put them or someone in their household out of work, a Reuters/Ipsos poll found this month. Bezos, the world's fourth-richest person with a net worth around $250 billion, argued that people have \"endless\" t",
+        "perspective": "普通人可能不用担心被AI取代工作，但需要适应新岗位，比如和AI协作的岗位。",
+        "action": "学习AI相关技能，比如数据分析或AI工具操作，为未来工作做准备。"
+      },
+      {
+        "title": "Ukraine hits a Moscow oil refinery and other sites in a large-scale drone attack",
+        "url": "https://www.npr.org/2026/06/18/g-s1-128782/moscow-ukraine-drone-attack-russia-oil-refinery",
+        "score": 61,
+        "source": "NPR新闻",
+        "summary": "Ukraine launched a new wave of drone attacks on Russia early Thursday, amounting to one of the largest attacks on the Russian capital since the Kremlin ordered the invasion of Ukraine more than four years ago.",
+        "perspective": "这种高科技武器的使用可能改变战争方式，普通人需要关注地区安全动态。",
+        "action": "今天查一下最近的新闻，了解国际局势是否又有了新变化。"
+      }
+    ]
+  }
+}

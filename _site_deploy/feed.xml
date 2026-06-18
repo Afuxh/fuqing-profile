@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI 时代观察</title>
+    <link>https://afuxh.github.io/fuqing-profile/hot-news.html</link>
+    <description>以个人成长视角追踪时代脉搏——AI、科技、时事、财经、生活方式，全领域热点一站聚合。扶清闲话 · AI时代观察。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 19 Jun 2026 02:08:23 +0800</lastBuildDate>
+    <atom:link href="https://afuxh.github.io/fuqing-profile/hot-news.html/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>dzcmemory-web/bazi-ziwei-skill</title>
+      <link>https://github.com/dzcmemory-web/bazi-ziwei-skill</link>
+      <description>用AI算命的工具，能同时分析八字和紫微斗数，还能生成水墨风格的命盘海报。</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>ruvnet/agent-harness-generator</title>
+      <link>https://github.com/ruvnet/agent-harness-generator</link>
+      <description>🛠️ The meta-harness for AI agents — scaffold your own focused, branded agent harness with its own npx CLI, MCP server, memory, learning loop, and witness-signed releases. Works with Claude Code, Codex, pi.dev, Hermes, OpenClaw, and RVM (hardware-isolated sandbox).</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>kingofdwarfs/DeepFake-AI-RealTime</title>
+      <link>https://github.com/kingofdwarfs/DeepFake-AI-RealTime</link>
+      <description>An advanced, LLM-powered toolkit providing comprehensive capabilities for ethical synthetic media detection, analysis, and responsible content generation.</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>ExtarDev/WorpGPT-Latest-2026</title>
+      <link>https://github.com/ExtarDev/WorpGPT-Latest-2026</link>
+      <description>A comprehensive Red Teaming framework for testing Large Language Model (LLM) robustness against adversarial prompt engineering and jailbreak vectors.</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>agiwhitelist/tokdiet</title>
+      <link>https://github.com/agiwhitelist/tokdiet</link>
+      <description>Local streaming reverse proxy between AI coding agents (Claude Code, Cursor, Codex) and model APIs (Anthropic, OpenAI, Gemini, MiniMax). Meters every token + USD cost, compacts bloated context to cut pay-per-token API spend, and runs shadow-eval to prove quality held. ccusage-style metering + live local dashboard.</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>Sorathiya123/claude-ai-free-desktop-app</title>
+      <link>https://github.com/Sorathiya123/claude-ai-free-desktop-app</link>
+      <description>free claude code ai github  desktop pc windows linux macOS proxy server anthropic free api local llm router nvidia nim openrouter deepseek ollama lm studio vscode extension jetbrains cli terminal coding assistant</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>科氪 | 两轮电动车没有天花板，爱玛黑翼要用AI与硬核科技赢得年轻男性的心</title>
+      <link>https://36kr.com/p/3858803016881154?f=rss</link>
+      <description>爱玛推出专为年轻男性设计的极速电动车品牌，用AI和硬核科技重新定义两轮电动车。</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>氪星晚报｜BilibiliWorld 2026成国内首个海外售票的综合性ACG展会；让AI走进千家万户，17项举措推进“人工智能+消费”发展；快舟十一号遥十三运载火箭发射成功</title>
+      <link>https://36kr.com/p/3858015526704129?f=rss</link>
+      <description>B站2026展会首次卖海外票，政府推出17项措施推动AI走进日常生活。</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>蔚来补上“智驾课”，任少卿总结：智驾技术创新将重构竞争</title>
+      <link>https://36kr.com/p/3858329994875908?f=rss</link>
+      <description>蔚来给不同代的电动车都升级了智能驾驶系统，解决了硬件限制的问题。</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>北大科学家下场做脑机接口，种子轮融了近亿元</title>
+      <link>https://36kr.com/p/3855480467543042?f=rss</link>
+      <description>北大科学家成立的脑机接口公司获得数亿元投资，相关技术已在医疗场景应用。</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>红杉、阿里押注过的具身大脑公司再融资，上交等投资数亿元｜硬氪首发</title>
+      <link>https://36kr.com/p/3856708724315400?f=rss</link>
+      <description>腾讯和年轻团队合作开发AI编程工具，专注提升代码效率。</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>36氪「2026最具价值成长企业100」正式发布</title>
+      <link>https://36kr.com/p/3857980507919622?f=rss</link>
+      <description>美图公司推出八款AI产品，不再让用户苦学PS技巧。</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>中科院博士冲上市，市值超105亿港币</title>
+      <link>https://36kr.com/p/3857959588418823?f=rss</link>
+      <description>SpaceX收购Cursor，字节推出更小的AI工具，科技巨头在AI领域动作频频。</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>智谱等中国大模型何时赶上Fable水平？马斯克：或在2027年一季度</title>
+      <link>https://36kr.com/newsflashes/3858650254791941?f=rss</link>
+      <description>蔚来给不同代的电动车都升级了智能驾驶系统，解决了硬件限制的问题。</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>Transformer作者Noam Shazeer加入OpenAI</title>
+      <link>https://x.com/op7418/status/2067432296127557888</link>
+      <description>北大科学家成立的脑机接口公司获得数亿元投资，相关技术已在医疗场景应用。</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>粉笔科技的人大讲座事件的说明与致歉</title>
+      <link>https://www.williamlong.info/archives/7549.html</link>
+      <description>粉笔科技CEO张小龙在讲座中情绪失控，引发公众争议。</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>《国务院关于对外投资的规定》自7月1日起施行</title>
+      <link>https://www.williamlong.info/archives/7548.html</link>
+      <description>国务院新规定从7月1日起管理对外投资，目的是让国家在国际投资中更安全、更有效。</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>I put Siri AI through the same tests I use for ChatGPT and Gemini on MacOS 27 - here&apos;s how it did</title>
+      <link>https://www.zdnet.com/article/new-siri-ai-apple-intelligence-test-on-mac/</link>
+      <description>I tried the new Siri on my Mac, and although it&apos;s off to a promising start, Apple still has more work to do.</description>
+      <category>精选</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>KorroAi/drunk-claude</title>
+      <link>https://github.com/KorroAi/drunk-claude</link>
+      <description>Drunk Claude : intensity slider (0.1 tipsy to 1.0 blackout), 5 moods, 8 creative techniques. The unfiltered genius skill for Claude Code. MIT.</description>
+      <category>推荐</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>哈？Q1狂烧250亿！OpenAI财报泄露全网炸锅</title>
+      <link>https://www.qbitai.com/2026/06/436477.html</link>
+      <description>马斯克预测中国大模型可能在2027年一季度赶上Fable水平，但业内有不同看法。</description>
+      <category>推荐</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>WWDC26 在现场，与 Apple 设计大奖提名开发者聊聊他们的 app</title>
+      <link>https://sspai.com/post/111181</link>
+      <description>Transformer算法创始人加入OpenAI，可能带来更强大的AI技术。</description>
+      <category>推荐</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI编程从零开始：环境配置到开发调试</title>
+      <link>https://www.williamlong.info/archives/7544.html</link>
+      <description>用AI编程写Chrome插件非常简单，十分钟就能完成，编程门槛大幅降低。</description>
+      <category>推荐</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>Google, Microsoft, and OpenAI Back Linux Foundation&apos;s Appia AI Standards Initiative</title>
+      <link>https://linux.slashdot.org/story/26/06/17/201217/google-microsoft-and-openai-back-linux-foundations-appia-ai-standards-initiative?utm_source=rss1.0mainlinkanon&utm_medium=feed</link>
+      <description>BrianFagioli writes: Google, Microsoft, OpenAI, Arm, Mastercard, Siemens, and other companies have joined the newly launched Appia Foundation under the Linux Foundation. The project aims to create common specifications and assessment frameworks that organizations can use to demonstrate AI systems meet emerging safety, trust, and compliance requirements. According to the Linux Foundation, the framework is designed to allow conformity evidence to be reused across the AI supply chain, potentially reducing duplicate assessments and compliance costs. The announcement comes as governments around the world move toward enforcing AI regulations and organizations face increasing pressure to prove AI systems are trustworthy. &quot;As international standards and legal frameworks become more established, global organizations need a consistent, practical way to verify that AI systems conform to new expectations,&quot; said Jim Zemlin, CEO of the Linux Foundation. &quot;The Appia Foundation establishes a neutrally </description>
+      <category>推荐</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>Rolling out AI agents? 4 ways to move fast and furious - but with extreme caution</title>
+      <link>https://www.zdnet.com/article/rolling-out-ai-agents-move-fast-and-furious-but-with-extreme-caution/</link>
+      <description>For starters, don&apos;t just hand over the keys to AI agents. Any endeavor needs to remain a human-instigated, human-led endeavor.</description>
+      <category>推荐</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>气象与气候科学的AI革命不是革命性的</title>
+      <link>https://arstechnica.com/science/2026/06/the-weather-and-climate-science-ai-revolution-isnt-revolutionary/</link>
+      <description>机器学习有其局限性——它被如何使用？</description>
+      <category>推荐</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>一个OpenAI模型解决了一个困扰人类长达80年的著名数学问题</title>
+      <link>https://arstechnica.com/ai/2026/06/openais-math-breakthrough-played-to-ais-strengths/</link>
+      <description>我试图比OpenAI更清晰地解释他们的解决方案。</description>
+      <category>推荐</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>Plaer1/junction</title>
+      <link>https://github.com/Plaer1/junction</link>
+      <description>VS Code chat sidebar for local AI coding agents</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>dongshuyan/compass-skills</title>
+      <link>https://github.com/dongshuyan/compass-skills</link>
+      <description>司南：个性化 AI 任务总控 Skills 系统 /COMPASS: Personal Alignment Skills OS for AI Agents</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>majidmanzarpour/threejs-game-skills</title>
+      <link>https://github.com/majidmanzarpour/threejs-game-skills</link>
+      <description>Agent skills for building playable, polished Three.js browser games with gameplay, AAA-style graphics, UI, QA, and optional AI-generated 3D, image, and audio assets.</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>nnecrkvenuOX/formcms</title>
+      <link>https://github.com/nnecrkvenuOX/formcms</link>
+      <description>AI Agent: Open-source headless CMS built with ASP.NET Core (C#) and React, featuring REST APIs, GraphQL, and a GrapesJS page designer.</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>shreyashankar/plain-writing-skill</title>
+      <link>https://github.com/shreyashankar/plain-writing-skill</link>
+      <description>A plain-language writing skill for AI agents, with a revision view that shows what changed.</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>manticore-projects/aurscan</title>
+      <link>https://github.com/manticore-projects/aurscan</link>
+      <description>在使用 Claude LLM 安装前，自动扫描 AUR 包中的恶意软件</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>001TMF/框架工坊</title>
+      <link>https://github.com/001TMF/harness-forge</link>
+      <description>Turn Claude Code into its own Meta-Harness — a skill that evolves the scaffolding around a fixed model (memory, retrieval, context, prompts) via a native propose→score→Pareto loop. Native reimplementation of Meta-Harness (Lee et al. 2026).</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>kerryjanes/ChainKey</title>
+      <link>https://github.com/kerryjanes/ChainKey</link>
+      <description>Context-Enriched Multi-Party Transaction Orchestrator leveraging Machine Learning for Scalable, Intelligent Distributed Transaction Manager</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>腾讯老兵+大厂00后新锐，码上飞想做的不只是AI Coding</title>
+      <link>https://www.qbitai.com/2026/06/436674.html</link>
+      <description>36氪发布了2026年最有潜力的100家成长企业，强调创新和成长的重要性。</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>18年前不让你苦修PS的美图，这次不让你苦修AI了</title>
+      <link>https://www.qbitai.com/2026/06/436517.html</link>
+      <description>中科闻歌成功上市，市值超百亿港币，展示了科研成果的商业价值。</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>派早报：SpaceX 宣布收购 Cursor、字节跳动推出 Seedance 2.0 Mini 等</title>
+      <link>https://sspai.com/post/111124</link>
+      <description>美图公司推出八款AI产品，不再让用户苦学PS技巧。</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>‘Queer Eye’s’ life coach Karamo Brown launches Kē, a wellness app featuring his AI digital clone</title>
+      <link>https://techcrunch.com/2026/06/18/queer-eyes-life-coach-karamo-brown-launches-ke-a-wellness-app-featuring-his-ai-digital-clone/</link>
+      <description>Karamo Brown, famous for his pep talks on Netflix&amp;#8217;s “Queer Eye,” has jumped into the wellness and AI space with his new app, Kē. After spending a year and a half focusing on his own journey—from fitness and nutrition to meditation, sobriety, relationships, and personal growth—Brown wants to help others do the same.&amp;#160; Kē offers [&amp;#8230;]</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI Will Lead To Labor Shortages, Bezos Says In Optimistic Talk</title>
+      <link>https://slashdot.org/story/26/06/17/1711214/ai-will-lead-to-labor-shortages-bezos-says-in-optimistic-talk?utm_source=rss1.0mainlinkanon&utm_medium=feed</link>
+      <description>An anonymous reader quotes a report from Reuters: Artificial Intelligence will lead to labour shortages, not the replacement of humans, Amazon founder Jeff Bezos predicted in a highly optimistic appearance at the VivaTech technology conference in Paris on Wednesday. Bezos put forward a rosy vision of how technology will help humanity, speaking about projects including his space venture Blue Origin and his new AI startup Prometheus, which is aimed at speeding up physical manufacturing. &quot;I know there&apos;s a lot of concern that many people have, including many smart people, that AI is going to make humans redundant and so on,&quot; Bezos said. &quot;I totally disagree with this point of view. And I think, in fact, AI is going to create a labor shortage.&quot;
+ 
+Half of Americans fear the rise of AI could put them or someone in their household out of work, a Reuters/Ipsos poll found this month. Bezos, the world&apos;s fourth-richest person with a net worth around $250 billion, argued that people have &quot;endless&quot; t</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>Ukraine hits a Moscow oil refinery and other sites in a large-scale drone attack</title>
+      <link>https://www.npr.org/2026/06/18/g-s1-128782/moscow-ukraine-drone-attack-russia-oil-refinery</link>
+      <description>Ukraine launched a new wave of drone attacks on Russia early Thursday, amounting to one of the largest attacks on the Russian capital since the Kremlin ordered the invasion of Ukraine more than four years ago.</description>
+      <category>参考</category>
+      <pubDate>Fri, 19 Jun 2026 02:08:23 +0800</pubDate>
+    </item>
+  </channel>
+</rss>

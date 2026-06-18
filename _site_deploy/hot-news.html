@@ -1,0 +1,3056 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 时代观察 - 效率归机器，意义归人类</title>
+<meta name="description" content="以个人成长视角追踪时代脉搏——AI、科技、时事、财经、生活方式，全领域热点一站聚合。扶清闲话 · AI时代观察。">
+<style>
+
+/* ===== 扶清闲话 · AI时代观察 — 设计系统 ===== */
+:root {
+  --bg: #121118;
+  --bg-warm: #1a1820;
+  --card: rgba(28,26,35,0.65);
+  --card-hover: rgba(32,30,40,0.8);
+  --text-primary: #e8e0d4;
+  --text-secondary: #9a9284;
+  --text-muted: #6b6560;
+  --accent: #c8a45c;
+  --accent-soft: #b8944f;
+  --accent-glow: rgba(200,164,92,0.15);
+  --accent-light: rgba(200,164,92,0.08);
+  --border: rgba(150,140,120,0.1);
+  --border-strong: rgba(150,140,120,0.18);
+  --shadow: 0 4px 32px rgba(0,0,0,0.35);
+  --radius: 12px;
+  --font-serif: 'Georgia', 'Noto Serif SC', 'STSong', 'Songti SC', 'SimSun', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(150,140,120,0.25) transparent;
+}
+/* WebKit 滚动条样式 */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(150,140,120,0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(200,164,92,0.35); }
+::-webkit-scrollbar-corner { background: transparent; }
+body {
+  transition: opacity 0.12s ease;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(200,164,92,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(180,150,120,0.03) 0%, transparent 50%);
+  color: var(--text-primary);
+  line-height: 1.75;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 860px; margin: 0 auto; padding: 24px 20px; }
+
+/* ===== 品牌导航栏 — 扶清闲话统一站点头 ===== */
+.brand-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(18,17,24,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 20px;
+  transition: background 0.3s ease;
+}
+[data-theme="light"] .brand-nav {
+  background: rgba(248,245,240,0.92);
+}
+.brand-nav-inner {
+  max-width: 860px; margin: 0 auto;
+  display: flex; align-items: center; gap: 1.2rem;
+  padding: 12px 0; flex-wrap: wrap;
+}
+.brand-nav .brand-link {
+  font-family: var(--font-serif);
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--accent); text-decoration: none;
+  letter-spacing: 0.04em; white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+.brand-nav .brand-link:hover { opacity: 0.75; }
+.brand-nav nav {
+  display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+}
+.brand-nav nav a {
+  color: var(--text-secondary); text-decoration: none;
+  font-size: 0.85rem; transition: color 0.2s ease;
+  font-family: var(--font-sans);
+}
+.brand-nav nav a:hover { color: var(--accent-soft); }
+.brand-nav nav a.active {
+  color: var(--accent); font-weight: 600;
+  position: relative;
+}
+.brand-nav nav a.active::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: var(--accent); border-radius: 1px;
+}
+
+/* 汉堡菜单按钮 — 仅移动端可见 */
+.nav-hamburger {
+  display: none;
+  background: none; border: none; cursor: pointer;
+  padding: 6px; margin-left: auto;
+  flex-direction: column; gap: 4px; justify-content: center;
+  align-items: center; width: 32px; height: 32px;
+  border-radius: 6px; transition: background 0.2s;
+}
+.nav-hamburger:hover { background: rgba(200,164,92,0.08); }
+.nav-hamburger span {
+  display: block; width: 18px; height: 2px;
+  background: var(--text-secondary); border-radius: 1px;
+  transition: all 0.3s ease;
+}
+.nav-hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.75; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== 页头 — 杂志式排版 ===== */
+header {
+  text-align: center;
+  padding: 70px 20px 48px;
+  position: relative;
+}
+header .brand-signature {
+  font-family: var(--font-serif);
+  font-size: 0.82rem; color: var(--accent);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 18px; opacity: 0.7;
+  font-style: italic;
+}
+header::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  margin: 28px auto 0;
+  opacity: 0.6;
+}
+header h1 {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+header .subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  animation: breathe 4s ease-in-out infinite;
+}
+header .philosophy-line {
+  color: var(--text-muted);
+  font-size: 0.78rem; font-family: var(--font-serif);
+  font-style: italic; letter-spacing: 0.06em;
+  margin-top: 12px; opacity: 0.6;
+}
+header .update-time {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  margin-top: 20px;
+  font-family: var(--font-sans);
+  font-style: normal;
+}
+
+.search-bar { max-width: 560px; margin: 0 auto 28px; }
+.search-bar input {
+  width: 100%; padding: 11px 20px; border-radius: 24px;
+  border: 1px solid var(--border); background: var(--card);
+  color: var(--text-primary); font-size: 0.9rem;
+  outline: none; transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+.search-bar input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.search-bar input::placeholder { color: var(--text-muted); font-style: italic; }
+
+.level-tabs {
+  display: flex; gap: 8px; justify-content: center;
+  margin: 32px 0 28px; flex-wrap: wrap;
+}
+.level-tab {
+  padding: 7px 18px; border-radius: 20px; font-size: 0.82rem;
+  font-weight: 500; cursor: pointer; border: 1px solid var(--border);
+  transition: all 0.25s ease; opacity: 0.55;
+  background: transparent;
+}
+.level-tab:hover { opacity: 0.85; border-color: var(--border-strong); }
+.level-tab.active {
+  opacity: 1; transform: translateY(-1px);
+}
+
+.topic-list { display: block; }
+.topic-list.active { animation: fadeIn 0.5s ease; }
+
+/* ===== 价值标签系统 ===== */
+.value-tags {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin: 8px 0 4px; padding: 0 2px;
+}
+.value-tag {
+  display: inline-flex; align-items: center;
+  padding: 3px 10px; border-radius: 12px;
+  font-size: 0.72rem; font-weight: 500;
+  cursor: pointer; transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+/* 各标签颜色 */
+.value-tag[data-tag="AI变现赛道"] { background: #e8f5e9; color: #2e7d32; }
+.value-tag[data-tag="产业关联"] { background: #e3f2fd; color: #1565c0; }
+.value-tag[data-tag="技术前沿"] { background: #f3e5f5; color: #7b1fa2; }
+.value-tag[data-tag="产品工具"] { background: #fff3e0; color: #ef6c00; }
+.value-tag[data-tag="政策监管"] { background: #fce4ec; color: #c62828; }
+.value-tag[data-tag="创业投资"] { background: #fff8e1; color: #f57f17; }
+.value-tag[data-tag="综合"] { background: #f5f5f5; color: #666; }
+.value-tag:hover { opacity: 0.8; transform: translateY(-1px); }
+.value-tag.active {
+  opacity: 1; font-weight: 600;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* 价值标签筛选栏 */
+.value-filter-bar {
+  display: flex; gap: 8px; justify-content: center;
+  margin: 16px 0 24px; flex-wrap: wrap;
+}
+.value-filter-btn {
+  padding: 5px 14px; border-radius: 16px;
+  font-size: 0.78rem; font-weight: 500;
+  cursor: pointer; transition: all 0.25s ease;
+  border: 1px solid var(--border);
+  background: transparent; opacity: 0.6;
+  color: var(--text-secondary);
+}
+.value-filter-btn:hover { opacity: 0.9; }
+.value-filter-btn.active {
+  opacity: 1; transform: translateY(-1px);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-bg, rgba(200,164,92,0.08));
+}
+
+.heat-stage-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap}
+.heat-stage-badge[data-stage="萌芽"]{background:#e8f5e9;color:#2e7d32}
+.heat-stage-badge[data-stage="上升"]{background:#fff3e0;color:#ef6c00}
+.heat-stage-badge[data-stage="爆发"]{background:#fce4ec;color:#c62828;animation:pulse 2s infinite}
+.heat-stage-badge[data-stage="热门"]{background:#fff8e1;color:#f57f17}
+.heat-stage-badge[data-stage="持续"]{background:#e3f2fd;color:#1565c0}
+.heat-stage-badge[data-stage="降温"]{background:#f3e5f5;color:#7b1fa2}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.topic-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 28px 30px;
+  margin-bottom: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  position: relative;
+  animation: cardFadeIn 0.4s ease backwards;
+}
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.topic-card:hover {
+  background: var(--card-hover);
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.22);
+}
+.topic-card h2 {
+  font-size: 1.1rem; font-weight: 600;
+  margin-bottom: 8px; line-height: 1.5;
+}
+.topic-card h2 a {
+  color: var(--text-primary); text-decoration: none;
+  transition: color 0.2s ease;
+}
+.topic-card h2 a:hover { color: var(--accent-soft); }
+.topic-card .summary {
+  color: var(--text-secondary); font-size: 0.9rem;
+  margin-bottom: 10px; line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-height: 3.3em;
+}
+/* 隐藏内容小结 */
+.topic-card .zh-summary {
+  display: none !important;
+}
+
+/* AI 内容区块 - 统一容器 */
+.ai-insights {
+  margin-top: 14px; padding-top: 12px;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.ai-insights::before {
+  content: '';
+  position: absolute; top: -1px; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,164,92,0.2), transparent);
+}
+.ai-insight-item {
+  margin-bottom: 10px; padding: 10px 14px;
+  border-radius: 0 8px 8px 0; line-height: 1.7;
+  border-left: 3px solid var(--accent-glow);
+}
+.ai-insight-item.perspective-comment { border-left-color: rgba(100,180,220,0.5); }
+.ai-insight-item.action-guidance { border-left-color: rgba(120,200,150,0.5); }
+
+.card-ai-persp { transition: opacity 0.2s ease; }
+.card-ai-action { transition: opacity 0.2s ease; }
+.card-difficulty { transition: opacity 0.2s ease; }
+.ai-insight-item:last-child { margin-bottom: 0; }
+.ai-label {
+  display: block; font-size: 0.78rem; font-weight: 600;
+  margin-bottom: 4px; letter-spacing: 0.02em;
+}
+.ai-label::before { content: ''; }
+.ai-insight-item.zh-summary .ai-label::before { content: '📝 '; }
+.ai-insight-item.perspective-comment .ai-label::before { content: '💡 '; }
+.ai-insight-item.action-guidance .ai-label::before { content: '🎯 '; }
+.ai-insight-item p {
+  margin: 0; font-size: 0.88rem;
+}
+.ai-insight-item.zh-summary {
+  background: rgba(200,164,92,0.06);
+  border-left: 3px solid var(--accent);
+  color: #c8a45c;
+}
+.ai-insight-item.zh-summary .ai-label { color: var(--accent); }
+.ai-insight-item.perspective-comment {
+  background: rgba(140,160,180,0.06);
+  border-left: 3px solid #8899aa;
+  color: var(--text-primary);
+}
+.ai-insight-item.perspective-comment .ai-label { color: #8899aa; }
+.ai-insight-item.action-guidance {
+  background: rgba(200,140,120,0.06);
+  border-left: 3px solid #c88c78;
+  color: var(--text-primary);
+}
+.ai-insight-item.action-guidance .ai-label { color: #c88c78; }
+
+.card-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px; flex-wrap: wrap;
+}
+.score-badge {
+  padding: 3px 12px; border-radius: 14px;
+  font-size: 0.76rem; font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.source-tag {
+  padding: 3px 10px; border-radius: 10px; font-size: 0.72rem;
+  background: var(--bg-warm); color: var(--text-muted);
+}
+.meta {
+  display: flex; gap: 16px; margin-top: 14px;
+  font-size: 0.76rem; color: var(--text-muted); flex-wrap: wrap;
+}
+.meta a { color: var(--accent-soft); text-decoration: none; }
+.meta a:hover { opacity: 0.7; }
+
+.new-badge {
+  position: absolute; top: -9px; right: -9px;
+  background: linear-gradient(135deg, #d4756b, #c96b5a);
+  color: #fff; font-size: 0.68rem; font-weight: 600;
+  padding: 4px 10px; border-radius: 10px;
+  letter-spacing: 0.06em;
+  animation: breathe 3s ease-in-out infinite;
+  box-shadow: 0 2px 10px rgba(200,100,80,0.3);
+}
+
+.card-actions {
+  display: flex; gap: 10px; margin-top: 12px;
+  padding-top: 12px; border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.copy-btn, .share-btn {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-muted); padding: 5px 14px;
+  border-radius: 14px; font-size: 0.75rem; cursor: pointer;
+  transition: all 0.2s ease;
+}
+.copy-btn:hover, .share-btn:hover {
+  border-color: var(--accent-soft); color: var(--accent-soft);
+}
+.copy-btn.copied {
+  background: var(--accent-soft); color: var(--bg);
+  border-color: var(--accent-soft);
+}
+
+.bookmark-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 1.15rem; padding: 3px 6px;
+  transition: transform 0.2s ease;
+  color: var(--text-muted); line-height: 1;
+}
+.bookmark-btn:hover { transform: scale(1.2); }
+.bookmark-btn.bookmarked { color: #d4a85c; }
+
+.toolbar {
+  position: fixed; top: 14px; right: 14px; z-index: 999;
+  display: flex; gap: 6px; align-items: center;
+}
+.toolbar button, .toolbar a {
+  padding: 7px 14px; border-radius: 18px; font-size: 0.78rem;
+  font-weight: 500; cursor: pointer; border: none; text-decoration: none;
+  transition: all 0.25s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+}
+.theme-toggle-btn {
+  background: var(--card); color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.theme-toggle-btn:hover { border-color: var(--accent-soft); color: var(--accent-soft); }
+/* 回到顶部按钮 */
+.back-to-top {
+  position: fixed; bottom: 30px; right: 30px;
+  width: 50px; height: 50px; border-radius: 50%;
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text-primary); font-size: 20px; cursor: pointer;
+  opacity: 0; visibility: hidden; transition: all 0.3s ease;
+  z-index: 999; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+
+/* 阅读进度条 */
+.reading-progress {
+  position: fixed; top: 0; left: 0; width: 0%; height: 2px;
+  background: linear-gradient(90deg, var(--accent), #c8786a, var(--accent-soft));
+  z-index: 10001; transition: width 0.1s ease;
+}
+
+.settings-btn {
+  background: var(--card) !important; color: var(--text-secondary) !important;
+  border: 1px solid var(--border) !important;
+}
+.settings-btn:hover { border-color: var(--accent-soft) !important; color: var(--accent-soft) !important; }
+
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+  justify-content: center; align-items: center;
+  animation: fadeIn 0.2s ease;
+}
+.modal-overlay.active { display: flex; }
+.modal-box {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 16px; width: 92%; max-width: 680px; max-height: 80vh;
+  display: flex; flex-direction: column; box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 24px 16px; border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.modal-header h2 {
+  font-family: var(--font-serif); font-size: 1.2rem; font-weight: 400;
+  color: var(--text-primary); letter-spacing: 0.04em;
+}
+.modal-close {
+  background: none; border: none; color: var(--text-muted);
+  font-size: 1.4rem; cursor: pointer; padding: 4px 8px; line-height: 1;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: var(--text-primary); }
+.modal-tabs {
+  display: flex; gap: 0; border-bottom: 1px solid var(--border);
+  padding: 0 24px; overflow-x: auto; flex-shrink: 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.modal-tabs::-webkit-scrollbar { height: 3px; }
+.modal-tabs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.modal-tab {
+  padding: 10px 16px; font-size: 0.82rem; cursor: pointer;
+  color: var(--text-muted); border-bottom: 2px solid transparent;
+  transition: all 0.2s; white-space: nowrap; background: none; border-top: none;
+  border-left: none; border-right: none;
+}
+.modal-tab:hover { color: var(--text-secondary); }
+.modal-tab.active { color: var(--accent-soft); border-bottom-color: var(--accent-soft); }
+.modal-body {
+  padding: 20px 24px 24px; overflow-y: auto; flex: 1;
+}
+.modal-panel { display: none; }
+.modal-panel.active { display: block; animation: fadeIn 0.25s ease; }
+.modal-panel h3 {
+  font-size: 0.95rem; color: var(--text-primary); margin: 20px 0 10px;
+  padding-bottom: 6px; border-bottom: 1px solid var(--border);
+}
+.modal-panel h3:first-child { margin-top: 0; }
+.modal-panel p, .modal-panel li {
+  font-size: 0.85rem; color: var(--text-secondary); line-height: 1.8;
+}
+.modal-panel ul { padding-left: 18px; }
+.modal-panel li { margin-bottom: 4px; }
+.modal-panel .tip {
+  background: var(--accent-light); border-radius: 8px;
+  padding: 10px 14px; margin: 10px 0; font-size: 0.82rem;
+  color: var(--accent-soft);
+}
+.modal-panel .link-list { list-style: none; padding: 0; }
+.modal-panel .link-list li {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 12px; border-radius: 8px; margin-bottom: 4px;
+  background: var(--card); border: 1px solid var(--border);
+}
+.modal-panel .link-list li a {
+  color: var(--accent-soft); text-decoration: none; font-size: 0.82rem;
+}
+.modal-panel .link-list li a:hover { text-decoration: underline; }
+.modal-panel .link-list li span { font-size: 0.78rem; color: var(--text-muted); }
+.modal-panel .source-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+}
+.modal-panel .source-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px; border-radius: 8px;
+  background: var(--card); border: 1px solid var(--border);
+  font-size: 0.82rem; color: var(--text-secondary);
+}
+.modal-panel .source-item .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent-soft); flex-shrink: 0;
+}
+.modal-panel .score-bar {
+  display: flex; align-items: center; gap: 12px; margin: 8px 0;
+  padding: 10px 14px; border-radius: 8px;
+  background: var(--card); border: 1px solid var(--border);
+}
+.modal-panel .score-bar .label {
+  font-size: 0.82rem; font-weight: 500; min-width: 50px;
+}
+.modal-panel .score-bar .range {
+  flex: 1; height: 6px; border-radius: 3px; background: var(--border);
+  position: relative;
+}
+.modal-panel .score-bar .fill {
+  position: absolute; left: 0; top: 0; height: 100%;
+  border-radius: 3px;
+}
+.modal-panel .score-bar .val {
+  font-size: 0.78rem; color: var(--text-muted); min-width: 40px; text-align: right;
+}
+.modal-panel kbd {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 4px; padding: 1px 6px; font-size: 0.78rem;
+  font-family: monospace; color: var(--text-secondary);
+}
+
+/* ===== 自定义设置组件 ===== */
+.setting-group {
+  margin: 16px 0;
+}
+.setting-group-title {
+  font-size: 0.88rem; font-weight: 500; color: var(--text-primary);
+  margin-bottom: 10px; padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.setting-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; gap: 12px;
+}
+.setting-row + .setting-row { border-top: 1px solid var(--border); }
+.setting-label {
+  font-size: 0.82rem; color: var(--text-secondary); flex: 1;
+}
+.setting-label small {
+  display: block; font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;
+}
+.setting-select {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 5px 10px; font-size: 0.8rem;
+  color: var(--text-primary); cursor: pointer; outline: none;
+  min-width: 100px;
+}
+.setting-select:focus { border-color: var(--accent-soft); }
+
+/* Toggle 开关 */
+.toggle-switch {
+  position: relative; width: 40px; height: 22px;
+  background: var(--border); border-radius: 11px;
+  cursor: pointer; transition: background 0.3s; flex-shrink: 0;
+}
+.toggle-switch.active { background: var(--accent-soft); }
+.toggle-switch::after {
+  content: ''; position: absolute; top: 2px; left: 2px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--text-primary); transition: transform 0.3s;
+}
+.toggle-switch.active::after { transform: translateX(18px); }
+
+/* 数据源开关网格 */
+.source-toggle-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 6px; margin-top: 8px;
+}
+.source-toggle-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 10px; border-radius: 8px;
+  background: var(--card); border: 1px solid var(--border);
+  font-size: 0.8rem; color: var(--text-secondary);
+  cursor: pointer; transition: all 0.2s;
+}
+.source-toggle-item:hover { border-color: var(--accent-soft); }
+.source-toggle-item.disabled { opacity: 0.4; }
+.source-toggle-item .toggle-switch { width: 32px; height: 18px; }
+.source-toggle-item .toggle-switch::after { width: 14px; height: 14px; }
+.source-toggle-item .toggle-switch.active::after { transform: translateX(14px); }
+.source-toggle-item .src-name { flex: 1; }
+.source-toggle-item .src-url {
+  font-size: 0.68rem; color: var(--text-muted);
+  max-width: 0; overflow: hidden; white-space: nowrap;
+  transition: max-width 0.3s;
+}
+.source-toggle-item:hover .src-url { max-width: 200px; }
+
+/* 设置操作按钮 */
+.setting-actions {
+  display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end;
+}
+.setting-actions button {
+  padding: 6px 16px; border-radius: 8px; font-size: 0.8rem;
+  cursor: pointer; border: 1px solid var(--border);
+  background: var(--card); color: var(--text-secondary);
+  transition: all 0.2s;
+}
+.setting-actions button:hover { border-color: var(--accent-soft); color: var(--accent-soft); }
+.setting-actions button.primary {
+  background: var(--accent-soft); color: var(--bg); border-color: var(--accent-soft);
+}
+.setting-actions button.primary:hover { opacity: 0.85; }
+
+@media (max-width: 600px) {
+  .modal-box { width: 96%; max-height: 85vh; }
+  .modal-header { padding: 16px 18px 12px; }
+  .modal-body { padding: 16px 18px 20px; }
+  .modal-panel .source-grid { grid-template-columns: 1fr; }
+  .source-toggle-grid { grid-template-columns: 1fr; }
+}
+
+footer {
+  text-align: center; padding: 48px 24px 36px;
+  color: var(--text-muted); font-size: 0.78rem;
+  border-top: 1px solid var(--border);
+  margin-top: 56px; line-height: 2.2;
+}
+footer a {
+  color: var(--accent-soft); text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+footer a:hover { opacity: 0.7; }
+footer .footer-links { margin-top: 6px; }
+footer .footer-links a { margin: 0 8px; }
+
+/* 品牌装饰分隔符 */
+.brand-divider {
+  text-align: center; color: var(--accent);
+  margin: 3rem 0; font-size: 1rem;
+  letter-spacing: 3px; opacity: 0.45;
+  font-family: var(--font-serif);
+}
+
+/* 品牌身份卡片 */
+.brand-identity {
+  max-width: 480px; margin: 32px auto 0;
+  padding: 24px 28px; border-radius: 16px;
+  background: linear-gradient(135deg, rgba(200,164,92,0.05), rgba(200,120,106,0.04));
+  border: 1px solid rgba(200,164,92,0.1);
+  text-align: center;
+}
+.brand-identity .brand-name {
+  font-family: var(--font-serif);
+  font-size: 1rem; color: var(--accent);
+  letter-spacing: 0.08em; margin-bottom: 8px;
+}
+.brand-identity .brand-desc {
+  font-size: 0.8rem; color: var(--text-secondary);
+  line-height: 1.8; margin-bottom: 4px;
+}
+.brand-identity .brand-philosophy {
+  font-family: var(--font-serif);
+  font-size: 0.78rem; color: var(--text-muted);
+  font-style: italic; letter-spacing: 0.06em;
+  margin-top: 12px; opacity: 0.7;
+}
+.brand-identity .brand-cornerstones {
+  display: flex; justify-content: center; gap: 16px;
+  margin-top: 14px; flex-wrap: wrap;
+}
+.brand-identity .cornerstone {
+  font-size: 0.72rem; color: var(--text-muted);
+  padding: 3px 12px; border-radius: 99px;
+  border: 1px solid var(--border);
+  letter-spacing: 0.04em;
+  transition: all 0.2s ease;
+}
+.brand-identity .cornerstone:hover {
+  border-color: var(--accent-soft); color: var(--accent-soft);
+}
+
+/* 页脚统一站点导航 */
+.footer-site-nav {
+  display: flex; justify-content: center; gap: 1rem;
+  flex-wrap: wrap; margin-top: 16px;
+  padding-top: 16px; border-top: 1px solid var(--border);
+}
+.footer-site-nav a {
+  color: var(--text-secondary); font-size: 0.8rem;
+  text-decoration: none; transition: color 0.2s;
+  font-family: var(--font-sans);
+}
+.footer-site-nav a:hover { color: var(--accent-soft); }
+
+[data-theme="light"] {
+  --bg: #f8f5f0;
+  --bg-warm: #f0ece6;
+  --card: rgba(255,252,245,0.85);
+  --card-hover: rgba(255,252,245,0.95);
+  --text-primary: #2c2822;
+  --text-secondary: #6b655c;
+  --text-muted: #9a9488;
+  --accent: #a08050;
+  --accent-soft: #8b6f3f;
+  --accent-glow: rgba(160,128,80,0.12);
+  --accent-light: rgba(160,128,80,0.06);
+  --border: rgba(160,140,110,0.15);
+  --border-strong: rgba(160,140,110,0.25);
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  scrollbar-color: rgba(160,140,110,0.3) transparent;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(160,128,80,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(140,110,80,0.04) 0%, transparent 50%);
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(160,140,110,0.3); }
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: rgba(160,128,80,0.45); }
+/* 内容小结已移除 */
+[data-theme="light"] .ai-insight-item.perspective-comment { background: rgba(100,120,140,0.05); }
+[data-theme="light"] .ai-insight-item.action-guidance { background: rgba(180,120,100,0.05); }
+
+.bookmark-tab { background: rgba(212,168,92,0.08); }
+.bookmark-tab.active { background: rgba(212,168,92,0.15) !important; }
+
+.empty-state {
+  text-align: center; padding: 60px 20px;
+  color: var(--text-muted);
+}
+.empty-state .icon { font-size: 3rem; margin-bottom: 16px; }
+
+@media (max-width: 600px) {
+  header { padding: 36px 16px 28px; }
+  header h1 { font-size: 1.5rem; }
+  header .brand-signature { display: none; }
+  header .philosophy-line { display: none; }
+  .topic-card { padding: 18px 16px; }
+  .level-tab { padding: 6px 12px; font-size: 0.75rem; }
+  .level-tab span { display: none; }
+  .toolbar {
+    top: 50px; right: auto; left: 12px;
+    flex-direction: column; gap: 0;
+    background: rgba(28,26,35,0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    align-items: stretch;
+  }
+  .toolbar button, .toolbar a {
+    padding: 0; border-radius: 10px;
+    width: 38px; height: 38px;
+    display: flex; align-items: center; justify-content: center;
+    border: none; box-shadow: none;
+    transition: all 0.2s ease;
+    font-size: 16px; line-height: 1;
+    background: transparent;
+    color: var(--text-secondary);
+  }
+  .toolbar button:hover, .toolbar a:hover { background: rgba(200,164,92,0.08); }
+  .toolbar button + button { margin-top: 2px; }
+  .toolbar button:active { transform: scale(0.92); }
+  .brand-nav.nav-expanded { z-index: 1001; }
+  .brand-nav.nav-expanded ~ .toolbar { opacity: 0; pointer-events: none; transform: translateX(-8px); }
+  .card-actions { gap: 8px; }
+  .copy-btn, .share-btn { padding: 4px 10px; font-size: 0.7rem; }
+  .brand-nav-inner { gap: 0.5rem; padding: 10px 0; }
+  .brand-nav .brand-link { font-size: 0.92rem; }
+  .nav-hamburger { display: flex; }
+  .brand-nav nav {
+    display: flex; flex-direction: column; gap: 0;
+    width: 100%; order: 3;
+    padding: 0; margin-top: 0;
+    border-top: none;
+    max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.3s ease, margin 0.3s ease;
+  }
+  .brand-nav nav.nav-open {
+    max-height: 300px; opacity: 1;
+    padding: 8px 0 4px; margin-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+  .brand-nav nav a {
+    font-size: 0.85rem; padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .brand-nav nav a:last-child { border-bottom: none; }
+  .brand-nav nav a.active::after { display: none; }
+  .brand-nav nav a.active { color: var(--accent); }
+  .brand-identity { margin: 20px auto 0; padding: 16px 16px; }
+  .brand-identity .brand-name { font-size: 0.9rem; }
+  .brand-identity .brand-cornerstones { gap: 6px; }
+  .brand-identity .cornerstone { font-size: 0.68rem; padding: 2px 10px; }
+  .footer-site-nav { gap: 0.5rem; }
+  .footer-site-nav a { font-size: 0.75rem; }
+  .brand-divider { margin: 2rem 0; font-size: 0.85rem; }
+  .search-bar input { padding: 10px 16px; font-size: 0.85rem; }
+  .back-to-top {
+    bottom: 24px; right: auto; left: 12px;
+    width: 38px; height: 38px; border-radius: 12px;
+    font-size: 16px;
+    background: rgba(28,26,35,0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  }
+}
+
+</style>
+
+
+
+</head>
+<body>
+<!-- 扶清闲话 · 统一站点导航 -->
+<div class="brand-nav">
+  <div class="brand-nav-inner">
+    <a href="https://afuxh.github.io/fuqing-profile/" class="brand-link">扶清闲话</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="展开导航" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav">
+      <a href="https://afuxh.github.io/fuqing-profile/index.html">首页</a>
+      <a href="https://afuxh.github.io/fuqing-profile/margins.html">读书笔记</a>
+      <a href="https://afuxh.github.io/fuqing-profile/handbook.html">交流手册</a>
+      <a href="https://afuxh.github.io/fuqing-profile/hot-news.html" class="active">AI热点</a>
+      <a href="https://afuxh.github.io/fuqing-profile/archive.html">档案馆</a>
+    </nav>
+  </div>
+</div>
+<!-- 阅读进度条 -->
+<div class="reading-progress" id="readingProgress"></div>
+<!-- 回到顶部按钮 -->
+<button class="back-to-top" id="backToTop" title="回到顶部">↑</button>
+<div class="toolbar">
+  <button class="theme-toggle-btn" id="themeToggle" title="切换主题">☀️</button>
+  <button class="settings-btn" id="settingsBtn" title="设置与帮助">⚙️</button>
+</div>
+
+<!-- 设置弹窗 -->
+<div class="modal-overlay" id="settingsModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>⚙️ 设置与帮助</h2>
+      <button class="modal-close" id="modalClose">&times;</button>
+    </div>
+    <div class="modal-tabs">
+      <button class="modal-tab active" data-tab="guide">📖 功能指南</button>
+      <button class="modal-tab" data-tab="sources">📡 数据源</button>
+      <button class="modal-tab" data-tab="scoring">📊 评分规则</button>
+      <button class="modal-tab" data-tab="outputs">🔗 输出格式</button>
+      <button class="modal-tab" data-tab="customize">🛠️ 自定义</button>
+    </div>
+    <div class="modal-body">
+      <!-- 功能指南 -->
+      <div class="modal-panel active" id="panel-guide">
+        <h3>🔍 搜索</h3>
+        <p>在搜索框中输入关键词，实时过滤所有内容。搜索范围包括：<strong>标题、原文摘要、中文小结、视角评论</strong>。</p>
+        <div class="tip">💡 提示：输入英文关键词也能匹配英文标题和摘要</div>
+
+        <h3>📂 档位筛选</h3>
+        <p>点击标签栏中的档位标签，按内容质量分级浏览：</p>
+        <ul>
+          <li><strong>全部</strong> — 显示所有内容</li>
+          <li><strong>精选</strong> — 80分以上，高质量核心内容</li>
+          <li><strong>推荐</strong> — 70分以上，值得阅读</li>
+          <li><strong>参考</strong> — 60分以上，可作参考</li>
+          <li><strong>⭐ 收藏</strong> — 仅显示你收藏的内容</li>
+        </ul>
+
+        <h3>⭐ 收藏</h3>
+        <p>点击每张卡片右上角的 <kbd>☆</kbd> 按钮收藏内容。收藏数据保存在浏览器本地存储中，刷新页面不会丢失。</p>
+        <div class="tip">⚠️ 注意：收藏存在浏览器中，清除浏览器数据或更换设备后会丢失。建议定期使用「📥 导出收藏」按钮导出备份。</div>
+
+        <h3>📥 导出收藏</h3>
+        <p>点击档位标签栏右侧的「导出收藏」按钮，将所有已收藏内容的标题和链接下载为 <code>bookmarks.txt</code> 文本文件。</p>
+
+        <h3>🆕 NEW 角标</h3>
+        <p>卡片左上角的红色 <strong>NEW</strong> 标签表示该内容是你上次访问后新增的。系统会自动记录你的访问时间，下次打开时对比内容更新时间来标注新内容。</p>
+
+        <h3>📋 复制链接</h3>
+        <p>点击卡片底部的「📋 复制链接」按钮，将<strong>标题 + 原始链接</strong>复制到剪贴板，方便分享给他人。</p>
+
+        <h3>🌐 语言切换</h3>
+        <p>点击右上角「🌐 EN/中」按钮切换中英文界面。你的语言偏好会被自动记住。</p>
+
+        <h3>🌙 主题切换</h3>
+        <p>点击右上角的 ☀️/🌙 按钮切换亮色/暗色模式。你的偏好会被自动记住。</p>
+      </div>
+
+      <!-- 数据源 -->
+      <div class="modal-panel" id="panel-sources">
+        <h3>📡 数据源（17 个）</h3>
+        <p>内容从以下 17 个数据源自动采集，覆盖中英文科技、时事、财经、生活方式等领域。悬停可查看接口地址：</p>
+        <div class="source-grid">
+          <div class="source-item" title="https://news.ycombinator.com"><span class="dot"></span>Hacker News<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://news.ycombinator.com</span></div>
+          <div class="source-item" title="https://api.github.com"><span class="dot"></span>GitHub<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://api.github.com</span></div>
+          <div class="source-item" title="https://producthunt.com"><span class="dot"></span>Product Hunt<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://producthunt.com</span></div>
+          <div class="source-item" title="https://36kr.com/feed"><span class="dot"></span>36氪<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://36kr.com/feed</span></div>
+          <div class="source-item" title="https://aihot.virxact.com"><span class="dot"></span>AI热点<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://aihot.virxact.com</span></div>
+          <div class="source-item" title="https://www.qbitai.com/feed"><span class="dot"></span>量子位<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://www.qbitai.com/feed</span></div>
+          <div class="source-item" title="https://sspai.com/feed"><span class="dot"></span>少数派<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://sspai.com/feed</span></div>
+          <div class="source-item" title="https://www.ifanr.com/feed"><span class="dot"></span>爱范儿<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://www.ifanr.com/feed</span></div>
+          <div class="source-item" title="https://www.cnbeta.com/backend.php"><span class="dot"></span>cnBeta<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://www.cnbeta.com/backend.php</span></div>
+          <div class="source-item" title="https://feed.williamlong.info/"><span class="dot"></span>月光博客<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://feed.williamlong.info/</span></div>
+          <div class="source-item" title="https://techcrunch.com/feed/"><span class="dot"></span>TechCrunch<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://techcrunch.com/feed/</span></div>
+          <div class="source-item" title="https://rss.slashdot.org/Slashdot/slashdotMain"><span class="dot"></span>Slashdot<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://rss.slashdot.org/Slashdot/slashdotMain</span></div>
+          <div class="source-item" title="https://asia.nikkei.com/rss/feed"><span class="dot"></span>日经亚洲<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://asia.nikkei.com/rss/feed</span></div>
+          <div class="source-item" title="https://www.zdnet.com/rss.xml"><span class="dot"></span>ZDNet<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://www.zdnet.com/rss.xml</span></div>
+          <div class="source-item" title="https://feeds.arstechnica.com/arstechnica/features"><span class="dot"></span>Ars Technica<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://feeds.arstechnica.com/arstechnica/features</span></div>
+          <div class="source-item" title="https://www.theverge.com/rss/index.xml"><span class="dot"></span>The Verge<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://www.theverge.com/rss/index.xml</span></div>
+          <div class="source-item" title="https://feeds.npr.org/1001/rss.xml"><span class="dot"></span>NPR新闻<span style="margin-left:auto;font-size:0.68rem;color:var(--text-muted);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width 0.3s;">https://feeds.npr.org/1001/rss.xml</span></div>
+        </div>
+        <div class="tip">💡 数据源可在 <code>config.yaml</code> 中自由增减和配置，也支持通过 <code>--config</code> 参数加载预设配置（creator/team/lifestyle）。页面端可在「🛠️ 自定义」标签页中开关数据源的显示。</div>
+      </div>
+
+      <!-- 评分规则 -->
+      <div class="modal-panel" id="panel-scoring">
+        <h3>📊 评分机制</h3>
+        <p>每条内容通过以下维度计算 0-100 分：</p>
+        <ul>
+          <li><strong>关键词匹配</strong>（最高 75 分）— 核心关键词每个 +15 分（上限 50），扩展关键词每个 +8 分（上限 25），排除关键词每个 -15 分</li>
+          <li><strong>标题加分</strong>（额外 +8 分/个）— 核心关键词出现在标题中额外加分</li>
+          <li><strong>热度分数</strong>（最高 35 分）— 基于原始平台的热度/点赞/评论数据</li>
+          <li><strong>来源权重</strong>（5-12 分）— Hacker News +12、GitHub +10、Product Hunt +8、AI热点 +10、其他 +5</li>
+        </ul>
+
+        <h3>档位划分</h3>
+        <div class="score-bar"><span class="label" style="color:#c8786a">精选</span><div class="range"><div class="fill" style="width:80%;background:#c8786a"></div></div><span class="val">≥ 80分</span></div>
+        <div class="score-bar"><span class="label" style="color:#b8956a">推荐</span><div class="range"><div class="fill" style="width:70%;background:#b8956a"></div></div><span class="val">≥ 70分</span></div>
+        <div class="score-bar"><span class="label" style="color:#8a9598">参考</span><div class="range"><div class="fill" style="width:60%;background:#8a9598"></div></div><span class="val">≥ 60分</span></div>
+        <p style="margin-top:8px;font-size:0.78rem;color:var(--text-muted);">低于最低阈值的内容归入「其他」，默认不显示</p>
+
+        <h3>关键词列表</h3>
+        <p><strong>核心关键词</strong>（高权重）：AI, 人工智能, 大模型, LLM, GPT, Claude, ChatGPT, Agent, 智能体, 机器学习 等</p>
+        <p><strong>扩展关键词</strong>（中权重）：开源, GitHub, 自动化, 工具, 效率, 生产力, 框架, SDK, API, 成长 等</p>
+        <p><strong>排除关键词</strong>（降权）：股票, 基金, 投资理财, 娱乐, 明星, 游戏, 八卦, 彩票</p>
+      </div>
+
+      <!-- 输出格式 -->
+      <div class="modal-panel" id="panel-outputs">
+        <h3>🔗 可用输出格式</h3>
+        <p>除网页外，本站还提供以下结构化输出，可供程序化访问和订阅：</p>
+        <ul class="link-list">
+          <li><span>📡 RSS 2.0 订阅源</span><a href="feed.xml" target="_blank">feed.xml →</a></li>
+          <li><span>📊 JSON 数据接口</span><a href="api.json" target="_blank">api.json →</a></li>
+          <li><span>🗺️ Sitemap 站点地图</span><a href="sitemap.xml" target="_blank">sitemap.xml →</a></li>
+          <li><span>📋 OPML 数据源列表</span><a href="sources.opml" target="_blank">sources.opml →</a></li>
+        </ul>
+
+        <h3>使用方式</h3>
+        <ul>
+          <li><strong>RSS</strong>：将 <code>feed.xml</code> 的 URL 添加到你的 RSS 阅读器（如 Inoreader、Feedly），即可订阅更新</li>
+          <li><strong>JSON API</strong>：可供脚本、自动化工具调用，返回结构化 JSON 数据</li>
+          <li><strong>OPML</strong>：导入到 RSS 阅读器，一次性订阅所有 17 个数据源的原始 RSS</li>
+          <li><strong>Sitemap</strong>：提交给搜索引擎，帮助索引</li>
+        </ul>
+        <div class="tip">💡 这些文件在每次生成时自动更新，无需手动维护</div>
+
+        <h3>🌐 部署平台</h3>
+        <p>本站支持多平台部署，解决不同网络环境下的访问问题：</p>
+        <ul class="link-list">
+          <li><span>🌍 GitHub Pages（国际）</span><a href="https://afuxh.github.io/fuqing-profile/hot-news.html" target="_blank">访问 →</a></li>
+          <li><span>☁️ EdgeOne Pages（国内首选）</span><a href="https://fuqing-profile-fqh7n0sj.edgeone.cool/hot-news.html" target="_blank">访问 →</a></li>
+        </ul>
+        <div class="tip">💡 GitHub Pages 在国内访问较慢，推荐使用 EdgeOne Pages（国内可直访）。两个平台通过 GitHub Actions 自动同步部署。</div>
+      </div>
+
+      <!-- 自定义设置 -->
+      <div class="modal-panel" id="panel-customize">
+        <h3>🛠️ 自定义设置</h3>
+        <p>以下设置保存在浏览器本地，仅影响当前设备的显示效果。修改后立即生效。</p>
+
+        <div class="setting-group">
+          <div class="setting-group-title">📊 显示选项</div>
+          <div class="setting-row">
+            <div class="setting-label">默认视图<small>每次打开页面时默认显示的档位</small></div>
+            <select class="setting-select" id="setDefaultView">
+              <option value="all">全部</option>
+              <option value="精选">精选</option>
+              <option value="推荐">推荐</option>
+              <option value="参考">参考</option>
+              <option value="bookmarks">收藏</option>
+            </select>
+          </div>
+          <div class="setting-row">
+            <div class="setting-label">每页显示数量<small>留空则显示全部</small></div>
+            <select class="setting-select" id="setPageSize">
+              <option value="">全部</option>
+              <option value="10">10 条</option>
+              <option value="20">20 条</option>
+              <option value="50">50 条</option>
+            </select>
+          </div>
+          <div class="setting-row">
+            <div class="setting-label">显示原文摘要<small>关闭后只显示中文小结和视角评论</small></div>
+            <div class="toggle-switch active" id="toggleSummary" onclick="toggleSetting(this, 'showSummary')"></div>
+          </div>
+          <div class="setting-row">
+            <div class="setting-label">显示视角评论<small>关闭后隐藏 AI 视角评论和行动引导</small></div>
+            <div class="toggle-switch active" id="togglePerspective" onclick="toggleSetting(this, 'showPerspective')"></div>
+          </div>
+          <div class="setting-row">
+            <div class="setting-label">显示热度标签<small>关闭后隐藏来源和热度信息</small></div>
+            <div class="toggle-switch active" id="toggleMeta" onclick="toggleSetting(this, 'showMeta')"></div>
+          </div>
+          <div class="setting-row">
+            <div class="setting-label">紧凑模式<small>减小卡片间距和内边距，显示更多内容</small></div>
+            <div class="toggle-switch" id="toggleCompact" onclick="toggleSetting(this, 'compactMode')"></div>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="setting-group-title">📡 数据源过滤</div>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:8px;">关闭后，来自该数据源的内容将被隐藏。悬停可查看接口地址。</p>
+          <div class="source-toggle-grid" id="sourceToggleGrid">
+            <div class="source-toggle-item" data-source="Hacker News" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">Hacker News</span><span class="src-url">https://news.ycombinator.com</span></div>
+            <div class="source-toggle-item" data-source="GitHub" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">GitHub</span><span class="src-url">https://api.github.com</span></div>
+            <div class="source-toggle-item" data-source="Product Hunt" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">Product Hunt</span><span class="src-url">https://producthunt.com</span></div>
+            <div class="source-toggle-item" data-source="36氪" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">36氪</span><span class="src-url">https://36kr.com/feed</span></div>
+            <div class="source-toggle-item" data-source="AI热点" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">AI热点</span><span class="src-url">https://aihot.virxact.com</span></div>
+            <div class="source-toggle-item" data-source="量子位" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">量子位</span><span class="src-url">https://www.qbitai.com/feed</span></div>
+            <div class="source-toggle-item" data-source="少数派" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">少数派</span><span class="src-url">https://sspai.com/feed</span></div>
+            <div class="source-toggle-item" data-source="爱范儿" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">爱范儿</span><span class="src-url">https://www.ifanr.com/feed</span></div>
+            <div class="source-toggle-item" data-source="cnBeta" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">cnBeta</span><span class="src-url">https://www.cnbeta.com/backend.php</span></div>
+            <div class="source-toggle-item" data-source="月光博客" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">月光博客</span><span class="src-url">https://feed.williamlong.info/</span></div>
+            <div class="source-toggle-item" data-source="TechCrunch" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">TechCrunch</span><span class="src-url">https://techcrunch.com/feed/</span></div>
+            <div class="source-toggle-item" data-source="Slashdot" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">Slashdot</span><span class="src-url">https://rss.slashdot.org/Slashdot/slashdotMain</span></div>
+            <div class="source-toggle-item" data-source="日经亚洲" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">日经亚洲</span><span class="src-url">https://asia.nikkei.com/rss/feed</span></div>
+            <div class="source-toggle-item" data-source="ZDNet" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">ZDNet</span><span class="src-url">https://www.zdnet.com/rss.xml</span></div>
+            <div class="source-toggle-item" data-source="Ars Technica" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">Ars Technica</span><span class="src-url">https://feeds.arstechnica.com/arstechnica/features</span></div>
+            <div class="source-toggle-item" data-source="The Verge" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">The Verge</span><span class="src-url">https://www.theverge.com/rss/index.xml</span></div>
+            <div class="source-toggle-item" data-source="NPR新闻" onclick="toggleSourceFilter(this)"><div class="toggle-switch active"></div><span class="src-name">NPR新闻</span><span class="src-url">https://feeds.npr.org/1001/rss.xml</span></div>
+          </div>
+          <div style="display:flex;gap:6px;margin-top:10px;">
+            <button onclick="setAllSources(true)" style="background:var(--card);border:1px solid var(--border);color:var(--text-secondary);padding:4px 10px;border-radius:6px;cursor:pointer;font-size:0.75rem;">全部开启</button>
+            <button onclick="setAllSources(false)" style="background:var(--card);border:1px solid var(--border);color:var(--text-secondary);padding:4px 10px;border-radius:6px;cursor:pointer;font-size:0.75rem;">全部关闭</button>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="setting-group-title">🔄 数据管理</div>
+          <div class="setting-row">
+            <div class="setting-label">清除收藏<small>删除所有已收藏的内容</small></div>
+            <button onclick="clearAllBookmarks()" style="background:none;border:1px solid #c8786a;color:#c8786a;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:0.75rem;">清除</button>
+          </div>
+          <div class="setting-row">
+            <div class="setting-label">重置所有设置<small>恢复为默认配置</small></div>
+            <button onclick="resetAllSettings()" style="background:none;border:1px solid #c8786a;color:#c8786a;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:0.75rem;">重置</button>
+          </div>
+        </div>
+
+        <div class="setting-actions">
+          <button onclick="exportSettings()">📤 导出设置</button>
+          <button onclick="importSettings()">📥 导入设置</button>
+        </div>
+        <div class="tip">💡 设置导出为 JSON 文件，可在不同设备间迁移。导入时会覆盖当前设置。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<header>
+<div class="brand-signature">扶清闲话 · AI时代观察</div>
+<h1>AI 时代观察</h1>
+<p class="subtitle">效率归机器，意义归人类</p>
+<p class="philosophy-line">「让被豁免的，重新在场」</p>
+<p class="update-time">更新时间：2026-06-19 02:08 · 共 40 条内容</p>
+</header>
+
+<!-- 四化方法论banner已移除 -->
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="搜索标题、摘要...（支持关键词过滤）" autocomplete="off">
+</div>
+  <button id="mode-toggle" onclick="toggleMode()" style="position:fixed;top:12px;left:12px;z-index:100;padding:5px 14px;border-radius:16px;border:1px solid var(--border);background:var(--card);color:var(--text-primary);cursor:pointer;font-size:13px;transition:all 0.3s;white-space:nowrap;backdrop-filter:blur(8px);">大众版</button>
+
+<div class="level-tabs">
+<div class="level-tab active" onclick="showLevel('all')">全部</div>
+<div class="level-tab" style="background: #c8786a22; color: #c8786a; border-color: #c8786a;" onclick="showLevel('精选')">精选<span style="display:block;font-size:0.7rem;opacity:0.7;margin-top:2px;">高质量内容</span></div>
+<div class="level-tab" style="background: #b8956a22; color: #b8956a; border-color: #b8956a;" onclick="showLevel('推荐')">推荐<span style="display:block;font-size:0.7rem;opacity:0.7;margin-top:2px;">值得阅读</span></div>
+<div class="level-tab" style="background: #8a959822; color: #8a9598; border-color: #8a9598;" onclick="showLevel('参考')">参考<span style="display:block;font-size:0.7rem;opacity:0.7;margin-top:2px;">可作参考</span></div>
+<div class="level-tab bookmark-tab" onclick="showLevel('bookmarks')" style="border-color:#d4a85c;">⭐ 收藏</div>
+<button onclick="exportBookmarks()" style="background:none;border:1px solid #d4a85c;color:#d4a85c;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:0.75rem;margin-left:4px;white-space:nowrap;transition:all 0.2s;" title="将收藏内容导出为文本文件" onmouseover="this.style.background='rgba(212,168,92,0.1)'" onmouseout="this.style.background='none'">📥 导出收藏</button>
+<span style="margin:0 6px;color:var(--text2);font-size:0.75rem;">|</span><button id="sortToggle" onclick="toggleSort()" style="background:rgba(232,112,90,0.15);border:1px solid #e8705a;color:#e8705a;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:0.75rem;white-space:nowrap;transition:all 0.2s;" title="点击切换排序方向">🔥 高→低</button>
+
+</div>
+
+<!-- 价值标签筛选 -->
+<div class="value-filter-bar" id="valueFilterBar">
+  <button class="value-filter-btn active" onclick="filterByValueTag('all')" data-tag="all">全部价值</button>
+  <button class="value-filter-btn" onclick="filterByValueTag('AI变现赛道')" data-tag="AI变现赛道">💰 AI变现赛道</button>
+  <button class="value-filter-btn" onclick="filterByValueTag('产业关联')" data-tag="产业关联">🏭 产业关联</button>
+  <button class="value-filter-btn" onclick="filterByValueTag('技术前沿')" data-tag="技术前沿">🔬 技术前沿</button>
+  <button class="value-filter-btn" onclick="filterByValueTag('产品工具')" data-tag="产品工具">🛠️ 产品工具</button>
+  <button class="value-filter-btn" onclick="filterByValueTag('政策监管')" data-tag="政策监管">⚖️ 政策监管</button>
+  <button class="value-filter-btn" onclick="filterByValueTag('创业投资')" data-tag="创业投资">🚀 创业投资</button>
+</div>
+
+<main>
+<div id="level-精选" class="topic-list">
+<div class="topic-card" data-hash="98bcea9daf0ff26947a8" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="98bcea9daf0ff26947a8" data-title="Sorathiya123/claude-ai-free-desktop-app" data-url="https://github.com/Sorathiya123/claude-ai-free-desktop-app" data-score="100" data-grade="精选" data-source="GitHub" data-summary="free claude code ai github  desktop pc windows linux macOS proxy server anthropic free api local llm" data-zhsummary="free claude code ai github  desktop pc windows linux macOS proxy server anthropic free api local llm" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://github.com/Sorathiya123/claude-ai-free-desktop-app" target="_blank" rel="noopener">Sorathiya123/claude-ai-free-desktop-app</a></h2>
+  <p class="summary">free claude code ai github  desktop pc windows linux macOS proxy server anthropic free api local llm router nvidia nim openrouter deepseek ollama lm studio vscode extension jetbrains cli terminal codi</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 66</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/Sorathiya123/claude-ai-free-desktop-app" data-title="Sorathiya123/claude-ai-free-desktop-app">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>可以更私密地使用AI，但要注意本地运行可能有安全风险。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>下载试用后检查软件权限，确保数据安全。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="e2d9e81eb3f650d19b96" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">36氪</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="e2d9e81eb3f650d19b96" data-title="蔚来补上“智驾课”，任少卿总结：智驾技术创新将重构竞争" data-url="https://36kr.com/p/3858329994875908?f=rss" data-score="100" data-grade="精选" data-source="36氪" data-summary="文｜肖漫编辑｜李勤
+  6月18日，蔚来同时向两代平台车型（包含8款NT2.0平台车型、4款NT2.5平台车型，以及6款NT3.0车型）推送了最新版的世界模型，这意味着，蔚来现在能让同一" data-zhsummary="蔚来给不同代的电动车都升级了智能驾驶系统，解决了硬件限制的问题。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3858329994875908?f=rss" target="_blank" rel="noopener">蔚来补上“智驾课”，任少卿总结：智驾技术创新将重构竞争</a></h2>
+  <p class="summary">蔚来给不同代的电动车都升级了智能驾驶系统，解决了硬件限制的问题。</p>
+  <div class="meta">
+    <span>36氪</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3858329994875908?f=rss" data-title="蔚来补上“智驾课”，任少卿总结：智驾技术创新将重构竞争">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>自动驾驶技术会更快落地，未来开车可能更安全、更省心。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注智能驾驶技术的进展，学习相关知识。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="ec986978b2a411b65ca2" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">36氪</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="ec986978b2a411b65ca2" data-title="36氪「2026最具价值成长企业100」正式发布" data-url="https://36kr.com/p/3857980507919622?f=rss" data-score="100" data-grade="精选" data-source="36氪" data-summary="&nbsp;
+  &nbsp;
+  时代从不被旁观者定义，它只发生在那些正在成长的人身上。
+  今天，当人们讨论华为、字节跳动、大疆、Tesla或OpenAI时，很容易忽略这样一个" data-zhsummary="美图公司推出八款AI产品，不再让用户苦学PS技巧。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3857980507919622?f=rss" target="_blank" rel="noopener">36氪「2026最具价值成长企业100」正式发布</a></h2>
+  <p class="summary">美图公司推出八款AI产品，不再让用户苦学PS技巧。</p>
+  <div class="meta">
+    <span>36氪</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3857980507919622?f=rss" data-title="36氪「2026最具价值成长企业100」正式发布">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>未来的美图工具会更智能，普通人也能轻松制作专业级图片。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>试试美图的AI功能，看看能简化哪些操作。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="60321fb0669bb9ca1c9c" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">36氪</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="60321fb0669bb9ca1c9c" data-title="中科院博士冲上市，市值超105亿港币" data-url="https://36kr.com/p/3857959588418823?f=rss" data-score="100" data-grade="精选" data-source="36氪" data-summary="本文约1900字，建议阅读4分钟
+  作者&nbsp;|&nbsp;彭孝秋
+  6月17日，中科闻歌（01956.HK）正式启动招股，发行价60.70港元，每手200股，市值105.07" data-zhsummary="SpaceX收购Cursor，字节推出更小的AI工具，科技巨头在AI领域动作频频。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3857959588418823?f=rss" target="_blank" rel="noopener">中科院博士冲上市，市值超105亿港币</a></h2>
+  <p class="summary">SpaceX收购Cursor，字节推出更小的AI工具，科技巨头在AI领域动作频频。</p>
+  <div class="meta">
+    <span>36氪</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3857959588418823?f=rss" data-title="中科院博士冲上市，市值超105亿港币">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI技术发展速度加快，可能会出现更多实用的AI工具。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注科技新闻，了解哪些AI工具适合自己的需求。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="d78cf90088e477d6a074" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="月光博客" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">月光博客</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="d78cf90088e477d6a074" data-title="《国务院关于对外投资的规定》自7月1日起施行" data-url="https://www.williamlong.info/archives/7548.html" data-score="100" data-grade="精选" data-source="月光博客" data-summary="2026年6月1日，国务院公布《国务院关于对外投资的规定》（以下简称《规定》），新规将自2026年7月1日起施行。《规定》旨在推进高水平对外开放，促进对外投资高质量发展，有效实施对外投资管理，保护投资" data-zhsummary="国务院新规定从7月1日起管理对外投资，目的是让国家在国际投资中更安全、更有效。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.williamlong.info/archives/7548.html" target="_blank" rel="noopener">《国务院关于对外投资的规定》自7月1日起施行</a></h2>
+  <p class="summary">国务院新规定从7月1日起管理对外投资，目的是让国家在国际投资中更安全、更有效。</p>
+  <div class="meta">
+    <span>月光博客</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.williamlong.info/archives/7548.html" data-title="《国务院关于对外投资的规定》自7月1日起施行">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>普通人可能不太直接受影响，但涉及海外业务的人需要留意政策变化，比如创业或移民。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注政策对海外投资的影响，尤其是涉及创业或移民的事项，必要时咨询专业人士。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="b1ebefdd1f795fe536c4" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">99分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">36氪</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="b1ebefdd1f795fe536c4" data-title="氪星晚报｜BilibiliWorld 2026成国内首个海外售票的综合性ACG展会；让AI走进千家万户，17项举措推进“人工智能+消费”发展；快舟十一号遥十三运载火箭发射成功" data-url="https://36kr.com/p/3858015526704129?f=rss" data-score="99" data-grade="精选" data-source="36氪" data-summary="大公司：
+  滴滴自动驾驶参加伦敦MOVE 2026大会
+  6月17至18日，MOVE 2026大会在英国伦敦召开，滴滴自动驾驶在会上分享了来自中国的自动驾驶落地实践。在AI技术方面，" data-zhsummary="B站2026展会首次卖海外票，政府推出17项措施推动AI走进日常生活。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3858015526704129?f=rss" target="_blank" rel="noopener">氪星晚报｜BilibiliWorld 2026成国内首个海外售票的综合性ACG展会；让AI走进千家万户，17项举措推进“人工智能+消费”发展；快舟十一号遥十三运载火箭发射成功</a></h2>
+  <p class="summary">B站2026展会首次卖海外票，政府推出17项措施推动AI走进日常生活。</p>
+  <div class="meta">
+    <span>36氪</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3858015526704129?f=rss" data-title="氪星晚报｜BilibiliWorld 2026成国内首个海外售票的综合性ACG展会；让AI走进千家万户，17项举措推进“人工智能+消费”发展；快舟十一号遥十三运载火箭发射成功">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI技术会越来越普及，比如智能家居、智能交通这些，生活会更便捷。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试用AI工具做些简单的事情，比如语音助手或智能推荐。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="56de6575146fa10e7fc4" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="ZDNet" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,产品工具,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">99分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">ZDNet</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="56de6575146fa10e7fc4" data-title="I put Siri AI through the same tests I use for ChatGPT and Gemini on MacOS 27 - here&#39;s how it did" data-url="https://www.zdnet.com/article/new-siri-ai-apple-intelligence-test-on-mac/" data-score="99" data-grade="精选" data-source="ZDNet" data-summary="I tried the new Siri on my Mac, and although it&#39;s off to a promising start, Apple still has more wor" data-zhsummary="I tried the new Siri on my Mac, and although it&#39;s off to a promising start, Apple still has more wor" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://www.zdnet.com/article/new-siri-ai-apple-intelligence-test-on-mac/" target="_blank" rel="noopener">I put Siri AI through the same tests I use for ChatGPT and Gemini on MacOS 27 - here's how it did</a></h2>
+  <p class="summary">I tried the new Siri on my Mac, and although it's off to a promising start, Apple still has more work to do.</p>
+  <div class="meta">
+    <span>ZDNet</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.zdnet.com/article/new-siri-ai-apple-intelligence-test-on-mac/" data-title="I put Siri AI through the same tests I use for ChatGPT and Gemini on MacOS 27 - here&#39;s how it did">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI助手之间差异大，选哪个更省事可能取决于具体需求。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>如果Siri不够好，可以试试其他AI助手，比如ChatGPT或Gemini。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="3806b5582c130aae9929" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">98分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">36氪</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="3806b5582c130aae9929" data-title="红杉、阿里押注过的具身大脑公司再融资，上交等投资数亿元｜硬氪首发" data-url="https://36kr.com/p/3856708724315400?f=rss" data-score="98" data-grade="精选" data-source="36氪" data-summary="作者｜黄楠
+  编辑｜袁斯来
+  硬氪获悉，具身智能企业穹彻智能（Noematrix）近日完成新一轮数亿元融资，本轮融资由无锡数据集团领投，投资方包括上海交通大学AI未来基金（创业基金）" data-zhsummary="腾讯和年轻团队合作开发AI编程工具，专注提升代码效率。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3856708724315400?f=rss" target="_blank" rel="noopener">红杉、阿里押注过的具身大脑公司再融资，上交等投资数亿元｜硬氪首发</a></h2>
+  <p class="summary">腾讯和年轻团队合作开发AI编程工具，专注提升代码效率。</p>
+  <div class="meta">
+    <span>36氪</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3856708724315400?f=rss" data-title="红杉、阿里押注过的具身大脑公司再融资，上交等投资数亿元｜硬氪首发">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>程序员可能用上更智能的工具，写代码会变得更简单。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试使用AI编程辅助工具，比如GitHub Copilot。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="d7fcf67cfcbd74db22d5" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">92分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">36氪</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="d7fcf67cfcbd74db22d5" data-title="科氪 | 两轮电动车没有天花板，爱玛黑翼要用AI与硬核科技赢得年轻男性的心" data-url="https://36kr.com/p/3858803016881154?f=rss" data-score="92" data-grade="精选" data-source="36氪" data-summary="国内两轮电动车市场正悄然迎来一场深层次的“基因突变”。长期以来，大众对两轮电动车的认知被牢牢框定在“代步工具”与“大众精品”的传统叙事里。然而，在四川省体育馆的一场发布会上，爱玛正式发布" data-zhsummary="爱玛推出专为年轻男性设计的极速电动车品牌，用AI和硬核科技重新定义两轮电动车。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3858803016881154?f=rss" target="_blank" rel="noopener">科氪 | 两轮电动车没有天花板，爱玛黑翼要用AI与硬核科技赢得年轻男性的心</a></h2>
+  <p class="summary">爱玛推出专为年轻男性设计的极速电动车品牌，用AI和硬核科技重新定义两轮电动车。</p>
+  <div class="meta">
+    <span>36氪</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3858803016881154?f=rss" data-title="科氪 | 两轮电动车没有天花板，爱玛黑翼要用AI与硬核科技赢得年轻男性的心">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>以后骑电动车可能不只是代步，还能体验更酷的科技感，年轻人会更关注智能、速度和外观。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>可以关注爱玛黑翼的AI电动车，了解智能驾驶和升级功能。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="cf3c35f737434392c843" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">91.6分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="cf3c35f737434392c843" data-title="ruvnet/agent-harness-generator" data-url="https://github.com/ruvnet/agent-harness-generator" data-score="91.6" data-grade="精选" data-source="GitHub" data-summary="🛠️ The meta-harness for AI agents — scaffold your own focused, branded agent harness with its own np" data-zhsummary="🛠️ The meta-harness for AI agents — scaffold your own focused, branded agent harness with its own np" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://github.com/ruvnet/agent-harness-generator" target="_blank" rel="noopener">ruvnet/agent-harness-generator</a></h2>
+  <p class="summary">🛠️ The meta-harness for AI agents — scaffold your own focused, branded agent harness with its own npx CLI, MCP server, memory, learning loop, and witness-signed releases. Works with Claude Code, Codex</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 190</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/ruvnet/agent-harness-generator" data-title="ruvnet/agent-harness-generator">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>开发者可以用这个工具快速创建自己的AI助手，但需要投入时间学习框架原理。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>研究一下这个框架的文档，尝试搭建一个简单的AI代理系统。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="a8dde87835dbfc2385d7" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,政策监管">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">91.2分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="a8dde87835dbfc2385d7" data-title="kingofdwarfs/DeepFake-AI-RealTime" data-url="https://github.com/kingofdwarfs/DeepFake-AI-RealTime" data-score="91.2" data-grade="精选" data-source="GitHub" data-summary="An advanced, LLM-powered toolkit providing comprehensive capabilities for ethical synthetic media de" data-zhsummary="An advanced, LLM-powered toolkit providing comprehensive capabilities for ethical synthetic media de" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="政策监管">政策监管</span>
+  </div>
+  <h2><a href="https://github.com/kingofdwarfs/DeepFake-AI-RealTime" target="_blank" rel="noopener">kingofdwarfs/DeepFake-AI-RealTime</a></h2>
+  <p class="summary">An advanced, LLM-powered toolkit providing comprehensive capabilities for ethical synthetic media detection, analysis, and responsible content generation.</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 74</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/kingofdwarfs/DeepFake-AI-RealTime" data-title="kingofdwarfs/DeepFake-AI-RealTime">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>能帮助我们分辨网络上的真假信息，保护自己不受误导。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注这个工具的更新，学习如何识别深度伪造内容。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="a6c4e01e738c8d6409a0" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">91.2分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="a6c4e01e738c8d6409a0" data-title="ExtarDev/WorpGPT-Latest-2026" data-url="https://github.com/ExtarDev/WorpGPT-Latest-2026" data-score="91.2" data-grade="精选" data-source="GitHub" data-summary="A comprehensive Red Teaming framework for testing Large Language Model (LLM) robustness against adve" data-zhsummary="A comprehensive Red Teaming framework for testing Large Language Model (LLM) robustness against adve" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://github.com/ExtarDev/WorpGPT-Latest-2026" target="_blank" rel="noopener">ExtarDev/WorpGPT-Latest-2026</a></h2>
+  <p class="summary">A comprehensive Red Teaming framework for testing Large Language Model (LLM) robustness against adversarial prompt engineering and jailbreak vectors.</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 71</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/ExtarDev/WorpGPT-Latest-2026" data-title="ExtarDev/WorpGPT-Latest-2026">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>这类工具主要针对技术从业者，普通用户可能用不上但值得关注安全趋势。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>了解AI安全的基本概念，注意不要随意输入敏感信息。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="d7916ccf1297fe71f7ab" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">88.2分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="d7916ccf1297fe71f7ab" data-title="agiwhitelist/tokdiet" data-url="https://github.com/agiwhitelist/tokdiet" data-score="88.2" data-grade="精选" data-source="GitHub" data-summary="Local streaming reverse proxy between AI coding agents (Claude Code, Cursor, Codex) and model APIs (" data-zhsummary="Local streaming reverse proxy between AI coding agents (Claude Code, Cursor, Codex) and model APIs (" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://github.com/agiwhitelist/tokdiet" target="_blank" rel="noopener">agiwhitelist/tokdiet</a></h2>
+  <p class="summary">Local streaming reverse proxy between AI coding agents (Claude Code, Cursor, Codex) and model APIs (Anthropic, OpenAI, Gemini, MiniMax). Meters every token + USD cost, compacts bloated context to cut </p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 67</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/agiwhitelist/tokdiet" data-title="agiwhitelist/tokdiet">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>如果你经常用AI生成内容，这个工具能帮你优化使用成本。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>查阅相关文档，看看是否能用这个工具管理自己的AI使用。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="1df0c22923e6aeeb8066" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="月光博客" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">84分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">月光博客</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="1df0c22923e6aeeb8066" data-title="粉笔科技的人大讲座事件的说明与致歉" data-url="https://www.williamlong.info/archives/7549.html" data-score="84" data-grade="精选" data-source="月光博客" data-summary="6月3日，粉笔网CEO张小龙在人民大学的一场演讲引发热议，据多位现场学生及网络流传录音显示，在中国人民大学的一场职业规划讲座上，张小龙调整了演讲主题，将讨论内容转向AI、就业选择及个人财富经历。
+
+在" data-zhsummary="粉笔科技CEO张小龙在讲座中情绪失控，引发公众争议。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://www.williamlong.info/archives/7549.html" target="_blank" rel="noopener">粉笔科技的人大讲座事件的说明与致歉</a></h2>
+  <p class="summary">粉笔科技CEO张小龙在讲座中情绪失控，引发公众争议。</p>
+  <div class="meta">
+    <span>月光博客</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.williamlong.info/archives/7549.html" data-title="粉笔科技的人大讲座事件的说明与致歉">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>公众人物的言行容易被放大，需要更谨慎地表达。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>遇到类似情况时，先冷静分析再发表看法。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="0c48d98b4245df7b0e63" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">83分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">36氪</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="0c48d98b4245df7b0e63" data-title="智谱等中国大模型何时赶上Fable水平？马斯克：或在2027年一季度" data-url="https://36kr.com/newsflashes/3858650254791941?f=rss" data-score="83" data-grade="精选" data-source="36氪" data-summary="6月18日，有网友在社交媒体提问称：“中国大模型预计何时能够达到Anthropic的Fable水平？智谱GLM-5.2无疑缩小了差距。”特斯拉CEO马斯克对此回复称：“可能在（2027年）一季度。”对" data-zhsummary="蔚来给不同代的电动车都升级了智能驾驶系统，解决了硬件限制的问题。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://36kr.com/newsflashes/3858650254791941?f=rss" target="_blank" rel="noopener">智谱等中国大模型何时赶上Fable水平？马斯克：或在2027年一季度</a></h2>
+  <p class="summary">蔚来给不同代的电动车都升级了智能驾驶系统，解决了硬件限制的问题。</p>
+  <div class="meta">
+    <span>36氪</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/newsflashes/3858650254791941?f=rss" data-title="智谱等中国大模型何时赶上Fable水平？马斯克：或在2027年一季度">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>自动驾驶技术会更快落地，未来开车可能更安全、更省心。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注智能驾驶技术的进展，学习相关知识。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="13e7a826004af7d186e3" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">81.1分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="13e7a826004af7d186e3" data-title="dzcmemory-web/bazi-ziwei-skill" data-url="https://github.com/dzcmemory-web/bazi-ziwei-skill" data-score="81.1" data-grade="精选" data-source="GitHub" data-summary="AI 八字 + 紫微斗数排盘与综合印证 Skill：算法精准排盘（不靠 LLM 猜），三种分析模式，一键生成水墨风 HTML 命盘海报。兼容 Claude / Codex / Cursor / Wor" data-zhsummary="用AI算命的工具，能同时分析八字和紫微斗数，还能生成水墨风格的命盘海报。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://github.com/dzcmemory-web/bazi-ziwei-skill" target="_blank" rel="noopener">dzcmemory-web/bazi-ziwei-skill</a></h2>
+  <p class="summary">用AI算命的工具，能同时分析八字和紫微斗数，还能生成水墨风格的命盘海报。</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 373</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/dzcmemory-web/bazi-ziwei-skill" data-title="dzcmemory-web/bazi-ziwei-skill">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>喜欢传统文化的人能用AI更方便地了解命理，但要注意AI算命结果可能不准确。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>先学习一下八字和紫微斗数的基本知识，再用AI工具辅助分析。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="4e7658327ab1265ad1ad" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">81分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">36氪</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="4e7658327ab1265ad1ad" data-title="北大科学家下场做脑机接口，种子轮融了近亿元" data-url="https://36kr.com/p/3855480467543042?f=rss" data-score="81" data-grade="精选" data-source="36氪" data-summary="文 | 孙小雯
+  访谈 / 编辑 | 海若镜
+  「暗涌Waves」独家获悉，侵入式脑机接口公司「芯生视界」近日完成近亿元人民币种子轮融资。本轮融资由经纬创投领投，星连资本、燕缘创投、" data-zhsummary="北大科学家成立的脑机接口公司获得数亿元投资，相关技术已在医疗场景应用。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://36kr.com/p/3855480467543042?f=rss" target="_blank" rel="noopener">北大科学家下场做脑机接口，种子轮融了近亿元</a></h2>
+  <p class="summary">北大科学家成立的脑机接口公司获得数亿元投资，相关技术已在医疗场景应用。</p>
+  <div class="meta">
+    <span>36氪</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3855480467543042?f=rss" data-title="北大科学家下场做脑机接口，种子轮融了近亿元">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>科技可能帮助瘫痪患者重新控制设备，甚至未来能实现更高级的交互。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>如果对神经科技感兴趣，可以学习基础医学知识。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="72b6cf1d2c57daa4f842" data-updated="2026-06-19T02:08:23" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #c8786a;">81分 · 精选</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">AI热点</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="72b6cf1d2c57daa4f842" data-title="Transformer作者Noam Shazeer加入OpenAI" data-url="https://x.com/op7418/status/2067432296127557888" data-score="81" data-grade="精选" data-source="AI热点" data-summary="" data-zhsummary="北大科学家成立的脑机接口公司获得数亿元投资，相关技术已在医疗场景应用。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://x.com/op7418/status/2067432296127557888" target="_blank" rel="noopener">Transformer作者Noam Shazeer加入OpenAI</a></h2>
+  <p class="summary">北大科学家成立的脑机接口公司获得数亿元投资，相关技术已在医疗场景应用。</p>
+  <div class="meta">
+    <span>AI热点</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://x.com/op7418/status/2067432296127557888" data-title="Transformer作者Noam Shazeer加入OpenAI">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>科技可能帮助瘫痪患者重新控制设备，甚至未来能实现更高级的交互。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>如果对神经科技感兴趣，可以学习基础医学知识。</p></div>
+    <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+  </div>
+</div>
+</div>
+<div id="level-推荐" class="topic-list">
+<div class="topic-card" data-hash="1f35e9344b56fc22e87f" data-updated="2026-06-19T02:08:23" data-grade="推荐" data-source="月光博客" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">78分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">月光博客</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="1f35e9344b56fc22e87f" data-title="AI编程从零开始：环境配置到开发调试" data-url="https://www.williamlong.info/archives/7544.html" data-score="78" data-grade="推荐" data-source="月光博客" data-summary="我最开始接触AI编程（Vibe Coding）是去年，因为我以前没写过Chrome插件，第一次用AI来写，十分钟搞定，功能是点击将浏览器所有书签转化为网址导航站来显示，用AI在网页端生成，插件运行后显" data-zhsummary="用AI编程写Chrome插件非常简单，十分钟就能完成，编程门槛大幅降低。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+  </div>
+  <h2><a href="https://www.williamlong.info/archives/7544.html" target="_blank" rel="noopener">AI编程从零开始：环境配置到开发调试</a></h2>
+  <p class="summary">用AI编程写Chrome插件非常简单，十分钟就能完成，编程门槛大幅降低。</p>
+  <div class="meta">
+    <span>月光博客</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.williamlong.info/archives/7544.html" data-title="AI编程从零开始：环境配置到开发调试">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>普通人现在可能更容易自己开发小工具，但过度依赖AI可能导致技术能力下降。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试学习AI编程工具，比如AI代码生成器，从简单项目开始实践。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="147fb50296c599cf0ce5" data-updated="2026-06-19T02:08:23" data-grade="推荐" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,产品工具,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">76.3分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="147fb50296c599cf0ce5" data-title="KorroAi/drunk-claude" data-url="https://github.com/KorroAi/drunk-claude" data-score="76.3" data-grade="推荐" data-source="GitHub" data-summary="Drunk Claude : intensity slider (0.1 tipsy to 1.0 blackout), 5 moods, 8 creative techniques. The unf" data-zhsummary="Drunk Claude : intensity slider (0.1 tipsy to 1.0 blackout), 5 moods, 8 creative techniques. The unf" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://github.com/KorroAi/drunk-claude" target="_blank" rel="noopener">KorroAi/drunk-claude</a></h2>
+  <p class="summary">Drunk Claude : intensity slider (0.1 tipsy to 1.0 blackout), 5 moods, 8 creative techniques. The unfiltered genius skill for Claude Code. MIT.</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 100</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/KorroAi/drunk-claude" data-title="KorroAi/drunk-claude">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>创作者可以用它让AI产生更天马行空的灵感，但要小心控制创意强度避免失控。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试用不同强度参数生成创意文案，看看哪种风格更符合你的需求。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="83587e346bbfe4ebb1b8" data-updated="2026-06-19T02:08:23" data-grade="推荐" data-source="量子位" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产品工具,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">量子位</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="83587e346bbfe4ebb1b8" data-title="哈？Q1狂烧250亿！OpenAI财报泄露全网炸锅" data-url="https://www.qbitai.com/2026/06/436477.html" data-score="76" data-grade="推荐" data-source="量子位" data-summary="给A社都干沉默了…" data-zhsummary="马斯克预测中国大模型可能在2027年一季度赶上Fable水平，但业内有不同看法。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://www.qbitai.com/2026/06/436477.html" target="_blank" rel="noopener">哈？Q1狂烧250亿！OpenAI财报泄露全网炸锅</a></h2>
+  <p class="summary">马斯克预测中国大模型可能在2027年一季度赶上Fable水平，但业内有不同看法。</p>
+  <div class="meta">
+    <span>量子位</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.qbitai.com/2026/06/436477.html" data-title="哈？Q1狂烧250亿！OpenAI财报泄露全网炸锅">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI技术竞争激烈，但追赶需要时间和技术突破。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>保持对AI技术的关注，不要盲目跟风。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="7795d05456c43deecd5a" data-updated="2026-06-19T02:08:23" data-grade="推荐" data-source="少数派" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">少数派</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="7795d05456c43deecd5a" data-title="WWDC26 在现场，与 Apple 设计大奖提名开发者聊聊他们的 app" data-url="https://sspai.com/post/111181" data-score="76" data-grade="推荐" data-source="少数派" data-summary="在WWDC26全球开发者大会正式开幕前，本年度的Apple设计大奖再次先行一步揭晓。今年的Apple设计大奖也一如以往，继续分设乐趣横生、多元包容、创新思维、出色互动、社会影响、视觉图像六大类别，每个" data-zhsummary="Transformer算法创始人加入OpenAI，可能带来更强大的AI技术。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://sspai.com/post/111181" target="_blank" rel="noopener">WWDC26 在现场，与 Apple 设计大奖提名开发者聊聊他们的 app</a></h2>
+  <p class="summary">Transformer算法创始人加入OpenAI，可能带来更强大的AI技术。</p>
+  <div class="meta">
+    <span>少数派</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://sspai.com/post/111181" data-title="WWDC26 在现场，与 Apple 设计大奖提名开发者聊聊他们的 app">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>顶尖人才的加入会让AI发展更快，技术壁垒可能降低。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注OpenAI的新动态，了解他们的技术突破。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="3b01a270991151ca0958" data-updated="2026-06-19T02:08:23" data-grade="推荐" data-source="Slashdot" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">Slashdot</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="3b01a270991151ca0958" data-title="Google, Microsoft, and OpenAI Back Linux Foundation&#39;s Appia AI Standards Initiative" data-url="https://linux.slashdot.org/story/26/06/17/201217/google-microsoft-and-openai-back-linux-foundations-appia-ai-standards-initiative?utm_source=rss1.0mainlinkanon&utm_medium=feed" data-score="76" data-grade="推荐" data-source="Slashdot" data-summary="BrianFagioli writes: Google, Microsoft, OpenAI, Arm, Mastercard, Siemens, and other companies have j" data-zhsummary="BrianFagioli writes: Google, Microsoft, OpenAI, Arm, Mastercard, Siemens, and other companies have j" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://linux.slashdot.org/story/26/06/17/201217/google-microsoft-and-openai-back-linux-foundations-appia-ai-standards-initiative?utm_source=rss1.0mainlinkanon&utm_medium=feed" target="_blank" rel="noopener">Google, Microsoft, and OpenAI Back Linux Foundation's Appia AI Standards Initiative</a></h2>
+  <p class="summary">BrianFagioli writes: Google, Microsoft, OpenAI, Arm, Mastercard, Siemens, and other companies have joined the newly launched Appia Foundation under the Linux Foundation. The project aims to create com</p>
+  <div class="meta">
+    <span>Slashdot</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://linux.slashdot.org/story/26/06/17/201217/google-microsoft-and-openai-back-linux-foundations-appia-ai-standards-initiative?utm_source=rss1.0mainlinkanon&utm_medium=feed" data-title="Google, Microsoft, and OpenAI Back Linux Foundation&#39;s Appia AI Standards Initiative">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>未来AI产品可能更容易使用，但规则不明确时容易产生混乱，统一标准能减少这些问题。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注AI行业标准进展，了解哪些技术会更稳定可靠。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="849e8f8fd57ceccef155" data-updated="2026-06-19T02:08:23" data-grade="推荐" data-source="ZDNet" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">ZDNet</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="849e8f8fd57ceccef155" data-title="Rolling out AI agents? 4 ways to move fast and furious - but with extreme caution" data-url="https://www.zdnet.com/article/rolling-out-ai-agents-move-fast-and-furious-but-with-extreme-caution/" data-score="76" data-grade="推荐" data-source="ZDNet" data-summary="For starters, don&#39;t just hand over the keys to AI agents. Any endeavor needs to remain a human-insti" data-zhsummary="For starters, don&#39;t just hand over the keys to AI agents. Any endeavor needs to remain a human-insti" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://www.zdnet.com/article/rolling-out-ai-agents-move-fast-and-furious-but-with-extreme-caution/" target="_blank" rel="noopener">Rolling out AI agents? 4 ways to move fast and furious - but with extreme caution</a></h2>
+  <p class="summary">For starters, don't just hand over the keys to AI agents. Any endeavor needs to remain a human-instigated, human-led endeavor.</p>
+  <div class="meta">
+    <span>ZDNet</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.zdnet.com/article/rolling-out-ai-agents-move-fast-and-furious-but-with-extreme-caution/" data-title="Rolling out AI agents? 4 ways to move fast and furious - but with extreme caution">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>用AI干活时别完全放手，比如写报告、做决策，还是得自己检查确认。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天就试试用AI帮忙写个小文档，完成后自己再核对一遍。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="c0fc2317233b2566da5a" data-updated="2026-06-19T02:08:23" data-grade="推荐" data-source="Ars Technica" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">Ars Technica</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="c0fc2317233b2566da5a" data-title="气象与气候科学的AI革命不是革命性的" data-url="https://arstechnica.com/science/2026/06/the-weather-and-climate-science-ai-revolution-isnt-revolutionary/" data-score="76" data-grade="推荐" data-source="Ars Technica" data-summary="Machine learning has its limits—how is it being used?" data-zhsummary="机器学习有其局限性——它被如何使用？" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+  </div>
+  <h2><a href="https://arstechnica.com/science/2026/06/the-weather-and-climate-science-ai-revolution-isnt-revolutionary/" target="_blank" rel="noopener">气象与气候科学的AI革命不是革命性的</a></h2>
+  <p class="summary">机器学习有其局限性——它被如何使用？</p>
+  <div class="meta">
+    <span>Ars Technica</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://arstechnica.com/science/2026/06/the-weather-and-climate-science-ai-revolution-isnt-revolutionary/" data-title="气象与气候科学的AI革命不是革命性的">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>咱们看天气预报可能还是得靠传统方法，AI暂时帮不了大忙。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>下雨天出门前还是多看几次天气预报，别只依赖AI预测。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="0cdf747352c56179f123" data-updated="2026-06-19T02:08:23" data-grade="推荐" data-source="Ars Technica" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
+    <span class="heat-stage-badge" data-stage="热门" title="持续热门，稳定高分">⭐ 热门</span>
+    <span class="source-tag">Ars Technica</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="0cdf747352c56179f123" data-title="一个OpenAI模型解决了一个困扰人类长达80年的著名数学问题" data-url="https://arstechnica.com/ai/2026/06/openais-math-breakthrough-played-to-ais-strengths/" data-score="76" data-grade="推荐" data-source="Ars Technica" data-summary="I tried to explain OpenAI’s solution more clearly than OpenAI did." data-zhsummary="我试图比OpenAI更清晰地解释他们的解决方案。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://arstechnica.com/ai/2026/06/openais-math-breakthrough-played-to-ais-strengths/" target="_blank" rel="noopener">一个OpenAI模型解决了一个困扰人类长达80年的著名数学问题</a></h2>
+  <p class="summary">我试图比OpenAI更清晰地解释他们的解决方案。</p>
+  <div class="meta">
+    <span>Ars Technica</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://arstechnica.com/ai/2026/06/openais-math-breakthrough-played-to-ais-strengths/" data-title="一个OpenAI模型解决了一个困扰人类长达80年的著名数学问题">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>AI能解决复杂问题，未来可能帮科学家更快找到答案，普通人也能受益。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注AI在科研领域的应用，今天可以学点基础数学知识来了解这个突破。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+</div>
+<div id="level-参考" class="topic-list">
+<div class="topic-card" data-hash="7d1090afb0fd81d86048" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="少数派" data-heat-stage="持续" data-audience="pro" data-value-tags="AI变现赛道,产业关联,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">69分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">少数派</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="7d1090afb0fd81d86048" data-title="派早报：SpaceX 宣布收购 Cursor、字节跳动推出 Seedance 2.0 Mini 等" data-url="https://sspai.com/post/111124" data-score="69" data-grade="参考" data-source="少数派" data-summary="夏普推出 AQUOS R11 手机、理光宣布 GR 系列调整建议零售价等。查看全文" data-zhsummary="美图公司推出八款AI产品，不再让用户苦学PS技巧。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="AI变现赛道">AI变现赛道</span>
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://sspai.com/post/111124" target="_blank" rel="noopener">派早报：SpaceX 宣布收购 Cursor、字节跳动推出 Seedance 2.0 Mini 等</a></h2>
+  <p class="summary">美图公司推出八款AI产品，不再让用户苦学PS技巧。</p>
+  <div class="meta">
+    <span>少数派</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://sspai.com/post/111124" data-title="派早报：SpaceX 宣布收购 Cursor、字节跳动推出 Seedance 2.0 Mini 等">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>未来的美图工具会更智能，普通人也能轻松制作专业级图片。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>试试美图的AI功能，看看能简化哪些操作。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="c7934c081da4f8e48ae9" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">68.5分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="c7934c081da4f8e48ae9" data-title="nnecrkvenuOX/formcms" data-url="https://github.com/nnecrkvenuOX/formcms" data-score="68.5" data-grade="参考" data-source="GitHub" data-summary="AI Agent: Open-source headless CMS built with ASP.NET Core (C#) and React, featuring REST APIs, Grap" data-zhsummary="AI Agent: Open-source headless CMS built with ASP.NET Core (C#) and React, featuring REST APIs, Grap" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://github.com/nnecrkvenuOX/formcms" target="_blank" rel="noopener">nnecrkvenuOX/formcms</a></h2>
+  <p class="summary">AI Agent: Open-source headless CMS built with ASP.NET Core (C#) and React, featuring REST APIs, GraphQL, and a GrapesJS page designer.</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 177</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/nnecrkvenuOX/formcms" data-title="nnecrkvenuOX/formcms">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>内容创作者可以更高效地维护网站，但可能需要学习一些编程知识才能上手。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>先了解CMS的基本概念，再尝试用这个系统管理自己的个人博客。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="0f2c54318b8b9581c202" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,技术前沿,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">68.5分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="0f2c54318b8b9581c202" data-title="shreyashankar/plain-writing-skill" data-url="https://github.com/shreyashankar/plain-writing-skill" data-score="68.5" data-grade="参考" data-source="GitHub" data-summary="A plain-language writing skill for AI agents, with a revision view that shows what changed." data-zhsummary="A plain-language writing skill for AI agents, with a revision view that shows what changed." title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://github.com/shreyashankar/plain-writing-skill" target="_blank" rel="noopener">shreyashankar/plain-writing-skill</a></h2>
+  <p class="summary">A plain-language writing skill for AI agents, with a revision view that shows what changed.</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 151</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/shreyashankar/plain-writing-skill" data-title="shreyashankar/plain-writing-skill">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>普通用户可以让AI帮写说明书或报告，但要注意检查AI生成的内容是否准确。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>用这个技能写一份工作文档，然后对照原稿查看AI做了哪些修改。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="9d436c85c70e7ed0feb0" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">61.5分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="9d436c85c70e7ed0feb0" data-title="Plaer1/junction" data-url="https://github.com/Plaer1/junction" data-score="61.5" data-grade="参考" data-source="GitHub" data-summary="VS Code chat sidebar for local AI coding agents" data-zhsummary="VS Code chat sidebar for local AI coding agents" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://github.com/Plaer1/junction" target="_blank" rel="noopener">Plaer1/junction</a></h2>
+  <p class="summary">VS Code chat sidebar for local AI coding agents</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 507</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/Plaer1/junction" data-title="Plaer1/junction">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>程序员以后可能不用反复切换界面，直接在写代码时让AI帮忙解决问题，效率会更高。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>可以尝试在VS Code里搜索这个插件，看看是否适合自己的开发习惯。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="c64910898a0cf65edbfa" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,产品工具,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">61.2分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="c64910898a0cf65edbfa" data-title="001TMF/框架工坊" data-url="https://github.com/001TMF/harness-forge" data-score="61.2" data-grade="参考" data-source="GitHub" data-summary="Turn Claude Code into its own Meta-Harness — a skill that evolves the scaffolding around a fixed mod" data-zhsummary="Turn Claude Code into its own Meta-Harness — a skill that evolves the scaffolding around a fixed mod" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://github.com/001TMF/harness-forge" target="_blank" rel="noopener">001TMF/框架工坊</a></h2>
+  <p class="summary">Turn Claude Code into its own Meta-Harness — a skill that evolves the scaffolding around a fixed model (memory, retrieval, context, prompts) via a native propose→score→Pareto loop. Native reimplementa</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 64</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/001TMF/harness-forge" data-title="001TMF/框架工坊">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>意味着AI助手会越来越懂你的工作习惯，但需要一定技术基础。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>研究这个系统的运作原理，尝试用它改进自己的AI工作流程。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="d09649c0b41d1d7d50cd" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,技术前沿,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">61.0分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="d09649c0b41d1d7d50cd" data-title="kerryjanes/ChainKey" data-url="https://github.com/kerryjanes/ChainKey" data-score="61.0" data-grade="参考" data-source="GitHub" data-summary="Context-Enriched Multi-Party Transaction Orchestrator leveraging Machine Learning for Scalable, Inte" data-zhsummary="Context-Enriched Multi-Party Transaction Orchestrator leveraging Machine Learning for Scalable, Inte" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://github.com/kerryjanes/ChainKey" target="_blank" rel="noopener">kerryjanes/ChainKey</a></h2>
+  <p class="summary">Context-Enriched Multi-Party Transaction Orchestrator leveraging Machine Learning for Scalable, Intelligent Distributed Transaction Manager</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 4</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/kerryjanes/ChainKey" data-title="kerryjanes/ChainKey">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>可能影响数字货币用户的交易体验，但需要一定的技术理解才能使用。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>先了解区块链交易的基本知识，再考虑是否需要这类专业工具。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="74cc726da783620ed612" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="量子位" data-heat-stage="持续" data-audience="pro" data-value-tags="创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">61分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">量子位</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="74cc726da783620ed612" data-title="腾讯老兵+大厂00后新锐，码上飞想做的不只是AI Coding" data-url="https://www.qbitai.com/2026/06/436674.html" data-score="61" data-grade="参考" data-source="量子位" data-summary="已接入华为鸿蒙生态" data-zhsummary="36氪发布了2026年最有潜力的100家成长企业，强调创新和成长的重要性。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://www.qbitai.com/2026/06/436674.html" target="_blank" rel="noopener">腾讯老兵+大厂00后新锐，码上飞想做的不只是AI Coding</a></h2>
+  <p class="summary">36氪发布了2026年最有潜力的100家成长企业，强调创新和成长的重要性。</p>
+  <div class="meta">
+    <span>量子位</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.qbitai.com/2026/06/436674.html" data-title="腾讯老兵+大厂00后新锐，码上飞想做的不只是AI Coding">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>创业公司可能成为未来行业巨头，普通人可以关注他们的发展。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>研究这些成长企业，看看有没有适合自己的机会。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="a355099475f0fa426cfd" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="量子位" data-heat-stage="持续" data-audience="pro" data-value-tags="综合">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">61分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">量子位</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="a355099475f0fa426cfd" data-title="18年前不让你苦修PS的美图，这次不让你苦修AI了" data-url="https://www.qbitai.com/2026/06/436517.html" data-score="61" data-grade="参考" data-source="量子位" data-summary="用八款产品，讲一个变化" data-zhsummary="中科闻歌成功上市，市值超百亿港币，展示了科研成果的商业价值。" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="综合">综合</span>
+  </div>
+  <h2><a href="https://www.qbitai.com/2026/06/436517.html" target="_blank" rel="noopener">18年前不让你苦修PS的美图，这次不让你苦修AI了</a></h2>
+  <p class="summary">中科闻歌成功上市，市值超百亿港币，展示了科研成果的商业价值。</p>
+  <div class="meta">
+    <span>量子位</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.qbitai.com/2026/06/436517.html" data-title="18年前不让你苦修PS的美图，这次不让你苦修AI了">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>科研成果转化成产品会越来越容易，科技和资本结合能创造大奇迹。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>关注科技创新企业的动向，了解如何将技术变为现实。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="287deeaa8bd1e49daac7" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="TechCrunch" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,产品工具,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">61分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">TechCrunch</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="287deeaa8bd1e49daac7" data-title="‘Queer Eye’s’ life coach Karamo Brown launches Kē, a wellness app featuring his AI digital clone" data-url="https://techcrunch.com/2026/06/18/queer-eyes-life-coach-karamo-brown-launches-ke-a-wellness-app-featuring-his-ai-digital-clone/" data-score="61" data-grade="参考" data-source="TechCrunch" data-summary="Karamo Brown, famous for his pep talks on Netflix&#8217;s “Queer Eye,” has jumped into the wellness" data-zhsummary="Karamo Brown, famous for his pep talks on Netflix&#8217;s “Queer Eye,” has jumped into the wellness " title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://techcrunch.com/2026/06/18/queer-eyes-life-coach-karamo-brown-launches-ke-a-wellness-app-featuring-his-ai-digital-clone/" target="_blank" rel="noopener">‘Queer Eye’s’ life coach Karamo Brown launches Kē, a wellness app featuring his AI digital clone</a></h2>
+  <p class="summary">Karamo Brown, famous for his pep talks on Netflix&#8217;s “Queer Eye,” has jumped into the wellness and AI space with his new app, Kē. After spending a year and a half focusing on his own journey—from</p>
+  <div class="meta">
+    <span>TechCrunch</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://techcrunch.com/2026/06/18/queer-eyes-life-coach-karamo-brown-launches-ke-a-wellness-app-featuring-his-ai-digital-clone/" data-title="‘Queer Eye’s’ life coach Karamo Brown launches Kē, a wellness app featuring his AI digital clone">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>普通人可以更方便地获取个性化健康建议，但AI的建议是否靠谱还值得验证。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>如果对AI健康应用感兴趣，可以试试看，但记得结合专业意见判断。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="ee6cad7a2d429f3a76c7" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="Slashdot" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">61分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">Slashdot</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="ee6cad7a2d429f3a76c7" data-title="AI Will Lead To Labor Shortages, Bezos Says In Optimistic Talk" data-url="https://slashdot.org/story/26/06/17/1711214/ai-will-lead-to-labor-shortages-bezos-says-in-optimistic-talk?utm_source=rss1.0mainlinkanon&utm_medium=feed" data-score="61" data-grade="参考" data-source="Slashdot" data-summary="An anonymous reader quotes a report from Reuters: Artificial Intelligence will lead to labour shorta" data-zhsummary="An anonymous reader quotes a report from Reuters: Artificial Intelligence will lead to labour shorta" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://slashdot.org/story/26/06/17/1711214/ai-will-lead-to-labor-shortages-bezos-says-in-optimistic-talk?utm_source=rss1.0mainlinkanon&utm_medium=feed" target="_blank" rel="noopener">AI Will Lead To Labor Shortages, Bezos Says In Optimistic Talk</a></h2>
+  <p class="summary">An anonymous reader quotes a report from Reuters: Artificial Intelligence will lead to labour shortages, not the replacement of humans, Amazon founder Jeff Bezos predicted in a highly optimistic appea</p>
+  <div class="meta">
+    <span>Slashdot</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://slashdot.org/story/26/06/17/1711214/ai-will-lead-to-labor-shortages-bezos-says-in-optimistic-talk?utm_source=rss1.0mainlinkanon&utm_medium=feed" data-title="AI Will Lead To Labor Shortages, Bezos Says In Optimistic Talk">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>普通人可能不用担心被AI取代工作，但需要适应新岗位，比如和AI协作的岗位。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>学习AI相关技能，比如数据分析或AI工具操作，为未来工作做准备。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="4c37a3becdf2cfa09477" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="NPR新闻" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">61分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">NPR新闻</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="4c37a3becdf2cfa09477" data-title="Ukraine hits a Moscow oil refinery and other sites in a large-scale drone attack" data-url="https://www.npr.org/2026/06/18/g-s1-128782/moscow-ukraine-drone-attack-russia-oil-refinery" data-score="61" data-grade="参考" data-source="NPR新闻" data-summary="Ukraine launched a new wave of drone attacks on Russia early Thursday, amounting to one of the large" data-zhsummary="Ukraine launched a new wave of drone attacks on Russia early Thursday, amounting to one of the large" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://www.npr.org/2026/06/18/g-s1-128782/moscow-ukraine-drone-attack-russia-oil-refinery" target="_blank" rel="noopener">Ukraine hits a Moscow oil refinery and other sites in a large-scale drone attack</a></h2>
+  <p class="summary">Ukraine launched a new wave of drone attacks on Russia early Thursday, amounting to one of the largest attacks on the Russian capital since the Kremlin ordered the invasion of Ukraine more than four y</p>
+  <div class="meta">
+    <span>NPR新闻</span>
+    
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.npr.org/2026/06/18/g-s1-128782/moscow-ukraine-drone-attack-russia-oil-refinery" data-title="Ukraine hits a Moscow oil refinery and other sites in a large-scale drone attack">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>这种高科技武器的使用可能改变战争方式，普通人需要关注地区安全动态。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>今天查一下最近的新闻，了解国际局势是否又有了新变化。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="67956e4b533d7fc8cf03" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general" data-value-tags="技术前沿,创业投资">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">60.9分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="67956e4b533d7fc8cf03" data-title="dongshuyan/compass-skills" data-url="https://github.com/dongshuyan/compass-skills" data-score="60.9" data-grade="参考" data-source="GitHub" data-summary="司南：个性化 AI 任务总控 Skills 系统 /COMPASS: Personal Alignment Skills OS for AI Agents" data-zhsummary="司南：个性化 AI 任务总控 Skills 系统 /COMPASS: Personal Alignment Skills OS for AI Agents" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="创业投资">创业投资</span>
+  </div>
+  <h2><a href="https://github.com/dongshuyan/compass-skills" target="_blank" rel="noopener">dongshuyan/compass-skills</a></h2>
+  <p class="summary">司南：个性化 AI 任务总控 Skills 系统 /COMPASS: Personal Alignment Skills OS for AI Agents</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 295</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/dongshuyan/compass-skills" data-title="dongshuyan/compass-skills">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>未来AI助手可能更像私人助理，能主动帮我们处理各种任务，但需要明确自己的需求。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>尝试用这个系统规划自己的AI任务清单，比如写报告、做数据分析等。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="bd51957959b7fbe1cf0a" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿,政策监管">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">60.8分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="bd51957959b7fbe1cf0a" data-title="majidmanzarpour/threejs-game-skills" data-url="https://github.com/majidmanzarpour/threejs-game-skills" data-score="60.8" data-grade="参考" data-source="GitHub" data-summary="Agent skills for building playable, polished Three.js browser games with gameplay, AAA-style graphic" data-zhsummary="Agent skills for building playable, polished Three.js browser games with gameplay, AAA-style graphic" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="政策监管">政策监管</span>
+  </div>
+  <h2><a href="https://github.com/majidmanzarpour/threejs-game-skills" target="_blank" rel="noopener">majidmanzarpour/threejs-game-skills</a></h2>
+  <p class="summary">Agent skills for building playable, polished Three.js browser games with gameplay, AAA-style graphics, UI, QA, and optional AI-generated 3D, image, and audio assets.</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 264</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/majidmanzarpour/threejs-game-skills" data-title="majidmanzarpour/threejs-game-skills">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>游戏开发者可以更快地制作出高质量游戏，但对美术和编程基础要求较高。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>先学习Three.js的基础知识，再尝试用AI辅助生成游戏元素。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+
+<div class="topic-card" data-hash="af8a247a3447054af5be" data-updated="2026-06-19T02:08:23" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
+  <span class="new-badge" style="display:none;">NEW</span>
+  <div class="card-header">
+    <span class="score-badge" style="background: #8a9598;">60.2分 · 参考</span>
+    <span class="heat-stage-badge" data-stage="持续" title="热度稳定">➡️ 持续</span>
+    <span class="source-tag">GitHub</span>
+    <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="af8a247a3447054af5be" data-title="manticore-projects/aurscan" data-url="https://github.com/manticore-projects/aurscan" data-score="60.2" data-grade="参考" data-source="GitHub" data-summary="Automatically scan AUR packages for malware before installing using Claude LLM" data-zhsummary="在使用 Claude LLM 安装前，自动扫描 AUR 包中的恶意软件" title="收藏">☆</button>
+  </div>
+  
+  <div class="value-tags">
+    <span class="value-tag" data-tag="产业关联">产业关联</span>
+    <span class="value-tag" data-tag="技术前沿">技术前沿</span>
+    <span class="value-tag" data-tag="产品工具">产品工具</span>
+  </div>
+  <h2><a href="https://github.com/manticore-projects/aurscan" target="_blank" rel="noopener">manticore-projects/aurscan</a></h2>
+  <p class="summary">在使用 Claude LLM 安装前，自动扫描 AUR 包中的恶意软件</p>
+  <div class="meta">
+    <span>GitHub</span>
+    <span>🔥 75</span>
+  </div>
+  <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/manticore-projects/aurscan" data-title="manticore-projects/aurscan">📋 复制链接</button></div>
+  <div class="ai-insights">
+    <div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>电脑用户安装软件时可以多一层保护，但AI判断可能有误差需要人工确认。</p></div>
+    <div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>在安装开源软件前，用这个工具扫描一下是否安全。</p></div>
+    <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+  </div>
+</div>
+</div>
+
+<div style="text-align:center;padding:16px 0 32px;">
+  <button id="expand-btn" onclick="toggleExpand()" style="background:none;border:1px solid var(--border);color:var(--text-secondary);padding:8px 24px;border-radius:8px;cursor:pointer;font-size:0.85rem;transition:all 0.2s;">▼ 查看更多</button>
+</div>
+</main>
+<footer>
+<p>数据来源：Hacker News · GitHub · Product Hunt · AI热点 · 36氪（共 17 个数据源）</p>
+<p>内容由 AI 自动采集、智能评分。支持收藏、搜索、暗色模式、RSS 订阅</p>
+<p class="footer-links">
+  <a href="feed.xml" target="_blank">📡 RSS</a>
+  <a href="api.json" target="_blank">📊 API</a>
+  <a href="sources.opml" target="_blank">📋 OPML</a>
+  <a href="sitemap.xml" target="_blank">🗺️ Sitemap</a>
+  <a href="javascript:void(0)" onclick="openSettings('guide')">📖 帮助</a>
+</p>
+
+<div class="brand-divider">———— ✦ ————</div>
+
+<!-- 品牌身份卡片 -->
+<div class="brand-identity">
+  <div class="brand-name">扶清闲话 · AI时代观察</div>
+  <div class="brand-desc">以个人成长视角追踪时代脉搏，做 AI 内容的翻译者</div>
+  <div class="brand-philosophy">「不掠夺，只滋养」</div>
+  <div class="brand-cornerstones">
+    <span class="cornerstone">复利</span>
+    <span class="cornerstone">自动化</span>
+    <span class="cornerstone">外化</span>
+    <span class="cornerstone">专注</span>
+  </div>
+</div>
+
+<!-- 用户反馈 / 联系方式 -->
+<div id="feedback-section" style="margin-top:24px;padding:16px 24px;background:linear-gradient(135deg,rgba(200,168,92,0.06),rgba(200,120,106,0.06));border:1px solid rgba(200,168,92,0.12);border-radius:14px;text-align:center;">
+  <p style="font-size:0.85rem;color:var(--text-secondary);margin:0 0 10px 0;">🛠️ 开发不易，如有意见/建议欢迎联系</p>
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;align-items:center;">
+    <a href="javascript:void(0)" onclick="openFeedback()" style="display:inline-flex;align-items:center;gap:4px;padding:6px 16px;border-radius:8px;background:var(--card);border:1px solid var(--border);color:var(--text-primary);text-decoration:none;font-size:0.8rem;transition:all 0.2s;">💬 提交反馈</a>
+    <span style="display:inline-flex;align-items:center;gap:4px;padding:6px 16px;border-radius:8px;background:var(--card);border:1px solid var(--accent);color:var(--accent);font-size:0.8rem;">📱 开发者阿扶 17343414886（v同）</span>
+  </div>
+</div>
+
+<p style="margin-top:20px;font-size:0.78rem;">© 2026 AI 时代观察</p>
+
+<!-- 统一站点导航 -->
+<div class="footer-site-nav">
+  <a href="https://afuxh.github.io/fuqing-profile/index.html">首页</a>
+  <a href="https://afuxh.github.io/fuqing-profile/margins.html">读书笔记</a>
+  <a href="https://afuxh.github.io/fuqing-profile/handbook.html">交流手册</a>
+  <a href="https://afuxh.github.io/fuqing-profile/hot-news.html">AI热点</a>
+  <a href="https://afuxh.github.io/fuqing-profile/archive.html">档案馆</a>
+</div>
+</footer>
+</div>
+
+
+<script>
+// ===== 全局状态 =====
+const GEN_TS = '2026-06-19T02:08:23';
+let currentLevel = 'all';
+let currentValueTag = 'all';
+let currentSearch = '';
+let bookmarks = JSON.parse(localStorage.getItem('hn_bookmarks') || '[]');
+let lastVisit = localStorage.getItem('hn_last_visit') || '';
+let theme = localStorage.getItem('hn_theme') || 'web';
+
+// ===== 主题切换 =====
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('themeToggle').textContent = t === 'dark' ? '☀️' : '🌙';
+  localStorage.setItem('hn_theme', t);
+}
+
+// ===== 热度排序（单按钮切换） =====
+let heatSortDir = 'desc'; // desc=高到低, asc=低到高
+function toggleSort() {
+  heatSortDir = heatSortDir === 'desc' ? 'asc' : 'desc';
+  const btn = document.getElementById('sortToggle');
+  if (heatSortDir === 'desc') {
+    btn.textContent = '🔥 高→低';
+    btn.style.background = 'rgba(232,112,90,0.15)';
+    btn.style.borderColor = '#e8705a';
+    btn.style.color = '#e8705a';
+  } else {
+    btn.textContent = '❄️ 低→高';
+    btn.style.background = 'rgba(100,180,220,0.15)';
+    btn.style.borderColor = '#64b4dc';
+    btn.style.color = '#64b4dc';
+  }
+  // 获取当前可见卡片并排序
+  const cards = Array.from(document.querySelectorAll('.topic-card'));
+  const visible = cards.filter(c => c.style.display !== 'none');
+  visible.sort((a, b) => {
+    const sa = parseFloat(a.querySelector('.score-badge')?.textContent) || 0;
+    const sb = parseFloat(b.querySelector('.score-badge')?.textContent) || 0;
+    return heatSortDir === 'desc' ? sb - sa : sa - sb;
+  });
+  const parent = visible[0]?.parentElement;
+  if (parent) {
+    visible.forEach(c => parent.appendChild(c));
+  }
+}
+function showLevel(level) {
+  currentLevel = level;
+  currentSearch = document.getElementById('searchInput').value;
+  document.querySelectorAll('.level-tab').forEach(t => t.classList.remove('active'));
+  const tabEl = document.querySelector('.level-tab[onclick*="' + level + '"]');
+  if (tabEl) tabEl.classList.add('active');
+  filterCards();
+}
+
+// ===== 价值标签筛选 =====
+function filterByValueTag(tag) {
+  currentValueTag = tag;
+  document.querySelectorAll('.value-filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tag === tag);
+  });
+  filterCards();
+}
+
+// ===== 搜索 + 筛选 =====
+function filterCards() {
+  const searchText = document.getElementById('searchInput').value.toLowerCase().trim();
+  currentSearch = searchText;
+  
+  // 更新档位容器的可见性
+  document.querySelectorAll('.topic-list').forEach(l => l.classList.remove('active'));
+  
+  let visibleCount = 0;
+  document.querySelectorAll('.topic-card').forEach(card => {
+    const grade = card.dataset.grade || '';
+    const hash = card.dataset.hash || '';
+    const title = (card.querySelector('h2')?.textContent || '').toLowerCase();
+    const summary = (card.querySelector('.summary')?.textContent || '').toLowerCase();
+    // zh-summary已移除
+    const allText = title + ' ' + summary + ' ' + zh;
+    
+    // 搜索过滤
+    if (searchText && !allText.includes(searchText)) {
+      card.style.display = 'none';
+      return;
+    }
+    
+    // 数据源过滤（自定义设置）
+    const hiddenSources = userSettings.hiddenSources || [];
+    const cardSource = card.dataset.source || '';
+    if (hiddenSources.length > 0 && hiddenSources.includes(cardSource)) {
+      card.style.display = 'none';
+      return;
+    }
+    
+    // 受众模式过滤（与 applyMode 协同，防止互相覆盖）
+    const audience = card.dataset.audience || 'both';
+    if (currentMode === '大众版' && audience === 'pro') {
+      card.style.display = 'none';
+      return;
+    }
+    if (currentMode === '专业版' && audience === 'general') {
+      card.style.display = 'none';
+      return;
+    }
+    
+    // 价值标签筛选
+    if (currentValueTag !== 'all') {
+      const cardTags = (card.dataset.valueTags || '').split(',');
+      if (!cardTags.includes(currentValueTag)) {
+        card.style.display = 'none';
+        return;
+      }
+    }
+    
+    // 档位/收藏过滤
+    if (currentLevel === 'all') {
+      card.style.display = '';
+      visibleCount++;
+    } else if (currentLevel === 'bookmarks') {
+      if (bookmarks.includes(hash)) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    } else {
+      if (grade === currentLevel) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    }
+  });
+  
+  // 显示空状态
+  let emptyEl = document.getElementById('emptyState');
+  if (visibleCount === 0) {
+    if (!emptyEl) {
+      emptyEl = document.createElement('div');
+      emptyEl.id = 'emptyState';
+      emptyEl.className = 'empty-state';
+      emptyEl.innerHTML = currentLevel === 'bookmarks' 
+        ? '<div class="icon">⭐</div><p>还没有收藏内容</p><p style="font-size:0.85rem;margin-top:8px;">点击卡片上的 ☆ 收藏你感兴趣的内容</p>'
+        : '<div class="icon">🔍</div><p>没有匹配的内容</p>';
+      document.querySelector('main').appendChild(emptyEl);
+    }
+    emptyEl.style.display = '';
+  } else if (emptyEl) {
+    emptyEl.style.display = 'none';
+  }
+  // 应用卡片数量限制（MAX_CARDS=30）
+  const _MAX = 30;
+  const _vis = Array.from(document.querySelectorAll('.topic-card')).filter(c => c.style.display !== 'none');
+  if (_vis.length > _MAX) { _vis.slice(_MAX).forEach(c => c.style.display = 'none'); }
+}
+
+// ===== 收藏功能 =====
+function toggleBookmark(btn) {
+  const hash = btn.dataset.hash;
+  const idx = bookmarks.indexOf(hash);
+  if (idx >= 0) {
+    bookmarks.splice(idx, 1);
+    btn.textContent = '☆';
+    btn.classList.remove('bookmarked');
+  } else {
+    bookmarks.push(hash);
+    btn.textContent = '⭐';
+    btn.classList.add('bookmarked');
+  }
+  localStorage.setItem('hn_bookmarks', JSON.stringify(bookmarks));
+  if (currentLevel === 'bookmarks') filterCards();
+}
+
+function restoreBookmarks() {
+  document.querySelectorAll('.bookmark-btn').forEach(btn => {
+    if (bookmarks.includes(btn.dataset.hash)) {
+      btn.textContent = '⭐';
+      btn.classList.add('bookmarked');
+    }
+  });
+}
+
+// ===== 导出收藏 =====
+function exportBookmarks() {
+    const bookmarks = JSON.parse(localStorage.getItem('hn_bookmarks') || '[]');
+    if (bookmarks.length === 0) { alert('暂无收藏'); return; }
+    const text = bookmarks.map(hash => {
+        const card = document.querySelector(`[data-hash="$<built-in function hash>"]`);
+        if (!card) return null;
+        const title = card.querySelector('.card-title')?.textContent || '';
+        const url = card.querySelector('a[href^="http"]')?.href || '';
+        return title + ' ' + url;
+    }).filter(Boolean).join('\n');
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'bookmarks.txt';
+    a.click();
+}
+
+// ===== 复制链接 =====
+function copyCardLink(btn) {
+  const url = btn.dataset.url;
+  const title = btn.dataset.title;
+  const text = title + '\n' + url;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✅ 已复制';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 复制链接';
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(() => {
+    // 回退方案
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    btn.textContent = '✅ 已复制';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 复制链接';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+// ===== NEW 角标 =====
+function checkNewContent() {
+  if (!lastVisit) {
+    // 首次访问不显示 NEW
+    localStorage.setItem('hn_last_visit', new Date().toISOString());
+    return;
+  }
+  const lastTime = new Date(lastVisit).getTime();
+  document.querySelectorAll('.topic-card').forEach(card => {
+    const updated = new Date(card.dataset.updated).getTime();
+    if (updated > lastTime) {
+      const badge = card.querySelector('.new-badge');
+      if (badge) badge.style.display = '';
+    }
+  });
+  localStorage.setItem('hn_last_visit', new Date().toISOString());
+}
+
+// ===== 设置弹窗 =====
+function openSettings(tab) {
+  document.getElementById('settingsModal').classList.add('active');
+  if (tab) switchTab(tab);
+  document.body.style.overflow = 'hidden';
+}
+function closeSettings() {
+  document.getElementById('settingsModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function switchTab(tabName) {
+  document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.modal-panel').forEach(p => p.classList.remove('active'));
+  document.querySelector('.modal-tab[data-tab="' + tabName + '"]').classList.add('active');
+  document.getElementById('panel-' + tabName).classList.add('active');
+}
+
+// ===== 自定义设置管理 =====
+let userSettings = JSON.parse(localStorage.getItem('hn_settings') || '{}');
+
+function toggleSetting(el, key) {
+  el.classList.toggle('active');
+  userSettings[key] = el.classList.contains('active');
+  saveSettings();
+  applySettings();
+}
+
+function toggleSourceFilter(el) {
+  el.classList.toggle('disabled');
+  const sw = el.querySelector('.toggle-switch');
+  sw.classList.toggle('active');
+  if (!userSettings.hiddenSources) userSettings.hiddenSources = [];
+  const src = el.dataset.source;
+  if (el.classList.contains('disabled')) {
+    if (!userSettings.hiddenSources.includes(src)) userSettings.hiddenSources.push(src);
+  } else {
+    userSettings.hiddenSources = userSettings.hiddenSources.filter(s => s !== src);
+  }
+  saveSettings();
+  filterCards();
+}
+
+function setAllSources(enable) {
+  document.querySelectorAll('.source-toggle-item').forEach(item => {
+    const sw = item.querySelector('.toggle-switch');
+    if (enable) {
+      item.classList.remove('disabled');
+      sw.classList.add('active');
+    } else {
+      item.classList.add('disabled');
+      sw.classList.remove('active');
+    }
+  });
+  userSettings.hiddenSources = enable ? [] : Array.from(document.querySelectorAll('.source-toggle-item')).map(i => i.dataset.source);
+  saveSettings();
+  filterCards();
+}
+
+function saveSettings() {
+  // 保存下拉框设置
+  const dv = document.getElementById('setDefaultView');
+  if (dv) userSettings.defaultView = dv.value;
+  const ps = document.getElementById('setPageSize');
+  if (ps) userSettings.pageSize = ps.value;
+  localStorage.setItem('hn_settings', JSON.stringify(userSettings));
+}
+
+function applySettings() {
+  // 显示/隐藏摘要
+  document.querySelectorAll('.summary').forEach(el => {
+    el.style.display = userSettings.showSummary !== false ? '' : 'none';
+  });
+  // 显示/隐藏视角评论
+  document.querySelectorAll('.perspective-comment, .action-guidance').forEach(el => {
+    el.style.display = userSettings.showPerspective !== false ? '' : 'none';
+  });
+  // 显示/隐藏热度
+  document.querySelectorAll('.meta').forEach(el => {
+    el.style.display = userSettings.showMeta !== false ? '' : 'none';
+  });
+  // 紧凑模式
+  if (userSettings.compactMode) {
+    document.querySelectorAll('.topic-card').forEach(el => {
+      el.style.padding = '16px 18px';
+      el.style.marginBottom = '8px';
+    });
+  } else {
+    document.querySelectorAll('.topic-card').forEach(el => {
+      el.style.padding = '';
+      el.style.marginBottom = '';
+    });
+  }
+  // 每页数量限制
+  const pageSize = parseInt(userSettings.pageSize) || 0;
+  let count = 0;
+  document.querySelectorAll('.topic-card').forEach(card => {
+    if (pageSize > 0 && count >= pageSize && card.style.display !== 'none') {
+      card.style.display = 'none';
+    }
+    if (card.style.display !== 'none') count++;
+  });
+}
+
+function restoreSettings() {
+  // 恢复开关状态
+  ['showSummary', 'showPerspective', 'showMeta', 'compactMode'].forEach(key => {
+    const map = { 'showSummary': 'toggleSummary', 'showPerspective': 'togglePerspective', 'showMeta': 'toggleMeta', 'compactMode': 'toggleCompact' };
+    const el = document.getElementById(map[key]);
+    if (el) {
+      const val = userSettings[key] !== undefined ? userSettings[key] : key !== 'compactMode';
+      if (val) el.classList.add('active'); else el.classList.remove('active');
+    }
+  });
+  // 恢复下拉框
+  const dv = document.getElementById('setDefaultView');
+  if (dv && userSettings.defaultView) dv.value = userSettings.defaultView;
+  const ps = document.getElementById('setPageSize');
+  if (ps && userSettings.pageSize) ps.value = userSettings.pageSize;
+  // 恢复数据源过滤
+  const hidden = userSettings.hiddenSources || [];
+  document.querySelectorAll('.source-toggle-item').forEach(item => {
+    if (hidden.includes(item.dataset.source)) {
+      item.classList.add('disabled');
+      item.querySelector('.toggle-switch').classList.remove('active');
+    }
+  });
+  // 绑定下拉框事件
+  if (dv) dv.addEventListener('change', () => { userSettings.defaultView = dv.value; saveSettings(); });
+  if (ps) ps.addEventListener('change', () => { userSettings.pageSize = ps.value; saveSettings(); applySettings(); });
+  // 应用设置
+  applySettings();
+}
+
+function clearAllBookmarks() {
+  if (confirm('确定清除所有收藏？此操作不可撤销。')) {
+    bookmarks = [];
+    localStorage.setItem('hn_bookmarks', JSON.stringify(bookmarks));
+    document.querySelectorAll('.bookmark-btn').forEach(btn => {
+      btn.textContent = '\u2606';
+      btn.classList.remove('bookmarked');
+    });
+    if (currentLevel === 'bookmarks') filterCards();
+  }
+}
+
+function resetAllSettings() {
+  if (confirm('确定重置所有自定义设置？')) {
+    userSettings = {};
+    localStorage.removeItem('hn_settings');
+    restoreSettings();
+    filterCards();
+  }
+}
+
+function exportSettings() {
+  saveSettings();
+  const blob = new Blob([JSON.stringify(userSettings, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'hot-news-settings.json';
+  a.click();
+}
+
+function importSettings() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.json';
+  input.onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const imported = JSON.parse(ev.target.result);
+        userSettings = { ...userSettings, ...imported };
+        localStorage.setItem('hn_settings', JSON.stringify(userSettings));
+        restoreSettings();
+        filterCards();
+        alert('设置导入成功！');
+      } catch (err) {
+        alert('设置文件格式错误，请检查 JSON 格式。');
+      }
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+}
+
+
+// ===== 初始化 =====
+
+// ===== 用户反馈弹窗 =====
+function openFeedback() {
+  const modal = document.createElement('div');
+  modal.id = 'feedbackModal';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:10000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);';
+  modal.innerHTML = `
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;max-width:480px;width:90%;max-height:80vh;overflow-y:auto;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <h3 style="margin:0;font-size:1.1rem;color:var(--text-primary);">💬 意见与建议</h3>
+        <button onclick="this.closest('#feedbackModal').remove()" style="background:none;border:none;color:var(--text-secondary);font-size:1.2rem;cursor:pointer;">✕</button>
+      </div>
+      <p style="font-size:0.85rem;color:var(--text-secondary);margin:0 0 16px 0;">感谢你的反馈！每一条建议都会被认真阅读。</p>
+      <div style="margin-bottom:12px;">
+        <label style="font-size:0.8rem;color:var(--text-secondary);display:block;margin-bottom:4px;">反馈类型</label>
+        <select id="feedbackType" style="width:100%;padding:8px 12px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text-primary);font-size:0.85rem;">
+          <option value="suggestion">功能建议</option>
+          <option value="bug">问题报告</option>
+          <option value="content">内容反馈</option>
+          <option value="other">其他</option>
+        </select>
+      </div>
+      <div style="margin-bottom:12px;">
+        <label style="font-size:0.8rem;color:var(--text-secondary);display:block;margin-bottom:4px;">详细描述</label>
+        <textarea id="feedbackContent" rows="4" placeholder="请描述你的建议或遇到的问题..." style="width:100%;padding:8px 12px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text-primary);font-size:0.85rem;resize:vertical;font-family:inherit;"></textarea>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;">
+        <button onclick="this.closest('#feedbackModal').remove()" style="padding:8px 16px;border-radius:8px;border:1px solid var(--border);background:none;color:var(--text-secondary);cursor:pointer;font-size:0.85rem;">取消</button>
+        <button onclick="submitFeedback()" style="padding:8px 16px;border-radius:8px;border:none;background:var(--accent);color:#fff;cursor:pointer;font-size:0.85rem;">提交反馈</button>
+      </div>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
+        <p style="font-size:0.78rem;color:var(--text-secondary);margin:0 0 6px 0;">或通过以下方式联系：</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="font-size:0.78rem;color:var(--accent);">📱 联系开发者阿扶 17343414886（V同号）</span>
+        </div>
+      </div>
+    </div>
+  `;
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+  document.body.appendChild(modal);
+}
+function submitFeedback() {
+  const type = document.getElementById('feedbackType').value;
+  const content = document.getElementById('feedbackContent').value.trim();
+  if (!content) { alert('请填写反馈内容'); return; }
+
+  // 保存到 localStorage（本地备份）
+  const feedbacks = JSON.parse(localStorage.getItem('hn_feedbacks') || '[]');
+  const fb = { type, content, time: new Date().toISOString(), url: window.location.href };
+  feedbacks.push(fb);
+  localStorage.setItem('hn_feedbacks', JSON.stringify(feedbacks));
+
+  // 1. 飞书群机器人 Webhook 推送
+  const FEISHU_WEBHOOK = '';
+  if (FEISHU_WEBHOOK && FEISHU_WEBHOOK.startsWith('https://')) {
+    const typeLabels = { suggestion: '💡 功能建议', bug: '🐛 问题报告', content: '📝 内容反馈', other: '❓ 其他' };
+    fetch(FEISHU_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        msg_type: 'interactive',
+        card: {
+          header: { title: { tag: 'plain_text', content: '📋 热点聚合网站 - 用户反馈' }, template: 'blue' },
+          elements: [
+            { tag: 'div', text: { tag: 'lark_md', content: '**类型：** ' + (typeLabels[type] || type) } },
+            { tag: 'div', text: { tag: 'lark_md', content: '**内容：** ' + content } },
+            { tag: 'div', text: { tag: 'lark_md', content: '**时间：** ' + new Date().toLocaleString() } },
+            { tag: 'div', text: { tag: 'lark_md', content: '**页面：** ' + window.location.href } },
+            { tag: 'action', actions: [
+              { tag: 'button', text: { tag: 'plain_text', content: '查看 GitHub Issues' }, url: 'https://github.com/Afuxh/fuqing-profile/issues', type: 'primary' },
+              { tag: 'button', text: { tag: 'plain_text', content: '前往论坛' }, url: 'https://forum.trae.cn/t/topic/19830', type: 'default' }
+            ]}
+          ]
+        }
+      })
+    }).catch(() => {});
+  }
+
+  // 2. GitHub Issues 跳转预填（新窗口）
+  const titleMap = { suggestion: '[建议] ', bug: '[Bug] ', content: '[内容] ', other: '[其他] ' };
+  const issueTitle = encodeURIComponent((titleMap[type] || '') + content.substring(0, 50));
+const issueBody = encodeURIComponent('## 反馈类型\n' + type + '\n\n## 详细描述\n' + content + '\n\n---\n' + '时间: ' + new Date().toLocaleString() + '\n' + '页面: ' + window.location.href + '\n');
+  window.open('https://github.com/Afuxh/fuqing-profile/issues/new?title=' + issueTitle + '&body=' + issueBody, '_blank');
+
+  document.getElementById('feedbackModal').remove();
+  alert('反馈已提交！感谢你的建议 🙏');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  // 主题
+  applyTheme(theme);
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    theme = theme === 'dark' ? 'light' : 'dark';
+    applyTheme(theme);
+  });
+
+  // 设置弹窗
+  document.getElementById('settingsBtn').addEventListener('click', () => openSettings('guide'));
+  document.getElementById('modalClose').addEventListener('click', closeSettings);
+  document.getElementById('settingsModal').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeSettings();
+  });
+  document.querySelectorAll('.modal-tab').forEach(tab => {
+    tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+  });
+  // ESC 关闭弹窗
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSettings();
+  });
+
+  // 翻译按钮
+  const tBtn = document.getElementById('translateBtn');
+  if (tBtn) tBtn.href = 'https://translate.google.com/translate?sl=en&tl=zh-CN&u=' + encodeURIComponent(window.location.href);
+
+  // 搜索实时过滤
+  document.getElementById('searchInput').addEventListener('input', filterCards);
+
+  // 恢复状态
+  restoreBookmarks();
+  restoreSettings();
+  checkNewContent();
+
+
+  // 显示全部内容（或用户设置的默认视图）
+  const initView = userSettings.defaultView || 'all';
+  showLevel(initView);
+
+  // 首次访问引导
+  if (!localStorage.getItem('hn_visited')) {
+    localStorage.setItem('hn_visited', '1');
+  }
+});
+</script>
+
+<script>
+// ===== 移动端导航收起 =====
+function toggleMobileNav() {
+  var btn = document.getElementById('navHamburger');
+  var nav = document.getElementById('mainNav');
+  var bar = nav.closest('.brand-nav');
+  var isOpen = nav.classList.toggle('nav-open');
+  btn.classList.toggle('open', isOpen);
+  bar.classList.toggle('nav-expanded', isOpen);
+  btn.setAttribute('aria-label', isOpen ? '收起导航' : '展开导航');
+}
+// 点击导航链接后自动收起（移动端体验优化）
+document.addEventListener('click', function(e) {
+  var nav = document.getElementById('mainNav');
+  var btn = document.getElementById('navHamburger');
+  if (!nav || !btn) return;
+  var bar = nav.closest('.brand-nav');
+  if (!nav.contains(e.target) && !btn.contains(e.target) && nav.classList.contains('nav-open')) {
+    nav.classList.remove('nav-open');
+    btn.classList.remove('open');
+    bar.classList.remove('nav-expanded');
+    btn.setAttribute('aria-label', '展开导航');
+  }
+});
+
+// 回到顶部按钮
+const backToTopBtn = document.getElementById('backToTop');
+const readingProgress = document.getElementById('readingProgress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrollPercent = (scrollTop / scrollHeight) * 100;
+  readingProgress.style.width = scrollPercent + '%';
+  if (scrollTop > 300) { backToTopBtn.classList.add('visible'); }
+  else { backToTopBtn.classList.remove('visible'); }
+});
+backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+</script>
+<script>
+// 双模式切换：大众版（易懂） / 专业版（技术）
+let currentMode = localStorage.getItem('hot-news-mode') || '大众版';
+function toggleMode() {
+  currentMode = currentMode === '大众版' ? '专业版' : '大众版';
+  localStorage.setItem('hot-news-mode', currentMode);
+  applyMode();
+}
+function applyMode() {
+  const btn = document.getElementById('mode-toggle');
+  const cards = document.querySelectorAll('.topic-card');
+  const MAX_CARDS = 30;
+  const MIN_CARDS = 15;
+  let expanded = false;
+  // 切换动画
+  document.body.style.opacity = '0.92';
+  requestAnimationFrame(() => {
+    setTimeout(() => { document.body.style.opacity = '1'; }, 80);
+  });
+  if (currentMode === '大众版') {
+    btn.textContent = '大众版';
+    document.querySelectorAll('.card-ai-persp').forEach(el => el.style.display = '');
+    document.querySelectorAll('.card-ai-action').forEach(el => el.style.display = '');
+    document.querySelectorAll('.card-difficulty').forEach(el => el.style.display = 'inline-block');
+    document.querySelectorAll('.source-tag').forEach(el => el.style.display = 'none');
+    const seen = {};
+    const qualified = [];
+    cards.forEach(card => {
+      const audience = card.dataset.audience || 'both';
+      if (audience === 'pro') { card.style.display = 'none'; return; }
+      // 尊重当前档位筛选
+      const grade = card.dataset.grade || '';
+      if (currentLevel !== 'all' && currentLevel !== 'bookmarks' && grade !== currentLevel) { card.style.display = 'none'; return; }
+      if (currentLevel === 'bookmarks' && !bookmarks.includes(card.dataset.hash || '')) { card.style.display = 'none'; return; }
+      // 尊重价值标签筛选
+      if (currentValueTag !== 'all') {
+        const cardTags = (card.dataset.valueTags || '').split(',');
+        if (!cardTags.includes(currentValueTag)) { card.style.display = 'none'; return; }
+      }
+      const title = card.querySelector('h2')?.textContent?.trim();
+      if (!title) return;
+      if (seen[title]) { card.style.display = 'none'; return; }
+      seen[title] = true;
+      qualified.push(card);
+    });
+    qualified.sort((a, b) => {
+      const sa = parseFloat(a.querySelector('.score-badge')?.textContent) || 0;
+      const sb = parseFloat(b.querySelector('.score-badge')?.textContent) || 0;
+      return sb - sa;
+    });
+    qualified.forEach((card, idx) => {
+      card.style.display = idx < MAX_CARDS || expanded ? '' : 'none';
+    });
+    // 更新计数
+    _updateCardCount(qualified.length, expanded ? qualified.length : Math.min(MAX_CARDS, qualified.length));
+  } else {
+    btn.textContent = '专业版';
+    // 显示所有AI内容（不隐藏视角和行动引导）
+    document.querySelectorAll('.card-difficulty').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.source-tag').forEach(el => el.style.display = 'inline-block');
+    const qualified = [];
+    cards.forEach(card => {
+      const audience = card.dataset.audience || 'both';
+      if (audience === 'general') { card.style.display = 'none'; return; }
+      // 尊重当前档位筛选
+      const grade = card.dataset.grade || '';
+      if (currentLevel !== 'all' && currentLevel !== 'bookmarks' && grade !== currentLevel) { card.style.display = 'none'; return; }
+      if (currentLevel === 'bookmarks' && !bookmarks.includes(card.dataset.hash || '')) { card.style.display = 'none'; return; }
+      // 尊重价值标签筛选
+      if (currentValueTag !== 'all') {
+        const cardTags = (card.dataset.valueTags || '').split(',');
+        if (!cardTags.includes(currentValueTag)) { card.style.display = 'none'; return; }
+      }
+      qualified.push(card);
+    });
+    // 限制专业版最多显示30条
+    qualified.sort((a, b) => {
+      const sa = parseFloat(a.querySelector('.score-badge')?.textContent) || 0;
+      const sb = parseFloat(b.querySelector('.score-badge')?.textContent) || 0;
+      return sb - sa;
+    });
+    // 限制专业版最多显示30条
+    const visibleCount = expanded ? qualified.length : Math.min(30, Math.max(MIN_CARDS, Math.min(MAX_CARDS, qualified.length)));
+    qualified.forEach((card, idx) => {
+      card.style.display = idx < visibleCount ? '' : 'none';
+    });
+    _updateCardCount(qualified.length, visibleCount);
+  }
+}
+function _updateCardCount(total, visible) {
+  let el = document.getElementById('card-count');
+  if (!el) {
+    el = document.createElement('span');
+    el.id = 'card-count';
+    el.style.cssText = 'font-size:11px;opacity:0.7;margin-left:4px;';
+    document.getElementById('mode-toggle').appendChild(el);
+  }
+  el.textContent = visible + '/' + total;
+}
+function toggleExpand() {
+  expanded = !expanded;
+  applyMode();
+  const btn = document.getElementById('expand-btn');
+  if (btn) btn.textContent = expanded ? '▲ 收起' : '▼ 查看更多';
+}
+applyMode();
+</script>
+</body>
+</html>
