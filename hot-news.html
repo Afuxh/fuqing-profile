@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 时代观察 - 效率归机器，意义归人类</title>
-<meta name="description" content="以个人成长视角追踪时代脉搏——AI、科技、时事、财经、生活方式，全领域热点一站聚合。扶清闲话 · AI时代观察。">
+<title>AI 先机 - 先判机会，后判热点</title>
+<meta name="description" content="面向AI从业者、投资人、创业者的智能热点聚合站。每天从13个顶级数据源精选热点，三条AI链分别点评行业视角、投资信号、创业机会，附带风险标注与行动指引。">
 <style>
 
-/* ===== 扶清闲话 · AI时代观察 — 设计系统 ===== */
+/* ===== AI 先机 — 三链驱动设计系统 ===== */
 :root {
   --bg: #121118;
   --bg-warm: #1a1820;
@@ -337,6 +337,8 @@ header .update-time {
 
 .card-ai-persp { transition: opacity 0.2s ease; }
 .card-ai-action { transition: opacity 0.2s ease; }
+.card-risk { transition: opacity 0.2s ease; border-left-color: rgba(220,120,120,0.5); }
+.card-risk .ai-label { color: #d4756b; }
 .card-difficulty { transition: opacity 0.2s ease; }
 .ai-insight-item:last-child { margin-bottom: 0; }
 .ai-label {
@@ -861,6 +863,123 @@ footer .footer-links a { margin: 0 8px; }
   }
 }
 
+/* ===== v4.0 赛道热度仪表盘 ===== */
+.dashboard-panel {
+  margin-bottom: 28px;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+}
+.dashboard-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16px; flex-wrap: wrap; gap: 8px;
+}
+.dashboard-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem; color: var(--accent);
+  letter-spacing: 0.04em;
+}
+.dashboard-subtitle {
+  font-size: 0.75rem; color: var(--text-muted);
+}
+.track-bar-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+}
+.track-label {
+  width: 90px; font-size: 0.78rem; color: var(--text-secondary);
+  text-align: right; flex-shrink: 0;
+}
+.track-bar-bg {
+  flex: 1; height: 20px; background: rgba(255,255,255,0.04);
+  border-radius: 4px; overflow: hidden; position: relative;
+}
+.track-bar-fill {
+  height: 100%; border-radius: 4px;
+  transition: width 0.6s ease;
+  position: relative;
+}
+.track-bar-fill::after {
+  content: ''; position: absolute; right: 0; top: 0; bottom: 0;
+  width: 30px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1));
+}
+.track-count {
+  font-size: 0.75rem; color: var(--text-secondary);
+  width: 32px; text-align: left; flex-shrink: 0;
+}
+.track-risk-badge {
+  font-size: 0.7rem; padding: 2px 8px; border-radius: 10px;
+  background: rgba(212,117,107,0.15); color: #d4756b;
+  flex-shrink: 0;
+}
+
+/* 风险标注系统 */
+.risk-tag {
+  display: inline-block; padding: 2px 10px; border-radius: 10px;
+  font-size: 0.7rem; font-weight: 600;
+  background: rgba(212,117,107,0.12); color: #d4756b;
+  margin-left: 6px; vertical-align: middle;
+}
+.opportunity-signal {
+  display: inline-block; padding: 2px 10px; border-radius: 10px;
+  font-size: 0.72rem; font-weight: 600;
+  background: rgba(120,200,150,0.1); color: #7bc47f;
+}
+.opportunity-signal.pulse-anim {
+  animation: pulse-green 2s ease-in-out infinite;
+}
+@keyframes pulse-green {
+  0%, 100% { background: rgba(120,200,150,0.1); }
+  50% { background: rgba(120,200,150,0.2); }
+}
+
+/* 三链受众切换 */
+.audience-switch-bar {
+  display: flex; gap: 6px; margin-bottom: 20px;
+  background: var(--card); border-radius: var(--radius);
+  padding: 4px; border: 1px solid var(--border);
+}
+.audience-btn {
+  flex: 1; padding: 8px 12px; border: none; border-radius: 10px;
+  background: transparent; color: var(--text-secondary);
+  font-size: 0.82rem; cursor: pointer; transition: all 0.25s ease;
+  font-family: var(--font-sans); text-align: center;
+}
+.audience-btn:hover { color: var(--text-primary); }
+.audience-btn.active {
+  background: rgba(200,164,92,0.1);
+  color: var(--accent); font-weight: 600;
+}
+.audience-btn .aud-icon { margin-right: 4px; }
+
+/* 信号条 */
+.signal-strip {
+  display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;
+}
+.signal-chip {
+  padding: 6px 14px; border-radius: 16px;
+  font-size: 0.78rem; font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text-secondary);
+  cursor: pointer; transition: all 0.2s ease;
+}
+.signal-chip:hover, .signal-chip.active {
+  border-color: var(--accent); color: var(--accent);
+  background: rgba(200,164,92,0.06);
+}
+.signal-chip.risk { border-color: rgba(212,117,107,0.3); color: #d4756b; }
+.signal-chip.risk.active { background: rgba(212,117,107,0.08); }
+
+/* 移动端仪表盘 */
+@media (max-width: 768px) {
+  .dashboard-panel { padding: 14px 16px; }
+  .track-label { width: 65px; font-size: 0.72rem; }
+  .track-count { width: 24px; font-size: 0.7rem; }
+  .audience-btn { padding: 6px 8px; font-size: 0.75rem; }
+}
+
 </style>
 
 
@@ -1129,7 +1248,29 @@ footer .footer-links a { margin: 0 8px; }
 <div class="search-bar">
   <input type="text" id="searchInput" placeholder="搜索标题、摘要...（支持关键词过滤）" autocomplete="off">
 </div>
-  <button id="mode-toggle" onclick="toggleMode()" style="position:fixed;top:12px;left:12px;z-index:100;padding:5px 14px;border-radius:16px;border:1px solid var(--border);background:var(--card);color:var(--text-primary);cursor:pointer;font-size:13px;transition:all 0.3s;white-space:nowrap;backdrop-filter:blur(8px);">大众版</button>
+  <!-- v4.0 三链受众切换 -->
+<div class="audience-switch-bar" id="audienceSwitch">
+  <button class="audience-btn active" onclick="switchAudience('practitioner')" data-audience="practitioner">
+    <span class="aud-icon">🔧</span> 从业者
+  </button>
+  <button class="audience-btn" onclick="switchAudience('investor')" data-audience="investor">
+    <span class="aud-icon">📈</span> 投资人
+  </button>
+  <button class="audience-btn" onclick="switchAudience('entrepreneur')" data-audience="entrepreneur">
+    <span class="aud-icon">🚀</span> 创业者
+  </button>
+</div>
+
+<!-- v4.0 赛道热度仪表盘 -->
+<div class="dashboard-panel" id="dashboard">
+  <div class="dashboard-header">
+    <div>
+      <div class="dashboard-title">📊 AI 赛道热度</div>
+      <div class="dashboard-subtitle" id="dashboardTime">实时更新</div>
+    </div>
+  </div>
+  <div id="trackBars"></div>
+</div>
 
 <div class="level-tabs">
 <div class="level-tab active" onclick="showLevel('all')">全部</div>
@@ -1155,7 +1296,7 @@ footer .footer-links a { margin: 0 8px; }
 
 <main>
 <div id="level-精选" class="topic-list">
-<div class="topic-card" data-hash="98bcea9daf0ff26947a8" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+<div class="topic-card" data-hash="98bcea9daf0ff26947a8" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="practitioner" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
@@ -1178,10 +1319,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/Sorathiya123/claude-ai-free-desktop-app" data-title="Sorathiya123/claude-ai-free-desktop-app">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="e2d9e81eb3f650d19b96" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+<div class="topic-card" data-hash="e2d9e81eb3f650d19b96" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="entrepreneur" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
@@ -1211,10 +1388,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3858329994875908?f=rss" data-title="蔚来补上“智驾课”，任少卿总结：智驾技术创新将重构竞争">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="ec986978b2a411b65ca2" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+<div class="topic-card" data-hash="ec986978b2a411b65ca2" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="entrepreneur" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
@@ -1252,10 +1465,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3857980507919622?f=rss" data-title="36氪「2026最具价值成长企业100」正式发布">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="60321fb0669bb9ca1c9c" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+<div class="topic-card" data-hash="60321fb0669bb9ca1c9c" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="investor" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
@@ -1288,10 +1537,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3857959588418823?f=rss" data-title="中科院博士冲上市，市值超105亿港币">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="d78cf90088e477d6a074" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="月光博客" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,产品工具">
+<div class="topic-card" data-hash="d78cf90088e477d6a074" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="月光博客" data-heat-stage="热门" data-audience="entrepreneur" data-value-tags="AI变现赛道,产业关联,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">100分 · 精选</span>
@@ -1318,10 +1603,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.williamlong.info/archives/7548.html" data-title="《国务院关于对外投资的规定》自7月1日起施行">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="b1ebefdd1f795fe536c4" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+<div class="topic-card" data-hash="b1ebefdd1f795fe536c4" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="entrepreneur" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">99分 · 精选</span>
@@ -1353,10 +1674,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3858015526704129?f=rss" data-title="氪星晚报｜BilibiliWorld 2026成国内首个海外售票的综合性ACG展会；让AI走进千家万户，17项举措推进“人工智能+消费”发展；快舟十一号遥十三运载火箭发射成功">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="56de6575146fa10e7fc4" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="ZDNet" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,产品工具,创业投资">
+<div class="topic-card" data-hash="56de6575146fa10e7fc4" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="ZDNet" data-heat-stage="热门" data-audience="practitioner" data-value-tags="产业关联,产品工具,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">99分 · 精选</span>
@@ -1379,10 +1736,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.zdnet.com/article/new-siri-ai-apple-intelligence-test-on-mac/" data-title="I put Siri AI through the same tests I use for ChatGPT and Gemini on MacOS 27 - here&#39;s how it did">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="3806b5582c130aae9929" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+<div class="topic-card" data-hash="3806b5582c130aae9929" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="entrepreneur" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">98分 · 精选</span>
@@ -1415,10 +1808,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3856708724315400?f=rss" data-title="红杉、阿里押注过的具身大脑公司再融资，上交等投资数亿元｜硬氪首发">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="d7fcf67cfcbd74db22d5" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,产品工具">
+<div class="topic-card" data-hash="d7fcf67cfcbd74db22d5" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="entrepreneur" data-value-tags="AI变现赛道,产业关联,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">92分 · 精选</span>
@@ -1444,10 +1873,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3858803016881154?f=rss" data-title="科氪 | 两轮电动车没有天花板，爱玛黑翼要用AI与硬核科技赢得年轻男性的心">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="cf3c35f737434392c843" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+<div class="topic-card" data-hash="cf3c35f737434392c843" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="practitioner" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">91.6分 · 精选</span>
@@ -1470,10 +1935,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/ruvnet/agent-harness-generator" data-title="ruvnet/agent-harness-generator">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="a8dde87835dbfc2385d7" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,政策监管">
+<div class="topic-card" data-hash="a8dde87835dbfc2385d7" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="practitioner" data-value-tags="产业关联,技术前沿,政策监管">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">91.2分 · 精选</span>
@@ -1496,10 +1997,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/kingofdwarfs/DeepFake-AI-RealTime" data-title="kingofdwarfs/DeepFake-AI-RealTime">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="a6c4e01e738c8d6409a0" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,创业投资">
+<div class="topic-card" data-hash="a6c4e01e738c8d6409a0" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="practitioner" data-value-tags="产业关联,技术前沿,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">91.2分 · 精选</span>
@@ -1522,10 +2059,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/ExtarDev/WorpGPT-Latest-2026" data-title="ExtarDev/WorpGPT-Latest-2026">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="d7916ccf1297fe71f7ab" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+<div class="topic-card" data-hash="d7916ccf1297fe71f7ab" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="practitioner" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">88.2分 · 精选</span>
@@ -1548,10 +2121,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/agiwhitelist/tokdiet" data-title="agiwhitelist/tokdiet">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="1df0c22923e6aeeb8066" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="月光博客" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+<div class="topic-card" data-hash="1df0c22923e6aeeb8066" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="月光博客" data-heat-stage="热门" data-audience="entrepreneur" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">84分 · 精选</span>
@@ -1580,10 +2189,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.williamlong.info/archives/7549.html" data-title="粉笔科技的人大讲座事件的说明与致歉">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="0c48d98b4245df7b0e63" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,技术前沿,产品工具">
+<div class="topic-card" data-hash="0c48d98b4245df7b0e63" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="practitioner" data-value-tags="AI变现赛道,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">83分 · 精选</span>
@@ -1606,10 +2251,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/newsflashes/3858650254791941?f=rss" data-title="智谱等中国大模型何时赶上Fable水平？马斯克：或在2027年一季度">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="13e7a826004af7d186e3" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="技术前沿,产品工具">
+<div class="topic-card" data-hash="13e7a826004af7d186e3" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="GitHub" data-heat-stage="热门" data-audience="practitioner" data-value-tags="技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">81.1分 · 精选</span>
@@ -1631,10 +2312,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/dzcmemory-web/bazi-ziwei-skill" data-title="dzcmemory-web/bazi-ziwei-skill">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="4e7658327ab1265ad1ad" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+<div class="topic-card" data-hash="4e7658327ab1265ad1ad" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="36氪" data-heat-stage="热门" data-audience="practitioner" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">81分 · 精选</span>
@@ -1667,10 +2384,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://36kr.com/p/3855480467543042?f=rss" data-title="北大科学家下场做脑机接口，种子轮融了近亿元">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="72b6cf1d2c57daa4f842" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+<div class="topic-card" data-hash="72b6cf1d2c57daa4f842" data-updated="2026-06-19T02:49:46" data-grade="精选" data-source="AI热点" data-heat-stage="热门" data-audience="practitioner" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #c8786a;">81分 · 精选</span>
@@ -1695,7 +2448,7 @@ footer .footer-links a { margin: 0 8px; }
 </div>
 </div>
 <div id="level-推荐" class="topic-list">
-<div class="topic-card" data-hash="1f35e9344b56fc22e87f" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="月光博客" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产业关联,技术前沿">
+<div class="topic-card" data-hash="1f35e9344b56fc22e87f" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="月光博客" data-heat-stage="热门" data-audience="entrepreneur" data-value-tags="AI变现赛道,产业关联,技术前沿">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">78分 · 推荐</span>
@@ -1720,10 +2473,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.williamlong.info/archives/7544.html" data-title="AI编程从零开始：环境配置到开发调试">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="147fb50296c599cf0ce5" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="GitHub" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,产品工具,创业投资">
+<div class="topic-card" data-hash="147fb50296c599cf0ce5" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="GitHub" data-heat-stage="热门" data-audience="practitioner" data-value-tags="产业关联,产品工具,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">76.3分 · 推荐</span>
@@ -1746,10 +2535,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/KorroAi/drunk-claude" data-title="KorroAi/drunk-claude">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="83587e346bbfe4ebb1b8" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="量子位" data-heat-stage="热门" data-audience="general" data-value-tags="AI变现赛道,产品工具,创业投资">
+<div class="topic-card" data-hash="83587e346bbfe4ebb1b8" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="量子位" data-heat-stage="热门" data-audience="entrepreneur" data-value-tags="AI变现赛道,产品工具,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
@@ -1772,10 +2597,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.qbitai.com/2026/06/436477.html" data-title="哈？Q1狂烧250亿！OpenAI财报泄露全网炸锅">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="7795d05456c43deecd5a" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="少数派" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+<div class="topic-card" data-hash="7795d05456c43deecd5a" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="少数派" data-heat-stage="热门" data-audience="practitioner" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
@@ -1798,10 +2659,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://sspai.com/post/111181" data-title="WWDC26 在现场，与 Apple 设计大奖提名开发者聊聊他们的 app">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="3c3df366136e3805330c" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="TechCrunch" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,产品工具,创业投资">
+<div class="topic-card" data-hash="3c3df366136e3805330c" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="TechCrunch" data-heat-stage="热门" data-audience="entrepreneur" data-value-tags="产业关联,产品工具,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
@@ -1824,10 +2721,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://techcrunch.com/2026/06/18/amazon-hopes-to-challenge-nvidia-more-directly-by-selling-its-ai-chips/" data-title="Amazon hopes to challenge Nvidia more directly by selling its AI chips">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="3b01a270991151ca0958" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="Slashdot" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+<div class="topic-card" data-hash="3b01a270991151ca0958" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="Slashdot" data-heat-stage="热门" data-audience="entrepreneur" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
@@ -1850,10 +2783,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://linux.slashdot.org/story/26/06/17/201217/google-microsoft-and-openai-back-linux-foundations-appia-ai-standards-initiative?utm_source=rss1.0mainlinkanon&utm_medium=feed" data-title="Google, Microsoft, and OpenAI Back Linux Foundation&#39;s Appia AI Standards Initiative">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="849e8f8fd57ceccef155" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="ZDNet" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,技术前沿,创业投资">
+<div class="topic-card" data-hash="849e8f8fd57ceccef155" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="ZDNet" data-heat-stage="热门" data-audience="practitioner" data-value-tags="产业关联,技术前沿,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
@@ -1876,10 +2845,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.zdnet.com/article/rolling-out-ai-agents-move-fast-and-furious-but-with-extreme-caution/" data-title="Rolling out AI agents? 4 ways to move fast and furious - but with extreme caution">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="9da65ad5463a0c30490f" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="Ars Technica" data-heat-stage="热门" data-audience="general" data-value-tags="产业关联,产品工具,创业投资">
+<div class="topic-card" data-hash="9da65ad5463a0c30490f" data-updated="2026-06-19T02:49:46" data-grade="推荐" data-source="Ars Technica" data-heat-stage="热门" data-audience="entrepreneur" data-value-tags="产业关联,产品工具,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #b8956a;">76分 · 推荐</span>
@@ -1904,11 +2909,47 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://arstechnica.com/ai/2026/06/openais-math-breakthrough-played-to-ais-strengths/" data-title="An OpenAI model solved a famous math problem that stumped humans for 80 years">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 </div>
 <div id="level-参考" class="topic-list">
-<div class="topic-card" data-hash="7d1090afb0fd81d86048" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="少数派" data-heat-stage="持续" data-audience="pro" data-value-tags="AI变现赛道,产业关联,产品工具">
+<div class="topic-card" data-hash="7d1090afb0fd81d86048" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="少数派" data-heat-stage="持续" data-audience="investor" data-value-tags="AI变现赛道,产业关联,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">69分 · 参考</span>
@@ -1931,10 +2972,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://sspai.com/post/111124" data-title="派早报：SpaceX 宣布收购 Cursor、字节跳动推出 Seedance 2.0 Mini 等">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="c7934c081da4f8e48ae9" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+<div class="topic-card" data-hash="c7934c081da4f8e48ae9" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="practitioner" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">68.5分 · 参考</span>
@@ -1957,10 +3034,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/nnecrkvenuOX/formcms" data-title="nnecrkvenuOX/formcms">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="0f2c54318b8b9581c202" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,技术前沿,创业投资">
+<div class="topic-card" data-hash="0f2c54318b8b9581c202" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="practitioner" data-value-tags="产业关联,技术前沿,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">68.5分 · 参考</span>
@@ -1983,10 +3096,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/shreyashankar/plain-writing-skill" data-title="shreyashankar/plain-writing-skill">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="9d436c85c70e7ed0feb0" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿,产品工具">
+<div class="topic-card" data-hash="9d436c85c70e7ed0feb0" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="practitioner" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">61.5分 · 参考</span>
@@ -2009,10 +3158,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/Plaer1/junction" data-title="Plaer1/junction">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="d09649c0b41d1d7d50cd" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,技术前沿,创业投资">
+<div class="topic-card" data-hash="d09649c0b41d1d7d50cd" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="practitioner" data-value-tags="产业关联,技术前沿,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">61.0分 · 参考</span>
@@ -2035,10 +3220,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/kerryjanes/ChainKey" data-title="kerryjanes/ChainKey">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="74cc726da783620ed612" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="量子位" data-heat-stage="持续" data-audience="pro" data-value-tags="创业投资">
+<div class="topic-card" data-hash="74cc726da783620ed612" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="量子位" data-heat-stage="持续" data-audience="entrepreneur" data-value-tags="创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">61分 · 参考</span>
@@ -2059,10 +3280,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.qbitai.com/2026/06/436674.html" data-title="腾讯老兵+大厂00后新锐，码上飞想做的不只是AI Coding">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="a355099475f0fa426cfd" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="量子位" data-heat-stage="持续" data-audience="pro" data-value-tags="综合">
+<div class="topic-card" data-hash="a355099475f0fa426cfd" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="量子位" data-heat-stage="持续" data-audience="practitioner" data-value-tags="综合">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">61分 · 参考</span>
@@ -2083,10 +3340,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.qbitai.com/2026/06/436517.html" data-title="18年前不让你苦修PS的美图，这次不让你苦修AI了">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="287deeaa8bd1e49daac7" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="TechCrunch" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,产品工具,创业投资">
+<div class="topic-card" data-hash="287deeaa8bd1e49daac7" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="TechCrunch" data-heat-stage="持续" data-audience="entrepreneur" data-value-tags="产业关联,产品工具,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">61分 · 参考</span>
@@ -2109,10 +3402,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://techcrunch.com/2026/06/18/queer-eyes-life-coach-karamo-brown-launches-ke-a-wellness-app-featuring-his-ai-digital-clone/" data-title="‘Queer Eye’s’ life coach Karamo Brown launches Kē, a wellness app featuring his AI digital clone">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="ee6cad7a2d429f3a76c7" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="Slashdot" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
+<div class="topic-card" data-hash="ee6cad7a2d429f3a76c7" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="Slashdot" data-heat-stage="持续" data-audience="practitioner" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">61分 · 参考</span>
@@ -2135,10 +3464,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://slashdot.org/story/26/06/17/1711214/ai-will-lead-to-labor-shortages-bezos-says-in-optimistic-talk?utm_source=rss1.0mainlinkanon&utm_medium=feed" data-title="AI Will Lead To Labor Shortages, Bezos Says In Optimistic Talk">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="4c37a3becdf2cfa09477" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="NPR新闻" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
+<div class="topic-card" data-hash="4c37a3becdf2cfa09477" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="NPR新闻" data-heat-stage="持续" data-audience="practitioner" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">61分 · 参考</span>
@@ -2161,10 +3526,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://www.npr.org/2026/06/18/g-s1-128782/moscow-ukraine-drone-attack-russia-oil-refinery" data-title="Ukraine hits a Moscow oil refinery and other sites in a large-scale drone attack">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="67956e4b533d7fc8cf03" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general" data-value-tags="技术前沿,创业投资">
+<div class="topic-card" data-hash="67956e4b533d7fc8cf03" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="practitioner" data-value-tags="技术前沿,创业投资">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">60.9分 · 参考</span>
@@ -2186,10 +3587,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/dongshuyan/compass-skills" data-title="dongshuyan/compass-skills">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="bd51957959b7fbe1cf0a" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="general" data-value-tags="产业关联,技术前沿,政策监管">
+<div class="topic-card" data-hash="bd51957959b7fbe1cf0a" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="practitioner" data-value-tags="产业关联,技术前沿,政策监管">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">60.8分 · 参考</span>
@@ -2212,10 +3649,46 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/majidmanzarpour/threejs-game-skills" data-title="majidmanzarpour/threejs-game-skills">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 
-<div class="topic-card" data-hash="af8a247a3447054af5be" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="pro" data-value-tags="产业关联,技术前沿,产品工具">
+<div class="topic-card" data-hash="af8a247a3447054af5be" data-updated="2026-06-19T02:49:46" data-grade="参考" data-source="GitHub" data-heat-stage="持续" data-audience="practitioner" data-value-tags="产业关联,技术前沿,产品工具">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
     <span class="score-badge" style="background: #8a9598;">60.2分 · 参考</span>
@@ -2238,6 +3711,42 @@ footer .footer-links a { margin: 0 8px; }
   <div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="https://github.com/manticore-projects/aurscan" data-title="manticore-projects/aurscan">📋 复制链接</button></div>
   <div class="ai-insights">
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">从业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
+      <span class="ai-label">投资者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">创业者视角</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">行动建议</span>
+      <span class="ai-text"></span>
+    </div>
+    <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
+      <span class="ai-label">风险提示</span>
+      <span class="ai-text"></span>
+    </div>
   </div>
 </div>
 </div>
@@ -2386,17 +3895,6 @@ function filterCards() {
     const hiddenSources = userSettings.hiddenSources || [];
     const cardSource = card.dataset.source || '';
     if (hiddenSources.length > 0 && hiddenSources.includes(cardSource)) {
-      card.style.display = 'none';
-      return;
-    }
-    
-    // 受众模式过滤（与 applyMode 协同，防止互相覆盖）
-    const audience = card.dataset.audience || 'both';
-    if (currentMode === '大众版' && audience === 'pro') {
-      card.style.display = 'none';
-      return;
-    }
-    if (currentMode === '专业版' && audience === 'general') {
       card.style.display = 'none';
       return;
     }
@@ -2904,104 +4402,114 @@ window.addEventListener('scroll', () => {
 backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 </script>
 <script>
-// 双模式切换：大众版（易懂） / 专业版（技术）
-let currentMode = localStorage.getItem('hot-news-mode') || '大众版';
-function toggleMode() {
-  currentMode = currentMode === '大众版' ? '专业版' : '大众版';
-  localStorage.setItem('hot-news-mode', currentMode);
-  applyMode();
+// v4.0 三链受众系统 + 赛道热度仪表盘
+let currentAudience = localStorage.getItem('hot-news-audience') || 'practitioner';
+
+function switchAudience(audience) {
+  currentAudience = audience;
+  localStorage.setItem('hot-news-audience', audience);
+  applyAudience();
 }
-function applyMode() {
-  const btn = document.getElementById('mode-toggle');
+
+function applyAudience() {
+  // 更新按钮状态
+  document.querySelectorAll('.audience-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.audience === currentAudience);
+  });
+  
+  // 更新所有卡片的AI评论显示
   const cards = document.querySelectorAll('.topic-card');
-  const MAX_CARDS = 30;
-  const MIN_CARDS = 15;
-  let expanded = false;
-  // 切换动画
+  cards.forEach(card => {
+    const perspEls = card.querySelectorAll('.card-ai-persp');
+    const actionEls = card.querySelectorAll('.card-ai-action');
+    const riskEls = card.querySelectorAll('.card-risk');
+    
+    perspEls.forEach(el => {
+      el.style.display = el.dataset.audience === currentAudience ? '' : 'none';
+    });
+    actionEls.forEach(el => {
+      el.style.display = el.dataset.audience === currentAudience ? '' : 'none';
+    });
+    riskEls.forEach(el => {
+      el.style.display = el.dataset.audience === currentAudience ? '' : 'none';
+    });
+  });
+  
+  // 更新仪表盘
+  renderDashboard();
+  
+  // 过渡动画
   document.body.style.opacity = '0.92';
   requestAnimationFrame(() => {
     setTimeout(() => { document.body.style.opacity = '1'; }, 80);
   });
-  if (currentMode === '大众版') {
-    btn.textContent = '大众版';
-    document.querySelectorAll('.card-ai-persp').forEach(el => el.style.display = '');
-    document.querySelectorAll('.card-ai-action').forEach(el => el.style.display = '');
-    document.querySelectorAll('.card-difficulty').forEach(el => el.style.display = 'inline-block');
-    document.querySelectorAll('.source-tag').forEach(el => el.style.display = 'none');
-    const seen = {};
-    const qualified = [];
-    cards.forEach(card => {
-      const audience = card.dataset.audience || 'both';
-      if (audience === 'pro') { card.style.display = 'none'; return; }
-      // 尊重当前档位筛选
-      const grade = card.dataset.grade || '';
-      if (currentLevel !== 'all' && currentLevel !== 'bookmarks' && grade !== currentLevel) { card.style.display = 'none'; return; }
-      if (currentLevel === 'bookmarks' && !bookmarks.includes(card.dataset.hash || '')) { card.style.display = 'none'; return; }
-      // 尊重价值标签筛选
-      if (currentValueTag !== 'all') {
-        const cardTags = (card.dataset.valueTags || '').split(',');
-        if (!cardTags.includes(currentValueTag)) { card.style.display = 'none'; return; }
-      }
-      const title = card.querySelector('h2')?.textContent?.trim();
-      if (!title) return;
-      if (seen[title]) { card.style.display = 'none'; return; }
-      seen[title] = true;
-      qualified.push(card);
-    });
-    qualified.sort((a, b) => {
-      const sa = parseFloat(a.querySelector('.score-badge')?.textContent) || 0;
-      const sb = parseFloat(b.querySelector('.score-badge')?.textContent) || 0;
-      return sb - sa;
-    });
-    qualified.forEach((card, idx) => {
-      card.style.display = idx < MAX_CARDS || expanded ? '' : 'none';
-    });
-    // 更新计数
-    _updateCardCount(qualified.length, expanded ? qualified.length : Math.min(MAX_CARDS, qualified.length));
-  } else {
-    btn.textContent = '专业版';
-    // 显示所有AI内容（不隐藏视角和行动引导）
-    document.querySelectorAll('.card-difficulty').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.source-tag').forEach(el => el.style.display = 'inline-block');
-    const qualified = [];
-    cards.forEach(card => {
-      const audience = card.dataset.audience || 'both';
-      if (audience === 'general') { card.style.display = 'none'; return; }
-      // 尊重当前档位筛选
-      const grade = card.dataset.grade || '';
-      if (currentLevel !== 'all' && currentLevel !== 'bookmarks' && grade !== currentLevel) { card.style.display = 'none'; return; }
-      if (currentLevel === 'bookmarks' && !bookmarks.includes(card.dataset.hash || '')) { card.style.display = 'none'; return; }
-      // 尊重价值标签筛选
-      if (currentValueTag !== 'all') {
-        const cardTags = (card.dataset.valueTags || '').split(',');
-        if (!cardTags.includes(currentValueTag)) { card.style.display = 'none'; return; }
-      }
-      qualified.push(card);
-    });
-    // 限制专业版最多显示30条
-    qualified.sort((a, b) => {
-      const sa = parseFloat(a.querySelector('.score-badge')?.textContent) || 0;
-      const sb = parseFloat(b.querySelector('.score-badge')?.textContent) || 0;
-      return sb - sa;
-    });
-    // 限制专业版最多显示30条
-    const visibleCount = expanded ? qualified.length : Math.min(30, Math.max(MIN_CARDS, Math.min(MAX_CARDS, qualified.length)));
-    qualified.forEach((card, idx) => {
-      card.style.display = idx < visibleCount ? '' : 'none';
-    });
-    _updateCardCount(qualified.length, visibleCount);
-  }
 }
-function _updateCardCount(total, visible) {
-  let el = document.getElementById('card-count');
-  if (!el) {
-    el = document.createElement('span');
-    el.id = 'card-count';
-    el.style.cssText = 'font-size:11px;opacity:0.7;margin-left:4px;';
-    document.getElementById('mode-toggle').appendChild(el);
-  }
-  el.textContent = visible + '/' + total;
+
+// v4.0 仪表盘渲染
+function renderDashboard() {
+  const trackBars = document.getElementById('trackBars');
+  if (!trackBars) return;
+  
+  const tracks = [
+    { name: '大模型底座', color: '#6ba3d6', kw: ['大模型','LLM','GPT','Claude','Gemini','模型','开源模型','SOTA'] },
+    { name: 'AI Agent', color: '#7bc47f', kw: ['Agent','智能体','Copilot','AI助手','自动化'] },
+    { name: 'AI 安全合规', color: '#d4756b', kw: ['AI安全','数据隐私','深度伪造','AI监管','欧盟AI法案','GDPR'] },
+    { name: '具身智能', color: '#c8a45c', kw: ['机器人','具身','人形机器人','自动驾驶','硬件'] },
+    { name: 'AI 投资融资', color: '#d4a36b', kw: ['融资','IPO','收购','独角兽','估值','风投','天使轮'] },
+    { name: 'AI 工具产品', color: '#a087d4', kw: ['产品发布','新功能','SaaS','浏览器插件','无代码','低代码','Product Hunt'] },
+    { name: 'AI 产业落地', color: '#5b9e8a', kw: ['产业落地','制造业AI','医疗AI','金融AI','数字孪生','智慧城市'] },
+    { name: 'AI 社区开源', color: '#8899aa', kw: ['开源','GitHub','HuggingFace','社区','论文','开发者','benchmark'] }
+  ];
+  
+  const riskWords = ['裁员','泡沫','监管','禁令','亏损','崩盘','安全事故','数据泄露','召回','诉讼','罚款'];
+  
+  const allCards = document.querySelectorAll('.topic-card');
+  let visibleCards = Array.from(allCards).filter(c => c.style.display !== 'none');
+  const total = visibleCards.length || allCards.length;
+  
+  const trackCounts = tracks.map(track => {
+    let count = 0;
+    let riskCount = 0;
+    visibleCards.forEach(card => {
+      const text = (card.textContent || '').toLowerCase();
+      const hits = track.kw.filter(k => text.includes(k.toLowerCase()));
+      if (hits.length > 0) count++;
+      if (riskWords.some(r => text.includes(r))) riskCount++;
+    });
+    return { ...track, count, riskCount };
+  });
+  
+  const maxCount = Math.max(1, ...trackCounts.map(t => t.count));
+  
+  let html = '';
+  trackCounts.sort((a,b) => b.count - a.count).slice(0, 8).forEach(t => {
+    const pct = Math.round((t.count / maxCount) * 100);
+    html += '<div class="track-bar-row">' +
+      '<span class="track-label">' + t.name + '</span>' +
+      '<div class="track-bar-bg">' +
+        '<div class="track-bar-fill" style="width:' + pct + '%; background:' + t.color + ';"></div>' +
+      '</div>' +
+      '<span class="track-count">' + t.count + '</span>' +
+      (t.riskCount > 0 ? '<span class="track-risk-badge">⚠' + t.riskCount + '</span>' : '') +
+    '</div>';
+  });
+  
+  trackBars.innerHTML = html;
+  document.getElementById('dashboardTime').textContent = '统计 ' + total + ' 条，按赛道命中数排列';
 }
+
+// 初始化仪表盘
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(renderDashboard, 500);
+  applyAudience();
+  var container = document.getElementById('pointsList') || document.querySelector('.topic-list');
+  if (container) {
+    var observer = new MutationObserver(function() {
+      setTimeout(renderDashboard, 200);
+    });
+    observer.observe(container, { attributes: false, childList: true, subtree: true });
+  }
+});
 function toggleExpand() {
   expanded = !expanded;
   applyMode();
