@@ -2469,23 +2469,36 @@ async def process_topics(topics: list, config: dict, no_translate: bool = False,
 
 
 # ============ 评分系统 ============
+def _flatten_keywords(kw_list):
+    """扁平化嵌套关键词列表，兼容 YAML flow sequence 格式"""
+    if not kw_list:
+        return []
+    flat = []
+    for item in kw_list:
+        if isinstance(item, list):
+            flat.extend(item)
+        else:
+            flat.append(item)
+    return flat
+
+
 def score_topic(t: dict, config: dict) -> float:
     """计算内容分数"""
     text = f"{t.get('title','')} {t.get('summary','')}".lower()
     keywords = config.get("scoring", {}).get("keywords", {})
     
     # 核心关键词
-    core_hits = sum(1 for kw in keywords.get("core", []) if kw.lower() in text)
+    core_hits = sum(1 for kw in _flatten_keywords(keywords.get("core", [])) if kw.lower() in text)
     # 扩展关键词
-    ext_hits = sum(1 for kw in keywords.get("extended", []) if kw.lower() in text)
+    ext_hits = sum(1 for kw in _flatten_keywords(keywords.get("extended", [])) if kw.lower() in text)
     # 排除关键词
-    exclude_hits = sum(1 for kw in keywords.get("exclude", []) if kw.lower() in text)
+    exclude_hits = sum(1 for kw in _flatten_keywords(keywords.get("exclude", [])) if kw.lower() in text)
     
     relevance = min(core_hits * 15, 50) + min(ext_hits * 8, 25) - exclude_hits * 15
     
     # 标题关键词加分
     title_lower = t.get("title", "").lower()
-    for kw in keywords.get("core", []):
+    for kw in _flatten_keywords(keywords.get("core", [])):
         if kw.lower() in title_lower:
             relevance += 8
     
@@ -4667,9 +4680,9 @@ document.addEventListener('DOMContentLoaded', () => {{
         <p style="margin-top:8px;font-size:0.78rem;color:var(--text-muted);">低于最低阈值的内容归入「其他」，默认不显示</p>
 
         <h3>关键词列表</h3>
-        <p><strong>核心关键词</strong>（高权重）：{', '.join(config.get('scoring',{}).get('keywords',{}).get('core',[])[:10])} 等</p>
-        <p><strong>扩展关键词</strong>（中权重）：{', '.join(config.get('scoring',{}).get('keywords',{}).get('extended',[])[:10])} 等</p>
-        <p><strong>排除关键词</strong>（降权）：{', '.join(config.get('scoring',{}).get('keywords',{}).get('exclude',[]))}</p>
+        <p><strong>核心关键词</strong>（高权重）：{', '.join(_flatten_keywords(config.get('scoring',{}).get('keywords',{}).get('core',[]))[:10])} 等</p>
+        <p><strong>扩展关键词</strong>（中权重）：{', '.join(_flatten_keywords(config.get('scoring',{}).get('keywords',{}).get('extended',[]))[:10])} 等</p>
+        <p><strong>排除关键词</strong>（降权）：{', '.join(_flatten_keywords(config.get('scoring',{}).get('keywords',{}).get('exclude',[])))}</p>
       </div>
 
       <!-- 输出格式 -->

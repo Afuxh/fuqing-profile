@@ -133,55 +133,107 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== 页头 — 杂志式排版 ===== */
-header {
-  text-align: center;
-  padding: 70px 20px 48px;
+/* ===== Hero区 — 杂志封面感 ===== */
+.hero-wrapper {
   position: relative;
+  text-align: center;
+  padding: 80px 20px 56px;
+  overflow: hidden;
 }
-header .brand-signature {
+.hero-glow {
+  position: absolute;
+  top: -60px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse at center, rgba(200,164,92,0.08) 0%, rgba(200,164,92,0.02) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-wrapper::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  margin: 32px auto 0;
+  opacity: 0.6;
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  animation: heroFadeIn 1s ease both;
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-wrapper .brand-signature {
   font-family: var(--font-serif);
   font-size: 0.82rem; color: var(--accent);
   letter-spacing: 0.12em; text-transform: uppercase;
   margin-bottom: 18px; opacity: 0.7;
   font-style: italic;
 }
-header::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  margin: 28px auto 0;
-  opacity: 0.6;
-}
-header h1 {
+.hero-wrapper h1 {
   font-family: var(--font-serif);
-  font-size: 2.4rem;
+  font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 400;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   color: var(--text-primary);
   margin-bottom: 14px;
 }
-header .subtitle {
+.hero-wrapper .subtitle {
   color: var(--text-secondary);
   font-size: 0.95rem;
   font-style: italic;
   letter-spacing: 0.04em;
+  font-family: var(--font-serif);
   animation: breathe 4s ease-in-out infinite;
 }
-header .philosophy-line {
+.hero-wrapper .philosophy-line {
   color: var(--text-muted);
   font-size: 0.78rem; font-family: var(--font-serif);
   font-style: italic; letter-spacing: 0.06em;
   margin-top: 12px; opacity: 0.6;
 }
-header .update-time {
+.hero-today-summary {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  border-left: 3px solid var(--accent);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  max-width: 560px;
+  text-align: left;
+}
+.hero-today-label {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.hero-today-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hero-wrapper .update-time {
   color: var(--text-muted);
   font-size: 0.78rem;
   margin-top: 20px;
   font-family: var(--font-sans);
   font-style: normal;
+}
+@media (max-width: 600px) {
+  .hero-wrapper { padding: 40px 16px 32px; }
+  .hero-wrapper h1 { font-size: 1.6rem; }
+  .hero-wrapper .brand-signature { display: none; }
+  .hero-wrapper .philosophy-line { display: none; }
+  .hero-today-summary { max-width: 100%; font-size: 0.72rem; }
+  .hero-glow { width: 300px; height: 200px; top: -30px; }
 }
 
 .search-bar { max-width: 560px; margin: 0 auto 28px; }
@@ -784,10 +836,12 @@ footer .footer-links a { margin: 0 8px; }
 .empty-state .icon { font-size: 3rem; margin-bottom: 16px; }
 
 @media (max-width: 600px) {
-  header { padding: 36px 16px 28px; }
-  header h1 { font-size: 1.5rem; }
-  header .brand-signature { display: none; }
-  header .philosophy-line { display: none; }
+  .hero-wrapper { padding: 40px 16px 32px; }
+  .hero-wrapper h1 { font-size: 1.6rem; }
+  .hero-wrapper .brand-signature { display: none; }
+  .hero-wrapper .philosophy-line { display: none; }
+  .hero-today-summary { max-width: 100%; font-size: 0.72rem; }
+  .hero-glow { width: 300px; height: 200px; top: -30px; }
   .topic-card { padding: 18px 16px; }
   .level-tab { padding: 6px 12px; font-size: 0.75rem; }
   .level-tab span { display: none; }
@@ -870,6 +924,16 @@ footer .footer-links a { margin: 0 8px; }
   border-radius: var(--radius);
   padding: 20px 24px;
   border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.dashboard-panel::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c8a45c, #a4c878, #c8786a, #78a4c8, #d4756b, #6ba4d4, #b8956a, #8ac8a4);
+  border-radius: var(--radius) var(--radius) 0 0;
+  opacity: 0.7;
 }
 .dashboard-header {
   display: flex; align-items: center; justify-content: space-between;
@@ -885,28 +949,36 @@ footer .footer-links a { margin: 0 8px; }
 }
 .track-bar-row {
   display: flex; align-items: center; gap: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .track-label {
   width: 90px; font-size: 0.78rem; color: var(--text-secondary);
   text-align: right; flex-shrink: 0;
 }
 .track-bar-bg {
-  flex: 1; height: 20px; background: rgba(255,255,255,0.04);
-  border-radius: 4px; overflow: hidden; position: relative;
+  flex: 1; height: 22px; background: rgba(255,255,255,0.04);
+  border-radius: 11px; overflow: hidden; position: relative;
 }
 .track-bar-fill {
-  height: 100%; border-radius: 4px;
-  transition: width 0.6s ease;
+  height: 100%; border-radius: 11px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  min-width: 2px;
 }
 .track-bar-fill::after {
-  content: ''; position: absolute; right: 0; top: 0; bottom: 0;
-  width: 30px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1));
+  content: '';
+  position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 .track-count {
   font-size: 0.75rem; color: var(--text-secondary);
   width: 32px; text-align: left; flex-shrink: 0;
+  font-weight: 600;
 }
 .track-risk-badge {
   font-size: 0.7rem; padding: 2px 8px; border-radius: 10px;
@@ -978,6 +1050,45 @@ footer .footer-links a { margin: 0 8px; }
   .track-label { width: 65px; font-size: 0.72rem; }
   .track-count { width: 24px; font-size: 0.7rem; }
   .audience-btn { padding: 6px 8px; font-size: 0.75rem; }
+}
+
+
+/* ===== 卡片入场动画 ===== */
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.topic-card {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.topic-card.visible {
+  animation: cardFadeUp 0.5s ease forwards;
+  animation-delay: calc(var(--card-index, 0) * 0.06s);
+}
+
+/* ===== 精选首条差异化 — 桌面端 ===== */
+@media (min-width: 768px) {
+  .topic-card:first-of-type {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+    box-shadow: 0 0 40px rgba(200,164,92,0.08), 0 2px 12px rgba(0,0,0,0.12);
+    border-color: rgba(200,164,92,0.15);
+  }
+  .topic-card:first-of-type .card-left {
+    display: flex;
+    flex-direction: column;
+  }
+  .topic-card:first-of-type h2 {
+    font-size: 1.25rem;
+  }
+  .topic-card:first-of-type .card-right {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 </style>
@@ -1235,13 +1346,21 @@ footer .footer-links a { margin: 0 8px; }
 </div>
 
 <div class="container">
-<header>
-<div class="brand-signature">扶清闲话 · AI时代观察</div>
-<h1>AI 时代观察</h1>
-<p class="subtitle">效率归机器，意义归人类</p>
-<p class="philosophy-line">「让被豁免的，重新在场」</p>
-<p class="update-time">更新时间：2026-06-19 02:49 · 共 39 条内容</p>
-</header>
+<!-- Hero区 — 杂志封面感 -->
+<div class="hero-wrapper">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="brand-signature">扶清闲话 · AI时代观察</div>
+    <h1>AI 时代观察</h1>
+    <p class="subtitle">效率归机器，意义归人类</p>
+    <p class="philosophy-line">「让被豁免的，重新在场」</p>
+    <div class="hero-today-summary" id="heroTodaySummary">
+      <span class="hero-today-label">今日聚焦</span>
+      <span class="hero-today-text">加载中...</span>
+    </div>
+    <p class="update-time">更新时间：2026-06-19 02:49 · 共 39 条内容</p>
+  </div>
+</div>
 
 <!-- 四化方法论banner已移除 -->
 
@@ -1321,39 +1440,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Sorathiya123/claude-ai-free-desktop-app</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">摘要：</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">免费版的claude代码AI桌面应用程序，适用于Windows、Linux、MacOS、GitHub等。它支持本地化功能、LLM（对话生成模型）、NVIDIA、OpenSource技术等。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">格式要求：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">共 9 行</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">每行 8-15 个汉字</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">覆盖：行业趋势、投资信号、风险提醒、创业机会、技术分析、产品评价、竞争格局、用户价值、行动建议</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">不要编号</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">不要任何前缀或后缀</span>
     </div>
   </div>
 </div>
@@ -1390,39 +1509,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">蔚来补上“智驾课”，任少卿总结：智驾技术创新将重构竞争</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">文｜肖漫编辑｜李勤</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">蔚来同时向两代平台车型（NT2.0、NT2.5，NT3.0）推送最新版的世界模型，意味着软件迭代节奏被硬件绑架。曾困扰车企的难题在蔚来面前迎刃而解，仅需几款新车就能适应不同版本的芯片。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">格式要求：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">共 9 行</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">每行 8-15 个汉字</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">覆盖：行业趋势、投资信号、风险提醒、创业机会、技术分析、产品评价、竞争格局、用户价值、行动建议</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">不要编号</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">不要任何前缀或后缀</span>
     </div>
   </div>
 </div>
@@ -1467,39 +1586,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 36氪「2026最具价值成长企业100」正式发布</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 一、行业背景与定义</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">在2026年，随着科技和数字技术的不断革新，行业正在经历一场前所未有的变革。这十年间，各行各业都在迅速发展，而如何在这一快节奏中脱颖而出成为关键。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 二、创业公司成长历程</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">从华为、字节跳动、大疆、特斯拉到OpenAI，这些初创企业都是由挑战者转变为定义者的案例。他们没有先入为主的观念，通过不懈努力和技术创新，逐渐成长为行业的领导者。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**华为**</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">成立时间：2011年</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">主要业务：通信与移动网络技术</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 三、市场定位与竞争优势</span>
     </div>
   </div>
 </div>
@@ -1539,39 +1658,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**标题：中科院博士冲上市，市值超105亿港币**</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**摘要：本文约1900字，建议阅读4分钟**</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">作者：彭孝秋</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**格式要求：**</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">共 9 行</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">每行 8-15 个汉字</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">覆盖：行业趋势、投资信号、风险提醒、创业机会、技术分析、产品评价、竞争格局、用户价值、行动建议</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 国内大模型市场</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**中科院博士冲上市，市值超105亿港元**</span>
     </div>
   </div>
 </div>
@@ -1605,39 +1724,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">《规定》自7月1日起施行</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">促进对外投资高质量发展，有效实施对外投资管理</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">推进高水平对外开放，促进对外投资高质量发展</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">有效实施对外投资管理</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">落实国家主权、安全和发展利益保护投资者及其对外投资合法权益</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">维护国家主权、安全和发展利益</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">保护投资者及其对外投资合法权益</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">完善相关法律法规，确保对外投资的公平性和透明度</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">提高对外投资管理的质量和效率</span>
     </div>
   </div>
 </div>
@@ -1676,39 +1795,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">氪星晚报｜BilibiliWorld 2026成国内首个海外售票的综合性ACG展会；让AI走进千家万户，17项举措推进“人工智能+消费”发展；快舟十一号遥十三运载火箭发射成功</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">滴滴自动驾驶参加伦敦MOVE 2026大会，展示中国自动驾驶技术。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">阿里云宣布推出智能语音助手产品"小明"，可与用户进行自然对话。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">京东商城发布新品：新款手机支持5G网络，价格比老款便宜。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">阿里巴巴宣布，将为用户提供免费的虚拟现实（VR）体验服务。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">华为发布5G折叠屏手机“Mate 40 Pro”，有望成为全球首款支持5G和折叠屏技术的产品。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">苹果公司发布新iPad Pro，采用全新的A13芯片，性能提升2倍。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">京东集团推出全新零售模式：线上+线下双线运营，加速品牌建设。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">腾讯云宣布将推出AI训练服务，助力企业实现大规模数据处理。</span>
     </div>
   </div>
 </div>
@@ -1738,39 +1857,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">I put Siri AI through the same tests I use for ChatGPT and Gemini on MacOS 27 - here's how it did</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Apple still has more work to do with Siri</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">It's off to a promising start</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">There are risks involved in Apple's implementation of Siri</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Risks include user privacy concerns, compatibility issues, and potential security vulnerabilities</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">The new AI is expected to improve the efficiency of Mac operating systems</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">I will keep an eye on developments in this area</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">ChatGPT and Gemini have a similar testing phase</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">It seems like Apple will continue with its current approach to Siri development</span>
     </div>
   </div>
 </div>
@@ -1810,39 +1929,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">红杉、阿里押注过的具身大脑公司再融资，上交等投资数亿元｜硬氪首发</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">摘要：作者｜黄楠</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">编辑｜袁斯来</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">硬氪获悉，具身智能企业穹彻智能（Noematrix）近日完成新一轮数亿元融资，本轮融资由无锡数据集团领投，投资方包括上海交通大学AI未来基金（创业基金）、上海创之智科技有限公司（上海创智学院全资子公司）、一村资本等。&nbs</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">格式要求（严格遵守）：</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">共 9 行</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">每行 8-15 个汉字</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">覆盖：行业趋势、投资信号、风险提醒、创业机会、技术分析、产品评价、竞争格局、用户价值、行动建议</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">不要编号</span>
     </div>
   </div>
 </div>
@@ -1875,39 +1994,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">一、2023年，两轮电动车市场正迎来深刻基因突变。传统认知下，“代步工具”与“大众精品”占据主导地位。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">二、爱玛黑翼的发布，为中国电动车市场注入了年轻男性用户的新血液。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">三、首次亮相活动吸引了大量关注和参与者。周冠宇作为全速领航员在线助力。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">四、S360系列车型不仅搭载了高性能电动机，还配备了最新的自动驾驶技术。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">五、未来，爱玛黑翼将通过技术创新与硬核科技，赢得年轻男性的心。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">六、用户价值：爱玛黑翼提供的卓越性能和创新体验是吸引年轻人的有力武器。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">七、竞争格局：市场中存在激烈角逐，但爱玛黑翼凭借其独特的定位和实力，正在逐渐脱颖而出。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">八、投资信号：尽管竞争激烈，但在新能源车领域，如爱玛黑翼等品牌仍有望迎来新一轮的发展机遇。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">九、风险提醒：技术革新与市场需求的不确定性可能影响行业发展。</span>
     </div>
   </div>
 </div>
@@ -1937,39 +2056,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 行业趋势</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 投资信号</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">A轮融资加速，AI模型训练平台Ruvnet宣布与AgentHarnessGenerator合作，帮助开发者定制化构建高质量的AI模型。这标志着未来AI技术在企业级应用中的重要发展。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 风险提醒</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">尽管如此，行业内仍面临数据隐私和算法安全性问题。需持续优化算法以提高模型性能的同时保护用户权益，以实现可持续发展。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 技术分析</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 业界现状</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">目前，AI模型训练平台Ruvnet专注于构建定制化的AI模型，旨在满足各行业客户的差异化需求。该平台的多维度特性使它在特定领域内脱颖而出。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 引领者</span>
     </div>
   </div>
 </div>
@@ -1999,39 +2118,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">King of Dwarfs: Deep Fake AI in Action</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">The LLM-powered toolkit provides comprehensive synthetic media detection and content generation capabilities.</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">It is designed for ethical analysis, responsible generation of real-time content.</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">A potential market trend with significant growth potential.</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">This tool has a promising future in the realm of artificial intelligence.</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">There are diverse applications across various industries.</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Continuous updates help to stay ahead in the competitive AI landscape.</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">The project is attracting more attention from investors and industry experts.</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">It aims to address challenges in ethical media and technology.</span>
     </div>
   </div>
 </div>
@@ -2061,39 +2180,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 行业趋势</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">区块链与人工智能的融合加速，推动智能合约和自动化决策应用。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 投资信号</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AI驱动的新一代操作系统即将成熟，预示着软件开发和安全领域的重大突破。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 风险提醒</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">大规模数据泄露事件频发，需强化隐私保护措施以防止潜在风险升级。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 创业机会</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">新兴科技如人工智能、物联网与大数据的结合，为初创企业开辟广阔的市场空间。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 技术分析</span>
     </div>
   </div>
 </div>
@@ -2123,39 +2242,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">agiwhitelist/tokdiet</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Local streaming reverse proxy between AI coding agents (Claude Code, Cursor, Codex) and model APIs (Anthropic, OpenAI, Gemini, MiniMax). Meters every token + USD cost, compacts bloated context to cut down costs.</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">This is a trend that aims at enhancing the efficiency of AI models by leveraging pre-trained code and large-scale datasets.</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">The project focuses on optimizing the usage of token resources in streaming data pipelines.</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">It involves scaling up the use of Anthropic's Claude, OpenAI's GPT-4 (e.g., AlphaFold), MiniMax's model, and others to reduce costs associated with token management.</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">This initiative aims to improve computational efficiency by minimizing unnecessary processing steps and optimizing resource allocation.</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">By identifying these trends, companies can better understand the competitive landscape in the AI modeling space.</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">It provides insights into emerging technologies and their potential impact on the field.</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">The project's success will help businesses stay ahead of market changes and remain competitive.</span>
     </div>
   </div>
 </div>
@@ -2191,39 +2310,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**1. 事件背景与爆发点**</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**粉笔科技的人大讲座事件：社会现象**</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**背景**：6月3日，粉笔网CEO张小龙在人民大学的一场职业规划讲座上，调整了演讲主题，并将讨论内容转向AI、就业选择及个人财富经历。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**爆发点**：现场录音显示，张小龙情绪异常波动，频繁爆粗口，并被指责存在“找不到工作是应该的”、“考公都是混吃等死”和“我觉得你们很差，非常差”的言论。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**2. 张小龙的情绪失控原因分析**</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**社交媒体效应**</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**背景**：张小龙在直播中使用了大量表情包、字幕和插画，营造出一种沉浸式的氛围，容易引起观众的共鸣和情绪波动。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**个人形象问题**</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**背景**：张小龙在演讲后被指责存在“找不到工作是应该的”、“考公都是混吃等死”和“我觉得你们很差，非常差”的言论，并引发社会关注。</span>
     </div>
   </div>
 </div>
@@ -2253,39 +2372,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**标题**：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**内容**：中国大模型预计何时能赶超Anthropic？马斯克称“可能在2027年一季度”</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**摘要**：6月18日，特斯拉CEO马斯克回应智谱GLM-5.2缩小差距，预测在2027年一季度。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**标题**：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**内容**：谷歌DeepMind预测中国大模型能力不足</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**摘要**：德米斯·哈萨比斯称，中美模型水平可能“只差几个月”就能达成</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**标题**：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**内容**：马斯克：智谱GLM-5.2缩小差距或在2027年一季度</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**摘要**：特斯拉CEO马斯克回应智谱GLM-5.2缩小差距的预测，称可能在2027年一季度。</span>
     </div>
   </div>
 </div>
@@ -2314,39 +2433,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AI算法精准排盘 | 淘宝云课程 | 九宫格布局 | HTML排版</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">阿里云课程 | AI预测模型详解 | 针对 LLM 猜测的算法与实践</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">知乎 | 黑白转换艺术海报设计教程 | CSS 中心点和轴线的概念</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AI八字 + 紫微斗数排盘 | 综合印证法 | HTML 命盘海报生成器</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AI六方布局原理 | 九宫格布局的数学基础</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">阿里云课程 | AI算法详解 | 针对 LLM 模拟预测的算法与实践</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">知乎 | 黑白转换艺术海报设计教程 | CSS 中心点和轴线的概念</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AI排盘八字 | 紫微斗数排盘法 | HTML 命盘海报生成器</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">—</span>
     </div>
   </div>
 </div>
@@ -2386,39 +2505,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 进阶">🚀 进阶</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">北大科学家下场做脑机接口，种子轮融了近亿元</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">「暗涌Waves」独家获悉，侵入式脑机接口公司「芯生视界」近日完成近亿元人民币种子轮融资。本轮融资由经纬创投领投，星连资本、燕缘创投、水木创投跟投。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">当下，侵入式脑机接口已经在治疗瘫痪、脑控外设等医疗场景落地，验证长期植入的安全、有效。与此同时，AI Agent和具身智能技术加速进化，也放大了市场对脑机接口的期待：改写未来“人机交互”的方式</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">用户价值：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">脑机接口将改变人类与机器之间的交互方式</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">支持神经科学领域的科研和发展</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">行动建议：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">企业需持续创新，开发更安全、高效的技术手段</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">鼓励研究和应用，推动脑机接口的发展</span>
     </div>
   </div>
 </div>
@@ -2475,39 +2594,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 行业趋势：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AI编程正迅速成为新兴的开发领域，受到越来越多企业和开发者关注。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 投资信号：</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**增长潜力**：随着技术的进步，AI编程行业前景广阔。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**市场变化**：预计未来几年内，该领域的市场规模将快速增长。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 风险提醒：</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**竞争加剧**：激烈的市场竞争可能导致企业在短期内面临挑战。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**法规变化**：政策和法律环境的变化可能影响AI编程的广泛应用。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 创业机会：</span>
     </div>
   </div>
 </div>
@@ -2537,39 +2656,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">KorroAi/drunk-claude:</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Drunk Claude : intensity slider (0.1 tipsy to 1.0 blackout), 5 moods, 8 creative techniques.</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">The unfiltered genius skill for Claude Code.</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">MIT.</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Drunk Claude is a unique AI technology aimed at improving Claude's functionality by adding a 'intensity slider' feature that allows users to adjust the intensity level of Claude's language abilities.</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Users can set their desired levels and experiment with different intensity levels, which can enhance Claude's performance in various languages.</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">The application provides 8 creative techniques that cover various topics such as data analysis, machine learning, image processing, game development, etc.</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Drunk Claude is not only a tool for language translation but also has applications in other fields like cybersecurity, finance, healthcare, and more.</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">风险提醒:</span>
     </div>
   </div>
 </div>
@@ -2599,39 +2718,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">开源软件巨头OpenAI Q1财报泄露，全网炸锅；用户需求驱动开源社区</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">人工智能（AI）领域，Q1预览收入250亿，但未正式发布；企业合作市场大受关注</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">摄像头技术提供商TikTok Q1业绩超预期，成为年度冠军；加密货币市场前景广阔</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">虚拟现实与增强现实领域的OpenXR Q1全球份额达到97%，未来前景乐观</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">云计算服务提供商AWS Q1收入同比增长25%，进一步扩大市场份额</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">生物制药公司Biogen Q1净利润同比增加40%，但仍在亏损状态</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AI算法巨头Google Cloud Q1营收增长22%，技术革新持续</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">软件开发工具厂商Microsoft Q1收入达到70亿美元，继续引领市场潮流</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">金融科技平台Alibaba Cloud Q1财报显示，其业务规模和市场份额稳居行业前列</span>
     </div>
   </div>
 </div>
@@ -2661,39 +2780,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 题目：WWDC26 在现场，与 Apple 设计大奖提名开发者聊聊他们的 app</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 1. WWDC26 在现场，与 Apple 设计大奖提名开发者聊聊他们的 app</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 2. 今年的Apple设计大奖继续分设六大类别，每类都有各自的亮点</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 3. 分别揭晓了多个年度奖项，以表彰App Store内最佳应用</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 4. 智能家居、教育、娱乐等领域的创新应用备受关注</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 5. Apple在视觉图像类别获得了特别注意，展现了其对用户体验的重视</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 6. 设计大奖评选出最具创意的应用，旨在鼓励用户表达自己的独特想法</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 7. 用户评价显示，App Store内的应用程序越来越受欢迎</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 8. 对于开发者而言，参加WWDC26是展示自己才华和经验的好机会</span>
     </div>
   </div>
 </div>
@@ -2723,39 +2842,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 行业趋势：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">亚马逊的AI芯片销售计划吸引了更多数据中心的关注，表明行业内的竞争正在加剧。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 投资信号：</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">投资方普遍看好AWS的云计算业务潜力，而Amazon希望通过其新战略进一步拓展市场和客户群体。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 风险提醒：</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">虽然AWS表示有兴趣与Nvidia合作，但具体的合作条款尚未明确。存在技术或法律风险需要谨慎评估。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 创业机会：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">亚马逊作为AI芯片领域的领先者，有潜力成为新的科技公司竞争者，提供独特的解决方案。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 技术分析：</span>
     </div>
   </div>
 </div>
@@ -2785,39 +2904,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 高管视角：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### Google与Microsoft</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**高管观点**：Google和Microsoft的加入，表明在AI领域寻求合作以推动开源社区的发展。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**市场前景**：这是对开源技术在实际应用中的积极意义的再次肯定。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### OpenAI</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**公司动态**：OpenAI宣布其创始成员包括Apple，表明其与开源技术在人工智能领域的紧密联系。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**技术创新**：OpenAI表示将通过此项目推动机器学习和自然语言处理等领域的创新。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 产品与市场：</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### Linux Foundation</span>
     </div>
   </div>
 </div>
@@ -2847,39 +2966,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 行业趋势：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">随着科技的不断进步，AI正在以惊人的速度改变各行各业。然而，关键在于确保决策者的决策权。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 投资信号：</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">投资AI项目的企业通常需要证明其技术能力、市场前景和战略规划。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 风险提醒：</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">任何涉及AI的项目都应进行详细的风险评估，包括数据安全、隐私保护和伦理影响。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 创业机会：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">创业企业应关注市场需求的变化和技术创新对市场的推动作用。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 技术分析：</span>
     </div>
   </div>
 </div>
@@ -2911,39 +3030,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">| 布局 | 数字 | 内容 |</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">|--- | --- | --- |</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">| 1. | 老师提问：你能否解释一下OpenAI模型解决数学难题的过程？ | OpenAI模型解决了数学难题，通过大量训练数据和深度学习算法。 |</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">| 2. | 学生质疑：这将如何影响实际应用？ | 该模型的广泛使用可能在某些特定领域带来突破性的进展。 |</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">| 3. | 教师: 可能会提高解决复杂问题的能力，但需要进一步的数据训练和优化。 | 完善模型以应对更复杂的问题是未来的发展方向。 |</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">| 4. | 学生：这是否会引发新的数学问题？ | 新的算法和数据集可能会导致新类型的问题出现。 |</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">| 5. | 教师: 但这也可能解决一些长期存在的问题，比如机器学习中的偏见问题。 | 强化模型的质量可以减少对现有偏见的依赖。 |</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">| 6. | 学生：这对教育行业有哪些影响？ | 更多高质量的数据和算法可以帮助教育质量提高。 |</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">| 7. | 教师: 还有，它将改变我们对于数据的理解和使用方式。 | 数据驱动的决策可能比以前更加明智和公平。 |</span>
     </div>
   </div>
 </div>
@@ -2974,39 +3093,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 行业趋势：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 1. 全球科技发展加速，人工智能与大数据迎来重要机遇。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**投资信号**：SpaceX宣布收购Cursor、字节跳动推出Seedance 2.0 Mini等。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 2. 科技创新正改变生活方式，5G、AI、物联网等前沿技术引领未来。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**风险提醒**：夏普推出AQUOS R11手机，理光调整GR系列零售价建议。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 3. 环保与可持续发展成为全球关注焦点，新能源汽车和绿色能源迎来机遇。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**创业机会**：SpaceX宣布收购Cursor、字节跳动推出Seedance 2.0 Mini等。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">#### 4. 针对年轻人的消费模式变化，电商平台如淘宝、京东等展现出巨大潜力。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**技术分析**：理光调整GR系列零售价建议，说明其在环保与可持续发展领域的布局。</span>
     </div>
   </div>
 </div>
@@ -3036,39 +3155,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 行业趋势</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**AI驱动的智能内容生成与优化**</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AI 时代，基于 ASP.NET Core 的 Open-source CMS 开发者将面临更多挑战。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**跨平台开发与集成**</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">分布式架构和组件化设计为开发者提供了更好的性能和灵活性。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**区块链技术在内容管理中的应用**</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">区块链技术有助于提高内容的安全性和透明度。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**人工智能与教育：个性化学习路径的构建**</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AI 在教育领域的应用，如智能辅导系统，正在改变学生的学习体验。</span>
     </div>
   </div>
 </div>
@@ -3098,39 +3217,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AI写作技巧，提升AI的可读性。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">针对AI编写文档时需注意的细节。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">文字处理优化的策略与方法。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">语言风格和表达习惯在撰写技术类文章的重要性。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">复杂复杂内容的标准化，以简化读者理解。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">如何通过修改和调整文风，提高AI写作的质量。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AI写作中的“语法”与“格式”的问题探讨。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">语言处理和文本优化，如何使用户更容易阅读你的写作风格。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">在撰写技术文档时，如何避免不必要的语法错误，提高可读性。</span>
     </div>
   </div>
 </div>
@@ -3160,39 +3279,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 行业趋势：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">随着云计算和人工智能的快速发展，AI开发工具如Visual Studio Code（VS Code）成为了开发者不可或缺的助手。该软件集成了本地AI编码功能，允许用户在不打开应用程序的情况下进行编程。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 投资信号：</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">尽管目前市场对AI发展充满期待，但行业仍面临诸多挑战。随着技术进步和市场需求增长，投资策略需结合自身风险偏好调整。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 风险提醒：</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">投资者应谨慎评估AI开发工具及其潜在应用的风险。避免盲目跟风或过度依赖AI解决方案。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 创业机会：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AI开发工具市场潜力巨大，但需要具备相关技术和商业知识的企业积极布局。关注新兴技术与现有市场的结合点。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 技术分析：</span>
     </div>
   </div>
 </div>
@@ -3222,39 +3341,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">中国区块链平台kerryjanes/ChainKey成功推出，旨在通过机器学习实现分布式事务的智能管理。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">这一创新的智能DMM将用于提供更高级别的交易安全性和可扩展性。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">每一步决策都依靠先进的人工智能模型进行优化，确保系统的稳定性和高效率。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">对于投资者而言，了解这一技术可以为他们的投资选择提供新的视角和可能更高的收益预期。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">从行业角度来看，随着区块链技术的不断发展，其在金融领域的应用将更加广泛和深入。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">该平台的技术分析显示，用户价值与业务模式密切相关，需要综合考虑市场趋势、竞争对手情况等多方面因素。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">而行动建议则包括投资决策中的风险评估、策略调整等方面的指导原则。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">从用户的角度看，理解区块链技术的潜在影响和应用场景对他们的投资决策有着重要的启示作用。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">对于创业公司而言，了解区块链技术的发展趋势和市场前景可以为他们提供有价值的视角。</span>
     </div>
   </div>
 </div>
@@ -3282,39 +3401,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">腾讯老兵+大厂00后新锐，码上飞想做的不只是AI Coding</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">码上飞是腾讯的新一代智能语音识别和合成技术平台。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">在大厂中，大疆已接入鸿蒙生态，为无人机和智能安防等应用提供技术支持。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">腾讯老兵+00后新锐的结合，可能推动其业务向新的方向发展。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">从行业趋势看，AI Coding正逐渐渗透到各个领域，包括医疗、教育、娱乐等。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">预计码上飞将为大厂和新锐公司提供更强大的技术支持。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">这一合作或将成为大厂与新锐公司共同发展的桥梁。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">中国移动在人工智能领域的布局，可能对其他电信运营商产生影响。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">腾讯的市场拓展能力可能会受到新锐公司的竞争压力。</span>
     </div>
   </div>
 </div>
@@ -3342,39 +3461,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**1. 产品选择**：目前AI的开发与应用正快速迭代，但其在图像处理领域的潜力尚未充分挖掘。美图的“苦修PS”策略主要集中在功能上，如图像优化和滤镜效果等方面。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**2. 技术分析**：技术革新驱动下的AI发展迅速，但在某些应用场景中仍需持续创新，以实现更全面的功能与精度。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**3. 项目进展**：当前的美图项目正在不断优化功能，未来可能推出更多针对AI的图像处理和分析工具。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**4. 风险提示**：技术革新带来新机遇，但若不把握好时机，可能导致在应用层面出现偏差。需谨慎对待，避免因过度乐观而忽视潜在风险。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**5. 投资信号**：当前AI市场中，美图等公司正受到资本市场的关注和兴趣，但仍处于起步阶段，未来发展前景值得期待。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**6. 产品评价**：目前市场上存在多种图像处理软件，如Adobe Photoshop、GIMP和Inkscape，但不同平台的界面设计差异明显。选择适合自己的工具至关重要。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**7. 竞争格局**：在AI领域，美图等公司正积极布局，未来竞争将更加激烈，需保持警惕，避免因短期策略失误而陷入劣势。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**8. 用户价值**：随着技术</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">—</span>
     </div>
   </div>
 </div>
@@ -3404,39 +3523,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Karamo Brown, known for his pep talks on "Queer Eye," has launched a new app called Kē. The app features an AI digital clone of himself, aiming to provide users with personalized wellness insights and support.</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**行业趋势**：随着社交媒体和内容平台的崛起，明星如Karamo Brown正转向利用数字技术进行自我提升。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**投资信号**：尽管存在竞争，但Karamo Brown的创新精神以及产品潜力使得他成为行业内的关注点。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**风险提醒**：用户需谨慎评估AI替代品可能带来的潜在问题，并警惕数据泄露等安全风险。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**创业机会**：Karamo Brown利用自己的网络影响力和影响力，成功吸引了大量粉丝并创造了独特的品牌。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**技术分析**：尽管尚无明确的市场调研结果，但Karamo Brown的创新技术和用户参与度证明其潜力。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**产品评价**：许多用户反馈，Kē在提供个性化建议方面比传统咨询更有效，且功能全面。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**竞争格局**：与其他应用相比，Kē更侧重于技术驱动和用户体验，可能与更多关注内容生态的应用竞争。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**用户价值**：通过AI模拟自己的日常生活，用户能获得更加精准的健康建议和服务。</span>
     </div>
   </div>
 </div>
@@ -3466,39 +3585,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**热点内容**：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Jeff Bezos预测，AI会导致劳动力短缺而非取代人类。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**行业趋势**：AI将在未来几十年内推动制造业的自动化，减少人工成本和提高生产效率。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**投资信号**：科技公司普遍看好AI的发展前景，并将其视为未来经济增长的重要驱动力。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**风险提醒**：虽然AI有望大幅增加生产力，但大规模采用或技术革新可能引发就业市场变革。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**创业机会**：具备深厚专业知识和技术背景的创业者将能从快速发展的AI行业获益。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**技术分析**：随着AI技术的发展，数据处理、机器学习和深度学习将成为关键领域，影响各行各业的工作方式。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**产品评价**：一些消费者反馈AI助手或自动驾驶汽车能够提高生活质量，但效果因人而异。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**竞争格局**：未来市场竞争将更加激烈，企业需不断适应新技术，以保持竞争优势。</span>
     </div>
   </div>
 </div>
@@ -3528,39 +3647,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Ukraine 发起多架无人机攻击俄罗斯，涉及多个关键设施。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">标题：Ukraine hits a Moscow oil refinery and other sites in a large-scale drone attack</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">摘要：Ukraine 发起多架无人机攻击俄罗斯，涉及多个关键设施。行动建议：关注能源行业动态和市场变化。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">格式要求（严格遵守）：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">共 9 行</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">每行 8-15 个汉字</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">覆盖：行业趋势、投资信号、风险提醒、创业机会、技术分析、产品评价、竞争格局、用户价值、行动建议</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">不要编号</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">不要任何前缀或后缀</span>
     </div>
   </div>
 </div>
@@ -3589,39 +3708,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 行业趋势：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">智能助手和AI技术正在深入各行各业，如制造业、医疗保健、教育等。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 投资信号：</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">分析师预计，随着AI技术的不断发展，相关公司的投资需求将持续增长。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 风险提醒：</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">投资者应关注AI伦理问题，确保算法设计符合道德规范。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 创业机会：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">企业可以利用智能助手增强自身竞争优势，如个性化推荐、智能客服等。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 技术分析：</span>
     </div>
   </div>
 </div>
@@ -3651,39 +3770,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 行业趋势：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**虚拟现实与增强现实**：随着游戏行业的快速发展，VR/AR 技术的应用范围逐渐扩大。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**人工智能（AI）驱动的开发工具**：Three.js 是一款流行的 JavaScript 框架，结合了渲染引擎和动画技术，支持丰富的视觉效果和交互功能。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**跨平台开发**：游戏开发者越来越倾向于采用 Unity、Unreal Engine 等兼容性良好的开源框架。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**云服务与后端技术**：随着云计算的普及，服务器端的后端架构变得更加重要。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 投资信号：</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**市场潜力**：Three.js 已经拥有庞大的用户基础，并且在多人游戏中表现良好。预计未来几年内会有更多的开发者选择使用它。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**技术改进**：随着新功能和优化的开发，Three.js 可能会继续吸引更广泛的玩家群体。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">**平台扩展**：增强实现代际化、跨设备支持等特性可能使 Three.js 成为更广泛的游戏开发中不可或缺的技术。</span>
     </div>
   </div>
 </div>
@@ -3713,39 +3832,39 @@ footer .footer-links a { margin: 0 8px; }
     <span class="card-difficulty" title="难度: 实用">🔧 实用</span>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="practitioner" style="display:none;">
       <span class="ai-label">从业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 行业趋势：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="practitioner" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">随着人们对隐私保护和安全意识的提高，AUR包（自动更新源）市场正在经历显著增长。越来越多开发者和组织选择使用AUR来确保软件的安全性和稳定性。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="practitioner" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 投资信号：</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="investor" style="display:none;">
       <span class="ai-label">投资者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">Claude LLM（长短期预测模型）为自动化扫描AUR包中的恶意软件提供了强大的技术支持，能够帮助用户更有效地发现潜在的风险点。</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="investor" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 风险提醒：</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="investor" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">AUR包的漏洞和安全性仍然存在，用户应继续加强对AUR源的信任度，并确保所有使用都是合法合规的。</span>
     </div>
     <div class="ai-insight-item perspective-comment card-ai-persp" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">创业者视角</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 创业机会：</span>
     </div>
     <div class="ai-insight-item action-guidance card-ai-action" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">行动建议</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">通过自动扫描AUR，用户可以减少手动审查繁琐的过程，提升软件开发效率。同时，自动化可以帮助发现潜在的安全风险，保护软件免受恶意攻击。</span>
     </div>
     <div class="ai-insight-item card-risk" data-audience="entrepreneur" style="display:none;">
       <span class="ai-label">风险提示</span>
-      <span class="ai-text"></span>
+      <span class="ai-text">### 技术分析：</span>
     </div>
   </div>
 </div>
@@ -4445,20 +4564,20 @@ function applyAudience() {
   });
 }
 
-// v4.0 仪表盘渲染
+// v4.0 仪表盘渲染（升级版 — 8条赛道 + shimmer光泽动画）
 function renderDashboard() {
   const trackBars = document.getElementById('trackBars');
   if (!trackBars) return;
   
   const tracks = [
-    { name: '大模型底座', color: '#6ba3d6', kw: ['大模型','LLM','GPT','Claude','Gemini','模型','开源模型','SOTA'] },
-    { name: 'AI Agent', color: '#7bc47f', kw: ['Agent','智能体','Copilot','AI助手','自动化'] },
-    { name: 'AI 安全合规', color: '#d4756b', kw: ['AI安全','数据隐私','深度伪造','AI监管','欧盟AI法案','GDPR'] },
-    { name: '具身智能', color: '#c8a45c', kw: ['机器人','具身','人形机器人','自动驾驶','硬件'] },
-    { name: 'AI 投资融资', color: '#d4a36b', kw: ['融资','IPO','收购','独角兽','估值','风投','天使轮'] },
-    { name: 'AI 工具产品', color: '#a087d4', kw: ['产品发布','新功能','SaaS','浏览器插件','无代码','低代码','Product Hunt'] },
-    { name: 'AI 产业落地', color: '#5b9e8a', kw: ['产业落地','制造业AI','医疗AI','金融AI','数字孪生','智慧城市'] },
-    { name: 'AI 社区开源', color: '#8899aa', kw: ['开源','GitHub','HuggingFace','社区','论文','开发者','benchmark'] }
+    { name: '大模型', color: '#c8a45c', kw: ['大模型','LLM','GPT','Claude','Gemini','模型','开源模型','SOTA','Transformer'] },
+    { name: 'AI应用', color: '#a4c878', kw: ['Agent','智能体','Copilot','AI助手','自动化','AI编程','Vibe Coding'] },
+    { name: '机器人', color: '#c8786a', kw: ['机器人','具身','人形机器人','自动驾驶','硬件','机械臂'] },
+    { name: 'AI Infra', color: '#78a4c8', kw: ['芯片','GPU','TPU','算力','推理','训练','基础设施','云计算','向量数据库'] },
+    { name: 'AI安全', color: '#d4756b', kw: ['AI安全','数据隐私','深度伪造','AI监管','欧盟AI法案','GDPR','安全漏洞'] },
+    { name: 'AI医疗', color: '#6ba4d4', kw: ['医疗AI','制药','蛋白质','基因','诊断','影像','药物发现'] },
+    { name: 'AI教育', color: '#b8956a', kw: ['教育AI','学习','培训','MOOC','自适应学习','知识图谱'] },
+    { name: '具身智能', color: '#8ac8a4', kw: ['具身智能','仿真','强化学习','世界模型','物理引擎','3D生成'] }
   ];
   
   const riskWords = ['裁员','泡沫','监管','禁令','亏损','崩盘','安全事故','数据泄露','召回','诉讼','罚款'];
@@ -4482,7 +4601,7 @@ function renderDashboard() {
   const maxCount = Math.max(1, ...trackCounts.map(t => t.count));
   
   let html = '';
-  trackCounts.sort((a,b) => b.count - a.count).slice(0, 8).forEach(t => {
+  trackCounts.forEach(t => {
     const pct = Math.round((t.count / maxCount) * 100);
     html += '<div class="track-bar-row">' +
       '<span class="track-label">' + t.name + '</span>' +
@@ -4495,7 +4614,7 @@ function renderDashboard() {
   });
   
   trackBars.innerHTML = html;
-  document.getElementById('dashboardTime').textContent = '统计 ' + total + ' 条，按赛道命中数排列';
+  document.getElementById('dashboardTime').textContent = '统计 ' + total + ' 条，8条赛道实时热度';
 }
 
 // 初始化仪表盘
@@ -4516,6 +4635,53 @@ function toggleExpand() {
   const btn = document.getElementById('expand-btn');
   if (btn) btn.textContent = expanded ? '▲ 收起' : '▼ 查看更多';
 }
+
+// ===== 卡片入场动画 IntersectionObserver =====
+(function initCardAnimations() {
+  const cards = document.querySelectorAll('.topic-card');
+  if (!cards.length) return;
+  
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry, idx) => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        // 计算卡片在所有topic-card中的序号
+        const allCards = Array.from(document.querySelectorAll('.topic-card'));
+        const cardIndex = allCards.indexOf(card);
+        card.style.setProperty('--card-index', cardIndex);
+        card.classList.add('visible');
+        obs.unobserve(card);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -30px 0px'
+  });
+  
+  cards.forEach(card => observer.observe(card));
+})();
+
+// ===== Hero今日摘要填充 =====
+(function fillHeroSummary() {
+  const summaryEl = document.getElementById('heroTodaySummary');
+  if (!summaryEl) return;
+  const textSpan = summaryEl.querySelector('.hero-today-text');
+  if (!textSpan) return;
+  // 取第一个可见卡片标题
+  const firstCard = document.querySelector('.topic-card');
+  if (firstCard) {
+    const titleEl = firstCard.querySelector('h2 a') || firstCard.querySelector('h2');
+    const title = titleEl ? titleEl.textContent.trim() : '';
+    if (title) {
+      textSpan.textContent = title;
+    } else {
+      textSpan.textContent = '今日 AI 热点已就绪';
+    }
+  } else {
+    textSpan.textContent = '今日 AI 热点已就绪';
+  }
+})();
+
 applyMode();
 </script>
 </body>
