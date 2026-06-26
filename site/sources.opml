@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>AI 先机 - 数据源订阅列表</title>
+    <dateCreated>Sat, 27 Jun 2026 02:05:11 +0800</dateCreated>
+  
+</head>
+  <body>
+    <outline text="36氪" title="36氪" type="rss" xmlUrl="https://36kr.com/feed" htmlUrl="https://36kr.com/"/>
+    <outline text="量子位" title="量子位" type="rss" xmlUrl="https://www.qbitai.com/feed" htmlUrl="https://www.qbitai.com/"/>
+    <outline text="少数派" title="少数派" type="rss" xmlUrl="https://sspai.com/feed" htmlUrl="https://sspai.com/"/>
+    <outline text="爱范儿" title="爱范儿" type="rss" xmlUrl="https://www.ifanr.com/feed" htmlUrl="https://www.ifanr.com/"/>
+    <outline text="cnBeta" title="cnBeta" type="rss" xmlUrl="https://www.cnbeta.com/backend.php?mod=news" htmlUrl="https://www.cnbeta.com/"/>
+    <outline text="月光博客" title="月光博客" type="rss" xmlUrl="https://feed.williamlong.info/" htmlUrl="https://feed.williamlong.info/"/>
+  </body>
+</opml>
