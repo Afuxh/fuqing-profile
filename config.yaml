@@ -194,15 +194,15 @@ scoring:
   # 档位配置（三档制：精选/推荐/参考，可改为四档制 S/A/B/C）
   levels:
     - name: "精选"
-      threshold: 80
+      threshold: 65
       color: "#c8786a"
       description: "高质量内容"
     - name: "推荐"
-      threshold: 70
+      threshold: 50
       color: "#b8956a"
       description: "值得阅读"
     - name: "参考"
-      threshold: 60
+      threshold: 35
       color: "#8a9598"
       description: "可作参考"
   
