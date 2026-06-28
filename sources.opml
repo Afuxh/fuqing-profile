@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <opml version="2.0">
   <head>
-    <title>AI 时代观察 - 数据源订阅列表</title>
-    <dateCreated>Tue, 02 Jun 2026 21:35:35 +0800</dateCreated>
+    <title>AI 先机 - 数据源订阅列表</title>
+    <dateCreated>Mon, 29 Jun 2026 03:10:12 +0800</dateCreated>
   
 </head>
   <body>
     <outline text="36氪" title="36氪" type="rss" xmlUrl="https://36kr.com/feed" htmlUrl="https://36kr.com/"/>
-    <outline text="机器之心" title="机器之心" type="rss" xmlUrl="https://www.jiqizhixin.com/rss" htmlUrl="https://www.jiqizhixin.com/"/>
     <outline text="量子位" title="量子位" type="rss" xmlUrl="https://www.qbitai.com/feed" htmlUrl="https://www.qbitai.com/"/>
     <outline text="少数派" title="少数派" type="rss" xmlUrl="https://sspai.com/feed" htmlUrl="https://sspai.com/"/>
-    <outline text="IT之家" title="IT之家" type="rss" xmlUrl="http://www.ithome.com/rss.xml" htmlUrl="http://www.ithome.com/"/>
-    <outline text="虎嗅" title="虎嗅" type="rss" xmlUrl="https://www.huxiu.com/rss/0.xml" htmlUrl="https://www.huxiu.com/rss/"/>
-    <outline text="钛媒体" title="钛媒体" type="rss" xmlUrl="http://www.tmtpost.com/rss.xml" htmlUrl="http://www.tmtpost.com/"/>
-    <outline text="极客公园" title="极客公园" type="rss" xmlUrl="http://feeds.geekpark.net/" htmlUrl="http://feeds.geekpark.net/"/>
     <outline text="爱范儿" title="爱范儿" type="rss" xmlUrl="https://www.ifanr.com/feed" htmlUrl="https://www.ifanr.com/"/>
-    <outline text="品玩" title="品玩" type="rss" xmlUrl="https://www.pingwest.com/feed" htmlUrl="https://www.pingwest.com/"/>
     <outline text="cnBeta" title="cnBeta" type="rss" xmlUrl="https://www.cnbeta.com/backend.php?mod=news" htmlUrl="https://www.cnbeta.com/"/>
     <outline text="月光博客" title="月光博客" type="rss" xmlUrl="https://feed.williamlong.info/" htmlUrl="https://feed.williamlong.info/"/>
   </body>

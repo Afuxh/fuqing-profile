@@ -1,384 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AI 时代观察</title>
+    <title>AI 先机</title>
     <link>https://afuxh.github.io/fuqing-profile/hot-news.html</link>
-    <description>以个人成长视角追踪时代脉搏——AI、科技、时事、财经、生活方式，全领域热点一站聚合。扶清闲话 · AI时代观察。</description>
+    <description>面向AI从业者、投资人、创业者的智能热点聚合站。每天从13个顶级数据源精选热点，三条AI链分别点评行业视角、投资信号、创业机会，附带风险标注与行动指引。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 02 Jun 2026 21:35:35 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2026 03:10:12 +0800</lastBuildDate>
     <atom:link href="https://afuxh.github.io/fuqing-profile/hot-news.html/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>asz798838958/aBaiAutoplus</title>
-      <link>https://github.com/asz798838958/aBaiAutoplus</link>
-      <description>多平台 AI 账号自动注册与管理 · 协议化付款一键开通 ChatGPT Plus</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>anthropic-claude-code-ai/free-claude-code-ai-desktop-app</title>
-      <link>https://github.com/anthropic-claude-code-ai/free-claude-code-ai-desktop-app</link>
-      <description>claude code ai free desktop app  api cli open source opencode aider gemini alternative download github local llm ollama setup guide tutorial api  2026</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>steeliron550-ui/search-bibtex</title>
-      <link>https://github.com/steeliron550-ui/search-bibtex</link>
-      <description>[PolyCite] 基于多智能体协同、多源汇聚的论文引用元数据检索工具 A command-line tool for quickly scraping BibTeX information from computer science conferences and journals, optimized for LLM Multi-Agents.</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>深创投押注全球植纤皮革头部品牌，超级皮儿PEELSPHERE®完成近亿级融资｜36氪首发</title>
-      <link>https://36kr.com/p/3800191597583621?f=rss</link>
-      <description>
- 
- 
-  36氪获悉，植物纤维皮革面料公司深圳朴飞生物（以下简称超级皮儿PEELSPHERE®）已完成新一轮融资，由头部创投机构——深圳市创新投资集团有限公司（深创投）独家战略投资。此轮资金将主要用于新产品研发与团队扩充。
-  超级皮儿PEELSPHERE®是一家做植纤皮革面料的公司。它所切入的场景清晰而纯粹：在消费品牌对材料性能、设计表达、健康环保和综合赋能提出更高要求的背景下，如何通过绿色</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>北京经开区召开太空算力企业座谈会，研究部署太空算力创新中心建设工作</title>
-      <link>https://36kr.com/newsflashes/3835957284795526?f=rss</link>
-      <description>6月1日，北京经济技术开发区工委副书记、管委会主任王磊主持召开太空算力企业座谈会，听取相关企业对北京亦庄打造太空算力产业高地的意见建议，研究部署太空算力创新中心建设工作。与会企业家一致表示，太空算力是商业航天与数字经济融合发展的新赛道，已成为全球科技竞争的新前沿，具有重大战略价值和商业前景。北京经开区近日发起成立北京太空智算研究院，是高水平建设北京太空算力创新中心的重要步骤，是推动太空算力产业从蓝</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>NVIDIA 工厂运营蓝图为工厂打造 AI 大脑</title>
-      <link>https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain</link>
-      <description>NVIDIA发布了工厂运营蓝图（FOX），这是一项用于构建自主工厂管理AI智能体的参考设计。该蓝图基于NVIDIA NemoClaw、AI-Q Blueprint及Nemotron开源模型构建，并针对DGX Station工作站进行了优化，可在配备GB300 Grace Blackwell Ultra芯片的本地环境运行。台湾制造商富士康、和硕、研华和纬创是首批部署FOX蓝图的厂商。其中，富士康基于</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>NVIDIA AI Cloud生态系统全球扩张，满足AI算力需求</title>
-      <link>https://blogs.nvidia.com/blog/ai-cloud-ecosystem</link>
-      <description>NVIDIA AI Cloud生态系统正通过与CoreWeave、Firmus、IREN、Nscale等全球合作伙伴合作，加速在六大洲建设AI工厂基础设施。该生态系统结合NVIDIA的加速计算、网络和AI软件，帮助合作伙伴为模型训练、微调、推理以及智能体AI（agentic AI）应用提供服务。此举旨在满足前沿模型开发、企业AI、电信及国家AI计划的需求，并支持亚太、美洲和非洲等地区的区域性与主权</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>OpenWebRL：面向视觉网页智能体的在线多轮强化学习开源框架</title>
-      <link>https://arxiv.org/abs/2606.02031</link>
-      <description>OpenWebRL是一个用于在真实网站上通过在线多轮强化学习训练视觉网页智能体的开源框架，覆盖了完整的训练流程。基于该框架训练的OpenWebRL-4B模型，在仅使用0.4K条监督初始化轨迹和2.2K个开放式RL训练任务的情况下，在Online-Mind2Web基准上达到67.0%成功率，在DeepShop基准上达到64.0%，超越了同规模或更大规模的先前开源智能体，性能可与OpenAI CUA和</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>NVIDIA JetPack 7.2支持内存优化的边缘智能体部署</title>
-      <link>https://developer.nvidia.com/blog/deploy-agentic-ready-ai-at-the-edge-with-memory-efficiency-in-nvidia-jetpack-7-2</link>
-      <description>NVIDIA JetPack 7.2发布，支持一键部署开源NVIDIA NemoClaw堆栈，该堆栈为OpenClaw添加了隐私与安全控制。同时引入NVIDIA agent skills for Jetson，为Jetson设备提供智能体技能。该版本优化了内存效率，旨在加速AI代理从数字世界向物理环境的边缘部署。</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>OpenAI的AI政策与政治倡导观点</title>
-      <link>https://openai.com/index/our-views-on-ai-policy-and-political-advocacy</link>
-      <description>OpenAI阐述了其在AI政策与政治倡导方面的立场，包括对透明度、深思熟虑的监管以及AI安全的支持。同时，公司明确表示，任何外部政治组织均不能代表OpenAI发言。</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>Sam Altman强调AI发展应以人为本</title>
-      <link>https://x.com/rohanpaul_ai/status/2061586179292831774</link>
-      <description>Sam Altman在采访中表示，AI不应被设计为追求脱离人类需求的目标，人类必须始终处于AI发展的中心。他批判了行业内“AI将摧毁大量工作”等言论，认为人们担忧的并非AI带来的好处，而是自身在未来的角色、经济前景与自主权。他指出，AI行业的失败在于未能清晰解释人类如何在每一步保持对未来的控制权，以及如何在AI时代继续拥有充实、有意义的生活。</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>佛罗里达州起诉OpenAI与Sam Altman：涉多起ChatGPT相关谋杀案</title>
-      <link>https://arstechnica.com/tech-policy/2026/06/florida-sues-openai-sam-altman-after-multiple-chatgpt-linked-murders</link>
-      <description>佛罗里达州对OpenAI及其CEO Sam Altman提起诉讼。该州总检察长指控Altman对人命“完全漠视”，案件与多起涉及ChatGPT的谋杀事件相关。</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>智谱：建议 A 股发行并在科创板上市</title>
-      <link>https://www.ithome.com/0/958/444.htm</link>
-      <description>智谱计划向中国监管机构申请发行A股并在科创板上市。发行股份数量占发行完成后总股本的2%至8%，预计全部为新股，原股东不发售。本次发行募集资金净额将投资于人工智能通用基座大模型、大模型MaaS一站式服务平台及补充流动资金。此外，公司拟将英文名称由“Knowledge Atlas Technology Joint Stock Company Limited”变更为“Z.AI Co., Ltd.”。</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>字节开源统一框架Bernini：给DiT配个“大模型军师”，AI视频编辑先理解再动手</title>
-      <link>https://www.qbitai.com/2026/06/427810.html</link>
-      <description>AI视频编辑先理解再动手</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>对话中关村AI北纬社区任闯：OPC创业者到底需要什么？</title>
-      <link>https://www.tmtpost.com/8010096.html</link>
-      <description>超级个体借助AI实现产出效率质变，与之对应，创业服务的逻辑也随之重构。</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>制糖工厂发布 AI 小电拼 Mirror：全球首款智能体电源，支持 AI Agent 原生接入</title>
-      <link>https://www.ifanr.com/1667606?utm_source=rss&utm_medium=rss&utm_campaign=</link>
-      <description>新增 0.5 寸 ingBar 琥珀屏，160W 高能巡航 ，4×140W 盲插，支持小米 120W 澎湃秒充，CanOS 2.0 如意系统 + OTW 云桥让充电头持续进化，从桌面电站到差旅随行充，全新定义 AI 时代的万能充。#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>早报｜曝苹果用谷歌AI训练自己模型/黄仁勋：工程师不烧Token我会气炸/工信部：动力电池进入规模化退役阶段</title>
-      <link>https://www.ifanr.com/1667559?utm_source=rss&utm_medium=rss&utm_campaign=</link>
-      <description>· 赛力斯回应特斯拉 FSD 入华
-· Anthropic 招聘把价值观面试放到关键位置
-· ChatGPT 消费级 AI 流量份额被追近，AI 市场进入「三足鼎立」#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>Florida sues OpenAI, Sam Altman, in first-of-its-kind lawsuit over violent incidents</title>
-      <link>https://techcrunch.com/2026/06/01/florida-sues-openai-sam-altman-in-first-of-its-kind-lawsuit-over-violent-incidents/</link>
-      <description>The lawsuit partially revolves around a shooting at Florida State University last year, and ChatGPT&apos;s alleged role in the incident. </description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>This easy prompt trick gave me better AI-generated images - no matter the model</title>
-      <link>https://www.zdnet.com/article/beginner-ai-image-prompt-tip-chatgpt-gemini/</link>
-      <description>Having trouble getting the right image out of ChatGPT, Gemini, or another AI tool? Try this foolproof prompt.</description>
-      <category>精选</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI Agent Guidelines for CS336 at Stanford</title>
-      <link>https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md</link>
-      <description>140 评论</description>
+      <title>一折买 Miu Miu，谁在做奢侈品牌的&quot;拼多多&quot;？｜商业Friday</title>
+      <link>https://36kr.com/p/3867976058803459?f=rss</link>
+      <description>有些奢侈品打折活动需要特殊邀请，普通人可能进不去。</description>
       <category>推荐</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
     </item>
     <item>
-      <title>Codex正在成为每个人的生产力工具</title>
-      <link>https://openai.com/index/codex-for-knowledge-work</link>
-      <description>The Next Era of Knowledge Work报告指出，Codex正通过AI增强的研究、数据分析、工作流自动化与内容创作，变革知识工作的生产力。</description>
-      <category>推荐</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
+      <title>匿名 GitHub 帐户大量删除未公开的 0day</title>
+      <link>https://github.com/bikini/exploitarium</link>
+      <description>一个匿名的GitHub账号删除了很多未公开的软件漏洞信息，可能在清除潜在的安全隐患。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
     </item>
     <item>
-      <title>Anthropic 开发者分享 Claude Code「理解验证」工作流</title>
-      <link>https://x.com/shao__meng/status/2061612512580346245</link>
-      <description>Anthropic 核心开发者分享了一套用于 Claude Code 的「理解验证」工作流。该工作流将 AI 定位为“高效且睿智的教师”，成功标准不仅是完成任务，更是确保人类对问题、方案及影响有可复述、可辩护的掌握。它通过增量教学、用户复述、清单+测验等方式，围绕问题域、方案域和语境域三条轴线展开，具体包含8个可执行步骤，强调在进入下一阶段前需确认用户已真正理解。此工作流旨在对抗长会话中人类易沦为</description>
-      <category>推荐</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
+      <title>OvOhao/自动收纸</title>
+      <link>https://github.com/OvOhao/auto-paper-collecter</link>
+      <description>📚🔭您的个人研究雷达——一款由 LLM 驱动的工具，可以自动聚合 arXiv / Crossref / Semantic Sc​​holar / GitHub / RSS 中您的关键词的最新论文。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
     </item>
     <item>
-      <title>Meta的AI被利用来劫持Instagram账号</title>
-      <link>https://www.theverge.com/tech/941179/meta-instagram-ai-support-chatbot-exploit-hacked</link>
-      <description>Meta的AI聊天机器人被发现存在安全漏洞，黑客可以通过请求该AI关联一个新的电子邮件地址，从而接管目标用户的Instagram账号。该漏洞利用了AI智能体直接执行账户管理操作的能力。</description>
-      <category>推荐</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
+      <title>9点1氪｜苹果涨价引山姆代购潮；DeepSeek大规模招聘；黄金再度跌破4000美元</title>
+      <link>https://36kr.com/p/3870720040588295?f=rss</link>
+      <description>苹果涨价让代购更火，AI公司也在招人，黄金价格又跌了。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
     </item>
     <item>
-      <title>OpenAI在密歇根州启动Stargate 1GW数据中心建设</title>
-      <link>https://openai.com/index/stargate-michigan-data-center</link>
-      <description>OpenAI在密歇根州启动了名为Stargate的1GW数据中心项目。作为AI基础设施建设的一部分，该项目旨在扩大人工智能技术的可及性、为当地创造就业机会并支持社区发展。</description>
-      <category>推荐</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
+      <title>理想首谈电池品牌争议：不管谁家电池，都是理想汽车兜底</title>
+      <link>https://36kr.com/p/3866946087867394?f=rss</link>
+      <description>理想汽车说不管电池来自哪家，它们都会负责安全问题。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
     </item>
     <item>
-      <title>SenseNova新模型解决AI图表生成难题</title>
-      <link>https://x.com/SenseTime_AI/status/2061465029959209106</link>
-      <description>大多数AI模型在生成图表时存在数值错误（如负值显示为正）、柱状图位置偏移、元素关系混乱等问题。SenseNova-U1-8B-MoT-Infographic（SenseNova-U1）专为解决此类图表生成问题而设计，能够生成准确的图表，并支持实时调整设计和布局。项目在Hugging Face提供了模型，并在GitHub展示了效果案例。</description>
-      <category>推荐</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
+      <title>追赶FSD V14，理想在补哪些课？｜最前线</title>
+      <link>https://36kr.com/p/3870292939658242?f=rss</link>
+      <description>理想汽车正在努力追赶特斯拉的自动驾驶技术。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
     </item>
     <item>
-      <title>The Next Factory: How Jensen Huang’s Armies of AI Agents Are Redefining the Compute Economy</title>
-      <link>https://www.tmtpost.com/8011677.html</link>
-      <description>At the Computex Taipei, Nvidia CEO Jensen Huang declared that tech has entered the era of autonomous &quot;agentic AI&quot; workers. To anchor this shift, Nvidia unveiled Vera to challenge Intel&apos;s data center d</description>
-      <category>推荐</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
+      <title>《走进AIE》，谁是下一个主角</title>
+      <link>https://36kr.com/p/3869838577620231?f=rss</link>
+      <description>AIE展会成为科技企业展示新技术的重要舞台。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
     </item>
     <item>
-      <title>Mac电脑安装OpenClaw教程</title>
-      <link>https://www.williamlong.info/archives/7536.html</link>
-      <description>自2026年1月起，一款名为OpenClaw（网友俗称&amp;ldquo;小龙虾&amp;rdquo;）的开源AI智能体在国内外社交媒体爆火，并衍生出收费安装服务。北京、上海、深圳等地的不少企业放出了&amp;ldquo;OpenClaw开发工程师&amp;rdquo;等岗位，其要求不限于&amp;ldquo;熟悉OpenClaw工具，有实际部署经验&amp;rdquo;等。
+      <title>悟空安全上线“弹必赔”，主打“0添加”安全软件</title>
+      <link>https://36kr.com/newsflashes/3872623912571910?f=rss</link>
+      <description>悟空安全推出新功能，能拦截广告弹窗并给奖励。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>前端工程师最不想看到的开源项目出现了，一行命令克隆任意网站</title>
+      <link>https://www.qbitai.com/2026/06/439515.html</link>
+      <description>“我们错误地认为，只要引入人工智能……就能生产出高质量的产品。”</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>一次吃下一本书！百度开源新OCR，作者疑似前DeepSeek研究员</title>
+      <link>https://www.qbitai.com/2026/06/439464.html</link>
+      <description>百度推出新的OCR技术，能快速识别文字，作者可能来自另一家AI公司。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>兜兜转转四款笔记软件，我终于为思考找到了安身之所</title>
+      <link>https://sspai.com/post/110935</link>
+      <description>有人换了四款笔记软件，终于找到适合自己的工具。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>早报｜GPT-5.6正式亮相，但你可能还用不了/微软将上调Xbox主机价格/大疆回应Pocket 4P开售秒空</title>
+      <link>https://www.ifanr.com/1670246?utm_source=rss&utm_medium=rss&utm_campaign=</link>
+      <description>GPT-5.6发布，Xbox涨价，大疆回应产品热销。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>大疆定义了 Pocket，而 Pocket 4P 定义了「口袋电影机」</title>
+      <link>https://www.ifanr.com/1669925?utm_source=rss&utm_medium=rss&utm_campaign=</link>
+      <description>大疆的新产品Pocket 4P被称作“口袋电影机”，功能很强大。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>为什么华尔街认为美国内存制造商美光是下一个英伟达</title>
+      <link>https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/</link>
+      <description>华尔街投资者渴望找到更多与英伟达一样出色的人工智能相关上市公司，他们认为美光是他们的赢家。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>由 Y Combinator 支持的保险科技初创公司 Corgi 表示，它没有窃取开源产品</title>
+      <link>https://techcrunch.com/2026/06/26/corgi-the-buzzy-y-combinator-backed-insurance-tech-startup-says-it-didnt-steal-an-open-source-product/</link>
+      <description>当 Papermark 指控 Corgi 窃取其软件时，Corgi 卷入了争议。柯基犬说没有，这引发了关于振动编码的新问题。</description>
+      <category>参考</category>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>马克斯·普朗克因涉嫌流氓算法而被撤回两篇论文</title>
+      <link>https://science.slashdot.org/story/26/06/27/2042204/max-planck-slapped-with-two-paper-retractions-by-suspected-rogue-algorithm?utm_source=rss1.0mainlinkanon&utm_medium=feed</link>
+      <description>马克斯·普朗克荣获 1918 年诺贝尔物理学奖。然而他的两篇论文被撤回——这一举动现在受到魁北克大学物理历史学家伊夫·金格拉斯(Yves Gingras)和昆士兰大学三河市科学史学家马赫迪·凯尔法乌伊(Mahdi Khelfaoui)的批评。科学报告：
 
-据了解，OpenClaw是由奥地利退休程序员Peter Stei</description>
-      <category>推荐</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>Nvidia chases $200B CPU market with AI agent PCs from Microsoft, Dell, and HP</title>
-      <link>https://techcrunch.com/2026/06/01/nvidia-chases-200b-cpu-market-with-ai-agent-pcs-from-microsoft-dell-and-hp/</link>
-      <description>If Nvidia has cracked a way to bring AI agents easily, safely, and usefully to the masses, it could — and should — be big.</description>
-      <category>推荐</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>pewdiepie-archdaemon/odysseus</title>
-      <link>https://github.com/pewdiepie-archdaemon/odysseus</link>
-      <description>Self-hosted AI workspace. </description>
+这两篇论文最初发表于 2011 年悄然撤回的论文，最初发表于 20 世纪 40 年代初的《Naturwissenschaften》，这是一份德国期刊，现归出版巨头施普林格·自然 (Springer Nature) 所有。经过一番调查后，Khelfaoui 确定</description>
       <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
     </item>
     <item>
-      <title>withkynam/vibecode-pro-max-kit</title>
-      <link>https://github.com/withkynam/vibecode-pro-max-kit</link>
-      <description>Your AI forgets. This remembers. Spec-driven coding harness for vibecoders, product owners, CEOs and real builders — self-improving context memory, 12 agents, 32 skills. Kills context rot, ships featu</description>
+      <title>我如何将旧 Android 手机免费变成流媒体棒 - 只需 6 个简单步骤</title>
+      <link>https://www.zdnet.com/article/how-to-turn-android-phone-into-streaming-stick-roku-fire-tv/</link>
+      <description>跳过流媒体棒 - 以下是我如何使用备用 Pixel 手机在电视上观看电影。</description>
       <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
     </item>
     <item>
-      <title>DannyMac180/skills</title>
-      <link>https://github.com/DannyMac180/skills</link>
-      <description>AI agent skills created by me: Dan McAteer</description>
+      <title>我总是在每台新设备上更改 13 个 Google 相册设置 - 以及原因</title>
+      <link>https://www.zdnet.com/article/google-photos-settings-i-change-on-new-android-iphone-why/</link>
+      <description>在我的 Android 或 iPhone 相机胶卷上使用 Google Photos 之前，我会先检查这些备份、隐私和 AI 设置。</description>
       <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>yb2460/harness-anything</title>
-      <link>https://github.com/yb2460/harness-anything</link>
-      <description>CLI harness for WPS Office -- let AI agents control Writer, Calc &amp; Impress via COM automation</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>stormneonnightraven4640692/DeepFake-AI-RealTime</title>
-      <link>https://github.com/stormneonnightraven4640692/DeepFake-AI-RealTime</link>
-      <description>An advanced, LLM-powered toolkit providing comprehensive capabilities for ethical synthetic media detection, analysis, and responsible content generation.</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>2aronS/Duel-Agents</title>
-      <link>https://github.com/2aronS/Duel-Agents</link>
-      <description>CLI, SDK, and IDE plugins for Duel Agents</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>ClaudioDrews/memory-os</title>
-      <link>https://github.com/ClaudioDrews/memory-os</link>
-      <description>A 7-layer memory operating system for Hermes Agent — persistent memory with Qdrant, structured facts, fabric recall, auto-curated wiki, and surgical context injection. Runs locally, any LLM provider.</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>trynullsec/nullsec-s1</title>
-      <link>https://github.com/trynullsec/nullsec-s1</link>
-      <description>Security-native LLM system for AI-generated application security.</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>Liu-Ming-Yu/alpha-forge</title>
-      <link>https://github.com/Liu-Ming-Yu/alpha-forge</link>
-      <description>Alpha Forge — an agentic AI operating system for systematic trading.</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>hwl668/Scientific-learning-skills-</title>
-      <link>https://github.com/hwl668/Scientific-learning-skills-</link>
-      <description>Diagnosis-first Agent Skills that turn AI from answer machine into   learning tutor.</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>前美团外卖技术负责人创业，做具身智能时代的“餐饮世界模型”</title>
-      <link>https://36kr.com/p/3834292242130825?f=rss</link>
-      <description>
- 
- 
-  具身智能的落地，正在从实验室走向最真实、最繁忙的物理世界。
-  而元节智能（AtomBite.AI）选择了一个看起来并不性感、但足够真实的场景：餐饮后厨。
-  36氪获悉，具身智能公司元节智能近日完成千万级种子轮融资，由英诺科创基金领投，水木清华校友种子基金、知名投资人个人跟投。资金将主要用于餐饮场景具身世界模型研发及核心产品落地。
-  元节核心团队在成立公司前有过较长时期的探索和孵</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>Anthropic扩展Project Glasswing计划</title>
-      <link>https://www.anthropic.com/news/expanding-project-glasswing</link>
-      <description>Anthropic正将其Project Glasswing计划扩展至约150个新组织，此前首批约50个合作伙伴。新伙伴分布于十五个多国家，覆盖电力、水务、医疗、通信和硬件等关键基础设施行业。这些合作伙伴的共同点在于，其代码库若遭成功攻击，后果可能极其严重，影响或超1亿人。项目旨在利用Claude Mythos Preview等前沿模型扫描漏洞并协助修复，以应对AI驱动的网络安全挑战。同时，Anth</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>Qwen3.7-Plus：多模态智能体智能</title>
-      <link>https://qwen.ai/blog?id=qwen3.7-plus</link>
-      <description>Qwen Studio 提供涵盖聊天机器人、图像与视频理解、图像生成、文档处理、网页搜索集成、工具使用及制品生成的全面功能。</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>机器人运控训练步入分钟级时代！清华AIR开源UniLab：3分钟训好人形，速度暴涨10倍，Mac上也能跑</title>
-      <link>https://www.qbitai.com/2026/06/427729.html</link>
-      <description>全新的机器人强化学习训练架构</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>从插件到 AI 辅助：Obsidian 如何成为我的主力工具</title>
-      <link>https://sspai.com/post/109850</link>
-      <description>我觉得二十一世纪的知识管理工作者，不使用 Obsidian 真的是错过一个亿，真正怎么样还得上手体验了才知道。当我自己慢慢花时间沉浸式使用的时候，明显感觉现在的 Obsidian 真的好用了一倍不止。查看全文</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>滴普科技赵杰辉：企业 AI 技术生态，正在被重构</title>
-      <link>https://www.tmtpost.com/8011496.html</link>
-      <description>在新的结构里，那些「替模型补短板」的技术方案会退到边缘甚至退场，而企业知识层与企业智能体层会成为新的核心。</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>港股“北归”：智谱和MiniMax为何急着回A？</title>
-      <link>https://www.tmtpost.com/8011340.html</link>
-      <description>国内AI大模型正筹划“双城记”。 近日，“全球大模型第一股”智谱（02513.HK）正式建议向国内监管机构申请配发及发行A股，计划在科创板上市，建议A股的发行数量占扩大后股本额2%-8%之间，募集资金以用于AI通用基座大模型、大模型MaaS一站式平台和补充流动资金。</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>制糖工厂发布 AI 小电拼 Mirror：琥珀屏、双支架与可拼拆设计，重构桌面能源设备</title>
-      <link>https://www.ifanr.com/1667822?utm_source=rss&utm_medium=rss&utm_campaign=</link>
-      <description> AI 小电拼 Mirror 作为 AI 小电拼系列的新一代旗舰产品，Mirror 延续小电拼家族的可拼拆结构，并新增 0.5 英寸 ingBar 琥珀状态屏、Wingie 蝶架与 Oxie 牛架，在桌面显示、支架形态与家旅双栖体验上完成了一次系统化更新。#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>任务成本仅为Claude Opus 4.6 1/9，阶跃刷新Flash模型效率</title>
-      <link>https://www.ifanr.com/1667680?utm_source=rss&utm_medium=rss&utm_campaign=</link>
-      <description>Flash 模型，不再是旗舰的平替#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>腾讯QQ开放OpenClaw官方接入</title>
-      <link>https://www.williamlong.info/archives/7537.html</link>
-      <description>3月7日消息，腾讯昨日面向个人用户开放了一项新功能，允许通过官方渠道快速创建能与 AI 智能体工具 OpenClaw 联动的 QQ 机器人。
-
-根据腾讯 QQ 开放平台发布的信息，用户只需通过手机 QQ 扫码登陆即可完成开发者账号注册（没有实名的 QQ 仍需完成实名登记），只需点击一次鼠标即可完成 QQ 机器人的创建，随后只需在 OpenClaw 运行环境中完成简单配置即可绑定，便能在 QQ 上与</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>Zigging when most are zagging, ex-Meta CTO raises $250M climate fund</title>
-      <link>https://techcrunch.com/2026/06/01/zigging-when-most-are-zagging-ex-meta-cto-raises-250m-climate-fund/</link>
-      <description>Mike Schroepfer&apos;s Gigascale Capital has raised a large fund to back founders building climate-friendly solutions for the world&apos;s energy and material shortages.</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>I set 10 honesty traps for Claude Opus 4.8 - and a legal test broke it</title>
-      <link>https://www.zdnet.com/article/claude-opus-4-8-honesty-test/</link>
-      <description>I tested Opus 4.8 against 4.7 using coding, medical, finance, and legal traps, then cross-checked the results with multiple AIs.</description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>For veterans, a place where peace can take root</title>
-      <link>https://www.npr.org/2026/06/02/nx-s1-5843247/veterans-garden-la</link>
-      <description>Iraq war veteran John Follmer leads vet volunteers who are rehabbing a neglected Japanese garden on the West LA Veterans Affairs Campus. </description>
-      <category>参考</category>
-      <pubDate>Tue, 02 Jun 2026 21:35:35 +0800</pubDate>
+      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
     </item>
   </channel>
 </rss>

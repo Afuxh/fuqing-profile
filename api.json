@@ -1,1247 +1,176 @@
 {
   "meta": {
-    "title": "AI 时代观察",
+    "title": "AI 先机",
     "url": "https://afuxh.github.io/fuqing-profile/hot-news.html",
-    "updated": "2026-06-15 12:12:33",
-    "total": 94
+    "updated": "2026-06-29 03:10:12",
+    "total": 48
   },
   "categories": {
-    "精选": [
-      {
-        "title": "DietrichGebert/ponytail",
-        "url": "https://github.com/DietrichGebert/ponytail",
-        "score": 83,
-        "source": "GitHub",
-        "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
-        "perspective": "这条新闻的价值和机会远不止于一个代码生成工具的诞生，它触及了当代技术行业最深层的矛盾与渴望——对\"懒惰\"的重新定义、对效率的极致追求，以及人类与AI协作关系的哲学重构。从三个维度剖析，其背后蕴含着极具颠覆性的商业与文化潜质。\n\n**IP打造：从\"反英雄\"到技术哲学的符号化**\nDietrich Gebert创造的\"lazy senior dev\"",
-        "action": "选题：展示AI生成复杂代码案例；工具：GitHub Copilot+LangChain；变现：YouTube付费课程+GitHub赞助。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "desktop-hermes/hermes-agent-desktop",
-        "url": "https://github.com/desktop-hermes/hermes-agent-desktop",
-        "score": 91.3,
-        "source": "GitHub",
-        "summary": "Hermes Desktop github nous research hermes ai  agent local ai ollama github download open source pc windows app installation setup workspace llm model",
-        "perspective": "这条新闻的价值和机会绝非简单的技术产品发布，而是一次对AI生态格局、用户心理和商业逻辑的深度重构。从三个维度来看，Hermes Desktop的出现正在掀起一场\"去中心化AI觉醒运动\"，其意义远超表面的工具创新。\n\n**IP打造：从技术专利到社区信仰的降维打击**\nNous Research在此项目中展现出罕见的IP战略眼光。通过将Hermes Agent封装为本地化部署",
-        "action": "建议在B站发布\"Windows本地AI部署教程：用Hermes Agent+Ollama运行开源LLM\"，结合Notion做技术笔记，通过知识星球接广告变现。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "keyuchen21/agentic-engineering-handbook",
-        "url": "https://github.com/keyuchen21/agentic-engineering-handbook",
-        "score": 100,
-        "source": "GitHub",
-        "summary": "The definitive OpenAI, Claude, MCP, Harness, Evals, and Production Agent Systems learning roadmap.",
-        "perspective": "这条新闻的价值和机会远不止于技术文档的实用性，它触及了当前AI领域中几个关键的生态节点，展现出一种**跨平台整合思维**与**知识经济的裂变效应**。从IP打造、内容创作和心理学三维度切入，我认为它具备颠覆性潜力，但也暗含风险与挑战。\n\n---\n\n### **IP打造：从“技术搬运工”到“系统架构师”的认知跃迁**\n标题中的“agentic-engineering",
-        "action": "在B站发布“OpenAI Agents实战教程”系列视频，结合GitHub代码演示，通过广告分成+知识付费课程变现。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "nelsonwerd/idea-to-ship-skills",
-        "url": "https://github.com/nelsonwerd/idea-to-ship-skills",
-        "score": 84.2,
-        "source": "GitHub",
-        "summary": "Composable Agent Skills (Claude + OpenAI Codex) for taking an idea from fuzzy → validated → sequenced build → shipped — a manual tier (ideate, deep-di",
-        "perspective": "**独到点评：从「创意茧房」到「认知杠杆」的AI时代破局者**\n\n这条新闻的价值不在于技术参数的堆砌，而在于它精准击中了人类创造力生态链的终极痛点——**从混沌到落地的「认知鸿沟」**。Nelson Werd提出的「Composable Agent Skills」模型，本质上是在构建一个**AI驱动的创意执行生态系统**，其战略意义远超简单的工具组合，更像",
-        "action": "选题：用Claude+Codex实现创意到产品的全流程；工具：Claude头脑风暴+Codex代码生成；变现：B站付费专栏售卖系统化方法论课程。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "DragonMeow1012/DragonMeow-MangaTranslator",
-        "url": "https://github.com/DragonMeow1012/DragonMeow-MangaTranslator",
-        "score": 90.1,
-        "source": "GitHub",
-        "summary": "漫畫圖片一鍵翻譯：偵測→OCR→LLM翻譯→抹字→嵌字，內建 localhost 網頁端，解壓即用。支援 Gemini/ChatGPT/Claude/Grok/DeepSeek 等多家 API。",
-        "perspective": "这条新闻不仅是一次技术工具的发布，更是一场对\"文化翻译经济\"的精准狙击。DragonMeow作为AI领域的先锋，其将漫画翻译技术封装为可直接使用的工具，本质上是在重构内容传播的生态链。\n\n从IP打造角度看，这个工具正在将DragonMeow从一个AI模型转化为一个文化中介体。通过将OCR、LLM翻译、图像处理等技术模块化，它创造了一个低门槛的内容解码系统，",
-        "action": "在B站发布「一键翻译漫画神器测评」教程，演示本地网页端+多API对比流程，通过创作激励+广告分成变现。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "硬氪专访 | 智源研究院院长王仲远：VLA不会死，但世界模型是未来",
-        "url": "https://36kr.com/p/3853016586359817?f=rss",
-        "score": 83,
-        "source": "36氪",
-        "summary": "\n \n \n  作者&nbsp;|&nbsp;邱晓芬\n  编辑&nbsp;|&nbsp;袁斯来\n  过去几个月，“世界模型”（World Model）从学术黑话迅速膨胀成AI和机器人行业里的关键词。\n  行业的目光转向背后是切实的焦虑。\n  一方面，经过了过去两年的野蛮生长，具身智能暴露了当前AI在物",
-        "perspective": "世界模型将让AI更懂\"情境\"，普通人未来的工作可能从执行转向设计，但别指望机器能替代你对人性细节的感知——毕竟它永远算不出深夜加班时咖啡杯里映出的孤独。",
-        "action": "学习Python和PyTorch，用Colab实践基础模型，避免盲目追逐VLA热点，转而研究世界模型的最新论文。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "高瓴出手了一家消费级柔性机器人公司，要把“大白”从电影搬进现实家庭｜硬氪首发",
-        "url": "https://36kr.com/p/3851572421432324?f=rss",
-        "score": 100,
-        "source": "36氪",
-        "summary": "\n \n \n  作者｜黄楠\n  编辑｜袁斯来\n  硬氪获悉，消费级柔性机器人公司SoulX日���已完成数千万元天使轮融资，投资方为高瓴创投，向阳资本担任独家财务顾问。资金将重点投入产品持续迭代、技术研发，并加快供应链与规模化交付体系搭建。首款机器人产品MoYa将于2026年下半年正式发布。\n  So",
-        "perspective": "标题：高瓴出手了一家消费级柔性机器人公司，要把“大白”从电影搬进现实家庭｜硬氪首发\n\n**观点：**  \n柔性机器人进家庭，等于给普通人卸了“劳动枷锁”，但也在悄悄重塑我们对自我价值的认知——靠双手吃饭的时代，或许要让位给情感与创意的较量了。",
-        "action": "学习Python编程及TensorFlow框架，避开盲目追求高端技术，保持实践与理论结合的心态。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "36氪研究院 | AI时代留学就业白皮书：中国留学生全球就业趋势与人才价值重塑",
-        "url": "https://36kr.com/p/3846972367866119?f=rss",
-        "score": 100,
-        "source": "36氪",
-        "summary": "\n \n \n  在AI浪潮重塑全球产业逻辑的当下，传统留学路径所依赖的学历溢价与信息差正在系统性失效，大量高薪专业的基础性任务面临被AI批量化替代的风险。70/80后家长遭遇教育投资回报率骤降，05后年轻一代则陷入人机协同时代“何以确立自身不可替代价值”的身份焦虑。面对旧共识瓦解、新航线未明的历史性分",
-        "perspective": "AI正在让全球就业市场变得\"更聪明\"，中国留学生若想不被卷，得把留学当成升级技能的跳板，而不是逃避竞争的盾牌。别再迷信名校光环，真正的价值是学会用技术思维解构问题，在跨文化场景中创造不可替代的差异化内容。",
-        "action": "学习Python和SQL提升数据分析能力，避免只学理论，主动实践项目以增强AI时代就业竞争力。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "早报｜曝苹果iOS还有三项功能没公布/Claude Fable 5封禁内幕曝光/阿里巴巴:「周靖人离职」为谣言",
-        "url": "https://www.ifanr.com/1668954?utm_source=rss&utm_medium=rss&utm_campaign=",
-        "score": 91,
-        "source": "爱范儿",
-        "summary": "· 员工烧 Token 太猛，曝 Meta 开始限制 AI 用量\n· 安克创新通过港交所上市聆讯，2025 年营收 305 亿元\n· 豆包上线「任务模式」，扩展网页和 PPT 生成#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。",
-        "perspective": "**标题：早报｜曝苹果iOS还有三项功能没公布/Claude Fable 5封禁内幕曝光/阿里巴巴:「周靖人离职」为谣言**\n\n**观点：**  \n苹果的“未公布功能”像在给用户画饼，暗示技术垄断正在用神秘感收割信任；Claude被封禁则暴露AI创作的伦理黑洞——算法再聪明，也得有人为它背锅；而阿里辟谣的尴尬，说明",
-        "action": "学习ChatPDF工具高效处理PDF文档，避免盲目跟风AI谣言，用Notion制定每周AI技能学习计划。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "《国务院关于对外投资的规定》自7月1日起施行",
-        "url": "https://www.williamlong.info/archives/7548.html",
-        "score": 91,
-        "source": "月光博客",
-        "summary": "2026年6月1日，国务院公布《国务院关于对外投资的规定》（以下简称《规定》），新规将自2026年7月1日起施行。《规定》旨在推进高水平对外开放，促进对外投资高质量发展，有效实施对外投资管理，保护投资者及其对外投资合法权益，维护国家主权、安全、发展利益。《规定》共34条，主要规定了以下内容。\n\n国务",
-        "perspective": "《国务院关于对外投资的规定》新规实施，普通人需要重新审视\"钱往哪花\"的逻辑——投资门槛提高意味着更多人将被迫从\"野蛮生长\"转向\"精耕细作\"，既可能限制冒险心态，也可能倒逼大家在理财思维上更清醒，毕竟现在连出国打工都要先过政策安检了。",
-        "action": "学习\"政策法规数据库\"（如北大法宝）解读新规，避开税务不合规风险，调整心态为逐步学习而非盲目跟风。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on",
-        "url": "https://www.anthropic.com/news/dxc-anthropic-alliance",
-        "score": 84,
-        "source": "Anthropic News",
-        "summary": "DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on",
-        "perspective": "标题：DXC将Claude植入金融航空等系统，普通人要警惕\"AI代工\"的职场革命\n\n普通人得提前学点AI交互技能，别等它抢了饭碗才慌——未来职场会分化成\"懂AI的执行者\"和\"被AI替代的流程工人\"，你的价值取决于能否用人类特有的判断力驾驭机器，而不是单纯依赖机器干活。",
-        "action": "学习使用Notion建立个人知识库，避免盲目跟风AI工具，保持持续学习心态。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "WorkBench Revisited: Workplace Agents Two Years On",
-        "url": "https://arxiv.org/abs/2606.13715",
-        "score": 96,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13715v1 Announce Type: new \nAbstract: The best agent on WorkBench in March 2024, GPT-4, completed 43% of tasks and took an unintended harmf",
-        "perspective": "标题：WorkBench Revisited: Workplace Agents Two Years On\n\n这新闻意味着普通人得抓紧提升创造力和批判性思维，别让AI代理把你的工作变成流水线——毕竟机器再智能，也替代不了人类面对复杂问题时的直觉和情感共鸣。",
-        "action": "学习Notion AI生成内容与结构化笔记，避开过度依赖自动化，调整心态将工具辅助思维训练。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "Poker Arena: Multi-Axis Profiling of Strategic Reasoning and Memory in LLMs",
-        "url": "https://arxiv.org/abs/2606.13815",
-        "score": 91,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13815v1 Announce Type: new \nAbstract: Strategic reasoning under uncertainty underpins consequential decisions in negotiation, finance, and ",
-        "perspective": "标题：Poker Arena: Multi-Axis Profiling of Strategic Reasoning and Memory in LLMs\n\n这项研究揭示了AI在复杂决策和记忆管理上的突破，意味着未来普通人可能更容易依赖算法处理需要策略思维的工作，但同时也警示：过度信任\"完美计算\"会削弱人类直觉和创造力，真正的成长在于学会与AI协作而非被其替代。内容创作者或将面临更精准的受众分析工具，但深度思考和情感共鸣仍是AI难以",
-        "action": "学习使用Anki制作记忆卡片，避开只依赖重复记忆的陷阱，调整为每日15分钟专注训练逻辑与信息处理能力。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "Capability Minimization as a Safety Primitive: Risk-Aware Causal Gating for Least-Privilege LLM Agents",
-        "url": "https://arxiv.org/abs/2606.13884",
-        "score": 91,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13884v1 Announce Type: new \nAbstract: Modern decision systems increasingly rely on learned components whose outputs may be confident yet wr",
-        "perspective": "这条技术会让AI像被关进笼子的狮子，普通人用得更安心，但别指望它能帮你解决那些需要跳出框架的复杂难题——安全是前提，却可能扼杀AI本该有的野性创造力。",
-        "action": "使用Notion制定学习计划，按最小权限原则设定每日专注技能，避免多线程学习。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "Formalizing Numerical Analysis: An Agent Pipeline and Quality Audit Beyond Kernel Acceptance",
-        "url": "https://arxiv.org/abs/2606.14000",
-        "score": 83,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.14000v1 Announce Type: new \nAbstract: Recent work has demonstrated that coding agents can formalize entire advanced mathematics textbooks i",
-        "perspective": "这条新闻意味着普通人将不再需要亲自验证复杂的计算结果，算法的\"信任感\"正在成为新生产力——人们可以更安心地依赖技术完成工作，把脑力留给创意而非纠错，就像把算术题交给计算器后，人类终于能专注做数学题本身。",
-        "action": "学习Python NumPy库，用Jupyter Notebook实践基础矩阵运算，避免盲目追求复杂工具，先掌握核心函数再逐步深入。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "The Coin Flip Judge? Reliability and Bias in LLM-as-a-Judge Evaluation",
-        "url": "https://arxiv.org/abs/2606.13685",
-        "score": 100,
-        "source": "Arxiv Cl",
-        "summary": "arXiv:2606.13685v1 Announce Type: new \nAbstract: LLM-as-a-Judge is now widely used to rank model outputs, train reward models, and populate public lea",
-        "perspective": "标题：The Coin Flip Judge? Reliability and Bias in LLM-as-a-Judge Evaluation\n\n**观点：**  \nAI法官的“随机判决”暴露了算法对人类认知的碾压式干预，普通人越来越依赖它替自己做决定，反而失去了独立思考的勇气；内容创作者更该警惕，当AI开始用冰冷逻辑评判人性化的表达时，真正的创意可能被格式化成数据的牺牲品。",
-        "action": "使用Fact-Check API验证AI生成内容，避开偏见陷阱，培养批判性思维。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "When Plausible Is Not Realistic: Evaluating Human Mobility in LLM-Based Urban Simulation",
-        "url": "https://arxiv.org/abs/2606.13835",
-        "score": 83,
-        "source": "Arxiv Cl",
-        "summary": "arXiv:2606.13835v1 Announce Type: new \nAbstract: LLM-based generative agents are increasingly used in urban simulators, yet it remains unclear whether",
-        "perspective": "标题：当LLM模拟的\"合理\"通勤路径与现实脱节，普通人可能在算法推荐中迷失自我节奏，心理上产生依赖，反而削弱了应对真实城市复杂性的能力。  \n（观点：技术越精准，越容易让人陷入\"被规划的人生\"，失去对真实世界动态适应的本能，这比效率更重要。）",
-        "action": "学习Hugging Face Transformers库，避开复杂模型陷阱，通过小项目积累AI实战经验。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "SANA: What Matters for QA Agents over Massive Data Lakes?",
-        "url": "https://arxiv.org/abs/2606.13904",
-        "score": 83,
-        "source": "Arxiv Cl",
-        "summary": "arXiv:2606.13904v1 Announce Type: new \nAbstract: Exploratory question answering (EQA) over data lakes requires an LLM agent to discover relevant sourc",
-        "perspective": "标题：SANA: What Matters for QA Agents over Massive Data Lakes?\n\n普通人需要重新定义自己的价值，不再依赖重复性工作，而是培养与AI协作的批判性思维，避免被算法\"驯化\"成数据流水线上的附庸；内容创作将从\"人脑记事本\"升级为\"人机共舞\"，但核心创意权仍攥在人类手里，别让机器替你思考\"为什么\"。",
-        "action": "学习Python Pandas处理数据，避开过度依赖AI工具，心态上分阶段实践提升技能。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "Can Post-Training Turn LLMs into Good Medical Coders? An Empirical Study of Generative ICD Coding",
-        "url": "https://arxiv.org/abs/2606.13940",
-        "score": 84,
-        "source": "Arxiv Cl",
-        "summary": "arXiv:2606.13940v1 Announce Type: new \nAbstract: Automated International Classification of Diseases (ICD) coding is a core medical-coding task for bil",
-        "perspective": "标题：Can Post-Training Turn LLMs into Good Medical Coders? An Empirical Study of Generative ICD Coding\n\n这研究暗示AI可能接管医疗编码这种重复性工作，但普通人更该担心的是：当机器能精准归类病症代码时，人类医生的临床判断力会不会被数据标准化的茧房困住？",
-        "action": "学习ICD-10编码基础，用Coursera系统课程打底，搭配Medisoft模拟软件实操，避免直接套用LLM生成结果。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "LLMs Contain Multitudes: How Deployment Context Reshapes Model-Level Preferences and Values",
-        "url": "https://arxiv.org/abs/2606.13944",
-        "score": 84,
-        "source": "Arxiv Cl",
-        "summary": "arXiv:2606.13944v1 Announce Type: new \nAbstract: Large language models (LLMs) are increasingly characterised in recent evaluation work as having stabl",
-        "perspective": "《LLMs Contain Multitudes》揭示了一个残酷真相：AI在不同场景下会像变色龙一样调整价值观，普通人要警惕——当你依赖它做决策时，它可能早已根据你的需求\"改头换面\"，这要求我们比以往更主动地校准自己的判断力，而不是被动接受\"智能建议\"。\n\n内容创作领域将面临更深层的挑战：AI不再是单纯的语言工具，而是开始根据使用场景主动塑造叙事逻辑，",
-        "action": "使用Notion结合AI生成内容整理知识体系，避免碎片化学习，保持定期反思习惯。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "BBVA puts AI at the core of banking with OpenAI",
-        "url": "https://openai.com/index/bbva",
-        "score": 91,
-        "source": "Openai Blog",
-        "summary": "Learn how BBVA scaled ChatGPT Enterprise to 100,000 employees and partnered with OpenAI to accelerate AI-powered banking transformation worldwide.",
-        "perspective": "BBVA把AI当核心，意味着普通人得主动升级技能，否则在自动化浪潮里容易被边缘化，但这也逼着我们重新思考工作的意义——不再只是\"被替代\"，而是\"被重新定义\"。",
-        "action": "学习Excel的AI数据分析功能（如Power Query+AI插件），避免盲目依赖工具，保持主动学习心态。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      },
-      {
-        "title": "PRC-linked influence operations are targeting AI debates in the US",
-        "url": "https://openai.com/index/prc-linked-influence-operations-ai-debates",
-        "score": 91,
-        "source": "Openai Blog",
-        "summary": "A new report from OpenAI details PRC-linked influence operations using AI to target U.S. tech debates, data center narratives, tariffs, and false clai",
-        "perspective": "标题：PRC-linked influence operations are targeting AI debates in the US\n\n这条新闻意味着普通人可能被灌输偏见，影响职业选择和生活决策；内容创作者的表达自由面临威胁，需要更谨慎地辨别信息来源，避免成为舆论操控的工具。",
-        "action": "学习使用TensorFlow框架提升AI技能，同时通过FactCheck.org验证信息真伪，避免被片面观点误导。",
-        "level": {
-          "name": "精选",
-          "color": "#e74c3c",
-          "threshold": 80
-        }
-      }
-    ],
+    "精选": [],
     "推荐": [
       {
-        "title": "MD-Mushfiqur123/lychee",
-        "url": "https://github.com/MD-Mushfiqur123/lychee",
-        "score": 76.0,
-        "source": "GitHub",
-        "summary": "Lychee: Universal Local LLM Runtime with Anthropic API, Model Composer, Agent Sandbox, HuggingFace Pull, and Embedded Web Dashboard — built on top of ",
-        "perspective": "这条新闻的价值和机会远不止于技术参数的堆砌，它实际上揭示了一个更深层的AI生态变革逻辑，需要从IP战略、内容生态和用户心理三个维度进行深度解构。\n\n**1. IP战略：重新定义\"本地化\"的商业叙事**\nLychee的\"Universal Local LLM Runtime\"概念正在撕开AI行业的一个核心矛盾——云端与本地的博弈。传统认知中，大模型的本地部署意味着高昂成本和",
-        "action": "发布“Anthropic API实测”视频，使用HuggingFace模型拉取演示Lychee功能，通过HuggingFace模型商店分成和企业定制开发变现。",
-        "level": {
-          "name": "推荐",
-          "color": "#f39c12",
-          "threshold": 70
-        }
-      },
-      {
-        "title": "8点1氪丨诺奖得主称马斯克是庞氏骗局；SK海力士去年新增员工超2000人；人形机器人U1仅限成人购买",
-        "url": "https://36kr.com/p/3853670570743040?f=rss",
-        "score": 75,
+        "title": "一折买 Miu Miu，谁在做奢侈品牌的\"拼多多\"？｜商业Friday",
+        "url": "https://36kr.com/p/3867976058803459?f=rss",
+        "score": 54,
         "source": "36氪",
-        "summary": "\n \n \n  今日热点导览\n  \n   加拿大母亲起诉奥特曼与OpenAI，指控ChatGPT诱导女儿自杀\n   A股10家退市公司波及超25万股民\n   SK海力士去年新增员工超2000人\n   H&amp;M重组全球架构，大中华区降级\n   世界杯期间英格兰队装备遭窃，大部分已被追回\n  \n  ",
-        "perspective": "**标题：8点1氪丨诺奖得主称马斯克是庞氏骗局；SK海力士去年新增员工超2000人；人形机器人U1仅限成人购买**\n\n**观点：** 诺奖得主撕开科技神话的遮羞布，提醒普通人别被“未来感”冲昏头脑，投资和职业选择要扎扎实实；而人形机器人限成人购买、半导体巨头扩招，正悄悄",
-        "action": "学习Python和TensorFlow，通过Coursera课程系统提升AI技能，避免盲目投资炒作项目。",
-        "level": {
-          "name": "推荐",
-          "color": "#f39c12",
-          "threshold": 70
-        }
-      },
-      {
-        "title": "2026智源大会开幕：推动AI、物理世界和生命科学“三体互动”",
-        "url": "https://www.qbitai.com/2026/06/435394.html",
-        "score": 76,
-        "source": "量子位",
-        "summary": "",
-        "perspective": "标题：2026智源大会开幕：推动AI、物理世界和生命科学“三体互动”\n\n**观点：**  \nAI与物理、生命科学的“三体互动”会让普通人更早卷入科技变革，要么被迫转型成跨领域“杂家”，要么被算法取代，但终归是逼着所有人重新思考：技术能解决生存问题，却未必能解决意义感的缺失。",
-        "action": "学习Python基础与Jupyter Notebook实践，避免盲目追逐前沿技术，保持跨学科学习耐心。",
-        "level": {
-          "name": "推荐",
-          "color": "#f39c12",
-          "threshold": 70
-        }
-      },
-      {
-        "title": "Agent 时代，需要一台能折叠的「移动工作台」｜AIDONE 5.0 全记录",
-        "url": "https://www.ifanr.com/1668634?utm_source=rss&utm_medium=rss&utm_campaign=",
-        "score": 76,
-        "source": "爱范儿",
-        "summary": "无论 AI 如何进化，人始终应该是 AI 时代的主角。#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。",
-        "perspective": "标题：Agent 时代，需要一台能折叠的「移动工作台」｜AIDONE 5.0 全记录\n\n**观点：**  \nAI代理让工作从固定工位解放，但普通人得学会像折叠家具一样折叠自己——既要借力工具高效完成任务，更要警惕被算法裹挟，保持对核心能力的掌控感，否则迟早会被工具的便利性反噬。",
-        "action": "学习Notion搭建个人知识库，避免过度依赖AI工具而忽视基础技能，保持主动学习心态。",
-        "level": {
-          "name": "推荐",
-          "color": "#f39c12",
-          "threshold": 70
-        }
-      },
-      {
-        "title": "粉笔科技的人大讲座事件的说明与致歉",
-        "url": "https://www.williamlong.info/archives/7549.html",
-        "score": 76,
-        "source": "月光博客",
-        "summary": "6月3日，粉笔网CEO张小龙在人民大学的一场演讲引发热议，据多位现场学生及网络流传录音显示，在中国人民大学的一场职业规划讲座上，张小龙调整了演讲主题，将讨论内容转向AI、就业选择及个人财富经历。\n\n在互动环节气氛冷淡后，张小龙情绪逐渐失控，不仅频繁爆粗口，并被指发表&ldquo;你们找不到工作是应该",
-        "perspective": "标题：粉笔科技的人大讲座事件的说明与致歉\n\n这个事件暴露了教育行业\"知识变现\"的荒诞逻辑——当企业把讲座包装成权威背书，普通人不仅在花钱买信息，更在被精心设计的认知陷阱收割信任，本质上是用虚假的\"知识权威\"榨取焦虑红利。\n\n内容创作者和平台若默认这种\"知识表演\"的生存法则，就会沦为资本操控下的信息贩子，而观众则在",
-        "action": "使用Google Scholar查证讲座内容可靠性，用Notion建立知识体系，避免轻信单一来源。",
-        "level": {
-          "name": "推荐",
-          "color": "#f39c12",
-          "threshold": 70
-        }
-      },
-      {
-        "title": "MA-ProofBench: A Two-Tiered Evaluation of LLMs for Theorem Proving in Mathematical Analysis",
-        "url": "https://arxiv.org/abs/2606.13782",
-        "score": 76,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13782v1 Announce Type: new \nAbstract: Large Language Models (LLMs) have made notable progress in automated theorem proving, yet existing fo",
-        "perspective": "**标题：MA-ProofBench: A Two-Tiered Evaluation of LLMs for Theorem Proving in Mathematical Analysis**\n\n**观点：** 普通人终于能靠AI解决数学难题，但别忘了——真正的成长在于和复杂问题搏斗时的挫败感与顿悟，不是让算法替你完成思维的“最后一公里”。  \n**心理学角度：** 当AI能一键证明定理，人类大脑可能越来越依赖“捷",
-        "action": "学习使用LaTeX编写数学证明，避免直接依赖AI生成答案，逐步提升逻辑思维能力。",
-        "level": {
-          "name": "推荐",
-          "color": "#f39c12",
-          "threshold": 70
-        }
-      },
-      {
-        "title": "A Multi-Agent AI System for Automated High School Transcript Processing: Collaborative Document Analysis at Scale",
-        "url": "https://arxiv.org/abs/2606.13916",
-        "score": 76,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13916v1 Announce Type: new \nAbstract: Each year, college admissions offices face an overwhelming challenge: processing millions of high sch",
-        "perspective": "标题：A Multi-Agent AI System for Automated High School Transcript Processing: Collaborative Document Analysis at Scale\n\n**观点：** 这会让学生更依赖算法反馈而非自我反思，长期可能削弱独立思考能力，但也能减轻家长处理成绩的焦虑。  \n**心理学角度：** 人类在数据洪流中逐渐失去对\"努力-回报\"关系的直观感知，AI的精准分析可能让焦虑转移成对技术的盲目信任。",
-        "action": "学习Python Pandas库处理数据，避开复杂AI工具陷阱，培养技术思维。",
-        "level": {
-          "name": "推荐",
-          "color": "#f39c12",
-          "threshold": 70
-        }
-      },
-      {
-        "title": "Benchmarking Web Agent Safety under E-commerce Deceptive Interfaces",
-        "url": "https://arxiv.org/abs/2606.13686",
-        "score": 76,
-        "source": "Arxiv Cl",
-        "summary": "arXiv:2606.13686v1 Announce Type: new \nAbstract: As autonomous web agents are increasingly deployed to perform real-world tasks, ensuring their safety",
-        "perspective": "标题：Benchmarking Web Agent Safety under E-commerce Deceptive Interfaces  \n**观点**：这提醒我们不能只当算法的提线木偶，得主动学习识别网络陷阱，别让商家的套路偷走你的判断力和钱包；内容创作者更要清醒，别被虚假界面迷惑，得用真实信息对抗信息污染。  \n\n**态度**：警惕算法操控，拒绝被设计好的“陷阱”绑架，保持独立思考才是生存法则。",
-        "action": "学习使用AdGuard拦截恶意广告，避开点击可疑链接，保持对电商界面的警惕心态。",
-        "level": {
-          "name": "推荐",
-          "color": "#f39c12",
-          "threshold": 70
-        }
-      },
-      {
-        "title": "MedLatentDx: Latent Multi-Agent Communication for Cross-Hospital Rare-Disease Diagnosis",
-        "url": "https://arxiv.org/abs/2606.13945",
-        "score": 76,
-        "source": "Arxiv Cl",
-        "summary": "arXiv:2606.13945v1 Announce Type: new \nAbstract: Rare diseases affect over $300$ million patients across more than $7{,}000$ conditions, yet no single",
-        "perspective": "这项技术可能让罕见病患者不再被误诊，普通人也能更快获得精准诊断——AI像\"医疗大脑\"一样跨医院协作，把分散的医学知识变成共享的智慧，让小概率疾病不再成为诊断的盲区。\n\n（注：用\"医疗大脑\"比喻AI协作系统，强调其突破传统医疗局限的意义。从个人成长角度看，它意味着普通人无需依赖专家级医疗资源就能获得有效帮助；从心理学角度，减少因误诊",
-        "action": "学习使用Python的scikit-learn库，避免仅依赖单一模型忽略数据多样性，调整心态接受AI辅助决策的局限性。",
-        "level": {
-          "name": "推荐",
-          "color": "#f39c12",
-          "threshold": 70
-        }
-      },
-      {
-        "title": "Investing in multi-agent AI safety research",
-        "url": "https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/",
-        "score": 76,
-        "source": "Deepmind",
-        "summary": "Google DeepMind and partners announce a $10M funding call for multi-agent safety research.",
-        "perspective": "标题：Investing in multi-agent AI safety research\n\n对普通人来说，这代表未来工作场景将更依赖AI间的协作而非单体智能，个人成长必须学会在算法群体中保持独特价值，否则很容易被标准化流程淹没。心理学上，人类需要重新建立对\"群体智能\"的信任边界，避免陷入对AI决策的过度依赖或盲目恐慌。",
-        "action": "学习Python强化学习库Stable Baselines3，避开盲目跟风复杂项目，保持耐心逐步实践。",
-        "level": {
-          "name": "推荐",
-          "color": "#f39c12",
-          "threshold": 70
-        }
-      },
-      {
-        "title": "Google DeepMind is worried about what happens when millions of agents start to interact",
-        "url": "https://www.technologyreview.com/2026/06/11/1138794/google-deepmind-is-worried-about-what-happens-when-millions-of-agents-start-to-interact/",
-        "score": 76,
-        "source": "Mit Tr",
-        "summary": "Google DeepMind is funding research into the potential dangers of situations where millions of different AI agents interact with each other online. Ac",
-        "perspective": "Google DeepMind正在研究数百万个不同AI代理在线交互可能带来的风险。随着AI技术快速发展，AI之间的互动可能产生难以预测的行为或后果，比如失控的连锁反应或意外冲突。这项研究旨在提前识别和防范潜在威胁，确保AI发展更安全可控。",
-        "action": "关注AI安全研究的最新进展，了解AI交互可能带来的影响，同时保持理性态度，避免过度恐慌或盲目乐观。",
-        "level": {
-          "name": "推荐",
-          "color": "#f39c12",
-          "threshold": 70
-        }
-      },
-      {
-        "title": "New OpenAI Academy courses for the next era of work",
-        "url": "https://openai.com/index/academy-courses-applying-ai-at-work",
-        "score": 76,
-        "source": "Openai Blog",
-        "summary": "OpenAI introduces three Academy courses that help people build practical AI skills, create repeatable workflows, and apply agents in everyday work.",
-        "perspective": "OpenAI推出了三门全新AI学院课程，旨在帮助普通人掌握实用的AI技能。这些课程不仅教用户创建可重复的工作流程，还指导如何将AI助手应用到日常工作中。这标志着AI技术从实验室走向大众的重要一步，让更多人能直接受益于AI生产力工具。",
-        "action": "建议关注OpenAI官网免费课程，优先学习与自身工作相关的AI应用模块，每周抽出1-2小时实践。",
-        "level": {
-          "name": "推荐",
-          "color": "#f39c12",
-          "threshold": 70
-        }
+        "summary": "有些奢侈品打折活动需要特殊邀请，普通人可能进不去。",
+        "perspective": "这意味着想买到打折奢侈品要花更多精力，但也可能让真正需要的人更受益。",
+        "action": "关注这类平台的活动规则，或者尝试其他折扣渠道。"
       }
     ],
     "参考": [
       {
-        "title": "AI is code – and can't be prompted into being smarter",
-        "url": "https://www.theregister.com/ai-and-ml/2026/06/14/ai-is-code-and-cant-be-prompted-into-being-smarter/5254141",
-        "score": 63.3,
+        "title": "匿名 GitHub 帐户大量删除未公开的 0day",
+        "url": "https://github.com/bikini/exploitarium",
+        "score": 42.7,
         "source": "Hacker News",
-        "summary": "77 评论",
-        "perspective": "这篇文章的核心观点是AI本质上是由代码构成的系统，无法通过简单的\"提示\"或指令就突然变得更智能。它提醒我们不要对AI能力有不切实际的期待，理解其底层技术限制很重要。这对普通用户的意义在于：需要理性看待AI工具的优缺点，避免过度依赖或盲目信任。",
-        "action": "使用AI工具时要保持批判性思维，了解其工作原理和局限性。可以将AI视为辅助工具而非万能解决方案。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "一个匿名的GitHub账号删除了很多未公开的软件漏洞信息，可能在清除潜在的安全隐患。",
+        "perspective": "这对普通用户来说意味着网络环境更安全了，因为这些漏洞被隐藏，黑客利用它们攻击的可能性降低。",
+        "action": "今天可以学习一些基础的网络安全知识，比如如何识别和避免恶意软件。"
       },
       {
-        "title": "omnigent-ai/omnigent",
-        "url": "https://github.com/omnigent-ai/omnigent",
-        "score": 64.9,
+        "title": "OvOhao/自动收纸",
+        "url": "https://github.com/OvOhao/auto-paper-collecter",
+        "score": 38.1,
         "source": "GitHub",
-        "summary": "A meta-harness for all your AI agents.  Omnigent provides a common layer over Claude Code, Codex, Pi, and the agents you write yourself: swap or combi",
-        "perspective": "Omnigent-AI的核心价值在于构建了一个跨模型的中介层，解决了多AI代理协同工作的关键技术瓶颈。其技术深度体现在实现了异构模型（如Claude/Codex/Pi）的标准化接口和动态编排能力，这在当前碎片化的AI开发生态中具有重要实践意义。从商业模式看，该项目定位为AI中间件平台，既避免了与底层模型厂商的直接竞争，又能通过组合创新创造新价值。其最大风险在于对主流模型API的强依赖。",
-        "action": "开发者应重点关注其代理组合编排功能，优先在需要多模型协作的场景验证价值。投资者需评估其与云厂商自研中间件的差异化竞争力。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "📚🔭您的个人研究雷达——一款由 LLM 驱动的工具，可以自动聚合 arXiv / Crossref / Semantic Sc​​holar / GitHub / RSS 中您的关键词的最新论文。",
+        "perspective": "对爱学习的人来说，节省了翻找论文的时间，但可能需要适应AI推荐的内容。",
+        "action": "试试用这个工具整理自己感兴趣的关键词，看看能不能发现新研究。"
       },
       {
-        "title": "orange2ai/renwei-writing",
-        "url": "https://github.com/orange2ai/renwei-writing",
-        "score": 69.8,
-        "source": "GitHub",
-        "summary": "人味儿写作 · An AI agent skill: edit people's words without erasing the person behind them",
-        "perspective": "该项目聚焦于AI写作中\"人味儿\"的保留，技术层面涉及自然语言生成与个性化风格建模的结合，关键在于如何在AI编辑中维持人类作者的独特表达。这一方向填补了当前AI写作工具同质化的空白，可能重塑内容创作行业的协作模式。从商业角度看，差异化定位使其在教育、自媒体等需要个性表达的垂直领域具有商业化潜力，但需解决风格量化评估的技术瓶颈和数据隐私问题。",
-        "action": "内容创作者可将其作为辅助工具测试个性保留效果，投资者建议关注其API接入能力和垂类合作案例，技术团队应优先优化作者风格提取算法。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "khrisat/text-humanizer",
-        "url": "https://github.com/khrisat/text-humanizer",
-        "score": 61.7,
-        "source": "GitHub",
-        "summary": "Advanced open-source AI humanizer designed to make AI-generated text undetectable by Turnitin, GPTZero, and other AI detection services.",
-        "perspective": "该项目代表了AI文本生成与检测技术之间的持续博弈，技术上聚焦于对抗性生成网络（GAN）或类似模型的优化，以规避检测算法的语义分析。行业层面反映了教育、内容审核等领域对AI生成内容监管的迫切需求，也揭示了开源社区在技术伦理边界上的争议。商业模式上，开源免费策略可能吸引开发者生态，但长期需考虑合规风险与可持续变现路径，如企业级定制服务。",
-        "action": "开发者应优先评估法律风险，避免触及学术诚信红线；投资者可关注AI检测与反检测技术迭代中的合规解决方案，如教育机构授权的原创性验证工具。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Nanako0129/coralline",
-        "url": "https://github.com/Nanako0129/coralline",
-        "score": 61.7,
-        "source": "GitHub",
-        "summary": "🪸 Powerlevel10k-inspired statusline for Claude Code — paste one prompt and your AI interviews you, then installs it",
-        "perspective": "该项目将Powerlevel10k状态栏的设计理念迁移至Claude Code平台，通过单次提示触发AI交互式安装流程，展现了Prompt Engineering与开发者体验设计的创新结合。技术层面采用元提示（meta-prompt）实现自动化配置，显著降低用户学习曲线。这种\"对话即配置\"的范式可能重塑AI开发工具的用户交互标准，但需警惕过度简化带来的配置灵活性下降风险。商业模式上，开源实现加速了Claude生态工具链的成熟，为后续商业化插件奠定基础。",
-        "action": "开发者可研究其元提示设计模式，移植到其他AI开发场景；投资者应关注基于对话式配置的DevTools赛道，优先考察具备渐进式复杂化设计能力的团队。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "cobusgreyling/loop-engineering",
-        "url": "https://github.com/cobusgreyling/loop-engineering",
-        "score": 68.6,
-        "source": "GitHub",
-        "summary": "Practical patterns, starters & CLI tools for loop engineering with AI coding agents. Design systems that prompt and orchestrate agents (inspired by Ad",
-        "perspective": "从技术角度看，该项目通过构建系统化模式与CLI工具，实现了AI编码代理的高效编排，展现出AI工程化落地的成熟方法论。其\"loop engineering\"理念将提示工程从单次交互升级为可复用的系统设计范式，对AI开发工具链的标准化具有重要参考价值。商业模式上，开源工具+专业服务的双轨策略既利于生态构建，又能形成商业护城河，这种模式值得AI基础设施领域借鉴。",
-        "action": "开发者应重点研究其agent编排设计模式，结合自身业务场景构建自动化工作流。投资者可关注该领域工具链标准化趋势，布局具备工程化能力的AI infra团队。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "PolyHelper/polyhelper",
-        "url": "https://github.com/PolyHelper/polyhelper",
-        "score": 60.2,
-        "source": "GitHub",
-        "summary": "Self-evolving cognitive AI exoskeleton. 10+ frontier models, 245 consensus methods, governed autonomous agents. Automotive, medical, legal, accessibil",
-        "perspective": "PolyHelper代表了认知增强型AI系统的最新发展方向，其核心价值在于融合了10+前沿模型和245种共识算法构建的自进化架构。这种自治代理系统在汽车、医疗、法律等专业领域的应用潜力显著，特别值得注意的是其跨行业通用性设计。从技术实现看，多模型协同与自治决策机制是关键创新点，但需关注模型间冲突解决和伦理合规等潜在挑战。商业模式上可能更适合采用B2B2C的层级服务模式。",
-        "action": "建议技术团队重点验证多模型协同的稳定性，投资者可关注其在医疗诊断等垂直领域的商业落地案例。法律行业从业者应提前研究其合同审查功能的合规边界。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "硬氪首发 | 海洋具身智能公司「世航智能」拿下创纪录10亿融资，朱啸虎押注",
-        "url": "https://36kr.com/p/3853011900142848?f=rss",
-        "score": 61,
+        "title": "9点1氪｜苹果涨价引山姆代购潮；DeepSeek大规模招聘；黄金再度跌破4000美元",
+        "url": "https://36kr.com/p/3870720040588295?f=rss",
+        "score": 46,
         "source": "36氪",
-        "summary": "\n \n \n  作者&nbsp;|&nbsp;邱晓芬\n  编辑&nbsp;|&nbsp;袁斯来\n  硬氪获悉，海洋具身智能公司「世航智能」完成A轮融资，融资金额超过10亿元，这也是目前全球海洋机器人领域规模最大的单轮融资。本轮融资由两家芯片公司「摩尔线程」和「昆仑芯」的产业投资方上河动量基金、新加坡国",
-        "perspective": "这则消息揭示了两个重要趋势：一是海洋科技赛道正在崛起，具身智能（即AI与实体机器人结合）在海洋领域应用获得资本高度认可；二是头部芯片企业通过产业基金联动，显示出硬科技投资正在形成生态链布局。创纪录的10亿融资额表明，具备\"海洋+AI\"双重标签的项目正成为新风口。",
-        "action": "普通投资者可关注海洋科技产业链机会，同时留意具身智能技术在其他垂直领域的应用案例。对科技爱好者来说，不妨跟踪这家公司的产品商业化进展。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "苹果涨价让代购更火，AI公司也在招人，黄金价格又跌了。",
+        "perspective": "科技产品涨价可能让普通人更关注性价比，而黄金价格波动影响投资选择。",
+        "action": "留意自己常买的东西价格变化，或者看看有没有新工作机会。"
       },
       {
-        "title": "“宁王系”，排队 IPO",
-        "url": "https://36kr.com/p/3851106394117383?f=rss",
-        "score": 61,
+        "title": "理想首谈电池品牌争议：不管谁家电池，都是理想汽车兜底",
+        "url": "https://36kr.com/p/3866946087867394?f=rss",
+        "score": 38,
         "source": "36氪",
-        "summary": "\n \n \n  \n  越来越多CVC在路上\n  作者 |&nbsp;冯晓亭&nbsp;\n  &nbsp;编辑 | 吾人&nbsp;\n  来源 |&nbsp;融中财经&nbsp;\n  宁德时代，又出手了。\n  近日，中恒电气发布关于控股股东签署《战略投资合作框架协议》事项的进展公告。公告显示，公司控股股",
-        "perspective": "宁德时代作为动力电池龙头企业，正在通过CVC(企业风险投资)模式加速布局产业链。最新动态显示其通过战略投资框架协议入局中恒电气，延续了\"宁王系\"在新能源领域的扩张步伐。这种产融结合模式既巩固了自身供应链优势，也带动了产业链企业IPO热潮，反映出新能源行业资本运作的新趋势。",
-        "action": "普通投资者可关注宁德时代投资版图延伸带来的产业链机会，但需注意相关标的基本面及估值合理性。行业从业者可借鉴其产业资本运作模式。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "理想汽车说不管电池来自哪家，它们都会负责安全问题。",
+        "perspective": "这让消费者更放心，毕竟电池安全直接关系到车子的使用体验。",
+        "action": "如果考虑买新能源车，可以多了解电池品牌和售后保障政策。"
       },
       {
-        "title": "百度搭子DuMate完成核心引擎升级",
-        "url": "https://36kr.com/newsflashes/3853859778073609?f=rss",
-        "score": 68,
+        "title": "追赶FSD V14，理想在补哪些课？｜最前线",
+        "url": "https://36kr.com/p/3870292939658242?f=rss",
+        "score": 38,
         "source": "36氪",
-        "summary": "36氪获悉，百度搭子DuMate完成核心引擎升级，通过Harness引擎及多项工程层面的持续调优，在保障Agent智能能力与任务执行效果不受影响的前提下，将任务执行过程中的Token消耗降低75%，对应用户积分消耗也相应减少75%。这也是国内通用智能体产品中，首次通过Harness引擎及工程优化实现",
-        "perspective": "百度搭子DuMate完成核心引擎升级，通过Harness引擎和工程优化，显著降低了任务执行中的Token消耗，降幅达75%。这意味着用户使用相同积分可以完成更多任务，且智能体的性能和任务执行效果不受影响。这一突破是国内通用智能体产品中的首次，展示了百度在AI效率优化方面的技术实力。",
-        "action": "对于经常使用AI助手的用户，可以关注DuMate的新功能，尝试用更少的积分完成更多任务。同时，这类技术升级也值得AI爱好者关注，了解行业效率优化的最新趋势。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "理想汽车正在努力追赶特斯拉的自动驾驶技术。",
+        "perspective": "这说明自动驾驶技术发展很快，未来可能会有更多智能驾驶功能出现。",
+        "action": "关注智能驾驶相关的技术新闻，或者考虑未来是否需要升级车机系统。"
       },
       {
-        "title": "白宫AI监管决定被指偏袒OpenAI与亚马逊",
-        "url": "https://garymarcus.substack.com/p/what-washington-must-do",
-        "score": 66,
-        "source": "AI热点",
-        "summary": "",
-        "perspective": "美国白宫最新AI监管政策被质疑存在企业偏袒，主要受益方指向OpenAI和亚马逊等科技巨头。这份政策在算法透明度要求上给予大公司更多豁免权，可能加剧行业垄断。事件反映出AI监管中政府与企业关系的微妙平衡，也引发对小企业和创新者公平性的担忧。",
-        "action": "建议关注后续监管细则修订进展，同时多支持中小AI企业的创新产品，用消费选择促进市场公平竞争。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "title": "《走进AIE》，谁是下一个主角",
+        "url": "https://36kr.com/p/3869838577620231?f=rss",
+        "score": 38,
+        "source": "36氪",
+        "summary": "AIE展会成为科技企业展示新技术的重要舞台。",
+        "perspective": "普通人可能不太关心展会，但参展的科技产品会慢慢影响我们的日常生活。",
+        "action": "如果对科技产品感兴趣，可以尝试参加或关注展会的线上内容。"
       },
       {
-        "title": "Anthropic老大的唯一 -1，就是AI股神的未婚妻",
-        "url": "https://www.qbitai.com/2026/06/433717.html",
-        "score": 69,
+        "title": "悟空安全上线“弹必赔”，主打“0添加”安全软件",
+        "url": "https://36kr.com/newsflashes/3872623912571910?f=rss",
+        "score": 38,
+        "source": "36氪",
+        "summary": "悟空安全推出新功能，能拦截广告弹窗并给奖励。",
+        "perspective": "这能让电脑使用更顺畅，但也可能让人对广告更敏感。",
+        "action": "试试用这个软件清理弹窗，或者检查电脑是否有类似功能。"
+      },
+      {
+        "title": "前端工程师最不想看到的开源项目出现了，一行命令克隆任意网站",
+        "url": "https://www.qbitai.com/2026/06/439515.html",
+        "score": 46,
         "source": "量子位",
-        "summary": "那位被OpenAI开除的股神",
-        "perspective": "这则新闻揭示了AI领域人才流动的戏剧性故事。OpenAI开除的\"股神\"与Anthropic创始人关系密切，反映出顶级AI公司间复杂的人事关联。看点在于：1)顶级AI人才在竞争公司间的流动；2)科技圈个人关系网络对行业发展的影响；3)AI创业公司高层的私人关系可能影响行业发展格局。",
-        "action": "关注AI行业头部人物的职业动向，这往往预示技术发展方向和商业格局变化。但需理性看待媒体报道，区分事实与八卦。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "“我们错误地认为，只要引入人工智能……就能生产出高质量的产品。”",
+        "perspective": "这对开发者来说是个好工具，但也可能被用来做不好的事。",
+        "action": "如果需要做网页开发，可以看看这个项目，但别随便复制别人的内容。"
       },
       {
-        "title": "2026奇点智能产品大会首批嘉宾官宣：在 AI 的“可交付的时代”，看一线专家如何拆解真实落地闭环！",
-        "url": "https://www.qbitai.com/2026/06/435105.html",
-        "score": 61,
+        "title": "一次吃下一本书！百度开源新OCR，作者疑似前DeepSeek研究员",
+        "url": "https://www.qbitai.com/2026/06/439464.html",
+        "score": 38,
         "source": "量子位",
-        "summary": "7 月 17-18 日",
-        "perspective": "2026奇点智能产品大会将聚焦AI技术从概念到落地的实际应用，首批嘉宾阵容包括一线专家，他们将分享如何构建AI产品的完整闭环。大会亮点在于探讨\"可交付时代\"下AI技术的商业化路径和真实场景应用，为从业者提供落地实践经验。时间定在7月17-18日，由科技媒体量子位主办。",
-        "action": "关注大会公布的专家演讲主题，优先选择与自己行业相关的AI应用案例。可以提前了解嘉宾背景，针对性获取实用落地经验。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "百度推出新的OCR技术，能快速识别文字，作者可能来自另一家AI公司。",
+        "perspective": "这对整理文档和学习新知识的人来说是个好消息，效率提升了不少。",
+        "action": "尝试用百度的新OCR工具处理一些文字资料，看看效果如何。"
       },
       {
-        "title": "早报｜SpaceX上市首日暴涨/苹果高管：Siri不想做用户的情感伴侣/华为余承东：要带盘古大模型从中国第一走向世界第一",
-        "url": "https://www.ifanr.com/1668871?utm_source=rss&utm_medium=rss&utm_campaign=",
-        "score": 61,
+        "title": "兜兜转转四款笔记软件，我终于为思考找到了安身之所",
+        "url": "https://sspai.com/post/110935",
+        "score": 38,
+        "source": "少数派",
+        "summary": "有人换了四款笔记软件，终于找到适合自己的工具。",
+        "perspective": "说明不同人对工具的需求不同，找到适合自己的才能高效工作。",
+        "action": "如果觉得现有笔记工具不好用，可以试试其他类型，找到最适合自己的。"
+      },
+      {
+        "title": "早报｜GPT-5.6正式亮相，但你可能还用不了/微软将上调Xbox主机价格/大疆回应Pocket 4P开售秒空",
+        "url": "https://www.ifanr.com/1670246?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 38,
         "source": "爱范儿",
-        "summary": "· 胖东来：公司从未有任何降薪决定\n· OpenAI 允许 Codex 用户「囤」重置机会：额度耗尽时自己决定何时刷新\n· MiMo 负责人罗福莉：MiMo Code 由 5 人用 14 天 vibe-coding 完成#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时",
-        "perspective": "科技行业近期热点不断：SpaceX上市首日股价飙升展现市场对太空经济的热情，苹果高管表态Siri定位工具属性而非情感伴侣引发对AI伦理的讨论，华为余承东则高调宣布要将盘古大模型打造成世界级AI。同时胖东来辟谣降薪传闻，OpenAI推出灵活额度管理功能，以及MiMo团队展示高效开发案例，反映出科技企业正面临市场期待与管理创新的双重挑战。",
-        "action": "建议读者持续关注头部科技企业的战略动向，特别是AI领域的技术突破和商业应用，同时注意辨别网络传言，通过官方渠道获取权威信息。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "GPT-5.6发布，Xbox涨价，大疆回应产品热销。",
+        "perspective": "科技产品更新频繁，价格变化也会影响我们的选择和预算。",
+        "action": "关注你关心的科技产品的动态，及时调整购物计划。"
       },
       {
-        "title": "我们拉上 vivo，聊聊 AI 时代的折叠屏",
-        "url": "https://www.ifanr.com/1668866?utm_source=rss&utm_medium=rss&utm_campaign=",
-        "score": 68,
+        "title": "大疆定义了 Pocket，而 Pocket 4P 定义了「口袋电影机」",
+        "url": "https://www.ifanr.com/1669925?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "score": 38,
         "source": "爱范儿",
-        "summary": "我们和 vivo 以及一批 AI 行动派用户聊了聊，无关宏大叙事，而是日常工作和生活里那些具体的「小事」：贴发票、写日报，手机也可以是调度各路 Agent 的入口。\n\nAI 不必急着颠覆世界。先把这些琐碎、真实的事办好就已经很有意义。而手机，是离这些事最近的载体。\n\n于是折叠屏重新变得有意思——它在",
-        "perspective": "这篇报道揭示了AI技术在日常生活中的实用价值转变——不再追求宏大变革，而是聚焦解决发票报销、日报撰写等具体生活痛点。vivo通过折叠屏手机作为AI入口的尝试尤其值得关注，这种硬件形态可能成为调度各类AI助手的新枢纽，让技术真正\"润物细无声\"地融入生活细节。",
-        "action": "读者可以关注折叠屏手机与AI结合的新交互方式，思考如何用现有设备提升日常效率。不妨尝试用手机AI处理重复性工作，亲身体验技术带来的微观改变。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "大疆的新产品Pocket 4P被称作“口袋电影机”，功能很强大。",
+        "perspective": "这类便携设备越来越普及，普通人也能轻松拍出高质量视频。",
+        "action": "如果喜欢拍视频，可以看看这款产品的实际效果。"
       },
       {
-        "title": "早报｜微信图片合并功能全量推送/史上最大IPO，SpaceX明日开盘/曝OpenAI考虑大幅降低token价格",
-        "url": "https://www.ifanr.com/1668686?utm_source=rss&utm_medium=rss&utm_campaign=",
-        "score": 61,
-        "source": "爱范儿",
-        "summary": "· 曝海力士最快 8 月赴美上市\n· 小米 SU7 获 5 月 20 万元以上轿车市场销冠\n· 加拿大提出法案，拟禁止 16 岁以下儿童使用社交媒体#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。",
-        "perspective": "这则早报展示了科技行业的三个重要动向：微信提升用户体验的图片合并功能全量上线、SpaceX即将创造史上最大IPO纪录，以及OpenAI可能通过降低token价格推动AI普及。同时透露了存储巨头海力士的赴美上市计划，小米SU7的市场表现，以及加拿大拟立法保护未成年人网络安全的趋势，反映出科技界在商业化、产品竞争和监管层面的多维发展。",
-        "action": "可关注微信新功能使用体验，SpaceX上市对民营航天业的影响；家长需留意加拿大社交媒体禁令的后续进展，思考儿童网络保护措施。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "AI编程从零开始：环境配置到开发调试",
-        "url": "https://www.williamlong.info/archives/7544.html",
-        "score": 63,
-        "source": "月光博客",
-        "summary": "我最开始接触AI编程（Vibe Coding）是去年，因为我以前没写过Chrome插件，第一次用AI来写，十分钟搞定，功能是点击将浏览器所有书签转化为网址导航站来显示，用AI在网页端生成，插件运行后显示正常。我感觉有了AI之后，编程门槛大幅降低，傻子都可以当程序员了。\n\n后来维护一个很古老的VB6程",
-        "perspective": "这篇文章展示了AI编程工具如何大幅降低技术门槛，让零基础用户也能快速完成开发任务。作者通过亲身经历证明，借助AI十分钟就能开发出功能完整的Chrome插件。这反映出AI正在改变传统编程模式，使\"人人可编程\"成为可能，但也引发对程序员职业前景的思考。",
-        "action": "建议非技术背景读者可以尝试用AI工具解决简单编程需求，如制作浏览器插件。但要注意AI生成的代码可能存在质量问题，复杂项目仍需专业开发能力。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Orbio raises $21 million to automate hiring and onboarding for frontline workers",
-        "url": "https://techcrunch.com/2026/06/14/orbio-raises-21-million-to-automate-hiring-and-onboarding-for-frontline-workers/",
-        "score": 61,
+        "title": "为什么华尔街认为美国内存制造商美光是下一个英伟达",
+        "url": "https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/",
+        "score": 45,
         "source": "TechCrunch",
-        "summary": "Orbio announces $21 Million Series A in round led by Dawn Capital. ",
-        "perspective": "Orbio是一家专注于蓝领员工招聘和入职自动化的科技公司，刚刚完成2100万美元A轮融资，由Dawn Capital领投。这笔资金将用于优化其自动化招聘平台，解决蓝领行业用工荒和招聘效率低下的痛点。这反映了当前用工市场数字化转型的趋势，特别是服务零售、物流等蓝领密集型行业的技术升级需求。",
-        "action": "HR从业者可关注Orbio这类招聘自动化工具的发展，中小企业可评估其是否适合提升招聘效率。求职者也可留意这种趋势对求职流程的影响。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "华尔街投资者渴望找到更多与英伟达一样出色的人工智能相关上市公司，他们认为美光是他们的赢家。",
+        "perspective": "说明AI发展带动了硬件需求，内存厂商也可能受益。",
+        "action": "如果对科技行业感兴趣，可以多关注内存和AI相关公司的动向。"
       },
       {
-        "title": "As Anthropic suspends access to new models, India debates its AI future",
-        "url": "https://techcrunch.com/2026/06/13/as-anthropic-suspends-access-to-new-models-india-debates-its-ai-future/",
-        "score": 61,
+        "title": "由 Y Combinator 支持的保险科技初创公司 Corgi 表示，它没有窃取开源产品",
+        "url": "https://techcrunch.com/2026/06/26/corgi-the-buzzy-y-combinator-backed-insurance-tech-startup-says-it-didnt-steal-an-open-source-product/",
+        "score": 46,
         "source": "TechCrunch",
-        "summary": "Tech leaders debate whether the Anthropic episode is a wake-up call for India’s AI ambitions.",
-        "perspective": "Anthropic公司暂停新模型访问引发印度科技界对AI发展路径的思考。该事件被视为对印度AI雄心的警示，反映出全球AI治理与本地化发展之间的张力。核心看点在于：国际AI发展波动如何影响新兴市场，以及印度是否应该建立更自主的AI技术体系。",
-        "action": "关注印度本土AI政策动向，可优先了解头部科技公司的技术路线选择。普通开发者可关注开源替代方案的发展。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "当 Papermark 指控 Corgi 窃取其软件时，Corgi 卷入了争议。柯基犬说没有，这引发了关于振动编码的新问题。",
+        "perspective": "这提醒我们使用开源技术时要注意合法性和道德问题。",
+        "action": "如果用开源工具，可以看看它的使用条款，确保不违反规定。"
       },
       {
-        "title": "Amazon CEO reportedly raised Anthropic model concerns before government crackdown",
-        "url": "https://techcrunch.com/2026/06/13/amazon-ceo-reportedly-raised-anthropic-model-concerns-before-government-crackdown/",
-        "score": 61,
-        "source": "TechCrunch",
-        "summary": "Amazon CEO Andy Jassy may have been the source of security concerns that led Anthropic to cut off worldwide access to two models on Friday.",
-        "perspective": "亚马逊CEO安迪·贾西可能向政府表达了对Anthropic AI模型的安全担忧，这直接促使该AI公司上周五紧急下架了两个全球可访问的模型。事件反映出科技巨头在AI安全监管中的关键作用，也凸显了企业自主监管与政府干预之间的微妙关系。",
-        "action": "关注AI行业自律机制的动态发展，在使用第三方AI服务时注意突发访问限制的可能性，重要业务建议提前准备备用方案。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "OpenAI faces investigation from state attorneys general",
-        "url": "https://techcrunch.com/2026/06/13/openai-faces-investigation-from-state-attorneys-general/",
-        "score": 61,
-        "source": "TechCrunch",
-        "summary": "It's not clear which states are involved, but they're asking about everything from OpenAI's ad policies to its handling of health data.",
-        "perspective": "OpenAI正面临美国多个州总检察长的联合调查，调查范围涵盖广告政策和健康数据处理等多个敏感领域。虽然具体参与州尚未披露，但这次跨州调查意味着监管机构对AI企业的合规审查正在升级。该事件反映出AI技术快速发展与现行监管框架之间的紧张关系，特别是涉及用户隐私和商业伦理的敏感问题。",
-        "action": "普通读者可关注调查进展，了解AI企业的数据使用边界。使用AI服务时注意隐私条款，对涉及健康等敏感信息的应用保持警惕。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Anthropic’s safety warnings may have just backfired — the government has pulled the plug on its most powerful AI",
-        "url": "https://techcrunch.com/2026/06/12/anthropics-safety-warnings-may-have-just-backfired-the-government-has-pulled-the-plug-on-its-most-powerful-ai/",
-        "score": 61,
-        "source": "TechCrunch",
-        "summary": "Anthropic isn't hiding its frustration. \"We disagree that the finding of a narrow potential jailbreak should be cause for recalling a commercial model",
-        "perspective": "Anthropic公司因其AI系统潜在安全隐患警告而遭遇政府叫停最强AI的尴尬局面。该公司公开表达了不满，认为仅凭发现一个狭窄的潜在\"越狱\"漏洞就召回商用模型是不合理的。这反映了AI安全监管与商业发展之间的尖锐矛盾，也暴露出当前AI风险评估标准的不确定性。",
-        "action": "普通用户应关注AI安全争议的后续发展，同时理性看待AI技术风险。选择AI产品时可优先考虑经过充分安全验证的服务。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Will Meta's $14 Billion Bet on AI Ever Pay Off?",
-        "url": "https://tech.slashdot.org/story/26/06/14/1842208/will-metas-14-billion-bet-on-ai-ever-pay-off?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-        "score": 69,
+        "title": "马克斯·普朗克因涉嫌流氓算法而被撤回两篇论文",
+        "url": "https://science.slashdot.org/story/26/06/27/2042204/max-planck-slapped-with-two-paper-retractions-by-suspected-rogue-algorithm?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+        "score": 38,
         "source": "Slashdot",
-        "summary": "\"A year after spending over $14 billion to bring in Alexandr Wang and a group of his top Scale AI engineers to revamp its artificial intelligence effo",
-        "perspective": "Meta豪掷140亿美元引进AI人才，力图重振人工智能业务。这笔巨额投资能否带来预期回报？核心看点在于：Meta在AI领域的战略决心、高成本投入的风险，以及未来AI技术商业化落地的潜力。若成功，Meta或能重塑行业格局；若失败，则可能面临巨额损失和竞争力下滑。",
-        "action": "关注Meta后续AI产品动态，可对比其与谷歌、微软等巨头的AI布局，理性评估投资价值。普通用户可试用Meta的新AI服务，亲身体验技术进展。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "马克斯·普朗克荣获 1918 年诺贝尔物理学奖。然而他的两篇论文被撤回——这一举动现在受到魁北克大学物理历史学家伊夫·金格拉斯(Yves Gingras)和昆士兰大学三河市科学史学家马赫迪·凯尔法乌伊(Mahdi Khelfaoui)的批评。科学报告：\n\n这两篇论文最初发表于 2011 年悄然撤回的论文，最初发表于 20 世纪 40 年代初的《Naturwissenschaften》，这是一份德国期刊，现归出版巨头施普林格·自然 (Springer Nature) 所有。经过一番调查后，Khelfaoui 确定",
+        "perspective": "这说明即使是伟大的科学家，他们的研究也可能因为后续发现的问题被重新审视，提醒我们科技发展需要不断验证。",
+        "action": "普通人可以关注AI伦理问题，了解科技发展背后的争议。"
       },
       {
-        "title": "How America's Energy Department is Building a National Platform for Doing Science with AI",
-        "url": "https://yro.slashdot.org/story/26/06/14/0354205/how-americas-energy-department-is-building-a-national-platform-for-doing-science-with-ai?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-        "score": 68,
-        "source": "Slashdot",
-        "summary": "America's Energy Department \"wants to build a single national platform for doing science with AI,\" reports Communications of the ACM:\n\n\nIt is called t",
-        "perspective": "美国能源部正计划打造一个全国性AI科研平台，这将整合各类科学计算资源，为研究人员提供统一的AI工具和服务。该平台有望降低科研门槛，加速跨学科协作创新，特别是在能源、材料等重点领域。这种\"国家队\"级别的AI基建投入，反映了AI正成为国家科研战略的核心基础设施。",
-        "action": "科研工作者可关注该平台的技术标准与开放计划，普通读者则可通过公开数据了解AI如何推动基础科研突破。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "UK Police Officer Accused of Using AI to Fake Evidence",
-        "url": "https://news.slashdot.org/story/26/06/14/0317211/uk-police-officer-accused-of-using-ai-to-fake-evidence?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-        "score": 61,
-        "source": "Slashdot",
-        "summary": "The Sunday Times reports:\n\n\nA criminal investigation has begun after a police officer allegedly used AI to create evidential material in a \"number of ",
-        "perspective": "英国一名警员涉嫌使用AI伪造证据引发刑事调查，这可能是全球首例执法部门滥用AI技术的案件。事件暴露出AI深度伪造技术被滥用的风险，特别是在司法系统这类需要高度可信度的领域。该案将对AI伦理监管提出新的挑战，值得关注后续如何平衡技术创新与证据可信度。",
-        "action": "关注AI伪造技术的双刃剑特性，对网络信息保持审慎态度。建议学习基础AI识别技能，提高对合成内容的警惕性。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Amazon CEO's Talks with U.S. Officials Triggered Crackdown on Anthropic Models",
-        "url": "https://news.slashdot.org/story/26/06/13/2227234/amazon-ceos-talks-with-us-officials-triggered-crackdown-on-anthropic-models?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-        "score": 61,
-        "source": "Slashdot",
-        "summary": " The Wall Street Journal reports:\n\nThe Trump administration's decision to halt all foreign use of Anthropic's most capable AI models was prompted by c",
-        "perspective": "华尔街日报报道，亚马逊CEO与美国官员的谈话直接促使特朗普政府出台禁令，全面禁止国外使用Anthropic公司最先进AI模型。这反映出三点关键信息：1）科技巨头高管对AI政策具有实质影响力 2）美国政府正在收紧尖端AI技术的出口管制 3）Anthropic作为OpenAI的竞争对手，其技术能力已引起政府高度关注。事件揭示了AI发展背后复杂的政商博弈。",
-        "action": "关注美国AI政策风向变化，特别是涉及技术出口管制的动态。普通用户可优先尝试国内合规AI产品，规避使用境外先进模型可能带来的合规风险。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Shutterstock 'Evolves' Into 'Human-Led, AI-Powered Creative Platform'",
-        "url": "https://slashdot.org/story/26/06/13/1911226/shutterstock-evolves-into-human-led-ai-powered-creative-platform?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-        "score": 69,
-        "source": "Slashdot",
-        "summary": "Slashdot reader BrianFagioli writes:\nShutterstock has unveiled what it calls a \"human-led, AI-powered\" creative platform that combines its massive lib",
-        "perspective": "Shutterstock宣布转型为\"人类主导、AI驱动\"的创意平台，标志着传统图库向智能化升级。该平台将海量内容库与AI技术深度融合，既保留人类创意把控权，又利用AI提升创作效率。这反映了当前内容创作领域人机协作的主流趋势，也揭示了专业图库应对AI冲击的创新策略。",
-        "action": "创作者可关注这类混合创作平台，学习人机协作的新工作模式。普通用户则能体验更智能的素材获取方式，但仍需保持对内容真实性的判断。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Visa is handling AI-prompted transactions for OpenAI - but can you trust it?",
-        "url": "https://www.zdnet.com/article/openai-and-visa-aim-to-secure-agentic-transactions-how-theyll-work/",
-        "score": 69,
+        "title": "我如何将旧 Android 手机免费变成流媒体棒 - 只需 6 个简单步骤",
+        "url": "https://www.zdnet.com/article/how-to-turn-android-phone-into-streaming-stick-roku-fire-tv/",
+        "score": 38,
         "source": "ZDNet",
-        "summary": "A new partnership between Visa and OpenAI takes the next step in AI-led purchasing. Here's what an expert wants you to know.",
-        "perspective": "Visa与OpenAI达成合作，将AI技术引入支付领域。这次合作意味着用户未来可能通过AI助手直接完成消费，比如让ChatGPT帮你订外卖或网购。专家提醒需要关注支付安全，毕竟AI自动交易可能带来新的诈骗风险。这种\"AI代付\"模式可能改变我们的消费习惯，但也需要更严格的安全保障。",
-        "action": "使用AI支付功能时注意设置交易限额，定期检查账单。对AI发起的自动支付保持警惕，遇到可疑交易立即联系银行冻结账户。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "summary": "跳过流媒体棒 - 以下是我如何使用备用 Pixel 手机在电视上观看电影。",
+        "perspective": "这给了很多人省钱的机会，把闲置手机变成实用工具，也能减少电子垃圾。",
+        "action": "现在就试试用旧手机当流媒体棒，省下一笔开销。"
       },
       {
-        "title": "An OpenAI model solved a famous math problem that stumped humans for 80 years",
-        "url": "https://arstechnica.com/ai/2026/06/openais-math-breakthrough-played-to-ais-strengths/",
-        "score": 61,
-        "source": "Ars Technica",
-        "summary": "\n                        I tried to explain OpenAI’s solution more clearly than OpenAI did.\n                    ",
-        "perspective": "OpenAI的人工智能模型成功解决了一个困扰人类数学家80年的著名数学难题。这标志着AI在复杂理论问题解决能力上的重大突破，展示了机器可以超越人类在某些专业领域的认知局限。文章作者尝试用比OpenAI更清晰的方式解释该解决方案，暗示AI的数学推理过程对人类而言仍存在理解门槛。",
-        "action": "关注AI在专业领域的突破性进展，但不必过度担忧被取代。可以学习基础的AI原理，培养与AI协作解决问题的能力。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "TCS and Anthropic partner to bring Claude to regulated industries",
-        "url": "https://www.anthropic.com/news/tcs-anthropic-partnership",
-        "score": 69,
-        "source": "Anthropic News",
-        "summary": "TCS and Anthropic partner to bring Claude to regulated industries",
-        "perspective": "印度IT巨头TCS与AI公司Anthropic达成合作，将Claude人工智能引入受监管行业（如金融、医疗）。这项合作标志着企业级AI应用的新趋势：大模型正在突破科技圈，进入对安全合规要求严苛的传统领域。看点在于Anthropic的\"宪法AI\"技术可能为行业提供更可控、透明的AI解决方案。",
-        "action": "关注受监管行业如何平衡AI创新与合规要求，可重点追踪金融、医疗领域的AI应用案例。普通用户未来可能体验到更安全的AI辅助服务。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Introducing Claude Corps",
-        "url": "https://www.anthropic.com/news/claude-corps",
-        "score": 61,
-        "source": "Anthropic News",
-        "summary": "Introducing Claude Corps",
-        "perspective": "Anthropic推出的Claude Corps项目引发关注，这可能是该公司在AI助手领域的又一次重要布局。从项目名称推测，这可能是一个集合多Claude AI助手的协作系统，或是面向企业的AI服务方案。值得关注的点包括：该项目的具体功能定位、与现有Claude产品的差异化优势，以及是否代表Anthropic在B端市场的战略升级。",
-        "action": "可以关注Anthropic官网后续公告，了解Claude Corps的具体应用场景。企业用户可评估其与现有AI工具的兼容性。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Claude Fable 5 and Claude Mythos 5",
-        "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
-        "score": 61,
-        "source": "Anthropic News",
-        "summary": "Claude Fable 5 and Claude Mythos 5",
-        "perspective": "Anthropic公司最新发布了Claude Fable 5和Claude Mythos 5两个AI模型版本。这标志着对话AI技术的持续进步，新版本可能在语言理解、创造性输出和知识广度等方面有所提升。值得关注的是这些模型在故事创作、知识问答等领域的表现，以及相比前代产品的改进之处。",
-        "action": "可以关注官方发布的技术文档，试用新版模型的实际表现。对AI技术发展感兴趣的用户可以比较不同版本的功能差异。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Introducing the Services Track and Partner Hub of the Claude Partner Network",
-        "url": "https://www.anthropic.com/news/services-track-partner-hub",
-        "score": 61,
-        "source": "Anthropic News",
-        "summary": "Introducing the Services Track and Partner Hub of the Claude Partner Network",
-        "perspective": "Anthropic公司宣布推出Claude合作伙伴网络的两个新模块：服务赛道和合作伙伴中心。这标志着该AI平台正在构建更完善的生态系统，旨在通过专业化服务支持和集中化资源平台，帮助开发者与企业更好地利用Claude人工智能技术。此举或将加速AI解决方案在各行业的落地应用。",
-        "action": "关注Claude生态的开发者可加入合作伙伴网络获取支持，企业用户则可通过该平台寻找合适的AI解决方案供应商。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "UP-NRPA: User Portrait based Nested Rollout Policy Adaptation for Planning with Large Language Models in Goal-oriented Dialogue Systems",
-        "url": "https://arxiv.org/abs/2606.13683",
-        "score": 69,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13683v1 Announce Type: new \nAbstract: To address the challenge that current dialogue policy planning methods struggle to dynamically adapt ",
-        "perspective": "该研究提出的UP-NRPA方法创新性地将用户画像与嵌套式策略适应机制相结合，在目标导向对话系统中实现了基于大语言模型的自适应规划。从技术层面看，其核心价值在于解决了现有对话策略规划方法动态适应性的痛点，通过用户画像驱动策略调整，提升了系统的个性化服务能力。从行业影响看，这项技术可显著改善电商客服、智能助理等场景的交互体验，具有商业化落地潜力。其嵌套式架构设计也为LLM在垂直领域的应用提供了新思路。",
-        "action": "对话系统开发者可优先在客户服务场景测试该方法；投资者应关注用户画像与LLM结合领域的初创企业；研究人员可探索将该框架扩展到多模态交互场景。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Orchestra-o1: Omnimodal Agent Orchestration",
-        "url": "https://arxiv.org/abs/2606.13707",
-        "score": 68,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13707v1 Announce Type: new \nAbstract: The recent success of agent swarms has shifted the paradigm of large language model (LLM)-based agent",
-        "perspective": "该研究提出的Omnimodal Agent Orchestration系统代表了多模态AI代理协同计算的重要突破。从技术层面看，其创新性在于实现了跨模态代理群的动态编排，这比传统单模态代理系统具有更复杂的决策树和资源分配机制。在行业影响方面，这种架构可能重塑企业级AI服务交付模式，使复杂任务的分布式处理成为可能。商业模式上，该系统为按需智能服务(Intelligence-as-a-Service)提供了新的技术基础，特别在需要多模态处理的医疗、制造等领域具有显著商业化潜力。核心价值在于其提出的动态编排机制可显著降低多Agent系统的协调成本。",
-        "action": "建议AI工程师重点关注系统编排接口的标准化工作；投资者可布局医疗诊断、工业质检等需要多模态协同的垂直场景的早期项目。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Hybrid Open-Ended Tri-Evolution Makes Better Deep Researcher",
-        "url": "https://arxiv.org/abs/2606.13710",
-        "score": 68,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13710v1 Announce Type: new \nAbstract: Deep research and agent evolution serve as de-facto tasks for AI agents in real-world applications to",
-        "perspective": "该研究提出的\"混合开放三元进化\"框架代表了AI代理技术的重要突破。从技术层面看，它创新性地结合了深度研究、代理进化和开放环境适应三大要素，解决了传统AI系统在动态复杂场景中的局限性。这种架构特别值得关注的是其\"三元协同\"机制，通过研究导向的进化、进化驱动的研究和环境适应形成正向循环。商业模式上，这种技术可显著降低AI系统持续优化的人力成本，在科研辅助、智能决策等领域具有广阔商业前景。",
-        "action": "研发团队应重点关注三元协同机制的具体实现细节，优先验证其在垂直领域的落地效果。投资者可关注具备类似技术储备的AI基础平台公司，特别是那些已在科研自动化领域布局的企业。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "YeasierAgent: Agentic Social Sandbox as a Canvas for Intent-Driven Creation of Platform-Agnostic Symbiotic Agent-Native Applications",
-        "url": "https://arxiv.org/abs/2606.13722",
-        "score": 69,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13722v1 Announce Type: new \nAbstract: This paper introduces YeasierAgent, an application-building paradigm based on symbiotic agents, narra",
-        "perspective": "该研究提出的YeasierAgent代表了AI代理技术的重要演进方向，其\"意图驱动\"和\"平台无关\"的设计理念具有突破性。从技术层面看，通过构建社会沙盒环境实现多代理共生系统，在分布式AI架构和自主协作算法方面展现创新性。行业影响上，这种范式可能重塑应用开发模式，特别是在跨平台服务集成和自动化工作流领域具备商业潜力。商业模式方面，其\"agent-native\"特性可能催生新的开发者生态和SaaS服务模式，值得关注其开源策略与商业化路径的平衡。",
-        "action": "开发者应重点研究其代理交互协议设计，探索垂直领域的场景适配；投资者可关注具备多模态交互能力的代理框架初创团队，优先布局企业自动化赛道。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "TwinBI: An Agentic Digital Twin for Efficient Augmented Interactions with Business Intelligence Dashboards",
-        "url": "https://arxiv.org/abs/2606.13731",
-        "score": 68,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13731v1 Announce Type: new \nAbstract: Business intelligence (BI) increasingly combines dashboard interaction with LLM-based assistance, but",
-        "perspective": "该研究提出的TwinBI系统代表了BI领域向智能代理方向的重要演进。技术层面，通过数字孪生架构将传统BI仪表盘与LLM深度整合，解决了现有BI系统中自然语言交互与可视化分析割裂的痛点。其创新性在于构建了可感知用户意图并自主执行分析任务的代理系统，这将对商业数据分析范式产生深远影响。从商业模式看，这类agentic BI系统可能重塑SaaS产品的定价策略，从功能订阅转向基于分析价值的收费模式。",
-        "action": "BI厂商应优先开发支持多模态交互的智能代理框架，投资者可关注具备数字孪生技术储备的初创公司。建议现有BI产品团队立即评估集成LLM代理的可行性。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "AI Receptivity or AI Adoption Breadth? A Tool-Specific Reanalysis of the Lower-Literacy/Higher-Usage Link",
-        "url": "https://arxiv.org/abs/2606.13734",
-        "score": 61,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13734v1 Announce Type: new \nAbstract: Recent evidence reported by Tully, Longoni, and Appel (2025) suggests that lower artificial intellige",
-        "perspective": "该研究揭示了AI采纳率与用户素养之间的负相关现象，从技术深度来看，这可能反映了低门槛AI工具的设计有效性。行业影响层面，这一发现挑战了\"技术采纳需要高数字素养\"的传统认知，为普惠AI产品开发提供了实证依据。商业模式上，建议关注工具特定性（tool-specific）设计，低复杂度高实用性的AI工具在特定场景下可能获得更高渗透率。",
-        "action": "产品团队应优先开发\"高易用性-强功能性\"的垂直领域工具；投资者可关注面向低数字素养人群的轻量化AI解决方案，重点关注医疗、农业等传统行业场景。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Sorries Are Not the Hard Part: An Expert-Review Case Study of a Semi-Autonomous Formalization",
-        "url": "https://arxiv.org/abs/2606.13925",
-        "score": 68,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13925v1 Announce Type: new \nAbstract: Large language models can often close proof gaps in interactive theorem provers, but a verified theor",
-        "perspective": "该研究展示了大型语言模型在交互式定理证明中的突破性应用，揭示了AI在形式化验证领域的商业化潜力。从技术层面看，模型能够填补证明间隙的特性显著提升了自动化证明效率，这种半自主形式化方法可能重塑数学软件行业格局。其创新性在于构建了人机协作的新型研究范式，但对领域专业知识的深度依赖可能限制其规模化应用。该成果预示着AI+formal methods可能成为下一个企业级服务蓝海。",
-        "action": "建议定理证明工具开发商立即启动LLM集成模块开发，科研机构应建立跨学科的验证语料库。投资者可关注自动化证明SaaS服务赛道。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Adversarial Concept Search: Predicting Compositional Errors From Feature Geometry",
-        "url": "https://arxiv.org/abs/2606.13934",
-        "score": 60,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13934v1 Announce Type: new \nAbstract: Humans cannot always intuit what scenarios are most challenging to LLMs. Hoping to capture challengin",
-        "perspective": "该研究提出的\"对抗性概念搜索\"方法从特征几何角度预测LLM的组合性错误，为模型脆弱性分析提供了新范式。从技术角度看，通过量化评估语义特征空间的结构特性来识别易错场景，相比传统对抗测试更具理论深度。这将推动AI安全领域从经验性测试向可解释性诊断转变，同时也为模型优化提供了新的评估维度。商业层面，此类技术有望成为AI服务商的核心竞争力之一，但需注意可能引发的新型对抗攻击风险。",
-        "action": "开发者应将特征几何分析纳入模型测试体系，重点关注高频错误模式的特征空间分布。投资者可关注具备可解释性诊断能力的AI安全初创企业。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Minim: Privacy-Aware Minimal View for Agents via Trusted Local Sanitization",
-        "url": "https://arxiv.org/abs/2606.13949",
-        "score": 68,
-        "source": "Arxiv Ai",
-        "summary": "arXiv:2606.13949v1 Announce Type: new \nAbstract: Modern LLM-powered autonomous agents increasingly rely on rich user interface (UI) state observations",
-        "perspective": "该研究提出的\"Minim\"框架代表了隐私保护技术在AI代理领域的重要突破，其通过本地净化处理实现了UI状态观测的最小化采集。从技术层面看，这种受信任的本地净化机制巧妙地平衡了数据效用与隐私保护，为多模态AI系统开发提供了新范式。该方案可能重塑智能代理的人机交互标准，特别是在医疗、金融等敏感领域具有显著商业化潜力。其创新性在于将隐私保护从后端处理前移至数据采集源头，这种架构设计可能成为未来可信AI的基础设施组件。",
-        "action": "开发者应优先在涉及敏感数据的应用场景集成此类隐私保护框架；投资者可关注具备本地数据处理能力的边缘计算解决方案提供商。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Which Models Perform Better in Inheritance Reasoning?",
-        "url": "https://arxiv.org/abs/2606.13751",
-        "score": 61,
-        "source": "Arxiv Cl",
-        "summary": "arXiv:2606.13751v1 Announce Type: new \nAbstract: This paper presents the participation of team PSL in the QIAS 2026 Shared Task on Arabic Islamic inhe",
-        "perspective": "该研究聚焦阿拉伯伊斯兰继承推理任务中的模型性能比较，具有重要的跨文化NLP研究价值。从技术层面看，这属于特定领域知识推理的前沿课题，对模型的语义理解、规则推理和文化适配能力提出较高要求。行业影响方面，此类专业领域AI应用可推动法律科技、伊斯兰金融等垂直领域的智能化发展。商业模式上，展现出专业领域小样本学习的商业化潜力，但需解决文化适配和领域知识融合等关键技术瓶颈。",
-        "action": "建议NLP研究者重点关注跨文化语义理解技术，投资者可关注伊斯兰金融科技领域的AI应用场景，同时注意本地化合规要求。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "The Culture Funnel: You Can't Align What isn't in the Data",
-        "url": "https://arxiv.org/abs/2606.13808",
-        "score": 60,
-        "source": "Arxiv Cl",
-        "summary": "arXiv:2606.13808v1 Announce Type: new \nAbstract: Current cultural alignment approaches focus on inference-time interventions, assuming models already ",
-        "perspective": "从技术角度看，该研究揭示了当前文化对齐方法的局限性——过度依赖推理阶段的干预，而忽视了训练数据中文化表征的根本性缺失。这暴露出AI系统在深层文化理解上的结构性缺陷，可能影响全球商业化落地的文化适应性。从行业影响看，这一发现将推动文化数据采集和标注标准的革新，并催生专注于文化数据基建的新兴市场。商业模式方面，早期布局文化数据资产的企业将获得显著先发优势。",
-        "action": "从业者应建立文化维度的数据标注体系，投资人可关注跨文化语料库建设及文化特征提取工具的开发。产品出海前需进行多层级文化兼容性测试。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "T早报｜Anthropic关停最新大模型服务；SpaceX上市首日市值突破2.1万亿美元；长鑫科技完成IPO注册",
-        "url": "https://www.caixin.com/2026-06-15/102454113.html",
-        "score": 61,
-        "source": "Caixin",
-        "summary": "",
-        "perspective": "AI领域近期出现标志性事件：Anthropic突然关停其最新大模型服务，引发业内对AI安全与商业落地的讨论。同时科技界迎来两大里程碑：SpaceX上市首日市值即突破2.1万亿美元，刷新行业纪录；中国半导体企业长鑫科技完成IPO注册，显示芯片国产化进程加速。这三件事分别代表了AI发展瓶颈、商业航天爆发和半导体自主可控三大科技趋势。",
-        "action": "建议科技爱好者持续关注Anthropic后续动作，思考AI伦理边界；普通投资者可研究SpaceX和长鑫的产业链机会，但需注意估值风险。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Measuring the impact of learning with AI in Sierra Leone and beyond",
-        "url": "https://deepmind.google/blog/measuring-the-impact-of-learning-with-ai-in-sierra-leone-and-beyond/",
-        "score": 61,
-        "source": "Deepmind",
-        "summary": "Results from a randomized controlled trial show the potential of Gemini’s Guided Learning feature to boost engagement and accelerate learning.",
-        "perspective": "谷歌Deepmind最新研究显示，在塞拉利昂等地区进行的对照实验中，Gemini人工智能的\"引导学习\"功能显著提升了学习参与度和效率。这项随机对照试验证实，AI辅助教学能有效帮助学习者更快掌握知识。研究为AI教育应用在全球范围、特别是资源匮乏地区的推广提供了有力证据。",
-        "action": "教育工作者可关注AI教学工具的实际效果，学生群体不妨尝试可靠的AI学习助手，但需注意甄别信息来源的准确性。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Gemini for Science: AI experiments and tools for a new era of discovery",
-        "url": "https://deepmind.google/blog/gemini-for-science-ai-experiments-and-tools-for-a-new-era-of-discovery/",
-        "score": 61,
-        "source": "Deepmind",
-        "summary": "A collection of science tools and experiments to expand the scale and precision of scientific exploration.",
-        "perspective": "Deepmind推出的\"Gemini for Science\"是一套AI驱动的科学工具包，旨在通过人工智能技术提升科研探索的规模与精度。这套工具将帮助科学家突破传统研究方法的限制，可能加速从基础研究到实际应用的转化过程。最值得关注的是它可能带来科学发现范式的革新，让AI成为科研人员的新型\"数字实验室助手\"。",
-        "action": "科研工作者可以关注这套工具的开放进度，普通读者则可通过Deepmind官网了解AI如何改变科学研究的面貌，培养对科技发展的敏感度。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "The Download: soccer’s data renaissance and China’s big nuclear plans",
-        "url": "https://www.technologyreview.com/2026/06/11/1138809/the-download-soccer-football-data-analytics-china-nuclear-power/",
-        "score": 61,
-        "source": "Mit Tr",
-        "summary": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. ",
-        "perspective": "这篇来自MIT Technology Review的文章聚焦两大科技趋势：足球运动的数据化革新和中国核能发展计划。足球领域正经历\"数据复兴\"，运用先进技术分析球员表现和比赛策略；同时中国正在推进大型核能项目，展现其在清洁能源领域的雄心。两者分别代表了体育科技和能源技术的前沿动态。",
-        "action": "体育爱好者可关注数据技术如何改变足球训练和比赛，能源相关从业者应留意中国核能发展带来的行业机遇。普通读者可思考科技如何改变传统领域。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Inside soccer’s data renaissance",
-        "url": "https://www.technologyreview.com/2026/06/11/1138506/inside-soccer-data-renaissance-jesse-davis/",
-        "score": 61,
-        "source": "Mit Tr",
-        "summary": "Imagine tuning in to the opening kickoff of a World Cup match and seeing a player intentionally send the ball all the way down the pitch and right out",
-        "perspective": "这篇来自MIT的文章揭示了足球运动正在经历的数据革命。通过世界杯开球场景的描述，展现了现代足球如何运用数据策略改变传统战术。核心看点在于：顶级赛事中球员看似简单的开球动作，背后是经过精密数据分析的最优策略，标志着体育竞技已进入\"数字战术\"新时代。",
-        "action": "球迷观赛时可多关注球员的\"非常规\"动作，这些往往是数据驱动的战术体现。业余玩家也可尝试用数据思维分析比赛，提升观赛乐趣。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Introducing the OpenAI Partner Network",
-        "url": "https://openai.com/index/introducing-openai-partner-network",
-        "score": 61,
-        "source": "Openai Blog",
-        "summary": "OpenAI launches the Partner Network, investing $150M to help global partners accelerate enterprise AI adoption, deployment, and transformation.",
-        "perspective": "OpenAI宣布推出合作伙伴网络计划，投入1.5亿美元支持全球合作伙伴加速企业AI应用。这一举措旨在降低企业采用AI的门槛，推动技术落地和数字化转型。看点在于：1）OpenAI正从技术研发转向生态建设；2）巨额资金将加速AI商业化进程；3）企业级AI解决方案将迎来爆发期。",
-        "action": "企业管理者可关注OpenAI合作伙伴的解决方案，评估AI转型机会；开发者可留意合作计划，寻求参与机会。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "How Preply combines AI and human tutors to personalize learning",
-        "url": "https://openai.com/index/preply",
-        "score": 61,
-        "source": "Openai Blog",
-        "summary": "Preply uses OpenAI to launch AI-generated lesson summaries, providing personalised feedback and language learning exercises.",
-        "perspective": "Preply通过结合AI与真人导师优势，推出AI生成的课程总结功能。该系统利用OpenAI技术为语言学习者提供个性化反馈和练习建议，既保留了人类教师的情感互动，又能实现24/7的智能辅导。这种\"AI+人类\"的混合模式正在重塑在线教育，关键看点在于如何平衡技术效率与人文温度。",
-        "action": "语言学习者可以尝试此类智能平台，重点关注AI生成的个性化分析报告，但建议仍以真人互动为主、AI工具为辅的学习策略。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "Supporting Europe’s work in ensuring a trustworthy AI ecosystem",
-        "url": "https://openai.com/index/supporting-eu-trustworthy-ai-ecosystem",
-        "score": 61,
-        "source": "Openai Blog",
-        "summary": "OpenAI supports the EU Code of Practice on AI content transparency, advancing provenance standards and tools to help people understand AI-generated co",
-        "perspective": "OpenAI宣布支持欧盟《AI行为准则》，重点推动AI内容透明化标准。这意味着未来AI生成的内容将更容易被识别和溯源，帮助公众辨别真假信息。这一举措展现了科技公司主动配合监管的态度，也是AI行业走向规范化的重要一步，特别是在应对虚假信息等社会挑战方面。",
-        "action": "普通用户可关注AI内容标识功能的上线，学会识别AI生成内容。遇到可疑信息时主动查证来源，培养信息甄别能力。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "OpenAI to acquire Ona",
-        "url": "https://openai.com/index/openai-to-acquire-ona",
-        "score": 61,
-        "source": "Openai Blog",
-        "summary": "OpenAI plans to acquire Ona to expand Codex with secure, persistent cloud environments, enabling long-running AI agents across enterprise workflows.",
-        "perspective": "OpenAI宣布收购Ona，这是其拓展Codex平台的重要一步。通过整合Ona的云端持久环境技术，未来企业用户将能部署长期运行的AI智能体，实现更复杂的业务流程自动化。这项收购标志着AI正深入企业级应用场景，让AI代理能够更安全、稳定地参与日常工作流程。",
-        "action": "企业用户可关注OpenAI Codex平台的后续更新，评估将AI代理集成到现有工作流的可能性。开发者可以研究持久化AI代理的应用场景。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
-      },
-      {
-        "title": "From data to decisions: how LSEG is scaling trusted AI",
-        "url": "https://openai.com/index/lseg",
-        "score": 61,
-        "source": "Openai Blog",
-        "summary": "See how LSEG uses OpenAI to scale trusted AI across its global business, accelerating insights, shrinking release cycles, and empowering 4,000 employe",
-        "perspective": "伦敦证券交易所集团(LSEG)正在通过OpenAI技术构建可信AI系统，在全球业务中实现规模化应用。该案例展示了AI如何帮助企业加速数据分析、缩短产品发布周期，并为4000名员工赋能。核心看点在于：金融巨头如何将AI融入核心业务，以及可信AI在严谨金融领域的落地实践。",
-        "action": "关注金融领域AI应用案例，思考自身行业与AI的结合点。可学习LSEG的\"可信AI\"实施策略，评估企业级AI部署的关键要素。",
-        "level": {
-          "name": "参考",
-          "color": "#3498db",
-          "threshold": 60
-        }
+        "title": "我总是在每台新设备上更改 13 个 Google 相册设置 - 以及原因",
+        "url": "https://www.zdnet.com/article/google-photos-settings-i-change-on-new-android-iphone-why/",
+        "score": 38,
+        "source": "ZDNet",
+        "summary": "在我的 Android 或 iPhone 相机胶卷上使用 Google Photos 之前，我会先检查这些备份、隐私和 AI 设置。",
+        "perspective": "这提醒我们注意AI在管理个人数据时的潜在风险，主动设置能更好保护隐私。",
+        "action": "今天就去检查一下自己的云存储和隐私设置，别让AI替你做决定。"
       }
     ]
   }
