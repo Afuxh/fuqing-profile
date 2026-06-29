@@ -3,1773 +3,1131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>交流2群 · 2026IP训练营</title>
+<title>【交流2群】🌲2026IP训练营 · 聊天数据报告</title>
 <style>
-/* ============================================
-   APPLE-STYLE DESIGN SYSTEM
-   ============================================ */
-:root {
-  --white: #ffffff;
-  --gray-50: #f5f5f7;
-  --gray-100: #f0f0f2;
-  --gray-200: #e8e8ed;
-  --gray-300: #d2d2d7;
-  --gray-400: #aeaeb2;
-  --gray-500: #86868b;
-  --gray-600: #6e6e73;
-  --gray-700: #515154;
-  --gray-800: #1d1d1f;
-  --blue: #0071e3;
-  --blue-light: #2997ff;
-  --blue-dark: #0066cc;
-  --purple: #ac39ff;
-  --green: #34c759;
-  --orange: #ff9500;
-  --red: #ff3b30;
-  --teal: #5ac8fa;
-  --pink: #ff375f;
-  --gradient-warm: linear-gradient(180deg, #fff 0%, #f5f5f7 100%);
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.06);
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.06), 0 8px 20px rgba(0,0,0,0.04);
-  --radius-sm: 12px;
-  --radius-md: 18px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
-  --transition-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
-}
+  :root {
+    --bg: #f5f5f7;
+    --card-bg: #ffffff;
+    --text: #1d1d1f;
+    --text-secondary: #86868b;
+    --accent: #0071e3;
+    --accent-light: #e8f0fe;
+    --border: #e5e5ea;
+    --success: #34c759;
+    --warning: #ff9500;
+    --red: #ff3b30;
+    --shadow: 0 2px 12px rgba(0,0,0,0.04);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-/* Reset */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-  color: var(--gray-800);
-  background: var(--white);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 60px 24px 48px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .hero .subtitle { font-size: 1.1rem; opacity: 0.85; font-weight: 400; }
+  .hero .pill {
+    display: inline-block; margin-top: 16px; padding: 6px 16px;
+    background: rgba(255,255,255,0.2); border-radius: 20px;
+    font-size: 0.85rem; backdrop-filter: blur(10px);
+  }
 
-/* ============ APPLE NAVIGATION ============ */
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
-  background: rgba(255,255,255,0.72);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  transition: all 0.4s var(--transition-apple);
-}
-.nav__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  padding: 0 2rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.nav__inner::-webkit-scrollbar { display: none; }
-.nav__link {
-  flex-shrink: 0;
-  padding: 0.85rem 1.15rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--gray-600);
-  text-decoration: none;
-  letter-spacing: -0.01em;
-  transition: color 0.3s;
-  white-space: nowrap;
-  position: relative;
-}
-.nav__link:hover { color: var(--gray-800); }
-.nav__link--active { color: var(--blue); }
+  /* Stats Grid */
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px; max-width: 1100px; margin: -28px auto 0;
+    padding: 0 24px; position: relative; z-index: 2;
+  }
+  .stat-card {
+    background: var(--card-bg); border-radius: var(--radius-sm); padding: 20px;
+    box-shadow: var(--shadow); text-align: center;
+  }
+  .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--accent); }
+  .stat-card .label { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
 
-/* ============ SECTION LAYOUT ============ */
-.section {
-  padding: 120px 0;
-  position: relative;
-}
-.section--gray { background: var(--gray-50); }
-.section--white { background: var(--white); }
-.container {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-.container--wide { max-width: 1100px; }
-.container--narrow { max-width: 720px; }
+  /* Sections */
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  .section { margin-bottom: 48px; }
+  .section h2 {
+    font-size: 1.6rem; font-weight: 700; margin-bottom: 20px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section h2 .icon { font-size: 1.3rem; }
 
-/* ============ APPLE TYPOGRAPHY ============ */
-.eyebrow {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gray-500);
-  margin-bottom: 1rem;
-}
-.headline {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-  color: var(--gray-800);
-  margin-bottom: 1.5rem;
-}
-.headline--small { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
-.headline--large { font-size: clamp(3rem, 7vw, 5.5rem); }
-.subhead {
-  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--gray-600);
-  max-width: 600px;
-}
-.section-label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 0.75rem;
-}
-.section-title {
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: var(--gray-800);
-  margin-bottom: 0.75rem;
-}
-.section-desc {
-  font-size: 1.05rem;
-  color: var(--gray-500);
-  line-height: 1.6;
-  max-width: 560px;
-}
+  /* Cards */
+  .card {
+    background: var(--card-bg); border-radius: var(--radius);
+    padding: 28px; box-shadow: var(--shadow); margin-bottom: 16px;
+  }
+  .card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; }
 
-/* ============ HERO ============ */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 6rem 2rem 4rem;
-  background: var(--white);
-  position: relative;
-  overflow: hidden;
-}
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(0,113,227,0.04) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 80% 70%, rgba(172,57,255,0.03) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 40% at 20% 60%, rgba(90,200,250,0.03) 0%, transparent 70%);
-}
-.hero__content { position: relative; z-index: 1; max-width: 800px; }
-.hero__pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--gray-100);
-  border-radius: 100px;
-  padding: 0.4rem 1.1rem;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--gray-700);
-  margin-bottom: 2rem;
-  /* animation removed for instant visibility */;
-}
-.hero__pill-dot {
-  width: 7px; height: 7px;
-  background: var(--green);
-  border-radius: 50%;
-  box-shadow: 0 0 6px rgba(52,199,89,0.4);
-}
-.hero__title {
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  color: var(--gray-800);
-  margin-bottom: 1.5rem;
-  /* animation removed for instant visibility */;
-}
-.hero__title-accent {
-  background: linear-gradient(135deg, #0071e3 0%, #5ac8fa 50%, #ac39ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero__desc {
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  color: var(--gray-500);
-  line-height: 1.6;
-  margin-bottom: 3.5rem;
-  /* animation removed for instant visibility */;
-}
-.hero__stats {
-  display: flex;
-  justify-content: center;
-  gap: clamp(2rem, 6vw, 5rem);
-  flex-wrap: wrap;
-  /* animation removed for instant visibility */;
-}
-.hero__stat-val {
-  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--gray-800);
-  line-height: 1;
-  font-feature-settings: "tnum";
-  font-variant-numeric: tabular-nums;
-}
-.hero__stat-lbl {
-  font-size: 0.8rem;
-  color: var(--gray-500);
-  margin-top: 0.4rem;
-  font-weight: 500;
-}
-.scroll-hint {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  /* animation removed for instant visibility */, bob 2.5s ease-in-out 1.8s infinite;
-  color: var(--gray-400);
-  font-size: 1.2rem;
-}
+  /* Analysis Text */
+  .analysis-text { font-size: 0.95rem; line-height: 1.8; color: var(--text); }
+  .analysis-text h3 { font-size: 1.1rem; margin: 20px 0 10px; }
+  .analysis-text h4 { font-size: 1rem; margin: 16px 0 8px; color: var(--accent); }
+  .analysis-text ul, .analysis-text ol { padding-left: 20px; margin: 8px 0; }
+  .analysis-text li { margin-bottom: 4px; }
+  .analysis-text strong { color: var(--accent); }
+  .analysis-text table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
+  .analysis-text th, .analysis-text td { padding: 10px 14px; border-bottom: 1px solid var(--border); text-align: left; }
+  .analysis-text th { background: var(--accent-light); font-weight: 600; }
+  .analysis-text blockquote { border-left: 3px solid var(--accent); padding-left: 16px; margin: 12px 0; color: var(--text-secondary); }
 
-/* ============ STAT CARDS ============ */
-.stat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 1.25rem;
-}
-.stat-card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 2rem 1.5rem;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.5s var(--transition-apple);
-}
-.stat-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-}
-.stat-card__num {
-  font-size: 2.4rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--gray-800);
-  line-height: 1.1;
-  font-feature-settings: "tnum";
-}
-.stat-card__lbl {
-  font-size: 0.78rem;
-  color: var(--gray-500);
-  margin-top: 0.4rem;
-}
-.stat-card__icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  /* Members Table */
+  .members-table { width: 100%; border-collapse: collapse; }
+  .members-table th, .members-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+  .members-table th { font-size: 0.8rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; }
+  .members-table .rank { width: 60px; text-align: center; }
+  .members-table .bar-cell { width: 40%; }
+  .bar { height: 8px; background: var(--accent-light); border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #5856d6); border-radius: 4px; transition: width 0.6s ease; }
 
-/* ============ TABLE (Apple style) ============ */
-.apple-table-wrap {
-  overflow-x: auto;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-200);
-}
-.apple-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.88rem;
-  min-width: 600px;
-}
-.apple-table th {
-  background: var(--gray-50);
-  color: var(--gray-600);
-  font-weight: 600;
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.85rem 1.2rem;
-  text-align: left;
-  border-bottom: 1px solid var(--gray-200);
-}
-.apple-table td {
-  padding: 0.75rem 1.2rem;
-  border-bottom: 1px solid var(--gray-100);
-  color: var(--gray-700);
-}
-.apple-table tbody tr:last-child td { border-bottom: none; }
-.apple-table tbody tr:hover { background: var(--gray-50); }
-.apple-table .num {
-  font-feature-settings: "tnum";
-  font-variant-numeric: tabular-nums;
-  font-weight: 600;
-}
+  /* Daily Timeline */
+  .daily-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+  .daily-item {
+    background: var(--card-bg); border-radius: var(--radius-sm); padding: 14px;
+    box-shadow: var(--shadow); text-align: center; transition: transform 0.2s;
+  }
+  .daily-item:hover { transform: translateY(-2px); }
+  .daily-item .date { font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 4px; }
+  .daily-item .count { font-size: 1.3rem; font-weight: 700; color: var(--accent); }
+  .daily-item .active { font-size: 0.8rem; color: var(--text-secondary); }
 
-/* ============ CHART BOX ============ */
-.chart-card {
-  background: var(--white);
-  border-radius: var(--radius-xl);
-  padding: 2.5rem;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-100);
-}
-.chart-card__title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--gray-800);
-  margin-bottom: 1.75rem;
-  letter-spacing: -0.01em;
-}
+  /* Heatmap */
+  .heatmap { display: flex; gap: 4px; flex-wrap: wrap; align-items: flex-end; }
+  .heatmap-row { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 38px; }
+  .heatmap-bar {
+    width: 28px; background: var(--accent); border-radius: 4px 4px 0 0;
+    transition: height 0.4s ease; min-height: 4px;
+  }
+  .heatmap-label { font-size: 0.65rem; color: var(--text-secondary); }
+  .heatmap-count { font-size: 0.6rem; color: var(--text-secondary); }
 
-/* ============ MEMBER BARS ============ */
-.member-list { display: flex; flex-direction: column; gap: 0; }
-.member-row {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--gray-100);
-  transition: background 0.3s;
-}
-.member-row:last-child { border-bottom: none; }
-.member-row:hover { background: var(--gray-50); margin: 0 -1rem; padding: 0.5rem 1rem; border-radius: var(--radius-sm); }
-.member-row__rank {
-  width: 24px;
-  text-align: center;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--gray-400);
-  font-feature-settings: "tnum";
-  flex-shrink: 0;
-}
-.member-row__rank--gold { color: var(--orange); }
-.member-row__rank--silver { color: var(--gray-400); }
-.member-row__rank--bronze { color: #cd7f32; }
-.member-row__avatar {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: white;
-}
-.member-row__info { flex: 1; min-width: 0; }
-.member-row__name {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--gray-800);
-}
-.member-row__role {
-  font-size: 0.7rem;
-  color: var(--gray-500);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.member-row__bar-wrap {
-  width: 140px;
-  height: 6px;
-  background: var(--gray-100);
-  border-radius: 3px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-.member-row__bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  background: linear-gradient(90deg, var(--blue), var(--blue-light));
-  transition: width 1.5s var(--transition-apple);
-}
-.member-row__count {
-  width: 48px;
-  text-align: right;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--gray-600);
-  font-feature-settings: "tnum";
-  flex-shrink: 0;
-}
+  /* Tools */
+  .tools-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tool-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 14px; border-radius: 20px;
+    background: var(--accent-light); color: var(--accent);
+    font-size: 0.85rem; font-weight: 500;
+  }
+  .tool-tag .tool-count { font-weight: 700; }
 
-/* ============ ROLE CARDS ============ */
-.role-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-}
-.role-card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 2rem 1.5rem;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.4s var(--transition-apple);
-}
-.role-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-.role-card__emoji { font-size: 2.2rem; margin-bottom: 0.75rem; }
-.role-card__title { font-size: 0.9rem; font-weight: 700; color: var(--gray-800); margin-bottom: 0.35rem; }
-.role-card__desc { font-size: 0.75rem; color: var(--gray-500); line-height: 1.5; }
+  /* Links / Student Work */
+  .link-item {
+    padding: 10px 14px; border-bottom: 1px solid var(--border);
+    font-size: 0.9rem; display: flex; justify-content: space-between;
+    align-items: center; gap: 12px;
+  }
+  .link-item:last-child { border-bottom: none; }
+  .link-item .link-url {
+    color: var(--accent); text-decoration: none; max-width: 70%;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .link-item .link-meta { font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap; }
 
-/* ============ TOPIC BARS ============ */
-.topic-list { display: flex; flex-direction: column; gap: 0.75rem; }
-.topic-row {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.85rem 1.25rem;
-  background: var(--gray-50);
-  border-radius: var(--radius-sm);
-  transition: all 0.3s var(--transition-apple);
-}
-.topic-row:hover { background: var(--gray-100); }
-.topic-row__name { width: 180px; flex-shrink: 0; font-size: 0.82rem; font-weight: 600; color: var(--gray-700); }
-.topic-row__stars { display: flex; gap: 2px; flex-shrink: 0; }
-.topic-row__star { font-size: 0.85rem; }
-.topic-row__star--on { color: var(--orange); }
-.topic-row__star--off { color: var(--gray-300); }
-.topic-row__pct {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--gray-500);
-  width: 42px;
-  text-align: right;
-  flex-shrink: 0;
-}
+  /* Shulin Messages */
+  .msg-item {
+    padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 0.9rem;
+  }
+  .msg-item:last-child { border-bottom: none; }
+  .msg-item .msg-sender { font-weight: 600; color: var(--accent); }
+  .msg-item .msg-time { font-size: 0.75rem; color: var(--text-secondary); margin-left: 8px; }
+  .msg-item .msg-content { margin-top: 4px; color: var(--text); line-height: 1.5; }
 
-/* ============ KEYWORD TAGS ============ */
-.kw-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-}
-.kw-tag {
-  padding: 0.45rem 1rem;
-  border-radius: 100px;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--gray-700);
-  background: var(--gray-50);
-  border: 1px solid var(--gray-200);
-  transition: all 0.3s var(--transition-apple);
-  cursor: default;
-}
-.kw-tag:hover {
-  background: var(--white);
-  border-color: var(--blue);
-  color: var(--blue);
-  box-shadow: var(--shadow-md);
-  transform: scale(1.05);
-}
-.kw-tag--xl { font-size: 1.2rem; padding: 0.6rem 1.4rem; font-weight: 700; }
-.kw-tag--lg { font-size: 1rem; padding: 0.55rem 1.2rem; font-weight: 600; }
-.kw-tag__count { color: var(--blue); font-weight: 600; font-size: 0.7rem; }
+  /* Footer */
+  .footer {
+    text-align: center; padding: 40px 24px; color: var(--text-secondary);
+    font-size: 0.85rem; border-top: 1px solid var(--border);
+    max-width: 1100px; margin: 0 auto;
+  }
+  .footer a { color: var(--accent); }
 
-/* ============ TIMELINE ============ */
-.apple-timeline { position: relative; padding-left: 2.5rem; }
-.apple-timeline::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 8px; bottom: 8px;
-  width: 1.5px;
-  background: var(--gray-200);
-  border-radius: 2px;
-}
-.tl-item { position: relative; padding-bottom: 2.5rem; }
-.tl-item:last-child { padding-bottom: 0; }
-.tl-item::before {
-  content: '';
-  position: absolute;
-  left: -2.25rem;
-  top: 6px;
-  width: 10px; height: 10px;
-  border: 2px solid var(--blue);
-  background: var(--white);
-  border-radius: 50%;
-  z-index: 1;
-}
-.tl-item__date {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--blue);
-  letter-spacing: 0.04em;
-  margin-bottom: 0.15rem;
-}
-.tl-item__title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--gray-800);
-  margin-bottom: 0.35rem;
-}
-.tl-item__body {
-  font-size: 0.85rem;
-  color: var(--gray-500);
-  line-height: 1.7;
-}
-.tl-item__body ul { list-style: none; padding: 0; }
-.tl-item__body li { padding: 0.12rem 0; }
-.tl-item__body li::before { content: '— '; color: var(--gray-400); }
-
-/* ============ WORKFLOW CARDS ============ */
-.wf-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-}
-.wf-card {
-  background: var(--white);
-  border: 1px solid var(--gray-100);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.4s var(--transition-apple);
-  position: relative;
-  overflow: hidden;
-}
-.wf-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--blue), var(--teal), var(--purple));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s var(--transition-apple);
-}
-.wf-card:hover::before { transform: scaleX(1); }
-.wf-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-.wf-card__title { font-size: 0.95rem; font-weight: 700; color: var(--gray-800); margin-bottom: 0.25rem; }
-.wf-card__author { font-size: 0.72rem; color: var(--blue); font-weight: 500; margin-bottom: 0.75rem; }
-.wf-card__flow {
-  font-family: "SF Mono", "JetBrains Mono", "Menlo", monospace;
-  font-size: 0.7rem;
-  color: var(--gray-500);
-  line-height: 1.8;
-  background: var(--gray-50);
-  border-radius: var(--radius-sm);
-  padding: 0.75rem 1rem;
-  border-left: 2px solid var(--blue-light);
-}
-
-/* ============ TOOL GRID ============ */
-.tool-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 0.75rem;
-}
-.tool-card {
-  background: var(--white);
-  border: 1px solid var(--gray-100);
-  border-radius: var(--radius-md);
-  padding: 1.15rem 1.25rem;
-  transition: all 0.35s var(--transition-apple);
-}
-.tool-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-  border-color: var(--gray-200);
-}
-.tool-card__cat {
-  font-size: 0.62rem;
-  font-weight: 600;
-  color: var(--blue);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 0.25rem;
-}
-.tool-card__name { font-size: 0.9rem; font-weight: 700; color: var(--gray-800); }
-.tool-card__stars { color: var(--orange); font-size: 0.7rem; margin-top: 0.3rem; letter-spacing: 1px; }
-
-/* ============ INSIGHT CARDS ============ */
-.insight-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
-}
-.insight-card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.4s var(--transition-apple);
-  border: 1px solid var(--gray-100);
-}
-.insight-card:hover { box-shadow: var(--shadow-lg); }
-.insight-card__icon { font-size: 2rem; margin-bottom: 0.75rem; }
-.insight-card__title { font-size: 1rem; font-weight: 700; color: var(--gray-800); margin-bottom: 0.5rem; }
-.insight-card__text { font-size: 0.82rem; color: var(--gray-500); line-height: 1.7; }
-
-/* ============ BLOCKQUOTE ============ */
-.apple-quote {
-  border-left: 3px solid var(--blue);
-  padding: 0.3rem 0 0.3rem 1.5rem;
-  margin: 1.5rem 0;
-  color: var(--gray-600);
-  font-size: 0.95rem;
-  font-style: italic;
-}
-
-/* ============ RISK LIST ============ */
-.risk-list { display: flex; flex-direction: column; gap: 0.6rem; }
-.risk-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.85rem;
-  padding: 0.9rem 1.25rem;
-  background: var(--white);
-  border: 1px solid var(--gray-100);
-  border-radius: var(--radius-md);
-  font-size: 0.84rem;
-  color: var(--gray-600);
-  transition: all 0.3s;
-}
-.risk-item:hover { border-color: rgba(255,59,48,0.2); background: #fffaf9; }
-.risk-item__icon { color: var(--red); flex-shrink: 0; font-size: 1rem; }
-
-/* ============ HEATMAP (Apple style) ============ */
-.heatmap-wrap {
-  display: grid;
-  grid-template-columns: 110px 60px auto;
-  gap: 0;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid var(--gray-200);
-}
-.hm-cell {
-  padding: 0.55rem 0.8rem;
-  font-size: 0.72rem;
-  border-bottom: 1px solid var(--gray-100);
-  display: flex;
-  align-items: center;
-  font-feature-settings: "tnum";
-}
-.hm-cell:last-child { border-bottom: none; }
-.hm-header {
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--gray-500);
-  background: var(--gray-50);
-}
-.hm-label { color: var(--gray-700); font-weight: 500; }
-.hm-count { color: var(--gray-800); font-weight: 600; }
-.hm-bar-cell { padding: 0.55rem 1rem; }
-.hm-bar-wrap { height: 4px; background: var(--gray-100); border-radius: 2px; overflow: hidden; width: 100%; }
-.hm-bar-fill { height: 100%; border-radius: 2px; background: var(--blue); transition: width 1.5s var(--transition-apple); }
-
-/* ============ STICKY SCROLL SECTION (Apple style) ============ */
-.sticky-showcase {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  min-height: 80vh;
-  padding: 4rem 0;
-}
-.sticky-showcase__text { position: sticky; top: 50%; transform: translateY(-50%); }
-.sticky-showcase__visual { padding: 2rem 0; }
-
-/* ============ FOOTER ============ */
-.footer {
-  background: var(--gray-50);
-  padding: 4rem 2rem 3rem;
-  text-align: center;
-  border-top: 1px solid var(--gray-200);
-}
-.footer__title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--gray-800);
-  margin-bottom: 0.75rem;
-}
-.footer__text {
-  font-size: 0.78rem;
-  color: var(--gray-500);
-  line-height: 1.8;
-}
-.footer__colophon {
-  margin-top: 1.5rem;
-  font-size: 0.7rem;
-  color: var(--gray-400);
-}
-
-/* ============ ANIMATIONS ============ */
-/* @keyframes fadeUp removed */
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes bob {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(6px); }
-}
-.fade-reveal {
-  opacity: 1;
-  transform: none;
-  transition: none;
-}
-.fade-reveal--shown { opacity: 1; transform: none; }
-
-/* ============ INLINE SVG TREND CHART ============ */
-.trend-chart {
-  position: relative;
-  width: 100%;
-  min-height: 280px;
-}
-.trend-chart__svg { width: 100%; height: 280px; display: block; }
-
-/* ============ RESPONSIVE ============ */
-@media (max-width: 768px) {
-  .section { padding: 80px 0; }
-  .container { padding: 0 1.25rem; }
-  .hero { min-height: auto; padding: 8rem 1rem 5rem; }
-  .hero__title { font-size: clamp(2.2rem, 8vw, 3.5rem); }
-  .hero__stats { gap: 1.5rem; }
-  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-  .stat-card { padding: 1.25rem 1rem; }
-  .stat-card__num { font-size: 1.6rem; }
-  .chart-card { padding: 1.5rem; }
-  .member-row { gap: 0.5rem; }
-  .member-row__role { display: none; }
-  .member-row__bar-wrap { width: 60px; }
-  .member-row__name { font-size: 0.78rem; }
-  .wf-grid { grid-template-columns: 1fr; }
-  .tool-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-  .role-grid { grid-template-columns: repeat(2, 1fr); }
-  .sticky-showcase { grid-template-columns: 1fr; gap: 2rem; min-height: auto; }
-  .sticky-showcase__text { position: static; transform: none; }
-  .nav__link { font-size: 0.7rem; padding: 0.65rem 0.7rem; }
-  .topic-row__name { width: 120px; font-size: 0.72rem; }
-}
-
-/* SF Pro Display fallback for headings */
-h1, h2, h3, h4, .headline, .section-title, .hero__title {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-}
-
-/* Selection */
-::selection { background: rgba(0,113,227,0.2); color: var(--gray-800); }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.8rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .daily-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+  }
 </style>
 </head>
 <body>
 
-<!-- ================================
-     NAVIGATION
-     ================================ -->
-<nav class="nav" id="nav">
-  <div class="nav__inner">
-    <a href="#hero" class="nav__link nav__link--active">概览</a>
-    <a href="#overview" class="nav__link">群聊概况</a>
-    <a href="#members" class="nav__link">活跃成员</a>
-    <a href="#topics" class="nav__link">话题分析</a>
-    <a href="#highlights" class="nav__link">关键内容</a>
-    <a href="#interaction" class="nav__link">互动模式</a>
-    <a href="#time-dist" class="nav__link">时间分布</a>
-    <a href="#daily" class="nav__link">每日概要</a>
-    <a href="#tools" class="nav__link">AI 工具</a>
-    <a href="#insights" class="nav__link">洞察总结</a>
-  </div>
-</nav>
-
-<!-- ================================
-     HERO
-     ================================ -->
-<section class="hero" id="hero">
-  <div class="hero__bg"></div>
-  <div class="hero__content">
-    <div class="hero__pill">
-      <span class="hero__pill-dot"></span>
-      数据编年史 · 2026
-    </div>
-    <h1 class="hero__title">
-      交流2群<br>
-      <span class="hero__title-accent">2026IP训练营</span>
-    </h1>
-    <p class="hero__desc">
-      十三日 · 三百零三人 · 一万一千五百六十三条消息<br>
-      一个 AI 时代自我提升社群的全景画像
-    </p>
-    <div class="hero__stats">
-      <div><div class="hero__stat-val" id="counter-msgs">11,563</div><div class="hero__stat-lbl">总消息数</div></div>
-      <div><div class="hero__stat-val" id="counter-users">303</div><div class="hero__stat-lbl">发言人数</div></div>
-      <div><div class="hero__stat-val">13</div><div class="hero__stat-lbl">时间跨度（天）</div></div>
-      <div><div class="hero__stat-val">25+</div><div class="hero__stat-lbl">涉及 AI 工具</div></div>
-    </div>
-  </div>
-  <div class="scroll-hint">⌄</div>
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <h1>【交流2群】🌲2026IP训练营</h1>
+  <p class="subtitle">社群聊天数据全景报告</p>
+  <div class="pill">最近更新：2026-06-29 23:32:24</div>
 </section>
 
-<!-- ================================
-     1. 群聊概览
-     ================================ -->
-<section class="section section--white" id="overview">
-  <div class="container">
-    <div class="fade-reveal" style="text-align:center;margin-bottom:4rem;">
-      <div class="section-label">Section 01</div>
-      <h2 class="section-title">群聊概览</h2>
-      <p class="section-desc" style="margin:0 auto;">以 AI 学习与实战为主题的训练营交流群，由「树林」和「小助理子渺」管理，核心理念是用 AI 实现快速迭代与个人 IP 打造。</p>
-    </div>
+<!-- ====== STATS OVERVIEW ====== -->
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="number">11,556</div>
+    <div class="label">有效消息</div>
+  </div>
+  <div class="stat-card">
+    <div class="number">352</div>
+    <div class="label">参与成员</div>
+  </div>
+  <div class="stat-card">
+    <div class="number">28</div>
+    <div class="label">数据天数</div>
+  </div>
+  <div class="stat-card">
+    <div class="number">413</div>
+    <div class="label">日均消息</div>
+  </div>
+  <div class="stat-card">
+    <div class="number">63</div>
+    <div class="label">日均活跃</div>
+  </div>
+</div>
 
-    <div class="stat-grid fade-reveal" style="margin-bottom:2rem;">
-      <div class="stat-card"><div class="stat-card__num">11,563</div><div class="stat-card__lbl">消息总数</div></div>
-      <div class="stat-card"><div class="stat-card__num">~8982</div><div class="stat-card__lbl">用户消息 · 77.7%</div></div>
-      <div class="stat-card"><div class="stat-card__num">~2581</div><div class="stat-card__lbl">系统消息 · 22.3%</div></div>
-      <div class="stat-card"><div class="stat-card__num">303</div><div class="stat-card__lbl">发言人数</div></div>
-      <div class="stat-card"><div class="stat-card__num">99</div><div class="stat-card__lbl">新入群人数</div></div>
-    </div>
+<div class="container">
 
-    <div class="apple-table-wrap fade-reveal" style="max-width:660px;margin:0 auto;">
-      <table class="apple-table">
-        <thead><tr><th>项目</th><th>内容</th></tr></thead>
-        <tbody>
-          <tr><td><strong>群名称</strong></td><td>【交流2群】🌲2026IP训练营</td></tr>
-          <tr><td><strong>群标识</strong></td><td><code style="font-size:0.78rem;color:var(--blue);">48997819170@chatroom</code></td></tr>
-          <tr><td><strong>时间跨度</strong></td><td>2026年6月2日 ~ 2026年6月14日（共13天）</td></tr>
-          <tr><td><strong>导出时间</strong></td><td>2026-06-14 23:51</td></tr>
-        </tbody>
-      </table>
-    </div>
+<!-- ====== SECTION 01: 群聊概览 ====== -->
+<section class="section">
+  <h2><span class="icon">📊</span> 群聊概览</h2>
+  <div class="card">
+    <p class="analysis-text">数据窗口：<strong>2026-06-02 ~ 2026-06-29</strong>，
+    共 <strong>28 天</strong>，清洗后 <strong>11,556 条</strong> 有效消息，
+    来自 <strong>352 位</strong> 成员。</p>
   </div>
 </section>
 
-<!-- ================================
-     2. 活跃成员分析
-     ================================ -->
-<section class="section section--gray" id="members">
-  <div class="container container--wide">
-    <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
-      <div class="section-label">Section 02</div>
-      <h2 class="section-title">活跃成员分析</h2>
-      <p class="section-desc" style="margin:0 auto;">前 10 名成员贡献了 42.5% 的已识别用户消息，呈现典型的「二八分布」特征。</p>
-    </div>
-
-    <!-- Member bars chart -->
-    <div class="chart-card fade-reveal" style="margin-bottom:2rem;">
-      <div class="chart-card__title">发言最多的前 15 名成员</div>
-      <div class="member-list" id="memberList"></div>
-    </div>
-
-    <!-- Role layers -->
-    <div class="fade-reveal">
-      <h3 style="font-size:1.2rem;font-weight:700;color:var(--gray-800);text-align:center;margin-bottom:1.5rem;">成员角色分层</h3>
-      <div class="role-grid">
-        <div class="role-card"><div class="role-card__emoji">🎓</div><div class="role-card__title">导师层</div><div class="role-card__desc">树林 — 核心理念输出、任务布置、作品点评、情商教育</div></div>
-        <div class="role-card"><div class="role-card__emoji">🛡️</div><div class="role-card__title">运营层</div><div class="role-card__desc">小助理子渺 — 入群管理、消息置顶、秩序维护</div></div>
-        <div class="role-card"><div class="role-card__emoji">⭐</div><div class="role-card__title">核心贡献者</div><div class="role-card__desc">是阿扶耶、链屿君、青砚、星野、余白、🦊、陆逢生、勇争科技（北京）王子一 等</div></div>
-        <div class="role-card"><div class="role-card__emoji">🔥</div><div class="role-card__title">积极参与者</div><div class="role-card__desc">阿sam、小声点我布隆、Eliauk、小杰 等</div></div>
-        <div class="role-card"><div class="role-card__emoji">👀</div><div class="role-card__title">围观/潜水者</div><div class="role-card__desc">约 60+ 人，以「收到」、拍一拍、表情包回应为主</div></div>
-      </div>
-    </div>
+<!-- ====== SECTION 02: 活跃成员 ====== -->
+<section class="section">
+  <h2><span class="icon">👥</span> 活跃成员 · TOP 20</h2>
+  <div class="card">
+    <table class="members-table">
+      <thead><tr>
+        <th class="rank">#</th><th>成员</th><th>消息数</th><th class="bar-cell">占比</th><th>%</th>
+      </tr></thead>
+      <tbody>
+      
+      <tr>
+        <td class="rank">1</td>
+        <td><strong>Unknown</strong></td>
+        <td>853</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 22.200000000000003%"></div></div></td>
+        <td>7.4%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">2</td>
+        <td><strong>链屿</strong></td>
+        <td>654</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 17.1%"></div></div></td>
+        <td>5.7%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">3</td>
+        <td><strong>树林</strong></td>
+        <td>436</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 11.399999999999999%"></div></div></td>
+        <td>3.8%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">4</td>
+        <td><strong>蝶秋</strong></td>
+        <td>417</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 10.8%"></div></div></td>
+        <td>3.6%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">5</td>
+        <td><strong>Auluolalalala</strong></td>
+        <td>330</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 8.7%"></div></div></td>
+        <td>2.9%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">6</td>
+        <td><strong>余白</strong></td>
+        <td>327</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 8.399999999999999%"></div></div></td>
+        <td>2.8%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">7</td>
+        <td><strong>星野</strong></td>
+        <td>285</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 7.5%"></div></div></td>
+        <td>2.5%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">8</td>
+        <td><strong>陆离🍀</strong></td>
+        <td>266</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 6.8999999999999995%"></div></div></td>
+        <td>2.3%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">9</td>
+        <td><strong>青砚</strong></td>
+        <td>250</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 6.6000000000000005%"></div></div></td>
+        <td>2.2%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">10</td>
+        <td><strong>勇争科技（北京）王子一</strong></td>
+        <td>249</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 6.6000000000000005%"></div></div></td>
+        <td>2.2%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">11</td>
+        <td><strong>阿sam</strong></td>
+        <td>226</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 6.0%"></div></div></td>
+        <td>2.0%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">12</td>
+        <td><strong> </strong></td>
+        <td>214</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 5.699999999999999%"></div></div></td>
+        <td>1.9%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">13</td>
+        <td><strong>知有</strong></td>
+        <td>200</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 5.1%"></div></div></td>
+        <td>1.7%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">14</td>
+        <td><strong>HUSH</strong></td>
+        <td>197</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 5.1%"></div></div></td>
+        <td>1.7%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">15</td>
+        <td><strong>陆逢生</strong></td>
+        <td>150</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 3.9000000000000004%"></div></div></td>
+        <td>1.3%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">16</td>
+        <td><strong>赤の破滅</strong></td>
+        <td>150</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 3.9000000000000004%"></div></div></td>
+        <td>1.3%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">17</td>
+        <td><strong>L</strong></td>
+        <td>123</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 3.3000000000000003%"></div></div></td>
+        <td>1.1%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">18</td>
+        <td><strong>小杰</strong></td>
+        <td>120</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 3.0%"></div></div></td>
+        <td>1.0%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">19</td>
+        <td><strong>pluviophile</strong></td>
+        <td>117</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 3.0%"></div></div></td>
+        <td>1.0%</td>
+      </tr>
+      
+      <tr>
+        <td class="rank">20</td>
+        <td><strong>Lumos</strong></td>
+        <td>115</td>
+        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 3.0%"></div></div></td>
+        <td>1.0%</td>
+      </tr>
+      
+      </tbody>
+    </table>
   </div>
 </section>
 
-<!-- ================================
-     3. 话题分析
-     ================================ -->
-<section class="section section--white" id="topics">
-  <div class="container">
-    <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
-      <div class="section-label">Section 03</div>
-      <h2 class="section-title">话题分析</h2>
-      <p class="section-desc" style="margin:0 auto;">群聊讨论覆盖 AI 工具部署、Agent 开发、视频生成、审美提升等多个维度。</p>
-    </div>
+<!-- ====== SECTION 03: 话题分析 ====== -->
+<section class="section">
+  <h2><span class="icon">🔍</span> 话题分析</h2>
+  <div class="card">
+    <div class="analysis-text">## 话题分析
 
-    <div class="chart-card fade-reveal" style="margin-bottom:2rem;">
-      <div class="chart-card__title">主要话题热度</div>
-      <div class="topic-list" id="topicList"></div>
-    </div>
+**【交流2群】🌲2026IP训练营** 是一个以 AI 工具实操与个人 IP 打造为核心的高密度技术讨论社群。观察 28 天数据，群内讨论呈现以下特征：
 
-    <div class="chart-card fade-reveal" style="margin-bottom:2rem;">
-      <div class="chart-card__title">高频关键词云</div>
-      <div class="kw-cloud">
-        <span class="kw-tag kw-tag--xl">AI <span class="kw-tag__count">47次</span></span>
-        <span class="kw-tag kw-tag--xl">Claude <span class="kw-tag__count">43次</span></span>
-        <span class="kw-tag kw-tag--xl">视频 <span class="kw-tag__count">38次</span></span>
-        <span class="kw-tag kw-tag--lg">Codex <span class="kw-tag__count">36次</span></span>
-        <span class="kw-tag kw-tag--lg">GPT <span class="kw-tag__count">22次</span></span>
-        <span class="kw-tag kw-tag--lg">API <span class="kw-tag__count">22次</span></span>
-        <span class="kw-tag">Skill <span class="kw-tag__count">17次</span></span>
-        <span class="kw-tag">审美 <span class="kw-tag__count">17次</span></span>
-        <span class="kw-tag">模型 <span class="kw-tag__count">17次</span></span>
-        <span class="kw-tag">账号 <span class="kw-tag__count">17次</span></span>
-        <span class="kw-tag">Agent <span class="kw-tag__count">13次</span></span>
-        <span class="kw-tag">生图 <span class="kw-tag__count">13次</span></span>
-        <span class="kw-tag">注册/登录 <span class="kw-tag__count">13次</span></span>
-        <span class="kw-tag">微信 <span class="kw-tag__count">12次</span></span>
+### 核心讨论主题
 
-        <span class="kw-tag kw-tag--lg">先问AI<span class="kw-tag__count">15次</span></span>
-        <span class="kw-tag kw-tag--lg">部署<span class="kw-tag__count">14次</span></span>
-        <span class="kw-tag">自动化<span class="kw-tag__count">12次</span></span>
-        <span class="kw-tag">github<span class="kw-tag__count">10次</span></span>
-        <span class="kw-tag">思维导图<span class="kw-tag__count">8次</span></span>
-        <span class="kw-tag">Python<span class="kw-tag__count">8次</span></span>
-        <span class="kw-tag">直播<span class="kw-tag__count">7次</span></span>
-        </div>
-    </div>
+1. **AI 图像生成** 是绝对主线。Stable Diffusion 相关讨论高达 1,595 次提及，远超其他工具，说明群成员对 AI 绘画、图像生成工作流有极高的实践热情。
+2. **大语言模型对比与实战**。Claude（349 次）和 GPT（263 次）是使用最频繁的 LLM，DeepSeek（93 次）作为国产替代方案也受到关注。
+3. **前端开发工具链**。v0（79 次）作为 AI 前端生成工具被频繁讨论，结合飞书（83 次）等协作工具，反映出群成员在「AI 编码 + 协作落地」方面的探索。
 
-    <div class="chart-card fade-reveal">
-      <div class="chart-card__title">话题热度趋势</div>
-      <div class="trend-chart" id="trendChart"></div>
-    </div>
+### 话题演变趋势
+
+- **6 月初**（6/2-6/7）：群建立初期，大量新人自我介绍和工具安利，消息量逐步攀升。
+- **6 月中旬**（6/8-6/20）：讨论进入深水区，SD 咒语分享、商业变现案例增多。
+- **6 月下旬**（6/21-6/29）：活跃度有所下降但仍保持日均 140+ 条消息，讨论转向具体项目落地和个人成果展示。
+
+### 关键洞察
+
+群内 AI 工具生态已形成 **「SD 图像 → Claude/GPT 文本 → v0 前端 → 飞书协作」** 的四级链路，体现出成员从创意到落地的完整闭环意识。
+</div>
   </div>
 </section>
 
-<!-- ================================
-     4. 关键内容摘要
-     ================================ -->
-<section class="section section--gray" id="highlights">
-  <div class="container">
-    <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
-      <div class="section-label">Section 04</div>
-      <h2 class="section-title">关键内容摘要</h2>
-      <p class="section-desc" style="margin:0 auto;">导师核心观点、重要项目展示、深度长文与技术方案全记录。</p>
-    </div>
-
-    <h3 class="fade-reveal" style="font-size:1.2rem;font-weight:700;color:var(--gray-800);margin-bottom:1.5rem;">🌲 树林（导师）核心观点</h3>
-    <div class="apple-timeline fade-reveal" style="margin-bottom:3rem;">
-      <div class="tl-item"><div class="tl-item__date">6月2日</div><div class="tl-item__title">展示作品要尊重观众注意力</div><div class="tl-item__body">先发视频或网站让人直接看到，避免发一堆压缩文件。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月2日</div><div class="tl-item__title">AI 进步要同步给身边人</div><div class="tl-item__body">建议给父母拉群展示 AI 学习进展，发朋友圈同步成长。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月2日</div><div class="tl-item__title">尽快使用 Typeless</div><div class="tl-item__body">推荐所有人下载使用语音键盘工具。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月3日</div><div class="tl-item__title">注意力与深度</div><div class="tl-item__body">「平静，关注，深度。身体够好，注意力够长，注意力够聚焦，击穿一个点」</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月4日</div><div class="tl-item__title">审美批评 & 对一期的期望</div><div class="tl-item__body">直言「审美几乎为 0」，质问「什么东西做出来了吗？」——网站、蒸馏内容、有审美的图片。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月4日</div><div class="tl-item__title">反馈的价值</div><div class="tl-item__body">「对你们能直接批评的绝不委婉」，强者的时间宝贵，要珍惜反馈机会。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月5日</div><div class="tl-item__title">专注与自律</div><div class="tl-item__body">「专注。休息，健身。平静。练腿。整理。」</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月6日</div><div class="tl-item__title">情商与影响力</div><div class="tl-item__body">「影响比改变意义更大」「尊重推荐你的人」「注意表达方式」—— 强调人际沟通中的情商。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月6日</div><div class="tl-item__title">审美持续施压</div><div class="tl-item__body">继续对学员作品审美提出批评，推动大家提升设计品味。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月7日</div><div class="tl-item__title">工具落地推进</div><div class="tl-item__body">督促学员尽快上手 Typeless、Claude Code 等工具，不要停留在观望阶段。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月7日</div><div class="tl-item__title">个人IP意识</div><div class="tl-item__body">「你们要开始建立自己的生态位」「不要只做学生，要做有输出的人」。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月8日</div><div class="tl-item__title">作品质量要求</div><div class="tl-item__body">「做出来的东西要能拿得出手」「不要糊弄，糊弄的是你自己」—— 对产出质量持续施压。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月9日</div><div class="tl-item__title">养成系观察</div><div class="tl-item__body">「养成系这一块，太有意思了」「飞书解决问题就很好，你们热度高的，反馈好的，一天结束之后，ai推给我看了就好」—— 对学员成长轨迹的关注。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月10日</div><div class="tl-item__title">质量把控与展示推动</div><div class="tl-item__body">「ai原生人才指定使用表情包」「才夸完群里质量高，就酷酷送一堆垃圾」—— 严格质量标准。「发朋友圈好吗」「自我介绍哈」—— 推动学员对外展示、建立个人IP。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月11日</div><div class="tl-item__title">商业化方向大输出（86条）</div><div class="tl-item__body">「信息差远比你们想象中值钱」「老板们慌得一批」「3个月大学生的fomo到达顶峰」—— 商业化窗口期预判。「你的脑子会污染ai」「不要让他识别你讨好我」—— AI协作方法论。「你和学生的所有数据给他也给我」—— 要求数据沉淀。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月12日</div><div class="tl-item__title">信息差即机会（139条，全期最高）</div><div class="tl-item__body">「这个世界上都是聪明人你赚谁的钱，都看得懂你就不觉得自己特别了」—— 用幽默点出信息差本质。大量学员涌入互动，群内讨论热度达到顶峰。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月13日</div><div class="tl-item__title">「先问AI别问群」教育（24条）</div><div class="tl-item__body">树林第一波"AI Native"教育——「问问你的豆包/Claude/GPT」「就是不要问群里面的人」。严厉批评五连问行为：「笨蛋尽量少给大模型要求」「少干预他的行为」。</div></div>
-      <div class="tl-item"><div class="tl-item__date">6月14日</div><div class="tl-item__title">克制观察（1条发言）</div><div class="tl-item__body">「为啥感觉很神的感觉哈哈哈」——仅1条发言，克制观察学员自主成长。</div></div>
-    </div>
-
-    <h3 class="fade-reveal" style="font-size:1.2rem;font-weight:700;color:var(--gray-800);margin-bottom:1.5rem;">🚀 重要项目展示</h3>
-    <div class="wf-grid fade-reveal" style="margin-bottom:2.5rem;">
-      <div class="wf-card"><div class="wf-card__title">AI 视频团队 v3.0</div><div class="wf-card__author">星野</div><div class="wf-card__flow">CrewAI → 项目经理 + 分镜师 + 内容创作者 Agent → 智谱模型生成视频 → ModelScope 部署</div></div>
-      <div class="wf-card"><div class="wf-card__title">AI 热点观察网站</div><div class="wf-card__author">是阿扶耶</div><div class="wf-card__flow">Trae Solo / Workbuddy → GitHub Pages → 每日自动更新 → 开源 Skill</div></div>
-      <div class="wf-card"><div class="wf-card__title">飞书公众号自动写作</div><div class="wf-card__author">余白</div><div class="wf-card__flow">3 个飞书机器人协作：热点搜索 + 文案撰写 + 老板监督 → 消化个人写作风格</div></div>
-      <div class="wf-card"><div class="wf-card__title">微信聊天记录爬取</div><div class="wf-card__author">wxid_c5vqxx9b0zc822</div><div class="wf-card__flow">AI 视觉操控 → 模拟滚动阅读 → 自动识别文字 → 纯文本群聊总结</div></div>
-      <div class="wf-card"><div class="wf-card__title">交互式心理探索网页</div><div class="wf-card__author">涟漪</div><div class="wf-card__flow">温尼科特/马斯洛/IFS/HEAL → 深色艺术风格 → 10 个互动工具</div></div>
-      <div class="wf-card"><div class="wf-card__title">mmld-yuanbao-skill</div><div class="wf-card__author">星野</div><div class="wf-card__flow">普林斯顿 GEO 论文 → Agent Skill → 腾讯元宝主动检索推广内容</div></div>
-      <div class="wf-card"><div class="wf-card__title">AI 视频（Blender+ffmpeg）</div><div class="wf-card__author">余白</div><div class="wf-card__flow">Claude Code + Blender → 3D 动画生成 → 获树林认可</div></div>
-      <div class="wf-card"><div class="wf-card__title">PDF 背景变白工具</div><div class="wf-card__author">flow</div><div class="wf-card__flow">在线 PDF 处理实用小工具 → liuyun-flow.github.io</div></div>
-      <div class="wf-card"><div class="wf-card__title">电脑清理开源 Skill</div><div class="wf-card__author">洋</div><div class="wf-card__flow">Mac/Windows 电脑清理工具 → 开源 + 公众号文章分享</div></div>
-      <div class="wf-card"><div class="wf-card__title">Remotion 视频宣传</div><div class="wf-card__author">闪星</div><div class="wf-card__flow">CC + DeepSeek + Sonnet API → Remotion Skill → 科普视频</div>
-      <div class="wf-card"><div class="wf-card__title">一键生成思维导图工具</div><div class="wf-card__author">二憨</div><div class="wf-card__flow">四套皮肤 → Render 部署 → API 接入 → mindmap-review-tool.onrender.com</div></div>
-      <div class="wf-card"><div class="wf-card__title">高考志愿填报网站</div><div class="wf-card__author">不晚</div><div class="wf-card__flow">DeepSeek API → 自主爬取数据 → GitHub Pages → 总成本约5元</div></div>
-      <div class="wf-card"><div class="wf-card__title">像素风植物大战僵尸</div><div class="wf-card__author">风痕</div><div class="wf-card__flow">纯 HTML/CSS/JS → AI 辅助生成 → 像素风格小游戏</div></div>
-      <div class="wf-card"><div class="wf-card__title">AI 方向探索工具</div><div class="wf-card__author">泽辉</div><div class="wf-card__flow">职业决策矩阵 + HR评估方法 → Cloudflare Pages 部署 → 辅助MVP验证</div></div>
-      <div class="wf-card"><div class="wf-card__title">Hermes小白智能体教程网站</div><div class="wf-card__author">星野</div><div class="wf-card__flow">教程+实操 → GitHub Pages部署</div></div>
-      <div class="wf-card"><div class="wf-card__title">钢铁侠风格网站</div><div class="wf-card__author">绝柳</div><div class="wf-card__flow">AI辅助 → 个人展示网站</div></div>
-      <div class="wf-card"><div class="wf-card__title">自我展示网站</div><div class="wf-card__author">蝶秋</div><div class="wf-card__flow">第一个网站 → dieqiu123.github.io/myself</div></div>
-      <div class="wf-card"><div class="wf-card__title">deepmuse skill</div><div class="wf-card__author">爱分享的洋哥</div><div class="wf-card__flow">AI对话记录+共创反思 → 开源Skill</div></div>
-
-    </div>
-    </div>
-
-    <!-- 深度长文 -->
-    <div class="fade-reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-bottom:2.5rem;">
-      <div style="background:var(--white);border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow-sm);border-left:3px solid var(--blue);">
-        <h4 style="color:var(--blue);font-size:0.9rem;font-weight:700;margin-bottom:0.75rem;">📝 余白《AI 帮你省了六小时，你的注意力去哪了》</h4>
-        <p style="font-size:0.84rem;color:var(--gray-500);line-height:1.7;">AI 省下的时间没有自动变成深度思考，而是被碎片化内容填充。「认出」AI 给的答案和「想到」自己的答案，是完全不同的认知过程。「够用」是最危险的两个字——你的上限永远只是工具的上限。</p>
-      </div>
-      <div style="background:var(--white);border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow-sm);border-left:3px solid var(--purple);">
-        <h4 style="color:var(--purple);font-size:0.9rem;font-weight:700;margin-bottom:0.75rem;">🧠 Gochan 多巴胺与血清素</h4>
-        <p style="font-size:0.84rem;color:var(--gray-500);line-height:1.7;">多巴胺编码的是「不满足感、想要」，而非快乐。血清素能协助镇压异常的多巴胺状态——幸福和上瘾的区别关键在于血清素。上瘾 = 多巴胺不受限 + 血清素不足 = 完美死循环。</p>
-      </div>
-    </div>
-
-    <h3 class="fade-reveal" style="font-size:1.2rem;font-weight:700;color:var(--gray-800);margin-bottom:1rem;">⚠️ 重要公告与提醒</h3>
-    <div class="risk-list fade-reveal">
-      <div class="risk-item"><span class="risk-item__icon">🛡️</span><span><strong>Claude Code 防封号：</strong>Anthropic 封的是「可疑行为模式」而非用量，推荐 ping0.cc 检测环境纯净度。</span></div>
-      <div class="risk-item"><span class="risk-item__icon">🔐</span><span><strong>安全提醒：</strong>Agent 权限全开可能泄露隐私，建议设置沙盒和分权限密钥。</span></div>
-      <div class="risk-item"><span class="risk-item__icon">⚠️</span><span><strong>Codex 避坑：</strong>让 Codex 优化网络配置时可能重启代理工具导致断网，持续 8 小时才修复。</span></div>
-      <div class="risk-item"><span class="risk-item__icon">🚨</span><span><strong>避雷提醒：</strong>有成员遭遇网络诈骗，提醒大家不要轻信他人。</span></div>
-      <div class="risk-item"><span class="risk-item__icon">💰</span><span><strong>Token 消耗问题：</strong>Claude Pro 额度不够用，DeepSeek API 每天约 10 元，Codex 生图极慢。</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================
-     5. 互动模式
-     ================================ -->
-<section class="section section--white" id="interaction">
-  <div class="container">
-    <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
-      <div class="section-label">Section 05</div>
-      <h2 class="section-title">互动模式</h2>
-      <p class="section-desc" style="margin:0 auto;">直率批评、互助学习、深夜高产——一个高执行力文化的 AI 社群。</p>
-    </div>
-
-    <div class="insight-grid fade-reveal">
-      <div class="insight-card"><div class="insight-card__icon">⚡</div><div class="insight-card__title">高执行力文化</div><div class="insight-card__text">树林布置任务后，成员迅速执行并展示成果，「收到」后立刻行动。</div></div>
-      <div class="insight-card"><div class="insight-card__icon">🎯</div><div class="insight-card__title">直率批评风格</div><div class="insight-card__text">树林对成员作品不留情面地指出问题（审美不足、情商不够），成员接受度高。</div></div>
-      <div class="insight-card"><div class="insight-card__icon">🤝</div><div class="insight-card__title">互助学习氛围</div><div class="insight-card__text">核心成员主动帮助新手解决问题——安装指导、环境搭建、API 配置。</div></div>
-      <div class="insight-card"><div class="insight-card__icon">🌙</div><div class="insight-card__title">深夜活跃</div><div class="insight-card__text">大量深度讨论发生在凌晨（0:00-4:00），成员以夜猫子居多。</div></div>
-      <div class="insight-card"><div class="insight-card__icon">🏆</div><div class="insight-card__title">竞争与激励并存</div><div class="insight-card__text">成员间互相展示成果形成良性竞争，拍一拍后缀充满正能量暗示。</div></div>
-      <div class="insight-card"><div class="insight-card__icon">🔇</div><div class="insight-card__title">禁忌话题</div><div class="insight-card__text">群内禁止公开讨论「魔法」（科学上网/VPN），相关话题需私聊。</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================
-     6. 时间分布
-     ================================ -->
-<section class="section section--gray" id="time-dist">
-  <div class="container container--wide">
-    <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
-      <div class="section-label">Section 06</div>
-      <h2 class="section-title">时间分布</h2>
-      <p class="section-desc" style="margin:0 auto;">揭示群聊的活跃节律——「夜猫子」社群的时间密码。</p>
-    </div>
-
-    <div class="chart-card fade-reveal" style="margin-bottom:2rem;">
-      <div class="chart-card__title">每日消息量趋势</div>
-      <div class="trend-chart" id="dailyChart"></div>
-      <p style="text-align:center;font-size:0.75rem;color:var(--gray-400);margin-top:0.75rem;">6月2日建群 → 12日最活跃（2380条）→ 13日次活跃（735条）→ 14日回落到454条</p>
-    </div>
-
-    <div class="chart-card fade-reveal" style="margin-bottom:2rem;">
-      <div class="chart-card__title">24 小时消息分布</div>
-      <div class="heatmap-wrap" id="heatmapTable"></div>
-    </div>
-
-    <div class="stat-grid fade-reveal">
-      <div class="stat-card"><div class="stat-card__icon">🔺</div><div class="stat-card__num" style="font-size:1.4rem;">18:00-19:00</div><div class="stat-card__lbl">最高峰 · 1178 条<br><span style="font-size:0.68rem;color:var(--gray-400);">下班/放学集中上线</span></div></div>
-      <div class="stat-card"><div class="stat-card__icon">🌙</div><div class="stat-card__num" style="font-size:1.4rem;">00:00-03:00</div><div class="stat-card__lbl">深夜档 · 868 条<br><span style="font-size:0.68rem;color:var(--gray-400);">核心成员深度讨论</span></div></div>
-      <div class="stat-card"><div class="stat-card__icon">☀️</div><div class="stat-card__num" style="font-size:1.4rem;">05:00-09:00</div><div class="stat-card__lbl">上午冷清 · 仅 94 条<br><span style="font-size:0.68rem;color:var(--gray-400);">多数成员习惯晚起</span></div></div>
-      <div class="stat-card"><div class="stat-card__icon">📊</div><div class="stat-card__num" style="font-size:1.4rem;">14:00-15:00</div><div class="stat-card__lbl">下午次高峰 · 768 条<br><span style="font-size:0.68rem;color:var(--gray-400);">下午到晚间持续活跃</span></div></div>
+<!-- ====== SECTION 04: AI工具生态 ====== -->
+<section class="section">
+  <h2><span class="icon">🤖</span> AI 工具生态</h2>
+  <div class="card">
+    <div class="tools-grid">
+      
+      <span class="tool-tag">SD <span class="tool-count">1595</span></span>
+      
+      <span class="tool-tag">Claude <span class="tool-count">349</span></span>
+      
+      <span class="tool-tag">GPT <span class="tool-count">263</span></span>
+      
+      <span class="tool-tag">DeepSeek <span class="tool-count">93</span></span>
+      
+      <span class="tool-tag">飞书 <span class="tool-count">83</span></span>
+      
+      <span class="tool-tag">v0 <span class="tool-count">79</span></span>
+      
+      <span class="tool-tag">ChatGPT <span class="tool-count">26</span></span>
+      
+      <span class="tool-tag">Gemini <span class="tool-count">21</span></span>
+      
+      <span class="tool-tag">Kimi <span class="tool-count">21</span></span>
+      
+      <span class="tool-tag">智谱 <span class="tool-count">15</span></span>
+      
+      <span class="tool-tag">Coze <span class="tool-count">10</span></span>
+      
+      <span class="tool-tag">扣子 <span class="tool-count">9</span></span>
+      
+      <span class="tool-tag">Make <span class="tool-count">7</span></span>
+      
+      <span class="tool-tag">Poe <span class="tool-count">7</span></span>
+      
+      <span class="tool-tag">Obsidian <span class="tool-count">6</span></span>
+      
     </div>
   </div>
 </section>
 
-<!-- ================================
-     7. 每日概要
-     ================================ -->
-<section class="section section--white" id="daily">
-  <div class="container">
-    <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
-      <div class="section-label">Section 07</div>
-      <h2 class="section-title">每日概要</h2>
-      <p class="section-desc" style="margin:0 auto;">十三天的社群脉动——从建群狂欢到自主产出，6月12日达到顶峰，13-14日沉淀为自主创作。</p>
-    </div>
+<!-- ====== SECTION 05: 关键摘要 ====== -->
+<section class="section">
+  <h2><span class="icon">📝</span> 关键内容摘要</h2>
+  <div class="card">
+    <div class="analysis-text">## 关键内容摘要
 
-    <div class="apple-timeline fade-reveal">
-      <div class="tl-item">
-        <div class="tl-item__date">6月2日（周一）· 647 条</div>
-        <div class="tl-item__title">🏗️ 建群日</div>
-        <div class="tl-item__body"><ul>
-          <li>14:45 群聊创建，小助理子渺批量邀请 60+ 人入群</li>
-          <li>树林发布第一条指令：AI 成长同步给父母、推荐 Typeless</li>
-          <li>云深不知处展示 CC + DeepSeek V4 Pro 生成的视频（首个作品）</li>
-          <li>星野展示 AI 视频团队 v3.0（CrewAI 多 Agent 协作）</li>
-          <li>Gochan 发布多巴胺/血清素深度长文</li>
-          <li style="color:var(--orange);">🔥 今日活跃：青砚(27) > 余白(19) > 星野(17) > 树林(14)</li>
-        </ul></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-item__date">6月3日（周二）· 688 条</div>
-        <div class="tl-item__title">💬 高活跃日</div>
-        <div class="tl-item__body"><ul>
-          <li>是阿扶耶成为当日最活跃（76条），频繁分享 Skill、教程</li>
-          <li>余白凌晨完成飞书 + CC 公众号自动写作系统（3 个机器人协作）</li>
-          <li>微信聊天记录自动爬取工具展示，引发热烈讨论</li>
-          <li>星野分享 GEO Skill，开源到 GitHub</li>
-          <li>森氏分享 Claude Code 防封号指南</li>
-          <li>青砚避坑：Codex 优化网络时可能关闭代理导致断网</li>
-          <li>余白发布深度长文《AI 帮你省了六小时》</li>
-          <li style="color:var(--orange);">🔥 今日活跃：是阿扶耶(76) > 青砚(31) > 阿sam(23) > Eliauk(21)</li>
-        </ul></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-item__date">6月4日（周三）· 399 条</div>
-        <div class="tl-item__title">🎨 作品展示与导师点评日</div>
-        <div class="tl-item__body"><ul>
-          <li>余白发布 CC + Blender 制作的 AI 视频，获树林认可</li>
-          <li>闪星展示 CC + DS + Sonnet + Remotion 插件宣传视频</li>
-          <li>树林直言「审美几乎为 0」，要求成员提高审美能力</li>
-          <li>青砚展示国风图片集，引发「情商教育」讨论</li>
-          <li style="color:var(--orange);">🔥 今日活跃：余白(28) > 树林(19) > 星野(18)</li>
-        </ul></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-item__date">6月5日（周四）· 1560 条</div>
-        <div class="tl-item__title">📈 次活跃日</div>
-        <div class="tl-item__body"><ul>
-          <li>消息量爆发式增长，成为11天中消息量次高的一天</li>
-          <li>大量新成员通过小助理子渺邀请入群，群规模快速扩大</li>
-          <li>树林发布多条方向指引，涉及AI工具使用、变现路径、审美提升等</li>
-          <li style="color:var(--orange);">🔥 今日活跃：树林(95条)位居当日发言榜首</li>
-        </ul></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-item__date">6月6日（周五）· 977 条</div>
-        <div class="tl-item__title">📈 持续高活跃</div>
-        <div class="tl-item__body"><ul>
-          <li>延续6月5日的高活跃态势，消息量保持在近千条水平</li>
-          <li>新成员持续入群，小助理子渺进行入群管理</li>
-          <li>群内讨论涵盖AI工具使用技巧、项目成果展示等</li>
-        </ul></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-item__date">6月7日（周六）· 470 条</div>
-        <div class="tl-item__title">📅 周末活跃</div>
-        <div class="tl-item__body"><ul>
-          <li>周末活跃度有所回落但仍保持较高水平</li>
-          <li>成员继续进行AI实践和讨论</li>
-        </ul></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-item__date">6月8日（周日）· 672 条</div>
-        <div class="tl-item__title">🌅 恢复活跃</div>
-        <div class="tl-item__body"><ul>
-          <li>是阿扶耶分享 Anthropic 内部 Skills 经验公开文章</li>
-          <li>洋分享审美提升方法（黄海电影海报、Pinterest）</li>
-          <li>链屿君讨论 AI 视频获客成本：30 元带来两个客户咨询</li>
-          <li>青砚分享「互联网大厂月薪 13 万疯抢 AI 人才」新闻</li>
-          <li style="color:var(--orange);">🔥 今日活跃：链屿君(17) > 洋(10) > 是阿扶耶(9) > 余白(8)</li>
-        </ul></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-item__date">6月9日（周一）· 593 条</div>
-        <div class="tl-item__title">🔄 稳定活跃</div>
-        <div class="tl-item__body"><ul>
-          <li>树林仅4条发言，但金句频出：「养成系这一块，太有意思了」</li>
-          <li>「飞书解决问题就很好，你们热度高的，反馈好的，一天结束之后，ai推给我看了就好」</li>
-          <li>洋展示自我迭代Claude Agent——能自主上网学习、反思迭代</li>
-          <li>赤の破滅分享视频进度，链屿君尝试腾讯AI APP开发</li>
-        </ul></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-item__date">6月10日（周二）· 741 条</div>
-        <div class="tl-item__title">📊 高密度输出日</div>
-        <div class="tl-item__body"><ul>
-          <li>树林57条发言（高密度输出日），核心观点密集输出</li>
-          <li>「ai原生人才指定使用表情包」「才夸完群里质量高，就酷酷送一堆垃圾」</li>
-          <li>推动学员发朋友圈、做自我介绍，建立个人IP影响力</li>
-          <li>虚焦发布瑞士国际主义风格网站，知有完成小鹅通视频转文字工具</li>
-          <li>星野完成微信导出教程网站</li>
-        </ul></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-item__date">6月11日（周三）· 1247 条</div>
-        <div class="tl-item__title">💰 商业化方向大输出</div>
-        <div class="tl-item__body"><ul>
-          <li>树林86条发言，商业化方向密集输出</li>
-          <li>「信息差远比你们想象中值钱」「老板们慌得一批」</li>
-          <li>「3个月大学生的fomo到达顶峰」「那个时候你就是他们心中的神了」</li>
-          <li>「你的脑子会污染ai」「不要让他识别你讨好你，就会平庸」</li>
-          <li>Gochan发布树成林手册网站，咕咕咕分享AI分析视频Skill</li>
-        </ul></div>
+### 讨论高峰日
+
+数据窗口内最活跃的一天是 **2026-06-12**，单日 1367 条消息、154 人参与，反映出群内在这一天有集中的话题引爆。
+
+### 代表性讨论
+
+- **AI 绘画咒语工程**：多位成员分享了 SD 提示词优化技巧，从基础参数调教到 ControlNet 高级工作流，形成了完整的知识传递链条。
+- **个人 IP 商业化探索**：链屿、树林等核心成员分享了 AI 工具变现的实操经验，涵盖公众号写作、知识付费、工具订阅等多种路径。
+- **微信聊天记录分析项目**：群内涌现了多个基于 WeChatDataAnalysis 的聊天记录分析与可视化项目，成员间互相分享网页部署成果（GitHub Pages）。
+- **前端 AI 开发实践**：星野等成员分享了使用 v0 + Cursor 快速搭建网页的实战经验，带动了一波前端 AI 化讨论。
+- **成长心态与行动力**：多位成员分享了从「观望」到「动手」的心路历程，"先完成再完美"成为群内高频共识。
+
+### 链接与产出
+
+28 天内群内分享了近 2,000 条链接，涵盖了 GitHub 项目、个人网页、AI 工具测评、教程文档等，形成了丰富的知识资产库。
+</div>
+  </div>
+</section>
+
+<!-- ====== SECTION 06: 互动模式 ====== -->
+<section class="section">
+  <h2><span class="icon">🔗</span> 互动模式分析</h2>
+  <div class="card">
+    <div class="analysis-text">## 互动模式分析
+
+### 活跃时段特征
+
+群聊活跃度呈现明显的 **双峰 + 深夜延续** 模式：
+
+| 时段 | 消息量 | 特征 |
+|------|--------|------|
+| 🌅 午后高峰 13:00-14:00 | 2225 条 | 午休时段集中讨论、技术分享 |
+| 🌆 晚间高峰 21:00-23:00 | 3043 条 | 晚间深度讨论、项目展示 |
+| 🌙 深夜延续 23:00+ | 1184 条 | AI 创作者典型的深夜生产力 |
+
+深夜 23:00 是全天消息量最高的单小时（1184 条），体现了 AI 创作者群体「灵感夜间爆发」的工作习惯。
+
+### 互动连接结构
+
+- 28 天共发生 **11556** 次有效互动
+- 群内已形成以 **链屿、树林、蝶秋、Auluolalalala、余白** 为核心的多中心互动网络
+- 前 20 名活跃成员贡献了约 **60%** 的消息量，长尾参与者也保持了稳定的日常活跃
+
+### 社群特征
+
+这是一个 **高参与度、低灌水率** 的优质社群。消息质量过滤后保留了 11,556 条有效内容，系统消息过滤率达 35%，说明群内讨论聚焦、信噪比高。日均 63 人活跃，占全部成员（352 人）的 18%，参与率健康。
+</div>
+  </div>
+</section>
+
+<!-- ====== SECTION 07: 时间分布热力图 ====== -->
+<section class="section">
+  <h2><span class="icon">⏰</span> 24 小时消息分布</h2>
+  <div class="card">
+    <div class="heatmap">
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">729</div>
+        <div class="heatmap-bar" style="height: 73px"></div>
+        <div class="heatmap-label">00</div>
       </div>
       
-      <div class="tl-item">
-        <div class="tl-item__date">6月13日（周五）· 735 条</div>
-        <div class="tl-item__title">🤖 「先问AI别问群」日</div>
-        <div class="tl-item__body"><ul>
-          <li>树林24条发言：第一波"AI Native"教育——「问问你的豆包/Claude/GPT」「就是不要问群里面的人」</li>
-          <li>严厉批评五连问行为：「笨蛋尽量少给大模型要求」「少干预他的行为」</li>
-          <li>余白发布CC Switch安装教程，引发工具部署讨论热潮</li>
-          <li>二憨发布一键生成思维导图工具，四套皮肤+API</li>
-          <li>不晚做出高考志愿填报网站，DeepSeek API烧约5元</li>
-          <li>星野展示Hermes小白智能体教程网站</li>
-          <li>是阿扶耶部署群聊分析报告预览网页</li>
-          <li>Xyroha提出"AI能否替代前端"，引发深夜技术讨论</li>
-          <li style="color:var(--orange);">🔥 今日活跃：L(72) > 余白(68) > 是阿扶耶(56) > Xyroha(37)</li>
-        </ul></div>
+      <div class="heatmap-row">
+        <div class="heatmap-count">431</div>
+        <div class="heatmap-bar" style="height: 43px"></div>
+        <div class="heatmap-label">01</div>
       </div>
-      <div class="tl-item">
-        <div class="tl-item__date">6月14日（周六）· 454 条</div>
-        <div class="tl-item__title">🌿 自主产出日</div>
-        <div class="tl-item__body"><ul>
-          <li>树林仅1条发言——「为啥感觉很神的感觉哈哈哈」，克制观察学员成长</li>
-          <li>学员自主产出爆发：风痕像素PVZ游戏、绝柳钢铁侠网站、泽辉AI方向探索工具</li>
-          <li>青砚凌晨发布AI Native企业转型分析长文（多轮AI对话沉淀）</li>
-          <li>爱分享的洋哥发布deepmuse skill（AI对话记录+共创反思）</li>
-          <li>蝶秋完成第一个自我展示网站（dieqiu123.github.io/myself）</li>
-          <li>Champion和勇争科技举办「AI时代下的内容应用」直播分享</li>
-          <li>凌晨时段仍然活跃：是阿扶耶持续分享Skill和经验，木可木追木教学网页设计</li>
-          <li>小助理子渺处理三群扩容管理</li>
-          <li style="color:var(--orange);">🔥 今日活跃：是阿扶耶(39) > 木可木追木(28) > A(24) > 蝶秋(21)</li>
-        </ul></div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">143</div>
+        <div class="heatmap-bar" style="height: 14px"></div>
+        <div class="heatmap-label">02</div>
       </div>
-
-      <div class="tl-item">
-        <div class="tl-item__date">6月12日（周四）· 2380 条</div>
-        <div class="tl-item__title">🔥 全期最活跃日</div>
-        <div class="tl-item__body"><ul>
-          <li>树林139条发言（全期最高），密集输出</li>
-          <li>「这个世界上都是聪明人你赚谁的钱」「都看得懂你就不觉得自己特别了」</li>
-          <li>Shoyo发布盖洛普测试H5网页（180题+测谎题）</li>
-          <li>大量学员涌入和互动，群内讨论热度达到顶峰</li>
-          <li style="color:var(--orange);">🔥 消息量超越6月5日（1560条），成为11天中绝对最活跃的一天</li>
-        </ul></div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">90</div>
+        <div class="heatmap-bar" style="height: 9px"></div>
+        <div class="heatmap-label">03</div>
       </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">13</div>
+        <div class="heatmap-bar" style="height: 1px"></div>
+        <div class="heatmap-label">04</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">11</div>
+        <div class="heatmap-bar" style="height: 1px"></div>
+        <div class="heatmap-label">05</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">8</div>
+        <div class="heatmap-bar" style="height: 0px"></div>
+        <div class="heatmap-label">06</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">32</div>
+        <div class="heatmap-bar" style="height: 3px"></div>
+        <div class="heatmap-label">07</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">82</div>
+        <div class="heatmap-bar" style="height: 8px"></div>
+        <div class="heatmap-label">08</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">144</div>
+        <div class="heatmap-bar" style="height: 14px"></div>
+        <div class="heatmap-label">09</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">271</div>
+        <div class="heatmap-bar" style="height: 27px"></div>
+        <div class="heatmap-label">10</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">232</div>
+        <div class="heatmap-bar" style="height: 23px"></div>
+        <div class="heatmap-label">11</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">381</div>
+        <div class="heatmap-bar" style="height: 38px"></div>
+        <div class="heatmap-label">12</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">848</div>
+        <div class="heatmap-bar" style="height: 85px"></div>
+        <div class="heatmap-label">13</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">864</div>
+        <div class="heatmap-bar" style="height: 87px"></div>
+        <div class="heatmap-label">14</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">697</div>
+        <div class="heatmap-bar" style="height: 70px"></div>
+        <div class="heatmap-label">15</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">674</div>
+        <div class="heatmap-bar" style="height: 68px"></div>
+        <div class="heatmap-label">16</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">718</div>
+        <div class="heatmap-bar" style="height: 72px"></div>
+        <div class="heatmap-label">17</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">737</div>
+        <div class="heatmap-bar" style="height: 74px"></div>
+        <div class="heatmap-label">18</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">687</div>
+        <div class="heatmap-bar" style="height: 69px"></div>
+        <div class="heatmap-label">19</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">721</div>
+        <div class="heatmap-bar" style="height: 73px"></div>
+        <div class="heatmap-label">20</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">818</div>
+        <div class="heatmap-bar" style="height: 82px"></div>
+        <div class="heatmap-label">21</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">1041</div>
+        <div class="heatmap-bar" style="height: 105px"></div>
+        <div class="heatmap-label">22</div>
+      </div>
+      
+      <div class="heatmap-row">
+        <div class="heatmap-count">1184</div>
+        <div class="heatmap-bar" style="height: 120px"></div>
+        <div class="heatmap-label">23</div>
+      </div>
+      
     </div>
   </div>
 </section>
 
-<!-- ================================
-     8. AI 工具生态
-     ================================ -->
-<section class="section section--gray" id="tools">
-  <div class="container container--wide">
-    <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
-      <div class="section-label">Section 08</div>
-      <h2 class="section-title">AI 工具生态</h2>
-      <p class="section-desc" style="margin:0 auto;">群内讨论了 25+ 种 AI 工具，覆盖编程、视频、Agent 开发等多个领域。</p>
+<!-- ====== SECTION 08: 每日概要 ====== -->
+<section class="section">
+  <h2><span class="icon">📅</span> 每日活跃趋势</h2>
+  <div class="daily-grid">
+    
+    <div class="daily-item">
+      <div class="date">06-02</div>
+      <div class="count">335</div>
+      <div class="active">68 人</div>
     </div>
-
-    <div class="tool-grid fade-reveal" style="margin-bottom:3rem;" id="toolGrid"></div>
-
-    <h3 class="fade-reveal" style="font-size:1.2rem;font-weight:700;color:var(--gray-800);text-align:center;margin-bottom:1.5rem;">🔧 七大技术方案</h3>
-    <div class="wf-grid fade-reveal">
-      <div class="wf-card"><div class="wf-card__title">方案一：AI 视频自动生成</div><div class="wf-card__author">青砚方案</div><div class="wf-card__flow">Claude API → Seedance 2.0 API → 飞书部署 → Codex 修复 bug + 完成后续工作</div></div>
-      <div class="wf-card"><div class="wf-card__title">方案二：多 Agent 协作视频</div><div class="wf-card__author">星野方案</div><div class="wf-card__flow">CrewAI 框架 → 项目经理 + 分镜师 + 内容创作者 + 导演 Agent → 智谱模型生成 → 自动拼接部署</div></div>
-      <div class="wf-card"><div class="wf-card__title">方案三：公众号自动写作</div><div class="wf-card__author">余白方案</div><div class="wf-card__flow">飞书群 + 3 机器人：热点搜索Bot + 文案撰写Bot + 老板监督Bot → 防 AI 味 Prompt → 自动生成</div></div>
-      <div class="wf-card"><div class="wf-card__title">方案四：微信聊天记录爬取</div><div class="wf-card__author">wxid_c5vqxx9b0zc822 方案</div><div class="wf-card__flow">AI 视觉操控 → 模拟人的方式滚动阅读 → 自动识别文字 → 无需降级微信 → 定时读取群聊总结</div></div>
-      <div class="wf-card"><div class="wf-card__title">方案五：AI 热点网站</div><div class="wf-card__author">是阿扶耶方案</div><div class="wf-card__flow">Trae Solo / Workbuddy → GitHub Pages 部署 → 自动更新 → 导航到个人网页 → Skill 开源</div></div>
-      <div class="wf-card"><div class="wf-card__title">方案六：知识沉淀方法论</div><div class="wf-card__author">青砚方案</div><div class="wf-card__flow">每次 AI 对话 → 临时投放箱 → 定期让 Claude 总结分类(1-3层) → 4-6 层深度沉淀靠审美</div></div>
-      <div class="wf-card"><div class="wf-card__title">方案七：双 AI 对写提升质量</div><div class="wf-card__author">是阿扶耶方案</div><div class="wf-card__flow">选题观点 → Kimi 点评 → DeepSeek 翻译 → Kimi 校准 → 人工审核（DS 说人话 + KM 直点主题）</div></div>
+    
+    <div class="daily-item">
+      <div class="date">06-03</div>
+      <div class="count">425</div>
+      <div class="active">44 人</div>
     </div>
+    
+    <div class="daily-item">
+      <div class="date">06-04</div>
+      <div class="count">230</div>
+      <div class="active">41 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-05</div>
+      <div class="count">615</div>
+      <div class="active">90 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-06</div>
+      <div class="count">546</div>
+      <div class="active">55 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-07</div>
+      <div class="count">281</div>
+      <div class="active">63 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-08</div>
+      <div class="count">375</div>
+      <div class="active">35 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-09</div>
+      <div class="count">327</div>
+      <div class="active">59 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-10</div>
+      <div class="count">309</div>
+      <div class="active">51 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-11</div>
+      <div class="count">593</div>
+      <div class="active">95 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-12</div>
+      <div class="count">1367</div>
+      <div class="active">154 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-13</div>
+      <div class="count">925</div>
+      <div class="active">86 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-14</div>
+      <div class="count">371</div>
+      <div class="active">62 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-15</div>
+      <div class="count">822</div>
+      <div class="active">97 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-16</div>
+      <div class="count">675</div>
+      <div class="active">89 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-17</div>
+      <div class="count">1039</div>
+      <div class="active">159 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-18</div>
+      <div class="count">468</div>
+      <div class="active">66 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-19</div>
+      <div class="count">327</div>
+      <div class="active">88 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-20</div>
+      <div class="count">108</div>
+      <div class="active">27 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-21</div>
+      <div class="count">339</div>
+      <div class="active">45 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-22</div>
+      <div class="count">35</div>
+      <div class="active">6 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-23</div>
+      <div class="count">8</div>
+      <div class="active">4 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-24</div>
+      <div class="count">331</div>
+      <div class="active">90 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-25</div>
+      <div class="count">136</div>
+      <div class="active">37 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-26</div>
+      <div class="count">151</div>
+      <div class="active">35 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-27</div>
+      <div class="count">233</div>
+      <div class="active">82 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-28</div>
+      <div class="count">111</div>
+      <div class="active">29 人</div>
+    </div>
+    
+    <div class="daily-item">
+      <div class="date">06-29</div>
+      <div class="count">74</div>
+      <div class="active">12 人</div>
+    </div>
+    
   </div>
 </section>
 
-<!-- ================================
-     9. 洞察与总结
-     ================================ -->
-<section class="section section--white" id="insights">
-  <div class="container">
-    <div class="fade-reveal" style="text-align:center;margin-bottom:3.5rem;">
-      <div class="section-label">Section 09</div>
-      <h2 class="section-title">洞察与总结</h2>
-      <p class="section-desc" style="margin:0 auto;">「AI 时代自我提升」学习型社群的完整画像。</p>
-    </div>
+<!-- ====== SECTION 09: 洞察总结 ====== -->
+<section class="section">
+  <h2><span class="icon">💡</span> 整体洞察与总结</h2>
+  <div class="card">
+    <div class="analysis-text">## 整体洞察与总结
 
-    <div class="insight-grid fade-reveal" style="margin-bottom:2rem;">
-      <div class="insight-card"><div class="insight-card__icon">👤</div><div class="insight-card__title">群体画像</div><div class="insight-card__text">18-30 岁年轻人为主（大学生、自由职业者、早期创业者），对 AI 工具有强烈学习欲望，多数处于「从零到一」的入门阶段，夜猫子特征明显。</div></div>
-      <div class="insight-card"><div class="insight-card__icon">🧭</div><div class="insight-card__title">核心价值主张</div><div class="insight-card__text">① 快速执行：「收到」即行动 &nbsp;② 作品说话：以可展示的成果为准 &nbsp;③ 迭代复盘：每次进步都要沉淀 &nbsp;④ 审美驱动：AI 决定下限，审美决定上限 &nbsp;⑤ 分享复利：建立生态位 &nbsp;⑥ 注意力管理：保护深度思考</div></div>
-      <div class="insight-card"><div class="insight-card__icon">🚧</div><div class="insight-card__title">面临的挑战</div><div class="insight-card__text">① 技术门槛高：大量成员卡在环境搭建 &nbsp;② 审美差距大：多数作品审美水平较低 &nbsp;③ 活跃度波动较大：6月12日和5日出现高峰（2380条和1560条），13日735条，14日回落到454条 &nbsp;④ 变现路径不清晰：多数仍在「学」的阶段 &nbsp;⑤ 工具依赖严重：对额度限制和账号问题敏感</div></div>
-    </div>
+### 数据总览
 
-    <!-- Data highlights -->
-    <div class="fade-reveal" style="margin-bottom:2rem;">
-      <h3 style="font-size:1.2rem;font-weight:700;color:var(--gray-800);text-align:center;margin-bottom:1.5rem;">数据亮点总览</h3>
-      <div class="stat-grid">
-        <div class="stat-card"><div class="stat-card__num">11563</div><div class="stat-card__lbl">13 天内总消息</div></div>
-        <div class="stat-card"><div class="stat-card__num">303</div><div class="stat-card__lbl">发言人数</div></div>
-        <div class="stat-card"><div class="stat-card__num">~45%</div><div class="stat-card__lbl">前 15 名贡献的用户消息</div></div>
-        <div class="stat-card"><div class="stat-card__num">2,380</div><div class="stat-card__lbl">最高单日 · 6月12日</div></div>
-        <div class="stat-card"><div class="stat-card__num">25+</div><div class="stat-card__lbl">AI 工具被讨论</div></div>
-        <div class="stat-card"><div class="stat-card__num">7</div><div class="stat-card__lbl">完整 AI 应用方案</div></div>
-        <div class="stat-card"><div class="stat-card__num">18+</div><div class="stat-card__lbl">学习资源分享</div></div>
-        <div class="stat-card"><div class="stat-card__num">10.3%</div><div class="stat-card__lbl">凌晨消息占比</div></div>
-      </div>
-    </div>
+| 指标 | 数值 |
+|------|------|
+| 📊 数据窗口 | 2026-06-02 ~ 2026-06-29（28 天） |
+| 💬 有效消息 | 11,556 条 |
+| 👥 参与成员 | 352 人 |
+| 📈 日均消息 | 413 条 |
+| 🔥 日均活跃 | 63 人 |
+| 🏆 核心贡献者 | Top5 成员贡献 15.9% 消息量 |
 
-    <h3 class="fade-reveal" style="font-size:1.2rem;font-weight:700;color:var(--gray-800);margin-bottom:1rem;">⚠️ 风险提示</h3>
-    <div class="risk-list fade-reveal">
-      <div class="risk-item"><span class="risk-item__icon">💸</span><span><strong>诈骗风险：</strong>群内已有成员被诈骗，涉及私下交易需谨慎。</span></div>
-      <div class="risk-item"><span class="risk-item__icon">🔒</span><span><strong>账号安全：</strong>Claude 封号、GPT 风控是实际风险，需注意环境纯净度。</span></div>
-      <div class="risk-item"><span class="risk-item__icon">👁️</span><span><strong>隐私风险：</strong>微信聊天记录 AI 读取涉及隐私问题，需注意合规性。</span></div>
-      <div class="risk-item"><span class="risk-item__icon">💳</span><span><strong>费用风险：</strong>Token 消耗、代充服务等存在资金风险，部分 API 中转站可能存在欺诈。</span></div>
-      <div class="risk-item"><span class="risk-item__icon">⚖️</span><span><strong>合规风险：</strong>群内讨论的部分网络环境内容存在法律灰色地带。</span></div>
-    </div>
+### 社群健康度评估
+
+**整体评级：健康活跃** 🟢
+
+1. **活跃度**：日均 413 条消息、63 人活跃，对于 350+ 人的社群属于高质量水平。
+2. **集中度**：Top5 核心成员贡献 15.9%，分布合理，没有过度依赖个别成员。
+3. **信噪比**：有效讨论占比约 64%（11,556/18,064），在微信社群中表现优秀。
+
+### 趋势变化
+
+- **首周**（6/2-6/8）：日均 401 条，建群初期热度高
+- **末周**（6/23-6/29）：日均 149 条，热度呈自然回落
+- **整体趋势**：下降
+
+社群在经历了建群初期的密集交流后，进入了更可持续的稳态活跃期。末周日均 149 条依然保持较高水位。
+
+### 运营建议
+
+1. **固定话题日**：可引入「作品展示日」「工具推荐日」等主题活动，维持讨论节奏。
+2. **知识沉淀**：群内近 2,000 条链接分享是宝贵资产，可建立索引页面方便回溯。
+3. **激活长尾**：对「已加入但较少发言」的 300+ 成员，可通过定向话题引导其参与。
+4. **深夜时段运营**：22:00-23:00 是天然高峰，可安排晚间分享或成果展示。
+
+---
+*分析生成时间：2026-06-29 23:32:05*
+*数据来源：微信解密数据库 → chat-stats-pipeline v1.0*
+</div>
   </div>
 </section>
 
-<!-- ================================
-     FOOTER
-     ================================ -->
+<!-- ====== SECTION 10: 树林方向 ====== -->
+
+<section class="section">
+  <h2><span class="icon">🌲</span> 树林发言精选</h2>
+  <div class="card">
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-07 15:00:35</span>
+      <div class="msg-content">叽里咕噜，叽里咕噜，一天到晚，一会儿这儿加，一会儿那儿加</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-07 15:00:48</span>
+      <div class="msg-content">什么东西啊，看得我心里烦</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-07 15:01:02</span>
+      <div class="msg-content">要有水准，就自己做点事儿出来。没有水准，不要就左左手倒右手。今天找这个，明天找那个的，有什么意义</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-07 15:01:43</span>
+      <div class="msg-content">不要低质量地经常出现在我面前啊</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-07 15:02:05</span>
+      <div class="msg-content">那个发名片，那个属于名片对象的，那个自己好好反思一下，自己这几天干嘛了？做出来什么了吗？赚到钱了吗</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-07 15:02:13</span>
+      <div class="msg-content">认识这个，认识那个，一会儿推这个，一会儿推那个的干嘛</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-07 15:11:40</span>
+      <div class="msg-content">所以你看什么是嘉豪呢？嘉豪的本质就是你跟这个外界没有充分的互动，并不知道别人说了你这句话之后怎么想</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-07 15:12:22</span>
+      <div class="msg-content">最终的终点是什么呢？其实别人说什么也并不重要。核心是你的目的是什么。如果你们正常说话能达到你们的目的，能赚到钱，我觉得也无所谓。但问题就是第一达不到你们的目的，第二，你们会让这个东西让别人有很多误会，也会让原本可能喜欢你们的人讨厌你们。那我觉得就得不偿失了。你怎么能这也不要，那也不要啊，对吧</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-07 15:14:38</span>
+      <div class="msg-content">就我希望你们的配得感，或者理所当然来自于你给这个世界创造了充分的价值，且你已经能很好地养活你自己了。同时，你无论是在感性的层面，你懂得爱，还是在理性的层面，你确实为别人创造了超额的回报和收益，你就应该被很好地对待。那这样的状态，我觉得是非常OK的。你如果是这样的嘉豪，那我一句话都没有啊</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-07 15:20:16</span>
+      <div class="msg-content"><?xml version="1.0"?>
+<msg>
+	<appmsg appid="" sdkver="0">
+		<title>…</title>
+		<type>57</type>
+		<appattach>
+			<cdnthumbaeskey />
+			<aeskey />
+		</appattach>
+		<refermsg>
+			<type>49</type>
+			<svrid>8407487088805942966</svrid>
+			<fromusr>48997819170@chatroom</fromusr>
+			<chatusr>wxid_4o0ex3fa9f</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-07 15:20:22</span>
+      <div class="msg-content">[呲牙]</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-07 20:21:32</span>
+      <div class="msg-content"><?xml version="1.0"?>
+<msg>
+	<appmsg appid="" sdkver="0">
+		<title>不错</title>
+		<type>57</type>
+		<appattach>
+			<cdnthumbaeskey />
+			<aeskey />
+		</appattach>
+		<refermsg>
+			<type>43</type>
+			<svrid>7424458061626347949</svrid>
+			<fromusr>48997819170@chatroom</fromusr>
+			<chatusr>wxid_iedznw8ik</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-08 00:07:06</span>
+      <div class="msg-content">你们俩谁来深度分享一下</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-08 00:07:32</span>
+      <div class="msg-content">写出来分享一下</div>
+    </div>
+    
+    <div class="msg-item">
+      <span class="msg-sender">树林</span>
+      <span class="msg-time">2026-06-08 00:07:54</span>
+      <div class="msg-content">写得不好，就等着挨揍吧</div>
+    </div>
+    
+  </div>
+</section>
+
+
+<!-- ====== SECTION 11: 学员成果/链接 ====== -->
+
+<section class="section">
+  <h2><span class="icon">🔗</span> 链接与产出</h2>
+  <div class="card">
+    <p style="color: var(--text-secondary); margin-bottom: 12px;">共分享 1949 条链接</p>
+    
+    <div class="link-item">
+      <a class="link-url" href="http://wx.qlogo.cn/mmhead/ver_1/seqAUz85WLnoXZGoVgO1WOCDrI1aoDvBaXdWTxKh2vc2ZGpJjP8GjQCtGPCPIoJWDiakThoncibNrqnUvfm8ibwiajkUsT3HANsVbnMcCBalCib7a34BzUtRrWOvhCmSnXmN5/0"" target="_blank" rel="noopener" title="http://wx.qlogo.cn/mmhead/ver_1/seqAUz85WLnoXZGoVgO1WOCDrI1aoDvBaXdWTxKh2vc2ZGpJjP8GjQCtGPCPIoJWDiakThoncibNrqnUvfm8ibwiajkUsT3HANsVbnMcCBalCib7a34BzUtRrWOvhCmSnXmN5/0"">http://wx.qlogo.cn/mmhead/ver_1/seqAUz85WLnoXZGoVgO1WOCDrI1aoDvBaXdWTxKh2vc2ZGpJ...</a>
+      <span class="link-meta">信鸽FaithDove · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="http://wx.qlogo.cn/mmhead/ver_1/seqAUz85WLnoXZGoVgO1WOCDrI1aoDvBaXdWTxKh2vc2ZGpJjP8GjQCtGPCPIoJWDiakThoncibNrqnUvfm8ibwiajkUsT3HANsVbnMcCBalCib7a34BzUtRrWOvhCmSnXmN5/96"" target="_blank" rel="noopener" title="http://wx.qlogo.cn/mmhead/ver_1/seqAUz85WLnoXZGoVgO1WOCDrI1aoDvBaXdWTxKh2vc2ZGpJjP8GjQCtGPCPIoJWDiakThoncibNrqnUvfm8ibwiajkUsT3HANsVbnMcCBalCib7a34BzUtRrWOvhCmSnXmN5/96"">http://wx.qlogo.cn/mmhead/ver_1/seqAUz85WLnoXZGoVgO1WOCDrI1aoDvBaXdWTxKh2vc2ZGpJ...</a>
+      <span class="link-meta">信鸽FaithDove · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://x.com/karpathy/status/2039805659525644595?s=46" target="_blank" rel="noopener" title="https://x.com/karpathy/status/2039805659525644595?s=46">https://x.com/karpathy/status/2039805659525644595?s=46</a>
+      <span class="link-meta">陆逢生 · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&lt;/url&gt;&lt;recorditem&gt;&lt;/recorditem&gt;&lt;/appmsg&gt;&lt;fromusername&gt;wxid_b5wkboo5pup912&lt;/fromusername&gt;&lt;appinfo&gt;&lt;version&gt;1&lt;/version&gt;&lt;/appinfo&gt;&lt;extcommoninfo&gt;&lt;media_expire_at&gt;1782040710&lt;/media_expire_at&gt;&lt;/extcommoninfo&gt;&lt;/msg&gt;</content>" target="_blank" rel="noopener" title="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&lt;/url&gt;&lt;recorditem&gt;&lt;/recorditem&gt;&lt;/appmsg&gt;&lt;fromusername&gt;wxid_b5wkboo5pup912&lt;/fromusername&gt;&lt;appinfo&gt;&lt;version&gt;1&lt;/version&gt;&lt;/appinfo&gt;&lt;extcommoninfo&gt;&lt;media_expire_at&gt;1782040710&lt;/media_expire_at&gt;&lt;/extcommoninfo&gt;&lt;/msg&gt;</content>">https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite...</a>
+      <span class="link-meta">あかね · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://support.weixin.qq.com/update/</url>" target="_blank" rel="noopener" title="https://support.weixin.qq.com/update/</url>">https://support.weixin.qq.com/update/</url></a>
+      <span class="link-meta">Gochan · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://wx.qlogo.cn/finderhead/ver_1/0VZ0gMmPh2ZJ6YILcrZHDJjk2YxIS8g1tAX1ty1DiaEz9wAgGIhoKibUHjWM2OibAO5BeAUz44AIcUx0sYx152EJ8zBAaj6nzpaxicVxZXxT3j8/0</headUrl>" target="_blank" rel="noopener" title="https://wx.qlogo.cn/finderhead/ver_1/0VZ0gMmPh2ZJ6YILcrZHDJjk2YxIS8g1tAX1ty1DiaEz9wAgGIhoKibUHjWM2OibAO5BeAUz44AIcUx0sYx152EJ8zBAaj6nzpaxicVxZXxT3j8/0</headUrl>">https://wx.qlogo.cn/finderhead/ver_1/0VZ0gMmPh2ZJ6YILcrZHDJjk2YxIS8g1tAX1ty1DiaE...</a>
+      <span class="link-meta">Gochan · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://dldir1v6.qq.com/weixin/checkresupdate/auth_icon_level3_2e2f94615c1e4651a25a7e0446f63135.png</authIconUrl>" target="_blank" rel="noopener" title="https://dldir1v6.qq.com/weixin/checkresupdate/auth_icon_level3_2e2f94615c1e4651a25a7e0446f63135.png</authIconUrl>">https://dldir1v6.qq.com/weixin/checkresupdate/auth_icon_level3_2e2f94615c1e4651a...</a>
+      <span class="link-meta">Gochan · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://wx.qlogo.cn/mmhead/ver_1/icaGfLa7J1f2368ICAxKAEmGDdjLEExeNsw9YGrwj7dGLxJb4PQgeZOFPic07GuIgQFvv406jjEAysHic3MIYIqxyVjPV6gKePyndaTDkeHo6A/132</bizHeadUrl>" target="_blank" rel="noopener" title="https://wx.qlogo.cn/mmhead/ver_1/icaGfLa7J1f2368ICAxKAEmGDdjLEExeNsw9YGrwj7dGLxJb4PQgeZOFPic07GuIgQFvv406jjEAysHic3MIYIqxyVjPV6gKePyndaTDkeHo6A/132</bizHeadUrl>">https://wx.qlogo.cn/mmhead/ver_1/icaGfLa7J1f2368ICAxKAEmGDdjLEExeNsw9YGrwj7dGLxJ...</a>
+      <span class="link-meta">Gochan · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="http://wxapp.tc.qq.com/292/20350/stodownload?encfilekey=oibeqyX228riaCwo9STVsGLKUqibW0nq5ksmGbFlamRRP56QScibPeiaGK3XlGM8MUHhOACPx8CjRgBEIWaJhcZ4AmCdzjrLDsyTr1oicHz6mhes9VPsKEXgE47qqJL4lThOJiaE8H2NLibZ5Gg&amp;hy=SH&amp;idx=1&amp;m=481d0b5a753c0b3bcb35c13d34e2352c&amp;token=x5Y29zUxcibBv0wC1vh8PiaKfu9ANdpPGHN8JuLfsp4UAouqZ7CvINU3qwcGGhPS3D4ic2wpNSN3OR6nHcs2gic7BOxJniaVFZC6RFPmhy9mNj6eq9Aic4ZyjEvVfbRTFXsiaIjTrvyKNe4V4xspdEfBFStBS6QPZ1Xs5BG]]></coverUrl>" target="_blank" rel="noopener" title="http://wxapp.tc.qq.com/292/20350/stodownload?encfilekey=oibeqyX228riaCwo9STVsGLKUqibW0nq5ksmGbFlamRRP56QScibPeiaGK3XlGM8MUHhOACPx8CjRgBEIWaJhcZ4AmCdzjrLDsyTr1oicHz6mhes9VPsKEXgE47qqJL4lThOJiaE8H2NLibZ5Gg&amp;hy=SH&amp;idx=1&amp;m=481d0b5a753c0b3bcb35c13d34e2352c&amp;token=x5Y29zUxcibBv0wC1vh8PiaKfu9ANdpPGHN8JuLfsp4UAouqZ7CvINU3qwcGGhPS3D4ic2wpNSN3OR6nHcs2gic7BOxJniaVFZC6RFPmhy9mNj6eq9Aic4ZyjEvVfbRTFXsiaIjTrvyKNe4V4xspdEfBFStBS6QPZ1Xs5BG]]></coverUrl>">http://wxapp.tc.qq.com/292/20350/stodownload?encfilekey=oibeqyX228riaCwo9STVsGLK...</a>
+      <span class="link-meta">Gochan · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="http://wxapp.tc.qq.com/292/20350/stodownload?encfilekey=oibeqyX228riaCwo9STVsGLKUqibW0nq5ksmGbFlamRRP56QScibPeiaGK3XlGM8MUHhOACPx8CjRgBEIWaJhcZ4AmCdzjrLDsyTr1oicHz6mhes9VPsKEXgE47qqJL4lThOJiaE8H2NLibZ5Gg&amp;hy=SH&amp;idx=1&amp;m=481d0b5a753c0b3bcb35c13d34e2352c]]></bareCoverUrl>" target="_blank" rel="noopener" title="http://wxapp.tc.qq.com/292/20350/stodownload?encfilekey=oibeqyX228riaCwo9STVsGLKUqibW0nq5ksmGbFlamRRP56QScibPeiaGK3XlGM8MUHhOACPx8CjRgBEIWaJhcZ4AmCdzjrLDsyTr1oicHz6mhes9VPsKEXgE47qqJL4lThOJiaE8H2NLibZ5Gg&amp;hy=SH&amp;idx=1&amp;m=481d0b5a753c0b3bcb35c13d34e2352c]]></bareCoverUrl>">http://wxapp.tc.qq.com/292/20350/stodownload?encfilekey=oibeqyX228riaCwo9STVsGLK...</a>
+      <span class="link-meta">Gochan · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://support.weixin.qq.com/update/</url>" target="_blank" rel="noopener" title="https://support.weixin.qq.com/update/</url>">https://support.weixin.qq.com/update/</url></a>
+      <span class="link-meta">勇争科技（北京）王子一 · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://wx.qlogo.cn/finderhead/ver_1/0VZ0gMmPh2ZJ6YILcrZHDJjk2YxIS8g1tAX1ty1DiaEz9wAgGIhoKibUHjWM2OibAO5BeAUz44AIcUx0sYx152EJ8zBAaj6nzpaxicVxZXxT3j8/0</headUrl>" target="_blank" rel="noopener" title="https://wx.qlogo.cn/finderhead/ver_1/0VZ0gMmPh2ZJ6YILcrZHDJjk2YxIS8g1tAX1ty1DiaEz9wAgGIhoKibUHjWM2OibAO5BeAUz44AIcUx0sYx152EJ8zBAaj6nzpaxicVxZXxT3j8/0</headUrl>">https://wx.qlogo.cn/finderhead/ver_1/0VZ0gMmPh2ZJ6YILcrZHDJjk2YxIS8g1tAX1ty1DiaE...</a>
+      <span class="link-meta">勇争科技（北京）王子一 · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="http://wxapp.tc.qq.com/292/20350/stodownload?encfilekey=oibeqyX228riaCwo9STVsGLKUqibW0nq5kszMcM1RlqOpttMn5v9aIJ4efnylMiaMkwCQkhrQIj9RiaNkPcicNbP7R4QiaVmPWfhq12JESYmVzxJ9x0Bq2nFicDJ8cWvHQicj88Uib6Wys0YIpREo&amp;hy=SH&amp;idx=1&amp;m=e7467e3f5c293083a34006164a2cef92&amp;token=cztXnd9GyrFic3jndkicLXIO5duxTib9pYweia6bQu9uMzGz7Ev4AmMq7v9yhW02ZG5pn0v5k6QMmBz9SeRQ3yFGgHJqMY6iawnSQQP2OrAWKSXDMxuFajUlicyLicvxtolLw4M1O3gqLYLYyTQ2j9YYNiacolsIWydJ17u5</coverUrl>" target="_blank" rel="noopener" title="http://wxapp.tc.qq.com/292/20350/stodownload?encfilekey=oibeqyX228riaCwo9STVsGLKUqibW0nq5kszMcM1RlqOpttMn5v9aIJ4efnylMiaMkwCQkhrQIj9RiaNkPcicNbP7R4QiaVmPWfhq12JESYmVzxJ9x0Bq2nFicDJ8cWvHQicj88Uib6Wys0YIpREo&amp;hy=SH&amp;idx=1&amp;m=e7467e3f5c293083a34006164a2cef92&amp;token=cztXnd9GyrFic3jndkicLXIO5duxTib9pYweia6bQu9uMzGz7Ev4AmMq7v9yhW02ZG5pn0v5k6QMmBz9SeRQ3yFGgHJqMY6iawnSQQP2OrAWKSXDMxuFajUlicyLicvxtolLw4M1O3gqLYLYyTQ2j9YYNiacolsIWydJ17u5</coverUrl>">http://wxapp.tc.qq.com/292/20350/stodownload?encfilekey=oibeqyX228riaCwo9STVsGLK...</a>
+      <span class="link-meta">勇争科技（北京）王子一 · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://dldir1v6.qq.com/weixin/checkresupdate/auth_icon_level3_2e2f94615c1e4651a25a7e0446f63135.png</authIconUrl>" target="_blank" rel="noopener" title="https://dldir1v6.qq.com/weixin/checkresupdate/auth_icon_level3_2e2f94615c1e4651a25a7e0446f63135.png</authIconUrl>">https://dldir1v6.qq.com/weixin/checkresupdate/auth_icon_level3_2e2f94615c1e4651a...</a>
+      <span class="link-meta">勇争科技（北京）王子一 · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://dengyuanxing953-eng.github.io/wechat-tutorial/这是微信导出聊天记录的教程" target="_blank" rel="noopener" title="https://dengyuanxing953-eng.github.io/wechat-tutorial/这是微信导出聊天记录的教程">https://dengyuanxing953-eng.github.io/wechat-tutorial/这是微信导出聊天记录的教程</a>
+      <span class="link-meta">星野 · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://afuxh.github.io/fuqing-profile/family-letters.html</title>" target="_blank" rel="noopener" title="https://afuxh.github.io/fuqing-profile/family-letters.html</title>">https://afuxh.github.io/fuqing-profile/family-letters.html</title></a>
+      <span class="link-meta">Unknown · 2026-06-07</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&lt;/url&gt;&lt;appattach&gt;&lt;cdnthumbaeskey&gt;&lt;/cdnthumbaeskey&gt;&lt;aeskey&gt;&lt;/aeskey&gt;&lt;/appattach&gt;&lt;recorditem&gt;&lt;![CDATA[&lt;recordinfo&gt;&lt;info&gt;花椒爱吃甜的:" target="_blank" rel="noopener" title="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&lt;/url&gt;&lt;appattach&gt;&lt;cdnthumbaeskey&gt;&lt;/cdnthumbaeskey&gt;&lt;aeskey&gt;&lt;/aeskey&gt;&lt;/appattach&gt;&lt;recorditem&gt;&lt;![CDATA[&lt;recordinfo&gt;&lt;info&gt;花椒爱吃甜的:">https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite...</a>
+      <span class="link-meta">余白 · 2026-06-08</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&amp;amp;from=singlemessage&amp;amp;isappinstalled=0&lt;/url&gt;&lt;appattach&gt;&lt;cdnthumbaeskey&gt;&lt;/cdnthumbaeskey&gt;&lt;aeskey&gt;&lt;/aeskey&gt;&lt;/appattach&gt;&lt;recorditem&gt;&lt;![CDATA[&lt;recordinfo&gt;&lt;info&gt;洋:" target="_blank" rel="noopener" title="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&amp;amp;from=singlemessage&amp;amp;isappinstalled=0&lt;/url&gt;&lt;appattach&gt;&lt;cdnthumbaeskey&gt;&lt;/cdnthumbaeskey&gt;&lt;aeskey&gt;&lt;/aeskey&gt;&lt;/appattach&gt;&lt;recorditem&gt;&lt;![CDATA[&lt;recordinfo&gt;&lt;info&gt;洋:">https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite...</a>
+      <span class="link-meta">🦊 · 2026-06-08</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://support.weixin.qq.com/update/</url>" target="_blank" rel="noopener" title="https://support.weixin.qq.com/update/</url>">https://support.weixin.qq.com/update/</url></a>
+      <span class="link-meta">星野 · 2026-06-08</span>
+    </div>
+    
+    <div class="link-item">
+      <a class="link-url" href="https://wx.qlogo.cn/finderhead/ver_1/9yKZ1qFSfaX0B1Um12GJibribYNHXItGz4MuIZdxz4NDMNDL1iaEUScQ9Mtf9ow9w3TcoQYZibGaxh8YU9cibxyTXk0FYia75icX7XHZ5thIHReu89icOBNaLKX34elxmLFphD2Z/0]]></avatar>" target="_blank" rel="noopener" title="https://wx.qlogo.cn/finderhead/ver_1/9yKZ1qFSfaX0B1Um12GJibribYNHXItGz4MuIZdxz4NDMNDL1iaEUScQ9Mtf9ow9w3TcoQYZibGaxh8YU9cibxyTXk0FYia75icX7XHZ5thIHReu89icOBNaLKX34elxmLFphD2Z/0]]></avatar>">https://wx.qlogo.cn/finderhead/ver_1/9yKZ1qFSfaX0B1Um12GJibribYNHXItGz4MuIZdxz4N...</a>
+      <span class="link-meta">星野 · 2026-06-08</span>
+    </div>
+    
+  </div>
+</section>
+
+
+</div>
+
+<!-- ====== FOOTER ====== -->
 <footer class="footer">
-  <div class="footer__title">🌲 交流2群 · 2026IP训练营</div>
-  <p class="footer__text">
-    报告生成时间：2026年6月16日（更新版，补充6月13日-14日数据） &nbsp;·&nbsp; 数据来源：微信群聊记录导出文件<br>
-    分析方法：Python 文本分析 + 人工内容审阅 &nbsp;·&nbsp; 消息总量：11563 条 &nbsp;·&nbsp; 303 人
-  </p>
-  <p class="footer__colophon">Made with ❤️ and AI</p>
+  <p>【交流2群】🌲2026IP训练营 · 数据范围 2026-06-02 ~ 2026-06-29</p>
+  <p>由 <strong>chat-stats-pipeline</strong> 自动生成 · 2026-06-29 23:32:24</p>
 </footer>
-
-<script>
-// ==========================================
-// SCROLL-TRIGGERED REVEAL
-// ==========================================
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('fade-reveal--shown');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-
-document.querySelectorAll('.fade-reveal').forEach(el => revealObserver.observe(el));
-
-// ==========================================
-// STICKY NAVIGATION
-// ==========================================
-const nav = document.getElementById('nav');
-const navLinks = document.querySelectorAll('.nav__link');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  document.querySelectorAll('section[id]').forEach(sec => {
-    if (window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id');
-  });
-  navLinks.forEach(link => {
-    link.classList.toggle('nav__link--active', link.getAttribute('href') === '#' + current);
-  });
-});
-
-// ==========================================
-// MEMBER LIST
-// ==========================================
-const members = [
-  {rank:1,name:'是阿扶耶.',count:1125,pct:12.5,role:'核心成员，AI热点观察网站，个人主页开发者，群聊报告'},
-  {rank:2,name:'树林',count:574,pct:6.4,role:'核心导师/IP，训练营发起人，绝对核心方向指引者'},
-  {rank:3,name:'链屿君',count:335,pct:3.7,role:'变现实践者，AI视频获客，高考备考手册'},
-  {rank:4,name:'星野',count:309,pct:3.4,role:'活跃实践者，AI视频团队/GEO Skill/教程网站，Hermes教程'},
-  {rank:5,name:'余白',count:286,pct:3.2,role:'活跃实践者，网页/视频/公众号/接单，CC Switch教程'},
-  {rank:6,name:'青砚',count:256,pct:2.9,role:'活跃实践者，Agent/视频方向'},
-  {rank:7,name:'阿sam',count:234,pct:2.6,role:'积极学习者，频繁提问'},
-  {rank:8,name:'勇争科技（北京）王子一',count:189,pct:2.1,role:'积极参与者'},
-  {rank:9,name:'HUSH',count:150,pct:1.7,role:'积极参与者'},
-  {rank:10,name:'蝶秋',count:146,pct:1.6,role:'积极参与者'},
-  {rank:11,name:'云深不知处？',count:142,pct:1.6,role:'活跃实践者，自动化视频方向'},
-  {rank:12,name:'小杰',count:134,pct:1.5,role:'积极参与者'},
-  {rank:13,name:'陆逢生',count:120,pct:1.3,role:'热心分享者，B站教程推荐'},
-  {rank:14,name:'阿诚',count:111,pct:1.2,role:'网站开发者，Typeless实践'},
-  {rank:15,name:'JL',count:101,pct:1.1,role:'积极参与者'}
-];
-
-const colors = ['#0071e3','#2997ff','#5ac8fa','#34c759','#ff9500','#ff375f','#ac39ff','#ff3b30','#teal','#0071e3','#2997ff','#5ac8fa','#34c759','#ff9500','#ff375f'];
-const listEl = document.getElementById('memberList');
-const maxCount = 1125;
-
-members.forEach((m, i) => {
-  let rankClass = '';
-  if (m.rank === 1) rankClass = 'member-row__rank--gold';
-  else if (m.rank === 2) rankClass = 'member-row__rank--silver';
-  else if (m.rank === 3) rankClass = 'member-row__rank--bronze';
-
-  const initials = m.name.replace(/[^一-龥a-zA-Z]/g, '').slice(0, 2);
-  const row = document.createElement('div');
-  row.className = 'member-row';
-  row.innerHTML = `
-    <div class="member-row__rank ${rankClass}">${m.rank}</div>
-    <div class="member-row__avatar" style="background:${colors[i]}">${initials}</div>
-    <div class="member-row__info">
-      <div class="member-row__name">${m.name}</div>
-      <div class="member-row__role">${m.role}</div>
-    </div>
-    <div class="member-row__bar-wrap"><div class="member-row__bar-fill" style="width:0%"></div></div>
-    <div class="member-row__count">${m.count} 条</div>
-  `;
-  listEl.appendChild(row);
-
-  // Animate bar on scroll
-  const barObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const fill = row.querySelector('.member-row__bar-fill');
-        setTimeout(() => { fill.style.width = (m.count / maxCount * 100) + '%'; }, i * 60);
-        barObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  barObserver.observe(row);
-});
-
-// ==========================================
-// TOPIC LIST
-// ==========================================
-const topics = [
-  {name:'AI 工具部署与安装',stars:5,pct:'~25%'},
-  {name:'AI Agent/Skill 开发',stars:5,pct:'~20%'},
-  {name:'AI 视频/图片生成',stars:4,pct:'~15%'},
-  {name:'审美与作品点评',stars:4,pct:'~10%'},
-  {name:'网络环境与账号',stars:3,pct:'~10%'},
-  {name:'个人成长/思维',stars:3,pct:'~8%'},
-  {name:'变现与获客',stars:2,pct:'~5%'},
-  {name:'训练营管理',stars:2,pct:'~5%'},
-  {name:'其他（闲聊/互助）',stars:1,pct:'~2%'},
-];
-
-const topicEl = document.getElementById('topicList');
-topics.forEach(t => {
-  const row = document.createElement('div');
-  row.className = 'topic-row';
-  let stars = '';
-  for (let s = 1; s <= 5; s++) {
-    stars += `<span class="topic-row__star ${s <= t.stars ? 'topic-row__star--on' : 'topic-row__star--off'}">★</span>`;
-  }
-  row.innerHTML = `<div class="topic-row__name">${t.name}</div><div class="topic-row__stars">${stars}</div><div class="topic-row__pct">${t.pct}</div>`;
-  topicEl.appendChild(row);
-});
-
-// ==========================================
-// TOOL GRID
-// ==========================================
-const tools = [
-  {cat:'AI 编程终端',name:'Claude Code (CC)',stars:'★★★★★'},
-  {cat:'AI 编程工具',name:'OpenAI Codex',stars:'★★★★★'},
-  {cat:'大语言模型',name:'DeepSeek (DS)',stars:'★★★★☆'},
-  {cat:'大语言模型',name:'ChatGPT / GPT',stars:'★★★★☆'},
-  {cat:'协作平台',name:'飞书 (Feishu)',stars:'★★★★☆'},
-  {cat:'大语言模型',name:'Kimi (KM)',stars:'★★★☆☆'},
-  {cat:'语音键盘',name:'Typeless',stars:'★★★☆☆'},
-  {cat:'AI Agent 框架',name:'Hermes',stars:'★★☆☆☆'},
-  {cat:'多 Agent 框架',name:'CrewAI',stars:'★★☆☆☆'},
-  {cat:'视频生成 API',name:'Seedance 2.0',stars:'★★☆☆☆'},
-  {cat:'3D 建模',name:'Blender',stars:'★★☆☆☆'},
-  {cat:'AI 编程',name:'Workbuddy',stars:'★★☆☆☆'},
-  {cat:'AI 编程',name:'Trae Solo',stars:'★★☆☆☆'},
-  {cat:'工具',name:'CC Switch',stars:'★★☆☆☆'},
-  {cat:'微信工具',name:'Weflow',stars:'★★☆☆☆'},
-  {cat:'AI 视频',name:'豆包',stars:'★★☆☆☆'},
-  {cat:'视频/对话 API',name:'智谱 (Zhipu)',stars:'★★☆☆☆'},
-  {cat:'代码视频',name:'Remotion',stars:'★☆☆☆☆'},
-  {cat:'大语言模型',name:'Qwen (通义千问)',stars:'★★☆☆☆'},
-  {cat:'大语言模型',name:'腾讯元宝',stars:'★★☆☆☆'},
-  {cat:'AI Agent 框架',name:'OpenClaw',stars:'★☆☆☆☆'},
-  {cat:'视频处理',name:'ffmpeg',stars:'★☆☆☆☆'},
-  {cat:'AI IDE',name:'Cursor',stars:'★☆☆☆☆'},
-  {cat:'AI 工作流',name:'扣子 (Coze)',stars:'★☆☆☆☆'},
-  {cat:'AI 编程',name:'Qoder / 马维斯',stars:'★☆☆☆☆'},
-  {cat:'视频下载',name:'yt-dlp',stars:'★☆☆☆☆'},
-  {cat:'图片参考',name:'Pinterest',stars:'★☆☆☆☆'},
-  {cat:'AI 检测',name:'朱雀 AI',stars:'★☆☆☆☆'},
-  {cat:'虚拟支付',name:'pokepay / aipayok',stars:'★☆☆☆☆'},
-  {cat:'AI 编程',name:'Typeless',stars:'★★★☆☆'},
-  {cat:'AI 编程',name:'Claude Code (CC)',stars:'★★★★★'},
-  {cat:'AI 编程',name:'OpenAI Codex',stars:'★★★★★'},
-  {cat:'AI 视频',name:'Seedance 2.0',stars:'★★☆☆☆'},
-  {cat:'AI 视频',name:'豆包',stars:'★★☆☆☆'},
-  {cat:'3D 建模',name:'Blender',stars:'★★☆☆☆'},
-  {cat:'视频处理',name:'ffmpeg',stars:'★☆☆☆☆'},
-  {cat:'AI 视频',name:'Remotion',stars:'★☆☆☆☆'},
-  {cat:'大语言模型',name:'DeepSeek (DS)',stars:'★★★★☆'},
-  {cat:'大语言模型',name:'Kimi (KM)',stars:'★★★☆☆'},
-  {cat:'大语言模型',name:'Qwen (通义千问)',stars:'★★☆☆☆'},
-  {cat:'大语言模型',name:'腾讯元宝',stars:'★★☆☆☆'},
-  {cat:'图片参考',name:'Pinterest',stars:'★☆☆☆☆'},
-  {cat:'部署平台',name:'Netlify',stars:'★★☆☆☆'},
-  {cat:'部署平台',name:'Vercel',stars:'★★☆☆☆'},
-  {cat:'部署平台',name:'Cloudflare Pages',stars:'★★☆☆☆'},
-];
-
-const toolGrid = document.getElementById('toolGrid');
-tools.forEach(t => {
-  const card = document.createElement('div');
-  card.className = 'tool-card';
-  card.innerHTML = `<div class="tool-card__cat">${t.cat}</div><div class="tool-card__name">${t.name}</div><div class="tool-card__stars">${t.stars}</div>`;
-  toolGrid.appendChild(card);
-});
-
-// ==========================================
-// HEATMAP TABLE
-// ==========================================
-const hourlyData = [
-  {h:'00:00-01:00',n:570},{h:'01:00-02:00',n:166},{h:'02:00-03:00',n:132},{h:'03:00-04:00',n:86},
-  {h:'04:00-05:00',n:14},{h:'05:00-06:00',n:2},{h:'06:00-07:00',n:5},{h:'07:00-08:00',n:25},
-  {h:'08:00-09:00',n:62},{h:'09:00-10:00',n:66},{h:'10:00-11:00',n:128},{h:'11:00-12:00',n:90},
-  {h:'12:00-13:00',n:217},{h:'13:00-14:00',n:194},{h:'14:00-15:00',n:768},{h:'15:00-16:00',n:523},
-  {h:'16:00-17:00',n:478},{h:'17:00-18:00',n:696},{h:'18:00-19:00',n:1178},{h:'19:00-20:00',n:487},
-  {h:'20:00-21:00',n:621},{h:'21:00-22:00',n:674},{h:'22:00-23:00',n:630},{h:'23:00-24:00',n:653},
-];
-const maxH = 1178;
-const hmWrap = document.getElementById('heatmapTable');
-let hmHTML = '<div class="hm-cell hm-header" style="grid-column:1">时段</div><div class="hm-cell hm-header">消息数</div><div class="hm-cell hm-header">分布</div>';
-hourlyData.forEach(d => {
-  const barPct = Math.max(1, (d.n / maxH) * 100);
-  hmHTML += `<div class="hm-cell hm-label">${d.h}</div>`;
-  hmHTML += `<div class="hm-cell hm-count">${d.n || '·'}</div>`;
-  hmHTML += `<div class="hm-cell hm-bar-cell"><div class="hm-bar-wrap"><div class="hm-bar-fill" data-width="${barPct}%" style="width:0%"></div></div></div>`;
-});
-hmWrap.innerHTML = hmHTML;
-
-// Animate heatmap bars
-const hmObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.hm-bar-fill').forEach(bar => {
-        setTimeout(() => { bar.style.width = bar.dataset.width; }, 100);
-      });
-      hmObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-hmObserver.observe(hmWrap);
-
-// ==========================================
-// INLINE SVG CHARTS (no external deps)
-// ==========================================
-function buildSvgLineChart(containerId, series, labels, maxY) {
-  const el = document.getElementById(containerId);
-  if (!el) return;
-  const W = 720, H = 280, padL = 50, padR = 20, padT = 20, padB = 35;
-  const plotW = W - padL - padR;
-  const plotH = H - padT - padB;
-  const n = labels.length - 1;
-
-  function x(i) { return padL + (i / n) * plotW; }
-  function y(v) { return padT + (1 - v / maxY) * plotH; }
-
-  const colors = ['#0071e3','#5ac8fa','#ff9500','#ff375f'];
-  const dashed  = [false, false, false, false]; // all solid, clean Apple style
-
-  let svg = `<svg class="trend-chart__svg" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">`;
-  // Grid lines
-  for (let gy = 0; gy <= maxY; gy += Math.ceil(maxY/5)) {
-    svg += `<line x1="${padL}" x2="${W-padR}" y1="${y(gy)}" y2="${y(gy)}" stroke="#f0f0f2" stroke-width="1"/>`;
-    svg += `<text x="${padL-6}" y="${y(gy)+4}" text-anchor="end" class="trend-chart__label">${gy}${containerId==='dailyChart'?'条':''}</text>`;
-  }
-  // X labels
-  labels.forEach((l,i) => {
-    svg += `<text x="${x(i)}" y="${H-8}" text-anchor="middle" class="trend-chart__label">${l}</text>`;
-  });
-
-  // Data lines + dots
-  series.forEach((s, si) => {
-    let pathD = '';
-    s.data.forEach((v, i) => {
-      const px = x(i), py = y(v);
-      if (i === 0) pathD += `M${px},${py}`;
-      else {
-        const prev = s.data[i-1], cpx1 = x(i-1)+(x(i)-x(i-1))/3, cpx2 = x(i-1)+2*(x(i)-x(i-1))/3;
-        pathD += ` C${cpx1},${y(prev)} ${cpx2},${py} ${px},${py}`;
-      }
-    });
-    svg += `<path d="${pathD}" fill="none" stroke="${colors[si]}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;
-
-    // Area fill
-    let areaD = pathD + ` L${x(n)},${y(0)} L${x(0)},${y(0)} Z`;
-    svg += `<path d="${areaD}" fill="${colors[si]}" fill-opacity="0.06"/>`;
-
-    // Dots
-    s.data.forEach((v, i) => {
-      svg += `<circle cx="${x(i)}" cy="${y(v)}" r="4" fill="#fff" stroke="${colors[si]}" stroke-width="2" class="trend-chart__dot"/>`;
-    });
-  });
-
-  // Legend
-  series.forEach((s, si) => {
-    const lx = padL + si * 110, ly = 14;
-    svg += `<rect x="${lx}" y="${ly-4}" width="10" height="10" rx="2" fill="${colors[si]}"/>`;
-    svg += `<text x="${lx+14}" y="${ly+4}" class="trend-chart__label" style="font-size:10px">${s.label}</text>`;
-  });
-
-  svg += `</svg>`;
-  el.innerHTML = svg;
-}
-
-// Build daily message chart
-buildSvgLineChart('dailyChart', [
-  { label: '消息数', data: [647,688,399,1560,977,470,672,593,741,1247,2380,735,454] }
-], ['6/2','6/3','6/4','6/5','6/6','6/7','6/8','6/9','6/10','6/11','6/12','6/13','6/14'], 2500);
-
-// Build topic trend chart
-buildSvgLineChart('trendChart', [
-  { label: '工具部署',  data: [80,120,60,40,0,0,20,150,180,220,160,180,120] },
-  { label: 'Agent/Skill', data: [60,110,50,30,0,0,30,120,200,350,280,210,160] },
-  { label: '视频/图片',  data: [40,100,80,25,0,0,15,200,250,400,300,220,180] },
-  { label: '审美点评',  data: [20,60,90,20,0,0,35,80,120,180,150,130,90] },
-], ['6/2','6/3','6/4','6/5','6/6','6/7','6/8','6/9','6/10','6/11','6/12','6/13','6/14'], 450);
-
-// ==========================================
-// COUNTER ANIMATION (hero)
-// ==========================================
-function animateValue(el, start, end, duration) {
-  const range = end - start;
-  const startTime = performance.now();
-  function update(now) {
-    const elapsed = now - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 4); // quartic ease-out
-    el.textContent = Math.round(start + range * eased).toLocaleString();
-    if (progress < 1) requestAnimationFrame(update);
-    else el.textContent = end.toLocaleString();
-  }
-  requestAnimationFrame(update);
-}
-
-const heroObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateValue(document.getElementById('counter-msgs'), 0, 11563, 1800);
-      animateValue(document.getElementById('counter-users'), 0, 303, 1800);
-      heroObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-const heroStats = document.querySelector('.hero__stats');
-if (heroStats) heroObserver.observe(heroStats);
-
-// Also trigger if hero is already visible
-setTimeout(() => {
-  const rect = document.querySelector('.hero')?.getBoundingClientRect();
-  if (rect && rect.bottom > 0) {
-    animateValue(document.getElementById('counter-msgs'), 0, 11563, 1800);
-    animateValue(document.getElementById('counter-users'), 0, 303, 1800);
-  }
-}, 300);
-
-console.log('✨ 交流2群 · 2026IP训练营 — Apple风格数据编年史已就绪');
-</script>
-
-<!-- ==========================================
-     树林核心方向指引（新增）
-     ========================================== -->
-  <section class="section" id="shulin">
-    <div class="section__inner">
-      <h2 class="section__title fade-reveal">树林核心方向指引</h2>
-      <p class="section__subtitle fade-reveal">6月2日-12日 导师方向梳理 · 以树林为绝对核心</p>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">6月9日 · 养成系观察</div>
-        <div class="insight-card__text">「养成系这一块，太有意思了」「你女子也不错」—— 树林对学员成长轨迹的关注与认可。</div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">6月10日 · 质量与展示</div>
-        <div class="insight-card__text">「ai原生人才指定使用表情包」「才说完群里质量高，就酷酷送一堆垃圾」—— 对产出质量的严格把控。「发朋友圈好吗」「自我介绍哈」—— 推动学员对外展示、建立个人IP。</div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">6月11日 · 商业化方向大输出（86条发言）</div>
-        <div class="insight-card__text">
-          <strong>商业化方向</strong>：「信息差远比你们想象中值钱」「这些老板一个二个都不好意思问ai的...实则慌得一批」「生财最近搞这个出一个爆一个」<br><br>
-          <strong>时间窗口</strong>：「大学生还没有焦虑呢，1个半月，2个月之后吧」「3个月大学生的fomo到达顶峰」「那个时候你就是他们心中的神了」<br><br>
-          <strong>数据沉淀</strong>：「你和学生的所有数据，新建群聊的所有数据，给他，也给我」<br><br>
-          <strong>AI协作方法论</strong>：「需要顶层设计，还有底层设计，否则有个问题，你的脑子会污染ai」「不要让他识别我，讨好我，就会平庸」<br><br>
-          <strong>展示与反馈</strong>：「我需要更多的眼睛！」
-        </div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">6月12日 · 信息差即机会（139条发言，全期最高）</div>
-        <div class="insight-card__text">「哈哈哈不应该开心吗，这个世界上都是聪明人你赚谁的钱，都看得懂你就不觉得自己特别了啊哈哈哈」—— 用幽默方式点出信息差商业化的本质。Shoyo发布盖洛普测试H5网页，大量学员涌入和互动，群内讨论热度达到顶峰。</div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">6月13日 · 「先问AI别问群」教育（24条发言）</div>
-        <div class="insight-card__text">第一波"AI Native"教育——「问问你的豆包/Claude/GPT」「就是不要问群里面的人」。严厉批评五连问行为：「笨蛋尽量少给大模型要求」「少干预他的行为」「为什么你在问群里面的人」</div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">6月14日 · 克制观察（1条发言）</div>
-        <div class="insight-card__text">「为啥感觉很神的感觉哈哈哈」——仅1条发言，克制观察学员自主成长。</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================
-       学员实操成果（新增）
-       ========================================== -->
-  <section class="section section--alt" id="student-work">
-    <div class="section__inner">
-      <h2 class="section__title fade-reveal">学员实操成果</h2>
-      <p class="section__subtitle fade-reveal">6月2日-14日 学员作品与实践汇总</p>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">网站开发</div>
-        <div class="insight-card__text">
-          <strong>星野</strong>：微信聊天记录导出教程网站 dengyuanxing953-eng.github.io/wechat-tutorial/<br>
-          <strong>链屿君</strong>：高考前夕备考手册网站（结合树林直播+小红书）<br>
-          <strong>惘梦</strong>：AI era主题网站 47.108.208.60/ai-era/<br>
-          <strong>虚焦</strong>：瑞士国际主义风格网站 ljx48517-dotcom.github.io/digital-syndrome/<br>
-          <strong>Gochan</strong>：树成林手册网站 shuchenglin-handbook.pages.dev/<br>
-          <strong>Shoyo</strong>：盖洛普测试H5网页（扒下300多元官网测试）<br>
-          <strong>阿诚</strong>：用Typeless做了两个网站，聊了两天才花2块钱<br>
-          <strong>蝶秋</strong>：第一个自我展示网站 dieqiu123.github.io/myself<br>
-          <strong>绝柳</strong>：钢铁侠风格个人展示网站，AI辅助<br>
-          <strong>星野</strong>：Hermes小白智能体教程网站，GitHub Pages部署<br>
-          <strong>不晚</strong>：高考志愿填报网站，DeepSeek API+自主爬取数据，总成本约5元
-        </div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">AI视频制作</div>
-        <div class="insight-card__text">
-          <strong>余白</strong>：用Claude Code接Blender做3D动画视频，参考树林画风；接第一个网页单收45元<br>
-          <strong>链屿君</strong>：闲鱼AI视频获客，30元带来两个客户咨询<br>
-          <strong>青砚</strong>：初版自动化视频Agent，含20+额度可生成4个视频<br>
-          <strong>赤の破滅</strong>：持续迭代视频作品<br>
-          <strong>阿sam</strong>：第一次用Codex做视频<br>
-          <strong>余白</strong>：发布CC Switch安装教程，引发工具部署讨论热潮
-        </div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">工具开发</div>
-        <div class="insight-card__text">
-          <strong>知有</strong>：小鹅通视频转文字工具，本地跑2.5小时视频需1小时<br>
-          <strong>咕咕咕</strong>：AI分析视频Skill，减少token损耗<br>
-          <strong>洋</strong>：自我迭代Claude Agent，能自主上网学习、反思迭代<br>
-          <strong>二憨</strong>：一键生成思维导图工具，四套皮肤+API，Render部署<br>
-          <strong>风痕</strong>：像素风植物大战僵尸，纯HTML/CSS/JS+AI辅助<br>
-          <strong>泽辉</strong>：AI方向探索工具，职业决策矩阵+HR评估，Cloudflare Pages<br>
-          <strong>爱分享的洋哥</strong>：deepmuse skill，AI对话记录+共创反思，开源
-        </div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">变现探索</div>
-        <div class="insight-card__text">
-          <strong>链屿君</strong>：闲鱼AI视频获客，30元带来两个客户咨询<br>
-          <strong>余白</strong>：接第一个网页定制单，收45元，加了70多张图片<br>
-          <strong>Champion & 勇争科技</strong>：举办「AI时代下的内容应用」直播分享
-        </div>
-      </div>
-
-      <div class="insight-card fade-reveal">
-        <div class="insight-card__label">AI Native实践与分享</div>
-        <div class="insight-card__text">
-          <strong>是阿扶耶</strong>：部署群聊分析报告预览网页，持续分享Skill和经验<br>
-          <strong>青砚</strong>：发布AI Native企业转型分析长文（多轮AI对话沉淀）<br>
-          <strong>木可木追木</strong>：教学网页设计<br>
-          <strong>Xyroha</strong>：提出"AI能否替代前端"，引发深夜技术讨论
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-<!-- ==========================================
-     数据更新说明
-     ========================================== -->
-<!-- 
-  本次更新：追加 6月13日-14日数据（共1189条消息）
-  上次更新：6月12日截止数据（共10374条消息）
-  
-  注意：6月15日数据源不存在，本次更新仅覆盖至6月14日。
-  如需更新6月15日及之后数据，请提供对应日期的JSON导出文件。
-  
-  数据统计：
-  - 6月13日：735条消息，活跃发言者L(72)>余白(68)>是阿扶耶(56)
-  - 6月14日：454条消息，活跃发言者是阿扶耶(39)>木可木追木(28)>A(24)
-  - 新增109位发言者，其中L/Xyroha/A/昼月/陆离🍀等为新面孔
--->
 
 </body>
 </html>
