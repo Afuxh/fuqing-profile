@@ -1,34 +1,34 @@
 {
   "meta": {
-    "generated_at": "2026-06-29 23:31:59",
+    "generated_at": "2026-06-30 23:32:35",
     "group_name": "【交流2群】🌲2026IP训练营",
     "group_username": "48997819170@chatroom",
     "data_range_start": "2026-06-02",
-    "data_range_end": "2026-06-29",
-    "total_days": 28
+    "data_range_end": "2026-06-30",
+    "total_days": 29
   },
   "overview": {
-    "total_messages": 11556,
+    "total_messages": 11666,
     "unique_senders": 352,
-    "unique_dates": 28,
-    "total_days": 28,
-    "avg_daily_messages": 413,
-    "avg_daily_active": 63
+    "unique_dates": 29,
+    "total_days": 29,
+    "avg_daily_messages": 402,
+    "avg_daily_active": 62
   },
   "members": [
     {
       "name": "Unknown",
-      "message_count": 853,
+      "message_count": 865,
       "percentage": 7.4
     },
     {
       "name": "链屿",
       "message_count": 654,
-      "percentage": 5.7
+      "percentage": 5.6
     },
     {
       "name": "树林",
-      "message_count": 436,
+      "message_count": 447,
       "percentage": 3.8
     },
     {
@@ -38,8 +38,8 @@
     },
     {
       "name": "Auluolalalala",
-      "message_count": 330,
-      "percentage": 2.9
+      "message_count": 331,
+      "percentage": 2.8
     },
     {
       "name": "余白",
@@ -48,42 +48,42 @@
     },
     {
       "name": "星野",
-      "message_count": 285,
+      "message_count": 292,
       "percentage": 2.5
     },
     {
       "name": "陆离🍀",
-      "message_count": 266,
+      "message_count": 269,
       "percentage": 2.3
     },
     {
       "name": "青砚",
       "message_count": 250,
-      "percentage": 2.2
+      "percentage": 2.1
     },
     {
       "name": "勇争科技（北京）王子一",
       "message_count": 249,
-      "percentage": 2.2
+      "percentage": 2.1
     },
     {
       "name": "阿sam",
       "message_count": 226,
-      "percentage": 2.0
+      "percentage": 1.9
     },
     {
       "name": " ",
-      "message_count": 214,
+      "message_count": 217,
       "percentage": 1.9
     },
     {
       "name": "知有",
-      "message_count": 200,
+      "message_count": 204,
       "percentage": 1.7
     },
     {
       "name": "HUSH",
-      "message_count": 197,
+      "message_count": 198,
       "percentage": 1.7
     },
     {
@@ -103,17 +103,17 @@
     },
     {
       "name": "小杰",
-      "message_count": 120,
+      "message_count": 121,
       "percentage": 1.0
     },
     {
       "name": "pluviophile",
-      "message_count": 117,
+      "message_count": 119,
       "percentage": 1.0
     },
     {
-      "name": "Lumos",
-      "message_count": 115,
+      "name": "辰星",
+      "message_count": 116,
       "percentage": 1.0
     }
   ],
@@ -121,129 +121,129 @@
     "keywords": [
       {
         "word": "gt",
-        "count": 73653
+        "count": 74170
       },
       {
         "word": "lt",
-        "count": 71471
+        "count": 71956
       },
       {
         "word": "me",
-        "count": 50078
+        "count": 50554
       },
       {
         "word": "er",
-        "count": 45800
+        "count": 46272
       },
       {
         "word": "at",
-        "count": 44740
+        "count": 45135
       },
       {
         "word": "ur",
-        "count": 41342
+        "count": 41751
       },
       {
         "word": "on",
-        "count": 37175
+        "count": 37566
       },
       {
         "word": "id",
-        "count": 35292
-      },
-      {
-        "word": "ce",
-        "count": 32996
+        "count": 35673
       },
       {
         "word": "ms",
-        "count": 32976
+        "count": 33297
+      },
+      {
+        "word": "ce",
+        "count": 33275
       },
       {
         "word": "am",
-        "count": 32678
+        "count": 33039
       },
       {
         "word": "sg",
-        "count": 31312
+        "count": 31598
       },
       {
         "word": "na",
-        "count": 30294
+        "count": 30568
       },
       {
         "word": "en",
-        "count": 29972
+        "count": 30248
       },
       {
         "word": "msg",
-        "count": 29733
+        "count": 30013
       },
       {
         "word": "nt",
-        "count": 29672
+        "count": 30000
       },
       {
         "word": "ti",
-        "count": 28752
+        "count": 29108
       },
       {
         "word": "pp",
-        "count": 28516
+        "count": 28778
       },
       {
         "word": "ame",
-        "count": 28114
+        "count": 28362
       },
       {
         "word": "ap",
-        "count": 26726
+        "count": 26951
       },
       {
         "word": "app",
-        "count": 26543
+        "count": 26767
       },
       {
         "word": "io",
-        "count": 25709
+        "count": 25968
       },
       {
         "word": "nam",
-        "count": 25404
+        "count": 25632
       },
       {
         "word": "name",
-        "count": 25404
+        "count": 25632
       },
       {
         "word": "te",
-        "count": 24362
+        "count": 24661
       },
       {
         "word": "om",
-        "count": 24181
+        "count": 24401
       },
       {
         "word": "re",
-        "count": 24155
+        "count": 24368
       },
       {
         "word": "de",
-        "count": 23344
+        "count": 23564
       },
       {
         "word": "ion",
-        "count": 22973
+        "count": 23211
       },
       {
         "word": "co",
-        "count": 22965
+        "count": 23189
       }
     ],
     "ai_tools": [
       {
         "tool": "SD",
-        "count": 1595
+        "count": 1618
       },
       {
         "tool": "Claude",
@@ -259,7 +259,7 @@
       },
       {
         "tool": "飞书",
-        "count": 83
+        "count": 84
       },
       {
         "tool": "v0",
@@ -565,7 +565,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 14967,
+      "id": 15170,
       "db": "message_1.db",
       "local_id": 74,
       "timestamp": 1780380867,
@@ -581,7 +581,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 17185,
+      "id": 17388,
       "db": "message_1.db",
       "local_id": 2292,
       "timestamp": 1780670510,
@@ -597,7 +597,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 15642,
+      "id": 15845,
       "db": "message_1.db",
       "local_id": 749,
       "timestamp": 1780454408,
@@ -613,7 +613,7 @@
       "printable_ratio": 0.9999075443786982
     },
     {
-      "id": 15069,
+      "id": 15272,
       "db": "message_1.db",
       "local_id": 176,
       "timestamp": 1780382392,
@@ -629,7 +629,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 15200,
+      "id": 15403,
       "db": "message_1.db",
       "local_id": 307,
       "timestamp": 1780387401,
@@ -661,7 +661,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 15731,
+      "id": 15934,
       "db": "message_1.db",
       "local_id": 838,
       "timestamp": 1780474860,
@@ -757,7 +757,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 15033,
+      "id": 15236,
       "db": "message_1.db",
       "local_id": 140,
       "timestamp": 1780381749,
@@ -789,7 +789,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 15039,
+      "id": 15242,
       "db": "message_1.db",
       "local_id": 146,
       "timestamp": 1780381843,
@@ -1126,15 +1126,15 @@
     }
   ],
   "interaction": {
-    "total_mentions": 2441,
+    "total_mentions": 2463,
     "top_mentioned": [
       {
         "name": "chatroom</fromusr>",
-        "count": 1810
+        "count": 1826
       },
       {
         "name": "finder</username>",
-        "count": 22
+        "count": 23
       },
       {
         "name": "链屿-成都-AI变现1W",
@@ -1261,23 +1261,23 @@
     },
     {
       "hour": 17,
-      "count": 718
+      "count": 759
     },
     {
       "hour": 18,
-      "count": 737
+      "count": 749
     },
     {
       "hour": 19,
-      "count": 687
+      "count": 699
     },
     {
       "hour": 20,
-      "count": 721
+      "count": 761
     },
     {
       "hour": 21,
-      "count": 818
+      "count": 823
     },
     {
       "hour": 22,
@@ -1428,10 +1428,15 @@
       "date": "2026-06-29",
       "message_count": 74,
       "active_members": 12
+    },
+    {
+      "date": "2026-06-30",
+      "message_count": 110,
+      "active_members": 27
     }
   ],
   "student_work": {
-    "total_links": 1949,
+    "total_links": 1975,
     "links": [
       {
         "sender_name": "信鸽FaithDove",
