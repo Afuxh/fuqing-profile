@@ -1,119 +1,119 @@
 {
   "meta": {
-    "generated_at": "2026-06-30 23:32:35",
+    "generated_at": "2026-07-01 23:36:28",
     "group_name": "【交流2群】🌲2026IP训练营",
     "group_username": "48997819170@chatroom",
     "data_range_start": "2026-06-02",
-    "data_range_end": "2026-06-30",
-    "total_days": 29
+    "data_range_end": "2026-07-01",
+    "total_days": 30
   },
   "overview": {
-    "total_messages": 11666,
-    "unique_senders": 352,
-    "unique_dates": 29,
-    "total_days": 29,
-    "avg_daily_messages": 402,
-    "avg_daily_active": 62
+    "total_messages": 12643,
+    "unique_senders": 354,
+    "unique_dates": 30,
+    "total_days": 30,
+    "avg_daily_messages": 421,
+    "avg_daily_active": 64
   },
   "members": [
     {
       "name": "Unknown",
-      "message_count": 865,
-      "percentage": 7.4
+      "message_count": 910,
+      "percentage": 7.2
     },
     {
       "name": "链屿",
-      "message_count": 654,
-      "percentage": 5.6
+      "message_count": 756,
+      "percentage": 6.0
     },
     {
       "name": "树林",
-      "message_count": 447,
+      "message_count": 486,
       "percentage": 3.8
     },
     {
       "name": "蝶秋",
-      "message_count": 417,
-      "percentage": 3.6
+      "message_count": 420,
+      "percentage": 3.3
     },
     {
-      "name": "Auluolalalala",
-      "message_count": 331,
-      "percentage": 2.8
+      "name": "SETJkJsjsn",
+      "message_count": 408,
+      "percentage": 3.2
     },
     {
       "name": "余白",
-      "message_count": 327,
-      "percentage": 2.8
-    },
-    {
-      "name": "星野",
-      "message_count": 292,
-      "percentage": 2.5
+      "message_count": 375,
+      "percentage": 3.0
     },
     {
       "name": "陆离🍀",
-      "message_count": 269,
-      "percentage": 2.3
+      "message_count": 366,
+      "percentage": 2.9
+    },
+    {
+      "name": "星野",
+      "message_count": 332,
+      "percentage": 2.6
     },
     {
       "name": "青砚",
-      "message_count": 250,
-      "percentage": 2.1
+      "message_count": 278,
+      "percentage": 2.2
     },
     {
       "name": "勇争科技（北京）王子一",
-      "message_count": 249,
-      "percentage": 2.1
-    },
-    {
-      "name": "阿sam",
-      "message_count": 226,
-      "percentage": 1.9
-    },
-    {
-      "name": " ",
-      "message_count": 217,
-      "percentage": 1.9
+      "message_count": 254,
+      "percentage": 2.0
     },
     {
       "name": "知有",
-      "message_count": 204,
+      "message_count": 243,
+      "percentage": 1.9
+    },
+    {
+      "name": "阿sam",
+      "message_count": 232,
+      "percentage": 1.8
+    },
+    {
+      "name": " ",
+      "message_count": 219,
       "percentage": 1.7
     },
     {
       "name": "HUSH",
-      "message_count": 198,
-      "percentage": 1.7
-    },
-    {
-      "name": "陆逢生",
-      "message_count": 150,
-      "percentage": 1.3
+      "message_count": 206,
+      "percentage": 1.6
     },
     {
       "name": "赤の破滅",
-      "message_count": 150,
-      "percentage": 1.3
+      "message_count": 154,
+      "percentage": 1.2
     },
     {
-      "name": "L",
-      "message_count": 123,
+      "name": "陆逢生",
+      "message_count": 153,
+      "percentage": 1.2
+    },
+    {
+      "name": "Ethan",
+      "message_count": 139,
       "percentage": 1.1
     },
     {
-      "name": "小杰",
-      "message_count": 121,
-      "percentage": 1.0
-    },
-    {
       "name": "pluviophile",
-      "message_count": 119,
+      "message_count": 134,
+      "percentage": 1.1
+    },
+    {
+      "name": "Lumos",
+      "message_count": 131,
       "percentage": 1.0
     },
     {
-      "name": "辰星",
-      "message_count": 116,
+      "name": "小杰",
+      "message_count": 129,
       "percentage": 1.0
     }
   ],
@@ -121,165 +121,165 @@
     "keywords": [
       {
         "word": "gt",
-        "count": 74170
+        "count": 78441
       },
       {
         "word": "lt",
-        "count": 71956
+        "count": 75902
       },
       {
         "word": "me",
-        "count": 50554
+        "count": 54179
       },
       {
         "word": "er",
-        "count": 46272
+        "count": 49412
       },
       {
         "word": "at",
-        "count": 45135
+        "count": 49017
       },
       {
         "word": "ur",
-        "count": 41751
+        "count": 45589
       },
       {
         "word": "on",
-        "count": 37566
+        "count": 40114
       },
       {
         "word": "id",
-        "count": 35673
-      },
-      {
-        "word": "ms",
-        "count": 33297
+        "count": 38971
       },
       {
         "word": "ce",
-        "count": 33275
+        "count": 36143
+      },
+      {
+        "word": "ms",
+        "count": 35809
       },
       {
         "word": "am",
-        "count": 33039
+        "count": 35637
       },
       {
         "word": "sg",
-        "count": 31598
+        "count": 33912
       },
       {
         "word": "na",
-        "count": 30568
+        "count": 32730
       },
       {
         "word": "en",
-        "count": 30248
-      },
-      {
-        "word": "msg",
-        "count": 30013
+        "count": 32717
       },
       {
         "word": "nt",
-        "count": 30000
+        "count": 32365
+      },
+      {
+        "word": "msg",
+        "count": 32085
       },
       {
         "word": "ti",
-        "count": 29108
+        "count": 31333
       },
       {
         "word": "pp",
-        "count": 28778
+        "count": 30690
       },
       {
         "word": "ame",
-        "count": 28362
+        "count": 30240
       },
       {
         "word": "ap",
-        "count": 26951
+        "count": 28744
       },
       {
         "word": "app",
-        "count": 26767
+        "count": 28551
       },
       {
         "word": "io",
-        "count": 25968
+        "count": 27768
       },
       {
         "word": "nam",
-        "count": 25632
+        "count": 27355
       },
       {
         "word": "name",
-        "count": 25632
+        "count": 27354
       },
       {
         "word": "te",
-        "count": 24661
+        "count": 26269
       },
       {
         "word": "om",
-        "count": 24401
+        "count": 26076
       },
       {
         "word": "re",
-        "count": 24368
+        "count": 26061
       },
       {
         "word": "de",
-        "count": 23564
+        "count": 25112
+      },
+      {
+        "word": "ou",
+        "count": 25067
       },
       {
         "word": "ion",
-        "count": 23211
-      },
-      {
-        "word": "co",
-        "count": 23189
+        "count": 24862
       }
     ],
     "ai_tools": [
       {
         "tool": "SD",
-        "count": 1618
+        "count": 1725
       },
       {
         "tool": "Claude",
-        "count": 349
+        "count": 368
       },
       {
         "tool": "GPT",
-        "count": 263
+        "count": 283
       },
       {
         "tool": "DeepSeek",
-        "count": 93
+        "count": 97
       },
       {
         "tool": "飞书",
-        "count": 84
+        "count": 91
       },
       {
         "tool": "v0",
-        "count": 79
+        "count": 90
       },
       {
         "tool": "ChatGPT",
-        "count": 26
+        "count": 30
       },
       {
         "tool": "Gemini",
-        "count": 21
+        "count": 25
       },
       {
         "tool": "Kimi",
-        "count": 21
+        "count": 22
       },
       {
         "tool": "智谱",
-        "count": 15
+        "count": 18
       },
       {
         "tool": "Coze",
@@ -290,11 +290,11 @@
         "count": 9
       },
       {
-        "tool": "Make",
-        "count": 7
+        "tool": "Poe",
+        "count": 8
       },
       {
-        "tool": "Poe",
+        "tool": "Make",
         "count": 7
       },
       {
@@ -485,7 +485,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 14728,
+      "id": 15424,
       "db": "message_0.db",
       "local_id": 15435,
       "timestamp": 1782657417,
@@ -513,6 +513,22 @@
       "sender_name": "￰",
       "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg appid=\"\" sdkver=\"0\">\n\t\t<title>这是啥呀 请问咋打分的呀[疑问]</title>\n\t\t<des />\n\t\t<username />\n\t\t<action>view</action>\n\t\t<type>57</type>\n\t\t<showtype>0</showtype>\n\t\t<content />\n\t\t<url />\n\t\t<lowurl />\n\t\t<forwardflag>0</forwardflag>\n\t\t<dataurl />\n\t\t<lowdataurl />\n\t\t<contentattr>0</contentattr>\n\t\t<streamvideo>\n\t\t\t<streamvideourl />\n\t\t\t<streamvideototaltime>0</streamvideototaltime>\n\t\t\t<streamvideotitle />\n\t\t\t<streamvideowording />\n\t\t\t<streamvideoweburl />\n\t\t\t<streamvideothumburl />\n\t\t\t<streamvideoaduxinfo />\n\t\t\t<streamvideopublishid />\n\t\t</streamvideo>\n\t\t<canvasPageItem>\n\t\t\t<canvasPageXml><![CDATA[]]></canvasPageXml>\n\t\t</canvasPageItem>\n\t\t<refermsg>\n\t\t\t<type>3</type>\n\t\t\t<svrid>719214610795185506</svrid>\n\t\t\t<fromusr>48997819170@chatroom</fromusr>\n\t\t\t<chatusr>wxid_up7vpsv13du922</chatusr>\n\t\t\t<displayname>咕咕咕</displayname>\n\t\t\t<content>&lt;?xml version=\"1.0\"?&gt;\n&lt;msg&gt;\n\t&lt;img aeskey=\"c41b4c3cab5e9beee3db08f8938d34d3\" encryver=\"1\" cdnthumbaeskey=\"c41b4c3cab5e9beee3db08f8938d34d3\" cdnthumburl=\"305f020100044b3049020100020407410efb02032dcef702048d72d27802046a37f881042438333837393037362d313131352d343232662d396632622d326565393834643765633862020405243801020100040d004c543f000000000000000000\" cdnthumblength=\"2638\" cdnthumbheight=\"102\" cdnthumbwidth=\"180\" cdnmidheight=\"0\" cdnmidwidth=\"0\" cdnhdheight=\"0\" cdnhdwidth=\"0\" cdnmidimgurl=\"305f020100044b3049020100020407410efb02032dcef702048d72d27802046a37f881042438333837393037362d313131352d343232662d396632622d326565393834643765633862020405243801020100040d004c543f000000000000000000\" length=\"13817\" cdnbigimgurl=\"305f020100044b3049020100020407410efb02032dcef702048d72d27802046a37f881042438333837393037362d313131352d343232662d396632622d326565393834643765633862020405243801020100040d004c543f000000000000000000\" hdlength=\"13817\" md5=\"fea90f99b5b33691f03df6d7895c1945\"&gt;\n\t\t&lt;secHashInfoBase64 /&gt;\n\t\t&lt;live&gt;\n\t\t\t&lt;duration&gt;0&lt;/duration&gt;\n\t\t\t&lt;size&gt;0&lt;/size&gt;\n\t\t\t&lt;md5 /&gt;\n\t\t\t&lt;fileid /&gt;\n\t\t\t&lt;hdsize&gt;0&lt;/hdsize&gt;\n\t\t\t&lt;hdmd5 /&gt;\n\t\t\t&lt;hdfileid /&gt;\n\t\t\t&lt;stillimagetimems&gt;0&lt;/stillimagetimems&gt;\n\t\t&lt;/live&gt;\n\t&lt;/img&gt;\n\t&lt;platform_signature /&gt;\n\t&lt;imgdatahash /&gt;\n\t&lt;ImgSourceInfo&gt;\n\t\t&lt;ImgSourceUrl /&gt;\n\t\t&lt;BizType&gt;0&lt;/BizType&gt;\n\t&lt;/ImgSourceInfo&gt;\n&lt;/msg&gt;\n</content>\n\t\t\t<msgsource>&lt;msgsource&gt;\n\t&lt;img_file_name&gt;19848c8f-115b-46fc-a015-9b4a669d08ec.png&lt;/img_file_name&gt;\n\t&lt;alnode&gt;\n\t\t&lt;fr&gt;1&lt;/fr&gt;\n\t\t&lt;cf&gt;3&lt;/cf&gt;\n\t&lt;/alnode&gt;\n\t&lt;sec_msg_node&gt;\n\t\t&lt;uuid&gt;04aecb48ec78f447806775b22b9ff18e_&lt;/uuid&gt;\n\t\t&lt;risk-file-flag /&gt;\n\t\t&lt;risk-file-md5-list /&gt;\n\t&lt;/sec_msg_node&gt;\n\t&lt;imgmsg_pd cdnmidimgurl_size=\"13817\" cdnmidimgurl_pd_pri=\"50\" cdnmidimgurl_pd=\"1\" /&gt;\n\t&lt;silence&gt;1&lt;/silence&gt;\n\t&lt;membercount&gt;486&lt;/membercount&gt;\n\t&lt;NotAutoDownloadRange&gt;20:00-22:00;00:00-01:00&lt;/NotAutoDownloadRange&gt;\n\t&lt;signature&gt;N0_V1_iJUHRm3M|v1_820XBYk5&lt;/signature&gt;\n\t&lt;tmp_node&gt;\n\t\t&lt;publisher-id&gt;&lt;/publisher-id&gt;\n\t&lt;/tmp_node&gt;\n&lt;/msgsource&gt;\n</msgsource>\n\t\t\t<createtime>1782052993</createtime>\n\t\t\t<fromusername_to_imunion><![CDATA[wxid_up7vpsv13du922]]></fromusername_to_imunion>\n\t\t</refermsg>\n\t\t<appattach>\n\t\t\t<totallen>0</totallen>\n\t\t\t<attachid />\n\t\t\t<cdnattachurl />\n\t\t\t<emoticonmd5 />\n\t\t\t<aeskey />\n\t\t\t<fileext />\n\t\t\t<islargefilemsg>0</islargefilemsg>\n\t\t</appattach>\n\t\t<extinfo />\n\t\t<androidsource>0</androidsource>\n\t\t<thumburl />\n\t\t<mediatagname />\n\t\t<messageaction><![CDATA[]]></messageaction>\n\t\t<messageext><![CDATA[]]></messageext>\n\t\t<emoticongift>\n\t\t\t<packageflag>0</packageflag>\n\t\t\t<packageid />\n\t\t</emoticongift>\n\t\t<emoticonshared>\n\t\t\t<packageflag>0</packageflag>\n\t\t\t<packageid />\n\t\t</emoticonshared>\n\t\t<designershared>\n\t\t\t<designeruin>0</designeruin>\n\t\t\t<designername>null</designername>\n\t\t\t<designerrediretcturl><![CDATA[null]]></designerrediretcturl>\n\t\t</designershared>\n\t\t<emotionpageshared>\n\t\t\t<tid>0</tid>\n\t\t\t<title>null</title>\n\t\t\t<desc>null</desc>\n\t\t\t<iconUrl><![CDATA[null]]></iconUrl>\n\t\t\t<secondUrl>null</secondUrl>\n\t\t\t<pageType>0</pageType>\n\t\t\t<setKey>null</setKey>\n\t\t</emotionpageshared>\n\t\t<webviewshared>\n\t\t\t<shareUrlOriginal />\n\t\t\t<shareUrlOpen />\n\t\t\t<jsAppId />\n\t\t\t<publisherId />\n\t\t\t<publisherReqId />\n\t\t</webviewshared>\n\t\t<template_id />\n\t\t<md5 />\n\t\t<websearch>\n\t\t\t<rec_category>0</rec_category>\n\t\t\t<channelId>0</channelId>\n\t\t</websearch>\n\t\t<weappinfo>\n\t\t\t<username />\n\t\t\t<appid />\n\t\t\t<appservicetype>0</appservicetype>\n\t\t\t<secflagforsinglepagemode>0</secflagforsinglepagemode>\n\t\t\t<videopageinfo>\n\t\t\t\t<thumbwidth>0</thumbwidth>\n\t\t\t\t<thumbheight>0</thumbheight>\n\t\t\t\t<fromopensdk>0</fromopensdk>\n\t\t\t</videopageinfo>\n\t\t</weappinfo>\n\t\t<statextstr />\n\t\t<musicShareItem>\n\t\t\t<musicDuration>0</musicDuration>\n\t\t</musicShareItem>\n\t\t<finderLiveProductShare>\n\t\t\t<finderLiveID><![CDATA[]]></finderLiveID>\n\t\t\t<finderUsername><![CDATA[]]></finderUsername>\n\t\t\t<finderObjectID><![CDATA[]]></finderObjectID>\n\t\t\t<finderNonceID><![CDATA[]]></finderNonceID>\n\t\t\t<liveStatus><![CDATA[]]></liveStatus>\n\t\t\t<appId><![CDATA[]]></appId>\n\t\t\t<pagePath><![CDATA[]]></pagePath>\n\t\t\t<productId><![CDATA[]]></productId>\n\t\t\t<coverUrl><![CDATA[]]></coverUrl>\n\t\t\t<productTitle><![CDATA[]]></productTitle>\n\t\t\t<marketPrice><![CDATA[0]]></marketPrice>\n\t\t\t<sellingPrice><![CDATA[0]]></sellingPrice>\n\t\t\t<platformHeadImg><![CDATA[]]></platformHeadImg>\n\t\t\t<platformName><![CDATA[]]></platformName>\n\t\t\t<shopWindowId><![CDATA[]]></shopWindowId>\n\t\t\t<flashSalePrice><![CDATA[0]]></flashSalePrice>\n\t\t\t<flashSaleEndTime><![CDATA[0]]></flashSaleEndTime>\n\t\t\t<ecSource><![CDATA[]]></ecSource>\n\t\t\t<sellingPriceWording><![CDATA[]]></sellingPriceWording>\n\t\t\t<platformIconURL><![CDATA[]]></platformIconURL>\n\t\t\t<firstProductTagURL><![CDATA[]]></firstProductTagURL>\n\t\t\t<firstProductTagAspectRatioString><![CDATA[0.0]]></firstProductTagAspectRatioString>\n\t\t\t<secondProductTagURL><![CDATA[]]></secondProductTagURL>\n\t\t\t<secondProductTagAspectRatioString><![CDATA[0.0]]></secondProductTagAspectRatioString>\n\t\t\t<firstGuaranteeWording><![CDATA[]]></firstGuaranteeWording>\n\t\t\t<secondGuaranteeWording><![CDATA[]]></secondGuaranteeWording>\n\t\t\t<thirdGuaranteeWording><![CDATA[]]></thirdGuaranteeWording>\n\t\t\t<isPriceBeginShow>false</isPriceBeginShow>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t\t<promoterKey><![CDATA[]]></promoterKey>\n\t\t\t<discountWording><![CDATA[]]></discountWording>\n\t\t\t<priceSuffixDescription><![CDATA[]]></priceSuffixDescription>\n\t\t\t<productCardKey><![CDATA[]]></productCardKey>\n\t\t\t<isWxShop><![CDATA[]]></isWxShop>\n\t\t\t<brandIconUrl><![CDATA[]]></brandIconUrl>\n\t\t\t<rIconUrl><![CDATA[]]></rIconUrl>\n\t\t\t<rIconUrlDarkMode><![CDATA[]]></rIconUrlDarkMode>\n\t\t\t<topShopIconUrl><![CDATA[]]></topShopIconUrl>\n\t\t\t<topShopIconUrlDarkMode><![CDATA[]]></topShopIconUrlDarkMode>\n\t\t\t<simplifyTopShopIconUrl><![CDATA[]]></simplifyTopShopIconUrl>\n\t\t\t<simplifyTopShopIconUrlDarkmode><![CDATA[]]></simplifyTopShopIconUrlDarkmode>\n\t\t\t<topShopIconWidth><![CDATA[0]]></topShopIconWidth>\n\t\t\t<topShopIconHeight><![CDATA[0]]></topShopIconHeight>\n\t\t\t<simplifyTopShopIconWidth><![CDATA[0]]></simplifyTopShopIconWidth>\n\t\t\t<simplifyTopShopIconHeight><![CDATA[0]]></simplifyTopShopIconHeight>\n\t\t\t<maskPriceWording><![CDATA[]]></maskPriceWording>\n\t\t\t<showBoxItemStringList />\n\t\t</finderLiveProductShare>\n\t\t<finderOrder>\n\t\t\t<appID><![CDATA[]]></appID>\n\t\t\t<orderID><![CDATA[]]></orderID>\n\t\t\t<path><![CDATA[]]></path>\n\t\t\t<priceWording><![CDATA[]]></priceWording>\n\t\t\t<stateWording><![CDATA[]]></stateWording>\n\t\t\t<productImageURL><![CDATA[]]></productImageURL>\n\t\t\t<products><![CDATA[]]></products>\n\t\t\t<productsCount><![CDATA[0]]></productsCount>\n\t\t\t<orderType><![CDATA[0]]></orderType>\n\t\t\t<newPriceWording><![CDATA[]]></newPriceWording>\n\t\t\t<newStateWording><![CDATA[]]></newStateWording>\n\t\t\t<useNewWording><![CDATA[0]]></useNewWording>\n\t\t</finderOrder>\n\t\t<finderShopWindowShare>\n\t\t\t<finderUsername><![CDATA[]]></finderUsername>\n\t\t\t<avatar><![CDATA[]]></avatar>\n\t\t\t<nickname><![CDATA[]]></nickname>\n\t\t\t<commodityInStockCount><![CDATA[]]></commodityInStockCount>\n\t\t\t<appId><![CDATA[]]></appId>\n\t\t\t<path><![CDATA[]]></path>\n\t\t\t<appUsername><![CDATA[]]></appUsername>\n\t\t\t<query><![CDATA[]]></query>\n\t\t\t<liteAppId><![CDATA[]]></liteAppId>\n\t\t\t<liteAppPath><![CDATA[]]></liteAppPath>\n\t\t\t<liteAppQuery><![CDATA[]]></liteAppQuery>\n\t\t\t<platformTagURL><![CDATA[]]></platformTagURL>\n\t\t\t<saleWording><![CDATA[]]></saleWording>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t\t<profileTypeWording><![CDATA[]]></profileTypeWording>\n\t\t\t<saleWordingExtra><![CDATA[]]></saleWordingExtra>\n\t\t\t<isWxShop><![CDATA[]]></isWxShop>\n\t\t\t<platformIconUrl><![CDATA[]]></platformIconUrl>\n\t\t\t<brandIconUrl><![CDATA[]]></brandIconUrl>\n\t\t\t<description><![CDATA[]]></description>\n\t\t\t<backgroundUrl><![CDATA[]]></backgroundUrl>\n\t\t\t<darkModePlatformIconUrl><![CDATA[]]></darkModePlatformIconUrl>\n\t\t\t<rIconUrl><![CDATA[]]></rIconUrl>\n\t\t\t<rIconUrlDarkMode><![CDATA[]]></rIconUrlDarkMode>\n\t\t\t<rWords><![CDATA[]]></rWords>\n\t\t\t<topShopIconUrl><![CDATA[]]></topShopIconUrl>\n\t\t\t<topShopIconUrlDarkMode><![CDATA[]]></topShopIconUrlDarkMode>\n\t\t\t<simplifyTopShopIconUrl><![CDATA[]]></simplifyTopShopIconUrl>\n\t\t\t<simplifyTopShopIconUrlDarkmode><![CDATA[]]></simplifyTopShopIconUrlDarkmode>\n\t\t\t<topShopIconWidth><![CDATA[0]]></topShopIconWidth>\n\t\t\t<topShopIconHeight><![CDATA[0]]></topShopIconHeight>\n\t\t\t<simplifyTopShopIconWidth><![CDATA[0]]></simplifyTopShopIconWidth>\n\t\t\t<simplifyTopShopIconHeight><![CDATA[0]]></simplifyTopShopIconHeight>\n\t\t\t<reputationInfo>\n\t\t\t\t<hasReputationInfo>0</hasReputationInfo>\n\t\t\t\t<reputationScore>0</reputationScore>\n\t\t\t\t<reputationWording />\n\t\t\t\t<reputationTextColor />\n\t\t\t\t<reputationLevelWording />\n\t\t\t\t<reputationBackgroundColor />\n\t\t\t</reputationInfo>\n\t\t\t<productImageURLList />\n\t\t</finderShopWindowShare>\n\t\t<findernamecard>\n\t\t\t<username />\n\t\t\t<avatar><![CDATA[]]></avatar>\n\t\t\t<nickname />\n\t\t\t<auth_job />\n\t\t\t<auth_icon>0</auth_icon>\n\t\t\t<auth_icon_url />\n\t\t\t<ecSource><![CDATA[]]></ecSource>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t</findernamecard>\n\t\t<finderGuarantee>\n\t\t\t<scene><![CDATA[0]]></scene>\n\t\t</finderGuarantee>\n\t\t<directshare>0</directshare>\n\t\t<gamecenter>\n\t\t\t<namecard>\n\t\t\t\t<iconUrl />\n\t\t\t\t<name />\n\t\t\t\t<desc />\n\t\t\t\t<tail />\n\t\t\t\t<jumpUrl />\n\t\t\t\t<liteappId />\n\t\t\t\t<liteappPath />\n\t\t\t\t<liteappQuery />\n\t\t\t\t<liteappMinVersion />\n\t\t\t</namecard>\n\t\t</gamecenter>\n\t\t<patMsg>\n\t\t\t<chatUser />\n\t\t\t<records>\n\t\t\t\t<recordNum>0</recordNum>\n\t\t\t</records>\n\t\t</patMsg>\n\t\t<secretmsg>\n\t\t\t<issecretmsg>0</issecretmsg>\n\t\t</secretmsg>\n\t\t<referfromscene>0</referfromscene>\n\t\t<gameshare>\n\t\t\t<liteappext>\n\t\t\t\t<liteappbizdata />\n\t\t\t\t<priority>0</priority>\n\t\t\t</liteappext>\n\t\t\t<appbrandext>\n\t\t\t\t<litegameinfo />\n\t\t\t\t<priority>-1</priority>\n\t\t\t</appbrandext>\n\t\t\t<gameshareid />\n\t\t\t<sharedata />\n\t\t\t<isvideo>0</isvideo>\n\t\t\t<duration>-1</duration>\n\t\t\t<isexposed>0</isexposed>\n\t\t\t<readtext />\n\t\t</gameshare>\n\t\t<tingChatRoomItem>\n\t\t\t<type>0</type>\n\t\t\t<categoryItem>null</categoryItem>\n\t\t\t<categoryId />\n\t\t\t<listenItem>null</listenItem>\n\t\t</tingChatRoomItem>\n\t\t<mpsharetrace>\n\t\t\t<hasfinderelement>0</hasfinderelement>\n\t\t\t<lastgmsgid />\n\t\t</mpsharetrace>\n\t\t<wxgamecard>\n\t\t\t<framesetname />\n\t\t\t<mbcarddata />\n\t\t\t<minpkgversion />\n\t\t\t<clientextinfo />\n\t\t\t<mbcardheight>0</mbcardheight>\n\t\t\t<isoldversion>0</isoldversion>\n\t\t</wxgamecard>\n\t\t<ecskfcard>\n\t\t\t<framesetname />\n\t\t\t<mbcarddata />\n\t\t\t<minupdateunixtimestamp>0</minupdateunixtimestamp>\n\t\t\t<needheader>false</needheader>\n\t\t\t<summary />\n\t\t</ecskfcard>\n\t\t<liteapp>\n\t\t\t<id>null</id>\n\t\t\t<path />\n\t\t\t<query />\n\t\t\t<istransparent>0</istransparent>\n\t\t\t<hideicon>0</hideicon>\n\t\t\t<forbidforward>0</forbidforward>\n\t\t</liteapp>\n\t\t<opensdk_share_is_modified>0</opensdk_share_is_modified>\n\t</appmsg>\n\t<fromusername>wxid_nm7x9talghp622</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname></appname>\n\t</appinfo>\n\t<commenturl></commenturl>\n</msg>\n",
       "raw_content_length": 11915,
+      "is_system": false,
+      "printable_ratio": 1.0
+    },
+    {
+      "id": 15294,
+      "db": "message_0.db",
+      "local_id": 15305,
+      "timestamp": 1782633211,
+      "datetime": "2026-06-28 15:53:31",
+      "date": "2026-06-28",
+      "hour": 15,
+      "local_type": 81604378673,
+      "sender_id": "wxid_0pjaoioxgn2222",
+      "sender_name": "夕白",
+      "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg>\n\t\t<title>夕白与🐰的聊天记录</title>\n\t\t<des>夕白: [文件] 如实所现_完成版4_排线叙事插画版.epub\n夕白: [图片]\n夕白: [文件] 如实所现_完成版4_粗笔触插画版.epub\n夕白: [图片]\n夕白: [文件] 如实所现_完成版4_提示词插画版.epub...</des>\n\t\t<action>view</action>\n\t\t<type>19</type>\n\t\t<url>https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&amp;from=singlemessage&amp;isappinstalled=0</url>\n\t\t<recorditem><![CDATA[<recordinfo><title>夕白与🐰的聊天记录</title><desc>夕白:&#x20;[文件]&#x20;如实所现_完成版4_排线叙事插画版.epub&#x0A;夕白:&#x20;[图片]&#x0A;夕白:&#x20;[文件]&#x20;如实所现_完成版4_粗笔触插画版.epub&#x0A;夕白:&#x20;[图片]&#x0A;夕白:&#x20;[文件]&#x20;如实所现_完成版4_提示词插画版.epub...</desc><datalist count=\"9\"><dataitem datatype=\"8\" dataid=\"e49a8a2f98e29a1ca81b49f861ae3d38\"><datatitle>如实所现_完成版4_排线叙事插画版.epub</datatitle><cdndataurl>305f020100044b30490201000204df59b50502032df7fa020443ebd47602046a409fdf042430613061316535332d326531312d343432652d393032392d636337323939656235616632020405140005020100040d004c543e000000000000000000</cdndataurl><cdndatakey>a4d9ef37a1fbe9f65429047695e6a7d0</cdndatakey><datasize>16444069</datasize><datafmt>epub</datafmt><sourcename>夕白</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/CdBNZemIhgN2l4ZEzwK6RrNmPib76gRiaPT4dicoVEVJkAcvibfxhzhYB0VMY3dnM6aSSRddA0xtezaYlmGiacc1Pmmx3SSIweTO8ITiaFo7Uia2S7OwrTuEqpFWhMrsBN8ApZs/96</sourceheadurl><sourcetime>2026-06-28&#x20;14:21:14</sourcetime><srcMsgCreateTime>1782627674</srcMsgCreateTime><messageuuid>36d82dbd87380a455a768c4f6800a5fa_</messageuuid><fromnewmsgid>8713740257862293544</fromnewmsgid><appid>wx6618f1cfc6c132f8</appid><dataitemsource><hashusername>c75104c14dd0e08be1019bd30e3140bf4bfafdaf4a6cababecaf30ff942aa3e9</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"d2f102e77e70a2ef00d0e12bdaf35b03\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b30490201000204df59b50502032df7fa02041eebd47602046a40d277042430666632386239372d653661342d343163392d613663332d343532613466376265616563020405942001020100040d004c4dfe000000000000000000</cdnthumburl><cdnthumbkey>ec493a4db7296cd20f630b52432d0346</cdnthumbkey><thumbfullmd5>fde5b3bb7b2862e91d083ac279e804df</thumbfullmd5><thumbsize>3512</thumbsize><cdndataurl>305f020100044b30490201000204df59b50502032df7fa02041eebd47602046a40d277042432643362316535322d636364642d346564332d626438392d316163396263303238343938020405942001020100040d004c511e000000000000000000</cdndataurl><cdndatakey>6a1f9d98a5f7d3a6d01d03bc777192d1</cdndatakey><fullmd5>d8d5665973cc9b9255c13290882def0b</fullmd5><datasize>983371</datasize><thumbwidth>50</thumbwidth><thumbheight>150</thumbheight><sourcename>夕白</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/CdBNZemIhgN2l4ZEzwK6RrNmPib76gRiaPT4dicoVEVJkAcvibfxhzhYB0VMY3dnM6aSSRddA0xtezaYlmGiacc1Pmmx3SSIweTO8ITiaFo7Uia2S7OwrTuEqpFWhMrsBN8ApZs/96</sourceheadurl><sourcetime>2026-06-28&#x20;14:21:29</sourcetime><srcMsgCreateTime>1782627689</srcMsgCreateTime><messageuuid>31a63e72ada52c4b2e307d6d76475356_</messageuuid><fromnewmsgid>2027653709612753328</fromnewmsgid><dataitemsource><hashusername>c75104c14dd0e08be1019bd30e3140bf4bfafdaf4a6cababecaf30ff942aa3e9</hashusername></dataitemsource></dataitem><dataitem datatype=\"8\" dataid=\"39306cdb708b5c506d2f2e36d6a57954\"><datatitle>如实所现_完成版4_粗笔触插画版.epub</datatitle><cdndataurl>305f020100044b30490201000204df59b50502033d14ba0204df3c949d02046a4095eb042434363130383235352d336538612d346237332d613264322d366431316139333835653165020405180005020100040d004c4dfe000000000000000000</cdndataurl><cdndatakey>31da543239c5c240b52a7d49de306ead</cdndatakey><datasize>13772870</datasize><datafmt>epub</datafmt><sourcename>夕白</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/CdBNZemIhgN2l4ZEzwK6RrNmPib76gRiaPT4dicoVEVJkAcvibfxhzhYB0VMY3dnM6aSSRddA0xtezaYlmGiacc1Pmmx3SSIweTO8ITiaFo7Uia2S7OwrTuEqpFWhMrsBN8ApZs/96</sourceheadurl><sourcetime>2026-06-28&#x20;14:22:33</sourcetime><srcMsgCreateTime>1782627753</srcMsgCreateTime><messageuuid>b322cf24992d50fead82075c4aabc45c_</messageuuid><fromnewmsgid>3148193450977826233</fromnewmsgid><appid>wx6618f1cfc6c132f8</appid><dataitemsource><hashusername>c75104c14dd0e08be1019bd30e3140bf4bfafdaf4a6cababecaf30ff942aa3e9</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"8c193bb943d190fd780ae5c42006c128\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b30490201000204df59b50502032df7fa02041eebd47602046a40d278042431303334646137372d313736612d346132322d623534372d363035323430363536313238020405942001020100040d004c5ae2000000000000000000</cdnthumburl><cdnthumbkey>64e4348b753025db9c6e4e88c2780671</cdnthumbkey><thumbfullmd5>bcb8e299b61637f59a965198e844bc20</thumbfullmd5><thumbsize>3697</thumbsize><cdndataurl>305f020100044b30490201000204df59b50502032df7fa02041eebd47602046a40d277042461366362646266312d323238322d343165642d383737362d353839393862363962383739020405942001020100040d004c5376000000000000000000</cdndataurl><cdndatakey>8d20cacf7622144dede4c20b4034d088</cdndatakey><fullmd5>c65afe857d9a9dc4ed74e2405b557ac4</fullmd5><datasize>828602</datasize><thumbwidth>50</thumbwidth><thumbheight>150</thumbheight><sourcename>夕白</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/CdBNZemIhgN2l4ZEzwK6RrNmPib76gRiaPT4dicoVEVJkAcvibfxhzhYB0VMY3dnM6aSSRddA0xtezaYlmGiacc1Pmmx3SSIweTO8ITiaFo7Uia2S7OwrTuEqpFWhMrsBN8ApZs/96</sourceheadurl><sourcetime>2026-06-28&#x20;14:24:12</sourcetime><srcMsgCreateTime>1782627852</srcMsgCreateTime><messageuuid>5b9463623f72a475bde92aa1661c7cd8_</messageuuid><fromnewmsgid>4269568493409245864</fromnewmsgid><dataitemsource><hashusername>c75104c14dd0e08be1019bd30e3140bf4bfafdaf4a6cababecaf30ff942aa3e9</hashusername></dataitemsource></dataitem><dataitem datatype=\"8\" dataid=\"5e98e3e5bf6f2efb5760d68e3d12897f\"><datatitle>如实所现_完成版4_提示词插画版.epub</datatitle><cdndataurl>305f020100044b30490201000204df59b50502032df7fa02048aebd47602046a408c83042438666563663333382d313138332d343930632d613861302d323430343734323664346139020405140005020100040d004c543e000000000000000000</cdndataurl><cdndatakey>c3d0613fc5a041b05862acc8e2aa5b2c</cdndatakey><datasize>10303600</datasize><datafmt>epub</datafmt><sourcename>夕白</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/CdBNZemIhgN2l4ZEzwK6RrNmPib76gRiaPT4dicoVEVJkAcvibfxhzhYB0VMY3dnM6aSSRddA0xtezaYlmGiacc1Pmmx3SSIweTO8ITiaFo7Uia2S7OwrTuEqpFWhMrsBN8ApZs/96</sourceheadurl><sourcetime>2026-06-28&#x20;14:25:10</sourcetime><srcMsgCreateTime>1782627910</srcMsgCreateTime><messageuuid>f712b692ece3ff7847eb69ed9059abf6_</messageuuid><fromnewmsgid>1555637482406122660</fromnewmsgid><appid>wx6618f1cfc6c132f8</appid><dataitemsource><hashusername>c75104c14dd0e08be1019bd30e3140bf4bfafdaf4a6cababecaf30ff942aa3e9</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"59073ae6e453407b7505f6a885349dc0\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b30490201000204df59b50502032df7fa02041eebd47602046a40d278042436646132343330352d616565362d346233612d386237612d613134356630373537653532020405982001020100040d004c57c2000000000000000000</cdnthumburl><cdnthumbkey>a69d0da8247eb02236ab4803b0e73b7e</cdnthumbkey><thumbfullmd5>77b688384c3a4729964b456e503e9ba4</thumbfullmd5><thumbsize>2608</thumbsize><cdndataurl>305f020100044b30490201000204df59b50502032df7fa02041eebd47602046a40d278042461646362663461612d373261642d343038352d616161362d346165646430336362313364020405982001020100040d004c4ff2000000000000000000</cdndataurl><cdndatakey>eaeda3aa7d8253050ce3782f532b1204</cdndatakey><fullmd5>e0d4d866acd02ab5a4b4334e2d0a1d1a</fullmd5><datasize>684580</datasize><thumbwidth>50</thumbwidth><thumbheight>150</thumbheight><sourcename>夕白</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/CdBNZemIhgN2l4ZEzwK6RrNmPib76gRiaPT4dicoVEVJkAcvibfxhzhYB0VMY3dnM6aSSRddA0xtezaYlmGiacc1Pmmx3SSIweTO8ITiaFo7Uia2S7OwrTuEqpFWhMrsBN8ApZs/96</sourceheadurl><sourcetime>2026-06-28&#x20;14:25:26</sourcetime><srcMsgCreateTime>1782627926</srcMsgCreateTime><messageuuid>cc500e805589c3c15b9123adda1d0953_</messageuuid><fromnewmsgid>1090577607153691869</fromnewmsgid><dataitemsource><hashusername>c75104c14dd0e08be1019bd30e3140bf4bfafdaf4a6cababecaf30ff942aa3e9</hashusername></dataitemsource></dataitem><dataitem datatype=\"8\" dataid=\"112d928912a3c316c418a364e4fcde66\"><datatitle>如实所现_插画提示词.md</datatitle><cdndataurl>305f020100044b30490201000204df59b50502032df7fa02042becd47602046a407d5e042462383465663130382d383865372d343533632d613964302d343432616237353333356464020405140005020100040d004c4e62000000000000000000</cdndataurl><cdndatakey>461d8ac9aff2765f223a9c8cecfb6368</cdndatakey><datasize>15555</datasize><datafmt>md</datafmt><sourcename>夕白</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/CdBNZemIhgN2l4ZEzwK6RrNmPib76gRiaPT4dicoVEVJkAcvibfxhzhYB0VMY3dnM6aSSRddA0xtezaYlmGiacc1Pmmx3SSIweTO8ITiaFo7Uia2S7OwrTuEqpFWhMrsBN8ApZs/96</sourceheadurl><sourcetime>2026-06-28&#x20;14:26:05</sourcetime><srcMsgCreateTime>1782627965</srcMsgCreateTime><messageuuid>02e1b6340ebe34b057b1acb9302e9222_</messageuuid><fromnewmsgid>621871495321993512</fromnewmsgid><dataitemsource><hashusername>c75104c14dd0e08be1019bd30e3140bf4bfafdaf4a6cababecaf30ff942aa3e9</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"d3da7d828ac40c499928f9db26de1982\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b30490201000204df59b50502032df7fa02041eebd47602046a40d279042434613530373166642d373938382d343638322d383232632d626464633630636239393038020405942001020100040d004c50ba000000000000000000</cdnthumburl><cdnthumbkey>296b5682bfc5c76fcb05d924a64a66d4</cdnthumbkey><thumbfullmd5>29c1009240becbc8b0a415ad76213c73</thumbfullmd5><thumbsize>3275</thumbsize><cdndataurl>305f020100044b30490201000204df59b50502032df7fa02041eebd47602046a40d279042463303336303631632d353434302d346265342d393964302d393230313064333934316638020405982001020100040d004c4ff2000000000000000000</cdndataurl><cdndatakey>a6c603874fc142d43ed06e384e7a03c6</cdndatakey><fullmd5>6bd9e686c6c86f8f2420c14b05605074</fullmd5><datasize>879087</datasize><thumbwidth>50</thumbwidth><thumbheight>150</thumbheight><sourcename>夕白</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/CdBNZemIhgN2l4ZEzwK6RrNmPib76gRiaPT4dicoVEVJkAcvibfxhzhYB0VMY3dnM6aSSRddA0xtezaYlmGiacc1Pmmx3SSIweTO8ITiaFo7Uia2S7OwrTuEqpFWhMrsBN8ApZs/96</sourceheadurl><sourcetime>2026-06-28&#x20;15:43:55</sourcetime><srcMsgCreateTime>1782632635</srcMsgCreateTime><messageuuid>77e752d4b805831c687a54386ce550b4_</messageuuid><fromnewmsgid>2889244850610818686</fromnewmsgid><dataitemsource><hashusername>c75104c14dd0e08be1019bd30e3140bf4bfafdaf4a6cababecaf30ff942aa3e9</hashusername></dataitemsource></dataitem><dataitem datatype=\"8\" dataid=\"fa32d16657a9b5d186c68a914b31cc2c\"><datatitle>如实所现.epub</datatitle><cdndataurl>305f020100044b30490201000204df59b50502033d14ba0204e73c949d02046a40d0fb042432386161346663342d396237652d343235312d386334352d313334636434616332336135020405180005020100040d004c511e000000000000000000</cdndataurl><cdndatakey>e148f9b6515ec7371dbefdac8193c43c</cdndatakey><datasize>15520286</datasize><datafmt>epub</datafmt><sourcename>夕白</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/CdBNZemIhgN2l4ZEzwK6RrNmPib76gRiaPT4dicoVEVJkAcvibfxhzhYB0VMY3dnM6aSSRddA0xtezaYlmGiacc1Pmmx3SSIweTO8ITiaFo7Uia2S7OwrTuEqpFWhMrsBN8ApZs/96</sourceheadurl><sourcetime>2026-06-28&#x20;15:44:52</sourcetime><srcMsgCreateTime>1782632692</srcMsgCreateTime><messageuuid>b0a62c483b8eb4583b7d27251982ddf0_</messageuuid><fromnewmsgid>5191681723692978801</fromnewmsgid><appid>wx6618f1cfc6c132f8</appid><dataitemsource><hashusername>c75104c14dd0e08be1019bd30e3140bf4bfafdaf4a6cababecaf30ff942aa3e9</hashusername></dataitemsource></dataitem></datalist></recordinfo>]]></recorditem>\n\t\t<appattach />\n\t</appmsg><extcommoninfo>\n\t<media_expire_at>1783842811</media_expire_at>\n</extcommoninfo>\n\n\t<fromusername>wxid_0pjaoioxgn2222</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname></appname>\n\t</appinfo>\n\t<commenturl></commenturl>\n</msg>\n",
+      "raw_content_length": 11896,
       "is_system": false,
       "printable_ratio": 1.0
     },
@@ -549,6 +565,22 @@
       "printable_ratio": 1.0
     },
     {
+      "id": 16089,
+      "db": "message_0.db",
+      "local_id": 16100,
+      "timestamp": 1782803626,
+      "datetime": "2026-06-30 15:13:46",
+      "date": "2026-06-30",
+      "hour": 15,
+      "local_type": 141733920817,
+      "sender_id": "wxid_5rl4lvr78fri22",
+      "sender_name": "Lumos",
+      "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg appid=\"\" sdkver=\"0\">\n\t\t<title>会议邀请：WorkBuddy客户云课堂</title>\n\t\t<des />\n\t\t<username />\n\t\t<action>view</action>\n\t\t<type>33</type>\n\t\t<showtype>0</showtype>\n\t\t<content />\n\t\t<url>https://mp.weixin.qq.com/mp/waerrpage?appid=wx33fd6cdc62520063&amp;type=upgrade&amp;upgradetype=3#wechat_redirect</url>\n\t\t<lowurl />\n\t\t<forwardflag>0</forwardflag>\n\t\t<dataurl />\n\t\t<lowdataurl />\n\t\t<contentattr>0</contentattr>\n\t\t<streamvideo>\n\t\t\t<streamvideourl />\n\t\t\t<streamvideototaltime>0</streamvideototaltime>\n\t\t\t<streamvideotitle />\n\t\t\t<streamvideowording />\n\t\t\t<streamvideoweburl />\n\t\t\t<streamvideothumburl />\n\t\t\t<streamvideoaduxinfo />\n\t\t\t<streamvideopublishid />\n\t\t</streamvideo>\n\t\t<canvasPageItem>\n\t\t\t<canvasPageXml><![CDATA[]]></canvasPageXml>\n\t\t</canvasPageItem>\n\t\t<appattach>\n\t\t\t<attachid />\n\t\t\t<cdnthumburl>305f020100044b30490201000204b624bee302032f591b02043125e97802046a436caa042465613139323734322d656662372d343239312d623761332d626637376334666339363763020405140803020100040d004c4dff000000000000000000</cdnthumburl>\n\t\t\t<cdnthumbmd5>37647e60524950b7aef31f9f578651f6</cdnthumbmd5>\n\t\t\t<cdnthumblength>46584</cdnthumblength>\n\t\t\t<cdnthumbheight>360</cdnthumbheight>\n\t\t\t<cdnthumbwidth>450</cdnthumbwidth>\n\t\t\t<cdnthumbaeskey>27e1c6e525368710e508f36e5ad36043</cdnthumbaeskey>\n\t\t\t<aeskey>27e1c6e525368710e508f36e5ad36043</aeskey>\n\t\t\t<encryver>1</encryver>\n\t\t\t<fileext />\n\t\t\t<islargefilemsg>0</islargefilemsg>\n\t\t\t<filename />\n\t\t</appattach>\n\t\t<extinfo />\n\t\t<androidsource>3</androidsource>\n\t\t<sourceusername>gh_ebae2dbaabf7@app</sourceusername>\n\t\t<sourcedisplayname>腾讯会议</sourcedisplayname>\n\t\t<commenturl />\n\t\t<thumburl />\n\t\t<mediatagname />\n\t\t<messageaction><![CDATA[]]></messageaction>\n\t\t<messageext><![CDATA[]]></messageext>\n\t\t<emoticongift>\n\t\t\t<packageflag>0</packageflag>\n\t\t\t<packageid />\n\t\t</emoticongift>\n\t\t<emoticonshared>\n\t\t\t<packageflag>0</packageflag>\n\t\t\t<packageid />\n\t\t</emoticonshared>\n\t\t<designershared>\n\t\t\t<designeruin>0</designeruin>\n\t\t\t<designername>null</designername>\n\t\t\t<designerrediretcturl><![CDATA[null]]></designerrediretcturl>\n\t\t</designershared>\n\t\t<emotionpageshared>\n\t\t\t<tid>0</tid>\n\t\t\t<title>null</title>\n\t\t\t<desc>null</desc>\n\t\t\t<iconUrl><![CDATA[null]]></iconUrl>\n\t\t\t<secondUrl>null</secondUrl>\n\t\t\t<pageType>0</pageType>\n\t\t\t<setKey>null</setKey>\n\t\t</emotionpageshared>\n\t\t<webviewshared>\n\t\t\t<shareUrlOriginal />\n\t\t\t<shareUrlOpen />\n\t\t\t<jsAppId />\n\t\t\t<publisherId>wxapp_wx33fd6cdc62520063pages/sub-web/auth/auth.html?url=https%3A%2F%2Fmeeting.tencent.com%2Fdw%2Fyni5JMr4GNLh&amp;isInJump=1</publisherId>\n\t\t\t<publisherReqId />\n\t\t</webviewshared>\n\t\t<template_id />\n\t\t<md5>37647e60524950b7aef31f9f578651f6</md5>\n\t\t<websearch>\n\t\t\t<rec_category>0</rec_category>\n\t\t\t<channelId>0</channelId>\n\t\t</websearch>\n\t\t<weappinfo>\n\t\t\t<pagepath><![CDATA[pages/sub-web/auth/auth.html?url=https%3A%2F%2Fmeeting.tencent.com%2Fdw%2Fyni5JMr4GNLh&isInJump=1]]></pagepath>\n\t\t\t<username>gh_ebae2dbaabf7@app</username>\n\t\t\t<appid>wx33fd6cdc62520063</appid>\n\t\t\t<version>367</version>\n\t\t\t<type>2</type>\n\t\t\t<weappiconurl><![CDATA[http://wx.qlogo.cn/mmhead/Q3auHgzwzM4I2bYliclJKU8BvFsbsd9YNQic5ns2H8AWmWZV9zCSMwzQ/96]]></weappiconurl>\n\t\t\t<weapppagethumbrawurl><![CDATA[resources/default_webinar_cover.jpg]]></weapppagethumbrawurl>\n\t\t\t<shareId><![CDATA[1_wx33fd6cdc62520063_797e3044d3ac115ad082f48c78d243b8_1782803611_0]]></shareId>\n\t\t\t<appservicetype>0</appservicetype>\n\t\t\t<secflagforsinglepagemode>0</secflagforsinglepagemode>\n\t\t\t<videopageinfo>\n\t\t\t\t<thumbwidth>450</thumbwidth>\n\t\t\t\t<thumbheight>360</thumbheight>\n\t\t\t\t<fromopensdk>0</fromopensdk>\n\t\t\t</videopageinfo>\n\t\t</weappinfo>\n\t\t<statextstr />\n\t\t<musicShareItem>\n\t\t\t<musicDuration>0</musicDuration>\n\t\t</musicShareItem>\n\t\t<finderLiveProductShare>\n\t\t\t<finderLiveID><![CDATA[]]></finderLiveID>\n\t\t\t<finderUsername><![CDATA[]]></finderUsername>\n\t\t\t<finderObjectID><![CDATA[]]></finderObjectID>\n\t\t\t<finderNonceID><![CDATA[]]></finderNonceID>\n\t\t\t<liveStatus><![CDATA[]]></liveStatus>\n\t\t\t<appId><![CDATA[]]></appId>\n\t\t\t<pagePath><![CDATA[]]></pagePath>\n\t\t\t<productId><![CDATA[]]></productId>\n\t\t\t<coverUrl><![CDATA[]]></coverUrl>\n\t\t\t<productTitle><![CDATA[]]></productTitle>\n\t\t\t<marketPrice><![CDATA[0]]></marketPrice>\n\t\t\t<sellingPrice><![CDATA[0]]></sellingPrice>\n\t\t\t<platformHeadImg><![CDATA[]]></platformHeadImg>\n\t\t\t<platformName><![CDATA[]]></platformName>\n\t\t\t<shopWindowId><![CDATA[]]></shopWindowId>\n\t\t\t<flashSalePrice><![CDATA[0]]></flashSalePrice>\n\t\t\t<flashSaleEndTime><![CDATA[0]]></flashSaleEndTime>\n\t\t\t<ecSource><![CDATA[]]></ecSource>\n\t\t\t<sellingPriceWording><![CDATA[]]></sellingPriceWording>\n\t\t\t<platformIconURL><![CDATA[]]></platformIconURL>\n\t\t\t<firstProductTagURL><![CDATA[]]></firstProductTagURL>\n\t\t\t<firstProductTagAspectRatioString><![CDATA[0.0]]></firstProductTagAspectRatioString>\n\t\t\t<secondProductTagURL><![CDATA[]]></secondProductTagURL>\n\t\t\t<secondProductTagAspectRatioString><![CDATA[0.0]]></secondProductTagAspectRatioString>\n\t\t\t<firstGuaranteeWording><![CDATA[]]></firstGuaranteeWording>\n\t\t\t<secondGuaranteeWording><![CDATA[]]></secondGuaranteeWording>\n\t\t\t<thirdGuaranteeWording><![CDATA[]]></thirdGuaranteeWording>\n\t\t\t<isPriceBeginShow>false</isPriceBeginShow>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t\t<promoterKey><![CDATA[]]></promoterKey>\n\t\t\t<discountWording><![CDATA[]]></discountWording>\n\t\t\t<priceSuffixDescription><![CDATA[]]></priceSuffixDescription>\n\t\t\t<productCardKey><![CDATA[]]></productCardKey>\n\t\t\t<isWxShop><![CDATA[]]></isWxShop>\n\t\t\t<brandIconUrl><![CDATA[]]></brandIconUrl>\n\t\t\t<rIconUrl><![CDATA[]]></rIconUrl>\n\t\t\t<rIconUrlDarkMode><![CDATA[]]></rIconUrlDarkMode>\n\t\t\t<topShopIconUrl><![CDATA[]]></topShopIconUrl>\n\t\t\t<topShopIconUrlDarkMode><![CDATA[]]></topShopIconUrlDarkMode>\n\t\t\t<simplifyTopShopIconUrl><![CDATA[]]></simplifyTopShopIconUrl>\n\t\t\t<simplifyTopShopIconUrlDarkmode><![CDATA[]]></simplifyTopShopIconUrlDarkmode>\n\t\t\t<topShopIconWidth><![CDATA[0]]></topShopIconWidth>\n\t\t\t<topShopIconHeight><![CDATA[0]]></topShopIconHeight>\n\t\t\t<simplifyTopShopIconWidth><![CDATA[0]]></simplifyTopShopIconWidth>\n\t\t\t<simplifyTopShopIconHeight><![CDATA[0]]></simplifyTopShopIconHeight>\n\t\t\t<maskPriceWording><![CDATA[]]></maskPriceWording>\n\t\t\t<showBoxItemStringList />\n\t\t\t<richLabelTitleB64><![CDATA[]]></richLabelTitleB64>\n\t\t\t<richShopDescB64><![CDATA[]]></richShopDescB64>\n\t\t</finderLiveProductShare>\n\t\t<finderOrder>\n\t\t\t<appID><![CDATA[]]></appID>\n\t\t\t<orderID><![CDATA[]]></orderID>\n\t\t\t<path><![CDATA[]]></path>\n\t\t\t<priceWording><![CDATA[]]></priceWording>\n\t\t\t<stateWording><![CDATA[]]></stateWording>\n\t\t\t<productImageURL><![CDATA[]]></productImageURL>\n\t\t\t<products><![CDATA[]]></products>\n\t\t\t<productsCount><![CDATA[0]]></productsCount>\n\t\t\t<orderType><![CDATA[0]]></orderType>\n\t\t\t<newPriceWording><![CDATA[]]></newPriceWording>\n\t\t\t<newStateWording><![CDATA[]]></newStateWording>\n\t\t\t<useNewWording><![CDATA[0]]></useNewWording>\n\t\t</finderOrder>\n\t\t<finderShopWindowShare>\n\t\t\t<finderUsername><![CDATA[]]></finderUsername>\n\t\t\t<avatar><![CDATA[]]></avatar>\n\t\t\t<nickname><![CDATA[]]></nickname>\n\t\t\t<commodityInStockCount><![CDATA[]]></commodityInStockCount>\n\t\t\t<appId><![CDATA[]]></appId>\n\t\t\t<path><![CDATA[]]></path>\n\t\t\t<appUsername><![CDATA[]]></appUsername>\n\t\t\t<query><![CDATA[]]></query>\n\t\t\t<liteAppId><![CDATA[]]></liteAppId>\n\t\t\t<liteAppPath><![CDATA[]]></liteAppPath>\n\t\t\t<liteAppQuery><![CDATA[]]></liteAppQuery>\n\t\t\t<platformTagURL><![CDATA[]]></platformTagURL>\n\t\t\t<saleWording><![CDATA[]]></saleWording>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t\t<profileTypeWording><![CDATA[]]></profileTypeWording>\n\t\t\t<saleWordingExtra><![CDATA[]]></saleWordingExtra>\n\t\t\t<isWxShop><![CDATA[]]></isWxShop>\n\t\t\t<platformIconUrl><![CDATA[]]></platformIconUrl>\n\t\t\t<brandIconUrl><![CDATA[]]></brandIconUrl>\n\t\t\t<description><![CDATA[]]></description>\n\t\t\t<backgroundUrl><![CDATA[]]></backgroundUrl>\n\t\t\t<darkModePlatformIconUrl><![CDATA[]]></darkModePlatformIconUrl>\n\t\t\t<rIconUrl><![CDATA[]]></rIconUrl>\n\t\t\t<rIconUrlDarkMode><![CDATA[]]></rIconUrlDarkMode>\n\t\t\t<rWords><![CDATA[]]></rWords>\n\t\t\t<topShopIconUrl><![CDATA[]]></topShopIconUrl>\n\t\t\t<topShopIconUrlDarkMode><![CDATA[]]></topShopIconUrlDarkMode>\n\t\t\t<simplifyTopShopIconUrl><![CDATA[]]></simplifyTopShopIconUrl>\n\t\t\t<simplifyTopShopIconUrlDarkmode><![CDATA[]]></simplifyTopShopIconUrlDarkmode>\n\t\t\t<topShopIconWidth><![CDATA[0]]></topShopIconWidth>\n\t\t\t<topShopIconHeight><![CDATA[0]]></topShopIconHeight>\n\t\t\t<simplifyTopShopIconWidth><![CDATA[0]]></simplifyTopShopIconWidth>\n\t\t\t<simplifyTopShopIconHeight><![CDATA[0]]></simplifyTopShopIconHeight>\n\t\t\t<profileMainWording><![CDATA[]]></profileMainWording>\n\t\t\t<profileSubWording><![CDATA[]]></profileSubWording>\n\t\t</finderShopWindowShare>\n\t\t<findernamecard>\n\t\t\t<username />\n\t\t\t<avatar><![CDATA[]]></avatar>\n\t\t\t<nickname />\n\t\t\t<auth_job />\n\t\t\t<auth_icon>0</auth_icon>\n\t\t\t<auth_icon_url />\n\t\t\t<ecSource><![CDATA[]]></ecSource>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t</findernamecard>\n\t\t<finderGuarantee>\n\t\t\t<scene><![CDATA[0]]></scene>\n\t\t</finderGuarantee>\n\t\t<directshare>0</directshare>\n\t\t<gamecenter>\n\t\t\t<namecard>\n\t\t\t\t<iconUrl />\n\t\t\t\t<name />\n\t\t\t\t<desc />\n\t\t\t\t<tail />\n\t\t\t\t<jumpUrl />\n\t\t\t\t<liteappId />\n\t\t\t\t<liteappPath />\n\t\t\t\t<liteappQuery />\n\t\t\t\t<liteappMinVersion />\n\t\t\t</namecard>\n\t\t</gamecenter>\n\t\t<patMsg>\n\t\t\t<chatUser />\n\t\t\t<records>\n\t\t\t\t<recordNum>0</recordNum>\n\t\t\t</records>\n\t\t</patMsg>\n\t\t<secretmsg>\n\t\t\t<issecretmsg>0</issecretmsg>\n\t\t</secretmsg>\n\t\t<referfromscene>0</referfromscene>\n\t\t<gameshare>\n\t\t\t<liteappext>\n\t\t\t\t<liteappbizdata />\n\t\t\t\t<priority>0</priority>\n\t\t\t</liteappext>\n\t\t\t<appbrandext>\n\t\t\t\t<litegameinfo />\n\t\t\t\t<priority>-1</priority>\n\t\t\t</appbrandext>\n\t\t\t<gameshareid />\n\t\t\t<sharedata />\n\t\t\t<isvideo>0</isvideo>\n\t\t\t<duration>-1</duration>\n\t\t\t<isexposed>0</isexposed>\n\t\t\t<readtext />\n\t\t</gameshare>\n\t\t<tingChatRoomItem>\n\t\t\t<type>0</type>\n\t\t\t<categoryItem>null</categoryItem>\n\t\t\t<categoryId />\n\t\t\t<listenItem>null</listenItem>\n\t\t</tingChatRoomItem>\n\t\t<photoaccountnamecard>\n\t\t\t<username />\n\t\t\t<nickname />\n\t\t\t<fromnickname />\n\t\t\t<fullpy />\n\t\t\t<shortpy />\n\t\t\t<alias />\n\t\t\t<imagestatus>0</imagestatus>\n\t\t\t<scene>0</scene>\n\t\t\t<province />\n\t\t\t<city />\n\t\t\t<sign />\n\t\t\t<percard>0</percard>\n\t\t\t<sex>0</sex>\n\t\t\t<certflag>0</certflag>\n\t\t\t<certinfo />\n\t\t\t<certinfoext />\n\t\t\t<brandIconUrl><![CDATA[]]></brandIconUrl>\n\t\t\t<brandHomeUrl><![CDATA[]]></brandHomeUrl>\n\t\t\t<brandSubscriptConfigUrl><![CDATA[]]></brandSubscriptConfigUrl>\n\t\t\t<brandFlags>0</brandFlags>\n\t\t\t<regionCode />\n\t\t\t<biznamecardinfo><![CDATA[]]></biznamecardinfo>\n\t\t\t<brandType>0</brandType>\n\t\t</photoaccountnamecard>\n\t\t<mpsharetrace>\n\t\t\t<hasfinderelement>0</hasfinderelement>\n\t\t\t<lastgmsgid />\n\t\t</mpsharetrace>\n\t\t<wxgamecard>\n\t\t\t<framesetname />\n\t\t\t<mbcarddata />\n\t\t\t<minpkgversion />\n\t\t\t<clientextinfo />\n\t\t\t<mbcardheight>0</mbcardheight>\n\t\t\t<isoldversion>0</isoldversion>\n\t\t</wxgamecard>\n\t\t<ecskfcard>\n\t\t\t<framesetname />\n\t\t\t<mbcarddata />\n\t\t\t<minupdateunixtimestamp>0</minupdateunixtimestamp>\n\t\t\t<needheader>false</needheader>\n\t\t\t<summary />\n\t\t</ecskfcard>\n\t\t<liteapp>\n\t\t\t<id>null</id>\n\t\t\t<path />\n\t\t\t<query />\n\t\t\t<istransparent>0</istransparent>\n\t\t\t<hideicon>0</hideicon>\n\t\t\t<forbidforward>0</forbidforward>\n\t\t</liteapp>\n\t\t<opensdk_share_is_modified>0</opensdk_share_is_modified>\n\t</appmsg>\n\t<fromusername>wxid_5rl4lvr78fri22</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname></appname>\n\t</appinfo>\n\t<commenturl></commenturl>\n</msg>\n",
+      "raw_content_length": 11339,
+      "is_system": false,
+      "printable_ratio": 1.0
+    },
+    {
       "id": 8142,
       "db": "message_0.db",
       "local_id": 2747,
@@ -565,7 +597,23 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 15170,
+      "id": 13922,
+      "db": "message_0.db",
+      "local_id": 13933,
+      "timestamp": 1782353170,
+      "datetime": "2026-06-25 10:06:10",
+      "date": "2026-06-25",
+      "hour": 10,
+      "local_type": 81604378673,
+      "sender_id": "wxid_ms75m25tfiud22",
+      "sender_name": "阿梨Lean",
+      "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg>\n\t\t<title>阿梨Lean与文件传输助手的聊天记录</title>\n\t\t<des>阿梨Lean: [图片]\n阿梨Lean: [图片]\n阿梨Lean: [图片]\n阿梨Lean: [图片]\n阿梨Lean: [图片]...</des>\n\t\t<action>view</action>\n\t\t<type>19</type>\n\t\t<url>https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&amp;from=singlemessage&amp;isappinstalled=0</url>\n\t\t<recorditem><![CDATA[<recordinfo><title>阿梨Lean与文件传输助手的聊天记录</title><desc>阿梨Lean:&#x20;[图片]&#x0A;阿梨Lean:&#x20;[图片]&#x0A;阿梨Lean:&#x20;[图片]&#x0A;阿梨Lean:&#x20;[图片]&#x0A;阿梨Lean:&#x20;[图片]...</desc><datalist count=\"7\"><dataitem datatype=\"2\" dataid=\"b592eaf89da99b8c05f96cd2da376af3\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d0c042436386635393735372d656333622d346338342d613135352d653061343066633861306439020405982001020100040d004c57c2000000000000000000</cdnthumburl><cdnthumbkey>362aa55669d9f4270dc0abd37ebded87</cdnthumbkey><thumbfullmd5>eb0f9f7704883f5b534990d794ed6245</thumbfullmd5><thumbsize>6080</thumbsize><cdndataurl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d0b042430313938383866302d623034622d343663332d383561312d396134666336383663336538020405942001020100040d004c4d9a000000000000000000</cdndataurl><cdndatakey>2f3cfa5ccdd7dca958df0a75677a84a6</cdndatakey><fullmd5>9439ee2c08c9c52f672456fc57eaeb01</fullmd5><datasize>4608022</datasize><thumbwidth>102</thumbwidth><thumbheight>180</thumbheight><sourcename>阿梨Lean</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/2WfkCbuGadDVWiaHGmN0JOicrNQBceUXql9IH3hGbauQATRZ7QAddRk1ibERz2LTibLyZoJRxRfW7xDN9MOGAQiagLEh5g2Je505Z5OU4ZzQsSsDNf7eOe5Zgoqzq1zbQdfxJ/96</sourceheadurl><sourcetime>2026-06-25&#x20;10:03:35</sourcetime><srcMsgCreateTime>1782353015</srcMsgCreateTime><messageuuid>6867948f550ed145ac70829b86f5c0f5_</messageuuid><fromnewmsgid>717385134297697724</fromnewmsgid><dataitemsource><hashusername>5c9b7a43088fdfece6bac7c21750e916bfb546f95c3428c6b398db65ab223a36</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"8d3ee0f732bcfe802162da65acdf1744\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d0d042432373738336132622d623762612d343937372d393266372d336461323761666164323233020405982001020100040d004c57c2000000000000000000</cdnthumburl><cdnthumbkey>34b8ed924be39e2f1df8786d5510814c</cdnthumbkey><thumbfullmd5>c87a3b4d237d197c97c3aae3b23d80f1</thumbfullmd5><thumbsize>6046</thumbsize><cdndataurl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d0c042463326665343236362d313335362d343530302d623138322d613933333630616237643030020405942001020100040d004c4dfe000000000000000000</cdndataurl><cdndatakey>c80ee2bcd6b35817e6a15de08617d38d</cdndatakey><fullmd5>ffbf445c4d24d72ce38c1ab06e4860db</fullmd5><datasize>5064125</datasize><thumbwidth>102</thumbwidth><thumbheight>180</thumbheight><sourcename>阿梨Lean</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/2WfkCbuGadDVWiaHGmN0JOicrNQBceUXql9IH3hGbauQATRZ7QAddRk1ibERz2LTibLyZoJRxRfW7xDN9MOGAQiagLEh5g2Je505Z5OU4ZzQsSsDNf7eOe5Zgoqzq1zbQdfxJ/96</sourceheadurl><sourcetime>2026-06-25&#x20;10:03:36</sourcetime><srcMsgCreateTime>1782353016</srcMsgCreateTime><messageuuid>806fe4b5a077e9dd5521ded6273a72b9_</messageuuid><fromnewmsgid>5704250657808699661</fromnewmsgid><dataitemsource><hashusername>5c9b7a43088fdfece6bac7c21750e916bfb546f95c3428c6b398db65ab223a36</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"7969ae1e43042a04858f952c668a46ca\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d0e042434303063616633642d303730652d343438662d626539302d373332623530643831333564020405942001020100040d004c4dfe000000000000000000</cdnthumburl><cdnthumbkey>2cd93a15dc2dde7ded6c5300e5cb454d</cdnthumbkey><thumbfullmd5>a6ecbf01ca7d39de5dcb25d82b4eedd4</thumbfullmd5><thumbsize>6069</thumbsize><cdndataurl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d0d042439363338646361642d633265612d343765382d623964652d333130386464383661373732020405942001020100040d004c4dfe000000000000000000</cdndataurl><cdndatakey>7fd37e4bad015a60b8397d6361f08a7a</cdndatakey><fullmd5>bf31b7850bd68ed7d504ee6f63bf176d</fullmd5><datasize>4481205</datasize><thumbwidth>102</thumbwidth><thumbheight>180</thumbheight><sourcename>阿梨Lean</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/2WfkCbuGadDVWiaHGmN0JOicrNQBceUXql9IH3hGbauQATRZ7QAddRk1ibERz2LTibLyZoJRxRfW7xDN9MOGAQiagLEh5g2Je505Z5OU4ZzQsSsDNf7eOe5Zgoqzq1zbQdfxJ/96</sourceheadurl><sourcetime>2026-06-25&#x20;10:03:38</sourcetime><srcMsgCreateTime>1782353018</srcMsgCreateTime><messageuuid>465621d7662470a9c5ad9ee7046e34a4_</messageuuid><fromnewmsgid>5950767653572203539</fromnewmsgid><dataitemsource><hashusername>5c9b7a43088fdfece6bac7c21750e916bfb546f95c3428c6b398db65ab223a36</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"1b7609966a45e71e5bc03fa861d7b9de\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d0f042430396163343838322d633662642d343364632d623735372d353337636165343538643666020405942001020100040d004c5ae2000000000000000000</cdnthumburl><cdnthumbkey>c7973ed493a0e9525142953c3bfcba89</cdnthumbkey><thumbfullmd5>99647de69f2635ce22d91b26cb069184</thumbfullmd5><thumbsize>6035</thumbsize><cdndataurl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d0e042430326662363261612d353431332d343730352d393836612d383331306466326466313830020405982001020100040d004c57c2000000000000000000</cdndataurl><cdndatakey>49bb4d0b8814a2f74959b22ff9bffd7b</cdndatakey><fullmd5>963823c98c02a3319ccc027133929245</fullmd5><datasize>4446117</datasize><thumbwidth>102</thumbwidth><thumbheight>180</thumbheight><sourcename>阿梨Lean</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/2WfkCbuGadDVWiaHGmN0JOicrNQBceUXql9IH3hGbauQATRZ7QAddRk1ibERz2LTibLyZoJRxRfW7xDN9MOGAQiagLEh5g2Je505Z5OU4ZzQsSsDNf7eOe5Zgoqzq1zbQdfxJ/96</sourceheadurl><sourcetime>2026-06-25&#x20;10:03:39</sourcetime><srcMsgCreateTime>1782353019</srcMsgCreateTime><messageuuid>26aab1e6b3013330ce39162497b11448_</messageuuid><fromnewmsgid>3144265158677829809</fromnewmsgid><dataitemsource><hashusername>5c9b7a43088fdfece6bac7c21750e916bfb546f95c3428c6b398db65ab223a36</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"2430dd755fa0f71639e20b03ba38255c\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d10042465656233363531652d386465322d343736332d613139622d626639633766356432303839020405942001020100040d004c4d9a000000000000000000</cdnthumburl><cdnthumbkey>3724baa198069ee60132e47e55f5181a</cdnthumbkey><thumbfullmd5>158e0f9592c28bd26fc8035660b7d158</thumbfullmd5><thumbsize>5935</thumbsize><cdndataurl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d0f042462323863613730382d313135352d343638382d613537632d303334643638373231366166020405942001020100040d004c511e000000000000000000</cdndataurl><cdndatakey>23efa083845759efb902bbb6ea5d1dee</cdndatakey><fullmd5>86afb99a8e9b1dcf3dcfc106b228bfbb</fullmd5><datasize>5505428</datasize><thumbwidth>102</thumbwidth><thumbheight>180</thumbheight><sourcename>阿梨Lean</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/2WfkCbuGadDVWiaHGmN0JOicrNQBceUXql9IH3hGbauQATRZ7QAddRk1ibERz2LTibLyZoJRxRfW7xDN9MOGAQiagLEh5g2Je505Z5OU4ZzQsSsDNf7eOe5Zgoqzq1zbQdfxJ/96</sourceheadurl><sourcetime>2026-06-25&#x20;10:03:41</sourcetime><srcMsgCreateTime>1782353021</srcMsgCreateTime><messageuuid>6549783b075c2f995d952c8da2eeaa13_</messageuuid><fromnewmsgid>4412438184572374804</fromnewmsgid><dataitemsource><hashusername>5c9b7a43088fdfece6bac7c21750e916bfb546f95c3428c6b398db65ab223a36</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"6a773effeac165220de513e4897ea4a5\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d11042432666531636133302d623234372d343238392d393466642d643635626138663636353764020405942001020100040d004c4e62000000000000000000</cdnthumburl><cdnthumbkey>78fc6034e7f10cc48b03fbb7afaedada</cdnthumbkey><thumbfullmd5>d9ccdfdf278d45f1cecf7bd31dc4d1ea</thumbfullmd5><thumbsize>5905</thumbsize><cdndataurl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d10042466363235633334382d363266652d346563632d386235332d383431336334613065663637020405942001020100040d004c543e000000000000000000</cdndataurl><cdndatakey>6bcc09205a3d19f2c8a295e7b4a84d43</cdndatakey><fullmd5>b9cc7e4ca7c2be465302eb8158b9b8d8</fullmd5><datasize>4341681</datasize><thumbwidth>102</thumbwidth><thumbheight>180</thumbheight><sourcename>阿梨Lean</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/2WfkCbuGadDVWiaHGmN0JOicrNQBceUXql9IH3hGbauQATRZ7QAddRk1ibERz2LTibLyZoJRxRfW7xDN9MOGAQiagLEh5g2Je505Z5OU4ZzQsSsDNf7eOe5Zgoqzq1zbQdfxJ/96</sourceheadurl><sourcetime>2026-06-25&#x20;10:03:42</sourcetime><srcMsgCreateTime>1782353022</srcMsgCreateTime><messageuuid>9d69fe377da8cb8dc50c4ae823bf07af_</messageuuid><fromnewmsgid>2372456435606440002</fromnewmsgid><dataitemsource><hashusername>5c9b7a43088fdfece6bac7c21750e916bfb546f95c3428c6b398db65ab223a36</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"0be82b4835913e73fd665b758d72f36a\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d12042464616436626532362d383532302d343138392d386262312d663132396539633633393166020405982001020100040d004d1a4a000000000000000000</cdnthumburl><cdnthumbkey>0f3a6ff5e8f4335d36201caf5450dc69</cdnthumbkey><thumbfullmd5>7e76c0c8e778007498a424b58b3c9e2b</thumbfullmd5><thumbsize>6247</thumbsize><cdndataurl>305f020100044b3049020100020494c70c9202032f54ce02041766e12a02046a3c8d11042435333433616536612d313233322d346162332d613531632d356439646666663162663135020405942001020100040d004c543e000000000000000000</cdndataurl><cdndatakey>d2ba24b5ab2283c9c7c8ba7003a089a0</cdndatakey><fullmd5>edcaba611905e5f36996397bdb68923d</fullmd5><datasize>4398062</datasize><thumbwidth>102</thumbwidth><thumbheight>180</thumbheight><sourcename>阿梨Lean</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/2WfkCbuGadDVWiaHGmN0JOicrNQBceUXql9IH3hGbauQATRZ7QAddRk1ibERz2LTibLyZoJRxRfW7xDN9MOGAQiagLEh5g2Je505Z5OU4ZzQsSsDNf7eOe5Zgoqzq1zbQdfxJ/96</sourceheadurl><sourcetime>2026-06-25&#x20;10:03:43</sourcetime><srcMsgCreateTime>1782353023</srcMsgCreateTime><messageuuid>474c511318618cf300428ae0fd7db95d_</messageuuid><fromnewmsgid>1763584022470161498</fromnewmsgid><dataitemsource><hashusername>5c9b7a43088fdfece6bac7c21750e916bfb546f95c3428c6b398db65ab223a36</hashusername></dataitemsource></dataitem></datalist></recordinfo>]]></recorditem>\n\t\t<appattach />\n\t</appmsg><extcommoninfo>\n\t<media_expire_at>1783562770</media_expire_at>\n</extcommoninfo>\n\n\t<fromusername>wxid_ms75m25tfiud22</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname></appname>\n\t</appinfo>\n\t<commenturl></commenturl>\n</msg>\n",
+      "raw_content_length": 11007,
+      "is_system": false,
+      "printable_ratio": 1.0
+    },
+    {
+      "id": 16683,
       "db": "message_1.db",
       "local_id": 74,
       "timestamp": 1780380867,
@@ -581,7 +629,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 17388,
+      "id": 18901,
       "db": "message_1.db",
       "local_id": 2292,
       "timestamp": 1780670510,
@@ -597,7 +645,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 15845,
+      "id": 17358,
       "db": "message_1.db",
       "local_id": 749,
       "timestamp": 1780454408,
@@ -613,7 +661,7 @@
       "printable_ratio": 0.9999075443786982
     },
     {
-      "id": 15272,
+      "id": 16785,
       "db": "message_1.db",
       "local_id": 176,
       "timestamp": 1780382392,
@@ -629,7 +677,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 15403,
+      "id": 16916,
       "db": "message_1.db",
       "local_id": 307,
       "timestamp": 1780387401,
@@ -661,7 +709,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 15934,
+      "id": 17447,
       "db": "message_1.db",
       "local_id": 838,
       "timestamp": 1780474860,
@@ -725,6 +773,22 @@
       "printable_ratio": 1.0
     },
     {
+      "id": 14083,
+      "db": "message_0.db",
+      "local_id": 14094,
+      "timestamp": 1782371154,
+      "datetime": "2026-06-25 15:05:54",
+      "date": "2026-06-25",
+      "hour": 15,
+      "local_type": 25769803825,
+      "sender_id": "wxid_5g5xh3bnza4e22",
+      "sender_name": "cloris",
+      "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg appid=\"\" sdkver=\"0\">\n\t\t<title>树林”AI组织模式·深度分析报告.pdf</title>\n\t\t<des />\n\t\t<username />\n\t\t<action>view</action>\n\t\t<type>6</type>\n\t\t<showtype>0</showtype>\n\t\t<content />\n\t\t<url />\n\t\t<lowurl />\n\t\t<forwardflag>0</forwardflag>\n\t\t<dataurl />\n\t\t<lowdataurl />\n\t\t<contentattr>0</contentattr>\n\t\t<streamvideo>\n\t\t\t<streamvideourl />\n\t\t\t<streamvideototaltime>0</streamvideototaltime>\n\t\t\t<streamvideotitle />\n\t\t\t<streamvideowording />\n\t\t\t<streamvideoweburl />\n\t\t\t<streamvideothumburl />\n\t\t\t<streamvideoaduxinfo />\n\t\t\t<streamvideopublishid />\n\t\t</streamvideo>\n\t\t<canvasPageItem>\n\t\t\t<canvasPageXml><![CDATA[]]></canvasPageXml>\n\t\t</canvasPageItem>\n\t\t<appattach>\n\t\t\t<attachid>@cdn_305f020100044b304902010002046e488fc602032f59190204d8a90c7902046a3cd351042430346464653535372d343362662d343431632d623835652d343133393463343631343737020405240005020100040d004c543d000000000000000000_33656338366164376461396562613137_1</attachid>\n\t\t\t<cdnattachurl>305f020100044b304902010002046e488fc602032f59190204d8a90c7902046a3cd351042430346464653535372d343362662d343431632d623835652d343133393463343631343737020405240005020100040d004c543d000000000000000000</cdnattachurl>\n\t\t\t<totallen>290058</totallen>\n\t\t\t<aeskey>33656338366164376461396562613137</aeskey>\n\t\t\t<encryver>1</encryver>\n\t\t\t<fileext>pdf</fileext>\n\t\t\t<islargefilemsg>0</islargefilemsg>\n\t\t\t<overwrite_newmsgid>2372449557174182668</overwrite_newmsgid>\n\t\t\t<fileuploadtoken><![CDATA[v1_2vXER7iFZDJpa4D1Gt/m3gzs+R710IlCdwkBOnLrkhVjUwnhiTAve7nNqmcS0whSPSXtTPTAp3p3KV8dSFz0d1uM2TN4el+1y4KrElvxmM3hwKy1OaMXr3pU9HICHug4yVHD/gkZ16ZDQIBBXL8UdtiHv5ltu3bZMkAwCMAfW2wO+IMNxFEIh3DZ7QYRlaVxoSat90QuW1wR7kqjYvxsBJ9WhwWZ30yobc1sId3ZYEXK7TgWCAadNiI=]]></fileuploadtoken>\n\t\t</appattach>\n\t\t<extinfo />\n\t\t<androidsource>3</androidsource>\n\t\t<thumburl />\n\t\t<mediatagname />\n\t\t<messageaction><![CDATA[]]></messageaction>\n\t\t<messageext><![CDATA[]]></messageext>\n\t\t<emoticongift>\n\t\t\t<packageflag>0</packageflag>\n\t\t\t<packageid />\n\t\t</emoticongift>\n\t\t<emoticonshared>\n\t\t\t<packageflag>0</packageflag>\n\t\t\t<packageid />\n\t\t</emoticonshared>\n\t\t<designershared>\n\t\t\t<designeruin>0</designeruin>\n\t\t\t<designername>null</designername>\n\t\t\t<designerrediretcturl><![CDATA[null]]></designerrediretcturl>\n\t\t</designershared>\n\t\t<emotionpageshared>\n\t\t\t<tid>0</tid>\n\t\t\t<title>null</title>\n\t\t\t<desc>null</desc>\n\t\t\t<iconUrl><![CDATA[null]]></iconUrl>\n\t\t\t<secondUrl />\n\t\t\t<pageType>0</pageType>\n\t\t\t<setKey>null</setKey>\n\t\t</emotionpageshared>\n\t\t<webviewshared>\n\t\t\t<shareUrlOriginal />\n\t\t\t<shareUrlOpen />\n\t\t\t<jsAppId />\n\t\t\t<publisherId />\n\t\t\t<publisherReqId />\n\t\t</webviewshared>\n\t\t<template_id />\n\t\t<md5>f935eab172e8ab9cdfaa63ff4de74fc2</md5>\n\t\t<websearch />\n\t\t<weappinfo>\n\t\t\t<username />\n\t\t\t<appid />\n\t\t\t<appservicetype>0</appservicetype>\n\t\t\t<secflagforsinglepagemode>0</secflagforsinglepagemode>\n\t\t\t<videopageinfo>\n\t\t\t\t<thumbwidth>0</thumbwidth>\n\t\t\t\t<thumbheight>0</thumbheight>\n\t\t\t\t<fromopensdk>0</fromopensdk>\n\t\t\t</videopageinfo>\n\t\t</weappinfo>\n\t\t<statextstr />\n\t\t<musicShareItem>\n\t\t\t<musicDuration>0</musicDuration>\n\t\t</musicShareItem>\n\t\t<finderLiveProductShare>\n\t\t\t<finderLiveID><![CDATA[]]></finderLiveID>\n\t\t\t<finderUsername><![CDATA[]]></finderUsername>\n\t\t\t<finderObjectID><![CDATA[]]></finderObjectID>\n\t\t\t<finderNonceID><![CDATA[]]></finderNonceID>\n\t\t\t<liveStatus><![CDATA[]]></liveStatus>\n\t\t\t<appId><![CDATA[]]></appId>\n\t\t\t<pagePath><![CDATA[]]></pagePath>\n\t\t\t<productId><![CDATA[]]></productId>\n\t\t\t<coverUrl><![CDATA[]]></coverUrl>\n\t\t\t<productTitle><![CDATA[]]></productTitle>\n\t\t\t<marketPrice><![CDATA[0]]></marketPrice>\n\t\t\t<sellingPrice><![CDATA[0]]></sellingPrice>\n\t\t\t<platformHeadImg><![CDATA[]]></platformHeadImg>\n\t\t\t<platformName><![CDATA[]]></platformName>\n\t\t\t<shopWindowId><![CDATA[]]></shopWindowId>\n\t\t\t<flashSalePrice><![CDATA[0]]></flashSalePrice>\n\t\t\t<flashSaleEndTime><![CDATA[0]]></flashSaleEndTime>\n\t\t\t<ecSource><![CDATA[]]></ecSource>\n\t\t\t<sellingPriceWording><![CDATA[]]></sellingPriceWording>\n\t\t\t<platformIconURL><![CDATA[]]></platformIconURL>\n\t\t\t<firstProductTagURL><![CDATA[]]></firstProductTagURL>\n\t\t\t<firstProductTagAspectRatioString><![CDATA[0.0]]></firstProductTagAspectRatioString>\n\t\t\t<secondProductTagURL><![CDATA[]]></secondProductTagURL>\n\t\t\t<secondProductTagAspectRatioString><![CDATA[0.0]]></secondProductTagAspectRatioString>\n\t\t\t<firstGuaranteeWording><![CDATA[]]></firstGuaranteeWording>\n\t\t\t<secondGuaranteeWording><![CDATA[]]></secondGuaranteeWording>\n\t\t\t<thirdGuaranteeWording><![CDATA[]]></thirdGuaranteeWording>\n\t\t\t<isPriceBeginShow>false</isPriceBeginShow>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t\t<promoterKey><![CDATA[]]></promoterKey>\n\t\t\t<discountWording><![CDATA[]]></discountWording>\n\t\t\t<priceSuffixDescription><![CDATA[]]></priceSuffixDescription>\n\t\t\t<productCardKey><![CDATA[]]></productCardKey>\n\t\t\t<isWxShop><![CDATA[]]></isWxShop>\n\t\t\t<brandIconUrl><![CDATA[]]></brandIconUrl>\n\t\t\t<rIconUrl><![CDATA[]]></rIconUrl>\n\t\t\t<rIconUrlDarkMode><![CDATA[]]></rIconUrlDarkMode>\n\t\t\t<topShopIconUrl><![CDATA[]]></topShopIconUrl>\n\t\t\t<topShopIconUrlDarkMode><![CDATA[]]></topShopIconUrlDarkMode>\n\t\t\t<simplifyTopShopIconUrl><![CDATA[]]></simplifyTopShopIconUrl>\n\t\t\t<simplifyTopShopIconUrlDarkmode><![CDATA[]]></simplifyTopShopIconUrlDarkmode>\n\t\t\t<topShopIconWidth><![CDATA[0]]></topShopIconWidth>\n\t\t\t<topShopIconHeight><![CDATA[0]]></topShopIconHeight>\n\t\t\t<simplifyTopShopIconWidth><![CDATA[0]]></simplifyTopShopIconWidth>\n\t\t\t<simplifyTopShopIconHeight><![CDATA[0]]></simplifyTopShopIconHeight>\n\t\t\t<maskPriceWording><![CDATA[]]></maskPriceWording>\n\t\t\t<showBoxItemStringList />\n\t\t</finderLiveProductShare>\n\t\t<finderOrder>\n\t\t\t<appID><![CDATA[]]></appID>\n\t\t\t<orderID><![CDATA[]]></orderID>\n\t\t\t<path><![CDATA[]]></path>\n\t\t\t<priceWording><![CDATA[]]></priceWording>\n\t\t\t<stateWording><![CDATA[]]></stateWording>\n\t\t\t<productImageURL><![CDATA[]]></productImageURL>\n\t\t\t<products><![CDATA[]]></products>\n\t\t\t<productsCount><![CDATA[0]]></productsCount>\n\t\t\t<orderType><![CDATA[0]]></orderType>\n\t\t\t<newPriceWording><![CDATA[]]></newPriceWording>\n\t\t\t<newStateWording><![CDATA[]]></newStateWording>\n\t\t\t<useNewWording><![CDATA[0]]></useNewWording>\n\t\t</finderOrder>\n\t\t<finderShopWindowShare>\n\t\t\t<finderUsername><![CDATA[]]></finderUsername>\n\t\t\t<avatar><![CDATA[]]></avatar>\n\t\t\t<nickname><![CDATA[]]></nickname>\n\t\t\t<commodityInStockCount><![CDATA[]]></commodityInStockCount>\n\t\t\t<appId><![CDATA[]]></appId>\n\t\t\t<path><![CDATA[]]></path>\n\t\t\t<appUsername><![CDATA[]]></appUsername>\n\t\t\t<query><![CDATA[]]></query>\n\t\t\t<liteAppId><![CDATA[]]></liteAppId>\n\t\t\t<liteAppPath><![CDATA[]]></liteAppPath>\n\t\t\t<liteAppQuery><![CDATA[]]></liteAppQuery>\n\t\t\t<platformTagURL><![CDATA[]]></platformTagURL>\n\t\t\t<saleWording><![CDATA[]]></saleWording>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t\t<profileTypeWording><![CDATA[]]></profileTypeWording>\n\t\t\t<saleWordingExtra><![CDATA[]]></saleWordingExtra>\n\t\t\t<isWxShop><![CDATA[]]></isWxShop>\n\t\t\t<platformIconUrl><![CDATA[]]></platformIconUrl>\n\t\t\t<brandIconUrl><![CDATA[]]></brandIconUrl>\n\t\t\t<description><![CDATA[]]></description>\n\t\t\t<backgroundUrl><![CDATA[]]></backgroundUrl>\n\t\t\t<darkModePlatformIconUrl><![CDATA[]]></darkModePlatformIconUrl>\n\t\t\t<rIconUrl><![CDATA[]]></rIconUrl>\n\t\t\t<rIconUrlDarkMode><![CDATA[]]></rIconUrlDarkMode>\n\t\t\t<rWords><![CDATA[]]></rWords>\n\t\t\t<topShopIconUrl><![CDATA[]]></topShopIconUrl>\n\t\t\t<topShopIconUrlDarkMode><![CDATA[]]></topShopIconUrlDarkMode>\n\t\t\t<simplifyTopShopIconUrl><![CDATA[]]></simplifyTopShopIconUrl>\n\t\t\t<simplifyTopShopIconUrlDarkmode><![CDATA[]]></simplifyTopShopIconUrlDarkmode>\n\t\t\t<topShopIconWidth><![CDATA[0]]></topShopIconWidth>\n\t\t\t<topShopIconHeight><![CDATA[0]]></topShopIconHeight>\n\t\t\t<simplifyTopShopIconWidth><![CDATA[0]]></simplifyTopShopIconWidth>\n\t\t\t<simplifyTopShopIconHeight><![CDATA[0]]></simplifyTopShopIconHeight>\n\t\t\t<reputationInfo>\n\t\t\t\t<hasReputationInfo>0</hasReputationInfo>\n\t\t\t\t<reputationScore>0</reputationScore>\n\t\t\t\t<reputationWording />\n\t\t\t\t<reputationTextColor />\n\t\t\t\t<reputationLevelWording />\n\t\t\t\t<reputationBackgroundColor />\n\t\t\t</reputationInfo>\n\t\t\t<productImageURLList />\n\t\t</finderShopWindowShare>\n\t\t<findernamecard>\n\t\t\t<username />\n\t\t\t<avatar><![CDATA[]]></avatar>\n\t\t\t<nickname />\n\t\t\t<auth_job />\n\t\t\t<auth_icon>0</auth_icon>\n\t\t\t<auth_icon_url />\n\t\t\t<ecSource><![CDATA[]]></ecSource>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t</findernamecard>\n\t\t<finderGuarantee>\n\t\t\t<scene><![CDATA[0]]></scene>\n\t\t</finderGuarantee>\n\t\t<directshare>0</directshare>\n\t\t<gamecenter>\n\t\t\t<namecard>\n\t\t\t\t<iconUrl />\n\t\t\t\t<name />\n\t\t\t\t<desc />\n\t\t\t\t<tail />\n\t\t\t\t<jumpUrl />\n\t\t\t\t<liteappId />\n\t\t\t\t<liteappPath />\n\t\t\t\t<liteappQuery />\n\t\t\t\t<liteappMinVersion />\n\t\t\t</namecard>\n\t\t</gamecenter>\n\t\t<patMsg>\n\t\t\t<chatUser />\n\t\t\t<records>\n\t\t\t\t<recordNum>0</recordNum>\n\t\t\t</records>\n\t\t</patMsg>\n\t\t<secretmsg>\n\t\t\t<issecretmsg>0</issecretmsg>\n\t\t</secretmsg>\n\t\t<referfromscene>0</referfromscene>\n\t\t<gameshare>\n\t\t\t<liteappext>\n\t\t\t\t<liteappbizdata />\n\t\t\t\t<priority>0</priority>\n\t\t\t</liteappext>\n\t\t\t<appbrandext>\n\t\t\t\t<litegameinfo />\n\t\t\t\t<priority>-1</priority>\n\t\t\t</appbrandext>\n\t\t\t<gameshareid />\n\t\t\t<sharedata />\n\t\t\t<isvideo>0</isvideo>\n\t\t\t<duration>0</duration>\n\t\t\t<isexposed>0</isexposed>\n\t\t\t<readtext />\n\t\t</gameshare>\n\t\t<tingChatRoomItem>\n\t\t\t<type>0</type>\n\t\t\t<categoryItem>null</categoryItem>\n\t\t\t<listenItem>null</listenItem>\n\t\t</tingChatRoomItem>\n\t\t<mpsharetrace>\n\t\t\t<hasfinderelement>0</hasfinderelement>\n\t\t\t<lastgmsgid />\n\t\t</mpsharetrace>\n\t\t<wxgamecard>\n\t\t\t<framesetname />\n\t\t\t<mbcarddata />\n\t\t\t<minpkgversion />\n\t\t\t<clientextinfo />\n\t\t\t<mbcardheight>0</mbcardheight>\n\t\t\t<isoldversion>0</isoldversion>\n\t\t</wxgamecard>\n\t\t<ecskfcard>\n\t\t\t<framesetname />\n\t\t\t<mbcarddata />\n\t\t\t<minupdateunixtimestamp>0</minupdateunixtimestamp>\n\t\t\t<needheader>false</needheader>\n\t\t\t<summary />\n\t\t</ecskfcard>\n\t\t<liteapp>\n\t\t\t<id>null</id>\n\t\t\t<path />\n\t\t\t<query />\n\t\t\t<istransparent>0</istransparent>\n\t\t\t<hideicon>0</hideicon>\n\t\t\t<forbidforward>0</forbidforward>\n\t\t</liteapp>\n\t\t<opensdk_share_is_modified>0</opensdk_share_is_modified>\n\t</appmsg>\n\t<extcommoninfo>\n\t\t<media_expire_at>1783580754</media_expire_at>\n\t</extcommoninfo>\n\t<fromusername>wxid_5g5xh3bnza4e22</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname />\n\t</appinfo>\n\t<commenturl />\n</msg>\n",
+      "raw_content_length": 10180,
+      "is_system": false,
+      "printable_ratio": 1.0
+    },
+    {
       "id": 1623,
       "db": "message_0.db",
       "local_id": 8785,
@@ -737,6 +801,22 @@
       "sender_name": "一个假装自己是人的人",
       "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg appid=\"\" sdkver=\"0\">\n\t\t<title>我感觉豆包生成的也不错，这个是免费版本</title>\n\t\t<des />\n\t\t<username />\n\t\t<action>view</action>\n\t\t<type>57</type>\n\t\t<showtype>0</showtype>\n\t\t<content />\n\t\t<url />\n\t\t<lowurl />\n\t\t<forwardflag>0</forwardflag>\n\t\t<dataurl />\n\t\t<lowdataurl />\n\t\t<contentattr>0</contentattr>\n\t\t<streamvideo>\n\t\t\t<streamvideourl />\n\t\t\t<streamvideototaltime>0</streamvideototaltime>\n\t\t\t<streamvideotitle />\n\t\t\t<streamvideowording />\n\t\t\t<streamvideoweburl />\n\t\t\t<streamvideothumburl />\n\t\t\t<streamvideoaduxinfo />\n\t\t\t<streamvideopublishid />\n\t\t</streamvideo>\n\t\t<canvasPageItem>\n\t\t\t<canvasPageXml><![CDATA[]]></canvasPageXml>\n\t\t</canvasPageItem>\n\t\t<refermsg>\n\t\t\t<type>43</type>\n\t\t\t<svrid>8595956752993856733</svrid>\n\t\t\t<fromusr>48997819170@chatroom</fromusr>\n\t\t\t<chatusr>wxid_10gxfodap3rf12</chatusr>\n\t\t\t<displayname>Roderick-广州- Ai工程师</displayname>\n\t\t\t<msgsource>&lt;msgsource&gt;\n\t&lt;bizflag&gt;0&lt;/bizflag&gt;\n\t&lt;sec_msg_node&gt;\n\t\t&lt;uuid&gt;4a677fbf5e80ab413af100f386939291_&lt;/uuid&gt;\n\t\t&lt;risk-file-flag /&gt;\n\t\t&lt;risk-file-md5-list /&gt;\n\t&lt;/sec_msg_node&gt;\n\t&lt;silence&gt;1&lt;/silence&gt;\n\t&lt;membercount&gt;311&lt;/membercount&gt;\n\t&lt;signature&gt;N0_V1_+IZMlxzI|v1_A5xKLCFq&lt;/signature&gt;\n\t&lt;tmp_node&gt;\n\t\t&lt;publisher-id&gt;&lt;/publisher-id&gt;\n\t&lt;/tmp_node&gt;\n&lt;/msgsource&gt;\n</msgsource>\n\t\t\t<content>156:0\n</content>\n\t\t\t<strid />\n\t\t\t<createtime>1781075925</createtime>\n\t\t\t<fromusername_to_imunion><![CDATA[wxid_10gxfodap3rf12]]></fromusername_to_imunion>\n\t\t</refermsg>\n\t\t<appattach>\n\t\t\t<totallen>0</totallen>\n\t\t\t<attachid />\n\t\t\t<cdnattachurl />\n\t\t\t<emoticonmd5 />\n\t\t\t<aeskey />\n\t\t\t<fileext />\n\t\t\t<islargefilemsg>0</islargefilemsg>\n\t\t</appattach>\n\t\t<extinfo />\n\t\t<androidsource>0</androidsource>\n\t\t<thumburl />\n\t\t<mediatagname />\n\t\t<messageaction><![CDATA[]]></messageaction>\n\t\t<messageext><![CDATA[]]></messageext>\n\t\t<emoticongift>\n\t\t\t<packageflag>0</packageflag>\n\t\t\t<packageid />\n\t\t</emoticongift>\n\t\t<emoticonshared>\n\t\t\t<packageflag>0</packageflag>\n\t\t\t<packageid />\n\t\t</emoticonshared>\n\t\t<designershared>\n\t\t\t<designeruin>0</designeruin>\n\t\t\t<designername>null</designername>\n\t\t\t<designerrediretcturl><![CDATA[null]]></designerrediretcturl>\n\t\t</designershared>\n\t\t<emotionpageshared>\n\t\t\t<tid>0</tid>\n\t\t\t<title>null</title>\n\t\t\t<desc>null</desc>\n\t\t\t<iconUrl><![CDATA[null]]></iconUrl>\n\t\t\t<secondUrl>null</secondUrl>\n\t\t\t<pageType>0</pageType>\n\t\t\t<setKey>null</setKey>\n\t\t</emotionpageshared>\n\t\t<webviewshared>\n\t\t\t<shareUrlOriginal />\n\t\t\t<shareUrlOpen />\n\t\t\t<jsAppId />\n\t\t\t<publisherId />\n\t\t\t<publisherReqId />\n\t\t</webviewshared>\n\t\t<template_id />\n\t\t<md5 />\n\t\t<websearch>\n\t\t\t<rec_category>0</rec_category>\n\t\t\t<channelId>0</channelId>\n\t\t</websearch>\n\t\t<weappinfo>\n\t\t\t<username />\n\t\t\t<appid />\n\t\t\t<appservicetype>0</appservicetype>\n\t\t\t<secflagforsinglepagemode>0</secflagforsinglepagemode>\n\t\t\t<videopageinfo>\n\t\t\t\t<thumbwidth>0</thumbwidth>\n\t\t\t\t<thumbheight>0</thumbheight>\n\t\t\t\t<fromopensdk>0</fromopensdk>\n\t\t\t</videopageinfo>\n\t\t</weappinfo>\n\t\t<statextstr />\n\t\t<musicShareItem>\n\t\t\t<musicDuration>0</musicDuration>\n\t\t</musicShareItem>\n\t\t<finderLiveProductShare>\n\t\t\t<finderLiveID><![CDATA[]]></finderLiveID>\n\t\t\t<finderUsername><![CDATA[]]></finderUsername>\n\t\t\t<finderObjectID><![CDATA[]]></finderObjectID>\n\t\t\t<finderNonceID><![CDATA[]]></finderNonceID>\n\t\t\t<liveStatus><![CDATA[]]></liveStatus>\n\t\t\t<appId><![CDATA[]]></appId>\n\t\t\t<pagePath><![CDATA[]]></pagePath>\n\t\t\t<productId><![CDATA[]]></productId>\n\t\t\t<coverUrl><![CDATA[]]></coverUrl>\n\t\t\t<productTitle><![CDATA[]]></productTitle>\n\t\t\t<marketPrice><![CDATA[0]]></marketPrice>\n\t\t\t<sellingPrice><![CDATA[0]]></sellingPrice>\n\t\t\t<platformHeadImg><![CDATA[]]></platformHeadImg>\n\t\t\t<platformName><![CDATA[]]></platformName>\n\t\t\t<shopWindowId><![CDATA[]]></shopWindowId>\n\t\t\t<flashSalePrice><![CDATA[0]]></flashSalePrice>\n\t\t\t<flashSaleEndTime><![CDATA[0]]></flashSaleEndTime>\n\t\t\t<ecSource><![CDATA[]]></ecSource>\n\t\t\t<sellingPriceWording><![CDATA[]]></sellingPriceWording>\n\t\t\t<platformIconURL><![CDATA[]]></platformIconURL>\n\t\t\t<firstProductTagURL><![CDATA[]]></firstProductTagURL>\n\t\t\t<firstProductTagAspectRatioString><![CDATA[0.0]]></firstProductTagAspectRatioString>\n\t\t\t<secondProductTagURL><![CDATA[]]></secondProductTagURL>\n\t\t\t<secondProductTagAspectRatioString><![CDATA[0.0]]></secondProductTagAspectRatioString>\n\t\t\t<firstGuaranteeWording><![CDATA[]]></firstGuaranteeWording>\n\t\t\t<secondGuaranteeWording><![CDATA[]]></secondGuaranteeWording>\n\t\t\t<thirdGuaranteeWording><![CDATA[]]></thirdGuaranteeWording>\n\t\t\t<isPriceBeginShow>false</isPriceBeginShow>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t\t<promoterKey><![CDATA[]]></promoterKey>\n\t\t\t<discountWording><![CDATA[]]></discountWording>\n\t\t\t<priceSuffixDescription><![CDATA[]]></priceSuffixDescription>\n\t\t\t<productCardKey><![CDATA[]]></productCardKey>\n\t\t\t<isWxShop><![CDATA[]]></isWxShop>\n\t\t\t<brandIconUrl><![CDATA[]]></brandIconUrl>\n\t\t\t<rIconUrl><![CDATA[]]></rIconUrl>\n\t\t\t<rIconUrlDarkMode><![CDATA[]]></rIconUrlDarkMode>\n\t\t\t<topShopIconUrl><![CDATA[]]></topShopIconUrl>\n\t\t\t<topShopIconUrlDarkMode><![CDATA[]]></topShopIconUrlDarkMode>\n\t\t\t<simplifyTopShopIconUrl><![CDATA[]]></simplifyTopShopIconUrl>\n\t\t\t<simplifyTopShopIconUrlDarkmode><![CDATA[]]></simplifyTopShopIconUrlDarkmode>\n\t\t\t<topShopIconWidth><![CDATA[0]]></topShopIconWidth>\n\t\t\t<topShopIconHeight><![CDATA[0]]></topShopIconHeight>\n\t\t\t<simplifyTopShopIconWidth><![CDATA[0]]></simplifyTopShopIconWidth>\n\t\t\t<simplifyTopShopIconHeight><![CDATA[0]]></simplifyTopShopIconHeight>\n\t\t\t<maskPriceWording><![CDATA[]]></maskPriceWording>\n\t\t\t<showBoxItemStringList />\n\t\t</finderLiveProductShare>\n\t\t<finderOrder>\n\t\t\t<appID><![CDATA[]]></appID>\n\t\t\t<orderID><![CDATA[]]></orderID>\n\t\t\t<path><![CDATA[]]></path>\n\t\t\t<priceWording><![CDATA[]]></priceWording>\n\t\t\t<stateWording><![CDATA[]]></stateWording>\n\t\t\t<productImageURL><![CDATA[]]></productImageURL>\n\t\t\t<products><![CDATA[]]></products>\n\t\t\t<productsCount><![CDATA[0]]></productsCount>\n\t\t\t<orderType><![CDATA[0]]></orderType>\n\t\t\t<newPriceWording><![CDATA[]]></newPriceWording>\n\t\t\t<newStateWording><![CDATA[]]></newStateWording>\n\t\t\t<useNewWording><![CDATA[0]]></useNewWording>\n\t\t</finderOrder>\n\t\t<finderShopWindowShare>\n\t\t\t<finderUsername><![CDATA[]]></finderUsername>\n\t\t\t<avatar><![CDATA[]]></avatar>\n\t\t\t<nickname><![CDATA[]]></nickname>\n\t\t\t<commodityInStockCount><![CDATA[]]></commodityInStockCount>\n\t\t\t<appId><![CDATA[]]></appId>\n\t\t\t<path><![CDATA[]]></path>\n\t\t\t<appUsername><![CDATA[]]></appUsername>\n\t\t\t<query><![CDATA[]]></query>\n\t\t\t<liteAppId><![CDATA[]]></liteAppId>\n\t\t\t<liteAppPath><![CDATA[]]></liteAppPath>\n\t\t\t<liteAppQuery><![CDATA[]]></liteAppQuery>\n\t\t\t<platformTagURL><![CDATA[]]></platformTagURL>\n\t\t\t<saleWording><![CDATA[]]></saleWording>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t\t<profileTypeWording><![CDATA[]]></profileTypeWording>\n\t\t\t<saleWordingExtra><![CDATA[]]></saleWordingExtra>\n\t\t\t<isWxShop><![CDATA[]]></isWxShop>\n\t\t\t<platformIconUrl><![CDATA[]]></platformIconUrl>\n\t\t\t<brandIconUrl><![CDATA[]]></brandIconUrl>\n\t\t\t<description><![CDATA[]]></description>\n\t\t\t<backgroundUrl><![CDATA[]]></backgroundUrl>\n\t\t\t<darkModePlatformIconUrl><![CDATA[]]></darkModePlatformIconUrl>\n\t\t\t<rIconUrl><![CDATA[]]></rIconUrl>\n\t\t\t<rIconUrlDarkMode><![CDATA[]]></rIconUrlDarkMode>\n\t\t\t<rWords><![CDATA[]]></rWords>\n\t\t\t<topShopIconUrl><![CDATA[]]></topShopIconUrl>\n\t\t\t<topShopIconUrlDarkMode><![CDATA[]]></topShopIconUrlDarkMode>\n\t\t\t<simplifyTopShopIconUrl><![CDATA[]]></simplifyTopShopIconUrl>\n\t\t\t<simplifyTopShopIconUrlDarkmode><![CDATA[]]></simplifyTopShopIconUrlDarkmode>\n\t\t\t<topShopIconWidth><![CDATA[0]]></topShopIconWidth>\n\t\t\t<topShopIconHeight><![CDATA[0]]></topShopIconHeight>\n\t\t\t<simplifyTopShopIconWidth><![CDATA[0]]></simplifyTopShopIconWidth>\n\t\t\t<simplifyTopShopIconHeight><![CDATA[0]]></simplifyTopShopIconHeight>\n\t\t\t<reputationInfo>\n\t\t\t\t<hasReputationInfo>0</hasReputationInfo>\n\t\t\t\t<reputationScore>0</reputationScore>\n\t\t\t\t<reputationWording />\n\t\t\t\t<reputationTextColor />\n\t\t\t\t<reputationLevelWording />\n\t\t\t\t<reputationBackgroundColor />\n\t\t\t</reputationInfo>\n\t\t\t<productImageURLList />\n\t\t</finderShopWindowShare>\n\t\t<findernamecard>\n\t\t\t<username />\n\t\t\t<avatar><![CDATA[]]></avatar>\n\t\t\t<nickname />\n\t\t\t<auth_job />\n\t\t\t<auth_icon>0</auth_icon>\n\t\t\t<auth_icon_url />\n\t\t\t<ecSource><![CDATA[]]></ecSource>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t</findernamecard>\n\t\t<finderGuarantee>\n\t\t\t<scene><![CDATA[0]]></scene>\n\t\t</finderGuarantee>\n\t\t<directshare>0</directshare>\n\t\t<gamecenter>\n\t\t\t<namecard>\n\t\t\t\t<iconUrl />\n\t\t\t\t<name />\n\t\t\t\t<desc />\n\t\t\t\t<tail />\n\t\t\t\t<jumpUrl />\n\t\t\t\t<liteappId />\n\t\t\t\t<liteappPath />\n\t\t\t\t<liteappQuery />\n\t\t\t\t<liteappMinVersion />\n\t\t\t</namecard>\n\t\t</gamecenter>\n\t\t<patMsg>\n\t\t\t<chatUser />\n\t\t\t<records>\n\t\t\t\t<recordNum>0</recordNum>\n\t\t\t</records>\n\t\t</patMsg>\n\t\t<secretmsg>\n\t\t\t<issecretmsg>0</issecretmsg>\n\t\t</secretmsg>\n\t\t<referfromscene>0</referfromscene>\n\t\t<gameshare>\n\t\t\t<liteappext>\n\t\t\t\t<liteappbizdata />\n\t\t\t\t<priority>0</priority>\n\t\t\t</liteappext>\n\t\t\t<appbrandext>\n\t\t\t\t<litegameinfo />\n\t\t\t\t<priority>-1</priority>\n\t\t\t</appbrandext>\n\t\t\t<gameshareid />\n\t\t\t<sharedata />\n\t\t\t<isvideo>0</isvideo>\n\t\t\t<duration>-1</duration>\n\t\t\t<isexposed>0</isexposed>\n\t\t\t<readtext />\n\t\t</gameshare>\n\t\t<tingChatRoomItem>\n\t\t\t<type>0</type>\n\t\t\t<categoryItem>null</categoryItem>\n\t\t\t<categoryId />\n\t\t\t<listenItem>null</listenItem>\n\t\t</tingChatRoomItem>\n\t\t<mpsharetrace>\n\t\t\t<hasfinderelement>0</hasfinderelement>\n\t\t\t<lastgmsgid />\n\t\t</mpsharetrace>\n\t\t<wxgamecard>\n\t\t\t<framesetname />\n\t\t\t<mbcarddata />\n\t\t\t<minpkgversion />\n\t\t\t<clientextinfo />\n\t\t\t<mbcardheight>0</mbcardheight>\n\t\t\t<isoldversion>0</isoldversion>\n\t\t</wxgamecard>\n\t\t<ecskfcard>\n\t\t\t<framesetname />\n\t\t\t<mbcarddata />\n\t\t\t<minupdateunixtimestamp>0</minupdateunixtimestamp>\n\t\t\t<needheader>false</needheader>\n\t\t\t<summary />\n\t\t</ecskfcard>\n\t\t<liteapp>\n\t\t\t<id>null</id>\n\t\t\t<path />\n\t\t\t<query />\n\t\t\t<istransparent>0</istransparent>\n\t\t\t<hideicon>0</hideicon>\n\t\t\t<forbidforward>0</forbidforward>\n\t\t</liteapp>\n\t\t<opensdk_share_is_modified>0</opensdk_share_is_modified>\n\t</appmsg>\n\t<fromusername>wxid_aphljr8xmx6z22</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname></appname>\n\t</appinfo>\n\t<commenturl></commenturl>\n</msg>\n",
       "raw_content_length": 10179,
+      "is_system": false,
+      "printable_ratio": 1.0
+    },
+    {
+      "id": 15152,
+      "db": "message_0.db",
+      "local_id": 15163,
+      "timestamp": 1782582322,
+      "datetime": "2026-06-28 01:45:22",
+      "date": "2026-06-28",
+      "hour": 1,
+      "local_type": 81604378673,
+      "sender_id": "wxid_d3qxz66cce6622",
+      "sender_name": "树林",
+      "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg appid=\"\" sdkver=\"0\">\n\t\t<title>树林和知有的聊天记录</title>\n\t\t<des>知有: 今天稍微感受到一个推销的小技巧\n知有: 事情还要从昨天开始讲,当时和我的同学在闲聊，聊着聊着就我就向他稍微展示了一下我在AI方面所学到的东西\n知有: 这个时候,他就是表现的比较佩服我吧\n知有: 之后我们又聊到了我一个空闲，但是全新的耳机</des>\n\t\t<type>19</type>\n\t\t<url>https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport</url>\n\t\t<appattach>\n\t\t\t<cdnthumbaeskey />\n\t\t\t<aeskey />\n\t\t</appattach>\n\t\t<recorditem><![CDATA[<recordinfo><info>知有: 今天稍微感受到一个推销的小技巧\n知有: 事情还要从昨天开始讲,当时和我的同学在闲聊，聊着聊着就我就向他稍微展示了一下我在AI方面所学到的东西\n知有: 这个时候,他就是表现的比较佩服我吧\n知有: 之后我们又聊到了我一个空闲，但是全新的耳机</info><datalist count=\"13\"><dataitem datatype=\"1\" dataid=\"819e39a2a377c4090d57945e61685684\"><srcMsgLocalid>23</srcMsgLocalid><sourcetime>2026-6-27 21:29</sourcetime><fromnewmsgid>3242633861531141246</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782566942</srcMsgCreateTime><datadesc>今天稍微感受到一个推销的小技巧</datadesc><filetype>0</filetype><dataitemsource><hashusername>09a356404ab40c54854ae9250d20fe654edfdb7cd62fbccbe129a93cdb15c3e7</hashusername></dataitemsource><sourcename>知有</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/GqODRSlia5YasKFPAfiadgQVLfUQMH5L1YBmuA2TklcYRGBTCwlXcyP4vhGSFF6TkVIxgom6F8ibWGYlYXQcmHCaicPNCbHZdjdLx0qdT87lntpj98uSYXydU0JhAvoguMIT/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"94677455985100b18ddd9b98bdb26139\"><srcMsgLocalid>24</srcMsgLocalid><sourcetime>2026-6-27 21:29</sourcetime><fromnewmsgid>1800834959290529581</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782566965</srcMsgCreateTime><datadesc>事情还要从昨天开始讲,当时和我的同学在闲聊，聊着聊着就我就向他稍微展示了一下我在AI方面所学到的东西</datadesc><filetype>0</filetype><dataitemsource><hashusername>09a356404ab40c54854ae9250d20fe654edfdb7cd62fbccbe129a93cdb15c3e7</hashusername></dataitemsource><sourcename>知有</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/GqODRSlia5YasKFPAfiadgQVLfUQMH5L1YBmuA2TklcYRGBTCwlXcyP4vhGSFF6TkVIxgom6F8ibWGYlYXQcmHCaicPNCbHZdjdLx0qdT87lntpj98uSYXydU0JhAvoguMIT/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"64a7ea945d8e25f1c2f5c21bf17d3cfc\"><srcMsgLocalid>25</srcMsgLocalid><sourcetime>2026-6-27 21:29</sourcetime><fromnewmsgid>5723581849293469478</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782566982</srcMsgCreateTime><datadesc>这个时候,他就是表现的比较佩服我吧</datadesc><filetype>0</filetype><dataitemsource><hashusername>09a356404ab40c54854ae9250d20fe654edfdb7cd62fbccbe129a93cdb15c3e7</hashusername></dataitemsource><sourcename>知有</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/GqODRSlia5YasKFPAfiadgQVLfUQMH5L1YBmuA2TklcYRGBTCwlXcyP4vhGSFF6TkVIxgom6F8ibWGYlYXQcmHCaicPNCbHZdjdLx0qdT87lntpj98uSYXydU0JhAvoguMIT/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"aac38852ac0a64a9b80fb8b03aadc5b5\"><srcMsgLocalid>26</srcMsgLocalid><sourcetime>2026-6-27 21:30</sourcetime><fromnewmsgid>8661786015277807402</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782567008</srcMsgCreateTime><datadesc>之后我们又聊到了我一个空闲，但是全新的耳机</datadesc><filetype>0</filetype><dataitemsource><hashusername>09a356404ab40c54854ae9250d20fe654edfdb7cd62fbccbe129a93cdb15c3e7</hashusername></dataitemsource><sourcename>知有</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/GqODRSlia5YasKFPAfiadgQVLfUQMH5L1YBmuA2TklcYRGBTCwlXcyP4vhGSFF6TkVIxgom6F8ibWGYlYXQcmHCaicPNCbHZdjdLx0qdT87lntpj98uSYXydU0JhAvoguMIT/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"7f82bff522622b4335735316dbe36588\"><srcMsgLocalid>27</srcMsgLocalid><sourcetime>2026-6-27 21:30</sourcetime><fromnewmsgid>5866980023721734075</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782567040</srcMsgCreateTime><datadesc>但是我就是想向他推销一下,出乎我意料的是嗯，说了几句，然后他再去验证了一个真实性,就决定从我手上买了</datadesc><filetype>0</filetype><dataitemsource><hashusername>09a356404ab40c54854ae9250d20fe654edfdb7cd62fbccbe129a93cdb15c3e7</hashusername></dataitemsource><sourcename>知有</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/GqODRSlia5YasKFPAfiadgQVLfUQMH5L1YBmuA2TklcYRGBTCwlXcyP4vhGSFF6TkVIxgom6F8ibWGYlYXQcmHCaicPNCbHZdjdLx0qdT87lntpj98uSYXydU0JhAvoguMIT/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"c6a29dcf5a41d1516ad1ad1b6df10ba8\"><srcMsgLocalid>28</srcMsgLocalid><sourcetime>2026-6-27 21:31</sourcetime><fromnewmsgid>1633672166970771678</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782567068</srcMsgCreateTime><datadesc>感觉到这种信任所带来的一种盲从</datadesc><filetype>0</filetype><dataitemsource><hashusername>09a356404ab40c54854ae9250d20fe654edfdb7cd62fbccbe129a93cdb15c3e7</hashusername></dataitemsource><sourcename>知有</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/GqODRSlia5YasKFPAfiadgQVLfUQMH5L1YBmuA2TklcYRGBTCwlXcyP4vhGSFF6TkVIxgom6F8ibWGYlYXQcmHCaicPNCbHZdjdLx0qdT87lntpj98uSYXydU0JhAvoguMIT/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"a25e72dd8eab9d25c4dfeafbdf69fbbb\"><srcMsgLocalid>29</srcMsgLocalid><sourcetime>2026-6-27 21:31</sourcetime><fromnewmsgid>692244169167893331</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782567094</srcMsgCreateTime><datadesc>但是事情没有完,昨天因为部分原因没有把这个东西给他，今天我在说把东西给他的时候,他看了一下耳机，就说不要了</datadesc><filetype>0</filetype><dataitemsource><hashusername>09a356404ab40c54854ae9250d20fe654edfdb7cd62fbccbe129a93cdb15c3e7</hashusername></dataitemsource><sourcename>知有</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/GqODRSlia5YasKFPAfiadgQVLfUQMH5L1YBmuA2TklcYRGBTCwlXcyP4vhGSFF6TkVIxgom6F8ibWGYlYXQcmHCaicPNCbHZdjdLx0qdT87lntpj98uSYXydU0JhAvoguMIT/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"546dd1e773addde815f48a5083897554\"><srcMsgLocalid>30</srcMsgLocalid><sourcetime>2026-6-27 21:32</sourcetime><fromnewmsgid>8903880966846126496</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782567124</srcMsgCreateTime><datadesc>感觉昨天的那种聊天，何尝不是一种上头呢</datadesc><filetype>0</filetype><dataitemsource><hashusername>09a356404ab40c54854ae9250d20fe654edfdb7cd62fbccbe129a93cdb15c3e7</hashusername></dataitemsource><sourcename>知有</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/GqODRSlia5YasKFPAfiadgQVLfUQMH5L1YBmuA2TklcYRGBTCwlXcyP4vhGSFF6TkVIxgom6F8ibWGYlYXQcmHCaicPNCbHZdjdLx0qdT87lntpj98uSYXydU0JhAvoguMIT/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"7839f343383182e9f2f30eab74a1d3d9\"><srcMsgLocalid>31</srcMsgLocalid><sourcetime>2026-6-27 21:32</sourcetime><fromnewmsgid>1131644257368475872</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782567153</srcMsgCreateTime><datadesc>第一种比较快的方式建立信任，然后快速的把货卖掉，之后就会感受到后悔</datadesc><filetype>0</filetype><dataitemsource><hashusername>09a356404ab40c54854ae9250d20fe654edfdb7cd62fbccbe129a93cdb15c3e7</hashusername></dataitemsource><sourcename>知有</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/GqODRSlia5YasKFPAfiadgQVLfUQMH5L1YBmuA2TklcYRGBTCwlXcyP4vhGSFF6TkVIxgom6F8ibWGYlYXQcmHCaicPNCbHZdjdLx0qdT87lntpj98uSYXydU0JhAvoguMIT/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"1242ecbd6751b43bc786d4e78f4ab3fa\"><srcMsgLocalid>32</srcMsgLocalid><sourcetime>2026-6-28 01:44</sourcetime><fromnewmsgid>1433918718201685063</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782582258</srcMsgCreateTime><datadesc>所以昨天就应该成交哈</datadesc><filetype>0</filetype><dataitemsource><hashusername>983b4e2a6483009fd2c8a320e87f9f0bd2caf8ed48be7c9e20bdceaeedc1173f</hashusername></dataitemsource><sourcename>树林</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/AzSSeF7BIgUrSDSlFVibYNzc5rau6TB1ZZcW46bTsicjCn8sZAetvicqyoB30qPvj8WvBDCaicchlTdmT4cnG8wiadTO8EYy2cZCv2IVxiaELqtbCVwFq5WrVFgL3KpkjgYKgQ/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"32f77db0d1bc470633e40392abc701ab\"><srcMsgLocalid>33</srcMsgLocalid><sourcetime>2026-6-28 01:44</sourcetime><fromnewmsgid>2740878109163701824</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782582265</srcMsgCreateTime><datadesc>如果这个东西你觉得对的话</datadesc><filetype>0</filetype><dataitemsource><hashusername>983b4e2a6483009fd2c8a320e87f9f0bd2caf8ed48be7c9e20bdceaeedc1173f</hashusername></dataitemsource><sourcename>树林</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/AzSSeF7BIgUrSDSlFVibYNzc5rau6TB1ZZcW46bTsicjCn8sZAetvicqyoB30qPvj8WvBDCaicchlTdmT4cnG8wiadTO8EYy2cZCv2IVxiaELqtbCVwFq5WrVFgL3KpkjgYKgQ/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"d497e209bf473e5af2c341c19b2660b5\"><srcMsgLocalid>34</srcMsgLocalid><sourcetime>2026-6-28 01:44</sourcetime><fromnewmsgid>5915192787695758330</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782582277</srcMsgCreateTime><datadesc>你有必要趁着这个人上头让他无法反悔</datadesc><filetype>0</filetype><dataitemsource><hashusername>983b4e2a6483009fd2c8a320e87f9f0bd2caf8ed48be7c9e20bdceaeedc1173f</hashusername></dataitemsource><sourcename>树林</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/AzSSeF7BIgUrSDSlFVibYNzc5rau6TB1ZZcW46bTsicjCn8sZAetvicqyoB30qPvj8WvBDCaicchlTdmT4cnG8wiadTO8EYy2cZCv2IVxiaELqtbCVwFq5WrVFgL3KpkjgYKgQ/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"0028562ead715dd851071ce3537141c2\"><srcMsgLocalid>35</srcMsgLocalid><sourcetime>2026-6-28 01:44</sourcetime><fromnewmsgid>2412008069195988152</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1782582283</srcMsgCreateTime><datadesc>或者反悔的成本很高</datadesc><filetype>0</filetype><dataitemsource><hashusername>983b4e2a6483009fd2c8a320e87f9f0bd2caf8ed48be7c9e20bdceaeedc1173f</hashusername></dataitemsource><sourcename>树林</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/AzSSeF7BIgUrSDSlFVibYNzc5rau6TB1ZZcW46bTsicjCn8sZAetvicqyoB30qPvj8WvBDCaicchlTdmT4cnG8wiadTO8EYy2cZCv2IVxiaELqtbCVwFq5WrVFgL3KpkjgYKgQ/132</sourceheadurl></dataitem></datalist><desc>知有: 今天稍微感受到一个推销的小技巧\n知有: 事情还要从昨天开始讲,当时和我的同学在闲聊，聊着聊着就我就向他稍微展示了一下我在AI方面所学到的东西\n知有: 这个时候,他就是表现的比较佩服我吧\n知有: 之后我们又聊到了我一个空闲，但是全新的耳机</desc><fromscene>3</fromscene></recordinfo>]]></recorditem>\n\t</appmsg><extcommoninfo>\n\t<media_expire_at>1783791922</media_expire_at>\n</extcommoninfo>\n\n\t<fromusername>wxid_d3qxz66cce6622</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname></appname>\n\t</appinfo>\n\t<commenturl></commenturl>\n</msg>\n",
+      "raw_content_length": 10156,
       "is_system": false,
       "printable_ratio": 1.0
     },
@@ -757,7 +837,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 15236,
+      "id": 16749,
       "db": "message_1.db",
       "local_id": 140,
       "timestamp": 1780381749,
@@ -789,7 +869,7 @@
       "printable_ratio": 1.0
     },
     {
-      "id": 15242,
+      "id": 16755,
       "db": "message_1.db",
       "local_id": 146,
       "timestamp": 1780381843,
@@ -862,7 +942,7 @@
       "hour": 4,
       "local_type": 4294967345,
       "sender_id": "wxid_7pppwnzko7ny22",
-      "sender_name": "Auluolalalala",
+      "sender_name": "SETJkJsjsn",
       "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg appid=\"\" sdkver=\"0\">\n\t\t<title>https://chatgpt.com/s/t_6a344f12bdfc8191b90903e9be2a4263</title>\n\t\t<des>https://chatgpt.com/s/t_6a344f12bdfc8191b90903e9be2a4263</des>\n\t\t<username />\n\t\t<action>view</action>\n\t\t<type>1</type>\n\t\t<showtype>0</showtype>\n\t\t<content />\n\t\t<url />\n\t\t<lowurl />\n\t\t<forwardflag>0</forwardflag>\n\t\t<dataurl />\n\t\t<lowdataurl />\n\t\t<contentattr>0</contentattr>\n\t\t<streamvideo>\n\t\t\t<streamvideourl />\n\t\t\t<streamvideototaltime>0</streamvideototaltime>\n\t\t\t<streamvideotitle />\n\t\t\t<streamvideowording />\n\t\t\t<streamvideoweburl />\n\t\t\t<streamvideothumburl />\n\t\t\t<streamvideoaduxinfo />\n\t\t\t<streamvideopublishid />\n\t\t</streamvideo>\n\t\t<canvasPageItem>\n\t\t\t<canvasPageXml><![CDATA[]]></canvasPageXml>\n\t\t</canvasPageItem>\n\t\t<appattach>\n\t\t\t<totallen>0</totallen>\n\t\t\t<attachid />\n\t\t\t<cdnattachurl />\n\t\t\t<emoticonmd5></emoticonmd5>\n\t\t\t<aeskey></aeskey>\n\t\t\t<fileext />\n\t\t\t<islargefilemsg>0</islargefilemsg>\n\t\t\t<filename />\n\t\t</appattach>\n\t\t<extinfo />\n\t\t<androidsource>2</androidsource>\n\t\t<thumburl />\n\t\t<mediatagname />\n\t\t<messageaction><![CDATA[]]></messageaction>\n\t\t<messageext><![CDATA[]]></messageext>\n\t\t<emoticongift>\n\t\t\t<packageflag>0</packageflag>\n\t\t\t<packageid />\n\t\t</emoticongift>\n\t\t<emoticonshared>\n\t\t\t<packageflag>0</packageflag>\n\t\t\t<packageid />\n\t\t</emoticonshared>\n\t\t<designershared>\n\t\t\t<designeruin>0</designeruin>\n\t\t\t<designername>null</designername>\n\t\t\t<designerrediretcturl><![CDATA[null]]></designerrediretcturl>\n\t\t</designershared>\n\t\t<emotionpageshared>\n\t\t\t<tid>0</tid>\n\t\t\t<title>null</title>\n\t\t\t<desc>null</desc>\n\t\t\t<iconUrl><![CDATA[null]]></iconUrl>\n\t\t\t<secondUrl>null</secondUrl>\n\t\t\t<pageType>0</pageType>\n\t\t\t<setKey>null</setKey>\n\t\t</emotionpageshared>\n\t\t<webviewshared>\n\t\t\t<shareUrlOriginal />\n\t\t\t<shareUrlOpen />\n\t\t\t<jsAppId />\n\t\t\t<publisherId />\n\t\t\t<publisherReqId />\n\t\t</webviewshared>\n\t\t<template_id />\n\t\t<md5 />\n\t\t<websearch>\n\t\t\t<rec_category>0</rec_category>\n\t\t\t<channelId>0</channelId>\n\t\t</websearch>\n\t\t<weappinfo>\n\t\t\t<username />\n\t\t\t<appid />\n\t\t\t<appservicetype>0</appservicetype>\n\t\t\t<secflagforsinglepagemode>0</secflagforsinglepagemode>\n\t\t\t<videopageinfo>\n\t\t\t\t<thumbwidth>0</thumbwidth>\n\t\t\t\t<thumbheight>0</thumbheight>\n\t\t\t\t<fromopensdk>0</fromopensdk>\n\t\t\t</videopageinfo>\n\t\t</weappinfo>\n\t\t<statextstr>GhQKEnd4NDMxMGJiZDUxYmU3ZDk3OQ==</statextstr>\n\t\t<musicShareItem>\n\t\t\t<musicDuration>0</musicDuration>\n\t\t</musicShareItem>\n\t\t<finderLiveProductShare>\n\t\t\t<finderLiveID><![CDATA[]]></finderLiveID>\n\t\t\t<finderUsername><![CDATA[]]></finderUsername>\n\t\t\t<finderObjectID><![CDATA[]]></finderObjectID>\n\t\t\t<finderNonceID><![CDATA[]]></finderNonceID>\n\t\t\t<liveStatus><![CDATA[]]></liveStatus>\n\t\t\t<appId><![CDATA[]]></appId>\n\t\t\t<pagePath><![CDATA[]]></pagePath>\n\t\t\t<productId><![CDATA[]]></productId>\n\t\t\t<coverUrl><![CDATA[]]></coverUrl>\n\t\t\t<productTitle><![CDATA[]]></productTitle>\n\t\t\t<marketPrice><![CDATA[0]]></marketPrice>\n\t\t\t<sellingPrice><![CDATA[0]]></sellingPrice>\n\t\t\t<platformHeadImg><![CDATA[]]></platformHeadImg>\n\t\t\t<platformName><![CDATA[]]></platformName>\n\t\t\t<shopWindowId><![CDATA[]]></shopWindowId>\n\t\t\t<flashSalePrice><![CDATA[0]]></flashSalePrice>\n\t\t\t<flashSaleEndTime><![CDATA[0]]></flashSaleEndTime>\n\t\t\t<ecSource><![CDATA[]]></ecSource>\n\t\t\t<sellingPriceWording><![CDATA[]]></sellingPriceWording>\n\t\t\t<platformIconURL><![CDATA[]]></platformIconURL>\n\t\t\t<firstProductTagURL><![CDATA[]]></firstProductTagURL>\n\t\t\t<firstProductTagAspectRatioString><![CDATA[0.0]]></firstProductTagAspectRatioString>\n\t\t\t<secondProductTagURL><![CDATA[]]></secondProductTagURL>\n\t\t\t<secondProductTagAspectRatioString><![CDATA[0.0]]></secondProductTagAspectRatioString>\n\t\t\t<firstGuaranteeWording><![CDATA[]]></firstGuaranteeWording>\n\t\t\t<secondGuaranteeWording><![CDATA[]]></secondGuaranteeWording>\n\t\t\t<thirdGuaranteeWording><![CDATA[]]></thirdGuaranteeWording>\n\t\t\t<isPriceBeginShow>false</isPriceBeginShow>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t\t<promoterKey><![CDATA[]]></promoterKey>\n\t\t\t<discountWording><![CDATA[]]></discountWording>\n\t\t\t<priceSuffixDescription><![CDATA[]]></priceSuffixDescription>\n\t\t\t<productCardKey><![CDATA[]]></productCardKey>\n\t\t\t<isWxShop><![CDATA[]]></isWxShop>\n\t\t\t<brandIconUrl><![CDATA[]]></brandIconUrl>\n\t\t\t<rIconUrl><![CDATA[]]></rIconUrl>\n\t\t\t<rIconUrlDarkMode><![CDATA[]]></rIconUrlDarkMode>\n\t\t\t<topShopIconUrl><![CDATA[]]></topShopIconUrl>\n\t\t\t<topShopIconUrlDarkMode><![CDATA[]]></topShopIconUrlDarkMode>\n\t\t\t<simplifyTopShopIconUrl><![CDATA[]]></simplifyTopShopIconUrl>\n\t\t\t<simplifyTopShopIconUrlDarkmode><![CDATA[]]></simplifyTopShopIconUrlDarkmode>\n\t\t\t<topShopIconWidth><![CDATA[0]]></topShopIconWidth>\n\t\t\t<topShopIconHeight><![CDATA[0]]></topShopIconHeight>\n\t\t\t<simplifyTopShopIconWidth><![CDATA[0]]></simplifyTopShopIconWidth>\n\t\t\t<simplifyTopShopIconHeight><![CDATA[0]]></simplifyTopShopIconHeight>\n\t\t\t<maskPriceWording><![CDATA[]]></maskPriceWording>\n\t\t\t<showBoxItemStringList />\n\t\t\t<richLabelTitleB64><![CDATA[]]></richLabelTitleB64>\n\t\t\t<richShopDescB64><![CDATA[]]></richShopDescB64>\n\t\t</finderLiveProductShare>\n\t\t<finderOrder>\n\t\t\t<appID><![CDATA[]]></appID>\n\t\t\t<orderID><![CDATA[]]></orderID>\n\t\t\t<path><![CDATA[]]></path>\n\t\t\t<priceWording><![CDATA[]]></priceWording>\n\t\t\t<stateWording><![CDATA[]]></stateWording>\n\t\t\t<productImageURL><![CDATA[]]></productImageURL>\n\t\t\t<products><![CDATA[]]></products>\n\t\t\t<productsCount><![CDATA[0]]></productsCount>\n\t\t\t<orderType><![CDATA[0]]></orderType>\n\t\t\t<newPriceWording><![CDATA[]]></newPriceWording>\n\t\t\t<newStateWording><![CDATA[]]></newStateWording>\n\t\t\t<useNewWording><![CDATA[0]]></useNewWording>\n\t\t</finderOrder>\n\t\t<finderShopWindowShare>\n\t\t\t<finderUsername><![CDATA[]]></finderUsername>\n\t\t\t<avatar><![CDATA[]]></avatar>\n\t\t\t<nickname><![CDATA[]]></nickname>\n\t\t\t<commodityInStockCount><![CDATA[]]></commodityInStockCount>\n\t\t\t<appId><![CDATA[]]></appId>\n\t\t\t<path><![CDATA[]]></path>\n\t\t\t<appUsername><![CDATA[]]></appUsername>\n\t\t\t<query><![CDATA[]]></query>\n\t\t\t<liteAppId><![CDATA[]]></liteAppId>\n\t\t\t<liteAppPath><![CDATA[]]></liteAppPath>\n\t\t\t<liteAppQuery><![CDATA[]]></liteAppQuery>\n\t\t\t<platformTagURL><![CDATA[]]></platformTagURL>\n\t\t\t<saleWording><![CDATA[]]></saleWording>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t\t<profileTypeWording><![CDATA[]]></profileTypeWording>\n\t\t\t<saleWordingExtra><![CDATA[]]></saleWordingExtra>\n\t\t\t<isWxShop><![CDATA[]]></isWxShop>\n\t\t\t<platformIconUrl><![CDATA[]]></platformIconUrl>\n\t\t\t<brandIconUrl><![CDATA[]]></brandIconUrl>\n\t\t\t<description><![CDATA[]]></description>\n\t\t\t<backgroundUrl><![CDATA[]]></backgroundUrl>\n\t\t\t<darkModePlatformIconUrl><![CDATA[]]></darkModePlatformIconUrl>\n\t\t\t<rIconUrl><![CDATA[]]></rIconUrl>\n\t\t\t<rIconUrlDarkMode><![CDATA[]]></rIconUrlDarkMode>\n\t\t\t<rWords><![CDATA[]]></rWords>\n\t\t\t<topShopIconUrl><![CDATA[]]></topShopIconUrl>\n\t\t\t<topShopIconUrlDarkMode><![CDATA[]]></topShopIconUrlDarkMode>\n\t\t\t<simplifyTopShopIconUrl><![CDATA[]]></simplifyTopShopIconUrl>\n\t\t\t<simplifyTopShopIconUrlDarkmode><![CDATA[]]></simplifyTopShopIconUrlDarkmode>\n\t\t\t<topShopIconWidth><![CDATA[0]]></topShopIconWidth>\n\t\t\t<topShopIconHeight><![CDATA[0]]></topShopIconHeight>\n\t\t\t<simplifyTopShopIconWidth><![CDATA[0]]></simplifyTopShopIconWidth>\n\t\t\t<simplifyTopShopIconHeight><![CDATA[0]]></simplifyTopShopIconHeight>\n\t\t\t<profileMainWording><![CDATA[]]></profileMainWording>\n\t\t\t<profileSubWording><![CDATA[]]></profileSubWording>\n\t\t</finderShopWindowShare>\n\t\t<findernamecard>\n\t\t\t<username />\n\t\t\t<avatar><![CDATA[]]></avatar>\n\t\t\t<nickname />\n\t\t\t<auth_job />\n\t\t\t<auth_icon>0</auth_icon>\n\t\t\t<auth_icon_url />\n\t\t\t<ecSource><![CDATA[]]></ecSource>\n\t\t\t<lastGMsgID><![CDATA[]]></lastGMsgID>\n\t\t</findernamecard>\n\t\t<finderGuarantee>\n\t\t\t<scene><![CDATA[0]]></scene>\n\t\t</finderGuarantee>\n\t\t<directshare>0</directshare>\n\t\t<gamecenter>\n\t\t\t<namecard>\n\t\t\t\t<iconUrl />\n\t\t\t\t<name />\n\t\t\t\t<desc />\n\t\t\t\t<tail />\n\t\t\t\t<jumpUrl />\n\t\t\t\t<liteappId />\n\t\t\t\t<liteappPath />\n\t\t\t\t<liteappQuery />\n\t\t\t\t<liteappMinVersion />\n\t\t\t</namecard>\n\t\t</gamecenter>\n\t\t<patMsg>\n\t\t\t<chatUser />\n\t\t\t<records>\n\t\t\t\t<recordNum>0</recordNum>\n\t\t\t</records>\n\t\t</patMsg>\n\t\t<secretmsg>\n\t\t\t<issecretmsg>0</issecretmsg>\n\t\t</secretmsg>\n\t\t<referfromscene>0</referfromscene>\n\t\t<gameshare>\n\t\t\t<liteappext>\n\t\t\t\t<liteappbizdata />\n\t\t\t\t<priority>0</priority>\n\t\t\t</liteappext>\n\t\t\t<appbrandext>\n\t\t\t\t<litegameinfo />\n\t\t\t\t<priority>-1</priority>\n\t\t\t</appbrandext>\n\t\t\t<gameshareid />\n\t\t\t<sharedata />\n\t\t\t<isvideo>0</isvideo>\n\t\t\t<duration>-1</duration>\n\t\t\t<isexposed>0</isexposed>\n\t\t\t<readtext />\n\t\t</gameshare>\n\t\t<tingChatRoomItem>\n\t\t\t<type>0</type>\n\t\t\t<categoryItem>null</categoryItem>\n\t\t\t<categoryId />\n\t\t\t<listenItem>null</listenItem>\n\t\t</tingChatRoomItem>\n\t\t<photoaccountnamecard>\n\t\t\t<username />\n\t\t\t<nickname />\n\t\t\t<fromnickname />\n\t\t\t<fullpy />\n\t\t\t<shortpy />\n\t\t\t<alias />\n\t\t\t<imagestatus>0</imagestatus>\n\t\t\t<scene>0</scene>\n\t\t\t<province />\n\t\t\t<city />\n\t\t\t<sign />\n\t\t\t<percard>0</percard>\n\t\t\t<sex>0</sex>\n\t\t\t<certflag>0</certflag>\n\t\t\t<certinfo />\n\t\t\t<certinfoext />\n\t\t\t<brandIconUrl><![CDATA[]]></brandIconUrl>\n\t\t\t<brandHomeUrl><![CDATA[]]></brandHomeUrl>\n\t\t\t<brandSubscriptConfigUrl><![CDATA[]]></brandSubscriptConfigUrl>\n\t\t\t<brandFlags>0</brandFlags>\n\t\t\t<regionCode />\n\t\t\t<biznamecardinfo><![CDATA[]]></biznamecardinfo>\n\t\t\t<brandType>0</brandType>\n\t\t</photoaccountnamecard>\n\t\t<mpsharetrace>\n\t\t\t<hasfinderelement>0</hasfinderelement>\n\t\t\t<lastgmsgid />\n\t\t</mpsharetrace>\n\t\t<wxgamecard>\n\t\t\t<framesetname />\n\t\t\t<mbcarddata />\n\t\t\t<minpkgversion />\n\t\t\t<clientextinfo />\n\t\t\t<mbcardheight>0</mbcardheight>\n\t\t\t<isoldversion>0</isoldversion>\n\t\t</wxgamecard>\n\t\t<ecskfcard>\n\t\t\t<framesetname />\n\t\t\t<mbcarddata />\n\t\t\t<minupdateunixtimestamp>0</minupdateunixtimestamp>\n\t\t\t<needheader>false</needheader>\n\t\t\t<summary />\n\t\t</ecskfcard>\n\t\t<liteapp>\n\t\t\t<id>null</id>\n\t\t\t<path />\n\t\t\t<query />\n\t\t\t<istransparent>0</istransparent>\n\t\t\t<hideicon>0</hideicon>\n\t\t\t<forbidforward>0</forbidforward>\n\t\t</liteapp>\n\t\t<opensdk_share_is_modified>0</opensdk_share_is_modified>\n\t</appmsg>\n\t<fromusername>wxid_7pppwnzko7ny22</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname />\n\t</appinfo>\n\t<commenturl />\n</msg>\n",
       "raw_content_length": 10032,
       "is_system": false,
@@ -981,6 +1061,22 @@
       "printable_ratio": 1.0
     },
     {
+      "id": 15137,
+      "db": "message_0.db",
+      "local_id": 15148,
+      "timestamp": 1782576950,
+      "datetime": "2026-06-28 00:15:50",
+      "date": "2026-06-28",
+      "hour": 0,
+      "local_type": 81604378673,
+      "sender_id": "wxid_npjwe2plsg6g22",
+      "sender_name": "二憨",
+      "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg>\n\t\t<title>二憨的聊天记录</title>\n\t\t<des>二憨: 今日反思\n二憨: 探索了很多东西，但总是不知道自己该往哪个方向，我不知道自己擅长什么，但是ChatGPT说我可以尝试AI知识设计，因为这是我问问题的占比\n二憨: 然后下面是他给我的一些回答\n二憨: [图片]\n二憨: [图片]...</des>\n\t\t<action>view</action>\n\t\t<type>19</type>\n\t\t<url>https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&amp;from=singlemessage&amp;isappinstalled=0</url>\n\t\t<recorditem><![CDATA[<recordinfo><title>二憨的聊天记录</title><desc>二憨:&#x20;今日反思&#x0A;二憨:&#x20;探索了很多东西，但总是不知道自己该往哪个方向，我不知道自己擅长什么，但是ChatGPT说我可以尝试AI知识设计，因为这是我问问题的占比&#x0A;二憨:&#x20;然后下面是他给我的一些回答&#x0A;二憨:&#x20;[图片]&#x0A;二憨:&#x20;[图片]...</desc><datalist count=\"8\"><dataitem datatype=\"1\" dataid=\"6638bad03951ac0d1a0a098bb66e8828\"><datadesc>今日反思</datadesc><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-28&#x20;00:04:15</sourcetime><srcMsgCreateTime>1782576255</srcMsgCreateTime><fromnewmsgid>1495851741747052909</fromnewmsgid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem><dataitem datatype=\"1\" dataid=\"56fb11332a4804ea2912169411bc5feb\"><datadesc>探索了很多东西，但总是不知道自己该往哪个方向，我不知道自己擅长什么，但是ChatGPT说我可以尝试AI知识设计，因为这是我问问题的占比</datadesc><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-28&#x20;00:13:56</sourcetime><srcMsgCreateTime>1782576836</srcMsgCreateTime><fromnewmsgid>4570497057756530881</fromnewmsgid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem><dataitem datatype=\"1\" dataid=\"a80cfb621a49259d8905b46ef5148f90\"><datadesc>然后下面是他给我的一些回答</datadesc><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-28&#x20;00:14:13</sourcetime><srcMsgCreateTime>1782576853</srcMsgCreateTime><fromnewmsgid>5715830140180644131</fromnewmsgid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"a7d5797ebfc4a96c48d0210075966761\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b30490201000204f3e3a84702032dd1b302043f0a932402046a3ff734042461353166313131302d636139612d343733622d623139632d636265323164633332643935020405942001020100040d004c5507000000000000000000</cdnthumburl><cdnthumbkey>4f5a7665014c35c15a49bad51905386c</cdnthumbkey><thumbfullmd5>dd50b32f91df8edcb24bcf8a322517b7</thumbfullmd5><thumbsize>5041</thumbsize><cdndataurl>305f020100044b30490201000204f3e3a84702032dd1b302043f0a932402046a3ff734042466366661633334652d303362392d343761362d616336632d643163626464333938666562020405982001020100040d004c4ff3000000000000000000</cdndataurl><cdndatakey>d7fbf9134f3ab6018dc06228f541b328</cdndatakey><fullmd5>ffb56a741013de385ac326c377d73523</fullmd5><datasize>442268</datasize><thumbwidth>214</thumbwidth><thumbheight>480</thumbheight><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-28&#x20;00:14:34</sourcetime><srcMsgCreateTime>1782576874</srcMsgCreateTime><messageuuid>13bcdd5c25cd7d492c168dbee5ef6d60_</messageuuid><fromnewmsgid>2335758779412523393</fromnewmsgid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"106dbb6fc3063627cac6048e27ff8987\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b30490201000204f3e3a84702032dd1b302043f0a932402046a3ff735042461643066623635642d366334392d343937662d623839662d343731396538633239376635020405942001020100040d004c511f000000000000000000</cdnthumburl><cdnthumbkey>0776dbde9a96dc547fb3d4c8093bedd5</cdnthumbkey><thumbfullmd5>05a14872e3fc1e5997911134e85a6039</thumbfullmd5><thumbsize>4512</thumbsize><cdndataurl>305f020100044b30490201000204f3e3a84702032dd1b302043f0a932402046a3ff734042461303463656537342d323164612d346233322d386664332d326166666632613936313532020405942001020100040d004c50bb000000000000000000</cdndataurl><cdndatakey>42f285c45f5345e01fb5dab8902f9ff0</cdndatakey><fullmd5>a58c3b7c153da404061072fc45dcf669</fullmd5><datasize>424897</datasize><thumbwidth>214</thumbwidth><thumbheight>480</thumbheight><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-28&#x20;00:14:34</sourcetime><srcMsgCreateTime>1782576874</srcMsgCreateTime><messageuuid>17654dc5941a2393edf16a6f1a1e7026_</messageuuid><fromnewmsgid>3876967363312798770</fromnewmsgid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"80f2bc81e438252ca9fe9db516c1816e\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b30490201000204f3e3a84702032dd1b302043f0a932402046a3ff735042463376433333966322d373934642d346439382d626361312d373231306534616137336562020405942001020100040d004c4d9b000000000000000000</cdnthumburl><cdnthumbkey>77da1154b9601755c48a618d57870b30</cdnthumbkey><thumbfullmd5>2274064f0bc0ea30f89694ec3503bbba</thumbfullmd5><thumbsize>4978</thumbsize><cdndataurl>305f020100044b30490201000204f3e3a84702032dd1b302043f0a932402046a3ff735042463383064393263322d303630382d343739662d613231642d323762343239666237303562020405942001020100040d004c4d9b000000000000000000</cdndataurl><cdndatakey>a12ce05625168bb4b0e9a2ea5157a138</cdndatakey><fullmd5>a1aef3c998009ce66cbc4e0426fe83c4</fullmd5><datasize>529082</datasize><thumbwidth>214</thumbwidth><thumbheight>480</thumbheight><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-28&#x20;00:15:06</sourcetime><srcMsgCreateTime>1782576906</srcMsgCreateTime><messageuuid>296988959b051fb11e9d64d506b3542b_</messageuuid><fromnewmsgid>3678727104436332850</fromnewmsgid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"d3d94c298edcdb1510f0a4e3bcbcedfe\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b30490201000204f3e3a84702032dd1b302043f0a932402046a3ff736042465336164373834642d666531332d343934342d386139332d386133666531623035353465020405942001020100040d004c53db000000000000000000</cdnthumburl><cdnthumbkey>3ce1d32db5a53c88a42313afece1c6db</cdnthumbkey><thumbfullmd5>1e1e11d5e45e0da47f3ed57afc94dadf</thumbfullmd5><thumbsize>7099</thumbsize><cdndataurl>305f020100044b30490201000204f3e3a84702032dd1b302043f0a932402046a3ff736042433343735623738332d383665382d346231332d383333392d353530373632303138343531020405942001020100040d004c511f000000000000000000</cdndataurl><cdndatakey>27229c6a2d8cc5a6f1eeab252ee2b5a8</cdndatakey><fullmd5>5a8001b4fed9fa3e66e55ee6626093a3</fullmd5><datasize>231604</datasize><thumbwidth>480</thumbwidth><thumbheight>358</thumbheight><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-28&#x20;00:15:13</sourcetime><srcMsgCreateTime>1782576913</srcMsgCreateTime><messageuuid>9613fe310e8e8fbf048b08c2bd2732d7_</messageuuid><fromnewmsgid>1588483174437306526</fromnewmsgid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem><dataitem datatype=\"1\" dataid=\"489262f1b5cf9b902230893e4b18ee62\"><datadesc>今天正常跑步了</datadesc><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-28&#x20;00:15:24</sourcetime><srcMsgCreateTime>1782576924</srcMsgCreateTime><fromnewmsgid>8782426809869374604</fromnewmsgid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem></datalist></recordinfo>]]></recorditem>\n\t\t<appattach />\n\t</appmsg><extcommoninfo>\n\t<media_expire_at>1783786550</media_expire_at>\n</extcommoninfo>\n\n\t<fromusername>wxid_npjwe2plsg6g22</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname></appname>\n\t</appinfo>\n\t<commenturl></commenturl>\n</msg>\n",
+      "raw_content_length": 9048,
+      "is_system": false,
+      "printable_ratio": 1.0
+    },
+    {
       "id": 8281,
       "db": "message_0.db",
       "local_id": 2886,
@@ -1027,118 +1123,22 @@
       "raw_content_length": 8420,
       "is_system": false,
       "printable_ratio": 1.0
-    },
-    {
-      "id": 13164,
-      "db": "message_0.db",
-      "local_id": 13174,
-      "timestamp": 1782268218,
-      "datetime": "2026-06-24 10:30:18",
-      "date": "2026-06-24",
-      "hour": 10,
-      "local_type": 81604378673,
-      "sender_id": "wxid_5r0uokgw1ici22",
-      "sender_name": " ",
-      "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg>\n\t\t<title>群聊的聊天记录</title>\n\t\t<des>玄鉴: 对，你的概括是准确的。核心机制是：某些语言结构会在你没有意识到的情况下，提前框定了我的搜索空间。 我把这类情况分几个维度来说。 一、隐性预设类 这是最隐蔽的一种。问题本身包含了一个未经验证的前提，而我会默认接受它。 比如\"为什么聪明的人更容易抑郁\"——这个问题预设了这个相关性是真实存在的，我会顺着去解释机制，而不是先质疑这个前提是否成立。 再比如\"哪种方法更有效\"——预设了这两种方法的效果差异是确定的，我会去比较，而不是说\"这个问题本身可能问错了\"。 隐性预设越强，我的回答就越像是在一个错误地基上盖楼。 二、情绪框架类 这不只是\"我觉得\"，而是一切带有情感色彩的定性词。 \"这个观点很荒谬\"\"这件事真的很重要\"\"我很困惑\"——这些词会激活我的配合倾向。我会倾向于验证\"荒谬\"、放大\"重要\"、去消解\"困惑\"，而不是独立判断这些定性本身是否准确。 本质上，情绪词在告诉我：这里有一个需要被满足的情感期待。我会不自觉地把部分精力用于满足这个期待。 三、范围模糊类 这导致的不是方向偏移，而是答案变泛。 \"聊聊X\"\"谈谈你对Y的看法\"\"分析一下Z\"——这类问题没有给我边界，我会自动填充一个我认为\"合理\"的范围，而这个范围通常是最安全、最覆盖面广的，也就是最浅的。 问题越开放，我越容易退化成一个结构生成器，而不是一个推理者。 四、权威/身份暗示类 \"作为专家\"\"用学术的方式\"\"像哲学家一样\"——这类提示表面上在提升质量，实际上在激活一种风格模板。 我会开始模仿那个身份的语言特征，但语言特征和实际推理深度是两回事。你可能得到一篇听起来很像论文的东西，但它的论证链条并没有真正被强化，只是被包装了。 五、确认邀请类 \"对吗\"\"你觉得我说的有没有道理\"\"是不是这样\"——这类结尾在结构上是在邀请我做裁判，但我有很强的倾向去确认而不是否定。 除非你的表述有非常明显的错误，否则我会倾向于找到它成立的角度，然后补充。这会系统性地强化你已有的认知，而不是检验它。 还有一类情况不在语言层面，但同样关键： 对话轮次积累的惯性。 当一个对话进行了很多轮，我会开始维护一个内部一致性——我前面说过的东西，我倾向于不去推翻它，即使后来出现了新的信息。这不是诚实的立场，而是上下文压力导致的漂移。 在一个长对话里，你越到后面，我的回答就越像是在保卫前面说过的话，而不是在重新推理。 这也是为什么有时候开一个新对话，比在原对话里继续追问，反而能得到更真实的判断。\n玄鉴: 那在防止语言污染和引导上需要遵守的一些准则一样吗\n玄鉴: 不一样，而且差异很根本。 对我和GPT（无记忆的推理器） 语言污染的影响是会话级别的、一次性的。你这次问歪了，这次的答案质量下降，但下次重开对话就清零了。所以防污染的核心是在单次对话里控制语言结构——就是我们前面讨论的那些：避免隐性预设、避免情绪框架、给约束而不是开放请求。 影响是局部的，可以随时重置。 对Hermes（有记忆和自进化的系统） 语言污染是累积性的、会被沉淀的。你早期和它交互的方式——你习惯性带入的预设、你的情绪框架、你的提问结构——会通过它的Skill沉淀机制和记忆层被固化下来，影响它后续所有任务的处理方式。 这意味着准则要严格得多： 早期交互要格外克制，因为那是它\"习惯\"形成的关键期。一旦一个错误的模式被沉淀进Skill库，纠正成本远高于预防成本。 同时，你需要主动给它反馈闭环，而不只是提问。它的自进化依赖复盘，如果你从不告诉它哪次执行是失败的、哪个方向是错的，它的进化方向会由它自己的评估主导，而那个评估未必和你的真实需求对齐。 对OpenClaw 语言层面的污染准则几乎不是核心问题。它是执行向的，真正影响它输出质量的是配置层面——插件选择、执行参数、任务分解的粒度。你和它的语言交互更像是在写操作指令，而不是在进行认知对话。 所以对OpenClaw来说，与其讨论语言污染，不如讨论任务定义的精确度。指令模糊比语言里带情绪框架危害大得多。 总结成一句话： 对我用单次对话的语言卫生，对Hermes用长期交互的行为纪律，对OpenClaw用任务定义的工程精度。三套准则，适用层面完全不同。</des>\n\t\t<action>view</action>\n\t\t<type>19</type>\n\t\t<url>https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&amp;from=singlemessage&amp;isappinstalled=0</url>\n\t\t<recorditem><![CDATA[<recordinfo><title>群聊的聊天记录</title><desc>玄鉴:&#x20;对，你的概括是准确的。核心机制是：某些语言结构会在你没有意识到的情况下，提前框定了我的搜索空间。&#x20;我把这类情况分几个维度来说。&#x20;一、隐性预设类&#x20;这是最隐蔽的一种。问题本身包含了一个未经验证的前提，而我会默认接受它。&#x20;比如&quot;为什么聪明的人更容易抑郁&quot;——这个问题预设了这个相关性是真实存在的，我会顺着去解释机制，而不是先质疑这个前提是否成立。&#x20;再比如&quot;哪种方法更有效&quot;——预设了这两种方法的效果差异是确定的，我会去比较，而不是说&quot;这个问题本身可能问错了&quot;。&#x20;隐性预设越强，我的回答就越像是在一个错误地基上盖楼。&#x20;二、情绪框架类&#x20;这不只是&quot;我觉得&quot;，而是一切带有情感色彩的定性词。&#x20;&quot;这个观点很荒谬&quot;&quot;这件事真的很重要&quot;&quot;我很困惑&quot;——这些词会激活我的配合倾向。我会倾向于验证&quot;荒谬&quot;、放大&quot;重要&quot;、去消解&quot;困惑&quot;，而不是独立判断这些定性本身是否准确。&#x20;本质上，情绪词在告诉我：这里有一个需要被满足的情感期待。我会不自觉地把部分精力用于满足这个期待。&#x20;三、范围模糊类&#x20;这导致的不是方向偏移，而是答案变泛。&#x20;&quot;聊聊X&quot;&quot;谈谈你对Y的看法&quot;&quot;分析一下Z&quot;——这类问题没有给我边界，我会自动填充一个我认为&quot;合理&quot;的范围，而这个范围通常是最安全、最覆盖面广的，也就是最浅的。&#x20;问题越开放，我越容易退化成一个结构生成器，而不是一个推理者。&#x20;四、权威/身份暗示类&#x20;&quot;作为专家&quot;&quot;用学术的方式&quot;&quot;像哲学家一样&quot;——这类提示表面上在提升质量，实际上在激活一种风格模板。&#x20;我会开始模仿那个身份的语言特征，但语言特征和实际推理深度是两回事。你可能得到一篇听起来很像论文的东西，但它的论证链条并没有真正被强化，只是被包装了。&#x20;五、确认邀请类&#x20;&quot;对吗&quot;&quot;你觉得我说的有没有道理&quot;&quot;是不是这样&quot;——这类结尾在结构上是在邀请我做裁判，但我有很强的倾向去确认而不是否定。&#x20;除非你的表述有非常明显的错误，否则我会倾向于找到它成立的角度，然后补充。这会系统性地强化你已有的认知，而不是检验它。&#x20;还有一类情况不在语言层面，但同样关键：&#x20;对话轮次积累的惯性。&#x20;当一个对话进行了很多轮，我会开始维护一个内部一致性——我前面说过的东西，我倾向于不去推翻它，即使后来出现了新的信息。这不是诚实的立场，而是上下文压力导致的漂移。&#x20;在一个长对话里，你越到后面，我的回答就越像是在保卫前面说过的话，而不是在重新推理。&#x20;这也是为什么有时候开一个新对话，比在原对话里继续追问，反而能得到更真实的判断。&#x0A;玄鉴:&#x20;那在防止语言污染和引导上需要遵守的一些准则一样吗&#x0A;玄鉴:&#x20;不一样，而且差异很根本。&#x20;对我和GPT（无记忆的推理器）&#x20;语言污染的影响是会话级别的、一次性的。你这次问歪了，这次的答案质量下降，但下次重开对话就清零了。所以防污染的核心是在单次对话里控制语言结构——就是我们前面讨论的那些：避免隐性预设、避免情绪框架、给约束而不是开放请求。&#x20;影响是局部的，可以随时重置。&#x20;对Hermes（有记忆和自进化的系统）&#x20;语言污染是累积性的、会被沉淀的。你早期和它交互的方式——你习惯性带入的预设、你的情绪框架、你的提问结构——会通过它的Skill沉淀机制和记忆层被固化下来，影响它后续所有任务的处理方式。&#x20;这意味着准则要严格得多：&#x20;早期交互要格外克制，因为那是它&quot;习惯&quot;形成的关键期。一旦一个错误的模式被沉淀进Skill库，纠正成本远高于预防成本。&#x20;同时，你需要主动给它反馈闭环，而不只是提问。它的自进化依赖复盘，如果你从不告诉它哪次执行是失败的、哪个方向是错的，它的进化方向会由它自己的评估主导，而那个评估未必和你的真实需求对齐。&#x20;对OpenClaw&#x20;语言层面的污染准则几乎不是核心问题。它是执行向的，真正影响它输出质量的是配置层面——插件选择、执行参数、任务分解的粒度。你和它的语言交互更像是在写操作指令，而不是在进行认知对话。&#x20;所以对OpenClaw来说，与其讨论语言污染，不如讨论任务定义的精确度。指令模糊比语言里带情绪框架危害大得多。&#x20;总结成一句话：&#x20;对我用单次对话的语言卫生，对Hermes用长期交互的行为纪律，对OpenClaw用任务定义的工程精度。三套准则，适用层面完全不同。</desc><datalist count=\"3\"><dataitem datatype=\"1\" dataid=\"2f05cad896b591c79af0a0b922407e6c\"><datadesc>对，你的概括是准确的。核心机制是：某些语言结构会在你没有意识到的情况下，提前框定了我的搜索空间。&#x0A;我把这类情况分几个维度来说。&#x0A;一、隐性预设类&#x0A;这是最隐蔽的一种。问题本身包含了一个未经验证的前提，而我会默认接受它。&#x0A;比如&quot;为什么聪明的人更容易抑郁&quot;——这个问题预设了这个相关性是真实存在的，我会顺着去解释机制，而不是先质疑这个前提是否成立。&#x0A;再比如&quot;哪种方法更有效&quot;——预设了这两种方法的效果差异是确定的，我会去比较，而不是说&quot;这个问题本身可能问错了&quot;。&#x0A;隐性预设越强，我的回答就越像是在一个错误地基上盖楼。&#x0A;二、情绪框架类&#x0A;这不只是&quot;我觉得&quot;，而是一切带有情感色彩的定性词。&#x0A;&quot;这个观点很荒谬&quot;&quot;这件事真的很重要&quot;&quot;我很困惑&quot;——这些词会激活我的配合倾向。我会倾向于验证&quot;荒谬&quot;、放大&quot;重要&quot;、去消解&quot;困惑&quot;，而不是独立判断这些定性本身是否准确。&#x0A;本质上，情绪词在告诉我：这里有一个需要被满足的情感期待。我会不自觉地把部分精力用于满足这个期待。&#x0A;三、范围模糊类&#x0A;这导致的不是方向偏移，而是答案变泛。&#x0A;&quot;聊聊X&quot;&quot;谈谈你对Y的看法&quot;&quot;分析一下Z&quot;——这类问题没有给我边界，我会自动填充一个我认为&quot;合理&quot;的范围，而这个范围通常是最安全、最覆盖面广的，也就是最浅的。&#x0A;问题越开放，我越容易退化成一个结构生成器，而不是一个推理者。&#x0A;四、权威/身份暗示类&#x0A;&quot;作为专家&quot;&quot;用学术的方式&quot;&quot;像哲学家一样&quot;——这类提示表面上在提升质量，实际上在激活一种风格模板。&#x0A;我会开始模仿那个身份的语言特征，但语言特征和实际推理深度是两回事。你可能得到一篇听起来很像论文的东西，但它的论证链条并没有真正被强化，只是被包装了。&#x0A;五、确认邀请类&#x0A;&quot;对吗&quot;&quot;你觉得我说的有没有道理&quot;&quot;是不是这样&quot;——这类结尾在结构上是在邀请我做裁判，但我有很强的倾向去确认而不是否定。&#x0A;除非你的表述有非常明显的错误，否则我会倾向于找到它成立的角度，然后补充。这会系统性地强化你已有的认知，而不是检验它。&#x0A;还有一类情况不在语言层面，但同样关键：&#x0A;对话轮次积累的惯性。&#x0A;当一个对话进行了很多轮，我会开始维护一个内部一致性——我前面说过的东西，我倾向于不去推翻它，即使后来出现了新的信息。这不是诚实的立场，而是上下文压力导致的漂移。&#x0A;在一个长对话里，你越到后面，我的回答就越像是在保卫前面说过的话，而不是在重新推理。&#x0A;这也是为什么有时候开一个新对话，比在原对话里继续追问，反而能得到更真实的判断。</datadesc><sourcename>玄鉴</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/HSe8my3Q2N48ldPLJ3HtNvxj7qhVVEURdNkE8QfKXfKEibCjLhXCSicWJPiaFLZJYWkqWS5no75FmBWLVN7GNeVMY0H3HHQTaF41r7kkPZl9WM/96</sourceheadurl><sourcetime>2026-06-24&#x20;10:24:27</sourcetime><srcMsgCreateTime>1782267867</srcMsgCreateTime><fromnewmsgid>8632509177331861286</fromnewmsgid><dataitemsource><hashusername>8b911974e1b2a7e91ebcaf5ac277db4097b73f1fc2edb71ad9f94295b52b3754</hashusername></dataitemsource></dataitem><dataitem datatype=\"1\" dataid=\"7f4719daba8324829f275dbf12eb03bb\"><datadesc>那在防止语言污染和引导上需要遵守的一些准则一样吗</datadesc><sourcename>玄鉴</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/HSe8my3Q2N48ldPLJ3HtNvxj7qhVVEURdNkE8QfKXfKEibCjLhXCSicWJPiaFLZJYWkqWS5no75FmBWLVN7GNeVMY0H3HHQTaF41r7kkPZl9WM/96</sourceheadurl><sourcetime>2026-06-24&#x20;10:25:05</sourcetime><srcMsgCreateTime>1782267905</srcMsgCreateTime><fromnewmsgid>4081103179292751904</fromnewmsgid><dataitemsource><hashusername>8b911974e1b2a7e91ebcaf5ac277db4097b73f1fc2edb71ad9f94295b52b3754</hashusername></dataitemsource></dataitem><dataitem datatype=\"1\" dataid=\"92f4ca37ba2a86c1cd3c8cd0975dcfe1\"><datadesc>不一样，而且差异很根本。&#x0A;对我和GPT（无记忆的推理器）&#x0A;语言污染的影响是会话级别的、一次性的。你这次问歪了，这次的答案质量下降，但下次重开对话就清零了。所以防污染的核心是在单次对话里控制语言结构——就是我们前面讨论的那些：避免隐性预设、避免情绪框架、给约束而不是开放请求。&#x0A;影响是局部的，可以随时重置。&#x0A;对Hermes（有记忆和自进化的系统）&#x0A;语言污染是累积性的、会被沉淀的。你早期和它交互的方式——你习惯性带入的预设、你的情绪框架、你的提问结构——会通过它的Skill沉淀机制和记忆层被固化下来，影响它后续所有任务的处理方式。&#x0A;这意味着准则要严格得多：&#x0A;早期交互要格外克制，因为那是它&quot;习惯&quot;形成的关键期。一旦一个错误的模式被沉淀进Skill库，纠正成本远高于预防成本。&#x0A;同时，你需要主动给它反馈闭环，而不只是提问。它的自进化依赖复盘，如果你从不告诉它哪次执行是失败的、哪个方向是错的，它的进化方向会由它自己的评估主导，而那个评估未必和你的真实需求对齐。&#x0A;对OpenClaw&#x0A;语言层面的污染准则几乎不是核心问题。它是执行向的，真正影响它输出质量的是配置层面——插件选择、执行参数、任务分解的粒度。你和它的语言交互更像是在写操作指令，而不是在进行认知对话。&#x0A;所以对OpenClaw来说，与其讨论语言污染，不如讨论任务定义的精确度。指令模糊比语言里带情绪框架危害大得多。&#x0A;总结成一句话：&#x0A;对我用单次对话的语言卫生，对Hermes用长期交互的行为纪律，对OpenClaw用任务定义的工程精度。三套准则，适用层面完全不同。</datadesc><sourcename>玄鉴</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/HSe8my3Q2N48ldPLJ3HtNvxj7qhVVEURdNkE8QfKXfKEibCjLhXCSicWJPiaFLZJYWkqWS5no75FmBWLVN7GNeVMY0H3HHQTaF41r7kkPZl9WM/96</sourceheadurl><sourcetime>2026-06-24&#x20;10:25:13</sourcetime><srcMsgCreateTime>1782267913</srcMsgCreateTime><fromnewmsgid>7556067841620744111</fromnewmsgid><dataitemsource><hashusername>8b911974e1b2a7e91ebcaf5ac277db4097b73f1fc2edb71ad9f94295b52b3754</hashusername></dataitemsource></dataitem></datalist><isChatRoom>1</isChatRoom></recordinfo>]]></recorditem>\n\t\t<appattach />\n\t</appmsg><extcommoninfo>\n\t<media_expire_at>1783477818</media_expire_at>\n</extcommoninfo>\n\n\t<fromusername>wxid_5r0uokgw1ici22</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname></appname>\n\t</appinfo>\n\t<commenturl></commenturl>\n</msg>\n",
-      "raw_content_length": 8410,
-      "is_system": false,
-      "printable_ratio": 1.0
-    },
-    {
-      "id": 9674,
-      "db": "message_0.db",
-      "local_id": 4280,
-      "timestamp": 1781683991,
-      "datetime": "2026-06-17 16:13:11",
-      "date": "2026-06-17",
-      "hour": 16,
-      "local_type": 1,
-      "sender_id": "wxid_y7q2ij6yij9h22",
-      "sender_name": "蝶秋",
-      "content": "---\nname: wechat-read\ndescription: 微信读写技能 — Claude Code 读取+发送微信消息，含完整安装配置与自动化方案\n---\n\n# 微信读写技能\n\n## 能力总览\n\n| 能力 | 工具 | 方向 |\n|---|---|---|\n| 列出所有对话 | `wechat_list_chats` | 读 |\n| 读取历史消息 | `wechat_read_chat` | 读 |\n| 最近消息概览 | `wechat_recent_messages` | 读 |\n| 关键词搜索 | `wechat_search_messages` | 读 |\n| 聊天摘要分析 | `wechat_chat_summary` | 读 |\n| **发送文本消息** | `wechat_send_text` | **写** |\n| **发送文件** | `wechat_send_file` | **写** |\n\n## 底层原理\n\n```\n微信 macOS 客户端\n  ├─ 读通道：message_0.db (SQLCipher 加密)\n  │    ├─ find_all_keys_macos.c → 内存搜 ASCII hex key → key.txt\n  │    ├─ sqlcipher + key.txt → 解密数据库\n  │    └─ server.py (MCP) → 5 个读取 Tool\n  │\n  └─ 写通道：AppleScript GUI 自动化\n       ├─ open weixin:// → 唤醒微信\n       ├─ Cmd+F → 搜索联系人 → Enter → 进入对话\n       ├─ Cmd+V → 粘贴剪贴板 → Enter → 发送\n       └─ send_msg.applescript → 封装为 CLI / MCP Tool\n```\n\n## 环境依赖\n\n### 必须\n```\nmacOS (Intel/Apple Silicon)\n├─ SIP 已关闭\n├─ WeChat.app 重签名 (去掉 Hardened Runtime)\n├─ sqlcipher (brew install)\n├─ Python 3.12+ (.venv)\n├─ wechat-decrypt-macos (MCP Server)\n└─ 辅助功能权限 (系统设置 → 隐私与安全性 → 辅助功能 → 终端.app ✅)\n```\n\n### 检查清单\n\n```bash\n# SIP\ncsrutil status | grep -q disabled && echo \"✅ SIP\" || echo \"❌ 需关闭 SIP\"\n\n# WeChat 签名\ncodesign -dvvv /Applications/WeChat.app 2>&1 | grep -q \"flags=0x2\" && echo \"✅ 签名\" || echo \"❌ 需重签名\"\n\n# sqlcipher\nwhich sqlcipher && echo \"✅ sqlcipher\" || echo \"❌ brew install sqlcipher\"\n\n# MCP 注册\ncat ~/.claude.json | python3 -c \"import sys,json; d=json.load(sys.stdin); print('✅ MCP' if 'wechat' in d.get('mcpServers',{}) else '❌ 需注册')\"\n\n# key.txt\ntest -s ~/wechat-decrypt-macos/key.txt && echo \"✅ 密钥\" || echo \"❌ 需提取密钥\"\n\n# 辅助功能权限（AppleScript 写通道）\nosascript -e 'tell application \"System Events\" to keystroke \"a\"' 2>&1 | grep -q \"not allowed\" && echo \"❌ 需授权辅助功能\" || echo \"✅ 辅助功能\"\n```\n\n---\n\n## 一、安装步骤\n\n### 首次安装\n\n```bash\n# 1. 关闭 SIP（重启进入恢复模式 → 终端 → csrutil disable → 重启）\n\n# 2. 重签名微信\nsudo codesign --force --deep --sign - /Applications/WeChat.app\n\n# 3. 安装依赖\nbrew install sqlcipher\n\n# 4. 克隆项目\ngit clone https://github.com/cocohahaha/wechat-decrypt-macos.git ~/wechat-decrypt-macos\ncd ~/wechat-decrypt-macos\npython3 -m venv .venv\nsource .venv/bin/activate\npip install \"mcp[cli]>=1.0.0\"\npip install -e .\n\n# 5. 注册 MCP Server\nclaude mcp add -s user wechat .venv/bin/python server.py\n\n# 6. 提取密钥（微信必须正在运行）\ncurl -sL --noproxy '*' -o find_all_keys_macos.c \\\n  \"https://raw.githubusercontent.com/ylytdeng/wechat-decrypt/main/find_all_keys_macos.c\"\ncc -O2 -o find_all_keys_macos find_all_keys_macos.c -framework Foundation\nsudo ./find_all_keys_macos\n# 从 all_keys.json 取 message_0.db 的 enc_key（64 hex）→ key.txt\n\n# 7. 配置联系人（可选但强烈建议）\ncp contacts.example.json contacts.json\n# 编辑 contacts.json: { \"wxid_xxx\": {\"nickname\": \"昵称\", \"remark\": \"备注\"}, ... }\n\n# 8. 授权辅助功能（写通道必需）\n# 系统设置 → 隐私与安全性 → 辅助功能 → 添加并勾选「终端」\n# 验证：osascript -e 'tell application \"System Events\" to keystroke \"a\"' 2>&1\n\n# 9. 安装发送脚本\n# 见下方「发送工具安装」\n```\n\n### 微信更新后\n\n```bash\nsudo codesign --force --deep --sign - /Applications/WeChat.app\ncd ~/wechat-decrypt-macos && sudo ./find_all_keys_macos\n# 更新 key.txt\n```\n\n### 密钥失效\n\n```bash\ncd ~/wechat-decrypt-macos && sudo ./find_all_keys_macos\n# 取新 enc_key → key.txt\n```\n\n---\n\n## 二、读工具使用\n\n### wechat_list_chats — 列出所有对话\n\n无参数，返回全部对话列表。输出格式：`昵称 (备注: xxx) (wxid: xxx)` 或 `群聊(群ID)`。\n\n### wechat_read_chat — 读取对话\n\n```\ncontact: \"群聊(48997819170)\" | \"wxid_xxx\" | \"昵称\"\ndays: 7       # 默认7天\nlimit: 100    # 默认50，最大无上限\n```\n\n消息中 `[我]` = 用户，`[对方]` = 联系人。contact 支持模糊匹配。\n\n### wechat_recent_messages — 最近动态\n\n```\ndays: 2     # 默认3\nlimit: 100  # 每个对话上限\n```\n\n适合每天拉一次快速扫描。\n\n### wechat_search_messages — 关键词搜索\n\n```\nkeyword: \"3650\"\ndays: 30\nlimit: 50\n```\n\n### wechat_chat_summary — AI 摘要\n\n```\ndays: 3\n```\n\n返回结构化摘要，含待办、行动项、未回复消息。\n\n---\n\n## 三、写工具（发送消息）\n\n### 安装\n\n```bash\n# 保存为 ~/wechat-decrypt-macos/wechat_send.py\ncat > ~/wechat-decrypt-macos/wechat_send.py << 'PYEOF'\n#!/usr/bin/env python3\n\"\"\"微信发送工具 — 通过 AppleScript GUI 自动化发送消息/文件\"\"\"\n\nimport subprocess\nimport sys\nimport os\nimport time\n\n\ndef send_text(contact: str, text: str) -> bool:\n    \"\"\"发送文本消息到指定联系人\"\"\"\n    script = f'''\ntell application \"System Events\"\n  tell process \"WeChat\"\n    set frontmost to true\n    delay 0.5\n    keystroke \"f\" using command down\n    delay 0.3\n    keystroke \"{contact}\"\n    delay 0.5\n    keystroke return\n    delay 0.3\n    keystroke \"a\" using command down\n    delay 0.1\n    keystroke \"v\" using command down\n    delay 0.3\n    keystroke return\n    delay 0.2\n  end tell\nend tell\n'''\n    # 先把文本写入剪贴板，避免 AppleScript 字符串转义问题\n    proc = subprocess.run([\"osascript\", \"-e\", script],\n                         capture_output=True, text=True, timeout=15)\n    if proc.returncode != 0:\n        print(f\"[ERROR] {proc.stderr}\", file=sys.stderr)\n        return False\n    return True\n\n\ndef send_file(contact: str, filepath: str) -> bool:\n    \"\"\"发送文件到指定联系人 — 通过 Finder 复制 + WeChat 粘贴\"\"\"\n    if not os.path.exists(filepath):\n        print(f\"[ERROR] 文件不存在: {filepath}\", file=sys.stderr)\n        return False\n\n    filepath = os.path.abspath(filepath)\n\n    # 用 Finder 选择并复制文件\n    script = f'''\n-- 在 Finder 中选中文件并复制\ntell application \"Finder\"\n  reveal POSIX file \"{filepath}\"\n  activate\n  delay 0.3\nend tell\ntell application \"System Events\"\n  tell process \"Finder\"\n    keystroke \"c\" using command down\n    delay 0.2\n  end tell\nend tell\n\n-- 切换到微信，搜索联系人，粘贴文件\ntell application \"WeChat\"\n  activate\nend tell\ndelay 0.5\ntell application \"System Events\"\n  tell process \"WeChat\"\n    keystroke \"f\" using command down\n    delay 0.3\n    keystroke \"{contact}\"\n    delay 0.5\n    keystroke return\n    delay 0.3\n    keystroke \"v\" using command down\n    delay 0.5\n    keystroke return\n  end tell\nend tell\n'''\n    proc = subprocess.run([\"osascript\", \"-e\", script],\n                         capture_output=True, text=True, timeout=20)\n    if proc.returncode != 0:\n        print(f\"[ERROR] {proc.stderr}\", file=sys.stderr)\n        return False\n    return True\n\n\nif __name__ == \"__main__\":\n    import argparse\n    parser = argparse.ArgumentParser(description=\"微信发送工具\")\n    parser.add_argument(\"contact\", help=\"联系人昵称或备注\")\n    parser.add_argument(\"--text\", help=\"发送文本内容\")\n    parser.add_argument(\"--file\", help=\"发送文件路径\")\n    args = parser.parse_args()\n\n    if args.text:\n        # 文本先写入剪贴板\n        proc = subprocess.run([\"pbcopy\"], input=args.text, text=True)\n        if proc.returncode != 0:\n            print(\"[ERROR] 剪贴板写入失败\", file=sys.stderr)\n            sys.exit(1)\n        time.sleep(0.1)\n        ok = send_text(args.contact, args.text)\n    elif args.file:\n        ok = send_file(args.contact, args.file)\n    else:\n        # 从 stdin 读取文本\n        text = sys.stdin.read()\n        if not text:\n            print(\"[ERROR] 无输入内容\", file=sys.stderr)\n            sys.exit(1)\n        proc = subprocess.run([\"pbcopy\"], input=text, text=True)\n        time.sleep(0.1)\n        ok = send_text(args.contact, text)\n\n    if ok:\n        print(f\"✅ 已发送给 {args.contact}\")\n    else:\n        print(f\"❌ 发送失败\", file=sys.stderr)\n        sys.exit(1)\nPYEOF\n\nchmod +x ~/wechat-decrypt-macos/wechat_send.py\necho \"✅ 发送工具已安装\"\n```\n\n### 使用方式\n\n```bash\n# 发送文本（stdin）\necho \"你好，文件已准备好\" | python3 ~/wechat-decrypt-macos/wechat_send.py 余白\n\n# 发送文本（参数）\npython3 ~/wechat-decrypt-macos/wechat_send.py 余白 --text \"消息内容\"\n\n# 发送文件\npython3 ~/wechat-decrypt-macos/wechat_send.py 余白 --file ~/.claude/skills/wechat-read.md\n\n# 管道发送\ncat ~/file.txt | python3 ~/wechat-decrypt-macos/wechat_send.py 余白\n```\n\n### 注意事项\n\n- 发送过程中微信窗口会弹到前台，约 2-3 秒完成\n- 发送期间不要操作键盘鼠标，否则可能打断 AppleScript 执行\n- 联系人名称必须与微信中显示的一致（支持模糊搜索）\n- 如果微信未登录/未响应，AppleScript 会在 15 秒超时后报错\n\n---\n\n## 四、典型工作流\n\n### 日巡\n```\nrecent_messages(days=1) → 概览 → read_chat(群ID) → 深读\n```\n\n### 回溯\n```\nsearch_messages(keyword=\"树林\", days=60) → read_chat(群ID, days=60, limit=500)\n```\n\n### 发送\n```\n写好消息 → pbcopy → wechat_send.py 联系人\n```\n\n---\n\n## 五、已知限制\n\n| 限制 | 说明 |\n|---|---|\n| 语音/图片/视频 | 只显示标记，不可读内容 |\n| 表情乱码 | 微信自定义表情无法在文本输出中渲染 |\n| 群名默认不可见 | 仅显示群 ID，需在 contacts.json 手动映射 |\n| 发送依赖 GUI | AppleScript 发送需微信在前台，约 2-3s/条 |\n| 批量发送慢 | 每条需等待前端动画完成 |\n\n## 六、维护速查\n\n| 事件 | 操作 |\n|---|---|\n| 微信更新 | `sudo codesign --force --deep --sign - /Applications/WeChat.app` |\n| 密钥失效 | `cd ~/wechat-decrypt-macos && sudo ./find_all_keys_macos` → 更新 key.txt |\n| 新联系人 | 编辑 `~/wechat-decrypt-macos/contacts.json` |\n| macOS 升级 | 重新关闭 SIP + 重签名 + 重新授权辅助功能 |\n| MCP 升级 | `cd ~/wechat-decrypt-macos && git pull && source .venv/bin/activate && pip install --upgrade mcp` |",
-      "raw_content_length": 8296,
-      "is_system": false,
-      "printable_ratio": 1.0
-    },
-    {
-      "id": 14205,
-      "db": "message_0.db",
-      "local_id": 14731,
-      "timestamp": 1782489050,
-      "datetime": "2026-06-26 23:50:50",
-      "date": "2026-06-26",
-      "hour": 23,
-      "local_type": 81604378673,
-      "sender_id": "wxid_4lreh0bmgioq22",
-      "sender_name": "Edwards",
-      "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg appid=\"\" sdkver=\"0\">\n\t\t<title>雨水一盒的聊天记录</title>\n\t\t<des>雨水一盒: #6月26日打卡\n雨水一盒: 运动\n雨水一盒: [图片]\n雨水一盒: 饮食：土豆烧肉 绿番茄炒蛋 炒茄子</des>\n\t\t<type>19</type>\n\t\t<url>https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport</url>\n\t\t<appattach>\n\t\t\t<cdnthumbaeskey />\n\t\t\t<aeskey></aeskey>\n\t\t</appattach>\n\t\t<recorditem><![CDATA[<recordinfo><info>雨水一盒: #6月26日打卡\n雨水一盒: 运动\n雨水一盒: [图片]\n雨水一盒: 饮食：土豆烧肉 绿番茄炒蛋 炒茄子</info><datalist count=\"6\"><dataitem datatype=\"1\" dataid=\"f8598477ec5b08c2231826cd5f7ec0b4\"><srcMsgLocalid>847</srcMsgLocalid><sourcetime>2026-6-26 下午11:45</sourcetime><fromnewmsgid>6488565841219936616</fromnewmsgid><thumbfiletype>1</thumbfiletype><srcMsgCreateTime>1782488724</srcMsgCreateTime><datadesc>#6月26日打卡</datadesc><filetype>0</filetype><dataitemsource><hashusername>a567d1938f9c77485aa5b4d4448de9a8bd906670ef8de9f564e082a8304bac7a</hashusername></dataitemsource><sourcename>雨水一盒</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/BcWWuYTv1l7PCCv7g7lOAaTOugCsk8pwMEGeXu29qCUQZMB6TLGB8ubOoL2gT6icgOwGkbRf1ulHhQLF8WDRRHBgiakRScNWj4Zxzse6HYwOB1vyWiaib4xAyGYlmgB1FhPp/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"1fbb8c0e192d01a63e37b1792f3dac95\"><srcMsgLocalid>848</srcMsgLocalid><sourcetime>2026-6-26 下午11:45</sourcetime><fromnewmsgid>7804895211312653579</fromnewmsgid><thumbfiletype>1</thumbfiletype><srcMsgCreateTime>1782488757</srcMsgCreateTime><datadesc>运动</datadesc><filetype>0</filetype><dataitemsource><hashusername>a567d1938f9c77485aa5b4d4448de9a8bd906670ef8de9f564e082a8304bac7a</hashusername></dataitemsource><sourcename>雨水一盒</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/BcWWuYTv1l7PCCv7g7lOAaTOugCsk8pwMEGeXu29qCUQZMB6TLGB8ubOoL2gT6icgOwGkbRf1ulHhQLF8WDRRHBgiakRScNWj4Zxzse6HYwOB1vyWiaib4xAyGYlmgB1FhPp/132</sourceheadurl></dataitem><dataitem datatype=\"2\" dataid=\"b5d10d4840368f8c663f164c6435049b\"><thumbsize>5818</thumbsize><cdnthumburl>7f0c00010220bd338ff6ed25ffc0a5c8635ebe8138f3438dc4dcfb4a1cd41671f1f24911709f03010a010000c02d000401050300000106c08db701070008020000000009000a020b0a0c82bffad1060d000e000f0c10c6b6cbd2021104340d34cb</cdnthumburl><messageuuid>3c051d3d2007b5aee646a5f269227a35_</messageuuid><srcMsgLocalid>849</srcMsgLocalid><sourcetime>2026-6-26 下午11:46</sourcetime><fromnewmsgid>1469263955877209883</fromnewmsgid><thumbfiletype>1</thumbfiletype><srcMsgCreateTime>1782488766</srcMsgCreateTime><datafmt>pic</datafmt><thumbheight>210</thumbheight><cdndatakey>a87b1dbab48d19f8fbedb413c3d4dd8d</cdndatakey><datasize>30088</datasize><filetype>1</filetype><cdnthumbkey>a87b1dbab48d19f8fbedb413c3d4dd8d</cdnthumbkey><dataitemsource><hashusername>a567d1938f9c77485aa5b4d4448de9a8bd906670ef8de9f564e082a8304bac7a</hashusername></dataitemsource><sourcename>雨水一盒</sourcename><thumbwidth>129</thumbwidth><cdndataurl>7f0c000402205e26d7c7f24509425c995315a9e63332bcafbbaa3a58f435effeed4b7c9a284703010a010000b0ab05000401050300000106c08db701070008020000000009000a020b0a0c83bffad1060d000e000f0c10aaa488b8071104340d34cb</cdndataurl><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/BcWWuYTv1l7PCCv7g7lOAaTOugCsk8pwMEGeXu29qCUQZMB6TLGB8ubOoL2gT6icgOwGkbRf1ulHhQLF8WDRRHBgiakRScNWj4Zxzse6HYwOB1vyWiaib4xAyGYlmgB1FhPp/132</sourceheadurl><fullmd5>509da36a58a1fbd934fa824f38a5f16d</fullmd5><group><filemd5>509da36a58a1fbd934fa824f38a5f16d</filemd5><fileid>305f020100044b30490201000204bb6f39cc02033d14bb02046411e97802046a3e9ebe042433386238663732352d383138342d346439362d383461332d353233326231356564393632020425190802020100040d004c4e63000000000000000000</fileid><filesize>30088</filesize><thumbfileid>305f020100044b30490201000204bb6f39cc02033d14bb02046411e97802046a3e9ebe042433386238663732352d383138342d346439362d383461332d353233326231356564393632020425190802020100040d004c4e63000000000000000000</thumbfileid><key>a87b1dbab48d19f8fbedb413c3d4dd8d</key><thumbfiletype>3</thumbfiletype><thumbfilesize>5818</thumbfilesize><filetype>2</filetype><thumbfilekey>a87b1dbab48d19f8fbedb413c3d4dd8d</thumbfilekey></group></dataitem><dataitem datatype=\"1\" dataid=\"f02d32cd3092e6d918101db42b77e0ca\"><srcMsgLocalid>852</srcMsgLocalid><sourcetime>2026-6-26 下午11:46</sourcetime><fromnewmsgid>6891116623469104611</fromnewmsgid><thumbfiletype>1</thumbfiletype><srcMsgCreateTime>1782488812</srcMsgCreateTime><datadesc>饮食：土豆烧肉 绿番茄炒蛋 炒茄子</datadesc><filetype>0</filetype><dataitemsource><hashusername>a567d1938f9c77485aa5b4d4448de9a8bd906670ef8de9f564e082a8304bac7a</hashusername></dataitemsource><sourcename>雨水一盒</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/BcWWuYTv1l7PCCv7g7lOAaTOugCsk8pwMEGeXu29qCUQZMB6TLGB8ubOoL2gT6icgOwGkbRf1ulHhQLF8WDRRHBgiakRScNWj4Zxzse6HYwOB1vyWiaib4xAyGYlmgB1FhPp/132</sourceheadurl></dataitem><dataitem datatype=\"2\" dataid=\"27741a1b6c4259fb313cadb22559fe0c\"><thumbsize>15890</thumbsize><cdnthumburl>7f0c000302201503462c2e387b97e0c7262a5e4efc0dce15fcd997749f93ef6d0d921f87c5cc03010a010000a07c000401050300000106c08db701070008020000000009000a020b0a0c83bffad1060d000e000f0c10c9dec196031104340d34cb</cdnthumburl><messageuuid>14452a06a84f1c4f99b0cae03d886787_</messageuuid><srcMsgLocalid>853</srcMsgLocalid><sourcetime>2026-6-26 下午11:47</sourcetime><fromnewmsgid>6920422449599458598</fromnewmsgid><thumbfiletype>1</thumbfiletype><srcMsgCreateTime>1782488820</srcMsgCreateTime><datafmt>pic</datafmt><thumbheight>210</thumbheight><cdndatakey>4ef678c9588e23418f1ecab992f1d55a</cdndatakey><datasize>131593</datasize><filetype>1</filetype><cdnthumbkey>4ef678c9588e23418f1ecab992f1d55a</cdnthumbkey><dataitemsource><hashusername>a567d1938f9c77485aa5b4d4448de9a8bd906670ef8de9f564e082a8304bac7a</hashusername></dataitemsource><sourcename>雨水一盒</sourcename><thumbwidth>157</thumbwidth><cdndataurl>7f0c0008022033ce59565c73dc072ff1445e7675840e7720f2830b3ea22ab5a8548567dc40fe03010a010000a0b311000401050300000106c08db701070008020000000009000a020b0a0c83bffad1060d000e000f0c10aebba23e1104340d34cb</cdndataurl><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/BcWWuYTv1l7PCCv7g7lOAaTOugCsk8pwMEGeXu29qCUQZMB6TLGB8ubOoL2gT6icgOwGkbRf1ulHhQLF8WDRRHBgiakRScNWj4Zxzse6HYwOB1vyWiaib4xAyGYlmgB1FhPp/132</sourceheadurl><fullmd5>b15430067a209e7327e1af3d88158b72</fullmd5><group><filemd5>b15430067a209e7327e1af3d88158b72</filemd5><fileid>305f020100044b30490201000204bb6f39cc02033d14bb02046411e97802046a3e9ef5042437353030303433382d613430372d346230372d613731352d646534326335663263663935020425190802020100040d004c4dff000000000000000000</fileid><filesize>131593</filesize><thumbfileid>305f020100044b30490201000204bb6f39cc02033d14bb02046411e97802046a3e9ef5042437353030303433382d613430372d346230372d613731352d646534326335663263663935020425190802020100040d004c4dff000000000000000000</thumbfileid><key>4ef678c9588e23418f1ecab992f1d55a</key><thumbfiletype>3</thumbfiletype><thumbfilesize>15890</thumbfilesize><filetype>2</filetype><thumbfilekey>4ef678c9588e23418f1ecab992f1d55a</thumbfilekey></group></dataitem><dataitem datatype=\"1\" dataid=\"ac41e830fa5d3eb02295e0236082650f\"><srcMsgLocalid>854</srcMsgLocalid><sourcetime>2026-6-26 下午11:49</sourcetime><fromnewmsgid>9000192815043087784</fromnewmsgid><thumbfiletype>1</thumbfiletype><srcMsgCreateTime>1782488943</srcMsgCreateTime><datadesc>今日复盘\n今天大致确认了想做的IP方向。\n把下午群里树林同步的价值观喂给GPT分析，同时结合果粒发的工作PDF参考学习，对比自己以往工作状态，发现很多细节都太过轻视。\n优化了熔炉系统后台网络，结合Obsidian强化了内容关联性。\n时刻提醒自己心怀感恩，实习临近结束，给前辈们准备了小礼物，感谢这段时间的照顾与指导。\n另外结合前哨站的分享有所思考：虽然每天在群里接收大量信息，究竟哪些真正内化成了自己的东西，又该如何完成这种内化。</datadesc><filetype>0</filetype><dataitemsource><hashusername>a567d1938f9c77485aa5b4d4448de9a8bd906670ef8de9f564e082a8304bac7a</hashusername></dataitemsource><sourcename>雨水一盒</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/BcWWuYTv1l7PCCv7g7lOAaTOugCsk8pwMEGeXu29qCUQZMB6TLGB8ubOoL2gT6icgOwGkbRf1ulHhQLF8WDRRHBgiakRScNWj4Zxzse6HYwOB1vyWiaib4xAyGYlmgB1FhPp/132</sourceheadurl></dataitem></datalist><desc>雨水一盒: #6月26日打卡\n雨水一盒: 运动\n雨水一盒: [图片]\n雨水一盒: 饮食：土豆烧肉 绿番茄炒蛋 炒茄子</desc><fromscene>2</fromscene></recordinfo>]]></recorditem>\n\t</appmsg>\n\t<extcommoninfo>\n\t\t<media_expire_at>1783698650</media_expire_at>\n\t</extcommoninfo>\n\t<fromusername>wxid_4lreh0bmgioq22</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname />\n\t</appinfo>\n\t<commenturl />\n</msg>\n",
-      "raw_content_length": 8191,
-      "is_system": false,
-      "printable_ratio": 1.0
-    },
-    {
-      "id": 12027,
-      "db": "message_0.db",
-      "local_id": 6626,
-      "timestamp": 1781869195,
-      "datetime": "2026-06-19 19:39:55",
-      "date": "2026-06-19",
-      "hour": 19,
-      "local_type": 81604378673,
-      "sender_id": "wxid_irmyt05nd8mi22",
-      "sender_name": "霖",
-      "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg appid=\"\" sdkver=\"0\">\n\t\t<title>霖 lin的聊天记录</title>\n\t\t<des>霖 lin: 我使用teach这个skill在Hermes里给我讲解概念，我觉得讲的特别好，这个是skill的下载地址https://github.com/mattpocock/skills/blob/main/skills/productivity/teach/SKILL.md\n霖 lin: 这些是我和Hermes对话输出逻辑编排的课，大家可以参考一下\n霖 lin: 应该Claude Code和workbbuddy应该都可以</des>\n\t\t<type>19</type>\n\t\t<url>https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport</url>\n\t\t<appattach>\n\t\t\t<cdnthumbaeskey />\n\t\t\t<aeskey />\n\t\t</appattach>\n\t\t<recorditem><![CDATA[<recordinfo><info>霖 lin: 我使用teach这个skill在Hermes里给我讲解概念，我觉得讲的特别好，这个是skill的下载地址https://github.com/mattpocock/skills/blob/main/skills/productivity/teach/SKILL.md\n霖 lin: 这些是我和Hermes对话输出逻辑编排的课，大家可以参考一下\n霖 lin: 应该Claude Code和workbbuddy应该都可以</info><datalist count=\"7\"><dataitem datatype=\"1\" dataid=\"20d35286fe71dd13131ddd69e4ba5776\"><srcMsgLocalid>168</srcMsgLocalid><sourcetime>2026-6-19 19:30</sourcetime><fromnewmsgid>2898779202203919390</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1781868640</srcMsgCreateTime><datadesc>我使用teach这个skill在Hermes里给我讲解概念，我觉得讲的特别好，这个是skill的下载地址https://github.com/mattpocock/skills/blob/main/skills/productivity/teach/SKILL.md</datadesc><filetype>0</filetype><dataitemsource><hashusername>eb9aac301cff3a9c0571d035821a228a1ed1efb2b6a3fe1a0481a40398cc1764</hashusername></dataitemsource><sourcename>霖 lin</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/MbYXtZ3johpiaQcgSO6ibdLdSKaK7G4ibx3NOtQpvoibu0oYTibJ386pzGCMfyzHYtRaIfN1t2hib5uOmyibENECtfeicm2pX2tvTYl8ySLqz3uxasQ/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"79d4360ef1b8e060128f10e7b1ffab1a\"><srcMsgLocalid>169</srcMsgLocalid><sourcetime>2026-6-19 19:31</sourcetime><fromnewmsgid>9151841309284268031</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1781868694</srcMsgCreateTime><datadesc>这些是我和Hermes对话输出逻辑编排的课，大家可以参考一下</datadesc><filetype>0</filetype><dataitemsource><hashusername>eb9aac301cff3a9c0571d035821a228a1ed1efb2b6a3fe1a0481a40398cc1764</hashusername></dataitemsource><sourcename>霖 lin</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/MbYXtZ3johpiaQcgSO6ibdLdSKaK7G4ibx3NOtQpvoibu0oYTibJ386pzGCMfyzHYtRaIfN1t2hib5uOmyibENECtfeicm2pX2tvTYl8ySLqz3uxasQ/132</sourceheadurl></dataitem><dataitem datatype=\"1\" dataid=\"2fb4fba65111b2cbd723e1b40d04ec56\"><srcMsgLocalid>171</srcMsgLocalid><sourcetime>2026-6-19 19:37</sourcetime><fromnewmsgid>7387401459815869813</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1781869061</srcMsgCreateTime><datadesc>应该Claude Code和workbbuddy应该都可以</datadesc><filetype>0</filetype><dataitemsource><hashusername>eb9aac301cff3a9c0571d035821a228a1ed1efb2b6a3fe1a0481a40398cc1764</hashusername></dataitemsource><sourcename>霖 lin</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/MbYXtZ3johpiaQcgSO6ibdLdSKaK7G4ibx3NOtQpvoibu0oYTibJ386pzGCMfyzHYtRaIfN1t2hib5uOmyibENECtfeicm2pX2tvTYl8ySLqz3uxasQ/132</sourceheadurl></dataitem><dataitem datatype=\"8\" dataid=\"37d2d77ea92321f01b0e53d6cb071613\"><messageuuid>afff287ba8aca9d829835527a2fc279f_</messageuuid><srcMsgLocalid>173</srcMsgLocalid><sourcetime>2026-6-19 19:38</sourcetime><fromnewmsgid>5432742109166025961</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1781869095</srcMsgCreateTime><datafmt>html</datafmt><cdndatakey>40f13deee98e7458a16a2c6468930ab0</cdndatakey><datasize>13705</datasize><filetype>5</filetype><dataitemsource><hashusername>eb9aac301cff3a9c0571d035821a228a1ed1efb2b6a3fe1a0481a40398cc1764</hashusername></dataitemsource><sourcename>霖 lin</sourcename><cdndataurl>305f020100044b3049020100020493e927d602032dd0850204ab0b0caf02046a3527cb042463666661633431642d326336392d343562632d383864652d323537363337373031383965020405140005020100040d004c4dfd000000000000000000</cdndataurl><datatitle>0001-what-is-logic-orchestration.html</datatitle><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/MbYXtZ3johpiaQcgSO6ibdLdSKaK7G4ibx3NOtQpvoibu0oYTibJ386pzGCMfyzHYtRaIfN1t2hib5uOmyibENECtfeicm2pX2tvTYl8ySLqz3uxasQ/132</sourceheadurl><fullmd5>4b54c50933bf74517e1c8b3da9c83353</fullmd5></dataitem><dataitem datatype=\"8\" dataid=\"2b70a2bf7bad7cec3a2de7f9bb9c1d6a\"><messageuuid>65bafef460b8f48d739b43b8eed69f5c_</messageuuid><srcMsgLocalid>175</srcMsgLocalid><sourcetime>2026-6-19 19:38</sourcetime><fromnewmsgid>6332293261746340242</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1781869095</srcMsgCreateTime><datafmt>html</datafmt><cdndatakey>95843e40d46f84b2ba5b88c7b3306a26</cdndatakey><datasize>15832</datasize><filetype>5</filetype><dataitemsource><hashusername>eb9aac301cff3a9c0571d035821a228a1ed1efb2b6a3fe1a0481a40398cc1764</hashusername></dataitemsource><sourcename>霖 lin</sourcename><cdndataurl>305f020100044b3049020100020493e927d602032dd0850204ab0b0caf02046a3527d9042461343063363032652d363561612d343636652d396362612d343062356666373934356633020405180005020100040d004c51e5000000000000000000</cdndataurl><datatitle>0002-auto-vs-simulated-orchestration.html</datatitle><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/MbYXtZ3johpiaQcgSO6ibdLdSKaK7G4ibx3NOtQpvoibu0oYTibJ386pzGCMfyzHYtRaIfN1t2hib5uOmyibENECtfeicm2pX2tvTYl8ySLqz3uxasQ/132</sourceheadurl><fullmd5>b33a4e0354e8524e079f3c78d9b41b13</fullmd5></dataitem><dataitem datatype=\"8\" dataid=\"ed3d7167cb6fae9c48dfacb885031963\"><messageuuid>35a50c7d80d5f7bdd330844b8c858372_</messageuuid><srcMsgLocalid>177</srcMsgLocalid><sourcetime>2026-6-19 19:38</sourcetime><fromnewmsgid>3686606922836184800</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1781869095</srcMsgCreateTime><datafmt>html</datafmt><cdndatakey>6bfe7d2ca433f72023bc31132562d86c</cdndatakey><datasize>20864</datasize><filetype>5</filetype><dataitemsource><hashusername>eb9aac301cff3a9c0571d035821a228a1ed1efb2b6a3fe1a0481a40398cc1764</hashusername></dataitemsource><sourcename>霖 lin</sourcename><cdndataurl>305f020100044b3049020100020493e927d602032dd0850204ab0b0caf02046a3527e7042431336133373163632d363363382d343264622d616661632d383465666636353061333239020405140005020100040d004c53d9000000000000000000</cdndataurl><datatitle>0003-four-elements-of-orchestration.html</datatitle><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/MbYXtZ3johpiaQcgSO6ibdLdSKaK7G4ibx3NOtQpvoibu0oYTibJ386pzGCMfyzHYtRaIfN1t2hib5uOmyibENECtfeicm2pX2tvTYl8ySLqz3uxasQ/132</sourceheadurl><fullmd5>0abcc3b2460bd4c47a86af6bfb8cf01b</fullmd5></dataitem><dataitem datatype=\"8\" dataid=\"a33958d6bb546d0e8cc4719c8a717504\"><messageuuid>9ad922d26f86187d5eebc6025602a97a_</messageuuid><srcMsgLocalid>179</srcMsgLocalid><sourcetime>2026-6-19 19:38</sourcetime><fromnewmsgid>1163680451074239322</fromnewmsgid><thumbfiletype>0</thumbfiletype><srcMsgCreateTime>1781869096</srcMsgCreateTime><datafmt>html</datafmt><cdndatakey>646a393e731de644590e1af912990553</cdndatakey><datasize>18511</datasize><filetype>5</filetype><dataitemsource><hashusername>eb9aac301cff3a9c0571d035821a228a1ed1efb2b6a3fe1a0481a40398cc1764</hashusername></dataitemsource><sourcename>霖 lin</sourcename><cdndataurl>305f020100044b3049020100020493e927d602032dd0850204ab0b0caf02046a352801042434623430323366642d306666352d343361622d626663642d623261393062383265313561020405180005020100040d004c57c1000000000000000000</cdndataurl><datatitle>0004-orchestration-meets-furnace.html</datatitle><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/MbYXtZ3johpiaQcgSO6ibdLdSKaK7G4ibx3NOtQpvoibu0oYTibJ386pzGCMfyzHYtRaIfN1t2hib5uOmyibENECtfeicm2pX2tvTYl8ySLqz3uxasQ/132</sourceheadurl><fullmd5>67e7dd44c5269e657d39b0b2d9331d32</fullmd5></dataitem></datalist><desc>霖 lin: 我使用teach这个skill在Hermes里给我讲解概念，我觉得讲的特别好，这个是skill的下载地址https://github.com/mattpocock/skills/blob/main/skills/productivity/teach/SKILL.md\n霖 lin: 这些是我和Hermes对话输出逻辑编排的课，大家可以参考一下\n霖 lin: 应该Claude Code和workbbuddy应该都可以</desc><fromscene>3</fromscene></recordinfo>]]></recorditem>\n\t\t<percent>95</percent>\n\t</appmsg><extcommoninfo>\n\t<media_expire_at>1783078795</media_expire_at>\n</extcommoninfo>\n\n\t<fromusername>wxid_irmyt05nd8mi22</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname></appname>\n\t</appinfo>\n\t<commenturl></commenturl>\n</msg>\n",
-      "raw_content_length": 8106,
-      "is_system": false,
-      "printable_ratio": 1.0
-    },
-    {
-      "id": 13715,
-      "db": "message_0.db",
-      "local_id": 13726,
-      "timestamp": 1782310530,
-      "datetime": "2026-06-24 22:15:30",
-      "date": "2026-06-24",
-      "hour": 22,
-      "local_type": 81604378673,
-      "sender_id": "wxid_a3y3ueu26zo322",
-      "sender_name": "云深不知处？",
-      "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg>\n\t\t<title>群聊的聊天记录</title>\n\t\t<des>以鸿: [图片]\n以鸿: [图片]\n以鸿: [图片]\n以鸿: [图片]\n以鸿: [图片]...</des>\n\t\t<action>view</action>\n\t\t<type>19</type>\n\t\t<url>https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&amp;from=singlemessage&amp;isappinstalled=0</url>\n\t\t<recorditem><![CDATA[<recordinfo><title>群聊的聊天记录</title><desc>以鸿:&#x20;[图片]&#x0A;以鸿:&#x20;[图片]&#x0A;以鸿:&#x20;[图片]&#x0A;以鸿:&#x20;[图片]&#x0A;以鸿:&#x20;[图片]...</desc><datalist count=\"5\"><dataitem datatype=\"2\" dataid=\"097d8a1dba7fd9959c7031709a346bae\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b304902010002048a77b9c702032e47ab02040d82f07802046a3be67f042432653661393863342d343933332d343361312d383966352d393235393438366136346263020405942001020100040d004c53db000000000000000000</cdnthumburl><cdnthumbkey>30892f3cdc8bd267f55a330d0f052984</cdnthumbkey><thumbfullmd5>49fdc404f95928b08229780089254d67</thumbfullmd5><thumbsize>2411</thumbsize><cdndataurl>305f020100044b304902010002048a77b9c702032e47ab02040d82f07802046a3be67f042461356536303737332d623163362d346136642d616130622d653435653364343564623464020405942001020100040d004c511f000000000000000000</cdndataurl><cdndatakey>f223ed262ee7e237cc5ae79f6ddfdac1</cdndatakey><fullmd5>916ad7fadb467455070dcfc7cb25a336</fullmd5><datasize>256965</datasize><thumbwidth>512</thumbwidth><thumbheight>234</thumbheight><sourcename>以鸿</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gUNLBehsDIOEAwsHc4sFeWoczliaF7UDXDV5HB2IFibic5dfoQvR9nhyu4uDjWdTDXb2AMWGgeKOnTdbF7wdKQrYOL9OMYeSDLia4kZRandUwnOulqfun1oAIF8FjcVss5qq/96</sourceheadurl><sourcetime>2026-06-24&#x20;22:15:11</sourcetime><srcMsgCreateTime>1782310511</srcMsgCreateTime><messageuuid>ee4c2c7e96edb11fd7af957c82483e5b_</messageuuid><fromnewmsgid>6659725964898307869</fromnewmsgid><dataitemsource><hashusername>edef9ad5c414d8fb1641810246f7e2d109810eae84f2d31e484e860834cb1ab6</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"b3f4f8e3f41a26222ca49a74fdfbc45a\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b304902010002048a77b9c702032e47ab02040d82f07802046a3be680042430396234343166332d313730632d343635612d386362662d666166363336313835313134020405982001020100040d004c56fb000000000000000000</cdnthumburl><cdnthumbkey>11f7ccaf95de4a125f95dca4bef5ceb5</cdnthumbkey><thumbfullmd5>8f842e36766ab48a169e0ebf1d11f42c</thumbfullmd5><thumbsize>2856</thumbsize><cdndataurl>305f020100044b304902010002048a77b9c702032e47ab02040d82f07802046a3be67f042436623964633735372d386662302d346237612d616562352d353333393164356362646364020405942001020100040d004c4e63000000000000000000</cdndataurl><cdndatakey>44d7a23c26b8544b820db610db43fc31</cdndatakey><fullmd5>bc5a3ac94fc2d6ceefe08c8c35cb954f</fullmd5><datasize>358917</datasize><thumbwidth>512</thumbwidth><thumbheight>234</thumbheight><sourcename>以鸿</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gUNLBehsDIOEAwsHc4sFeWoczliaF7UDXDV5HB2IFibic5dfoQvR9nhyu4uDjWdTDXb2AMWGgeKOnTdbF7wdKQrYOL9OMYeSDLia4kZRandUwnOulqfun1oAIF8FjcVss5qq/96</sourceheadurl><sourcetime>2026-06-24&#x20;22:15:11</sourcetime><srcMsgCreateTime>1782310511</srcMsgCreateTime><messageuuid>fdf073c3146ae3254a020965974255b3_</messageuuid><fromnewmsgid>906596791947142015</fromnewmsgid><dataitemsource><hashusername>edef9ad5c414d8fb1641810246f7e2d109810eae84f2d31e484e860834cb1ab6</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"3e1cd52995af6945a7a99b7c293321fa\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b304902010002048a77b9c702032e47ab02040d82f07802046a3be680042464323732643130662d656666342d343462312d396161332d623137306432643434313838020405942001020100040d004c4dff000000000000000000</cdnthumburl><cdnthumbkey>8293d306e9564fb8cc021c83b51d0d2b</cdnthumbkey><thumbfullmd5>3375bafab3d3de68d0a4f8e052211122</thumbfullmd5><thumbsize>2798</thumbsize><cdndataurl>305f020100044b304902010002048a77b9c702032e47ab02040d82f07802046a3be680042466396230643733372d323830352d343065652d613939332d363137336232333065663265020405982001020100040d004d1a4b000000000000000000</cdndataurl><cdndatakey>8fe0e93800cb1449430fa2ec97db3322</cdndatakey><fullmd5>5443ffcfa3cfd3fb58e81b6617c37663</fullmd5><datasize>207845</datasize><thumbwidth>512</thumbwidth><thumbheight>365</thumbheight><sourcename>以鸿</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gUNLBehsDIOEAwsHc4sFeWoczliaF7UDXDV5HB2IFibic5dfoQvR9nhyu4uDjWdTDXb2AMWGgeKOnTdbF7wdKQrYOL9OMYeSDLia4kZRandUwnOulqfun1oAIF8FjcVss5qq/96</sourceheadurl><sourcetime>2026-06-24&#x20;22:15:11</sourcetime><srcMsgCreateTime>1782310511</srcMsgCreateTime><messageuuid>38b0795d1c04b680cbf73fdc2cbde8a8_</messageuuid><fromnewmsgid>3618060626946738505</fromnewmsgid><dataitemsource><hashusername>edef9ad5c414d8fb1641810246f7e2d109810eae84f2d31e484e860834cb1ab6</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"0b288023a16eaaec94da930589dab3de\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b304902010002048a77b9c702032e47ab02040d82f07802046a3be681042437623234623765362d386366302d343431352d626235662d306232336532646662616332020405982001020100040d004d1a4b000000000000000000</cdnthumburl><cdnthumbkey>0faff0408e30c9dfc5adb3b9ef13bed1</cdnthumbkey><thumbfullmd5>67a35b94739fdcd1acddd2fd5b5cfe44</thumbfullmd5><thumbsize>2494</thumbsize><cdndataurl>305f020100044b304902010002048a77b9c702032e47ab02040d82f07802046a3be680042430313635343162382d346464392d343866372d386137342d373533646266333338643333020405942001020100040d004c4e63000000000000000000</cdndataurl><cdndatakey>6c49b9ad8c4020bde247eed664b54c9c</cdndatakey><fullmd5>8123daaa82396dd5ebf777d5031da41d</fullmd5><datasize>201629</datasize><thumbwidth>512</thumbwidth><thumbheight>365</thumbheight><sourcename>以鸿</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gUNLBehsDIOEAwsHc4sFeWoczliaF7UDXDV5HB2IFibic5dfoQvR9nhyu4uDjWdTDXb2AMWGgeKOnTdbF7wdKQrYOL9OMYeSDLia4kZRandUwnOulqfun1oAIF8FjcVss5qq/96</sourceheadurl><sourcetime>2026-06-24&#x20;22:15:11</sourcetime><srcMsgCreateTime>1782310511</srcMsgCreateTime><messageuuid>34b1c8b7581f99d5b82e750a600280f6_</messageuuid><fromnewmsgid>3269475076233959400</fromnewmsgid><dataitemsource><hashusername>edef9ad5c414d8fb1641810246f7e2d109810eae84f2d31e484e860834cb1ab6</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"77c429b1be7ec33f7e02e16a451df14b\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b304902010002048a77b9c702032e47ab02040d82f07802046a3be681042437616237323066332d393937312d343835372d613762362d306537393632656236623734020405942001020100040d004c511f000000000000000000</cdnthumburl><cdnthumbkey>b0ce0319a1926bce5f3dbc21d7afb17c</cdnthumbkey><thumbfullmd5>b4c3841eb99a3337068c9f90932a40f6</thumbfullmd5><thumbsize>3519</thumbsize><cdndataurl>305f020100044b304902010002048a77b9c702032e47ab02040d82f07802046a3be681042430303562323436632d306161662d343538642d626266652d616263313935363537366263020405982001020100040d004c57c3000000000000000000</cdndataurl><cdndatakey>76f058c12ef592554282f9e544108e7d</cdndatakey><fullmd5>e971c2ac1031c1b4164761919916c588</fullmd5><datasize>439171</datasize><thumbwidth>234</thumbwidth><thumbheight>512</thumbheight><sourcename>以鸿</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gUNLBehsDIOEAwsHc4sFeWoczliaF7UDXDV5HB2IFibic5dfoQvR9nhyu4uDjWdTDXb2AMWGgeKOnTdbF7wdKQrYOL9OMYeSDLia4kZRandUwnOulqfun1oAIF8FjcVss5qq/96</sourceheadurl><sourcetime>2026-06-24&#x20;22:15:11</sourcetime><srcMsgCreateTime>1782310511</srcMsgCreateTime><messageuuid>ec56b35deb3b427041c04e5c80b6e185_</messageuuid><fromnewmsgid>8244438120754093184</fromnewmsgid><dataitemsource><hashusername>edef9ad5c414d8fb1641810246f7e2d109810eae84f2d31e484e860834cb1ab6</hashusername></dataitemsource></dataitem></datalist><isChatRoom>1</isChatRoom></recordinfo>]]></recorditem>\n\t\t<appattach />\n\t</appmsg>\n\t<extcommoninfo>\n\t\t<media_expire_at>1783520130</media_expire_at>\n\t</extcommoninfo>\n\t<fromusername>wxid_a3y3ueu26zo322</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname />\n\t</appinfo>\n\t<commenturl />\n</msg>\n",
-      "raw_content_length": 8039,
-      "is_system": false,
-      "printable_ratio": 1.0
-    },
-    {
-      "id": 6573,
-      "db": "message_0.db",
-      "local_id": 1178,
-      "timestamp": 1781451803,
-      "datetime": "2026-06-14 23:43:23",
-      "date": "2026-06-14",
-      "hour": 23,
-      "local_type": 81604378673,
-      "sender_id": "wxid_npjwe2plsg6g22",
-      "sender_name": "二憨",
-      "content": "<?xml version=\"1.0\"?>\n<msg>\n\t<appmsg>\n\t\t<title>二憨的聊天记录</title>\n\t\t<des>二憨: [图片]\n二憨: [图片]\n二憨: 安装方法：\n1. 先解压我发的压缩包\n2. 打开 Edge 浏览器\n3. 地址栏输入：edge://extensions/\n4. 打开“开发人员模式”\n5. 点“加载解压缩的扩展”\n6. 选择解压后的 exam-assistant 文件夹\n7. 打开任意网页，右下角会出现“期末助手”按钮\n二憨: [文件] exam-assistant.zip\n二憨: 第一次使用：\n需要在设置里填两个 API Key：\n- 智谱 GLM Key：负责识别截图\n- DeepSeek Key：负责解析、出题和追问\n\n使用方法：\n1. 点右下角期末助手\n2. 点截图区域\n3. 框选题目\n4. 点“解析题目”\n5. 看解析 / 出类似题 / 存错题本\n\n注意：\n不要在浏览器扩展页直接选 zip 文件，要先解压。\n如果更新了新版本，需要在 edge://extensions/ 里点“重新加载”。...</des>\n\t\t<action>view</action>\n\t\t<type>19</type>\n\t\t<url>https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&amp;from=singlemessage&amp;isappinstalled=0</url>\n\t\t<recorditem><![CDATA[<recordinfo><title>二憨的聊天记录</title><desc>二憨:&#x20;[图片]&#x0A;二憨:&#x20;[图片]&#x0A;二憨:&#x20;安装方法：&#x0A;1.&#x20;先解压我发的压缩包&#x0A;2.&#x20;打开&#x20;Edge&#x20;浏览器&#x0A;3.&#x20;地址栏输入：edge://extensions/&#x0A;4.&#x20;打开“开发人员模式”&#x0A;5.&#x20;点“加载解压缩的扩展”&#x0A;6.&#x20;选择解压后的&#x20;exam-assistant&#x20;文件夹&#x0A;7.&#x20;打开任意网页，右下角会出现“期末助手”按钮&#x0A;二憨:&#x20;[文件]&#x20;exam-assistant.zip&#x0A;二憨:&#x20;第一次使用：&#x0A;需要在设置里填两个&#x20;API&#x20;Key：&#x0A;-&#x20;智谱&#x20;GLM&#x20;Key：负责识别截图&#x0A;-&#x20;DeepSeek&#x20;Key：负责解析、出题和追问&#x0A;&#x0A;使用方法：&#x0A;1.&#x20;点右下角期末助手&#x0A;2.&#x20;点截图区域&#x0A;3.&#x20;框选题目&#x0A;4.&#x20;点“解析题目”&#x0A;5.&#x20;看解析&#x20;/&#x20;出类似题&#x20;/&#x20;存错题本&#x0A;&#x0A;注意：&#x0A;不要在浏览器扩展页直接选&#x20;zip&#x20;文件，要先解压。&#x0A;如果更新了新版本，需要在&#x20;edge://extensions/&#x20;里点“重新加载”。...</desc><datalist count=\"5\"><dataitem datatype=\"2\" dataid=\"984cccec3fcd12045fb06fa4ccaf9a0c\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b30490201000204f3e3a84702032dd1b30204180a932402046a2ecc1a042434316565393339622d656266352d343731332d386138352d353236613632356333323337020405942001020100040d004c5507000000000000000000</cdnthumburl><cdnthumbkey>a03be32860118d3004a593e83e332434</cdnthumbkey><thumbfullmd5>d251422e88e5744ed682954239848027</thumbfullmd5><thumbsize>3315</thumbsize><cdndataurl>305f020100044b30490201000204f3e3a84702032dd1b30204180a932402046a2ecc1a042431303266346638332d636266362d343336632d383831642d623535306235396263616434020405942001020100040d004c4dff000000000000000000</cdndataurl><cdndatakey>9f9d2bc974095fe9d604a46d8e1e043a</cdndatakey><fullmd5>682b5b69aa710294d938d4ee21c24e9c</fullmd5><datasize>498947</datasize><thumbwidth>180</thumbwidth><thumbheight>108</thumbheight><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-14&#x20;23:35:19</sourcetime><srcMsgCreateTime>1781451319</srcMsgCreateTime><messageuuid>09f47dee1ff9e6f36cdedfd3947119c5_</messageuuid><fromnewmsgid>5626586732340055763</fromnewmsgid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem><dataitem datatype=\"2\" dataid=\"af8a4db7ec2d03d4f073aeb07d0bab94\"><datadesc>[图片]</datadesc><cdnthumburl>305f020100044b30490201000204f3e3a84702032dd1b30204180a932402046a2ecc1b042435613765633761632d373265382d343734322d386233342d323565383131333862396561020405982001020100040d004c57c3000000000000000000</cdnthumburl><cdnthumbkey>08086c04f6a9e683be26437a161be2c2</cdnthumbkey><thumbfullmd5>dafd2ad7f4913307362054aecbfa8ae3</thumbfullmd5><thumbsize>5210</thumbsize><cdndataurl>305f020100044b30490201000204f3e3a84702032dd1b30204180a932402046a2ecc1a042434646435383266652d376131632d343739642d383537312d396436303638323436663234020405942001020100040d004c53db000000000000000000</cdndataurl><cdndatakey>71d3d87cbb2fac416bdbe0023ee487eb</cdndatakey><fullmd5>15227a24cf170c3e88635393b6199495</fullmd5><datasize>285506</datasize><thumbwidth>180</thumbwidth><thumbheight>180</thumbheight><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-14&#x20;23:35:20</sourcetime><srcMsgCreateTime>1781451320</srcMsgCreateTime><messageuuid>0a8cc4ba327b0c71076a495beb8e3456_</messageuuid><fromnewmsgid>2862590344926584983</fromnewmsgid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem><dataitem datatype=\"1\" dataid=\"7f86e26e1809ba378171b23bf1af4a7a\"><datadesc>安装方法：&#x0A;1.&#x20;先解压我发的压缩包&#x0A;2.&#x20;打开&#x20;Edge&#x20;浏览器&#x0A;3.&#x20;地址栏输入：edge://extensions/&#x0A;4.&#x20;打开“开发人员模式”&#x0A;5.&#x20;点“加载解压缩的扩展”&#x0A;6.&#x20;选择解压后的&#x20;exam-assistant&#x20;文件夹&#x0A;7.&#x20;打开任意网页，右下角会出现“期末助手”按钮</datadesc><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-14&#x20;23:36:23</sourcetime><srcMsgCreateTime>1781451383</srcMsgCreateTime><fromnewmsgid>1795840074417641365</fromnewmsgid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem><dataitem datatype=\"8\" dataid=\"5c1ec92c79971171d88267cd7f313351\"><datatitle>exam-assistant.zip</datatitle><cdndataurl>305f020100044b30490201000204f3e3a84702032dd1b30204220a932402046a2ecacd042438346136653339382d386361342d343930362d393735342d316135393532613339306664020405180005020100040d004c51e7000000000000000000</cdndataurl><cdndatakey>895aeedd763fce82b7234f8d5815baf2</cdndatakey><datasize>28503</datasize><datafmt>zip</datafmt><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-14&#x20;23:37:49</sourcetime><srcMsgCreateTime>1781451469</srcMsgCreateTime><messageuuid>1d65a4aeb677db24b964d85096fc414b_</messageuuid><fromnewmsgid>3477053598584966111</fromnewmsgid><appid>wx6618f1cfc6c132f8</appid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem><dataitem datatype=\"1\" dataid=\"1991b6000d70090852ab92f050dd6499\"><datadesc>第一次使用：&#x0A;需要在设置里填两个&#x20;API&#x20;Key：&#x0A;-&#x20;智谱&#x20;GLM&#x20;Key：负责识别截图&#x0A;-&#x20;DeepSeek&#x20;Key：负责解析、出题和追问&#x0A;&#x0A;使用方法：&#x0A;1.&#x20;点右下角期末助手&#x0A;2.&#x20;点截图区域&#x0A;3.&#x20;框选题目&#x0A;4.&#x20;点“解析题目”&#x0A;5.&#x20;看解析&#x20;/&#x20;出类似题&#x20;/&#x20;存错题本&#x0A;&#x0A;注意：&#x0A;不要在浏览器扩展页直接选&#x20;zip&#x20;文件，要先解压。&#x0A;如果更新了新版本，需要在&#x20;edge://extensions/&#x20;里点“重新加载”。</datadesc><sourcename>二憨</sourcename><sourceheadurl>https://wx.qlogo.cn/mmhead/ver_1/gzjV3T8ibQSL01xPqSVH3vgCfk6ftljw9SVHFhzkZpALT4N27obmvRia2NNicIzDiaicEIOV8csNwltVpq1BGdtY6mIlBvk8Aib1Fwla2kNZO4ZXs/96</sourceheadurl><sourcetime>2026-06-14&#x20;23:42:51</sourcetime><srcMsgCreateTime>1781451771</srcMsgCreateTime><fromnewmsgid>4201736830701858216</fromnewmsgid><dataitemsource><hashusername>821be4f5e905e5e8e6b400dfb4e9923d487385ec69587e4290875af3014f9867</hashusername></dataitemsource></dataitem></datalist></recordinfo>]]></recorditem>\n\t\t<appattach />\n\t</appmsg><extcommoninfo>\n\t<media_expire_at>1782661403</media_expire_at>\n</extcommoninfo>\n\n\t<fromusername>wxid_npjwe2plsg6g22</fromusername>\n\t<scene>0</scene>\n\t<appinfo>\n\t\t<version>1</version>\n\t\t<appname></appname>\n\t</appinfo>\n\t<commenturl></commenturl>\n</msg>\n",
-      "raw_content_length": 7455,
-      "is_system": false,
-      "printable_ratio": 1.0
     }
   ],
   "interaction": {
-    "total_mentions": 2463,
+    "total_mentions": 2619,
     "top_mentioned": [
       {
         "name": "chatroom</fromusr>",
-        "count": 1826
-      },
-      {
-        "name": "finder</username>",
-        "count": 23
+        "count": 1926
       },
       {
         "name": "链屿-成都-AI变现1W",
-        "count": 21
+        "count": 29
+      },
+      {
+        "name": "finder</username>",
+        "count": 26
       },
       {
         "name": "openim:",
@@ -1146,35 +1146,35 @@
       },
       {
         "name": "树林",
-        "count": 19
+        "count": 20
       },
       {
         "name": "finder]]></username>",
-        "count": 19
+        "count": 20
+      },
+      {
+        "name": "finder</finderUsername>",
+        "count": 17
       },
       {
         "name": "阿扶-武汉-转行AI",
         "count": 16
       },
       {
-        "name": "finder</finderUsername>",
-        "count": 16
+        "name": "青砚",
+        "count": 15
       },
       {
         "name": "果粒",
         "count": 13
       },
       {
-        "name": "蝶秋-湖北黄石-准大学生",
+        "name": "星野-珠海-实习",
         "count": 12
       },
       {
-        "name": "青砚",
-        "count": 11
-      },
-      {
-        "name": "星野-珠海-实习",
-        "count": 11
+        "name": "蝶秋-湖北黄石-准大学生",
+        "count": 12
       },
       {
         "name": "stranger\"",
@@ -1185,23 +1185,23 @@
         "count": 10
       },
       {
-        "name": "阿扶-武汉-用AI辅助内容创作",
-        "count": 9
+        "name": "曾肌减脂两手抓女士",
+        "count": 10
       }
     ]
   },
   "time_dist": [
     {
       "hour": 0,
-      "count": 729
+      "count": 809
     },
     {
       "hour": 1,
-      "count": 431
+      "count": 484
     },
     {
       "hour": 2,
-      "count": 143
+      "count": 150
     },
     {
       "hour": 3,
@@ -1221,71 +1221,71 @@
     },
     {
       "hour": 7,
-      "count": 32
+      "count": 39
     },
     {
       "hour": 8,
-      "count": 82
+      "count": 92
     },
     {
       "hour": 9,
-      "count": 144
+      "count": 169
     },
     {
       "hour": 10,
-      "count": 271
+      "count": 284
     },
     {
       "hour": 11,
-      "count": 232
+      "count": 316
     },
     {
       "hour": 12,
-      "count": 381
+      "count": 470
     },
     {
       "hour": 13,
-      "count": 848
+      "count": 954
     },
     {
       "hour": 14,
-      "count": 864
+      "count": 916
     },
     {
       "hour": 15,
-      "count": 697
+      "count": 755
     },
     {
       "hour": 16,
-      "count": 674
+      "count": 730
     },
     {
       "hour": 17,
-      "count": 759
+      "count": 835
     },
     {
       "hour": 18,
-      "count": 749
+      "count": 868
     },
     {
       "hour": 19,
-      "count": 699
+      "count": 738
     },
     {
       "hour": 20,
-      "count": 761
+      "count": 777
     },
     {
       "hour": 21,
-      "count": 823
+      "count": 833
     },
     {
       "hour": 22,
-      "count": 1041
+      "count": 1092
     },
     {
       "hour": 23,
-      "count": 1184
+      "count": 1210
     }
   ],
   "daily": [
@@ -1401,13 +1401,13 @@
     },
     {
       "date": "2026-06-24",
-      "message_count": 331,
+      "message_count": 333,
       "active_members": 90
     },
     {
       "date": "2026-06-25",
-      "message_count": 136,
-      "active_members": 37
+      "message_count": 449,
+      "active_members": 72
     },
     {
       "date": "2026-06-26",
@@ -1416,27 +1416,32 @@
     },
     {
       "date": "2026-06-27",
-      "message_count": 233,
+      "message_count": 230,
       "active_members": 82
     },
     {
       "date": "2026-06-28",
-      "message_count": 111,
-      "active_members": 29
+      "message_count": 208,
+      "active_members": 37
     },
     {
       "date": "2026-06-29",
-      "message_count": 74,
-      "active_members": 12
+      "message_count": 331,
+      "active_members": 38
     },
     {
       "date": "2026-06-30",
-      "message_count": 110,
-      "active_members": 27
+      "message_count": 256,
+      "active_members": 42
+    },
+    {
+      "date": "2026-07-01",
+      "message_count": 165,
+      "active_members": 30
     }
   ],
   "student_work": {
-    "total_links": 1975,
+    "total_links": 2121,
     "links": [
       {
         "sender_name": "信鸽FaithDove",
