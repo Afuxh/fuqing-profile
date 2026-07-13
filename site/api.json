@@ -2,175 +2,102 @@
   "meta": {
     "title": "AI 先机",
     "url": "https://afuxh.github.io/fuqing-profile/hot-news.html",
-    "updated": "2026-06-29 03:10:12",
-    "total": 48
+    "updated": "2026-07-13 12:52:31",
+    "total": 11,
+    "summary_policy": "source_excerpt_only_unless_verified"
   },
   "categories": {
     "精选": [],
     "推荐": [
       {
-        "title": "一折买 Miu Miu，谁在做奢侈品牌的\"拼多多\"？｜商业Friday",
-        "url": "https://36kr.com/p/3867976058803459?f=rss",
+        "title": "AI编程从零开始：环境配置到开发调试",
+        "url": "https://www.williamlong.info/archives/7544.html",
         "score": 54,
-        "source": "36氪",
-        "summary": "有些奢侈品打折活动需要特殊邀请，普通人可能进不去。",
-        "perspective": "这意味着想买到打折奢侈品要花更多精力，但也可能让真正需要的人更受益。",
-        "action": "关注这类平台的活动规则，或者尝试其他折扣渠道。"
+        "source": "月光博客",
+        "summary": "我最开始接触AI编程（Vibe Coding）是去年，因为我以前没写过Chrome插件，第一次用AI来写，十分钟搞定，功能是点击将浏览器所有书签转化为网址导航站来显示，用AI在网页端生成，插件运行后显示正常。我感觉有了AI之后，编程门槛大幅降低，傻子都可以当程序员了。\n\n后来维护一个很古老的VB6程序，提示MSCOMCTL.OCX控件加载失败的问题，查看了一下代码，用了ProgressBar控件，于是用AI重写了一个类，通过PictureBox（图片框）来模拟ProgressBar，源代码几乎不用修改就完成了，编程效率非常高。\n\n经过一番研究，我发现AI编程（Vibe Coding）是件很有意",
+        "summary_status": "source_excerpt"
       }
     ],
     "参考": [
       {
-        "title": "匿名 GitHub 帐户大量删除未公开的 0day",
-        "url": "https://github.com/bikini/exploitarium",
-        "score": 42.7,
+        "title": "Ask HN: Add flag for AI-generated articles",
+        "url": "https://news.ycombinator.com/item?id=48886741",
+        "score": 32.7,
         "source": "Hacker News",
-        "summary": "一个匿名的GitHub账号删除了很多未公开的软件漏洞信息，可能在清除潜在的安全隐患。",
-        "perspective": "这对普通用户来说意味着网络环境更安全了，因为这些漏洞被隐藏，黑客利用它们攻击的可能性降低。",
-        "action": "今天可以学习一些基础的网络安全知识，比如如何识别和避免恶意软件。"
+        "summary": "150 评论",
+        "summary_status": "source_excerpt"
       },
       {
-        "title": "OvOhao/自动收纸",
-        "url": "https://github.com/OvOhao/auto-paper-collecter",
-        "score": 38.1,
+        "title": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k",
+        "url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+        "score": 33.5,
+        "source": "Hacker News",
+        "summary": "284 评论",
+        "summary_status": "source_excerpt"
+      },
+      {
+        "title": "Migrating a production AI agent to GPT-5.6: 2.2x faster, 27% cheaper",
+        "url": "https://ploy.ai/blog/migrating-a-production-ai-agent-to-gpt-5-6",
+        "score": 32.5,
+        "source": "Hacker News",
+        "summary": "61 评论",
+        "summary_status": "source_excerpt"
+      },
+      {
+        "title": "AlephAITech/WorkBuddyGuide",
+        "url": "https://github.com/AlephAITech/WorkBuddyGuide",
+        "score": 38.6,
         "source": "GitHub",
-        "summary": "📚🔭您的个人研究雷达——一款由 LLM 驱动的工具，可以自动聚合 arXiv / Crossref / Semantic Sc​​holar / GitHub / RSS 中您的关键词的最新论文。",
-        "perspective": "对爱学习的人来说，节省了翻找论文的时间，但可能需要适应AI推荐的内容。",
-        "action": "试试用这个工具整理自己感兴趣的关键词，看看能不能发现新研究。"
+        "summary": "A practical, open-source guide to mastering WorkBuddy through real-world workflows.开源的 WorkBuddy 实战蓝皮书：教程、真实工作流、Skills、MCP、自动化与多智能体实践。",
+        "summary_status": "source_excerpt"
       },
       {
-        "title": "9点1氪｜苹果涨价引山姆代购潮；DeepSeek大规模招聘；黄金再度跌破4000美元",
-        "url": "https://36kr.com/p/3870720040588295?f=rss",
+        "title": "AI家庭智能硬件公司获数千万元融资，首款产品今年上线海外｜硬氪首发",
+        "url": "https://36kr.com/p/3879780282495236?f=rss",
         "score": 46,
         "source": "36氪",
-        "summary": "苹果涨价让代购更火，AI公司也在招人，黄金价格又跌了。",
-        "perspective": "科技产品涨价可能让普通人更关注性价比，而黄金价格波动影响投资选择。",
-        "action": "留意自己常买的东西价格变化，或者看看有没有新工作机会。"
+        "summary": "\n \n \n  作者｜黄楠\n  编辑｜袁斯来\n  硬氪获悉，威联机器人科技（深圳）有限公司（以下简称“MOVA LINCO”）近日完成数千万元天使融资。融资资金将主要用于AI算法底层技术研发、完善产品量产体系，以及全球化渠道布局和家庭AI生态的持续建设。\n  MOVA LINCO核心团队来自头部网络通信与智能硬件企业，在路由器、NAS存储及AI算力设备等方面拥有深厚的技术积累与产品经验。公司产品矩阵以AI智能语音路由器、AI NAS及AI算力盒子三大品类为核心，构建“连接+存储+算力”三位一体的家庭AI基础设施架构，覆盖从智能家居中枢、数据存储及本地算力分配等全场景需求，专注为全球用户提供智能化",
+        "summary_status": "source_excerpt"
       },
       {
-        "title": "理想首谈电池品牌争议：不管谁家电池，都是理想汽车兜底",
-        "url": "https://36kr.com/p/3866946087867394?f=rss",
-        "score": 38,
-        "source": "36氪",
-        "summary": "理想汽车说不管电池来自哪家，它们都会负责安全问题。",
-        "perspective": "这让消费者更放心，毕竟电池安全直接关系到车子的使用体验。",
-        "action": "如果考虑买新能源车，可以多了解电池品牌和售后保障政策。"
-      },
-      {
-        "title": "追赶FSD V14，理想在补哪些课？｜最前线",
-        "url": "https://36kr.com/p/3870292939658242?f=rss",
-        "score": 38,
-        "source": "36氪",
-        "summary": "理想汽车正在努力追赶特斯拉的自动驾驶技术。",
-        "perspective": "这说明自动驾驶技术发展很快，未来可能会有更多智能驾驶功能出现。",
-        "action": "关注智能驾驶相关的技术新闻，或者考虑未来是否需要升级车机系统。"
-      },
-      {
-        "title": "《走进AIE》，谁是下一个主角",
-        "url": "https://36kr.com/p/3869838577620231?f=rss",
-        "score": 38,
-        "source": "36氪",
-        "summary": "AIE展会成为科技企业展示新技术的重要舞台。",
-        "perspective": "普通人可能不太关心展会，但参展的科技产品会慢慢影响我们的日常生活。",
-        "action": "如果对科技产品感兴趣，可以尝试参加或关注展会的线上内容。"
-      },
-      {
-        "title": "悟空安全上线“弹必赔”，主打“0添加”安全软件",
-        "url": "https://36kr.com/newsflashes/3872623912571910?f=rss",
-        "score": 38,
-        "source": "36氪",
-        "summary": "悟空安全推出新功能，能拦截广告弹窗并给奖励。",
-        "perspective": "这能让电脑使用更顺畅，但也可能让人对广告更敏感。",
-        "action": "试试用这个软件清理弹窗，或者检查电脑是否有类似功能。"
-      },
-      {
-        "title": "前端工程师最不想看到的开源项目出现了，一行命令克隆任意网站",
-        "url": "https://www.qbitai.com/2026/06/439515.html",
+        "title": "36氪首发 | 港中大博士、前大疆工程师创业消费级四足机器人，天使轮获正轩领投数千万元",
+        "url": "https://36kr.com/p/3893473722514181?f=rss",
         "score": 46,
-        "source": "量子位",
-        "summary": "“我们错误地认为，只要引入人工智能……就能生产出高质量的产品。”",
-        "perspective": "这对开发者来说是个好工具，但也可能被用来做不好的事。",
-        "action": "如果需要做网页开发，可以看看这个项目，但别随便复制别人的内容。"
+        "source": "36氪",
+        "summary": "\n \n \n  作者&nbsp;|&nbsp;乔钰杰\n  编辑&nbsp;|&nbsp;袁斯来\n  硬氪获悉，深圳光之跃迁科技有限公司（Lumisition Robotics）（以下简称“光之跃迁”）近日完成近五千万元天使轮融资，由正轩领投，光点资本、力合资本、松禾资本、恒信未来等机构跟投。本轮资金将主要用于产品研发、算法迭代及量产准备。\n  光之跃迁成立于2026年2月，聚焦消费级四足机器人市场，希望以“全地形移动底盘”切入户外场景，解决搬运、辅助行动等体力劳动需求。公司瞄准拥有独栋住宅的欧美家庭、户外运动爱好者以及银发群体，希望让四足机器人从展示型产品转向具备实际生产力的消费级工具。\n  \n",
+        "summary_status": "source_excerpt"
       },
       {
-        "title": "一次吃下一本书！百度开源新OCR，作者疑似前DeepSeek研究员",
-        "url": "https://www.qbitai.com/2026/06/439464.html",
+        "title": "对话Om AI赵天成：多年坚守，押注物理AI原生的「流式」未来",
+        "url": "https://36kr.com/p/3893445208717826?f=rss",
         "score": 38,
-        "source": "量子位",
-        "summary": "百度推出新的OCR技术，能快速识别文字，作者可能来自另一家AI公司。",
-        "perspective": "这对整理文档和学习新知识的人来说是个好消息，效率提升了不少。",
-        "action": "尝试用百度的新OCR工具处理一些文字资料，看看效果如何。"
+        "source": "36氪",
+        "summary": "\n \n \n  一个从未见过监控画面的多模态模型，却比在监控数据上练了多年的小模型“老将”更懂监控。这不是科幻电影，这是2023年Om AI联汇的一场“无心插柳”，也是CEO兼首席科学家赵天成博士更加坚信“多模态训练方式能为物理开放世界带来泛化性”的关键节点。彼时，AI行业正在追求以大语言模型为核心的生成式AI。\n  三年后，这个多模态模型演变成了VLX——全球首个面向物理AI的端侧流式多模态模型系列。首次提出“端侧原生流式多模态”这一全新模型架构，而通过这个从Day 1为端侧算力约束设计的架构，VLX模型首次在端侧打通“持续感知+精准定位+行动决策”的物理AI完整闭环。\n  \n  VLX概览图",
+        "summary_status": "source_excerpt"
       },
       {
-        "title": "兜兜转转四款笔记软件，我终于为思考找到了安身之所",
-        "url": "https://sspai.com/post/110935",
+        "title": "五一视界与环天智慧正式达成空天领域战略合作",
+        "url": "https://36kr.com/newsflashes/3893500374350338?f=rss",
         "score": 38,
-        "source": "少数派",
-        "summary": "有人换了四款笔记软件，终于找到适合自己的工具。",
-        "perspective": "说明不同人对工具的需求不同，找到适合自己的才能高效工作。",
-        "action": "如果觉得现有笔记工具不好用，可以试试其他类型，找到最适合自己的。"
+        "source": "36氪",
+        "summary": "36氪获悉，五一视界公告，公司与环天智慧正式达成空天领域战略合作，将围绕高精度卫星遥感数据的采集与“物理级可用”数据资产重建展开合作，联合定制全球首颗专为物理AI训练与仿真应用设计的商业遥感卫星——地球克隆之星“ECS-1”。据公告显示，地球克隆之星“ECS-1”是全球首颗针对物理AI数据需求专项定制的商业遥感卫星。",
+        "summary_status": "source_excerpt"
       },
       {
-        "title": "早报｜GPT-5.6正式亮相，但你可能还用不了/微软将上调Xbox主机价格/大疆回应Pocket 4P开售秒空",
-        "url": "https://www.ifanr.com/1670246?utm_source=rss&utm_medium=rss&utm_campaign=",
+        "title": "韩国央行：全球半导体市场目前仍处于供不应求的状态，由AI驱动的芯片超级周期预计还将持续一段时间",
+        "url": "https://36kr.com/newsflashes/3893454854765059?f=rss",
         "score": 38,
-        "source": "爱范儿",
-        "summary": "GPT-5.6发布，Xbox涨价，大疆回应产品热销。",
-        "perspective": "科技产品更新频繁，价格变化也会影响我们的选择和预算。",
-        "action": "关注你关心的科技产品的动态，及时调整购物计划。"
+        "source": "36氪",
+        "summary": "韩国央行在周一发布的一份报告中驳斥了投资者关于芯片周期已然见顶的担忧。该行表示，全球半导体市场目前仍处于供不应求的状态，由人工智能（AI）驱动的芯片超级周期预计还将持续一段时间。韩国央行认为，本轮芯片周期与以往不同，其驱动力是各大企业竞相投资，这些投资是基于对AI普及将引发产业生态系统根本性变革的预期。（财联社）",
+        "summary_status": "source_excerpt"
       },
       {
-        "title": "大疆定义了 Pocket，而 Pocket 4P 定义了「口袋电影机」",
-        "url": "https://www.ifanr.com/1669925?utm_source=rss&utm_medium=rss&utm_campaign=",
-        "score": 38,
-        "source": "爱范儿",
-        "summary": "大疆的新产品Pocket 4P被称作“口袋电影机”，功能很强大。",
-        "perspective": "这类便携设备越来越普及，普通人也能轻松拍出高质量视频。",
-        "action": "如果喜欢拍视频，可以看看这款产品的实际效果。"
-      },
-      {
-        "title": "为什么华尔街认为美国内存制造商美光是下一个英伟达",
-        "url": "https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/",
+        "title": "'Billionaire Exodus? California Drew 10x More Venture Capital Than Any Other State This Year'",
+        "url": "https://news.slashdot.org/story/26/07/12/2326225/billionaire-exodus-california-drew-10x-more-venture-capital-than-any-other-state-this-year?utm_source=rss1.0mainlinkanon&utm_medium=feed",
         "score": 45,
-        "source": "TechCrunch",
-        "summary": "华尔街投资者渴望找到更多与英伟达一样出色的人工智能相关上市公司，他们认为美光是他们的赢家。",
-        "perspective": "说明AI发展带动了硬件需求，内存厂商也可能受益。",
-        "action": "如果对科技行业感兴趣，可以多关注内存和AI相关公司的动向。"
-      },
-      {
-        "title": "由 Y Combinator 支持的保险科技初创公司 Corgi 表示，它没有窃取开源产品",
-        "url": "https://techcrunch.com/2026/06/26/corgi-the-buzzy-y-combinator-backed-insurance-tech-startup-says-it-didnt-steal-an-open-source-product/",
-        "score": 46,
-        "source": "TechCrunch",
-        "summary": "当 Papermark 指控 Corgi 窃取其软件时，Corgi 卷入了争议。柯基犬说没有，这引发了关于振动编码的新问题。",
-        "perspective": "这提醒我们使用开源技术时要注意合法性和道德问题。",
-        "action": "如果用开源工具，可以看看它的使用条款，确保不违反规定。"
-      },
-      {
-        "title": "马克斯·普朗克因涉嫌流氓算法而被撤回两篇论文",
-        "url": "https://science.slashdot.org/story/26/06/27/2042204/max-planck-slapped-with-two-paper-retractions-by-suspected-rogue-algorithm?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-        "score": 38,
         "source": "Slashdot",
-        "summary": "马克斯·普朗克荣获 1918 年诺贝尔物理学奖。然而他的两篇论文被撤回——这一举动现在受到魁北克大学物理历史学家伊夫·金格拉斯(Yves Gingras)和昆士兰大学三河市科学史学家马赫迪·凯尔法乌伊(Mahdi Khelfaoui)的批评。科学报告：\n\n这两篇论文最初发表于 2011 年悄然撤回的论文，最初发表于 20 世纪 40 年代初的《Naturwissenschaften》，这是一份德国期刊，现归出版巨头施普林格·自然 (Springer Nature) 所有。经过一番调查后，Khelfaoui 确定",
-        "perspective": "这说明即使是伟大的科学家，他们的研究也可能因为后续发现的问题被重新审视，提醒我们科技发展需要不断验证。",
-        "action": "普通人可以关注AI伦理问题，了解科技发展背后的争议。"
-      },
-      {
-        "title": "我如何将旧 Android 手机免费变成流媒体棒 - 只需 6 个简单步骤",
-        "url": "https://www.zdnet.com/article/how-to-turn-android-phone-into-streaming-stick-roku-fire-tv/",
-        "score": 38,
-        "source": "ZDNet",
-        "summary": "跳过流媒体棒 - 以下是我如何使用备用 Pixel 手机在电视上观看电影。",
-        "perspective": "这给了很多人省钱的机会，把闲置手机变成实用工具，也能减少电子垃圾。",
-        "action": "现在就试试用旧手机当流媒体棒，省下一笔开销。"
-      },
-      {
-        "title": "我总是在每台新设备上更改 13 个 Google 相册设置 - 以及原因",
-        "url": "https://www.zdnet.com/article/google-photos-settings-i-change-on-new-android-iphone-why/",
-        "score": 38,
-        "source": "ZDNet",
-        "summary": "在我的 Android 或 iPhone 相机胶卷上使用 Google Photos 之前，我会先检查这些备份、隐私和 AI 设置。",
-        "perspective": "这提醒我们注意AI在管理个人数据时的潜在风险，主动设置能更好保护隐私。",
-        "action": "今天就去检查一下自己的云存储和隐私设置，别让AI替你做决定。"
+        "summary": "California drew more than $335 billion in venture capital funding this year, reports the Los Angeles Times, citing data released Thursday by PitchBook on private market funding:\n\nIts next biggest competitor, New York, raised less than a tenth of California's total. Texas raised 1/40th of the amount.",
+        "summary_status": "source_excerpt"
       }
     ]
   }

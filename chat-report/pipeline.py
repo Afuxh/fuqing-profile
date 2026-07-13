@@ -15,6 +15,7 @@ chat-report 数据解析管道 v1.0
 
 import sqlite3
 import zstandard as zstd
+import glob
 import hashlib
 import json
 import os
@@ -26,18 +27,27 @@ from collections import Counter, defaultdict
 # ============================================================
 # 配置
 # ============================================================
-BASE_DB = r"C:\Users\45826\AppData\Roaming\wechat-data-analysis-desktop\output\databases\wxid_qkslns979kft22"
-CONTACT_DB = os.path.join(BASE_DB, "contact.db")
-MESSAGE_DBS = [os.path.join(BASE_DB, f"message_{i}.db") for i in [0, 1]]  # 仅这两个分片有目标群聊数据
+BASE_DB = os.environ.get("WECHAT_DB_DIR", "").strip()
+CONTACT_DB = os.path.join(BASE_DB, "contact.db") if BASE_DB else ""
+MESSAGE_DBS = (
+    sorted(
+        path for path in glob.glob(os.path.join(BASE_DB, "message_*.db"))
+        if re.fullmatch(r"message_\d+\.db", os.path.basename(path))
+    )
+    if BASE_DB else []
+)
 
-TARGET_USERNAME = "48997819170@chatroom"
-TARGET_TABLE = "Msg_" + hashlib.md5(TARGET_USERNAME.encode()).hexdigest()
-TARGET_NICKNAME = "【交流2群】🌲2026IP训练营"
+# 私有定位信息只允许从本机环境变量注入，禁止写入公开仓库。
+TARGET_USERNAME = os.environ.get("WECHAT_CHAT_USERNAME", "").strip()
+TARGET_TABLE = "Msg_" + hashlib.md5(TARGET_USERNAME.encode()).hexdigest() if TARGET_USERNAME else ""
+PUBLIC_REPORT_TITLE = os.environ.get("CHAT_PUBLIC_TITLE", "AI 学习社群").strip() or "AI 学习社群"
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = SCRIPT_DIR  # 脚本本身在 output/chat-stats-pipeline/ 下
-WORKSPACE_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))  # workspace 根
-TEMP_DIR = os.path.join(WORKSPACE_ROOT, "temp")
+TEMP_DIR = os.environ.get(
+    "CHAT_PRIVATE_TEMP_DIR",
+    os.path.join(os.environ.get("LOCALAPPDATA", os.path.expanduser("~")), "fuqing-chat-report", "private-temp"),
+)
 
 # zstd magic bytes
 ZSTD_MAGIC = b'\x28\xb5/\xfd'
@@ -68,6 +78,21 @@ SYSTEM_MSG_PATTERNS = [
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(TEMP_DIR, exist_ok=True)
+
+
+def validate_private_config():
+    """确保私有数据定位信息仅在运行时注入。"""
+    missing = []
+    if not BASE_DB or not os.path.isdir(BASE_DB):
+        missing.append("WECHAT_DB_DIR")
+    if not TARGET_USERNAME:
+        missing.append("WECHAT_CHAT_USERNAME")
+    if not CONTACT_DB or not os.path.isfile(CONTACT_DB):
+        missing.append("contact.db")
+    if not MESSAGE_DBS:
+        missing.append("message_*.db")
+    if missing:
+        raise RuntimeError("缺少私有运行配置或数据文件：" + ", ".join(missing))
 
 # ============================================================
 # 第一层：Extract — SQL查询 → zstd解压 → raw_messages.json
@@ -143,30 +168,34 @@ def extract_layer(contact_map):
         
         conn = sqlite3.connect(db_path)
         cur = conn.cursor()
+        db_name = os.path.basename(db_path)
         
         try:
             cur.execute(f"""
-                SELECT local_id, create_time, local_type, message_content, source
+                SELECT local_id, server_id, real_sender_id, create_time, local_type, message_content, source
                 FROM [{TARGET_TABLE}]
                 ORDER BY create_time, local_id
             """)
             
-            db_name = os.path.basename(db_path)
             count = 0
             for row in cur.fetchall():
-                local_id, create_time, local_type, raw_content, source = row
+                local_id, server_id, real_sender_id, create_time, local_type, raw_content, source = row
                 content = decompress_content(raw_content)
                 
                 if not content:
                     continue
                 
-                sender_wxid, body = parse_group_message(content, contact_map)
+                parsed_sender, body = parse_group_message(content, contact_map)
+                sender_wxid = real_sender_id or parsed_sender
+                if sender_wxid == TARGET_USERNAME or str(sender_wxid or "").endswith("@chatroom"):
+                    sender_wxid = parsed_sender if parsed_sender != TARGET_USERNAME else None
                 sender_name = contact_map.get(sender_wxid, sender_wxid or "Unknown")
                 
                 msg = {
                     "id": total,
                     "db": db_name,
                     "local_id": local_id,
+                    "server_id": str(server_id or ""),
                     "timestamp": create_time,
                     "datetime": datetime.fromtimestamp(create_time).strftime('%Y-%m-%d %H:%M:%S'),
                     "date": datetime.fromtimestamp(create_time).strftime('%Y-%m-%d'),
@@ -194,7 +223,7 @@ def extract_layer(contact_map):
     
     # 写入 raw_messages.json
     raw_path = os.path.join(TEMP_DIR, "raw_messages.json")
-    with open(raw_path, 'w', encoding='utf-8') as f:
+    with open(raw_path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(all_messages, f, ensure_ascii=False, indent=1)
     print(f"[EXTRACT] 输出: {raw_path} ({len(all_messages):,} 条)")
     
@@ -255,48 +284,32 @@ def clean_layer(messages):
     cleaned = [m for m in cleaned if m["printable_ratio"] >= 0.6]
     print(f"  低质量过滤 (ratio<0.6): {before_quality - len(cleaned):,} 条移除")
     
-    # 5. 按 (content, sender_id, date) 去重
+    # 5. 服务器消息 ID 是唯一可信去重键；缺失时才回退到分片+本地ID。
     seen = set()
     deduped = []
     for msg in cleaned:
-        key = (msg["content"][:200], msg["sender_id"], msg["date"])
+        key = ("server", msg["server_id"]) if msg.get("server_id") else ("local", msg["db"], msg["local_id"])
         if key not in seen:
             seen.add(key)
             deduped.append(msg)
-    print(f"  去重: {len(cleaned) - len(deduped):,} 条移除")
-    
-    # 6. 合并短消息（同一发送者连续3条<10字符合并）
-    merged = []
-    i = 0
-    merge_count = 0
-    while i < len(deduped):
-        msg = deduped[i]
-        if len(msg["content"]) < 10 and i + 2 < len(deduped):
-            # 检查后2条是否同发送者
-            next1 = deduped[i+1]
-            next2 = deduped[i+2]
-            if (msg["sender_id"] == next1["sender_id"] == next2["sender_id"] and
-                len(next1["content"]) < 10 and len(next2["content"]) < 10):
-                merged_content = msg["content"] + "\n" + next1["content"] + "\n" + next2["content"]
-                msg["content"] = merged_content
-                msg["merged_from"] = 3
-                merged.append(msg)
-                i += 3
-                merge_count += 1
-                continue
-        merged.append(msg)
-        i += 1
-    print(f"  短消息合并: {merge_count} 组合并")
-    
-    print(f"[CLEAN] 最终: {len(merged):,} 条清洗后消息")
+    duplicate_count = len(cleaned) - len(deduped)
+    print(f"  按 server_id 去重: {duplicate_count:,} 条移除")
+    print(f"[CLEAN] 最终: {len(deduped):,} 条清洗后消息")
     
     # 写入 clean_messages.json
     clean_path = os.path.join(TEMP_DIR, "clean_messages.json")
-    with open(clean_path, 'w', encoding='utf-8') as f:
-        json.dump(merged, f, ensure_ascii=False, indent=1)
+    with open(clean_path, 'w', encoding='utf-8', newline='\n') as f:
+        json.dump(deduped, f, ensure_ascii=False, indent=1)
     print(f"[CLEAN] 输出: {clean_path}")
     
-    return merged
+    audit = {
+        "raw_messages": len(messages),
+        "system_filtered": system_count,
+        "low_quality_filtered": before_quality - len(cleaned),
+        "duplicates_filtered": duplicate_count,
+        "final_messages": len(deduped),
+    }
+    return deduped, audit
 
 # ============================================================
 # 第三层：Structure — 11个维度聚合统计 → chat_stats.json
@@ -331,49 +344,47 @@ def extract_keywords(messages, top_n=30):
     keywords = [{"word": w, "count": c} for w, c in word_counter.most_common(top_n)]
     return keywords
 
-def extract_links(messages):
-    """提取URL和文件分享"""
-    url_pattern = re.compile(r'https?://[^\s]+')
-    links = []
-    for msg in messages:
-        urls = url_pattern.findall(msg.get("content", ""))
-        for url in urls:
-            links.append({
-                "sender_name": msg["sender_name"],
-                "datetime": msg["datetime"],
-                "url": url,
-                "context": msg["content"][:200]
-            })
-    return links
-
-def extract_long_messages(messages, min_length=200):
-    """提取长消息（关键摘要候选）"""
-    long_msgs = [m for m in messages if len(m["content"]) >= min_length]
-    long_msgs.sort(key=lambda x: len(x["content"]), reverse=True)
-    return long_msgs[:50]  # 最多50条
+def count_shared_links(messages):
+    """仅统计合法 HTTP(S) 分享数量，不把原始 URL 写入公开产物。"""
+    url_pattern = re.compile(r'https?://[^\s<>"\']+', re.IGNORECASE)
+    return sum(len(url_pattern.findall(msg.get("content", ""))) for msg in messages)
 
 def extract_ai_tools(messages):
-    """提取AI工具名称出现频次"""
-    ai_tools_patterns = [
-        'ChatGPT', 'GPT-4', 'GPT', 'Claude', 'DeepSeek', 'Gemini', 'Copilot',
-        'Midjourney', 'DALL-E', 'Stable Diffusion', 'SD',
-        'Cursor', 'Windsurf', 'v0', 'Bolt', 'Replit',
-        'Coze', '扣子', '文心一言', '通义千问', '智谱', 'Kimi',
-        'Notion', '飞书', 'Obsidian', 'Flomo',
-        'Perplexity', 'Poe', 'Suno', 'Runway', 'Pika',
-        'Make', 'Zapier', 'n8n', 'Dify',
-    ]
-    
+    """按消息统计工具提及；同一条消息对同一工具最多计一次。"""
+    tool_patterns = {
+        "ChatGPT": r"(?i)\bchatgpt\b",
+        "GPT": r"(?i)(?<!chat)\bgpt(?:-\d(?:\.\d)?)?\b",
+        "Claude": r"(?i)\bclaude\b",
+        "DeepSeek": r"(?i)\bdeepseek\b",
+        "Gemini": r"(?i)\bgemini\b",
+        "Copilot": r"(?i)\bcopilot\b",
+        "Midjourney": r"(?i)\bmidjourney\b",
+        "DALL-E": r"(?i)\bdall[ -]?e\b",
+        "Stable Diffusion / SD": r"(?i)\bstable diffusion\b|(?<![A-Za-z])SD(?![A-Za-z])",
+        "Cursor": r"(?i)\bcursor\b",
+        "Windsurf": r"(?i)\bwindsurf\b",
+        "v0": r"(?i)(?<![A-Za-z0-9])v0(?![A-Za-z0-9])",
+        "Bolt": r"(?i)\bbolt\b",
+        "Replit": r"(?i)\breplit\b",
+        "Coze / 扣子": r"(?i)\bcoze\b|扣子",
+        "Kimi": r"(?i)\bkimi\b",
+        "飞书": r"飞书",
+        "Obsidian": r"(?i)\bobsidian\b",
+        "Perplexity": r"(?i)\bperplexity\b",
+        "Suno": r"(?i)\bsuno\b",
+        "n8n": r"(?i)\bn8n\b",
+        "Dify": r"(?i)\bdify\b",
+    }
+    compiled = {name: re.compile(pattern) for name, pattern in tool_patterns.items()}
     tool_counter = Counter()
     for msg in messages:
         content = msg.get("content", "")
-        for tool in ai_tools_patterns:
-            if tool.lower() in content.lower():
+        for tool, pattern in compiled.items():
+            if pattern.search(content):
                 tool_counter[tool] += 1
-    
-    return [{"tool": t, "count": c} for t, c in tool_counter.most_common(20)]
+    return [{"tool": tool, "count": count} for tool, count in tool_counter.most_common(15)]
 
-def structure_layer(messages):
+def structure_layer(messages, audit):
     """第三层：结构化统计"""
     print(f"\n[STRUCTURE] 开始聚合统计...")
     
@@ -387,21 +398,21 @@ def structure_layer(messages):
     date_range_start = dates[0] if dates else ""
     date_range_end = dates[-1] if dates else ""
     
-    # 发送者统计
-    sender_counter = Counter(m["sender_name"] for m in messages)
-    members = []
-    for name, count in sender_counter.most_common(20):
-        members.append({
-            "name": name,
-            "message_count": count,
-            "percentage": round(count / total_msgs * 100, 1)
-        })
+    # 只保留匿名集中度，不输出成员名、wxid 或逐人消息数。
+    sender_counter = Counter(m["sender_id"] for m in messages if m["sender_id"])
+    sender_counts = sorted(sender_counter.values(), reverse=True)
+    top5_share = round(sum(sender_counts[:5]) / max(total_msgs, 1) * 100, 1)
+    top20_share = round(sum(sender_counts[:20]) / max(total_msgs, 1) * 100, 1)
+    unresolved_messages = sum(1 for m in messages if not m.get("sender_id"))
+    audit["resolved_messages"] = total_msgs - unresolved_messages
+    audit["unresolved_messages"] = unresolved_messages
     
     # 每日统计
     daily_counter = Counter(m["date"] for m in messages)
     daily_active = defaultdict(set)
     for m in messages:
-        daily_active[m["date"]].add(m["sender_id"])
+        if m.get("sender_id"):
+            daily_active[m["date"]].add(m["sender_id"])
     
     daily_stats = []
     for date in dates:
@@ -415,49 +426,25 @@ def structure_layer(messages):
     hour_counter = Counter(m["hour"] for m in messages)
     hourly_dist = [{"hour": h, "count": hour_counter.get(h, 0)} for h in range(24)]
     
-    # 关键词提取
-    keywords = extract_keywords(messages, top_n=30)
-    
-    # URL/链接提取
-    links = extract_links(messages)
-    
-    # 长消息
-    long_messages = extract_long_messages(messages, min_length=200)
+    # 原始关键词、原话和 URL 都可能反向识别成员，公开产物仅保留工具与数量聚合。
+    shared_links = count_shared_links(messages)
     
     # AI工具
     ai_tools = extract_ai_tools(messages)
     
-    # 特定发送者消息（shulin: 树林相关）
-    shulin_messages = []
-    for m in messages:
-        if '树林' in m.get("sender_name", "") or '树成林' in m.get("sender_name", ""):
-            shulin_messages.append({
-                "sender_name": m["sender_name"],
-                "datetime": m["datetime"],
-                "content": m["content"][:300]
-            })
-    
-    # 互动统计（@提及）
-    mention_pattern = re.compile(r'@(\S+)')
-    mentions = []
-    for m in messages:
-        ats = mention_pattern.findall(m.get("content", ""))
-        for at in ats:
-            if len(at) > 1 and len(at) < 30:
-                mentions.append({"from": m["sender_name"], "to": at, "datetime": m["datetime"]})
-    
-    mention_counter = Counter(m["to"] for m in mentions)
-    top_mentions = [{"name": n, "count": c} for n, c in mention_counter.most_common(15)]
+    # 互动只计总量，不保留发起者或被提及者。
+    mention_pattern = re.compile(r'@([^\s@]{2,29})')
+    total_mentions = sum(len(mention_pattern.findall(m.get("content", ""))) for m in messages)
     
     # 组装输出
     stats = {
         "meta": {
             "generated_at": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-            "group_name": TARGET_NICKNAME,
-            "group_username": TARGET_USERNAME,
+            "report_title": PUBLIC_REPORT_TITLE,
             "data_range_start": date_range_start,
             "data_range_end": date_range_end,
             "total_days": len(dates),
+            "privacy_mode": "anonymous_aggregate_v1",
         },
         "overview": {
             "total_messages": total_msgs,
@@ -467,23 +454,25 @@ def structure_layer(messages):
             "avg_daily_messages": round(total_msgs / max(len(dates), 1)),
             "avg_daily_active": round(sum(d["active_members"] for d in daily_stats) / max(len(daily_stats), 1)),
         },
-        "members": members,
+        "privacy": {
+            "public_scope": "anonymous_aggregate_only",
+            "excluded": ["member_names", "member_ids", "message_quotes", "raw_links", "contact_details"],
+            "unresolved_message_count": unresolved_messages,
+        },
+        "audit": audit,
+        "concentration": {
+            "top5_message_share_pct": top5_share,
+            "top20_message_share_pct": top20_share,
+        },
         "topics": {
-            "keywords": keywords,
             "ai_tools": ai_tools,
         },
-        "highlights": long_messages,
         "interaction": {
-            "total_mentions": len(mentions),
-            "top_mentioned": top_mentions,
+            "total_mentions": total_mentions,
+            "shared_links": shared_links,
         },
         "time_dist": hourly_dist,
         "daily": daily_stats,
-        "student_work": {
-            "total_links": len(links),
-            "links": links[:50],  # 最多50条链接
-        },
-        "shulin": shulin_messages[:30],  # 最多30条
         "insights": {
             "message_density": {
                 "peak_hour": max(hourly_dist, key=lambda x: x["count"])["hour"] if hourly_dist else 0,
@@ -495,19 +484,18 @@ def structure_layer(messages):
     
     # 写入 chat_stats.json
     stats_path = os.path.join(OUTPUT_DIR, "chat_stats.json")
-    with open(stats_path, 'w', encoding='utf-8') as f:
+    with open(stats_path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(stats, f, ensure_ascii=False, indent=2)
     
     print(f"[STRUCTURE] 输出: {stats_path}")
     print(f"[STRUCTURE] 统计维度:")
     print(f"  overview: {total_msgs} 条消息, {len(unique_senders)} 人, {len(dates)} 天")
-    print(f"  members: TOP {len(members)} 说话人")
-    print(f"  topics: {len(keywords)} 关键词, {len(ai_tools)} AI工具")
-    print(f"  highlights: {len(long_messages)} 条长消息")
-    print(f"  interaction: {len(mentions)} 次@提及")
+    print(f"  privacy: 已移除成员名、成员ID、原话和原始链接")
+    print(f"  topics: {len(ai_tools)} 个AI工具聚合")
+    print(f"  interaction: {total_mentions} 次@提及（仅总量）")
     print(f"  time_dist: 24小时分布")
     print(f"  daily: {len(daily_stats)} 天趋势")
-    print(f"  student_work: {len(links)} 条链接")
+    print(f"  shared_links: {shared_links} 条（仅总量）")
     
     return stats
 
@@ -518,8 +506,8 @@ def main():
     print("=" * 60)
     print("chat-report 数据解析管道 v1.0")
     print("=" * 60)
-    print(f"目标群聊: {TARGET_NICKNAME}")
-    print(f"消息表: {TARGET_TABLE}")
+    validate_private_config()
+    print(f"公开报告标题: {PUBLIC_REPORT_TITLE}")
     print(f"日期: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print()
     
@@ -531,10 +519,10 @@ def main():
     raw_messages = extract_layer(contact_map)
     
     # 第二层：清洗
-    clean_messages = clean_layer(raw_messages)
+    clean_messages, audit = clean_layer(raw_messages)
     
     # 第三层：结构化
-    stats = structure_layer(clean_messages)
+    stats = structure_layer(clean_messages, audit)
     
     print(f"\n{'=' * 60}")
     print(f"管道完成! chat_stats.json 已生成")

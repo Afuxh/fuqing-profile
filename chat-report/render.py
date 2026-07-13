@@ -18,7 +18,8 @@ from datetime import datetime
 
 # Try Jinja2, fall back to simple string replacement
 try:
-    from jinja2 import Template
+    from jinja2 import Environment, StrictUndefined, select_autoescape
+    from markupsafe import Markup
     HAS_JINJA2 = True
 except ImportError:
     HAS_JINJA2 = False
@@ -36,7 +37,41 @@ STATS_PATH = os.path.join(OUTPUT_DIR, "chat_stats.json")
 ANALYSIS_PATH = os.path.join(OUTPUT_DIR, "chat_analysis.json")
 HTML_OUTPUT = os.path.join(OUTPUT_DIR, "index.html")
 
-DEPLOY_PATH = r"D:\工作项目\gh-pages-deploy\chat-report\index.html"
+DEPLOY_PATH = os.environ.get("CHAT_REPORT_DEPLOY_PATH", "").strip()
+
+PUBLIC_STATS_KEYS = {
+    "meta", "overview", "privacy", "audit", "concentration",
+    "topics", "interaction", "time_dist", "daily", "insights",
+}
+FORBIDDEN_KEYS = {
+    "members", "highlights", "student_work", "shulin", "sender_name",
+    "sender_id", "content", "context", "url", "group_username",
+}
+
+
+def validate_public_schema(stats, analysis_data):
+    """未知字段默认拒绝，避免私有派生字段被模板意外发布。"""
+    if set(stats) != PUBLIC_STATS_KEYS:
+        raise ValueError(f"公开统计 schema 不匹配: {sorted(set(stats) ^ PUBLIC_STATS_KEYS)}")
+
+    def walk(value):
+        if isinstance(value, dict):
+            for key, child in value.items():
+                if key in FORBIDDEN_KEYS:
+                    raise ValueError(f"公开统计含禁止字段: {key}")
+                walk(child)
+        elif isinstance(value, list):
+            for child in value:
+                walk(child)
+
+    walk(stats)
+    allowed_analysis = {"meta", "topics_summary", "highlights_summary", "interaction_summary", "insights_summary"}
+    if set(analysis_data) != allowed_analysis:
+        raise ValueError("公开分析 schema 不匹配")
+    for key in allowed_analysis - {"meta"}:
+        fragment = str(analysis_data.get(key, ""))
+        if any(marker in fragment.lower() for marker in ("<script", "javascript:", " onerror=", " onclick=")):
+            raise ValueError(f"分析片段含禁止标记: {key}")
 
 
 def simple_render(template_text, context):
@@ -198,6 +233,8 @@ def simple_render(template_text, context):
 
 def render_html():
     """渲染 HTML"""
+    if not HAS_JINJA2:
+        raise RuntimeError("缺少 Jinja2，拒绝使用不安全的模板回退")
     
     # 加载数据
     print("[RENDER] 加载数据...")
@@ -206,6 +243,8 @@ def render_html():
     
     with open(ANALYSIS_PATH, 'r', encoding='utf-8') as f:
         analysis_data = json.load(f)
+
+    validate_public_schema(stats, analysis_data)
     
     with open(TEMPLATE_PATH, 'r', encoding='utf-8') as f:
         template_text = f.read()
@@ -217,21 +256,20 @@ def render_html():
         "generated_at": generated_at,
         "meta": stats["meta"],
         "overview": stats["overview"],
-        "members": stats["members"],
+        "audit": stats["audit"],
+        "privacy": stats["privacy"],
+        "concentration": stats["concentration"],
         "topics": stats["topics"],
-        "highlights": stats["highlights"],
         "interaction": stats["interaction"],
         "time_dist": stats["time_dist"],
         "daily": stats["daily"],
-        "student_work": stats["student_work"],
-        "shulin": stats["shulin"],
         "insights": stats["insights"],
         "max_hour_count": max(h["count"] for h in stats["time_dist"]) if stats["time_dist"] else 1,
         "analysis": {
-            "topics_summary": analysis_data.get("topics_summary", ""),
-            "highlights_summary": analysis_data.get("highlights_summary", ""),
-            "interaction_summary": analysis_data.get("interaction_summary", ""),
-            "insights_summary": analysis_data.get("insights_summary", ""),
+            "topics_summary": Markup(analysis_data.get("topics_summary", "")),
+            "highlights_summary": Markup(analysis_data.get("highlights_summary", "")),
+            "interaction_summary": Markup(analysis_data.get("interaction_summary", "")),
+            "insights_summary": Markup(analysis_data.get("insights_summary", "")),
         },
     }
     
@@ -248,17 +286,22 @@ def render_html():
         def map_filter(seq, attr):
             return [item.get(attr, 0) for item in seq] if seq else []
         
-        env = None
-        template = Template(template_text)
-        template.globals['format_number'] = format_number
-        template.globals['max'] = max_filter
+        env = Environment(
+            autoescape=select_autoescape(default_for_string=True, default=True),
+            undefined=StrictUndefined,
+        )
+        env.globals['format_number'] = format_number
+        env.globals['max'] = max_filter
+        template = env.from_string(template_text)
         
         html = template.render(**context)
     else:
-        html = simple_render(template_text, context)
+        raise RuntimeError("缺少 Jinja2，拒绝使用不安全的模板回退")
     
+    html = "\n".join(line.rstrip() for line in html.splitlines()).rstrip() + "\n"
+
     # 写入
-    with open(HTML_OUTPUT, 'w', encoding='utf-8') as f:
+    with open(HTML_OUTPUT, 'w', encoding='utf-8', newline='\n') as f:
         f.write(html)
     
     html_size = len(html.encode('utf-8'))
@@ -269,6 +312,9 @@ def render_html():
 
 def deploy():
     """部署到 GitHub Pages 路径"""
+    if not DEPLOY_PATH:
+        print("[DEPLOY] 未设置 CHAT_REPORT_DEPLOY_PATH，拒绝复制到未知工作区")
+        return False
     if not os.path.exists(HTML_OUTPUT):
         print(f"[DEPLOY] 源文件不存在: {HTML_OUTPUT}")
         return False

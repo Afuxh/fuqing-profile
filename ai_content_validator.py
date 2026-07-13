@@ -39,6 +39,20 @@ TEMPLATE_PATTERNS = [
     r'关注相关赛道的投资趋势和商业化进展',
 ]
 
+FIELD_ALIASES = {
+    'summary': ('zh_summary', 'zh', 'summary'),
+    'perspective': ('perspective', 'persp', 'perspective_comment'),
+    'action': ('action', 'guidance', 'action_guidance'),
+}
+
+
+def get_field(content, logical_name):
+    for key in FIELD_ALIASES[logical_name]:
+        value = content.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return ''
+
 # 中文引号替换
 QUOTE_REPLACEMENTS = {
     '"': '"',  # 中文左引号 -> 英文引号
@@ -82,9 +96,9 @@ def check_entry(key, content):
     """检查单条AI内容"""
     issues = []
     
-    zh = content.get('zh', '')
-    persp = content.get('persp', '')
-    action = content.get('action', '')
+    zh = get_field(content, 'summary')
+    persp = get_field(content, 'perspective')
+    action = get_field(content, 'action')
     
     # 1. 检查emoji前缀
     if EMOJI_PATTERN.match(zh):
@@ -118,7 +132,7 @@ def fix_entry(key, content):
     changes = []
     
     # 1. 移除emoji前缀
-    for field in ['zh', 'persp', 'action']:
+    for field in ('zh_summary', 'zh', 'summary', 'perspective', 'persp', 'perspective_comment', 'action', 'guidance', 'action_guidance'):
         if field in fixed:
             original = fixed[field]
             cleaned = EMOJI_PATTERN.sub('', original).strip()
@@ -262,37 +276,16 @@ def fix():
     else:
         print(f"\n⚠️ 仍有 {check_after['issues_count']} 条问题需要手动处理")
         print("   （模板化/过短内容，不影响部署）")
-        return True  # fix 模式始终返回成功，不阻断 CI
+        return False
 
 
 def strict():
-    """严格模式：修复+验证+拒绝模板"""
+    """严格模式：只验证不改写，任何问题都阻断发布。"""
     print("=" * 60)
     print("  🛡️ AI内容严格质量保障")
     print("=" * 60)
     
-    # 先修复
-    if not fix():
-        return False
-    
-    # 加载并检查模板内容
-    data, _ = load_ai_content()
-    
-    template_count = 0
-    for key, content in data.items():
-        all_text = f"{content.get('zh', '')} {content.get('persp', '')} {content.get('action', '')}"
-        for pattern in TEMPLATE_PATTERNS:
-            if re.search(pattern, all_text):
-                template_count += 1
-                break
-    
-    if template_count > 0:
-        print(f"\n⚠️ 警告: 仍有 {template_count} 条使用模板内容")
-        print("   建议: 运行 auto_fix_ai_coverage.py 重新生成针对性内容")
-        return False
-    
-    print("\n✅ 严格验证通过")
-    return True
+    return validate()
 
 
 if __name__ == "__main__":

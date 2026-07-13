@@ -16,6 +16,10 @@ outputs/
 .workbuddy/
 .edgeone/
 
+# Private chat derivatives: render locally, never commit or publish.
+chat-report/chat_stats.json
+chat-report/chat_analysis.json
+
 # Test files
 test_sources*.py
 
@@ -31,6 +35,7 @@ site/api.json
 site/feed.xml
 site/sitemap.xml
 site/sources.opml
+site/source_health.json
 
 # Git backups
 .git_old/

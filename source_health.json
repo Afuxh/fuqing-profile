@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-07-13 12:52:31",
+  "enabled_source_count": 12,
+  "required_parsed_source_count": 10,
+  "parsed_source_count": 12,
+  "total_items": 202,
+  "parsed_items_by_source": {
+    "36氪": 30,
+    "Ars Technica": 15,
+    "GitHub": 29,
+    "Hacker News": 30,
+    "NPR新闻": 10,
+    "Slashdot": 15,
+    "TechCrunch": 15,
+    "ZDNet": 15,
+    "少数派": 10,
+    "月光博客": 10,
+    "爱范儿": 15,
+    "量子位": 9
+  },
+  "gate": "pass"
+}

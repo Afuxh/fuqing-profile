@@ -5,9 +5,11 @@
 site:
   title: "AI 先机"
   subtitle: "先判机会，后判热点"
-  description: "面向AI从业者、投资人、创业者的智能热点聚合站。每天从13个顶级数据源精选热点，三条AI链分别点评行业视角、投资信号、创业机会，附带风险标注与行动指引。"
+  description: "面向 AI 从业者、投资人和创业者的多源热点聚合站。优先保留来源标题与摘要，并明确标注自动评分与事实核验边界。"
   author: "扶清"
-  url: "https://afuxh.github.io/fuqing-profile/hot-news.html"  # 部署后的URL
+  base_url: "https://afuxh.github.io/fuqing-profile"
+  page_path: "/hot-news.html"
+  url: "https://afuxh.github.io/fuqing-profile/hot-news.html"  # 兼容旧工具
 
 # ============ 数据源配置 ============
 sources:
@@ -20,7 +22,7 @@ sources:
     days: 7
     limit: 10               # 15→10
   producthunt:
-    enabled: true
+    enabled: false          # 解析回归未修复，暂不计入可用源
     limit: 20               # 40→20
   # === 中文源 ===
   _36kr:
@@ -39,7 +41,7 @@ sources:
     # 推荐：自建RSSHub、或使用 tenapi.cn 等公共服务
   # === AI热点源 ===
   aihot:
-    enabled: true           # 卡兹克AI热点 https://aihot.virxact.com/
+    enabled: false          # 端点有响应但当前解析为0，修复回归样本后恢复
     base_url: "https://aihot.virxact.com/"
     limit: 40               # 抓取条数上限
     pages: 1                # 抓取页数（每页约20条）
@@ -83,7 +85,7 @@ sources:
     rss_url: "https://www.pingwest.com/feed"
     limit: 15
   cnbeta:
-    enabled: true           # cnBeta https://www.cnbeta.com.tw（HTML抓取模式）
+    enabled: false          # TLS 握手失败，暂时禁用
     rss_url: "https://www.cnbeta.com.tw/backend.php?mod=news"
     limit: 20
   williamlong:
@@ -99,7 +101,7 @@ sources:
     rss_url: "https://rss.slashdot.org/Slashdot/slashdotMain"
     limit: 15
   nikkei:
-    enabled: true           # 日经亚洲 https://asia.nikkei.com/
+    enabled: false          # 配置端点返回404，替换有效源后恢复
     rss_url: "https://asia.nikkei.com/rss/feed"
     limit: 15
   zdnet:
@@ -132,7 +134,7 @@ sources:
     rss_url: "https://feeds.arstechnica.com/arstechnica/features"
     limit: 15
   theverge:
-    enabled: true           # The Verge https://www.theverge.com/
+    enabled: false          # 当前解析为0，修复回归样本后恢复
     rss_url: "https://www.theverge.com/rss/index.xml"
     limit: 15
   npr:
@@ -202,7 +204,7 @@ scoring:
       color: "#b8956a"
       description: "值得阅读"
     - name: "参考"
-      threshold: 35
+      threshold: 32
       color: "#8a9598"
       description: "可作参考"
   
@@ -250,7 +252,7 @@ scoring:
 
 # ============ AI 评论生成 — v4.0 三链驱动 ============
 ai_insights:
-  enabled: true            # 是否启用三链AI评论
+  enabled: false           # 事实质量门升级前停用模型生成，避免无证据改写
   mode: "api"              # api=调用LLM自动生成
   # --- API模式配置 ---
   api:
@@ -379,7 +381,7 @@ animations:
 
 # ============ 翻译配置 ============
 translate:
-  enabled: true
+  enabled: false           # 自动翻译曾出现事实反转；当前保留原文标题与来源摘要
   # 翻译源：deep_translator (Google Translate)
 
 # ============ 更新配置 ============
@@ -403,12 +405,13 @@ misc:
 deployment:
   primary:
     platform: "edgeone-pages"        # 腾讯云 EdgeOne Pages（国内首选）
+    enabled: false                    # 默认域名当前返回401，公开可用前禁止宣传或自动部署
     url: "https://fuqing-profile-fqh7n0sj.edgeone.cool/hot-news.html"
     project_id: "pages-rxppuuwp9zu2" # EdgeOne 项目 ID
     project_name: "fuqing-profile"   # EdgeOne 项目名
     deploy_dir: "site/"              # 部署目录（纯静态HTML，无需构建）
     framework: "none"                # 无框架
-    auto_deploy: true                # git push 自动部署
+    auto_deploy: false               # 访问保护未解除，禁止自动部署
     console: "https://console.cloud.tencent.com/edgeone/pages/project/pages-rxppuuwp9zu2"
     # 部署命令: edgeone pages deploy site/ --name fuqing-profile
     # 注意: 默认域名有 eo_token 访问保护（3小时有效）

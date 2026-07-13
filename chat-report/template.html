@@ -1,350 +1,272 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ meta.group_name }} · 聊天数据报告</title>
-<style>
-  :root {
-    --bg: #f5f5f7;
-    --card-bg: #ffffff;
-    --text: #1d1d1f;
-    --text-secondary: #86868b;
-    --accent: #0071e3;
-    --accent-light: #e8f0fe;
-    --border: #e5e5ea;
-    --success: #34c759;
-    --warning: #ff9500;
-    --red: #ff3b30;
-    --shadow: 0 2px 12px rgba(0,0,0,0.04);
-    --radius: 16px;
-    --radius-sm: 10px;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* Hero */
-  .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    padding: 60px 24px 48px;
-    text-align: center;
-  }
-  .hero h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
-  .hero .subtitle { font-size: 1.1rem; opacity: 0.85; font-weight: 400; }
-  .hero .pill {
-    display: inline-block; margin-top: 16px; padding: 6px 16px;
-    background: rgba(255,255,255,0.2); border-radius: 20px;
-    font-size: 0.85rem; backdrop-filter: blur(10px);
-  }
-
-  /* Stats Grid */
-  .stats-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px; max-width: 1100px; margin: -28px auto 0;
-    padding: 0 24px; position: relative; z-index: 2;
-  }
-  .stat-card {
-    background: var(--card-bg); border-radius: var(--radius-sm); padding: 20px;
-    box-shadow: var(--shadow); text-align: center;
-  }
-  .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--accent); }
-  .stat-card .label { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
-
-  /* Sections */
-  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
-  .section { margin-bottom: 48px; }
-  .section h2 {
-    font-size: 1.6rem; font-weight: 700; margin-bottom: 20px;
-    padding-bottom: 10px; border-bottom: 2px solid var(--border);
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section h2 .icon { font-size: 1.3rem; }
-
-  /* Cards */
-  .card {
-    background: var(--card-bg); border-radius: var(--radius);
-    padding: 28px; box-shadow: var(--shadow); margin-bottom: 16px;
-  }
-  .card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; }
-
-  /* Analysis Text */
-  .analysis-text { font-size: 0.95rem; line-height: 1.8; color: var(--text); }
-  .analysis-text h3 { font-size: 1.1rem; margin: 20px 0 10px; }
-  .analysis-text h4 { font-size: 1rem; margin: 16px 0 8px; color: var(--accent); }
-  .analysis-text ul, .analysis-text ol { padding-left: 20px; margin: 8px 0; }
-  .analysis-text li { margin-bottom: 4px; }
-  .analysis-text strong { color: var(--accent); }
-  .analysis-text table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
-  .analysis-text th, .analysis-text td { padding: 10px 14px; border-bottom: 1px solid var(--border); text-align: left; }
-  .analysis-text th { background: var(--accent-light); font-weight: 600; }
-  .analysis-text blockquote { border-left: 3px solid var(--accent); padding-left: 16px; margin: 12px 0; color: var(--text-secondary); }
-
-  /* Members Table */
-  .members-table { width: 100%; border-collapse: collapse; }
-  .members-table th, .members-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
-  .members-table th { font-size: 0.8rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; }
-  .members-table .rank { width: 60px; text-align: center; }
-  .members-table .bar-cell { width: 40%; }
-  .bar { height: 8px; background: var(--accent-light); border-radius: 4px; overflow: hidden; }
-  .bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #5856d6); border-radius: 4px; transition: width 0.6s ease; }
-
-  /* Daily Timeline */
-  .daily-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
-  .daily-item {
-    background: var(--card-bg); border-radius: var(--radius-sm); padding: 14px;
-    box-shadow: var(--shadow); text-align: center; transition: transform 0.2s;
-  }
-  .daily-item:hover { transform: translateY(-2px); }
-  .daily-item .date { font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 4px; }
-  .daily-item .count { font-size: 1.3rem; font-weight: 700; color: var(--accent); }
-  .daily-item .active { font-size: 0.8rem; color: var(--text-secondary); }
-
-  /* Heatmap */
-  .heatmap { display: flex; gap: 4px; flex-wrap: wrap; align-items: flex-end; }
-  .heatmap-row { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 38px; }
-  .heatmap-bar {
-    width: 28px; background: var(--accent); border-radius: 4px 4px 0 0;
-    transition: height 0.4s ease; min-height: 4px;
-  }
-  .heatmap-label { font-size: 0.65rem; color: var(--text-secondary); }
-  .heatmap-count { font-size: 0.6rem; color: var(--text-secondary); }
-
-  /* Tools */
-  .tools-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-  .tool-tag {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 6px 14px; border-radius: 20px;
-    background: var(--accent-light); color: var(--accent);
-    font-size: 0.85rem; font-weight: 500;
-  }
-  .tool-tag .tool-count { font-weight: 700; }
-
-  /* Links / Student Work */
-  .link-item {
-    padding: 10px 14px; border-bottom: 1px solid var(--border);
-    font-size: 0.9rem; display: flex; justify-content: space-between;
-    align-items: center; gap: 12px;
-  }
-  .link-item:last-child { border-bottom: none; }
-  .link-item .link-url {
-    color: var(--accent); text-decoration: none; max-width: 70%;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  }
-  .link-item .link-meta { font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap; }
-
-  /* Shulin Messages */
-  .msg-item {
-    padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 0.9rem;
-  }
-  .msg-item:last-child { border-bottom: none; }
-  .msg-item .msg-sender { font-weight: 600; color: var(--accent); }
-  .msg-item .msg-time { font-size: 0.75rem; color: var(--text-secondary); margin-left: 8px; }
-  .msg-item .msg-content { margin-top: 4px; color: var(--text); line-height: 1.5; }
-
-  /* Footer */
-  .footer {
-    text-align: center; padding: 40px 24px; color: var(--text-secondary);
-    font-size: 0.85rem; border-top: 1px solid var(--border);
-    max-width: 1100px; margin: 0 auto;
-  }
-  .footer a { color: var(--accent); }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero h1 { font-size: 1.8rem; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .daily-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="仅展示匿名聚合指标的 AI 学习社群数据报告，不公开成员身份、原话或原始链接。">
+  <title>{{ meta.report_title }} · 匿名聚合报告</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f1ec;
+      --card: rgba(255,255,255,.9);
+      --ink: #24211d;
+      --muted: #706b63;
+      --line: rgba(79,70,58,.13);
+      --accent: #8a6a3e;
+      --accent-soft: #efe5d5;
+      --safe: #267257;
+      --safe-soft: #e8f3ed;
+      --shadow: 0 16px 50px rgba(60,48,31,.08);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(181,143,88,.16), transparent 32rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #267257; outline-offset: 3px; }
+    .skip-link { position: fixed; left: 12px; top: -60px; z-index: 20; padding: 10px 14px; border-radius: 10px; background: #fff; color: #111; }
+    .skip-link:focus { top: 12px; }
+    .topbar {
+      width: min(1120px, calc(100% - 32px));
+      margin: 18px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+    .topbar a { text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .hero {
+      width: min(1120px, calc(100% - 32px));
+      margin: 48px auto 30px;
+      padding: 54px clamp(24px, 6vw, 72px);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 30px;
+      background: linear-gradient(135deg, #29241e, #55442e);
+      color: #fffaf2;
+      box-shadow: var(--shadow);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      right: -120px;
+      top: -180px;
+      border-radius: 50%;
+      border: 68px solid rgba(217,178,117,.12);
+    }
+    .eyebrow { margin: 0 0 12px; color: #ddc59e; font-size: .82rem; letter-spacing: .16em; }
+    h1 { margin: 0; max-width: 720px; font-family: Georgia, "Songti SC", serif; font-size: clamp(2rem, 5vw, 3.65rem); line-height: 1.15; font-weight: 500; }
+    .hero-copy { max-width: 680px; margin: 20px 0 0; color: rgba(255,250,242,.72); }
+    .hero-meta { margin-top: 26px; font-size: .82rem; color: rgba(255,250,242,.58); }
+    main { width: min(1120px, calc(100% - 32px)); margin: 0 auto 72px; }
+    .privacy-gate {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+      margin: 24px 0 30px;
+      padding: 18px 20px;
+      border: 1px solid rgba(38,114,87,.18);
+      border-radius: 18px;
+      background: var(--safe-soft);
+      color: #285e4b;
+    }
+    .privacy-gate .icon { font-size: 1.35rem; }
+    .privacy-gate strong { display: block; margin-bottom: 2px; }
+    .privacy-gate p { margin: 0; font-size: .9rem; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap: 14px;
+      margin-bottom: 42px;
+    }
+    .stat, .card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: 0 8px 30px rgba(60,48,31,.045);
+    }
+    .stat { padding: 22px 18px; border-radius: 18px; }
+    .stat .value { font-family: Georgia, serif; font-size: clamp(1.55rem, 3vw, 2.25rem); line-height: 1.1; color: var(--accent); }
+    .stat .label { margin-top: 7px; color: var(--muted); font-size: .82rem; }
+    .section { margin: 42px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin-bottom: 15px; }
+    .section h2 { margin: 0; font-family: Georgia, "Songti SC", serif; font-size: clamp(1.45rem, 3vw, 2rem); font-weight: 500; }
+    .section-kicker { color: var(--muted); font-size: .78rem; letter-spacing: .08em; }
+    .card { padding: clamp(20px, 4vw, 34px); border-radius: var(--radius); }
+    .analysis p:first-child, .analysis ul:first-child, .analysis ol:first-child { margin-top: 0; }
+    .analysis p:last-child, .analysis ul:last-child, .analysis ol:last-child { margin-bottom: 0; }
+    .analysis li { margin: 7px 0; }
+    .analysis strong { color: var(--accent); }
+    .tools { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tool {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 13px;
+      border: 1px solid rgba(138,106,62,.15);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #59452b;
+      font-size: .86rem;
+    }
+    .tool b { font-variant-numeric: tabular-nums; }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+    .metric { padding: 18px; border-radius: 15px; background: #f8f5f0; border: 1px solid var(--line); }
+    .metric .n { font-size: 1.4rem; color: var(--accent); font-weight: 650; }
+    .metric .t { color: var(--muted); font-size: .78rem; }
+    .chart-scroll { overflow-x: auto; padding-bottom: 4px; }
+    .hour-chart { min-width: 760px; height: 210px; display: grid; grid-template-columns: repeat(24,1fr); align-items: end; gap: 6px; padding-top: 26px; }
+    .hour { height: 100%; display: flex; flex-direction: column; justify-content: end; align-items: center; gap: 6px; }
+    .bar { width: 100%; min-height: 4px; border-radius: 7px 7px 2px 2px; background: linear-gradient(180deg,#c7a56f,#88653a); }
+    .hour span { color: var(--muted); font-size: .68rem; }
+    .daily { display: grid; grid-template-columns: repeat(auto-fill,minmax(120px,1fr)); gap: 10px; }
+    .day { padding: 13px; border-radius: 13px; background: #f8f5f0; border: 1px solid var(--line); }
+    .day time { display: block; color: var(--muted); font-size: .72rem; }
+    .day b { display: block; margin-top: 2px; font-size: 1.2rem; color: var(--accent); }
+    .day small { color: var(--muted); }
+    .audit { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 10px; }
+    .audit-step { position: relative; padding: 14px; border-radius: 13px; background: #f8f5f0; border: 1px solid var(--line); }
+    .audit-step b { display: block; color: var(--accent); }
+    .audit-step span { font-size: .73rem; color: var(--muted); }
+    footer { width: min(1120px,calc(100% - 32px)); margin: 0 auto; padding: 28px 0 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; text-align: center; }
+    @media (max-width: 850px) {
+      .stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .metrics { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .audit { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width: 520px) {
+      .topbar { margin-top: 12px; }
+      .hero { margin-top: 30px; padding: 38px 22px; }
+      .stats { gap: 10px; }
+      .stat { padding: 17px 14px; }
+      .section { margin: 34px 0; }
+      .section-head { display: block; }
+      .section-kicker { margin-top: 4px; }
+      .metrics, .audit { grid-template-columns: 1fr 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+  <nav class="topbar" aria-label="站点导航">
+    <a href="../index.html">← 扶清闲话</a>
+    <span>匿名聚合报告</span>
+  </nav>
 
-<!-- ====== HERO ====== -->
-<section class="hero">
-  <h1>{{ meta.group_name }}</h1>
-  <p class="subtitle">社群聊天数据全景报告</p>
-  <div class="pill">最近更新：{{ meta.generated_at_time or generated_at }}</div>
-</section>
+  <header class="hero">
+    <p class="eyebrow">COMMUNITY SIGNALS · PRIVACY FIRST</p>
+    <h1>{{ meta.report_title }}</h1>
+    <p class="hero-copy">从私密聊天数据中只提取不可识别的群体趋势：看见节奏、主题与变化，不公开任何成员的身份、原话和链接。</p>
+    <p class="hero-meta">数据窗口 {{ meta.data_range_start }} — {{ meta.data_range_end }} · 更新于 {{ meta.generated_at }}</p>
+  </header>
 
-<!-- ====== STATS OVERVIEW ====== -->
-<div class="stats-grid">
-  <div class="stat-card">
-    <div class="number">{{ format_number(overview.total_messages) }}</div>
-    <div class="label">有效消息</div>
-  </div>
-  <div class="stat-card">
-    <div class="number">{{ overview.unique_senders }}</div>
-    <div class="label">参与成员</div>
-  </div>
-  <div class="stat-card">
-    <div class="number">{{ meta.total_days }}</div>
-    <div class="label">数据天数</div>
-  </div>
-  <div class="stat-card">
-    <div class="number">{{ overview.avg_daily_messages }}</div>
-    <div class="label">日均消息</div>
-  </div>
-  <div class="stat-card">
-    <div class="number">{{ overview.avg_daily_active }}</div>
-    <div class="label">日均活跃</div>
-  </div>
-</div>
-
-<div class="container">
-
-<!-- ====== SECTION 01: 群聊概览 ====== -->
-<section class="section">
-  <h2><span class="icon">📊</span> 群聊概览</h2>
-  <div class="card">
-    <p class="analysis-text">数据窗口：<strong>{{ meta.data_range_start }} ~ {{ meta.data_range_end }}</strong>，
-    共 <strong>{{ meta.total_days }} 天</strong>，清洗后 <strong>{{ format_number(overview.total_messages) }} 条</strong> 有效消息，
-    来自 <strong>{{ overview.unique_senders }} 位</strong> 成员。</p>
-  </div>
-</section>
-
-<!-- ====== SECTION 02: 活跃成员 ====== -->
-<section class="section">
-  <h2><span class="icon">👥</span> 活跃成员 · TOP 20</h2>
-  <div class="card">
-    <table class="members-table">
-      <thead><tr>
-        <th class="rank">#</th><th>成员</th><th>消息数</th><th class="bar-cell">占比</th><th>%</th>
-      </tr></thead>
-      <tbody>
-      {% for m in members[:20] %}
-      <tr>
-        <td class="rank">{{ loop.index }}</td>
-        <td><strong>{{ m.name }}</strong></td>
-        <td>{{ format_number(m.message_count) }}</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: {{ m.percentage * 3 if m.percentage * 3 < 100 else 100 }}%"></div></div></td>
-        <td>{{ m.percentage }}%</td>
-      </tr>
-      {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- ====== SECTION 03: 话题分析 ====== -->
-<section class="section">
-  <h2><span class="icon">🔍</span> 话题分析</h2>
-  <div class="card">
-    <div class="analysis-text">{{ analysis.topics_summary or "暂无话题分析数据。" }}</div>
-  </div>
-</section>
-
-<!-- ====== SECTION 04: AI工具生态 ====== -->
-<section class="section">
-  <h2><span class="icon">🤖</span> AI 工具生态</h2>
-  <div class="card">
-    <div class="tools-grid">
-      {% for tool in topics.ai_tools[:15] %}
-      <span class="tool-tag">{{ tool.tool }} <span class="tool-count">{{ tool.count }}</span></span>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- ====== SECTION 05: 关键摘要 ====== -->
-<section class="section">
-  <h2><span class="icon">📝</span> 关键内容摘要</h2>
-  <div class="card">
-    <div class="analysis-text">{{ analysis.highlights_summary or "暂无关键摘要数据。" }}</div>
-  </div>
-</section>
-
-<!-- ====== SECTION 06: 互动模式 ====== -->
-<section class="section">
-  <h2><span class="icon">🔗</span> 互动模式分析</h2>
-  <div class="card">
-    <div class="analysis-text">{{ analysis.interaction_summary or "暂无互动分析数据。" }}</div>
-  </div>
-</section>
-
-<!-- ====== SECTION 07: 时间分布热力图 ====== -->
-<section class="section">
-  <h2><span class="icon">⏰</span> 24 小时消息分布</h2>
-  <div class="card">
-    <div class="heatmap">
-      {% for h in time_dist %}
-      <div class="heatmap-row">
-        <div class="heatmap-count">{{ h.count }}</div>
-        <div class="heatmap-bar" style="height: {{ ((h.count / (max_hour_count or 1)) * 120) | int }}px"></div>
-        <div class="heatmap-label">{{ "%02d" % h.hour }}</div>
+  <main id="main-content">
+    <aside class="privacy-gate">
+      <span class="icon" aria-hidden="true">🛡️</span>
+      <div>
+        <strong>公开隐私门已启用</strong>
+        <p>本页仅含匿名聚合统计。成员昵称、账号 ID、逐人排名、聊天原话、原始链接及其令牌参数均不进入公开产物。</p>
       </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+    </aside>
 
-<!-- ====== SECTION 08: 每日概要 ====== -->
-<section class="section">
-  <h2><span class="icon">📅</span> 每日活跃趋势</h2>
-  <div class="daily-grid">
-    {% for d in daily %}
-    <div class="daily-item">
-      <div class="date">{{ d.date[-5:] }}</div>
-      <div class="count">{{ d.message_count }}</div>
-      <div class="active">{{ d.active_members }} 人</div>
-    </div>
-    {% endfor %}
-  </div>
-</section>
+    <section class="stats" aria-label="统计概览">
+      <div class="stat"><div class="value">{{ format_number(overview.total_messages) }}</div><div class="label">分析消息</div></div>
+      <div class="stat"><div class="value">{{ overview.unique_senders }}</div><div class="label">可归因发言者 ID</div></div>
+      <div class="stat"><div class="value">{{ meta.total_days }}</div><div class="label">数据天数</div></div>
+      <div class="stat"><div class="value">{{ overview.avg_daily_messages }}</div><div class="label">日均消息</div></div>
+      <div class="stat"><div class="value">{{ overview.avg_daily_active }}</div><div class="label">日均可归因活跃</div></div>
+    </section>
 
-<!-- ====== SECTION 09: 洞察总结 ====== -->
-<section class="section">
-  <h2><span class="icon">💡</span> 整体洞察与总结</h2>
-  <div class="card">
-    <div class="analysis-text">{{ analysis.insights_summary or "暂无洞察总结数据。" }}</div>
-  </div>
-</section>
+    <section class="section">
+      <div class="section-head"><h2>讨论主题</h2><span class="section-kicker">TOOL MENTIONS</span></div>
+      <div class="card">
+        <div class="tools">
+          {% for tool in topics.ai_tools %}
+          <span class="tool">{{ tool.tool }} <b>{{ tool.count }}</b></span>
+          {% endfor %}
+        </div>
+        <div class="analysis" style="margin-top:22px">{{ analysis.topics_summary }}</div>
+      </div>
+    </section>
 
-<!-- ====== SECTION 10: 树林方向 ====== -->
-{% if shulin %}
-<section class="section">
-  <h2><span class="icon">🌲</span> 树林发言精选</h2>
-  <div class="card">
-    {% for m in shulin[:15] %}
-    <div class="msg-item">
-      <span class="msg-sender">{{ m.sender_name }}</span>
-      <span class="msg-time">{{ m.datetime }}</span>
-      <div class="msg-content">{{ m.content[:300] }}{% if m.content | length > 300 %}...{% endif %}</div>
-    </div>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
+    <section class="section">
+      <div class="section-head"><h2>活跃与互动</h2><span class="section-kicker">AGGREGATE ONLY</span></div>
+      <div class="card">
+        <div class="metrics">
+          <div class="metric"><div class="n">{{ interaction.total_mentions }}</div><div class="t">@ 提及总量</div></div>
+          <div class="metric"><div class="n">{{ interaction.shared_links }}</div><div class="t">链接分享总量</div></div>
+          <div class="metric"><div class="n">{{ concentration.top5_message_share_pct }}%</div><div class="t">匿名 Top 5 集中度</div></div>
+          <div class="metric"><div class="n">{{ concentration.top20_message_share_pct }}%</div><div class="t">匿名 Top 20 集中度</div></div>
+        </div>
+        <div class="analysis" style="margin-top:22px">{{ analysis.highlights_summary }}</div>
+      </div>
+    </section>
 
-<!-- ====== SECTION 11: 学员成果/链接 ====== -->
-{% if student_work and student_work.links %}
-<section class="section">
-  <h2><span class="icon">🔗</span> 链接与产出</h2>
-  <div class="card">
-    <p style="color: var(--text-secondary); margin-bottom: 12px;">共分享 {{ student_work.total_links }} 条链接</p>
-    {% for link in student_work.links[:20] %}
-    <div class="link-item">
-      <a class="link-url" href="{{ link.url }}" target="_blank" rel="noopener" title="{{ link.url }}">{{ link.url[:80] }}{% if link.url | length > 80 %}...{% endif %}</a>
-      <span class="link-meta">{{ link.sender_name }} · {{ link.datetime[:10] }}</span>
-    </div>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
+    <section class="section">
+      <div class="section-head"><h2>24 小时节奏</h2><span class="section-kicker">MESSAGE VOLUME</span></div>
+      <div class="card chart-scroll">
+        <div class="hour-chart">
+          {% for h in time_dist %}
+          <div class="hour" title="{{ h.hour }}时：{{ h.count }}条">
+            <div class="bar" style="height:{{ ((h.count / (max_hour_count or 1)) * 150) | int }}px"></div>
+            <span>{{ "%02d" % h.hour }}</span>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="analysis" style="margin-top:18px">{{ analysis.interaction_summary }}</div>
+      </div>
+    </section>
 
-</div>
+    <section class="section">
+      <div class="section-head"><h2>每日趋势</h2><span class="section-kicker">DAILY ACTIVITY</span></div>
+      <div class="card">
+        <div class="daily">
+          {% for d in daily %}
+          <div class="day"><time>{{ d.date }}</time><b>{{ d.message_count }}</b><small>{{ d.active_members }} 个可归因 ID 活跃</small></div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
 
-<!-- ====== FOOTER ====== -->
-<footer class="footer">
-  <p>{{ meta.group_name }} · 数据范围 {{ meta.data_range_start }} ~ {{ meta.data_range_end }}</p>
-  <p>由 <strong>chat-stats-pipeline</strong> 自动生成 · {{ generated_at }}</p>
-</footer>
+    <section class="section">
+      <div class="section-head"><h2>窗口结论</h2><span class="section-kicker">EVIDENCE-BOUND</span></div>
+      <div class="card analysis">{{ analysis.insights_summary }}</div>
+    </section>
 
+    <section class="section">
+      <div class="section-head"><h2>数据守恒审计</h2><span class="section-kicker">SERVER-ID DEDUP</span></div>
+      <div class="card">
+        <div class="audit">
+          <div class="audit-step"><b>{{ audit.raw_messages }}</b><span>原始非空消息</span></div>
+          <div class="audit-step"><b>− {{ audit.system_filtered }}</b><span>系统消息</span></div>
+          <div class="audit-step"><b>− {{ audit.low_quality_filtered }}</b><span>不可解析内容</span></div>
+          <div class="audit-step"><b>− {{ audit.duplicates_filtered }}</b><span>服务器 ID 重复</span></div>
+          <div class="audit-step"><b>= {{ audit.final_messages }}</b><span>最终有效消息</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    {{ meta.report_title }} · {{ meta.privacy_mode }} · 生成于 {{ generated_at }}
+  </footer>
 </body>
 </html>

@@ -3,6 +3,7 @@ Hot News Aggregator - 通用热点聚合网站生成器
 支持可配置的评分档位、主题、动画等
 """
 import json
+import html
 import subprocess
 import re
 import yaml
@@ -15,6 +16,7 @@ import shutil
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from collections import defaultdict
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 _keyword_hit_stats = {}  # keyword -> {"hits": N, "last_hit": timestamp}
 
@@ -26,6 +28,7 @@ import os
 import sys
 import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
+from urllib.parse import urljoin, urlparse
 
 # 导入版本信息（单一数据源）
 try:
@@ -172,6 +175,58 @@ def _cleanup_old_snapshots(data_path: Path, max_days: int = 30):
                     logger.debug(f"  清理旧快照: {f.name}")
         except (ValueError, OSError):
             pass
+
+
+def build_source_health(topics: list, config: dict) -> dict:
+    """按实际解析结果建立发布门；配置启用不等于抓取成功。"""
+    enabled = [
+        key for key, value in config.get("sources", {}).items()
+        if isinstance(value, dict) and value.get("enabled", False)
+    ]
+    parsed = Counter()
+    for topic in topics:
+        label = str(topic.get("source_name") or topic.get("source") or "").strip()
+        for source_name in (part.strip() for part in label.split(" + ")):
+            if source_name:
+                parsed[source_name] += 1
+    required = max(1, int(len(enabled) * 0.8 + 0.999))
+    passed = len(topics) > 0 and len(parsed) >= required
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M:%S"),
+        "enabled_source_count": len(enabled),
+        "required_parsed_source_count": required,
+        "parsed_source_count": len(parsed),
+        "total_items": len(topics),
+        "parsed_items_by_source": dict(sorted(parsed.items())),
+        "gate": "pass" if passed else "fail",
+    }
+
+
+AI_RELEVANCE_PATTERN = re.compile(
+    r"(?i)(?<![a-z])ai(?![a-z])|artificial intelligence|machine learning|deep learning|"
+    r"\bllm\b|\bgpt(?:-\d(?:\.\d)?)?\b|chatgpt|claude|gemini|deepseek|copilot|"
+    r"agentic|\bagent\b|vibe coding|人工智能|大模型|语言模型|机器学习|深度学习|"
+    r"生成式|智能体|具身智能|自动驾驶|机器人|算法|模型训练|模型推理|AI编程"
+)
+PUBLISH_BLOCK_PATTERN = re.compile(
+    r"(?i)\b(?:nsfw|porn|nude|nudify|undress|deepnude)\b|色情|成人视频|脱衣|裸照|讲座事件|爆粗口"
+)
+
+
+def is_publishable_topic(topic: dict) -> bool:
+    """公开热点必须有 AI 相关证据，且不得命中成人化或明显不适宜主题。"""
+    text = " ".join(
+        str(topic.get(key, ""))
+        for key in ("title", "summary", "summary_original", "description")
+    )
+    if PUBLISH_BLOCK_PATTERN.search(text):
+        return False
+    return bool(AI_RELEVANCE_PATTERN.search(text))
+
+
+def normalize_generated_text(value: str) -> str:
+    """统一 LF 并移除行尾空白，确保构建产物可稳定审计。"""
+    return "\n".join(line.rstrip() for line in str(value).splitlines()).rstrip() + "\n"
 
 
 def load_config(config_path: str = "config.yaml") -> dict:
@@ -2345,32 +2400,18 @@ async def process_topics(topics: list, config: dict, no_translate: bool = False,
     # 加载翻译缓存
     _load_translate_cache()
     
-    # 快速模式：跳过翻译和AI评论API调用，但从 ai_content.json 加载缓存
+    # 快速模式：只发布来源原文与可核验元数据；旧 AI 缓存可能过时或事实反转，禁止复用。
     if quick:
-        # 从 ai_content.json 加载缓存的AI内容
-        ai_cache = {}
-        try:
-            ai_json_path = os.path.join(os.path.dirname(__file__), "ai_content.json")
-            if not os.path.exists(ai_json_path):
-                ai_json_path = os.path.join(os.getcwd(), "ai_content.json")
-            if os.path.exists(ai_json_path):
-                with open(ai_json_path, "r", encoding="utf-8") as f:
-                    ai_cache = json.load(f)
-                logger.info(f"快速模式: 从 ai_content.json 加载了 {len(ai_cache)} 条AI缓存")
-        except Exception as e:
-            logger.warning(f"快速模式: 加载 ai_content.json 失败 - {e}")
-        
         for t in topics:
             t["title_original"] = t.get("title", "")
             t["title"] = t["title_original"]
             t["title_translated"] = False
             t["summary_original"] = t.get("summary", "")
-            # 从缓存读取AI内容
-            cached = ai_cache.get(t.get("title", ""), {})
-            t["zh_summary"] = cached.get("zh", "") or cached.get("summary", "") or ""
-            t["perspective_comment"] = cached.get("persp", "") or cached.get("perspective", "") or ""
-            t["action_guidance"] = cached.get("action", "") or cached.get("guidance", "") or ""
-        logger.info(f"快速模式: {sum(1 for t in topics if t.get('perspective_comment'))} 条有视角评论, {sum(1 for t in topics if t.get('action_guidance'))} 条有行动引导")
+            t["zh_summary"] = ""
+            t["perspective_comment"] = ""
+            t["action_guidance"] = ""
+            t["summary_status"] = "source_excerpt"
+        logger.info("快速模式: 已禁用旧AI缓存，仅保留来源标题与原始摘要")
         return topics
     
     total_items = len(topics)
@@ -2645,7 +2686,42 @@ def categorize_topics(topics: list, config: dict) -> dict:
 # ============ HTML 生成 ============
 def _escape_attr(s: str) -> str:
     """转义 HTML 属性值中的特殊字符"""
-    return s.replace('"', '&quot;').replace("'", '&#39;').replace('<', '&lt;').replace('>', '&gt;')
+    return html.escape(str(s or ""), quote=True)
+
+
+def _escape_text(s: str) -> str:
+    """转义来自 Feed、API 或模型的文本节点。"""
+    return html.escape(str(s or ""), quote=False)
+
+
+def _safe_http_url(value: str) -> str:
+    """只允许有主机名的 HTTP(S) URL 进入 href/data-url。"""
+    raw = str(value or "").strip()
+    try:
+        parsed = urlparse(raw)
+    except ValueError:
+        return ""
+    if parsed.scheme.lower() not in {"http", "https"} or not parsed.netloc:
+        return ""
+    return raw
+
+
+def _site_urls(config: dict) -> tuple[str, str]:
+    """返回站点根地址和热点页地址，兼容旧配置。"""
+    site = config.get("site", {})
+    base_url = str(site.get("base_url", "")).rstrip("/")
+    page_path = str(site.get("page_path", "/hot-news.html"))
+    if not base_url:
+        legacy = str(site.get("url", ""))
+        parsed = urlparse(legacy)
+        path = parsed.path or ""
+        if path.endswith(".html"):
+            base_path = path.rsplit("/", 1)[0]
+            base_url = f"{parsed.scheme}://{parsed.netloc}{base_path}".rstrip("/")
+        else:
+            base_url = legacy.rstrip("/")
+    page_url = urljoin(base_url + "/", page_path.lstrip("/"))
+    return base_url, page_url
 
 def generate_css(config: dict) -> str:
     """生成 CSS 样式"""
@@ -2757,7 +2833,7 @@ body {{
   background: none; border: none; cursor: pointer;
   padding: 6px; margin-left: auto;
   flex-direction: column; gap: 4px; justify-content: center;
-  align-items: center; width: 32px; height: 32px;
+  align-items: center; width: 44px; height: 44px;
   border-radius: 6px; transition: background 0.2s;
 }}
 .nav-hamburger:hover {{ background: rgba(200,164,92,0.08); }}
@@ -2868,6 +2944,7 @@ header .update-time {
 }
 .level-tab {
   padding: 7px 18px; border-radius: 20px; font-size: 0.82rem;
+  min-height: 44px;
   font-weight: 500; cursor: pointer; border: 1px solid var(--border);
   transition: all 0.25s ease; opacity: 0.55;
   background: transparent;
@@ -2916,6 +2993,7 @@ header .update-time {
 }
 .value-filter-btn {
   padding: 5px 14px; border-radius: 16px;
+  min-height: 44px;
   font-size: 0.78rem; font-weight: 500;
   cursor: pointer; transition: all 0.25s ease;
   border: 1px solid var(--border);
@@ -2977,6 +3055,11 @@ header .update-time {
   -webkit-box-orient: vertical;
   overflow: hidden;
   max-height: 3.3em;
+}
+.topic-card .summary-origin {
+  margin: -4px 0 12px;
+  color: var(--text-muted);
+  font-size: 0.72rem;
 }
 /* 隐藏内容小结 */
 .topic-card .zh-summary {
@@ -3084,6 +3167,7 @@ header .update-time {
   background: transparent; border: 1px solid var(--border);
   color: var(--text-muted); padding: 5px 14px;
   border-radius: 14px; font-size: 0.75rem; cursor: pointer;
+  min-height: 44px;
   transition: all 0.2s ease;
 }
 .copy-btn:hover, .share-btn:hover {
@@ -3102,6 +3186,7 @@ header .update-time {
   font-size: 1.15rem; padding: 3px 6px;
   transition: transform 0.2s ease;
   color: var(--text-muted); line-height: 1;
+  min-width: 44px; min-height: 44px;
 }
 .bookmark-btn:hover { transform: scale(1.2); }
 .bookmark-btn.bookmarked { color: #d4a85c; }
@@ -3115,6 +3200,7 @@ header .update-time {
 }}
 .toolbar button, .toolbar a {{
   padding: 7px 14px; border-radius: 18px; font-size: 0.78rem;
+  min-height: 44px;
   font-weight: 500; cursor: pointer; border: none; text-decoration: none;
   transition: all 0.25s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.3);
   backdrop-filter: blur(8px);
@@ -3503,7 +3589,7 @@ footer .footer-links a { margin: 0 8px; }
   }
   .toolbar button, .toolbar a {
     padding: 0; border-radius: 10px;
-    width: 38px; height: 38px;
+    width: 44px; height: 44px;
     display: flex; align-items: center; justify-content: center;
     border: none; box-shadow: none;
     transition: all 0.2s ease;
@@ -3551,12 +3637,20 @@ footer .footer-links a { margin: 0 8px; }
   .search-bar input { padding: 10px 16px; font-size: 0.85rem; }
   .back-to-top {
     bottom: 24px; right: auto; left: 12px;
-    width: 38px; height: 38px; border-radius: 12px;
+    width: 44px; height: 44px; border-radius: 12px;
     font-size: 16px;
     background: rgba(28,26,35,0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 """
@@ -3567,27 +3661,31 @@ footer .footer-links a { margin: 0 8px; }
 def generate_json_api(categories: dict, config: dict) -> str:
     """生成 JSON API 输出，供程序化访问"""
     site_cfg = config.get("site", {})
+    _, page_url = _site_urls(config)
+    public_categories = {
+        name: topics[:30]
+        for name, topics in categories.items()
+        if name != "其他"
+    }
     api_data = {
         "meta": {
             "title": site_cfg.get("title", "热点聚合"),
-            "url": site_cfg.get("url", ""),
+            "url": page_url,
             "updated": NOW.strftime("%Y-%m-%d %H:%M:%S"),
-            "total": sum(min(len(v), 30) for v in categories.values())
+            "total": sum(len(v) for v in public_categories.values()),
+            "summary_policy": "source_excerpt_only_unless_verified"
         },
         "categories": {}
     }
-    for lvl_name, topics in categories.items():
-        if lvl_name == "其他":
-            continue
+    for lvl_name, topics in public_categories.items():
         api_data["categories"][lvl_name] = [
             {
                 "title": t.get("title", ""),
-                "url": t.get("url", ""),
+                "url": _safe_http_url(t.get("url", "")),
                 "score": t.get("score", 0),
                 "source": t.get("source_name", ""),
-                "summary": t.get("zh_summary", "") or t.get("summary", "")[:150],
-                "perspective": t.get("perspective_comment", ""),
-                "action": t.get("action_guidance", "")
+                "summary": t.get("summary_original", "")[:300],
+                "summary_status": t.get("summary_status", "source_excerpt")
             }
             for t in topics
         ]
@@ -3596,26 +3694,13 @@ def generate_json_api(categories: dict, config: dict) -> str:
 
 def generate_sitemap(categories: dict, config: dict) -> str:
     """生成 sitemap.xml 用于 SEO"""
-    site_cfg = config.get("site", {})
-    base_url = site_cfg.get("url", "").rstrip("/")
+    _, page_url = _site_urls(config)
     urls = [f"""  <url>
-    <loc>{base_url}/hot-news.html</loc>
+    <loc>{_escape_xml(page_url)}</loc>
     <lastmod>{NOW.strftime("%Y-%m-%d")}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>"""]
-    
-    # 为每个热点条目生成 URL（可选，取决于是否需要深度索引）
-    for lvl_name, topics in categories.items():
-        for t in topics:
-            item_url = t.get("url", "")
-            if item_url and item_url.startswith("http"):
-                urls.append(f"""  <url>
-    <loc>{_escape_xml(item_url)}</loc>
-    <lastmod>{NOW.strftime("%Y-%m-%d")}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>""")
     
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -3666,7 +3751,8 @@ def generate_rss_feed(categories: dict, config: dict) -> str:
     """生成 RSS 2.0 Feed XML"""
     site_cfg = config.get("site", {})
     title = site_cfg.get("title", "热点聚合")
-    link = site_cfg.get("url", "")
+    base_url, link = _site_urls(config)
+    feed_url = f"{base_url}/feed.xml"
     description = site_cfg.get("description", "")
     now_str = NOW.strftime("%a, %d %b %Y %H:%M:%S +0800")
 
@@ -3676,8 +3762,8 @@ def generate_rss_feed(categories: dict, config: dict) -> str:
             continue
         for t in topics:
             item_title = _escape_xml(t.get("title", ""))
-            item_link = t.get("url", "")
-            item_desc = _escape_xml(t.get("zh_summary", "") or t.get("summary", "")[:1000])
+            item_link = _escape_xml(_safe_http_url(t.get("url", "")))
+            item_desc = _escape_xml(t.get("summary_original", "") or t.get("summary", "")[:1000])
             item_category = _escape_xml(f"{t.get('level', {}).get('name', lvl_name)}")
             items_xml.append(f"""    <item>
       <title>{item_title}</title>
@@ -3691,11 +3777,11 @@ def generate_rss_feed(categories: dict, config: dict) -> str:
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{_escape_xml(title)}</title>
-    <link>{link}</link>
+    <link>{_escape_xml(link)}</link>
     <description>{_escape_xml(description)}</description>
     <language>zh-CN</language>
     <lastBuildDate>{now_str}</lastBuildDate>
-    <atom:link href="{link}/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="{_escape_xml(feed_url)}" rel="self" type="application/rss+xml"/>
 {chr(10).join(items_xml)}
   </channel>
 </rss>"""
@@ -3704,6 +3790,7 @@ def generate_rss_feed(categories: dict, config: dict) -> str:
 
 def _escape_xml(s: str) -> str:
     """转义 XML 特殊字符"""
+    s = str(s or "")
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
              .replace('"', "&quot;").replace("'", "&apos;"))
 
@@ -3745,6 +3832,7 @@ def generate_html(categories: dict, config: dict, mode: str = "web") -> str:
     """生成 HTML 页面"""
     prev_topics_map = _load_prev_snapshot("data")
     site = config.get("site", {})
+    _, page_url = _site_urls(config)
     misc = config.get("misc", {})
     levels = config.get("scoring", {}).get("levels", [])
     
@@ -3786,16 +3874,16 @@ def generate_html(categories: dict, config: dict, mode: str = "web") -> str:
     
     # 档位标签
     sorted_levels = sorted(levels, key=lambda x: x["threshold"], reverse=True)
-    tabs_html = '<div class="level-tab active" onclick="showLevel(\'all\')">全部</div>\n'
+    tabs_html = '<button type="button" class="level-tab active" onclick="showLevel(\'all\')">全部</button>\n'
 
     for lvl in sorted_levels:
         color = lvl.get("color", "#c8a45c")
         desc = lvl.get("description", "")
-        tabs_html += f'<div class="level-tab" style="background: {color}22; color: {color}; border-color: {color};" onclick="showLevel(\'{lvl["name"]}\')">{lvl["name"]}<span style="display:block;font-size:0.7rem;opacity:0.7;margin-top:2px;">{desc}</span></div>\n'
-    tabs_html += '<div class="level-tab bookmark-tab" onclick="showLevel(\'bookmarks\')" style="border-color:#d4a85c;">\u2b50 收藏</div>\n'
-    tabs_html += '<button onclick="exportBookmarks()" style="background:none;border:1px solid #d4a85c;color:#d4a85c;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:0.75rem;margin-left:4px;white-space:nowrap;transition:all 0.2s;" title="将收藏内容导出为文本文件" onmouseover="this.style.background=\'rgba(212,168,92,0.1)\'" onmouseout="this.style.background=\'none\'">📥 导出收藏</button>\n'
+        tabs_html += f'<button type="button" class="level-tab" style="background: {color}22; color: {color}; border-color: {color};" onclick="showLevel(\'{lvl["name"]}\')">{lvl["name"]}<span style="display:block;font-size:0.7rem;opacity:0.7;margin-top:2px;">{desc}</span></button>\n'
+    tabs_html += '<button type="button" class="level-tab bookmark-tab" onclick="showLevel(\'bookmarks\')" style="border-color:#d4a85c;">\u2b50 收藏</button>\n'
+    tabs_html += '<button onclick="exportBookmarks()" style="min-height:44px;background:none;border:1px solid #d4a85c;color:#d4a85c;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:0.75rem;margin-left:4px;white-space:nowrap;transition:all 0.2s;" title="将收藏内容导出为文本文件" onmouseover="this.style.background=\'rgba(212,168,92,0.1)\'" onmouseout="this.style.background=\'none\'">📥 导出收藏</button>\n'
     tabs_html += '<span style="margin:0 6px;color:var(--text2);font-size:0.75rem;">|</span>'
-    tabs_html += '<button id="sortToggle" onclick="toggleSort()" style="background:rgba(232,112,90,0.15);border:1px solid #e8705a;color:#e8705a;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:0.75rem;white-space:nowrap;transition:all 0.2s;" title="点击切换排序方向">🔥 高→低</button>\n'
+    tabs_html += '<button id="sortToggle" onclick="toggleSort()" style="min-height:44px;background:rgba(232,112,90,0.15);border:1px solid #e8705a;color:#e8705a;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:0.75rem;white-space:nowrap;transition:all 0.2s;" title="点击切换排序方向">🔥 高→低</button>\n'
     
     # 时间戳用于 NEW 角标判断
     gen_timestamp = NOW.strftime("%Y-%m-%dT%H:%M:%S")
@@ -3848,9 +3936,9 @@ def generate_html(categories: dict, config: dict, mode: str = "web") -> str:
         parts = []
         # 内容小结已移除，使用卡片顶部的摘要替代
         if persp:
-            parts.append('<div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>' + persp + '</p></div>')
+            parts.append('<div class="ai-insight-item perspective-comment card-ai-persp"><span class="ai-label">视角解读</span><p>' + _escape_text(persp) + '</p></div>')
         if action:
-            parts.append('<div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>' + action + '</p></div>')
+            parts.append('<div class="ai-insight-item action-guidance card-ai-action"><span class="ai-label">行动引导</span><p>' + _escape_text(action) + '</p></div>')
         # 难度标签（大众版显示）
         score = t.get("score", 0)
         if score >= 80: diff, diff_label = "\U0001f680", "进阶"
@@ -3915,22 +4003,29 @@ def generate_html(categories: dict, config: dict, mode: str = "web") -> str:
             level_info = t["level"]
             color = level_info["color"]
             card_hash = hashlib.md5((t["title"] + t.get("url", "")).encode()).hexdigest()[:20]
+            safe_url = _safe_http_url(t.get("url", ""))
+            title_text = _escape_text(t.get("title", ""))
+            source_text = _escape_text(t.get("source_name", ""))
+            source_attr = _escape_attr(t.get("source_name", ""))
+            level_name_text = _escape_text(level_info.get("name", ""))
+            level_name_attr = _escape_attr(level_info.get("name", ""))
+            heat_stage_text = _escape_text(_get_heat_stage(t, prev_topics_map)[0])
             # 预计算属性值，避免 Python 3.11 下 f-string 解析报错
             bk_esc_title = _escape_attr(t['title'])
-            bk_esc_url = _escape_attr(t.get('url', ''))
+            bk_esc_url = _escape_attr(safe_url)
             bk_esc_summary = _escape_attr(t.get('summary_original', '')[:100])
             bk_esc_zhsummary = _escape_attr(t.get('zh_summary', '')[:100])
             bk_esc_perspective = _escape_attr(t.get('perspective_comment', '')[:120])
             bk_esc_action = _escape_attr(t.get('action_guidance', '')[:120])
             bk_score = t["score"]
-            bk_source = t.get("source_name", "")
-            bk_grade = level_info["name"]
+            bk_source = source_attr
+            bk_grade = level_name_attr
             
             # 标题：web模式可点击跳转，local模式纯文本
-            if mode == "web":
-                title_html = f'<h2><a href="{t["url"]}" target="_blank" rel="noopener">{t["title"]}</a></h2>'
+            if mode == "web" and safe_url:
+                title_html = f'<h2><a href="{_escape_attr(safe_url)}" target="_blank" rel="noopener noreferrer">{title_text}</a></h2>'
             else:
-                title_html = f'<h2>{t["title"]}</h2>'
+                title_html = f'<h2>{title_text}</h2>'
             
             # 过滤模板卡片
             if t.get("source_name") and t["title"].strip() == t["source_name"].strip() and not t.get("summary_original"):
@@ -3940,25 +4035,27 @@ def generate_html(categories: dict, config: dict, mode: str = "web") -> str:
             heat_stage, heat_stage_icon, heat_stage_desc = _get_heat_stage(t, prev_topics_map)
             value_tags_html = ""
             if t.get("value_tags"):
-                tag_spans = "\n    ".join([f'<span class="value-tag" data-tag="{tag}">{tag}</span>' for tag in t.get("value_tags", ["综合"])])
+                tag_spans = "\n    ".join([f'<span class="value-tag" data-tag="{_escape_attr(tag)}">{_escape_text(tag)}</span>' for tag in t.get("value_tags", ["综合"])])
                 value_tags_html = f'\n  <div class="value-tags">\n    {tag_spans}\n  </div>'
+            summary_raw = _clean_summary(t.get("zh_summary") or t.get("summary_original", ""))[:300]
+            summary_html = _escape_text(summary_raw)
             card = f'''
-<div class="topic-card" data-hash="{card_hash}" data-updated="{gen_timestamp}" data-grade="{lvl["name"]}" data-source="{t.get("source_name", "")}" data-heat-stage="{heat_stage}" data-audience="{t.get('audience', 'both')}" data-value-tags="{",".join(t.get("value_tags", ["综合"]))}">
+<div class="topic-card" data-hash="{card_hash}" data-updated="{gen_timestamp}" data-grade="{level_name_attr}" data-source="{source_attr}" data-heat-stage="{_escape_attr(heat_stage)}" data-audience="{_escape_attr(t.get('audience', 'both'))}" data-value-tags="{_escape_attr(','.join(t.get('value_tags', ['综合'])))}">
   <span class="new-badge" style="display:none;">NEW</span>
   <div class="card-header">
-    <span class="score-badge" style="background: {color};">{t["score"]}分 · {level_info["name"]}</span>
-    <span class="heat-stage-badge" data-stage="{heat_stage}" title="{heat_stage_desc}">{heat_stage_icon} {heat_stage}</span>
-    <span class="source-tag">{t["source_name"]}</span>
+    <span class="score-badge" style="background: {_escape_attr(color)};">{t["score"]}分 · {level_name_text}</span>
+    <span class="heat-stage-badge" data-stage="{_escape_attr(heat_stage)}" title="{_escape_attr(heat_stage_desc)}">{_escape_text(heat_stage_icon)} {heat_stage_text}</span>
+    <span class="source-tag">{source_text}</span>
     <button class="bookmark-btn" onclick="toggleBookmark(this)" data-hash="{card_hash}" data-title="{bk_esc_title}" data-url="{bk_esc_url}" data-score="{bk_score}" data-grade="{bk_grade}" data-source="{bk_source}" data-summary="{_clean_summary(bk_esc_summary)}" data-zhsummary="{bk_esc_zhsummary}" title="收藏">☆</button>
   </div>
   {value_tags_html}
   {title_html}
-  {f'<p class="summary">{_clean_summary(t.get("zh_summary") or t.get("summary_original", ""))[:200]}</p>' if (t.get("zh_summary") or t.get("summary_original")) else ''}
+  {f'<p class="summary">{summary_html}</p><p class="summary-origin">来源摘要 · 未经 AI 改写，请以原文为准</p>' if summary_html else '<p class="summary-origin">暂无可信摘要，请直接核对原文</p>'}
   <div class="meta">
-    <span>{t["source_name"]}</span>
+    <span>{source_text}</span>
     {f'<span>🔥 {t["hot_score"]}</span>' if t.get("hot_score") else ''}
   </div>
-  {f'<div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="{bk_esc_url}" data-title="{bk_esc_title}">📋 复制链接</button></div>' if mode == "web" else ''}
+  {f'<div class="card-actions"><button class="copy-btn" onclick="copyCardLink(this)" data-url="{bk_esc_url}" data-title="{bk_esc_title}">📋 复制链接</button></div>' if mode == "web" and safe_url else ''}
   {_build_ai_insights(t)}
 </div>
 '''
@@ -3972,7 +4069,8 @@ def generate_html(categories: dict, config: dict, mode: str = "web") -> str:
 
     
     # JavaScript - 五个功能
-    _feishu_webhook = config.get('misc', {}).get('feishu_webhook', '')
+    # 公开静态页面禁止嵌入 webhook 或其他可调用凭据；反馈统一跳转 GitHub Issues。
+    _feishu_webhook = ''
     js = f"""
 <script>
 // ===== 全局状态 =====
@@ -4052,8 +4150,7 @@ function filterCards() {{
     const hash = card.dataset.hash || '';
     const title = (card.querySelector('h2')?.textContent || '').toLowerCase();
     const summary = (card.querySelector('.summary')?.textContent || '').toLowerCase();
-    // zh-summary已移除
-    const allText = title + ' ' + summary + ' ' + zh;
+    const allText = title + ' ' + summary;
     
     // 搜索过滤
     if (searchText && !allText.includes(searchText)) {{
@@ -4442,9 +4539,9 @@ function openFeedback() {{
         <button onclick="submitFeedback()" style="padding:8px 16px;border-radius:8px;border:none;background:var(--accent);color:#fff;cursor:pointer;font-size:0.85rem;">提交反馈</button>
       </div>
       <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
-        <p style="font-size:0.78rem;color:var(--text-secondary);margin:0 0 6px 0;">或通过以下方式联系：</p>
+        <p style="font-size:0.78rem;color:var(--text-secondary);margin:0 0 6px 0;">反馈会在 GitHub Issues 中公开，提交前请勿填写隐私信息：</p>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <span style="font-size:0.78rem;color:var(--accent);">📱 联系开发者阿扶 17343414886（V同号）</span>
+          <a href="https://github.com/Afuxh/fuqing-profile/issues" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--accent);">查看 GitHub Issues</a>
         </div>
       </div>
     </div>
@@ -4561,6 +4658,11 @@ document.addEventListener('DOMContentLoaded', () => {{
     if sources_cfg.get("v2ex", {}).get("enabled", False):
         source_names.append("V2EX")
     source_line = " · ".join(source_names)
+    score_help_html = "\n".join(
+        f'<li><strong>{_escape_text(level.get("name", ""))}</strong> — '
+        f'{int(level.get("threshold", 0))}分以上，{_escape_text(level.get("description", ""))}</li>'
+        for level in sorted_levels
+    )
     
     # 完整 HTML
     html = f'''<!DOCTYPE html>
@@ -4568,8 +4670,16 @@ document.addEventListener('DOMContentLoaded', () => {{
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{get_full_title()}</title>
-<meta name="description" content="{site.get("description", "")}">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action https://github.com">
+<title>{_escape_text(site.get("title", "AI 先机"))} - {_escape_text(site.get("subtitle", "先判机会，后判热点"))}</title>
+<meta name="description" content="{_escape_attr(site.get('description', ''))}">
+<link rel="canonical" href="{_escape_attr(page_url)}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{_escape_attr(site.get('title', 'AI 先机'))}">
+<meta property="og:description" content="{_escape_attr(site.get('description', ''))}">
+<meta property="og:url" content="{_escape_attr(page_url)}">
+<meta name="twitter:card" content="summary">
 <style>
 {css}
 </style>
@@ -4628,9 +4738,7 @@ document.addEventListener('DOMContentLoaded', () => {{
         <p>点击标签栏中的档位标签，按内容质量分级浏览：</p>
         <ul>
           <li><strong>全部</strong> — 显示所有内容</li>
-          <li><strong>精选</strong> — 80分以上，高质量核心内容</li>
-          <li><strong>推荐</strong> — 70分以上，值得阅读</li>
-          <li><strong>参考</strong> — 60分以上，可作参考</li>
+          {score_help_html}
           <li><strong>⭐ 收藏</strong> — 仅显示你收藏的内容</li>
         </ul>
 
@@ -4709,9 +4817,8 @@ document.addEventListener('DOMContentLoaded', () => {{
         <p>本站支持多平台部署，解决不同网络环境下的访问问题：</p>
         <ul class="link-list">
           <li><span>🌍 GitHub Pages（国际）</span><a href="https://afuxh.github.io/fuqing-profile/hot-news.html" target="_blank">访问 →</a></li>
-          <li><span>☁️ EdgeOne Pages（国内首选）</span><a href="https://fuqing-profile-fqh7n0sj.edgeone.cool/hot-news.html" target="_blank">访问 →</a></li>
         </ul>
-        <div class="tip">💡 GitHub Pages 在国内访问较慢，推荐使用 EdgeOne Pages（国内可直访）。两个平台通过 GitHub Actions 自动同步部署。</div>
+        <div class="tip">当前仅公布已验证可访问的 GitHub Pages 入口；其他镜像通过可用性检查后再恢复。</div>
       </div>
 
       <!-- 自定义设置 -->
@@ -4795,18 +4902,20 @@ document.addEventListener('DOMContentLoaded', () => {{
 <div class="container">
 <header>
 <div class="brand-signature">扶清闲话 · AI时代观察</div>
-<h1>{site.get("title", "AI 时代观察")}</h1>
-<p class="subtitle">{site.get("subtitle", "效率归机器，意义归人类")}</p>
+<h1>{_escape_text(site.get("title", "AI 先机"))}</h1>
+<p class="subtitle">{_escape_text(site.get("subtitle", "先判机会，后判热点"))}</p>
 <p class="philosophy-line">「让被豁免的，重新在场」</p>
 <p class="update-time">更新时间：{NOW.strftime("%Y-%m-%d %H:%M")}{' · 共 ' + str(min(len(all_items), 60)) + ' 条内容' if all_items else ''}</p>
+<p class="update-time">来源标题与摘要未经 AI 改写；规则评分仅供筛选，事实请以原文为准。</p>
 </header>
 
 <!-- 四化方法论banner已移除 -->
 
 <div class="search-bar">
-  <input type="text" id="searchInput" placeholder="搜索标题、摘要...（支持关键词过滤）" autocomplete="off">
+  <label for="searchInput" style="position:absolute;left:-9999px;">搜索标题与来源摘要</label>
+  <input type="text" id="searchInput" aria-label="搜索标题与来源摘要" placeholder="搜索标题、摘要...（支持关键词过滤）" autocomplete="off">
 </div>
-  <button id="mode-toggle" onclick="toggleMode()" style="position:fixed;top:12px;left:12px;z-index:100;padding:5px 14px;border-radius:16px;border:1px solid var(--border);background:var(--card);color:var(--text-primary);cursor:pointer;font-size:13px;transition:all 0.3s;white-space:nowrap;backdrop-filter:blur(8px);">大众版</button>
+  <button id="mode-toggle" onclick="toggleMode()" style="position:fixed;top:12px;left:12px;z-index:100;min-height:44px;padding:5px 14px;border-radius:16px;border:1px solid var(--border);background:var(--card);color:var(--text-primary);cursor:pointer;font-size:13px;transition:all 0.3s;white-space:nowrap;backdrop-filter:blur(8px);">大众版</button>
 
 <div class="level-tabs">
 {tabs_html}
@@ -4826,18 +4935,18 @@ document.addEventListener('DOMContentLoaded', () => {{
 <main>
 {content_html}
 <div style="text-align:center;padding:16px 0 32px;">
-  <button id="expand-btn" onclick="toggleExpand()" style="background:none;border:1px solid var(--border);color:var(--text-secondary);padding:8px 24px;border-radius:8px;cursor:pointer;font-size:0.85rem;transition:all 0.2s;">▼ 查看更多</button>
+  <button id="expand-btn" onclick="toggleExpand()" style="min-height:44px;background:none;border:1px solid var(--border);color:var(--text-secondary);padding:8px 24px;border-radius:8px;cursor:pointer;font-size:0.85rem;transition:all 0.2s;">▼ 查看更多</button>
 </div>
 </main>
 <footer>
 <p>数据来源：{source_line}（共 {len(enabled_source_names)} 个数据源）</p>
-<p>内容由 AI 自动采集、智能评分。支持收藏、搜索、暗色模式、RSS 订阅</p>
+<p>内容自动聚合并按规则评分；来源摘要未经 AI 改写，事实请以原文为准。</p>
 <p class="footer-links">
   <a href="feed.xml" target="_blank">📡 RSS</a>
   <a href="api.json" target="_blank">📊 API</a>
   <a href="sources.opml" target="_blank">📋 OPML</a>
   <a href="sitemap.xml" target="_blank">🗺️ Sitemap</a>
-  <a href="javascript:void(0)" onclick="openSettings('guide')">📖 帮助</a>
+  <button type="button" onclick="openSettings('guide')" style="min-height:44px;background:none;border:0;color:var(--accent-soft);cursor:pointer;font:inherit;">📖 帮助</button>
 </p>
 
 <div class="brand-divider">———— ✦ ————</div>
@@ -4857,10 +4966,10 @@ document.addEventListener('DOMContentLoaded', () => {{
 
 <!-- 用户反馈 / 联系方式 -->
 <div id="feedback-section" style="margin-top:24px;padding:16px 24px;background:linear-gradient(135deg,rgba(200,168,92,0.06),rgba(200,120,106,0.06));border:1px solid rgba(200,168,92,0.12);border-radius:14px;text-align:center;">
-  <p style="font-size:0.85rem;color:var(--text-secondary);margin:0 0 10px 0;">🛠️ 开发不易，如有意见/建议欢迎联系</p>
+  <p style="font-size:0.85rem;color:var(--text-secondary);margin:0 0 10px 0;">🛠️ 如发现事实、链接或功能问题，欢迎通过公开 Issue 反馈</p>
   <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;align-items:center;">
-    <a href="javascript:void(0)" onclick="openFeedback()" style="display:inline-flex;align-items:center;gap:4px;padding:6px 16px;border-radius:8px;background:var(--card);border:1px solid var(--border);color:var(--text-primary);text-decoration:none;font-size:0.8rem;transition:all 0.2s;">💬 提交反馈</a>
-    <span style="display:inline-flex;align-items:center;gap:4px;padding:6px 16px;border-radius:8px;background:var(--card);border:1px solid var(--accent);color:var(--accent);font-size:0.8rem;">📱 开发者阿扶 17343414886（v同）</span>
+    <button type="button" onclick="openFeedback()" style="min-height:44px;display:inline-flex;align-items:center;gap:4px;padding:6px 16px;border-radius:8px;background:var(--card);border:1px solid var(--border);color:var(--text-primary);font-size:0.8rem;transition:all 0.2s;cursor:pointer;">💬 提交反馈</button>
+    <a href="https://github.com/Afuxh/fuqing-profile/issues" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:4px;padding:6px 16px;border-radius:8px;background:var(--card);border:1px solid var(--accent);color:var(--accent);font-size:0.8rem;text-decoration:none;">查看 Issues</a>
   </div>
 </div>
 
@@ -5048,8 +5157,7 @@ async def main(config_path: str = "config.yaml", output_dir: str = "site",
     
     # 模式检查：正式运维必须使用完整模式
     if quick:
-        logger.warning("⚠️ 当前使用快速模式（--quick），AI评论和翻译将被跳过！")
-        logger.warning("⚠️ 正式运维更新请使用完整模式，确保内容质量！")
+        logger.info("安全来源模式：跳过未通过事实质量门的翻译、AI评论与旧缓存")
     else:
         logger.info("✅ 使用完整模式，将生成AI评论和翻译（预计10-15分钟）")
     
@@ -5060,7 +5168,7 @@ async def main(config_path: str = "config.yaml", output_dir: str = "site",
     logger.info(f"  时间: {NOW.strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info(f"  模式: {'在线网页' if mode == 'web' else '本地HTML'}")
     if quick:
-        logger.info(f"  快速模式: 跳过翻译和AI评论（约15-30秒）")
+        logger.info(f"  摘要策略: 仅来源原文，不做AI改写")
     elif no_translate:
         logger.info(f"  翻译: 跳过（约20-40秒）")
     else:
@@ -5108,6 +5216,12 @@ async def main(config_path: str = "config.yaml", output_dir: str = "site",
     logger.info("\n📡 抓取热点数据...")
     topics = await fetch_all(config)
     logger.info(f"共抓取 {len(topics)} 条原始数据")
+    source_health = build_source_health(topics, config)
+    if source_health["gate"] != "pass":
+        raise RuntimeError(
+            f"来源健康门失败: {source_health['parsed_source_count']}/"
+            f"{source_health['enabled_source_count']} 个启用源解析成功"
+        )
     
     # --- 阶段3: 翻译处理 ---
     phase_pbar.update(1)
@@ -5119,6 +5233,9 @@ async def main(config_path: str = "config.yaml", output_dir: str = "site",
         logger.info(f"\n🌐 翻译处理（{len(topics)} 条，预计30-90秒）...")
     topics = await process_topics(topics, config, no_translate=no_translate, quick=quick)
     logger.info(f"处理完成")
+    before_publish_filter = len(topics)
+    topics = [topic for topic in topics if is_publishable_topic(topic)]
+    logger.info(f"公开主题门: 保留 {len(topics)}/{before_publish_filter} 条 AI 相关且适宜内容")
     
     # --- 阶段4: 评分分类 ---
     phase_pbar.update(1)
@@ -5147,31 +5264,38 @@ async def main(config_path: str = "config.yaml", output_dir: str = "site",
     phase_pbar.update(1)
     logger.info("\n🏗️ 生成网站HTML（预计2-5秒）...")
     html = generate_html(categories, config, mode=mode)
+    html = normalize_generated_text(html)
     
     # 保存
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
-    (output_path / "hot-news.html").write_text(html, encoding="utf-8", errors="replace")
+    (output_path / "hot-news.html").write_text(html, encoding="utf-8", errors="replace", newline="\n")
+    (output_path / "source_health.json").write_text(
+        json.dumps(source_health, ensure_ascii=False, indent=2), encoding="utf-8", newline="\n"
+    )
     
     # 生成 RSS Feed
     logger.info("  生成 RSS Feed...")
     rss_xml = generate_rss_feed(categories, config)
-    (output_path / "feed.xml").write_text(rss_xml, encoding="utf-8")
+    rss_xml = normalize_generated_text(rss_xml)
+    (output_path / "feed.xml").write_text(rss_xml, encoding="utf-8", newline="\n")
     
     # 生成 JSON API
     logger.info("  生成 JSON API...")
     json_api = generate_json_api(categories, config)
-    (output_path / "api.json").write_text(json_api, encoding="utf-8")
+    (output_path / "api.json").write_text(json_api, encoding="utf-8", newline="\n")
     
     # 生成 sitemap.xml
     logger.info("  生成 sitemap.xml...")
     sitemap_xml = generate_sitemap(categories, config)
-    (output_path / "sitemap.xml").write_text(sitemap_xml, encoding="utf-8")
+    sitemap_xml = normalize_generated_text(sitemap_xml)
+    (output_path / "sitemap.xml").write_text(sitemap_xml, encoding="utf-8", newline="\n")
     
     # 生成 OPML 订阅列表
     logger.info("  生成 OPML...")
     opml_xml = generate_opml(config)
-    (output_path / "sources.opml").write_text(opml_xml, encoding="utf-8")
+    opml_xml = normalize_generated_text(opml_xml)
+    (output_path / "sources.opml").write_text(opml_xml, encoding="utf-8", newline="\n")
     
     # 统计（从生成的HTML中计算实际卡片数）
     total = len(re.findall(r'<div class="topic-card"', html))

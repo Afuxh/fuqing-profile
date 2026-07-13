@@ -3,137 +3,157 @@
   <channel>
     <title>AI 先机</title>
     <link>https://afuxh.github.io/fuqing-profile/hot-news.html</link>
-    <description>面向AI从业者、投资人、创业者的智能热点聚合站。每天从13个顶级数据源精选热点，三条AI链分别点评行业视角、投资信号、创业机会，附带风险标注与行动指引。</description>
+    <description>面向 AI 从业者、投资人和创业者的多源热点聚合站。优先保留来源标题与摘要，并明确标注自动评分与事实核验边界。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 29 Jun 2026 03:10:12 +0800</lastBuildDate>
-    <atom:link href="https://afuxh.github.io/fuqing-profile/hot-news.html/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Mon, 13 Jul 2026 12:52:31 +0800</lastBuildDate>
+    <atom:link href="https://afuxh.github.io/fuqing-profile/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>一折买 Miu Miu，谁在做奢侈品牌的&quot;拼多多&quot;？｜商业Friday</title>
-      <link>https://36kr.com/p/3867976058803459?f=rss</link>
-      <description>有些奢侈品打折活动需要特殊邀请，普通人可能进不去。</description>
-      <category>推荐</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>匿名 GitHub 帐户大量删除未公开的 0day</title>
-      <link>https://github.com/bikini/exploitarium</link>
-      <description>一个匿名的GitHub账号删除了很多未公开的软件漏洞信息，可能在清除潜在的安全隐患。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>OvOhao/自动收纸</title>
-      <link>https://github.com/OvOhao/auto-paper-collecter</link>
-      <description>📚🔭您的个人研究雷达——一款由 LLM 驱动的工具，可以自动聚合 arXiv / Crossref / Semantic Sc​​holar / GitHub / RSS 中您的关键词的最新论文。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>9点1氪｜苹果涨价引山姆代购潮；DeepSeek大规模招聘；黄金再度跌破4000美元</title>
-      <link>https://36kr.com/p/3870720040588295?f=rss</link>
-      <description>苹果涨价让代购更火，AI公司也在招人，黄金价格又跌了。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>理想首谈电池品牌争议：不管谁家电池，都是理想汽车兜底</title>
-      <link>https://36kr.com/p/3866946087867394?f=rss</link>
-      <description>理想汽车说不管电池来自哪家，它们都会负责安全问题。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>追赶FSD V14，理想在补哪些课？｜最前线</title>
-      <link>https://36kr.com/p/3870292939658242?f=rss</link>
-      <description>理想汽车正在努力追赶特斯拉的自动驾驶技术。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>《走进AIE》，谁是下一个主角</title>
-      <link>https://36kr.com/p/3869838577620231?f=rss</link>
-      <description>AIE展会成为科技企业展示新技术的重要舞台。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>悟空安全上线“弹必赔”，主打“0添加”安全软件</title>
-      <link>https://36kr.com/newsflashes/3872623912571910?f=rss</link>
-      <description>悟空安全推出新功能，能拦截广告弹窗并给奖励。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>前端工程师最不想看到的开源项目出现了，一行命令克隆任意网站</title>
-      <link>https://www.qbitai.com/2026/06/439515.html</link>
-      <description>“我们错误地认为，只要引入人工智能……就能生产出高质量的产品。”</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>一次吃下一本书！百度开源新OCR，作者疑似前DeepSeek研究员</title>
-      <link>https://www.qbitai.com/2026/06/439464.html</link>
-      <description>百度推出新的OCR技术，能快速识别文字，作者可能来自另一家AI公司。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>兜兜转转四款笔记软件，我终于为思考找到了安身之所</title>
-      <link>https://sspai.com/post/110935</link>
-      <description>有人换了四款笔记软件，终于找到适合自己的工具。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>早报｜GPT-5.6正式亮相，但你可能还用不了/微软将上调Xbox主机价格/大疆回应Pocket 4P开售秒空</title>
-      <link>https://www.ifanr.com/1670246?utm_source=rss&utm_medium=rss&utm_campaign=</link>
-      <description>GPT-5.6发布，Xbox涨价，大疆回应产品热销。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>大疆定义了 Pocket，而 Pocket 4P 定义了「口袋电影机」</title>
-      <link>https://www.ifanr.com/1669925?utm_source=rss&utm_medium=rss&utm_campaign=</link>
-      <description>大疆的新产品Pocket 4P被称作“口袋电影机”，功能很强大。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>为什么华尔街认为美国内存制造商美光是下一个英伟达</title>
-      <link>https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/</link>
-      <description>华尔街投资者渴望找到更多与英伟达一样出色的人工智能相关上市公司，他们认为美光是他们的赢家。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>由 Y Combinator 支持的保险科技初创公司 Corgi 表示，它没有窃取开源产品</title>
-      <link>https://techcrunch.com/2026/06/26/corgi-the-buzzy-y-combinator-backed-insurance-tech-startup-says-it-didnt-steal-an-open-source-product/</link>
-      <description>当 Papermark 指控 Corgi 窃取其软件时，Corgi 卷入了争议。柯基犬说没有，这引发了关于振动编码的新问题。</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>马克斯·普朗克因涉嫌流氓算法而被撤回两篇论文</title>
-      <link>https://science.slashdot.org/story/26/06/27/2042204/max-planck-slapped-with-two-paper-retractions-by-suspected-rogue-algorithm?utm_source=rss1.0mainlinkanon&utm_medium=feed</link>
-      <description>马克斯·普朗克荣获 1918 年诺贝尔物理学奖。然而他的两篇论文被撤回——这一举动现在受到魁北克大学物理历史学家伊夫·金格拉斯(Yves Gingras)和昆士兰大学三河市科学史学家马赫迪·凯尔法乌伊(Mahdi Khelfaoui)的批评。科学报告：
+      <title>AI编程从零开始：环境配置到开发调试</title>
+      <link>https://www.williamlong.info/archives/7544.html</link>
+      <description>我最开始接触AI编程（Vibe Coding）是去年，因为我以前没写过Chrome插件，第一次用AI来写，十分钟搞定，功能是点击将浏览器所有书签转化为网址导航站来显示，用AI在网页端生成，插件运行后显示正常。我感觉有了AI之后，编程门槛大幅降低，傻子都可以当程序员了。
 
-这两篇论文最初发表于 2011 年悄然撤回的论文，最初发表于 20 世纪 40 年代初的《Naturwissenschaften》，这是一份德国期刊，现归出版巨头施普林格·自然 (Springer Nature) 所有。经过一番调查后，Khelfaoui 确定</description>
-      <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
+后来维护一个很古老的VB6程序，提示MSCOMCTL.OCX控件加载失败的问题，查看了一下代码，用了ProgressBar控件，于是用AI重写了一个类，通过PictureBox（图片框）来模拟ProgressBar，源代码几乎不用修改就完成了，编程效率非常高。
+
+经过一番研究，我发现AI编程（Vibe Coding）是件很有意思的事情，能让人做一些意想不到的工作，特别是对于程序员的好处大大。以前有35岁程序员失业的情况，掌握了AI编程以后，年纪更大的程序员也能在短时间高效率地开发出大量程序，年轻的程序员未必会有什么优势，编程也不再是体力活了，AI能帮忙写出大部分程序，因此，现在无论是否是程序员的职业，都应该多学习一下AI编程知识，做点什么东西。
+
+下面我就以我个人的经验，从零开始介绍一下Vibe Coding的环境配置到具体开发调试和发布的全过程。
+
+1、环境配置
+
+客户端编辑器就选VS Code，以及其套壳变种，例如Trae，Antigravity，Cursor等等，把VS Code的界面、配置、功能都搞清楚了，其他绝大多数AI编辑器都没什么问题。Visual Studio Code的官网下载地址是：https://code.visualstudio.com 。下载安装后的语言是英文的，在侧栏&amp;ldquo;扩展&amp;rdquo;里，搜索Chinese，装第一个扩展，可以把界面变成简体中文界面。
+
+代码管理选用Git，这是一款开源的分布式版本控制系统，下载地址：https://git-scm.com
+
+安装后配置：
+
+git config --global user.name &amp;quot;你的名字&amp;quot;
+
+git config --global user.email &amp;quot;你的邮箱&amp;quot;
+
+代码托管选用Github，一键同步 GitHub 所有项目到本地的方法：
+
+安装 GitHub CLI（ 运行PowerShell）：winget install GitHub.cli
+
+登录 Gi</description>
+      <category>推荐</category>
+      <pubDate>Mon, 13 Jul 2026 12:52:31 +0800</pubDate>
     </item>
     <item>
-      <title>我如何将旧 Android 手机免费变成流媒体棒 - 只需 6 个简单步骤</title>
-      <link>https://www.zdnet.com/article/how-to-turn-android-phone-into-streaming-stick-roku-fire-tv/</link>
-      <description>跳过流媒体棒 - 以下是我如何使用备用 Pixel 手机在电视上观看电影。</description>
+      <title>Ask HN: Add flag for AI-generated articles</title>
+      <link>https://news.ycombinator.com/item?id=48886741</link>
+      <description>150 评论</description>
       <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
+      <pubDate>Mon, 13 Jul 2026 12:52:31 +0800</pubDate>
     </item>
     <item>
-      <title>我总是在每台新设备上更改 13 个 Google 相册设置 - 以及原因</title>
-      <link>https://www.zdnet.com/article/google-photos-settings-i-change-on-new-android-iphone-why/</link>
-      <description>在我的 Android 或 iPhone 相机胶卷上使用 Google Photos 之前，我会先检查这些备份、隐私和 AI 设置。</description>
+      <title>Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k</title>
+      <link>https://systima.ai/blog/claude-code-vs-opencode-token-overhead</link>
+      <description>284 评论</description>
       <category>参考</category>
-      <pubDate>Mon, 29 Jun 2026 03:10:12 +0800</pubDate>
+      <pubDate>Mon, 13 Jul 2026 12:52:31 +0800</pubDate>
+    </item>
+    <item>
+      <title>Migrating a production AI agent to GPT-5.6: 2.2x faster, 27% cheaper</title>
+      <link>https://ploy.ai/blog/migrating-a-production-ai-agent-to-gpt-5-6</link>
+      <description>61 评论</description>
+      <category>参考</category>
+      <pubDate>Mon, 13 Jul 2026 12:52:31 +0800</pubDate>
+    </item>
+    <item>
+      <title>AlephAITech/WorkBuddyGuide</title>
+      <link>https://github.com/AlephAITech/WorkBuddyGuide</link>
+      <description>A practical, open-source guide to mastering WorkBuddy through real-world workflows.开源的 WorkBuddy 实战蓝皮书：教程、真实工作流、Skills、MCP、自动化与多智能体实践。</description>
+      <category>参考</category>
+      <pubDate>Mon, 13 Jul 2026 12:52:31 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI家庭智能硬件公司获数千万元融资，首款产品今年上线海外｜硬氪首发</title>
+      <link>https://36kr.com/p/3879780282495236?f=rss</link>
+      <description>
+
+
+  作者｜黄楠
+  编辑｜袁斯来
+  硬氪获悉，威联机器人科技（深圳）有限公司（以下简称“MOVA LINCO”）近日完成数千万元天使融资。融资资金将主要用于AI算法底层技术研发、完善产品量产体系，以及全球化渠道布局和家庭AI生态的持续建设。
+  MOVA LINCO核心团队来自头部网络通信与智能硬件企业，在路由器、NAS存储及AI算力设备等方面拥有深厚的技术积累与产品经验。公司产品矩阵以AI智能语音路由器、AI NAS及AI算力盒子三大品类为核心，构建“连接+存储+算力”三位一体的家庭AI基础设施架构，覆盖从智能家居中枢、数据存储及本地算力分配等全场景需求，专注为全球用户提供智能化、主动化的家庭AI服务体验。
+  长期以来，路由器的定位颇为特殊。它在数字基础设施中承担着连接枢纽的关键职能，但又极少进入用户的日常感知。购置产品后，除短暂的配置环节外，这台设备常被隐藏在弱电箱或电视柜交流，极少能获取到用户的主动关注。但若出现网络中断，生活与工作的运转又会即刻受阻，其不可替代的刚需属性随即显现。
+  这种“不可或缺、却近乎隐形”的状况，在过去二十年间几乎未有根本性改变。而基于这一连接枢纽属性，推动其成为家庭AI基础设施布局中不可忽视的入口选项。
+  根据中商产业研究院数据，2025年，中国路由器行业市场规模已达262亿元。AI路由器的出现将进一步打开这一品类的想象空间。预计到2032年，全球AI路由器市场规模将增长至51亿美元以上，年复合增长率超过16%
+  MOVA LINCO总裁贾锌润告诉硬氪，“路由器是家庭中少数能同时满足持续在线联网、不间断供电、以无线方式连接各类智能IoT设备这三项条件的形态。对比之下，以往智能音箱、中控屏或电视等终端要实现对其他设备的管控，其通信链路同样需先经由路由器；一旦路由器出现故障，全屋智能网络即面临全面中断。”
+  基于这一观察，团队将首款落地产品聚焦于此，推出AI智能语音路由X1 Pro。
+
+  MOVA LINCO AI智能语音路由X1 Pro（图源/企业）
+  X1 Pro最核心的变化在于交互方式。传统路由器通过APP完成所有操作，用户调整网络、管理设备等操作，都需要手动打开软件。MOVA LINCO在X1 Pro机身内置定制语音芯片与自研语音算法，支持自然模糊语音交互。
+  除了能识别开关网络、调节设备等标准指令</description>
+      <category>参考</category>
+      <pubDate>Mon, 13 Jul 2026 12:52:31 +0800</pubDate>
+    </item>
+    <item>
+      <title>36氪首发 | 港中大博士、前大疆工程师创业消费级四足机器人，天使轮获正轩领投数千万元</title>
+      <link>https://36kr.com/p/3893473722514181?f=rss</link>
+      <description>
+
+
+  作者&amp;nbsp;|&amp;nbsp;乔钰杰
+  编辑&amp;nbsp;|&amp;nbsp;袁斯来
+  硬氪获悉，深圳光之跃迁科技有限公司（Lumisition Robotics）（以下简称“光之跃迁”）近日完成近五千万元天使轮融资，由正轩领投，光点资本、力合资本、松禾资本、恒信未来等机构跟投。本轮资金将主要用于产品研发、算法迭代及量产准备。
+  光之跃迁成立于2026年2月，聚焦消费级四足机器人市场，希望以“全地形移动底盘”切入户外场景，解决搬运、辅助行动等体力劳动需求。公司瞄准拥有独栋住宅的欧美家庭、户外运动爱好者以及银发群体，希望让四足机器人从展示型产品转向具备实际生产力的消费级工具。
+
+  （图源/企业）
+  公司创始人兼CEO乐林株毕业于香港中文大学机器人专业，拥有机器人博士及博士后背景，是香港中文大学LRL Lab联合创立人，曾任大疆创新研发骨干，并曾联合创办B端四足机器人企业光年创新科技。
+  CTO与硬件VP均毕业于香港中文大学机器人专业。CTO本科为浙大竺可桢学院，专注强化学习与运动控制算法。硬件VP为华中科技大学本硕（师从高亮教授），曾任石头科技工程师，发表IEEE/ASME TMECH、IROS、ICRA论文5篇，持发明专利7项，主导5+款关节电机、大型液压人形机器人及多款四足机器人平台研发。
+  创始人乐林株向硬氪表示，与部分消费机器人强调陪伴、情绪价值不同，光之跃迁更关注真实场景中的“体力替代”。例如在欧美家庭中，独栋住宅面积较大，居民经常需要完成车库到住宅、停车场到家门口等“最后一公里”搬运任务；同时，老龄化趋势加剧、护理成本上升以及劳动力短缺，也催生了户外移动辅助设备的市场需求。围绕不同需求，光之跃迁计划推出城市、轻城市、户外级等适应不同地形的产品。
+
+  （图源/企业）
+  围绕“全地形辅助”这一定位，光之跃迁构建了四层智能架构，包括感知智能、运动智能、意图智能和角色智能。感知层负责环境信息获取；运动层基于团队多年强化学习（RL）运控研究，实现复杂地形下的稳定运动与越障；意图层通过Agent技术理解用户复杂指令和行为偏好，例如在速度优先或安全优先之间进行自主决策；角色层则能够根据场景动态切换运输工具、营地助手、守护者或家庭伙伴等不同功能，并支持模块化改装，例如安装座椅后变为智能轮椅，或扩展为婴儿车等形态。
+  技术路线方面，公司持续</description>
+      <category>参考</category>
+      <pubDate>Mon, 13 Jul 2026 12:52:31 +0800</pubDate>
+    </item>
+    <item>
+      <title>对话Om AI赵天成：多年坚守，押注物理AI原生的「流式」未来</title>
+      <link>https://36kr.com/p/3893445208717826?f=rss</link>
+      <description>
+
+
+  一个从未见过监控画面的多模态模型，却比在监控数据上练了多年的小模型“老将”更懂监控。这不是科幻电影，这是2023年Om AI联汇的一场“无心插柳”，也是CEO兼首席科学家赵天成博士更加坚信“多模态训练方式能为物理开放世界带来泛化性”的关键节点。彼时，AI行业正在追求以大语言模型为核心的生成式AI。
+  三年后，这个多模态模型演变成了VLX——全球首个面向物理AI的端侧流式多模态模型系列。首次提出“端侧原生流式多模态”这一全新模型架构，而通过这个从Day 1为端侧算力约束设计的架构，VLX模型首次在端侧打通“持续感知+精准定位+行动决策”的物理AI完整闭环。
+
+  VLX概览图
+  毫无疑问，站在2026年夏天的时间节点，AI行业的热度已经开始从数字AI转向物理AI。不同于数字AI的2023年，虽然物理AI的热度很高，但是行业仍未收敛，多路线并存，距生产落地尚远：以语言为中心的VLA、以像素为中心的视频生成、以3D结构为中心的仿真、以视觉表征为中心的JEPA……行业对最主流的VLA与世界模型两条概念路线的选择，也依然摇摆不定，是替代，还是并存，抑或是融合？
+  就在这一行业还在争论谁是物理AI终极答案之时，Om AI联汇的VLX系列模型已然完成物理AI从仿真实验到产业落地的商业闭环，通过赋予机器人、无人机、可穿戴设备、安防摄像头、AI PC等多类物理终端自主感知的“小脑”和认知决策的“大脑”，让这些物理终端实现从“被动执行指令”向“主动适应场景”跨越。
+
+  VLX架构图
+  这并非偶然，而是Om AI联汇多年漫长专注后的必然结果。
+  2019年，当赵天成从CMU语言技术所博士毕业时，他的履历足够耀眼：所在实验室导师Maxine Eskenazi是对话系统的开山鼻祖，90年代做出了全球第一个实用化对话智能体；而他本人是实验室第三代系统的缔造者，2016年就率先用神经网络将延续了20年的系统改造成端到端生成式模型。当时进入学术圈当教授、大厂，几乎唾手可得。
+  但他选了第三条路——创业。而且是一条在当时几乎无人理解的路线：不做纯文本大模型，不追生成式AI的热潮，而是死磕“视觉+语言”的流式多模态。即便是当下，这也并非主流的技术路线。行业的主流叙事是“离线抽帧”：视频就是一帧一帧截出来当图片处理，推理是批量的、离散的、一问一答的。而赵天成从一开始就</description>
+      <category>参考</category>
+      <pubDate>Mon, 13 Jul 2026 12:52:31 +0800</pubDate>
+    </item>
+    <item>
+      <title>五一视界与环天智慧正式达成空天领域战略合作</title>
+      <link>https://36kr.com/newsflashes/3893500374350338?f=rss</link>
+      <description>36氪获悉，五一视界公告，公司与环天智慧正式达成空天领域战略合作，将围绕高精度卫星遥感数据的采集与“物理级可用”数据资产重建展开合作，联合定制全球首颗专为物理AI训练与仿真应用设计的商业遥感卫星——地球克隆之星“ECS-1”。据公告显示，地球克隆之星“ECS-1”是全球首颗针对物理AI数据需求专项定制的商业遥感卫星。</description>
+      <category>参考</category>
+      <pubDate>Mon, 13 Jul 2026 12:52:31 +0800</pubDate>
+    </item>
+    <item>
+      <title>韩国央行：全球半导体市场目前仍处于供不应求的状态，由AI驱动的芯片超级周期预计还将持续一段时间</title>
+      <link>https://36kr.com/newsflashes/3893454854765059?f=rss</link>
+      <description>韩国央行在周一发布的一份报告中驳斥了投资者关于芯片周期已然见顶的担忧。该行表示，全球半导体市场目前仍处于供不应求的状态，由人工智能（AI）驱动的芯片超级周期预计还将持续一段时间。韩国央行认为，本轮芯片周期与以往不同，其驱动力是各大企业竞相投资，这些投资是基于对AI普及将引发产业生态系统根本性变革的预期。（财联社）</description>
+      <category>参考</category>
+      <pubDate>Mon, 13 Jul 2026 12:52:31 +0800</pubDate>
+    </item>
+    <item>
+      <title>&apos;Billionaire Exodus? California Drew 10x More Venture Capital Than Any Other State This Year&apos;</title>
+      <link>https://news.slashdot.org/story/26/07/12/2326225/billionaire-exodus-california-drew-10x-more-venture-capital-than-any-other-state-this-year?utm_source=rss1.0mainlinkanon&amp;utm_medium=feed</link>
+      <description>California drew more than $335 billion in venture capital funding this year, reports the Los Angeles Times, citing data released Thursday by PitchBook on private market funding:
+
+Its next biggest competitor, New York, raised less than a tenth of California&apos;s total. Texas raised 1/40th of the amount... Although a campaign for a new tax on billionaires has convinced some ultra-rich residents to shift to other states and businesses often complain that high property and energy costs and an anti-business regulatory regime make it too tough to make money in the state, the inability of the top talent, companies and investors in AI to set up elsewhere shows California&apos;s enduring attraction.
+
+The state&apos;s economy grew 5% last year to a record $4.25 trillion, making it larger than every country other than the U.S., China and Germany. It is home to nearly 400 billion-dollar startups &amp;mdash; more than any other state, according to CB Insights... Among metropolitan regions, Los Angeles ranked behin</description>
+      <category>参考</category>
+      <pubDate>Mon, 13 Jul 2026 12:52:31 +0800</pubDate>
     </item>
   </channel>
 </rss>

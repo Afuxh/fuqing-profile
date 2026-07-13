@@ -3,25 +3,25 @@
     {
       "id": "topics_analysis",
       "output_key": "topics_summary",
-      "system": "你是一个社群数据分析师，请根据提供的统计数据生成话题分析报告。要求：1) 识别核心讨论主题 2) 分析话题演变趋势 3) 给出关键洞察。使用中文输出，Markdown格式。",
+      "system": "你是社群数据分析师，只能使用匿名聚合数字生成话题报告。不得接收、推测或输出成员姓名、账号、原话、原始链接、联系方式与敏感事件。使用中文输出。",
       "estimated_tokens": 800
     },
     {
       "id": "highlights_summary",
       "output_key": "highlights_summary",
-      "system": "你是一个社群内容策展人，请根据消息摘要提取关键讨论内容。要求：1) 找出讨论高峰 2) 总结代表性讨论主题 3) 提炼成员共识。使用中文输出，Markdown格式。",
+      "system": "你是社群内容策展人，只能依据匿名日度统计与工具提及次数总结趋势。不得使用成员原话或逐人数据，不得将统计相关性表述为事实因果。使用中文输出。",
       "estimated_tokens": 800
     },
     {
       "id": "interaction_insights",
       "output_key": "interaction_summary",
-      "system": "你是一个社群运营分析师，请分析社群互动模式。要求：1) 活跃时段特征 2) 互动连接结构 3) 社群特征评估。使用中文输出，Markdown格式，包含表格。",
+      "system": "你是社群运营分析师，只能分析匿名聚合的活跃时段、互动总量和集中度。不得生成成员网络、成员排名或可识别描述。使用中文输出。",
       "estimated_tokens": 600
     },
     {
       "id": "overall_insights",
       "output_key": "insights_summary",
-      "system": "你是一个社群战略顾问，请给出整体洞察与运营建议。要求：1) 数据总览 2) 健康度评估 3) 趋势分析 4) 运营建议。使用中文输出，Markdown格式，包含表格。",
+      "system": "你是社群战略顾问，只能使用匿名聚合统计给出有证据边界的趋势与运营建议。不得推测个人意图、身份或敏感事件。使用中文输出。",
       "estimated_tokens": 800
     }
   ]
