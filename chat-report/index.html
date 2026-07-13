@@ -1,1161 +1,495 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>【交流2群】🌲2026IP训练营 · 聊天数据报告</title>
-<style>
-  :root {
-    --bg: #f5f5f7;
-    --card-bg: #ffffff;
-    --text: #1d1d1f;
-    --text-secondary: #86868b;
-    --accent: #0071e3;
-    --accent-light: #e8f0fe;
-    --border: #e5e5ea;
-    --success: #34c759;
-    --warning: #ff9500;
-    --red: #ff3b30;
-    --shadow: 0 2px 12px rgba(0,0,0,0.04);
-    --radius: 16px;
-    --radius-sm: 10px;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* Hero */
-  .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    padding: 60px 24px 48px;
-    text-align: center;
-  }
-  .hero h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
-  .hero .subtitle { font-size: 1.1rem; opacity: 0.85; font-weight: 400; }
-  .hero .pill {
-    display: inline-block; margin-top: 16px; padding: 6px 16px;
-    background: rgba(255,255,255,0.2); border-radius: 20px;
-    font-size: 0.85rem; backdrop-filter: blur(10px);
-  }
-
-  /* Stats Grid */
-  .stats-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px; max-width: 1100px; margin: -28px auto 0;
-    padding: 0 24px; position: relative; z-index: 2;
-  }
-  .stat-card {
-    background: var(--card-bg); border-radius: var(--radius-sm); padding: 20px;
-    box-shadow: var(--shadow); text-align: center;
-  }
-  .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--accent); }
-  .stat-card .label { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
-
-  /* Sections */
-  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
-  .section { margin-bottom: 48px; }
-  .section h2 {
-    font-size: 1.6rem; font-weight: 700; margin-bottom: 20px;
-    padding-bottom: 10px; border-bottom: 2px solid var(--border);
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section h2 .icon { font-size: 1.3rem; }
-
-  /* Cards */
-  .card {
-    background: var(--card-bg); border-radius: var(--radius);
-    padding: 28px; box-shadow: var(--shadow); margin-bottom: 16px;
-  }
-  .card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; }
-
-  /* Analysis Text */
-  .analysis-text { font-size: 0.95rem; line-height: 1.8; color: var(--text); }
-  .analysis-text h3 { font-size: 1.1rem; margin: 20px 0 10px; }
-  .analysis-text h4 { font-size: 1rem; margin: 16px 0 8px; color: var(--accent); }
-  .analysis-text ul, .analysis-text ol { padding-left: 20px; margin: 8px 0; }
-  .analysis-text li { margin-bottom: 4px; }
-  .analysis-text strong { color: var(--accent); }
-  .analysis-text table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
-  .analysis-text th, .analysis-text td { padding: 10px 14px; border-bottom: 1px solid var(--border); text-align: left; }
-  .analysis-text th { background: var(--accent-light); font-weight: 600; }
-  .analysis-text blockquote { border-left: 3px solid var(--accent); padding-left: 16px; margin: 12px 0; color: var(--text-secondary); }
-
-  /* Members Table */
-  .members-table { width: 100%; border-collapse: collapse; }
-  .members-table th, .members-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
-  .members-table th { font-size: 0.8rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; }
-  .members-table .rank { width: 60px; text-align: center; }
-  .members-table .bar-cell { width: 40%; }
-  .bar { height: 8px; background: var(--accent-light); border-radius: 4px; overflow: hidden; }
-  .bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #5856d6); border-radius: 4px; transition: width 0.6s ease; }
-
-  /* Daily Timeline */
-  .daily-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
-  .daily-item {
-    background: var(--card-bg); border-radius: var(--radius-sm); padding: 14px;
-    box-shadow: var(--shadow); text-align: center; transition: transform 0.2s;
-  }
-  .daily-item:hover { transform: translateY(-2px); }
-  .daily-item .date { font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 4px; }
-  .daily-item .count { font-size: 1.3rem; font-weight: 700; color: var(--accent); }
-  .daily-item .active { font-size: 0.8rem; color: var(--text-secondary); }
-
-  /* Heatmap */
-  .heatmap { display: flex; gap: 4px; flex-wrap: wrap; align-items: flex-end; }
-  .heatmap-row { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 38px; }
-  .heatmap-bar {
-    width: 28px; background: var(--accent); border-radius: 4px 4px 0 0;
-    transition: height 0.4s ease; min-height: 4px;
-  }
-  .heatmap-label { font-size: 0.65rem; color: var(--text-secondary); }
-  .heatmap-count { font-size: 0.6rem; color: var(--text-secondary); }
-
-  /* Tools */
-  .tools-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-  .tool-tag {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 6px 14px; border-radius: 20px;
-    background: var(--accent-light); color: var(--accent);
-    font-size: 0.85rem; font-weight: 500;
-  }
-  .tool-tag .tool-count { font-weight: 700; }
-
-  /* Links / Student Work */
-  .link-item {
-    padding: 10px 14px; border-bottom: 1px solid var(--border);
-    font-size: 0.9rem; display: flex; justify-content: space-between;
-    align-items: center; gap: 12px;
-  }
-  .link-item:last-child { border-bottom: none; }
-  .link-item .link-url {
-    color: var(--accent); text-decoration: none; max-width: 70%;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  }
-  .link-item .link-meta { font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap; }
-
-  /* Shulin Messages */
-  .msg-item {
-    padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 0.9rem;
-  }
-  .msg-item:last-child { border-bottom: none; }
-  .msg-item .msg-sender { font-weight: 600; color: var(--accent); }
-  .msg-item .msg-time { font-size: 0.75rem; color: var(--text-secondary); margin-left: 8px; }
-  .msg-item .msg-content { margin-top: 4px; color: var(--text); line-height: 1.5; }
-
-  /* Footer */
-  .footer {
-    text-align: center; padding: 40px 24px; color: var(--text-secondary);
-    font-size: 0.85rem; border-top: 1px solid var(--border);
-    max-width: 1100px; margin: 0 auto;
-  }
-  .footer a { color: var(--accent); }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero h1 { font-size: 1.8rem; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .daily-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="仅展示匿名聚合指标的 AI 学习社群数据报告，不公开成员身份、原话或原始链接。">
+  <title>AI 学习社群 · 匿名聚合报告</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f1ec;
+      --card: rgba(255,255,255,.9);
+      --ink: #24211d;
+      --muted: #706b63;
+      --line: rgba(79,70,58,.13);
+      --accent: #8a6a3e;
+      --accent-soft: #efe5d5;
+      --safe: #267257;
+      --safe-soft: #e8f3ed;
+      --shadow: 0 16px 50px rgba(60,48,31,.08);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(181,143,88,.16), transparent 32rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #267257; outline-offset: 3px; }
+    .skip-link { position: fixed; left: 12px; top: -60px; z-index: 20; padding: 10px 14px; border-radius: 10px; background: #fff; color: #111; }
+    .skip-link:focus { top: 12px; }
+    .topbar {
+      width: min(1120px, calc(100% - 32px));
+      margin: 18px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+    .topbar a { text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .hero {
+      width: min(1120px, calc(100% - 32px));
+      margin: 48px auto 30px;
+      padding: 54px clamp(24px, 6vw, 72px);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 30px;
+      background: linear-gradient(135deg, #29241e, #55442e);
+      color: #fffaf2;
+      box-shadow: var(--shadow);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      right: -120px;
+      top: -180px;
+      border-radius: 50%;
+      border: 68px solid rgba(217,178,117,.12);
+    }
+    .eyebrow { margin: 0 0 12px; color: #ddc59e; font-size: .82rem; letter-spacing: .16em; }
+    h1 { margin: 0; max-width: 720px; font-family: Georgia, "Songti SC", serif; font-size: clamp(2rem, 5vw, 3.65rem); line-height: 1.15; font-weight: 500; }
+    .hero-copy { max-width: 680px; margin: 20px 0 0; color: rgba(255,250,242,.72); }
+    .hero-meta { margin-top: 26px; font-size: .82rem; color: rgba(255,250,242,.58); }
+    main { width: min(1120px, calc(100% - 32px)); margin: 0 auto 72px; }
+    .privacy-gate {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+      margin: 24px 0 30px;
+      padding: 18px 20px;
+      border: 1px solid rgba(38,114,87,.18);
+      border-radius: 18px;
+      background: var(--safe-soft);
+      color: #285e4b;
+    }
+    .privacy-gate .icon { font-size: 1.35rem; }
+    .privacy-gate strong { display: block; margin-bottom: 2px; }
+    .privacy-gate p { margin: 0; font-size: .9rem; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap: 14px;
+      margin-bottom: 42px;
+    }
+    .stat, .card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: 0 8px 30px rgba(60,48,31,.045);
+    }
+    .stat { padding: 22px 18px; border-radius: 18px; }
+    .stat .value { font-family: Georgia, serif; font-size: clamp(1.55rem, 3vw, 2.25rem); line-height: 1.1; color: var(--accent); }
+    .stat .label { margin-top: 7px; color: var(--muted); font-size: .82rem; }
+    .section { margin: 42px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin-bottom: 15px; }
+    .section h2 { margin: 0; font-family: Georgia, "Songti SC", serif; font-size: clamp(1.45rem, 3vw, 2rem); font-weight: 500; }
+    .section-kicker { color: var(--muted); font-size: .78rem; letter-spacing: .08em; }
+    .card { padding: clamp(20px, 4vw, 34px); border-radius: var(--radius); }
+    .analysis p:first-child, .analysis ul:first-child, .analysis ol:first-child { margin-top: 0; }
+    .analysis p:last-child, .analysis ul:last-child, .analysis ol:last-child { margin-bottom: 0; }
+    .analysis li { margin: 7px 0; }
+    .analysis strong { color: var(--accent); }
+    .tools { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tool {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 13px;
+      border: 1px solid rgba(138,106,62,.15);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #59452b;
+      font-size: .86rem;
+    }
+    .tool b { font-variant-numeric: tabular-nums; }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+    .metric { padding: 18px; border-radius: 15px; background: #f8f5f0; border: 1px solid var(--line); }
+    .metric .n { font-size: 1.4rem; color: var(--accent); font-weight: 650; }
+    .metric .t { color: var(--muted); font-size: .78rem; }
+    .chart-scroll { overflow-x: auto; padding-bottom: 4px; }
+    .hour-chart { min-width: 760px; height: 210px; display: grid; grid-template-columns: repeat(24,1fr); align-items: end; gap: 6px; padding-top: 26px; }
+    .hour { height: 100%; display: flex; flex-direction: column; justify-content: end; align-items: center; gap: 6px; }
+    .bar { width: 100%; min-height: 4px; border-radius: 7px 7px 2px 2px; background: linear-gradient(180deg,#c7a56f,#88653a); }
+    .hour span { color: var(--muted); font-size: .68rem; }
+    .daily { display: grid; grid-template-columns: repeat(auto-fill,minmax(120px,1fr)); gap: 10px; }
+    .day { padding: 13px; border-radius: 13px; background: #f8f5f0; border: 1px solid var(--line); }
+    .day time { display: block; color: var(--muted); font-size: .72rem; }
+    .day b { display: block; margin-top: 2px; font-size: 1.2rem; color: var(--accent); }
+    .day small { color: var(--muted); }
+    .audit { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 10px; }
+    .audit-step { position: relative; padding: 14px; border-radius: 13px; background: #f8f5f0; border: 1px solid var(--line); }
+    .audit-step b { display: block; color: var(--accent); }
+    .audit-step span { font-size: .73rem; color: var(--muted); }
+    footer { width: min(1120px,calc(100% - 32px)); margin: 0 auto; padding: 28px 0 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; text-align: center; }
+    @media (max-width: 850px) {
+      .stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .metrics { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .audit { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width: 520px) {
+      .topbar { margin-top: 12px; }
+      .hero { margin-top: 30px; padding: 38px 22px; }
+      .stats { gap: 10px; }
+      .stat { padding: 17px 14px; }
+      .section { margin: 34px 0; }
+      .section-head { display: block; }
+      .section-kicker { margin-top: 4px; }
+      .metrics, .audit { grid-template-columns: 1fr 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+  <nav class="topbar" aria-label="站点导航">
+    <a href="../index.html">← 扶清闲话</a>
+    <span>匿名聚合报告</span>
+  </nav>
 
-<!-- ====== HERO ====== -->
-<section class="hero">
-  <h1>【交流2群】🌲2026IP训练营</h1>
-  <p class="subtitle">社群聊天数据全景报告</p>
-  <div class="pill">最近更新：2026-07-05 23:35:18</div>
-</section>
+  <header class="hero">
+    <p class="eyebrow">COMMUNITY SIGNALS · PRIVACY FIRST</p>
+    <h1>AI 学习社群</h1>
+    <p class="hero-copy">从私密聊天数据中只提取不可识别的群体趋势：看见节奏、主题与变化，不公开任何成员的身份、原话和链接。</p>
+    <p class="hero-meta">数据窗口 2026-06-02 — 2026-07-13 · 更新于 2026-07-13 12:52:42</p>
+  </header>
 
-<!-- ====== STATS OVERVIEW ====== -->
-<div class="stats-grid">
-  <div class="stat-card">
-    <div class="number">14,243</div>
-    <div class="label">有效消息</div>
-  </div>
-  <div class="stat-card">
-    <div class="number">363</div>
-    <div class="label">参与成员</div>
-  </div>
-  <div class="stat-card">
-    <div class="number">34</div>
-    <div class="label">数据天数</div>
-  </div>
-  <div class="stat-card">
-    <div class="number">419</div>
-    <div class="label">日均消息</div>
-  </div>
-  <div class="stat-card">
-    <div class="number">66</div>
-    <div class="label">日均活跃</div>
-  </div>
-</div>
-
-<div class="container">
-
-<!-- ====== SECTION 01: 群聊概览 ====== -->
-<section class="section">
-  <h2><span class="icon">📊</span> 群聊概览</h2>
-  <div class="card">
-    <p class="analysis-text">数据窗口：<strong>2026-06-02 ~ 2026-07-05</strong>，
-    共 <strong>34 天</strong>，清洗后 <strong>14,243 条</strong> 有效消息，
-    来自 <strong>363 位</strong> 成员。</p>
-  </div>
-</section>
-
-<!-- ====== SECTION 02: 活跃成员 ====== -->
-<section class="section">
-  <h2><span class="icon">👥</span> 活跃成员 · TOP 20</h2>
-  <div class="card">
-    <table class="members-table">
-      <thead><tr>
-        <th class="rank">#</th><th>成员</th><th>消息数</th><th class="bar-cell">占比</th><th>%</th>
-      </tr></thead>
-      <tbody>
-      
-      <tr>
-        <td class="rank">1</td>
-        <td><strong>Unknown</strong></td>
-        <td>888</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 18.6%"></div></div></td>
-        <td>6.2%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">2</td>
-        <td><strong>链屿</strong></td>
-        <td>752</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 15.899999999999999%"></div></div></td>
-        <td>5.3%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">3</td>
-        <td><strong>Auluolalalala</strong></td>
-        <td>714</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 15.0%"></div></div></td>
-        <td>5.0%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">4</td>
-        <td><strong>树林</strong></td>
-        <td>510</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 10.8%"></div></div></td>
-        <td>3.6%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">5</td>
-        <td><strong>余白</strong></td>
-        <td>403</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 8.399999999999999%"></div></div></td>
-        <td>2.8%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">6</td>
-        <td><strong>蝶秋</strong></td>
-        <td>383</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 8.100000000000001%"></div></div></td>
-        <td>2.7%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">7</td>
-        <td><strong>青砚</strong></td>
-        <td>372</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 7.800000000000001%"></div></div></td>
-        <td>2.6%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">8</td>
-        <td><strong>陆离🍀</strong></td>
-        <td>369</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 7.800000000000001%"></div></div></td>
-        <td>2.6%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">9</td>
-        <td><strong>星野</strong></td>
-        <td>350</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 7.5%"></div></div></td>
-        <td>2.5%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">10</td>
-        <td><strong>知有</strong></td>
-        <td>277</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 5.699999999999999%"></div></div></td>
-        <td>1.9%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">11</td>
-        <td><strong>阿sam</strong></td>
-        <td>243</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 5.1%"></div></div></td>
-        <td>1.7%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">12</td>
-        <td><strong>我的秋天</strong></td>
-        <td>238</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 5.1%"></div></div></td>
-        <td>1.7%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">13</td>
-        <td><strong>HUSH</strong></td>
-        <td>237</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 5.1%"></div></div></td>
-        <td>1.7%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">14</td>
-        <td><strong> </strong></td>
-        <td>229</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 4.800000000000001%"></div></div></td>
-        <td>1.6%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">15</td>
-        <td><strong>勇争科技（北京）王子一</strong></td>
-        <td>212</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 4.5%"></div></div></td>
-        <td>1.5%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">16</td>
-        <td><strong>辰星</strong></td>
-        <td>212</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 4.5%"></div></div></td>
-        <td>1.5%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">17</td>
-        <td><strong>Lumos</strong></td>
-        <td>194</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 4.199999999999999%"></div></div></td>
-        <td>1.4%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">18</td>
-        <td><strong>Ethan</strong></td>
-        <td>162</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 3.3000000000000003%"></div></div></td>
-        <td>1.1%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">19</td>
-        <td><strong>云深不知处？</strong></td>
-        <td>161</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 3.3000000000000003%"></div></div></td>
-        <td>1.1%</td>
-      </tr>
-      
-      <tr>
-        <td class="rank">20</td>
-        <td><strong>X.子午</strong></td>
-        <td>153</td>
-        <td class="bar-cell"><div class="bar"><div class="bar-fill" style="width: 3.3000000000000003%"></div></div></td>
-        <td>1.1%</td>
-      </tr>
-      
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- ====== SECTION 03: 话题分析 ====== -->
-<section class="section">
-  <h2><span class="icon">🔍</span> 话题分析</h2>
-  <div class="card">
-    <div class="analysis-text">## 话题分析
-
-**【交流2群】🌲2026IP训练营** 是一个以 AI 工具实操与个人 IP 打造为核心的高密度技术讨论社群。观察 28 天数据，群内讨论呈现以下特征：
-
-### 核心讨论主题
-
-1. **AI 图像生成** 是绝对主线。Stable Diffusion 相关讨论高达 1,595 次提及，远超其他工具，说明群成员对 AI 绘画、图像生成工作流有极高的实践热情。
-2. **大语言模型对比与实战**。Claude（349 次）和 GPT（263 次）是使用最频繁的 LLM，DeepSeek（93 次）作为国产替代方案也受到关注。
-3. **前端开发工具链**。v0（79 次）作为 AI 前端生成工具被频繁讨论，结合飞书（83 次）等协作工具，反映出群成员在「AI 编码 + 协作落地」方面的探索。
-
-### 话题演变趋势
-
-- **6 月初**（6/2-6/7）：群建立初期，大量新人自我介绍和工具安利，消息量逐步攀升。
-- **6 月中旬**（6/8-6/20）：讨论进入深水区，SD 咒语分享、商业变现案例增多。
-- **6 月下旬**（6/21-6/29）：活跃度有所下降但仍保持日均 140+ 条消息，讨论转向具体项目落地和个人成果展示。
-
-### 关键洞察
-
-群内 AI 工具生态已形成 **「SD 图像 → Claude/GPT 文本 → v0 前端 → 飞书协作」** 的四级链路，体现出成员从创意到落地的完整闭环意识。
-</div>
-  </div>
-</section>
-
-<!-- ====== SECTION 04: AI工具生态 ====== -->
-<section class="section">
-  <h2><span class="icon">🤖</span> AI 工具生态</h2>
-  <div class="card">
-    <div class="tools-grid">
-      
-      <span class="tool-tag">SD <span class="tool-count">1777</span></span>
-      
-      <span class="tool-tag">Claude <span class="tool-count">392</span></span>
-      
-      <span class="tool-tag">GPT <span class="tool-count">352</span></span>
-      
-      <span class="tool-tag">DeepSeek <span class="tool-count">107</span></span>
-      
-      <span class="tool-tag">飞书 <span class="tool-count">95</span></span>
-      
-      <span class="tool-tag">v0 <span class="tool-count">64</span></span>
-      
-      <span class="tool-tag">Gemini <span class="tool-count">41</span></span>
-      
-      <span class="tool-tag">ChatGPT <span class="tool-count">38</span></span>
-      
-      <span class="tool-tag">Kimi <span class="tool-count">23</span></span>
-      
-      <span class="tool-tag">智谱 <span class="tool-count">16</span></span>
-      
-      <span class="tool-tag">扣子 <span class="tool-count">10</span></span>
-      
-      <span class="tool-tag">Coze <span class="tool-count">10</span></span>
-      
-      <span class="tool-tag">Make <span class="tool-count">8</span></span>
-      
-      <span class="tool-tag">Cursor <span class="tool-count">7</span></span>
-      
-      <span class="tool-tag">Obsidian <span class="tool-count">7</span></span>
-      
-    </div>
-  </div>
-</section>
-
-<!-- ====== SECTION 05: 关键摘要 ====== -->
-<section class="section">
-  <h2><span class="icon">📝</span> 关键内容摘要</h2>
-  <div class="card">
-    <div class="analysis-text">## 关键内容摘要
-
-### 讨论高峰日
-
-数据窗口内最活跃的一天是 **2026-06-12**，单日 1367 条消息、154 人参与，反映出群内在这一天有集中的话题引爆。
-
-### 代表性讨论
-
-- **AI 绘画咒语工程**：多位成员分享了 SD 提示词优化技巧，从基础参数调教到 ControlNet 高级工作流，形成了完整的知识传递链条。
-- **个人 IP 商业化探索**：链屿、树林等核心成员分享了 AI 工具变现的实操经验，涵盖公众号写作、知识付费、工具订阅等多种路径。
-- **微信聊天记录分析项目**：群内涌现了多个基于 WeChatDataAnalysis 的聊天记录分析与可视化项目，成员间互相分享网页部署成果（GitHub Pages）。
-- **前端 AI 开发实践**：星野等成员分享了使用 v0 + Cursor 快速搭建网页的实战经验，带动了一波前端 AI 化讨论。
-- **成长心态与行动力**：多位成员分享了从「观望」到「动手」的心路历程，"先完成再完美"成为群内高频共识。
-
-### 链接与产出
-
-28 天内群内分享了近 2,000 条链接，涵盖了 GitHub 项目、个人网页、AI 工具测评、教程文档等，形成了丰富的知识资产库。
-</div>
-  </div>
-</section>
-
-<!-- ====== SECTION 06: 互动模式 ====== -->
-<section class="section">
-  <h2><span class="icon">🔗</span> 互动模式分析</h2>
-  <div class="card">
-    <div class="analysis-text">## 互动模式分析
-
-### 活跃时段特征
-
-群聊活跃度呈现明显的 **双峰 + 深夜延续** 模式：
-
-| 时段 | 消息量 | 特征 |
-|------|--------|------|
-| 🌅 午后高峰 13:00-14:00 | 2588 条 | 午休时段集中讨论、技术分享 |
-| 🌆 晚间高峰 21:00-23:00 | 3560 条 | 晚间深度讨论、项目展示 |
-| 🌙 深夜延续 23:00+ | 1320 条 | AI 创作者典型的深夜生产力 |
-
-深夜 23:00 是全天消息量最高的单小时（1320 条），体现了 AI 创作者群体「灵感夜间爆发」的工作习惯。
-
-### 互动连接结构
-
-- 28 天共发生 **14243** 次有效互动
-- 群内已形成以 **链屿、树林、蝶秋、Auluolalalala、余白** 为核心的多中心互动网络
-- 前 20 名活跃成员贡献了约 **60%** 的消息量，长尾参与者也保持了稳定的日常活跃
-
-### 社群特征
-
-这是一个 **高参与度、低灌水率** 的优质社群。消息质量过滤后保留了 11,556 条有效内容，系统消息过滤率达 35%，说明群内讨论聚焦、信噪比高。日均 66 人活跃，占全部成员（363 人）的 18%，参与率健康。
-</div>
-  </div>
-</section>
-
-<!-- ====== SECTION 07: 时间分布热力图 ====== -->
-<section class="section">
-  <h2><span class="icon">⏰</span> 24 小时消息分布</h2>
-  <div class="card">
-    <div class="heatmap">
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">1113</div>
-        <div class="heatmap-bar" style="height: 101px"></div>
-        <div class="heatmap-label">00</div>
+  <main id="main-content">
+    <aside class="privacy-gate">
+      <span class="icon" aria-hidden="true">🛡️</span>
+      <div>
+        <strong>公开隐私门已启用</strong>
+        <p>本页仅含匿名聚合统计。成员昵称、账号 ID、逐人排名、聊天原话、原始链接及其令牌参数均不进入公开产物。</p>
       </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">619</div>
-        <div class="heatmap-bar" style="height: 56px"></div>
-        <div class="heatmap-label">01</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">169</div>
-        <div class="heatmap-bar" style="height: 15px"></div>
-        <div class="heatmap-label">02</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">94</div>
-        <div class="heatmap-bar" style="height: 8px"></div>
-        <div class="heatmap-label">03</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">20</div>
-        <div class="heatmap-bar" style="height: 1px"></div>
-        <div class="heatmap-label">04</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">9</div>
-        <div class="heatmap-bar" style="height: 0px"></div>
-        <div class="heatmap-label">05</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">7</div>
-        <div class="heatmap-bar" style="height: 0px"></div>
-        <div class="heatmap-label">06</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">42</div>
-        <div class="heatmap-bar" style="height: 3px"></div>
-        <div class="heatmap-label">07</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">85</div>
-        <div class="heatmap-bar" style="height: 7px"></div>
-        <div class="heatmap-label">08</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">200</div>
-        <div class="heatmap-bar" style="height: 18px"></div>
-        <div class="heatmap-label">09</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">270</div>
-        <div class="heatmap-bar" style="height: 24px"></div>
-        <div class="heatmap-label">10</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">323</div>
-        <div class="heatmap-bar" style="height: 29px"></div>
-        <div class="heatmap-label">11</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">454</div>
-        <div class="heatmap-bar" style="height: 41px"></div>
-        <div class="heatmap-label">12</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">965</div>
-        <div class="heatmap-bar" style="height: 87px"></div>
-        <div class="heatmap-label">13</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">953</div>
-        <div class="heatmap-bar" style="height: 86px"></div>
-        <div class="heatmap-label">14</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">779</div>
-        <div class="heatmap-bar" style="height: 70px"></div>
-        <div class="heatmap-label">15</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">715</div>
-        <div class="heatmap-bar" style="height: 65px"></div>
-        <div class="heatmap-label">16</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">883</div>
-        <div class="heatmap-bar" style="height: 80px"></div>
-        <div class="heatmap-label">17</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">940</div>
-        <div class="heatmap-bar" style="height: 85px"></div>
-        <div class="heatmap-label">18</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">1029</div>
-        <div class="heatmap-bar" style="height: 93px"></div>
-        <div class="heatmap-label">19</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">1014</div>
-        <div class="heatmap-bar" style="height: 92px"></div>
-        <div class="heatmap-label">20</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">972</div>
-        <div class="heatmap-bar" style="height: 88px"></div>
-        <div class="heatmap-label">21</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">1268</div>
-        <div class="heatmap-bar" style="height: 115px"></div>
-        <div class="heatmap-label">22</div>
-      </div>
-      
-      <div class="heatmap-row">
-        <div class="heatmap-count">1320</div>
-        <div class="heatmap-bar" style="height: 120px"></div>
-        <div class="heatmap-label">23</div>
-      </div>
-      
-    </div>
-  </div>
-</section>
+    </aside>
 
-<!-- ====== SECTION 08: 每日概要 ====== -->
-<section class="section">
-  <h2><span class="icon">📅</span> 每日活跃趋势</h2>
-  <div class="daily-grid">
-    
-    <div class="daily-item">
-      <div class="date">06-02</div>
-      <div class="count">335</div>
-      <div class="active">68 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-03</div>
-      <div class="count">425</div>
-      <div class="active">44 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-04</div>
-      <div class="count">230</div>
-      <div class="active">41 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-05</div>
-      <div class="count">615</div>
-      <div class="active">90 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-06</div>
-      <div class="count">546</div>
-      <div class="active">55 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-07</div>
-      <div class="count">281</div>
-      <div class="active">63 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-08</div>
-      <div class="count">375</div>
-      <div class="active">35 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-09</div>
-      <div class="count">327</div>
-      <div class="active">59 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-10</div>
-      <div class="count">309</div>
-      <div class="active">51 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-11</div>
-      <div class="count">593</div>
-      <div class="active">95 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-12</div>
-      <div class="count">1367</div>
-      <div class="active">154 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-13</div>
-      <div class="count">841</div>
-      <div class="active">85 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-14</div>
-      <div class="count">313</div>
-      <div class="active">61 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-15</div>
-      <div class="count">725</div>
-      <div class="active">96 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-16</div>
-      <div class="count">576</div>
-      <div class="active">89 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-17</div>
-      <div class="count">942</div>
-      <div class="active">159 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-18</div>
-      <div class="count">392</div>
-      <div class="active">65 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-19</div>
-      <div class="count">280</div>
-      <div class="active">85 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-20</div>
-      <div class="count">88</div>
-      <div class="active">25 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-21</div>
-      <div class="count">282</div>
-      <div class="active">44 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-22</div>
-      <div class="count">268</div>
-      <div class="active">45 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-23</div>
-      <div class="count">93</div>
-      <div class="active">23 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-24</div>
-      <div class="count">288</div>
-      <div class="active">84 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-25</div>
-      <div class="count">356</div>
-      <div class="active">64 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-26</div>
-      <div class="count">124</div>
-      <div class="active">35 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-27</div>
-      <div class="count">354</div>
-      <div class="active">103 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-28</div>
-      <div class="count">182</div>
-      <div class="active">34 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-29</div>
-      <div class="count">291</div>
-      <div class="active">38 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">06-30</div>
-      <div class="count">228</div>
-      <div class="active">42 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">07-01</div>
-      <div class="count">307</div>
-      <div class="active">42 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">07-02</div>
-      <div class="count">237</div>
-      <div class="active">52 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">07-03</div>
-      <div class="count">997</div>
-      <div class="active">130 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">07-04</div>
-      <div class="count">341</div>
-      <div class="active">45 人</div>
-    </div>
-    
-    <div class="daily-item">
-      <div class="date">07-05</div>
-      <div class="count">335</div>
-      <div class="active">26 人</div>
-    </div>
-    
-  </div>
-</section>
+    <section class="stats" aria-label="统计概览">
+      <div class="stat"><div class="value">18,393</div><div class="label">分析消息</div></div>
+      <div class="stat"><div class="value">472</div><div class="label">可归因发言者 ID</div></div>
+      <div class="stat"><div class="value">42</div><div class="label">数据天数</div></div>
+      <div class="stat"><div class="value">438</div><div class="label">日均消息</div></div>
+      <div class="stat"><div class="value">63</div><div class="label">日均可归因活跃</div></div>
+    </section>
 
-<!-- ====== SECTION 09: 洞察总结 ====== -->
-<section class="section">
-  <h2><span class="icon">💡</span> 整体洞察与总结</h2>
-  <div class="card">
-    <div class="analysis-text">## 整体洞察与总结
+    <section class="section">
+      <div class="section-head"><h2>讨论主题</h2><span class="section-kicker">TOOL MENTIONS</span></div>
+      <div class="card">
+        <div class="tools">
 
-### 数据总览
+          <span class="tool">Claude <b>106</b></span>
 
-| 指标 | 数值 |
-|------|------|
-| 📊 数据窗口 | 2026-06-02 ~ 2026-07-05（34 天） |
-| 💬 有效消息 | 14,243 条 |
-| 👥 参与成员 | 363 人 |
-| 📈 日均消息 | 419 条 |
-| 🔥 日均活跃 | 66 人 |
-| 🏆 核心贡献者 | Top5 成员贡献 16.7% 消息量 |
+          <span class="tool">飞书 <b>102</b></span>
 
-### 社群健康度评估
+          <span class="tool">GPT <b>76</b></span>
 
-**整体评级：健康活跃** 🟢
+          <span class="tool">Stable Diffusion / SD <b>35</b></span>
 
-1. **活跃度**：日均 419 条消息、66 人活跃，对于 350+ 人的社群属于高质量水平。
-2. **集中度**：Top5 核心成员贡献 16.7%，分布合理，没有过度依赖个别成员。
-3. **信噪比**：有效讨论占比约 64%（11,556/18,064），在微信社群中表现优秀。
+          <span class="tool">DeepSeek <b>34</b></span>
 
-### 趋势变化
+          <span class="tool">ChatGPT <b>15</b></span>
 
-- **首周**（6/2-6/8）：日均 401 条，建群初期热度高
-- **末周**（6/23-6/29）：日均 391 条，热度呈自然回落
-- **整体趋势**：稳定
+          <span class="tool">Coze / 扣子 <b>13</b></span>
 
-社群在经历了建群初期的密集交流后，进入了更可持续的稳态活跃期。末周日均 391 条依然保持较高水位。
+          <span class="tool">Gemini <b>10</b></span>
 
-### 运营建议
+          <span class="tool">Kimi <b>10</b></span>
 
-1. **固定话题日**：可引入「作品展示日」「工具推荐日」等主题活动，维持讨论节奏。
-2. **知识沉淀**：群内近 2,000 条链接分享是宝贵资产，可建立索引页面方便回溯。
-3. **激活长尾**：对「已加入但较少发言」的 300+ 成员，可通过定向话题引导其参与。
-4. **深夜时段运营**：22:00-23:00 是天然高峰，可安排晚间分享或成果展示。
+          <span class="tool">Obsidian <b>4</b></span>
 
----
-*分析生成时间：2026-07-05 23:35:17*
-*数据来源：微信解密数据库 → chat-stats-pipeline v1.0*
-</div>
-  </div>
-</section>
+          <span class="tool">Cursor <b>2</b></span>
 
-<!-- ====== SECTION 10: 树林方向 ====== -->
+          <span class="tool">Perplexity <b>2</b></span>
 
-<section class="section">
-  <h2><span class="icon">🌲</span> 树林发言精选</h2>
-  <div class="card">
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-25 16:39:24</span>
-      <div class="msg-content">牛皮plus</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-26 17:18:17</span>
-      <div class="msg-content">因为我看了，他是进阶营新群的，肯定之前是旁观的，以及头像也比较嘉豪，应该是有什么秘技，所以问了一下，所以对人对事一定要敏感啊。这就是ai时代的奇迹啊，啥都不懂，干就完事了，反正提示词一大堆。</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-26 17:39:30</span>
-      <div class="msg-content">群里面那节课都给我听一下哈，
-但凡你们有这种傲慢，我直接整死你们哈。</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-26 17:40:08</span>
-      <div class="msg-content">我这个人对表达的敏感度，精细度，对人的敏锐度，应该够你们学一壶的哈。</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-28 00:51:05</span>
-      <div class="msg-content">豆包上大分</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-28 01:34:15</span>
-      <div class="msg-content">这种插画挺有意思的</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-28 01:34:28</span>
-      <div class="msg-content"><?xml version="1.0"?>
-<msg>
-	<appmsg appid="" sdkver="0">
-		<title>帮我把原来的那个版本做一些插画</title>
-		<type>57</type>
-		<appattach>
-			<cdnthumbaeskey />
-			<aeskey />
-		</appattach>
-		<refermsg>
-			<type>49</type>
-			<svrid>4203080904008432897</svrid>
-			<fromusr>48997819170@chatroom</fromusr>
-			<chatusr>w</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-30 17:16:38</span>
-      <div class="msg-content">所以有技术就是好啊
-每天就这么凌辱用户
-用户还是很想用</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-30 17:16:56</span>
-      <div class="msg-content">都快成m了</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-30 17:17:12</span>
-      <div class="msg-content">这就是有实力，甘愿当狗啊</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-30 17:17:41</span>
-      <div class="msg-content">但凡gpt强claude半档，或者超越claude</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-30 17:17:44</span>
-      <div class="msg-content">都不会这样
-就比肩吧，也不会
-所以还是人菜了啊</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-30 17:18:14</span>
-      <div class="msg-content">大家没有ai都是天才程序员陨灭啊</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-30 17:18:20</span>
-      <div class="msg-content">鸡蛋不能放在一个篮子里面</div>
-    </div>
-    
-    <div class="msg-item">
-      <span class="msg-sender">树林</span>
-      <span class="msg-time">2026-06-30 17:18:36</span>
-      <div class="msg-content">得有底层的复合能力</div>
-    </div>
-    
-  </div>
-</section>
+          <span class="tool">v0 <b>2</b></span>
 
+          <span class="tool">Copilot <b>1</b></span>
 
-<!-- ====== SECTION 11: 学员成果/链接 ====== -->
+        </div>
+        <div class="analysis" style="margin-top:22px"><p>本段只依据匿名聚合后的工具提及次数，不读取或展示任何成员原话。</p><ol><li><strong>Claude</strong>：106 条消息提及</li><li><strong>飞书</strong>：102 条消息提及</li><li><strong>GPT</strong>：76 条消息提及</li><li><strong>Stable Diffusion / SD</strong>：35 条消息提及</li><li><strong>DeepSeek</strong>：34 条消息提及</li></ol><p>这些数字适合判断讨论重心，不等同于产品满意度、使用人数或商业价值。</p></div>
+      </div>
+    </section>
 
-<section class="section">
-  <h2><span class="icon">🔗</span> 链接与产出</h2>
-  <div class="card">
-    <p style="color: var(--text-secondary); margin-bottom: 12px;">共分享 1804 条链接</p>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://www.ncm2mp3.com/" target="_blank" rel="noopener" title="https://www.ncm2mp3.com/">https://www.ncm2mp3.com/</a>
-      <span class="link-meta">Wonder · 2026-06-25</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&amp;amp;from=singlemessage&amp;amp;isappinstalled=0&lt;/url&gt;&lt;appattach&gt;&lt;cdnthumbaeskey&gt;&lt;/cdnthumbaeskey&gt;&lt;aeskey&gt;&lt;/aeskey&gt;&lt;/appattach&gt;&lt;recorditem&gt;&lt;![CDATA[&lt;recordinfo&gt;&lt;info&gt;果粒:" target="_blank" rel="noopener" title="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite_record__w_unsupport&amp;amp;from=singlemessage&amp;amp;isappinstalled=0&lt;/url&gt;&lt;appattach&gt;&lt;cdnthumbaeskey&gt;&lt;/cdnthumbaeskey&gt;&lt;aeskey&gt;&lt;/aeskey&gt;&lt;/appattach&gt;&lt;recorditem&gt;&lt;![CDATA[&lt;recordinfo&gt;&lt;info&gt;果粒:">https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/favorite...</a>
-      <span class="link-meta">阿sam · 2026-06-25</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://wx.qlogo.cn/finderhead/ver_1/xNmb7F21giapFMdkwTFdI59mGA9rzibPiceMg8VM4MPsj3273zibO1P09iajVib9qOcD5tAicyXJzuxfuIKYpl7YsL78tmFdw7G5ZicK0OMHrGA0AEHwic9vLIWIk3mGOibo4NfBXE/132</avatar>" target="_blank" rel="noopener" title="https://wx.qlogo.cn/finderhead/ver_1/xNmb7F21giapFMdkwTFdI59mGA9rzibPiceMg8VM4MPsj3273zibO1P09iajVib9qOcD5tAicyXJzuxfuIKYpl7YsL78tmFdw7G5ZicK0OMHrGA0AEHwic9vLIWIk3mGOibo4NfBXE/132</avatar>">https://wx.qlogo.cn/finderhead/ver_1/xNmb7F21giapFMdkwTFdI59mGA9rzibPiceMg8VM4MP...</a>
-      <span class="link-meta">Lumos · 2026-06-25</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://finder.video.qq.com/251/20302/stodownload?encfilekey=rgjNqbibdAo3TZdj9AIVXKG7o289SIz8ia0ZFMibBvw9G9NznUnU1NibygsNcqlG866KZatxribpAeqgLyftkYPuooQ&amp;bizid=1023&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;uzid=7a2b0</url>" target="_blank" rel="noopener" title="https://finder.video.qq.com/251/20302/stodownload?encfilekey=rgjNqbibdAo3TZdj9AIVXKG7o289SIz8ia0ZFMibBvw9G9NznUnU1NibygsNcqlG866KZatxribpAeqgLyftkYPuooQ&amp;bizid=1023&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;uzid=7a2b0</url>">https://finder.video.qq.com/251/20302/stodownload?encfilekey=rgjNqbibdAo3TZdj9AI...</a>
-      <span class="link-meta">Lumos · 2026-06-25</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicLsfkPJyP669FpHwibibWsLnGwfrxib2QfrzkIhnW0ONiakQZdEPttSWuu0nwsrhJiatI8jP1cb6HLWdiag&amp;token=x5Y29zUxcibCRU8jMSgTl1IvviakUPYmQyqVTiaicgA5ezCeLX70MaTABTz84UuMqic8vRA5kAmaI7zkEmSvYdk33eGZCyKXZSo57SMtDibYV6ic8ZNrymJfZw1iaDVqvFOicXxzJ2jNyEhq7ia6c6ppDtEoh4he4RicOls186R5UPVea4W0T7t0XdvdxPEaS1yRxVqIdwjURJo9WwjfzibGqMhbYBJCUgb8G0UQfuicc&amp;hy=SH&amp;idx=1&amp;m=&amp;scene=2&amp;uzid=1&amp;picformat=200&amp;wxampicformat=503</coverUrl>" target="_blank" rel="noopener" title="https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicLsfkPJyP669FpHwibibWsLnGwfrxib2QfrzkIhnW0ONiakQZdEPttSWuu0nwsrhJiatI8jP1cb6HLWdiag&amp;token=x5Y29zUxcibCRU8jMSgTl1IvviakUPYmQyqVTiaicgA5ezCeLX70MaTABTz84UuMqic8vRA5kAmaI7zkEmSvYdk33eGZCyKXZSo57SMtDibYV6ic8ZNrymJfZw1iaDVqvFOicXxzJ2jNyEhq7ia6c6ppDtEoh4he4RicOls186R5UPVea4W0T7t0XdvdxPEaS1yRxVqIdwjURJo9WwjfzibGqMhbYBJCUgb8G0UQfuicc&amp;hy=SH&amp;idx=1&amp;m=&amp;scene=2&amp;uzid=1&amp;picformat=200&amp;wxampicformat=503</coverUrl>">https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicLsfkPJy...</a>
-      <span class="link-meta">Lumos · 2026-06-25</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicIbvYasZ8AkcrI12q111wOe3icm0Xb7OAVH1qCn0KiaBKFb4E75yIXbnNuMesdfPic4FR7wvmMl1YufA&amp;token=AxricY7RBHdXTu169vgu7s6gcg7P6nh5Mh3ficLWPPbH2QmLXibNujZTJ5jOS8bibsZTGu2GEJ5e2tt08RwGQsehWl6VLE5y7akTZchxicZ5bEw2lt6CSwm7KjbrgmapT3YicZs8zQLQ9EBHPzNOibBNozBuR2MLXzgpCvmBgMfDiahP7W1NuZ9xW0nDjGI0sVXu1U2dicB7TF3CGibVf9tc1uCicrDhDAkEKnrnH7R&amp;bizid=1023&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;uzid=1&amp;picformat=200&amp;wxampicformat=503</thumbUrl>" target="_blank" rel="noopener" title="https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicIbvYasZ8AkcrI12q111wOe3icm0Xb7OAVH1qCn0KiaBKFb4E75yIXbnNuMesdfPic4FR7wvmMl1YufA&amp;token=AxricY7RBHdXTu169vgu7s6gcg7P6nh5Mh3ficLWPPbH2QmLXibNujZTJ5jOS8bibsZTGu2GEJ5e2tt08RwGQsehWl6VLE5y7akTZchxicZ5bEw2lt6CSwm7KjbrgmapT3YicZs8zQLQ9EBHPzNOibBNozBuR2MLXzgpCvmBgMfDiahP7W1NuZ9xW0nDjGI0sVXu1U2dicB7TF3CGibVf9tc1uCicrDhDAkEKnrnH7R&amp;bizid=1023&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;uzid=1&amp;picformat=200&amp;wxampicformat=503</thumbUrl>">https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicIbvYasZ...</a>
-      <span class="link-meta">Lumos · 2026-06-25</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/common_page__upgrade&text=text001&btn_text=btn_text_0]]></url>" target="_blank" rel="noopener" title="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/common_page__upgrade&text=text001&btn_text=btn_text_0]]></url>">https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/common_p...</a>
-      <span class="link-meta">。 · 2026-06-25</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/common_page__upgrade&text=text001&btn_text=btn_text_0]]></thumburl>" target="_blank" rel="noopener" title="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/common_page__upgrade&text=text001&btn_text=btn_text_0]]></thumburl>">https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/common_p...</a>
-      <span class="link-meta">。 · 2026-06-25</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/common_page__upgrade&text=text001&btn_text=btn_text_0]]></url>" target="_blank" rel="noopener" title="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/common_page__upgrade&text=text001&btn_text=btn_text_0]]></url>">https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/common_p...</a>
-      <span class="link-meta">小杰 · 2026-06-26</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/common_page__upgrade&text=text001&btn_text=btn_text_0]]></thumburl>" target="_blank" rel="noopener" title="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/common_page__upgrade&text=text001&btn_text=btn_text_0]]></thumburl>">https://support.weixin.qq.com/cgi-bin/mmsupport-bin/readtemplate?t=page/common_p...</a>
-      <span class="link-meta">小杰 · 2026-06-26</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://support.weixin.qq.com/security/readtemplate?t=w_security_center_website/upgrade</url>" target="_blank" rel="noopener" title="https://support.weixin.qq.com/security/readtemplate?t=w_security_center_website/upgrade</url>">https://support.weixin.qq.com/security/readtemplate?t=w_security_center_website/...</a>
-      <span class="link-meta">陆离🍀 · 2026-06-26</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://wx.qlogo.cn/finderhead/ver_1/XPE33xW13XBXHI8du13eerwd1kw8mksxpBGLAicULicXw5hQMicajic4zEXhtESCAn4X2Vxj9zu1tyeNaYqJdOicw6FjGWUXcSuD04aPibhv4D8cHTSBO9sOWZrDx5da89WDWib/0</avatar>" target="_blank" rel="noopener" title="https://wx.qlogo.cn/finderhead/ver_1/XPE33xW13XBXHI8du13eerwd1kw8mksxpBGLAicULicXw5hQMicajic4zEXhtESCAn4X2Vxj9zu1tyeNaYqJdOicw6FjGWUXcSuD04aPibhv4D8cHTSBO9sOWZrDx5da89WDWib/0</avatar>">https://wx.qlogo.cn/finderhead/ver_1/XPE33xW13XBXHI8du13eerwd1kw8mksxpBGLAicULic...</a>
-      <span class="link-meta">陆离🍀 · 2026-06-26</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="http://wxapp.tc.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3sJcaYqC2rQC9mHTMuB9gb3qiaUVibVhjwb6h9dLcPnfOW2al3rIPxywQ7ibTzYaRfzVlLbbMGO5bQlGOJsmRyFnqmeWHK9SCmibp&amp;bizid=1023&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;uzid=1&amp;token=2lt8WBSnjTlBNZRzq3vcic0mwtoRP3GIOL692JibhYNrRhI8aQJRrkXht0KwlKSbDciaMovrFibkwwNicI1IXGfSE8ThrrNZicN0cjcUnv0obeWgCMeqd5P9RUtichSKxV1hluKf0C5ibU5SX7WZUKH6F4YVeTmXLWY2ckzlia1DUFq2K8CRWtH80icOhfPCw6IBAE60iaE9A6WbeqYibd0h1Wnt1YIXYp1SkGJN7Y9Kc5QVF3q5wM8&amp;basedata=CAMSBnhXVDE1MSJ-CgoKBnhXVDE1MRAACgoKBnhXVDE1MxAACgoKBnhXVDE1OBAACgoKBnhXVDE1MhAACgoKBnhXVDE1NxABCgoKBnhXVDExMxAACgoKBnhXVDE1NhAACgoKBnhXVDExMhABCgoKBnhXVDExMRAACgcKA3hBMBAACgcKA3hBMhAA&amp;sign=gqpGHyTWTNi-2xew7vLUxfikyEsVzF-kUB0qaomjXCgBGUwoy_Ss2kOS5Nfl8Trk_JE_veDjgh_zLcd1bQKHzg&amp;extg=10eca00&amp;svrbypass=AAuL%2FQsFAAABAAAAAAC0kCBWFt%2FUFfWdINg9ahAAAADnaHZTnGbFfAj9RgZXfw6V6gvi7AXXOfxUQBLNivcDE5xr6PNW1cEUBr3INpLCatI4GMsxa%2BL%2B6mc%3D&amp;svrnonce=1782437920</url>" target="_blank" rel="noopener" title="http://wxapp.tc.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3sJcaYqC2rQC9mHTMuB9gb3qiaUVibVhjwb6h9dLcPnfOW2al3rIPxywQ7ibTzYaRfzVlLbbMGO5bQlGOJsmRyFnqmeWHK9SCmibp&amp;bizid=1023&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;uzid=1&amp;token=2lt8WBSnjTlBNZRzq3vcic0mwtoRP3GIOL692JibhYNrRhI8aQJRrkXht0KwlKSbDciaMovrFibkwwNicI1IXGfSE8ThrrNZicN0cjcUnv0obeWgCMeqd5P9RUtichSKxV1hluKf0C5ibU5SX7WZUKH6F4YVeTmXLWY2ckzlia1DUFq2K8CRWtH80icOhfPCw6IBAE60iaE9A6WbeqYibd0h1Wnt1YIXYp1SkGJN7Y9Kc5QVF3q5wM8&amp;basedata=CAMSBnhXVDE1MSJ-CgoKBnhXVDE1MRAACgoKBnhXVDE1MxAACgoKBnhXVDE1OBAACgoKBnhXVDE1MhAACgoKBnhXVDE1NxABCgoKBnhXVDExMxAACgoKBnhXVDE1NhAACgoKBnhXVDExMhABCgoKBnhXVDExMRAACgcKA3hBMBAACgcKA3hBMhAA&amp;sign=gqpGHyTWTNi-2xew7vLUxfikyEsVzF-kUB0qaomjXCgBGUwoy_Ss2kOS5Nfl8Trk_JE_veDjgh_zLcd1bQKHzg&amp;extg=10eca00&amp;svrbypass=AAuL%2FQsFAAABAAAAAAC0kCBWFt%2FUFfWdINg9ahAAAADnaHZTnGbFfAj9RgZXfw6V6gvi7AXXOfxUQBLNivcDE5xr6PNW1cEUBr3INpLCatI4GMsxa%2BL%2B6mc%3D&amp;svrnonce=1782437920</url>">http://wxapp.tc.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsq...</a>
-      <span class="link-meta">陆离🍀 · 2026-06-26</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="http://wxapp.tc.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3sJcaYqC2rQC9mHTMuB9gb3qiaUVibVhjwb6h9dLcPnfOW2al3rIPxywQ7ibTzYaRfzVlLbbMGO5bQlGOJsmRyFnqmeWHK9SCmibp&amp;bizid=1023&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;uzid=1&amp;token=2lt8WBSnjTlBNZRzq3vcic0mwtoRP3GIOL692JibhYNrRhI8aQJRrkXht0KwlKSbDciaMovrFibkwwNicI1IXGfSE8ThrrNZicN0cjcUnv0obeWgCMeqd5P9RUtichSKxV1hluKf0C5ibU5SX7WZUKH6F4YVeTmXLWY2ckzlia1DUFq2K8CRWtH80icOhfPCw6IBAE60iaE9A6WbeqYibd0h1Wnt1YIXYp1SkGJN7Y9Kc5QVF3q5wM8&amp;basedata=CAMSBnhXVDE1MSJ-CgoKBnhXVDE1MRAACgoKBnhXVDE1MxAACgoKBnhXVDE1OBAACgoKBnhXVDE1MhAACgoKBnhXVDE1NxABCgoKBnhXVDExMxAACgoKBnhXVDE1NhAACgoKBnhXVDExMhABCgoKBnhXVDExMRAACgcKA3hBMBAACgcKA3hBMhAA&amp;sign=gqpGHyTWTNi-2xew7vLUxfikyEsVzF-kUB0qaomjXCgBGUwoy_Ss2kOS5Nfl8Trk_JE_veDjgh_zLcd1bQKHzg&amp;extg=10eca00&amp;svrbypass=AAuL%2FQsFAAABAAAAAAC0kCBWFt%2FUFfWdINg9ahAAAADnaHZTnGbFfAj9RgZXfw6V6gvi7AXXOfxUQBLNivcDE5xr6PNW1cEUBr3INpLCatI4GMsxa%2BL%2B6mc%3D&amp;svrnonce=1782437920</url>" target="_blank" rel="noopener" title="http://wxapp.tc.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3sJcaYqC2rQC9mHTMuB9gb3qiaUVibVhjwb6h9dLcPnfOW2al3rIPxywQ7ibTzYaRfzVlLbbMGO5bQlGOJsmRyFnqmeWHK9SCmibp&amp;bizid=1023&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;uzid=1&amp;token=2lt8WBSnjTlBNZRzq3vcic0mwtoRP3GIOL692JibhYNrRhI8aQJRrkXht0KwlKSbDciaMovrFibkwwNicI1IXGfSE8ThrrNZicN0cjcUnv0obeWgCMeqd5P9RUtichSKxV1hluKf0C5ibU5SX7WZUKH6F4YVeTmXLWY2ckzlia1DUFq2K8CRWtH80icOhfPCw6IBAE60iaE9A6WbeqYibd0h1Wnt1YIXYp1SkGJN7Y9Kc5QVF3q5wM8&amp;basedata=CAMSBnhXVDE1MSJ-CgoKBnhXVDE1MRAACgoKBnhXVDE1MxAACgoKBnhXVDE1OBAACgoKBnhXVDE1MhAACgoKBnhXVDE1NxABCgoKBnhXVDExMxAACgoKBnhXVDE1NhAACgoKBnhXVDExMhABCgoKBnhXVDExMRAACgcKA3hBMBAACgcKA3hBMhAA&amp;sign=gqpGHyTWTNi-2xew7vLUxfikyEsVzF-kUB0qaomjXCgBGUwoy_Ss2kOS5Nfl8Trk_JE_veDjgh_zLcd1bQKHzg&amp;extg=10eca00&amp;svrbypass=AAuL%2FQsFAAABAAAAAAC0kCBWFt%2FUFfWdINg9ahAAAADnaHZTnGbFfAj9RgZXfw6V6gvi7AXXOfxUQBLNivcDE5xr6PNW1cEUBr3INpLCatI4GMsxa%2BL%2B6mc%3D&amp;svrnonce=1782437920</url>">http://wxapp.tc.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsq...</a>
-      <span class="link-meta">陆离🍀 · 2026-06-26</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://wxapp.tc.qq.com/251/20304/stodownload?encfilekey=rjD5jyTuFrIpZ2ibE8T7YmwgiahniaXswqzch5gccmjPujnY13jTOSwT3F3atyfO0MElHPRiaibzh6mE7qUKIvCL6dFbWWfnAtWCSlUXvJxAibAFibuoR6kz3Bf9Q&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;scene=2&amp;uzid=2&amp;picformat=200&amp;wxampicformat=503&amp;token=ic1n0xDG6aw9NgfTAej5giajyfAegaOoSYjsMtq3ECm6dgZmlqTIWvbZ3ZXakXWEDYunkJs0qq8okDKudIAHObzGMxvMXgaBYT2GCfS2X4ETwmVu7n8hxwicI3jDMMDXsib3D2KSsqxeBCUticgTRQw0V0XW1uBqt5egu9yUVNdEMSgQL0TvJzosG3VgIGYo8UUe78q2XjicfslJL51jibSfG4KiaeZXaEDUkRsn</thumbUrl>" target="_blank" rel="noopener" title="https://wxapp.tc.qq.com/251/20304/stodownload?encfilekey=rjD5jyTuFrIpZ2ibE8T7YmwgiahniaXswqzch5gccmjPujnY13jTOSwT3F3atyfO0MElHPRiaibzh6mE7qUKIvCL6dFbWWfnAtWCSlUXvJxAibAFibuoR6kz3Bf9Q&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;scene=2&amp;uzid=2&amp;picformat=200&amp;wxampicformat=503&amp;token=ic1n0xDG6aw9NgfTAej5giajyfAegaOoSYjsMtq3ECm6dgZmlqTIWvbZ3ZXakXWEDYunkJs0qq8okDKudIAHObzGMxvMXgaBYT2GCfS2X4ETwmVu7n8hxwicI3jDMMDXsib3D2KSsqxeBCUticgTRQw0V0XW1uBqt5egu9yUVNdEMSgQL0TvJzosG3VgIGYo8UUe78q2XjicfslJL51jibSfG4KiaeZXaEDUkRsn</thumbUrl>">https://wxapp.tc.qq.com/251/20304/stodownload?encfilekey=rjD5jyTuFrIpZ2ibE8T7Ymw...</a>
-      <span class="link-meta">陆离🍀 · 2026-06-26</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://wxapp.tc.qq.com/251/20304/stodownload?encfilekey=rjD5jyTuFrIpZ2ibE8T7YmwgiahniaXswqzch5gccmjPujnY13jTOSwT3F3atyfO0MElHPRiaibzh6mE7qUKIvCL6dFbWWfnAtWCSlUXvJxAibAFibuoR6kz3Bf9Q&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;scene=2&amp;uzid=2&amp;picformat=200&amp;wxampicformat=503&amp;token=ic1n0xDG6aw9NgfTAej5giajyfAegaOoSYjsMtq3ECm6dgZmlqTIWvbZ3ZXakXWEDYunkJs0qq8okDKudIAHObzGMxvMXgaBYT2GCfS2X4ETwmVu7n8hxwicI3jDMMDXsib3D2KSsqxeBCUticgTRQw0V0XW1uBqt5egu9yUVNdEMSgQL0TvJzosG3VgIGYo8UUe78q2XjicfslJL51jibSfG4KiaeZXaEDUkRsn</coverUrl>" target="_blank" rel="noopener" title="https://wxapp.tc.qq.com/251/20304/stodownload?encfilekey=rjD5jyTuFrIpZ2ibE8T7YmwgiahniaXswqzch5gccmjPujnY13jTOSwT3F3atyfO0MElHPRiaibzh6mE7qUKIvCL6dFbWWfnAtWCSlUXvJxAibAFibuoR6kz3Bf9Q&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;scene=2&amp;uzid=2&amp;picformat=200&amp;wxampicformat=503&amp;token=ic1n0xDG6aw9NgfTAej5giajyfAegaOoSYjsMtq3ECm6dgZmlqTIWvbZ3ZXakXWEDYunkJs0qq8okDKudIAHObzGMxvMXgaBYT2GCfS2X4ETwmVu7n8hxwicI3jDMMDXsib3D2KSsqxeBCUticgTRQw0V0XW1uBqt5egu9yUVNdEMSgQL0TvJzosG3VgIGYo8UUe78q2XjicfslJL51jibSfG4KiaeZXaEDUkRsn</coverUrl>">https://wxapp.tc.qq.com/251/20304/stodownload?encfilekey=rjD5jyTuFrIpZ2ibE8T7Ymw...</a>
-      <span class="link-meta">陆离🍀 · 2026-06-26</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://wxapp.tc.qq.com/251/20304/stodownload?encfilekey=rjD5jyTuFrIpZ2ibE8T7YmwgiahniaXswqzMzbwiaiaOv2V7P9TuEkMDwgqXtEqeiabg6WdUbWqcL4M3ZgPBgCuP4Yh8ghp5EwIzTKlwXzqwnbe5eExiaTKemoaicA&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;scene=2&amp;uzid=2&amp;picformat=200&amp;wxampicformat=503&amp;token=ic1n0xDG6aw8yfYPfpg2w5EBhWpNibqAow4U2FtRT6V8B6deKCboTicMRfqzjc7IAO9icaa97qNBfy4K4ROGsiagZvNS3ATiaiatmC8oAhYsLicZMezVXYTcHFB642zTG8WTYVVMgicUHvgmiaIMFgW9bKSia9Lx8bwVaqm7nnp0euYSRBiaoImcWmic5xd9jt5VIObd8dbsiaxj4Ga0zZEolrPR4mf0Gibl1oxYsWaLiby2</fullCoverUrl>" target="_blank" rel="noopener" title="https://wxapp.tc.qq.com/251/20304/stodownload?encfilekey=rjD5jyTuFrIpZ2ibE8T7YmwgiahniaXswqzMzbwiaiaOv2V7P9TuEkMDwgqXtEqeiabg6WdUbWqcL4M3ZgPBgCuP4Yh8ghp5EwIzTKlwXzqwnbe5eExiaTKemoaicA&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=&amp;scene=2&amp;uzid=2&amp;picformat=200&amp;wxampicformat=503&amp;token=ic1n0xDG6aw8yfYPfpg2w5EBhWpNibqAow4U2FtRT6V8B6deKCboTicMRfqzjc7IAO9icaa97qNBfy4K4ROGsiagZvNS3ATiaiatmC8oAhYsLicZMezVXYTcHFB642zTG8WTYVVMgicUHvgmiaIMFgW9bKSia9Lx8bwVaqm7nnp0euYSRBiaoImcWmic5xd9jt5VIObd8dbsiaxj4Ga0zZEolrPR4mf0Gibl1oxYsWaLiby2</fullCoverUrl>">https://wxapp.tc.qq.com/251/20304/stodownload?encfilekey=rjD5jyTuFrIpZ2ibE8T7Ymw...</a>
-      <span class="link-meta">陆离🍀 · 2026-06-26</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="https://i.y.qq.com/v8/playsong.html?platform=11&amp;appshare=android_qq&amp;appversion=20050508&amp;hosteuin=oiEz7KcAoi4ioz**&amp;songmid=002PLECO04VOVP&amp;type=0&amp;appsongtype=1&amp;_wv=1&amp;source=weixin&amp;ADTAG=wxfshare</url>" target="_blank" rel="noopener" title="https://i.y.qq.com/v8/playsong.html?platform=11&amp;appshare=android_qq&amp;appversion=20050508&amp;hosteuin=oiEz7KcAoi4ioz**&amp;songmid=002PLECO04VOVP&amp;type=0&amp;appsongtype=1&amp;_wv=1&amp;source=weixin&amp;ADTAG=wxfshare</url>">https://i.y.qq.com/v8/playsong.html?platform=11&amp;appshare=android_qq&amp;appv...</a>
-      <span class="link-meta">一个平凡的人 · 2026-06-26</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="http://c6.y.qq.com/rsc/fcgi-bin/fcg_pyq_play.fcg?songid=&amp;songmid=002PLECO04VOVP&amp;songtype=1&amp;fromtag=46&amp;uin=3905823533&amp;code=C3B63</dataurl>" target="_blank" rel="noopener" title="http://c6.y.qq.com/rsc/fcgi-bin/fcg_pyq_play.fcg?songid=&amp;songmid=002PLECO04VOVP&amp;songtype=1&amp;fromtag=46&amp;uin=3905823533&amp;code=C3B63</dataurl>">http://c6.y.qq.com/rsc/fcgi-bin/fcg_pyq_play.fcg?songid=&amp;songmid=002PLECO04V...</a>
-      <span class="link-meta">一个平凡的人 · 2026-06-26</span>
-    </div>
-    
-    <div class="link-item">
-      <a class="link-url" href="http://wxapp.tc.qq.com/202/20304/stodownload?filekey=30350201010421301f020200ca040253480410a549661d80d12a3b803fa6e83ca41c33020300b394040d00000004627466730000000132&amp;hy=SH&amp;storeid=26a3e0ac4000d8f1081cf920c000000ca00004f5053482117d0d1575c17aff&amp;bizid=1023</songalbumurl>" target="_blank" rel="noopener" title="http://wxapp.tc.qq.com/202/20304/stodownload?filekey=30350201010421301f020200ca040253480410a549661d80d12a3b803fa6e83ca41c33020300b394040d00000004627466730000000132&amp;hy=SH&amp;storeid=26a3e0ac4000d8f1081cf920c000000ca00004f5053482117d0d1575c17aff&amp;bizid=1023</songalbumurl>">http://wxapp.tc.qq.com/202/20304/stodownload?filekey=30350201010421301f020200ca0...</a>
-      <span class="link-meta">一个平凡的人 · 2026-06-26</span>
-    </div>
-    
-  </div>
-</section>
+    <section class="section">
+      <div class="section-head"><h2>活跃与互动</h2><span class="section-kicker">AGGREGATE ONLY</span></div>
+      <div class="card">
+        <div class="metrics">
+          <div class="metric"><div class="n">3968</div><div class="t">@ 提及总量</div></div>
+          <div class="metric"><div class="n">2720</div><div class="t">链接分享总量</div></div>
+          <div class="metric"><div class="n">19.5%</div><div class="t">匿名 Top 5 集中度</div></div>
+          <div class="metric"><div class="n">43.0%</div><div class="t">匿名 Top 20 集中度</div></div>
+        </div>
+        <div class="analysis" style="margin-top:22px"><p>窗口内活跃峰值出现在 <strong>2026-06-12</strong>：1,390 条分析消息、155 个可归因发言者 ID 活跃。</p><p>共识别到 2,720 次链接分享和 3,968 次 @ 提及；公开报告只保留数量，不保留地址、参数或对象。</p></div>
+      </div>
+    </section>
 
+    <section class="section">
+      <div class="section-head"><h2>24 小时节奏</h2><span class="section-kicker">MESSAGE VOLUME</span></div>
+      <div class="card chart-scroll">
+        <div class="hour-chart">
 
-</div>
+          <div class="hour" title="0时：1607条">
+            <div class="bar" style="height:140px"></div>
+            <span>00</span>
+          </div>
 
-<!-- ====== FOOTER ====== -->
-<footer class="footer">
-  <p>【交流2群】🌲2026IP训练营 · 数据范围 2026-06-02 ~ 2026-07-05</p>
-  <p>由 <strong>chat-stats-pipeline</strong> 自动生成 · 2026-07-05 23:35:18</p>
-</footer>
+          <div class="hour" title="1时：937条">
+            <div class="bar" style="height:82px"></div>
+            <span>01</span>
+          </div>
 
+          <div class="hour" title="2时：544条">
+            <div class="bar" style="height:47px"></div>
+            <span>02</span>
+          </div>
+
+          <div class="hour" title="3时：329条">
+            <div class="bar" style="height:28px"></div>
+            <span>03</span>
+          </div>
+
+          <div class="hour" title="4时：173条">
+            <div class="bar" style="height:15px"></div>
+            <span>04</span>
+          </div>
+
+          <div class="hour" title="5时：167条">
+            <div class="bar" style="height:14px"></div>
+            <span>05</span>
+          </div>
+
+          <div class="hour" title="6时：56条">
+            <div class="bar" style="height:4px"></div>
+            <span>06</span>
+          </div>
+
+          <div class="hour" title="7时：79条">
+            <div class="bar" style="height:6px"></div>
+            <span>07</span>
+          </div>
+
+          <div class="hour" title="8时：98条">
+            <div class="bar" style="height:8px"></div>
+            <span>08</span>
+          </div>
+
+          <div class="hour" title="9时：227条">
+            <div class="bar" style="height:19px"></div>
+            <span>09</span>
+          </div>
+
+          <div class="hour" title="10时：319条">
+            <div class="bar" style="height:27px"></div>
+            <span>10</span>
+          </div>
+
+          <div class="hour" title="11时：398条">
+            <div class="bar" style="height:34px"></div>
+            <span>11</span>
+          </div>
+
+          <div class="hour" title="12时：560条">
+            <div class="bar" style="height:49px"></div>
+            <span>12</span>
+          </div>
+
+          <div class="hour" title="13时：1015条">
+            <div class="bar" style="height:88px"></div>
+            <span>13</span>
+          </div>
+
+          <div class="hour" title="14时：996条">
+            <div class="bar" style="height:87px"></div>
+            <span>14</span>
+          </div>
+
+          <div class="hour" title="15时：941条">
+            <div class="bar" style="height:82px"></div>
+            <span>15</span>
+          </div>
+
+          <div class="hour" title="16时：837条">
+            <div class="bar" style="height:73px"></div>
+            <span>16</span>
+          </div>
+
+          <div class="hour" title="17时：1013条">
+            <div class="bar" style="height:88px"></div>
+            <span>17</span>
+          </div>
+
+          <div class="hour" title="18时：1208条">
+            <div class="bar" style="height:105px"></div>
+            <span>18</span>
+          </div>
+
+          <div class="hour" title="19时：1368条">
+            <div class="bar" style="height:119px"></div>
+            <span>19</span>
+          </div>
+
+          <div class="hour" title="20时：1172条">
+            <div class="bar" style="height:102px"></div>
+            <span>20</span>
+          </div>
+
+          <div class="hour" title="21时：1175条">
+            <div class="bar" style="height:102px"></div>
+            <span>21</span>
+          </div>
+
+          <div class="hour" title="22时：1461条">
+            <div class="bar" style="height:127px"></div>
+            <span>22</span>
+          </div>
+
+          <div class="hour" title="23时：1713条">
+            <div class="bar" style="height:150px"></div>
+            <span>23</span>
+          </div>
+
+        </div>
+        <div class="analysis" style="margin-top:18px"><p>消息最高峰位于 <strong>23:00–00:00</strong>，共 1,713 条。日均活跃的可归因发言者 ID 为 63 个。</p><p>前 5 位匿名参与者贡献 19.5%，前 20 位贡献 43.0%。该指标只用于观察讨论集中度，不用于成员排名。</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>每日趋势</h2><span class="section-kicker">DAILY ACTIVITY</span></div>
+      <div class="card">
+        <div class="daily">
+
+          <div class="day"><time>2026-06-02</time><b>338</b><small>70 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-03</time><b>431</b><small>44 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-04</time><b>231</b><small>41 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-05</time><b>642</b><small>90 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-06</time><b>576</b><small>56 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-07</time><b>284</b><small>63 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-08</time><b>384</b><small>35 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-09</time><b>329</b><small>61 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-10</time><b>316</b><small>51 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-11</time><b>621</b><small>97 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-12</time><b>1390</b><small>155 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-13</time><b>855</b><small>85 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-14</time><b>315</b><small>62 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-15</time><b>742</b><small>98 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-16</time><b>584</b><small>89 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-17</time><b>982</b><small>159 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-18</time><b>397</b><small>65 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-19</time><b>297</b><small>85 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-20</time><b>88</b><small>25 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-21</time><b>290</b><small>44 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-22</time><b>272</b><small>45 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-23</time><b>93</b><small>23 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-24</time><b>297</b><small>84 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-25</time><b>362</b><small>64 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-26</time><b>130</b><small>35 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-27</time><b>390</b><small>103 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-28</time><b>185</b><small>34 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-29</time><b>295</b><small>38 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-06-30</time><b>238</b><small>56 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-01</time><b>311</b><small>42 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-02</time><b>221</b><small>52 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-03</time><b>1089</b><small>129 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-04</time><b>284</b><small>44 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-05</time><b>452</b><small>49 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-06</time><b>330</b><small>52 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-07</time><b>219</b><small>33 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-08</time><b>151</b><small>42 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-09</time><b>203</b><small>38 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-10</time><b>1353</b><small>62 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-11</time><b>428</b><small>60 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-12</time><b>859</b><small>69 个可归因 ID 活跃</small></div>
+
+          <div class="day"><time>2026-07-13</time><b>139</b><small>19 个可归因 ID 活跃</small></div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>窗口结论</h2><span class="section-kicker">EVIDENCE-BOUND</span></div>
+      <div class="card analysis"><ul><li>数据窗口：2026-06-02 至 2026-07-13，共 42 天。</li><li>分析消息：18,393 条；可归因发言者 ID：472 个；日均消息：438 条。</li><li>首个 7 日窗口日均 412 条，最近 7 日窗口日均 479 条，趋势为<strong>上升</strong>。</li></ul><p>建议把这份报告用于判断运营节奏和工具主题变化；任何涉及个人表现、敏感事件或原话的判断，都应回到私密版本并由人工复核。</p></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>数据守恒审计</h2><span class="section-kicker">SERVER-ID DEDUP</span></div>
+      <div class="card">
+        <div class="audit">
+          <div class="audit-step"><b>26607</b><span>原始非空消息</span></div>
+          <div class="audit-step"><b>− 8213</b><span>系统消息</span></div>
+          <div class="audit-step"><b>− 1</b><span>不可解析内容</span></div>
+          <div class="audit-step"><b>− 0</b><span>服务器 ID 重复</span></div>
+          <div class="audit-step"><b>= 18393</b><span>最终有效消息</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    AI 学习社群 · anonymous_aggregate_v1 · 生成于 2026-07-13 12:52:42
+  </footer>
 </body>
 </html>

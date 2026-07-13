@@ -1,0 +1,513 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>重建 · 2026年6月 · 个人月报 第002期 · 终版</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400&family=Noto+Serif+SC:wght@700&family=JetBrains+Mono:wght@400;700" rel="stylesheet"><style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0A0F18;--g:#D4AF37;--gl:#f0d068;--gd:rgba(212,175,55,.2);
+  --cy:#2EC4B6;--cyl:#68d8e3;--cyd:rgba(46,196,182,.18);
+  --pu:#a78bfa;--rd:#e85d5d;--gn:#5de88a;
+  --tx:#d0d0d0;--tx2:#999;--tx3:#666;
+  --mo:'JetBrains Mono',monospace;--sa:'Inter','Noto Sans SC',sans-serif;
+  --se:'Noto Serif SC',serif;--ca:'Ma Shan Zheng',cursive;
+  --r:12px;--bgc:rgba(22,32,45,.7);--bd:rgba(255,255,255,.06);
+}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
+body{font-family:var(--sa);background:var(--bg);color:var(--tx);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;position:relative}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");z-index:9999}
+canvas#p{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* Nav */
+.nv{position:sticky;top:0;z-index:100;background:rgba(10,15,24,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);padding:0 28px;display:flex;align-items:center;justify-content:center;gap:28px;height:48px;font-size:12px;letter-spacing:.08em}
+.nv a{color:var(--tx2);text-decoration:none;transition:color .25s;padding:4px 0;border-bottom:2px solid transparent}
+.nv a:hover,.nv a.act{color:var(--gl);border-bottom-color:var(--g)}
+
+/* Hero */
+.he{position:relative;height:100vh;overflow:hidden;z-index:1}
+.he .bg{position:absolute;inset:0;background:url('assets/jun2026-cover.png') center/contain no-repeat;background-color:var(--bg);opacity:1;z-index:0}
+
+/* Scroll indicator */
+.si{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;animation:fd 2s ease-in-out infinite}
+.si span{font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.35)}
+.si .ar{width:20px;height:20px;border-right:1.5px solid rgba(255,255,255,.25);border-bottom:1.5px solid rgba(255,255,255,.25);transform:rotate(45deg)}
+@keyframes fd{0%,100%{opacity:.4;transform:translateX(-50%) translateY(0)}50%{opacity:1;transform:translateX(-50%) translateY(8px)}}
+
+/* Page */
+.pg{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:60px 24px 80px}
+
+/* Section */
+.sec{margin-bottom:64px;container-type:inline-size}
+.sh{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.sh .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--gd),transparent)}
+.sh .ln.rr{background:linear-gradient(90deg,transparent,var(--gd))}
+.sh h2{font-family:var(--se);font-size:19px;color:var(--g);letter-spacing:.1em;white-space:nowrap}
+.sh .ic{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--gd);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--g);flex-shrink:0}
+
+/* Four Tools Bento */
+.t4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tc{container-type:inline-size;background:var(--bgc);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--r);padding:20px;display:flex;align-items:flex-start;gap:14px;position:relative;overflow:hidden;transition:transform .35s ease,box-shadow .35s ease}
+.tc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.tc.m::before{background:var(--g)}.tc.q::before{background:var(--cy)}.tc.t::before{background:var(--pu)}.tc.w::before{background:var(--gn)}
+.tc:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.tc .ti{font-size:22px;flex-shrink:0;margin-top:2px}
+.tc .tb{flex:1;min-width:0}
+.tc .tn{font-size:11px;font-weight:700;letter-spacing:.06em;margin-bottom:4px}
+.tc.m .tn{color:var(--gl)}.tc.q .tn{color:var(--cy)}.tc.t .tn{color:var(--pu)}.tc.w .tn{color:var(--gn)}
+.tc .tv{font-size:22px;font-weight:700;color:var(--tx);font-family:var(--mo);line-height:1.2}
+.tc .td{font-size:10.5px;color:var(--tx2);line-height:1.5;margin-top:3px}
+
+/* Detail card (for each tool's description) */
+.det{margin-top:clamp(8px,2vw,12px);border-radius:var(--r);padding:20px 24px;position:relative;overflow:hidden}
+.det::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.det.gold{background:rgba(212,175,55,.04);border:1px solid var(--gd)}.det.gold::before{background:var(--g)}
+.det.cyan{background:rgba(46,196,182,.04);border:1px solid var(--cyd)}.det.cyan::before{background:var(--cy)}
+.det.purple{background:rgba(167,139,250,.04);border:1px solid rgba(167,139,250,.18)}.det.purple::before{background:var(--pu)}
+.det.green{background:rgba(93,232,138,.04);border:1px solid rgba(93,232,138,.18)}.det.green::before{background:var(--gn)}
+.det h3{font-size:15px;font-family:var(--se);margin-bottom:8px}
+.det .dd{font-size:12px;color:var(--tx2);line-height:1.7}.det .dd strong{color:var(--tx)}
+
+/* Mini Stats */
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sm{container-type:inline-size;background:var(--bgc);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--r);padding:18px 14px;display:flex;flex-direction:column;align-items:center;text-align:center;transition:transform .3s ease}
+.sm:hover{transform:translateY(-2px)}
+.sm .sv{font-size:28px;font-weight:700;color:var(--gl);font-family:var(--mo);line-height:1.1}
+.sm .sl{font-size:11px;color:var(--tx2);letter-spacing:.06em;margin:4px 0 8px}
+.sm .sb{width:100%;height:4px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+.sm .sb .sf{height:100%;border-radius:2px;background:var(--g)}
+.sm .ss{font-size:9.5px;color:var(--tx3);margin-top:6px}
+
+/* Departure */
+.dp{background:rgba(232,93,93,.06);border:1px solid rgba(232,93,93,.25);border-radius:var(--r);padding:24px 28px;position:relative;overflow:hidden}
+.dp::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--rd)}
+.dp h3{font-size:17px;color:var(--rd);margin-bottom:8px;font-family:var(--se)}
+.dp .da{font-size:26px;font-weight:700;color:var(--gl);font-family:var(--mo);margin:10px 0}
+.dp .db{font-size:12px;color:var(--tx2);line-height:1.7}.dp .db strong{color:var(--tx)}
+
+/* Timeline Events */
+.tl{position:relative;padding-left:28px}
+.tl::before{content:'';position:absolute;left:10px;top:8px;bottom:8px;width:1px;background:rgba(212,175,55,.2)}
+.tli{position:relative;margin-bottom:18px;padding:16px 18px;background:var(--bgc);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--r);border:1px solid var(--bd);transition:transform .3s ease,border-color .3s ease}
+.tli:hover{transform:translateX(4px);border-color:rgba(212,175,55,.2)}
+.tli::before{content:'';position:absolute;left:-22px;top:20px;width:6px;height:6px;border-radius:50%;background:var(--g);border:2px solid var(--bg)}
+.tli:last-child{margin-bottom:0}
+.tli .th{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.tli .tt{font-weight:700;font-size:14px;color:var(--tx)}
+.tli .tm{font-size:10px;color:var(--tx3);letter-spacing:.05em}
+.tli .td{font-size:12px;color:var(--tx2);line-height:1.65}.tli .td strong{color:var(--tx)}
+
+/* Creations */
+.cr{display:flex;flex-direction:column;gap:1px;background:var(--bgc);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--r);overflow:hidden}
+.ci{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;background:rgba(22,32,45,.4)}
+.ci:nth-child(even){background:rgba(22,32,45,.25)}
+.cd{width:8px;height:8px;border-radius:50%;margin-top:6px;flex-shrink:0}
+.cd.gg{background:var(--g)}.cd.cc{background:var(--cy)}.cd.pp{background:var(--pu)}.cd.rr{background:var(--rd)}
+.cb h4{font-size:13px;color:var(--tx);font-weight:600;margin-bottom:2px}
+.cb p{font-size:11px;color:var(--tx2);line-height:1.55}
+
+/* Table */
+.tbw{background:var(--bgc);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--r);overflow-x:auto}
+.tbw table{width:100%;border-collapse:collapse;font-size:12px;min-width:640px}
+.tbw thead{background:rgba(212,175,55,.05)}
+.tbw th{padding:11px 12px;text-align:left;font-weight:600;color:var(--g);font-size:10px;letter-spacing:.1em;border-bottom:1px solid var(--bd)}
+.tbw td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.03);color:var(--tx);vertical-align:top}
+.tbw tbody tr:hover{background:rgba(212,175,55,.04)}.tbw tbody tr:last-child td{border-bottom:none}
+.tbw td strong{color:var(--tx)}
+
+/* Body & Habits */
+.b3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.bc{container-type:inline-size;background:var(--bgc);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--r);padding:22px 16px;text-align:center;transition:transform .3s ease}
+.bc:hover{transform:translateY(-2px)}
+.bc .bi{font-size:20px;margin-bottom:8px;display:block}
+.bc .bv{font-size:30px;font-weight:700;color:var(--gl);font-family:var(--mo)}
+.bc .bl{font-size:11px;color:var(--tx2);letter-spacing:.06em;margin:6px 0}
+.bc .bs{font-size:10px;color:var(--tx3);line-height:1.5}
+
+/* Cognitive */
+.nw{max-width:800px;margin:0 auto}
+.hl{background:rgba(46,196,182,.05);border:1px solid rgba(46,196,182,.12);border-radius:var(--r);padding:18px 20px;margin-bottom:12px;transition:transform .3s ease,border-color .3s ease}
+.hl:hover{transform:translateX(4px);border-color:rgba(46,196,182,.2)}
+.hl h3{color:var(--cy);font-size:13px;font-weight:700;margin-bottom:6px}
+.hl p{font-size:12px;color:var(--tx2);line-height:1.7}.hl strong{color:var(--tx)}
+
+/* Monthly Rhythm */
+.rh{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.rhc{background:var(--bgc);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--r);padding:20px 16px;border:1px solid var(--bd);transition:transform .3s ease}
+.rhc:hover{transform:translateY(-2px)}
+.rhc h3{font-size:13px;font-weight:700;margin-bottom:8px;font-family:var(--se)}
+.rhc h3.g{color:var(--gl)}.rhc h3.c{color:var(--cy)}.rhc h3.r{color:var(--rd)}
+.rhc p{font-size:11px;color:var(--tx2);line-height:1.6}
+
+/* Outlook */
+.ol{display:flex;flex-direction:column;gap:8px}
+.oi{display:flex;align-items:flex-start;gap:14px;background:var(--bgc);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--r);padding:16px 18px;transition:transform .3s ease;border:1px solid var(--bd)}
+.oi:hover{transform:translateX(4px)}
+.on{width:28px;height:28px;border-radius:50%;flex-shrink:0;background:rgba(46,196,182,.1);border:1px solid rgba(46,196,182,.2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--cy)}
+.ot{font-size:13px;color:var(--tx);line-height:1.6}.ot .dm{color:var(--tx2);font-size:11px}
+
+/* Footer */
+.ft{text-align:center;padding:40px 0 20px;font-size:11px;color:var(--tx2);letter-spacing:.12em}.ft .or{color:var(--gd);margin:0 12px}
+
+/* Music */
+.mb{position:fixed;bottom:24px;right:24px;z-index:200;width:44px;height:44px;border-radius:50%;background:var(--bgc);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--g);transition:all .3s ease;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.mb:hover{transform:scale(1.1);border-color:rgba(212,175,55,.4);box-shadow:0 4px 28px rgba(212,175,55,.15)}
+.mb.playing{animation:mp 1.5s ease-in-out infinite}@keyframes mp{0%,100%{box-shadow:0 4px 20px rgba(0,0,0,.3)}50%{box-shadow:0 4px 32px rgba(212,175,55,.25)}}
+.mb-track{position:fixed;bottom:72px;right:24px;z-index:200;font-size:10px;color:var(--tx3);letter-spacing:.06em;opacity:0;transition:opacity .3s ease;pointer-events:none;text-align:right}
+.mb-track.show{opacity:1}
+
+/* Reveal */
+.fi{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.fi.rv{opacity:1;transform:translateY(0)}
+
+/* Responsive */
+@media(max-width:1024px){.t4{grid-template-columns:repeat(2,1fr)}.sg{grid-template-columns:repeat(3,1fr)}.b3{grid-template-columns:repeat(2,1fr)}.rh{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .nv{gap:16px;font-size:10px;padding:0 14px;overflow-x:auto;justify-content:flex-start;flex-wrap:nowrap}
+  .nv a{white-space:nowrap}
+  .pg{padding:40px 14px 60px}
+  .t4{grid-template-columns:1fr 1fr;gap:10px}
+  .tc{padding:16px;gap:10px}.tc .tv{font-size:18px}
+  .sg{grid-template-columns:1fr 1fr;gap:10px}
+  .b3{grid-template-columns:1fr 1fr;gap:10px}
+  .rh{grid-template-columns:1fr 1fr;gap:10px}
+  .tl{padding-left:22px}.tli::before{left:-18px}
+  .nw{max-width:100%}
+  .tc,.sm,.tli,.cr,.bc,.det,.tbw,.rhc,.oi,.nv{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .tc,.sm,.tli,.cr,.bc,.det,.tbw,.rhc,.oi{background:rgba(16,24,38,.92)}
+  .nv{background:rgba(10,15,24,.97)}
+  .mb{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(16,24,38,.95)}
+}
+@media(max-width:480px){
+  .t4{grid-template-columns:1fr;gap:8px}
+  .sg{grid-template-columns:1fr 1fr;gap:8px}
+  .b3{grid-template-columns:1fr 1fr;gap:8px}
+  .rh{grid-template-columns:1fr;gap:8px}
+  .dp{padding:18px 16px}.dp .da{font-size:20px}
+  .sm .sv{font-size:22px}
+  .bc .bv{font-size:24px}
+  .tl{padding-left:18px}.tli{padding:12px 14px}.tli::before{left:-15px;width:5px;height:5px}
+}
+@media(max-width:375px){
+  .sg{grid-template-columns:1fr;gap:8px}
+  .b3{grid-template-columns:1fr;gap:8px}
+  .t4{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .fi{opacity:1;transform:none}
+  canvas#p{display:none}
+}
+</style></head><body>
+<canvas id="p" aria-hidden="true"></canvas>
+
+<!-- Hero -->
+<div class="he">
+  <div class="bg"></div>
+  <div class="si">
+    <span>下滑探索</span>
+    <div class="ar"></div>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="nv" id="nav" aria-label="月报章节导航">
+  <a href="#tools">四工具</a>
+  <a href="#stats">Marvis</a>
+  <a href="#qoderwork">QoderWork</a>
+  <a href="#trae">TRAE</a>
+  <a href="#workbuddy">WorkBuddy</a>
+  <a href="#events">事件</a>
+  <a href="#creations">创作</a>
+  <a href="#cognitive">认知</a>
+  <a href="#outlook">展望</a>
+</nav>
+
+<main class="pg">
+
+<!-- 1. Four Tools Overview -->
+<section class="sec fi" id="tools">
+  <div class="sh"><span class="ln"></span><div class="ic">&#9881;</div><h2>四工具核心指标</h2><span class="ln rr"></span></div>
+  <div class="t4">
+    <div class="tc m"><span class="ti">&#9672;</span><div class="tb"><div class="tn">Marvis · 思考引擎</div><div class="tv">7.04亿</div><div class="td">Token · 335会话<br>201文件 · 17天活跃</div></div></div>
+    <div class="tc q"><span class="ti">&#9889;</span><div class="tb"><div class="tn">QoderWork · 运维中枢</div><div class="tv">~2.24亿</div><div class="td">Token · 23会话<br>7,719文件 · 29天活跃</div></div></div>
+    <div class="tc t"><span class="ti">&#9881;</span><div class="tb"><div class="tn">TRAE · 编码主力</div><div class="tv">32+</div><div class="td">会话 · 22,838文件<br>127MB · 24天活跃</div></div></div>
+    <div class="tc w"><span class="ti">&#9989;</span><div class="tb"><div class="tn">WorkBuddy · 技能生态</div><div class="tv">95</div><div class="td">技能 · 549+文件<br>112.6G清理 · 16天活跃</div></div></div>
+  </div>
+</section>
+
+<!-- 2. Marvis Detail -->
+<section class="sec fi" id="stats">
+  <div class="sh"><span class="ln"></span><div class="ic">&#9670;</div><h2>Marvis · 思考引擎</h2><span class="ln rr"></span></div>
+  <div class="sg">
+    <div class="sm"><div class="sv">7.04亿</div><div class="sl">思考 Token</div><div class="sb"><div class="sf" style="width:100%"></div></div><div class="ss">峰值 6.29 = 1.52亿</div></div>
+    <div class="sm"><div class="sv">335</div><div class="sl">会话总数</div><div class="sb"><div class="sf" style="width:100%"></div></div><div class="ss">精选 9 次深度对话</div></div>
+    <div class="sm"><div class="sv">201</div><div class="sl">产出文件</div><div class="sb"><div class="sf" style="width:60%"></div></div><div class="ss">products 表精确值</div></div>
+    <div class="sm"><div class="sv">17</div><div class="sl">活跃天数</div><div class="sb"><div class="sf" style="width:57%"></div></div><div class="ss">6.14 – 6.30（有记录区间）</div></div>
+    <div class="sm"><div class="sv">4.78亿</div><div class="sl">main-auto</div><div class="sb"><div class="sf" style="width:68%;background:var(--cy)"></div></div><div class="ss">最大模型占比</div></div>
+    <div class="sm"><div class="sv">1.18亿</div><div class="sl">file-auto</div><div class="sb"><div class="sf" style="width:17%;background:var(--cy)"></div></div><div class="ss">第二大模型</div></div>
+    <div class="sm"><div class="sv">7445万</div><div class="sl">deepseek-v4-pro</div><div class="sb"><div class="sf" style="width:11%;background:var(--pu)"></div></div><div class="ss">外部模型调用</div></div>
+    <div class="sm"><div class="sv">314</div><div class="sl">自动化任务</div><div class="sb"><div class="sf" style="width:100%;background:var(--cy)"></div></div><div class="ss">定时提醒/同步/推送</div></div>
+  </div>
+  <div class="det gold">
+    <h3 style="color:var(--gl)">&#9670; 核心定位</h3>
+    <div class="dd">Marvis 是6月的<strong>思考引擎</strong>，承担全部深度创作和知识工程任务。7.04亿 Token 是四工具之最，覆盖如实所现8版重写、《行深》全书创作、聊天记录全量分析、9场直播课消化等核心产出。6个模型并行调度（main-auto 占68%），314个定时任务构成自动化基座。data.db 1.5GB 的底层数据量印证了思考密度。<strong>不是工具在用我，是我和工具互相驱动</strong>。</div>
+  </div>
+</section>
+
+<!-- 3. QoderWork Detail -->
+<section class="sec fi" id="qoderwork">
+  <div class="sh"><span class="ln"></span><div class="ic" style="border-color:var(--cyd);color:var(--cy)">&#9889;</div><h2 style="color:var(--cy)">QoderWork · 运维中枢</h2><span class="ln rr"></span></div>
+  <div class="sg">
+    <div class="sm"><div class="sv" style="color:var(--cyl)">~2.24亿</div><div class="sl">估算 Token</div><div class="sb"><div class="sf" style="width:100%;background:var(--cy)"></div></div><div class="ss">21个会话累计</div></div>
+    <div class="sm"><div class="sv" style="color:var(--cyl)">7,719</div><div class="sl">文件产物</div><div class="sb"><div class="sf" style="width:80%;background:var(--cy)"></div></div><div class="ss">17个工作区 · 228MB</div></div>
+    <div class="sm"><div class="sv" style="color:var(--cyl)">29</div><div class="sl">活跃天数</div><div class="sb"><div class="sf" style="width:97%;background:var(--cy)"></div></div><div class="ss">几乎全月在线</div></div>
+    <div class="sm"><div class="sv" style="color:var(--cyl)">23</div><div class="sl">会话数</div><div class="sb"><div class="sf" style="width:60%;background:var(--cy)"></div></div><div class="ss">6用户 + 17自动化</div></div>
+  </div>
+  <div class="det cyan">
+    <h3 style="color:var(--cy)">&#9889; 核心定位</h3>
+    <div class="dd">承担<strong>开发者工具箱</strong>运维中枢角色：8个定时任务（热点站运维、素材流水线、社区巡检、Skill同步等）、fuqing-profile 网站部署、skill-dev-toolkit 技能管理。最长会话跨 <strong>12天150条消息</strong>，是日均使用频次最高的工具。六端同步链路 Marvis ↔ QoderWork ↔ TRAE ↔ Git ↔ 虾评 ↔ EdgeOne 的核心调度节点。</div>
+  </div>
+</section>
+
+<!-- 4. TRAE Detail -->
+<section class="sec fi" id="trae">
+  <div class="sh"><span class="ln"></span><div class="ic" style="border-color:rgba(167,139,250,.25);color:var(--pu)">&#9881;</div><h2 style="color:var(--pu)">TRAE · 编码主力</h2><span class="ln rr"></span></div>
+  <div class="sg">
+    <div class="sm"><div class="sv" style="color:#c4b5fd">22,838</div><div class="sl">文件数</div><div class="sb"><div class="sf" style="width:100%;background:var(--pu)"></div></div><div class="ss">全工具最高文件量</div></div>
+    <div class="sm"><div class="sv" style="color:#c4b5fd">127MB</div><div class="sl">数据体量</div><div class="sb"><div class="sf" style="width:60%;background:var(--pu)"></div></div><div class="ss">代码+配置+产物</div></div>
+    <div class="sm"><div class="sv" style="color:#c4b5fd">24</div><div class="sl">活跃天数</div><div class="sb"><div class="sf" style="width:80%;background:var(--pu)"></div></div><div class="ss">全月最高活跃天数</div></div>
+    <div class="sm"><div class="sv" style="color:#c4b5fd">32+</div><div class="sl">会话数</div><div class="sb"><div class="sf" style="width:70%;background:var(--pu)"></div></div><div class="ss">编码密集型对话</div></div>
+  </div>
+  <div class="det purple">
+    <h3 style="color:var(--pu)">&#9881; 核心项目</h3>
+    <div class="dd">TRAE 承担<strong>编码主力</strong>角色，主导三大项目：<strong>hot-news-aggregator v3.7</strong>（热点聚合站重构）、<strong>fuqing-profile</strong>（个人网站 GitHub Pages 部署）、<strong>work2</strong>（8个子项目开发）。22,838个文件是四工具之最，体现密集的代码迭代和项目管理。与 QoderWork 的 skill-dev-toolkit 配合完成 Git push → 自动部署闭环。</div>
+  </div>
+</section>
+
+<!-- 5. WorkBuddy Detail -->
+<section class="sec fi" id="workbuddy">
+  <div class="sh"><span class="ln"></span><div class="ic" style="border-color:rgba(93,232,138,.25);color:var(--gn)">&#9989;</div><h2 style="color:var(--gn)">WorkBuddy · 技能生态</h2><span class="ln rr"></span></div>
+  <div class="sg">
+    <div class="sm"><div class="sv" style="color:var(--gn)">95</div><div class="sl">技能数</div><div class="sb"><div class="sf" style="width:100%;background:var(--gn)"></div></div><div class="ss">自定义+商店技能</div></div>
+    <div class="sm"><div class="sv" style="color:var(--gn)">549+</div><div class="sl">文件产物</div><div class="sb"><div class="sf" style="width:60%;background:var(--gn)"></div></div><div class="ss">管线素材+配置</div></div>
+    <div class="sm"><div class="sv" style="color:var(--gn)">112.6G</div><div class="sl">存储释放</div><div class="sb"><div class="sf" style="width:100%;background:var(--gn)"></div></div><div class="ss">6.14 全盘大清理</div></div>
+    <div class="sm"><div class="sv" style="color:var(--gn)">16</div><div class="sl">活跃天数</div><div class="sb"><div class="sf" style="width:53%;background:var(--gn)"></div></div><div class="ss">6.1 – 6.16（迁移前）</div></div>
+  </div>
+  <div class="det green">
+    <h3 style="color:var(--gn)">&#9989; 核心贡献</h3>
+    <div class="dd">WorkBuddy 在 6月上半月（6.1–6.16）承担<strong>技能生态基座</strong>和<strong>内容管线</strong>搭建角色。95个技能覆盖写作、设计、自动化等场景。6.14 完成 <strong>112.6GB 全盘存储清理</strong>，释放大量空间。搭建"收碰定发"内容管线（收素材→碰选题→定框架→发内容），为后续 IP 创作提供结构化流水线。6.12 起 18 个定时任务全部迁移至 QoderWork，WorkBuddy 转为技能存储备份。</div>
+  </div>
+</section>
+
+<!-- 6. Departure Day -->
+<section class="sec fi">
+  <div class="sh"><span class="ln"></span><div class="ic" style="border-color:rgba(232,93,93,.3);color:var(--rd)">&#9888;</div><h2 style="color:var(--rd)">6月30日 · 离职日</h2><span class="ln" style="background:linear-gradient(90deg,transparent,rgba(232,93,93,.25))"></span></div>
+  <div class="dp">
+    <h3>&#9888; 离开东风卓联 · 全新起点</h3>
+    <div class="da">15,641,215 Token · 25 次会话 · 295 次 API 调用</div>
+    <div class="db">6月30日是在东风卓联的<strong>最后一个工作日</strong>。当日 Marvis 仍产出 <strong>1564万 Token</strong>、<strong>25次会话</strong>、<strong>295次 API 调用</strong>，离职收尾与月报迭代并行。离开是为了让斜率真正开始生长——不再受限于朝九晚五，把时间全部投资在自己身上。<br><span style="color:var(--tx3);font-size:10px;letter-spacing:.04em">* 本报告数据覆盖各工具有记录区间：Marvis 6.14–6.30（17天）、QoderWork 29天、TRAE 24天、WorkBuddy 6.1–6.16（16天）</span></div>
+  </div>
+</section>
+
+<!-- 7. Core Events -->
+<section class="sec fi" id="events">
+  <div class="sh"><span class="ln"></span><div class="ic">&#9876;</div><h2>核心事件</h2><span class="ln rr"></span></div>
+  <div class="tl">
+    <div class="tli"><div class="th"><div class="tt">AI 工具全面启动</div><div class="tm">6月中旬</div></div><div class="td">WorkBuddy 18个定时任务迁移至 QoderWork，Marvis 成为日常主力。四工具分工体系成型：Marvis 思考 · QoderWork 运维 · TRAE 编码 · WorkBuddy 技能存储。<strong>"少干预让工具自己跑"</strong>的自动化理念贯穿全月。</div></div>
+    <div class="tli"><div class="th"><div class="tt">《行深》全书初稿完成</div><div class="tm">6.22 – 6.29</div></div><div class="td">基于自己的微信聊天记录，完成<strong>序言 + 10章 + 后记 + 附录 + EPUB</strong>，共43个文件、素材43MB。确立"严守真实"创作原则：sender_id校验、不足留白、交叉验证。</div></div>
+    <div class="tli"><div class="th"><div class="tt">聊天记录全量分析</div><div class="tm">6.28 – 6.29</div></div><div class="td">7个群聊全量导出，含图片/表情/语音/文件。产出<strong>树林深度分析 + 阿扶画像 + 核心人物分析</strong> +《无畏契约》游戏教案，18个文件。</div></div>
+    <div class="tli"><div class="th"><div class="tt">如实所现 · 多版重写</div><div class="tm">6.16 – 6.26</div></div><div class="td">树林"如实所现"内容<strong>8次重写迭代</strong>，确立"严守真实版"创作基准——把被放大的还原到真实尺寸。这一原则后来贯穿到《行深》全书创作中。</div></div>
+    <div class="tli"><div class="th"><div class="tt">9场直播课系统消化</div><div class="tm">全月</div></div><div class="td">树林4场（知行合一 · 如实所现 · AI重写软件 · 人性信任）+ 小智 · 大水 · 鲈鱼 · 许恒 · 麦洛，全部产出结构笔记，汇总为<strong>"五份归档_总体知识整合"</strong>。</div></div>
+    <div class="tli"><div class="th"><div class="tt">每日打卡系统上线</div><div class="tm">6.25</div></div><div class="td">接入树林社群打卡：每日锻炼 + 低碳饮食 + 对外输出。6.25–6.30 打卡时段 <strong>269,803,032 Token / 173 会话</strong></div></div>
+    <div class="tli"><div class="th"><div class="tt">运维冲刺 · 峰值日</div><div class="tm">6.29</div></div><div class="td">创下 <strong>1.52 亿 Token</strong> 单日峰值（63 会话 / 1665 次 API 调用）· 聊天记录全量分析 · 行深全书定稿</div></div>
+    <div class="tli"><div class="th"><div class="tt" style="color:var(--rd)">6.30 最后工作日</div><div class="tm">6月30日</div></div><div class="td"><strong>15,641,215 Token</strong> · 25会话 · 295 API调用。东风卓联最后一个工作日，离职收尾与月报迭代并行。以此为界，7月全新开始。</div></div>
+  </div>
+</section>
+
+<!-- 8. Creations -->
+<section class="sec fi" id="creations">
+  <div class="sh"><span class="ln"></span><div class="ic">&#9734;</div><h2>本月创作</h2><span class="ln rr"></span></div>
+  <div class="cr">
+    <div class="ci"><div class="cd gg"></div><div class="cb"><h4>《行深：用叙事接纳，用结构解决》初稿</h4><p>序言 + 10章 + 后记 + 附录 + EPUB，43个文件，累计62KB正文。基于自己微信聊天记录创作，单章素材最高14.1MB。严守真实原则：不编造、不借他人素材、不足处诚实留白。</p></div></div>
+    <div class="ci"><div class="cd cc"></div><div class="cb"><h4>如实所现 · 全书重写（8版本）</h4><p>分析报告/行动报告/定稿/社群重写方案，累计185KB。核心：把被放大的还原到真实尺寸。</p></div></div>
+    <div class="ci"><div class="cd pp"></div><div class="cb"><h4>聊天记录全量分析（7群聊，18文件）</h4><p>树林深度分析 + 阿扶画像 + 核心人物画像 +《无畏契约》游戏教学教案。首次建立全媒体分析规则。</p></div></div>
+    <div class="ci"><div class="cd gg"></div><div class="cb"><h4>9场直播课整合笔记</h4><p>涵盖树林（知行合一/如实所现/AI重写/人性信任）、小智（AI设计）、大水（销售系统）、鲈鱼（提示词工程）、许恒（AI Native）、麦洛（认知升级）——汇入总体知识整合文档。</p></div></div>
+    <div class="ci"><div class="cd rr"></div><div class="cb"><h4>终稿文章 2 篇</h4><p>《换笔不换心》（45KB）·《知识管理的AI拐点》（47KB），.docx格式完工。</p></div></div>
+    <div class="ci"><div class="cd cc"></div><div class="cb"><h4>个人月报 HTML 系列</h4><p>第001期（6.16）认知觉醒版 → 第002期（7.1）废墟美学终版。Canvas粒子 + 毛玻璃卡片 + 书法标题渐变。从估算到精确数据直查。</p></div></div>
+  </div>
+</section>
+
+<!-- 9. Sessions Table -->
+<section class="sec fi">
+  <div class="sh"><span class="ln"></span><div class="ic">&#9776;</div><h2>335 次会话中的 9 次深度对话</h2><span class="ln rr"></span></div>
+  <div class="tbw"><table>
+    <caption style="display:none">Marvis 6月 Top 9 深度会话</caption>
+    <thead><tr><th>#</th><th>会话主题</th><th>日期</th><th>Token</th><th>输出</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>运维与管线</strong></td><td>6.14 – 6.30</td><td>97,176,433</td><td>DeepSeek 修复 · 微信导出 · 26 文件</td></tr>
+      <tr><td>2</td><td><strong>聊天记录分析</strong></td><td>6.28 – 6.29</td><td>58,221,823</td><td>7群聊全量分析 · 18 文件</td></tr>
+      <tr><td>3</td><td><strong>行深 · 全书创作</strong></td><td>6.22 – 6.29</td><td>39,225,455</td><td>10章 + 序言 + 后记 + EPUB · 43 文件</td></tr>
+      <tr><td>4</td><td><strong>个人月报</strong></td><td>6.29 – 7.1</td><td>27,899,511</td><td>第001期 + 第002期 + V6/V7/V8 HTML</td></tr>
+      <tr><td>5</td><td><strong>已有技能消化</strong></td><td>6.22 + 6.26 – 6.29</td><td>11,975,873</td><td>技能注册表 · 吸收报告 · 消化引擎</td></tr>
+      <tr><td>6</td><td><strong>每日打卡</strong></td><td>6.29</td><td>11,712,087</td><td>社群接入 · 打卡测试</td></tr>
+      <tr><td>7</td><td><strong>小深 Skill</strong></td><td>6.14</td><td>6,215,152</td><td>小深 · Skill 创建</td></tr>
+      <tr><td>8</td><td><strong>直播课学习</strong></td><td>6.14 – 6.29</td><td>5,500,000</td><td>9 场笔记整合（估算）</td></tr>
+      <tr><td>9</td><td><strong>电脑环境</strong></td><td>6.14</td><td>1,900,000</td><td>环境配置（估算）</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 10. Monthly Rhythm -->
+<section class="sec fi">
+  <div class="sh"><span class="ln"></span><div class="ic">&#9788;</div><h2>月度节奏</h2><span class="ln rr"></span></div>
+  <div class="rh">
+    <div class="rhc"><h3 class="g">月初 · 搭建</h3><p>在职期间：内容管线搭建 · 技能批量安装（3天30+技能）· 热点站迭代 · 社区Agent · 112.6G存储清理。WorkBuddy → QoderWork 任务迁移。</p></div>
+    <div class="rhc"><h3 class="c">中旬 · 创作</h3><p>下班后密集输出：如实所现8次重写迭代 · 第001期月报 · 行深全书立项 · 9场直播课笔记整理。AI四工具分工体系成型。</p></div>
+    <div class="rhc"><h3 class="r">月末 · 爆发</h3><p>6.22-6.30：行深全书初稿（10章+后记+附录）· 聊天记录全量分析 · 第002期月报 · 打卡机制建立。6.30 东风卓联最后一天，离职即创作无缝衔接。</p></div>
+    <div class="rhc"><h3 class="g">全月 · 持续</h3><p>314次定时任务零间断 · 每日起身提醒 · 微信总结推飞书 · 六端同步。在职状态下的自动化体系稳定运行。</p></div>
+  </div>
+</section>
+
+<!-- 11. Body & Habits -->
+<section class="sec fi">
+  <div class="sh"><span class="ln"></span><div class="ic">&#9968;</div><h2>身体与习惯</h2><span class="ln rr"></span></div>
+  <div class="b3">
+    <div class="bc"><span class="bi">&#9734;</span><div class="bv">1<small style="font-size:14px;color:var(--tx2)">次</small></div><div class="bl">跑步</div><div class="bs">6.29 单次 1km<br>配速 5'50"</div></div>
+    <div class="bc"><span class="bi">&#128690;</span><div class="bv">102.6<small style="font-size:14px;color:var(--tx2)">km</small></div><div class="bl">骑行通勤</div><div class="bs">18天 × 5.7km<br>往返通勤累计</div></div>
+    <div class="bc"><span class="bi">&#10003;</span><div class="bv">6<small style="font-size:14px;color:var(--tx2)">天</small></div><div class="bl">打卡全勤</div><div class="bs">6.25 起 · 未漏一天<br>低碳饮食同步执行</div></div>
+  </div>
+</section>
+
+<!-- 12. Cognitive Updates -->
+<section class="sec fi" id="cognitive">
+  <div class="sh"><span class="ln"></span><div class="ic">&#10047;</div><h2>认知更新</h2><span class="ln rr"></span></div>
+  <div class="nw">
+    <div class="hl"><h3>1. 在职也能爆发，关键不是时间而是方向</h3><p>6月整月都在上班，但创作密度远超以往任何月份。不是时间变多了，是<strong>方向变清晰了</strong>。树林的如实所现、斜率论、AI平权——这些认知一旦内化，朝九晚五不再是限制而是节奏锚点。<strong>框架不是效率的天花板，模糊才是</strong>。</p></div>
+    <div class="hl"><h3>2. 真实是创作唯一的护城河</h3><p>经历了8次重写，最深的感悟不是技巧而是底线：不编造、不借他人素材填充、不足处诚实留白。<strong>AI可以辅助表达，但不能替代真实经历的质地</strong>。</p></div>
+    <div class="hl"><h3>3. "如实所现"是一个动作，不是一个概念</h3><p>树林说的"把被放大的还原到真实尺寸"——听起来很对，做起来才知道反人性。每一次重写都是和"想美化自己"的冲动对抗。<strong>但这个动作本身，就是成长</strong>。</p></div>
+    <div class="hl"><h3>4. 从工具使用者到工具搭建者</h3><p>6月最大的转变不是用了多少 AI，而是开始<strong>搭建自己的 AI 系统</strong>。从单个对话到定时任务管线，从手动操作到自动运维——角色的切换才是真正的杠杆。<strong>AI 不需要"使用"，它需要"编排"</strong>。</p></div>
+  </div>
+</section>
+
+<!-- 13. July Outlook -->
+<section class="sec fi" id="outlook">
+  <div class="sh"><span class="ln"></span><div class="ic">&#9968;</div><h2>七月展望</h2><span class="ln rr"></span></div>
+  <div class="ol">
+    <div class="oi"><div class="on">1</div><div class="ot">恢复跑步习惯<span class="dm"> —— 目标 3 次，重建身体节奏</span></div></div>
+    <div class="oi"><div class="on">2</div><div class="ot">完成行深全书终稿<span class="dm"> —— 从 62KB 初稿走向可发布品质</span></div></div>
+    <div class="oi"><div class="on">3</div><div class="ot">持续每日打卡<span class="dm"> —— 锻炼 + 饮食 + 输出，保持全勤记录</span></div></div>
+    <div class="oi"><div class="on">4</div><div class="ot">优化运维管线<span class="dm"> —— 减少人工干预，提升自主运转比例</span></div></div>
+    <div class="oi"><div class="on">5</div><div class="ot">启动多平台分发<span class="dm"> —— 公众号/小红书/知乎/B站，从单平台到多平台</span></div></div>
+  </div>
+</section>
+
+<footer class="ft fi">
+  <span class="or">&#9670;</span>
+  数据来源：Marvis data.db · QoderWork API · TRAE workspace · WorkBuddy 技能库 · 交叉验证
+  <span class="or">&#9670;</span><br>
+  生成于 2026-07-01 · 终版 · 扶清闲话
+</footer>
+
+</main>
+
+<div class="mb" id="mb" role="button" aria-label="播放/暂停背景音乐" tabindex="0">&#9835;</div>
+<div class="mb-track" id="mb-track"></div>
+
+<script>
+(function(){
+  /* Canvas Particles */
+  var c=document.getElementById('p'),x=c.getContext('2d');
+  var W,H,mx=.5,my=.5,n=innerWidth<480?20:innerWidth<768?40:70;
+  if(innerWidth<375||matchMedia('(prefers-reduced-motion:reduce)').matches){c.style.display='none'}else{
+    function rs(){W=c.width=innerWidth;H=c.height=innerHeight}rs();
+    addEventListener('resize',rs);
+    addEventListener('mousemove',function(e){mx=e.clientX/W;my=e.clientY/H},{passive:true});
+    function P(i){this.r(i)}
+    P.prototype.r=function(i){this.x=Math.random()*W;this.y=i?Math.random()*H:H+10;this.s=Math.random()*1.6+.3;this.sy=-(Math.random()*.22+.05);this.sx=(Math.random()-.5)*.1;this.o=Math.random()*.45+.08;this.g=Math.random()>.4};
+    P.prototype.u=function(){this.x+=this.sx+(mx-.5)*.1;this.y+=this.sy+(my-.5)*.03;if(this.y<-10||this.x<-10||this.x>W+10)this.r(0)};
+    P.prototype.d=function(){x.beginPath();x.arc(this.x,this.y,this.s,0,6.283);x.fillStyle=this.g?'rgba(212,175,55,'+this.o+')':'rgba(46,196,182,'+this.o+')';x.fill()};
+    var ps=[];for(var i=0;i<n;i++)ps.push(new P(1));
+    var raf;
+    (function l(){raf=requestAnimationFrame(l);x.clearRect(0,0,W,H);for(var j=0;j<ps.length;j++){ps[j].u();ps[j].d()}})();
+    document.addEventListener('visibilitychange',function(){if(document.hidden){cancelAnimationFrame(raf)}else{l()}});
+  }
+})();
+
+/* Music Player */
+(function(){
+  var tracks=[
+    {src:'assets/hopeful-piano.mp3',name:'Hopeful Piano'},
+    {src:'assets/inspiring-piano.mp3',name:'Uplifting Piano'}
+  ];
+  var cur=0,playing=false;
+  var audio=new Audio();
+  audio.preload='auto';
+  audio.volume=.35;
+  var btn=document.getElementById('mb');
+  var label=document.getElementById('mb-track');
+  function showLabel(msg){
+    label.textContent=msg;
+    label.classList.add('show');
+    clearTimeout(label._t);
+    label._t=setTimeout(function(){label.classList.remove('show')},3000);
+  }
+  function load(i){
+    cur=i%tracks.length;
+    audio.src=tracks[cur].src;
+    audio.load();
+    showLabel('\u266B '+tracks[cur].name);
+  }
+  function toggle(){
+    if(!audio.src)load(0);
+    if(playing){
+      audio.pause();
+      btn.classList.remove('playing');
+      playing=false;
+    }else{
+      var p=audio.play();
+      if(p&&p.then){
+        p.then(function(){
+          btn.classList.add('playing');
+          playing=true;
+        }).catch(function(){
+          showLabel('\u26A0 音频加载失败');
+          btn.classList.remove('playing');
+          playing=false;
+        });
+      }else{
+        btn.classList.add('playing');
+        playing=true;
+      }
+    }
+  }
+  audio.addEventListener('ended',function(){load(cur+1);audio.play().catch(function(){})});
+  audio.addEventListener('error',function(){showLabel('\u26A0 音频加载失败');btn.classList.remove('playing');playing=false});
+  btn.addEventListener('click',toggle);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
+})();
+
+/* Stagger Reveal + Nav Active */
+(function(){
+  var el=document.querySelectorAll('.fi');
+  if(!el.length)return;
+  var rv=new Set();
+  function s(){
+    el.forEach(function(e,i){
+      if(rv.has(i))return;
+      if(e.getBoundingClientRect().top<innerHeight*.88){
+        setTimeout(function(){e.classList.add('rv')},i*75);
+        rv.add(i);
+      }
+    });
+  }
+  s();addEventListener('scroll',s,{passive:true});
+
+  /* Nav active */
+  var nav=document.getElementById('nav'),ns=nav.querySelectorAll('a');
+  var secs=document.querySelectorAll('section[id]');
+  addEventListener('scroll',function(){
+    var cur='';
+    secs.forEach(function(s){
+      if(s.getBoundingClientRect().top<120)cur=s.id;
+    });
+    ns.forEach(function(a){a.classList.toggle('act',a.getAttribute('href')==='#'+cur)});
+  },{passive:true});
+})();
+</script>
+</body></html>
