@@ -2,102 +2,411 @@
   "meta": {
     "title": "AI 先机",
     "url": "https://afuxh.github.io/fuqing-profile/hot-news.html",
-    "updated": "2026-07-13 12:52:31",
+    "updated": "2026-07-13 19:43:15",
     "total": 11,
-    "summary_policy": "source_excerpt_only_unless_verified"
+    "summary_policy": "source_excerpt_plus_clearly_labeled_editor_review",
+    "value_tag_taxonomy": [
+      "变现机会",
+      "产业落地",
+      "技术前沿",
+      "产品工具",
+      "安全合规",
+      "投资风向"
+    ],
+    "editorial": {
+      "status": "editor_reviewed",
+      "as_of": "2026-07-13",
+      "byline": "扶清编辑台 · 基于公开原文核验",
+      "reviewed_items": 11
+    }
   },
   "categories": {
-    "精选": [],
-    "推荐": [
-      {
-        "title": "AI编程从零开始：环境配置到开发调试",
-        "url": "https://www.williamlong.info/archives/7544.html",
-        "score": 54,
-        "source": "月光博客",
-        "summary": "我最开始接触AI编程（Vibe Coding）是去年，因为我以前没写过Chrome插件，第一次用AI来写，十分钟搞定，功能是点击将浏览器所有书签转化为网址导航站来显示，用AI在网页端生成，插件运行后显示正常。我感觉有了AI之后，编程门槛大幅降低，傻子都可以当程序员了。\n\n后来维护一个很古老的VB6程序，提示MSCOMCTL.OCX控件加载失败的问题，查看了一下代码，用了ProgressBar控件，于是用AI重写了一个类，通过PictureBox（图片框）来模拟ProgressBar，源代码几乎不用修改就完成了，编程效率非常高。\n\n经过一番研究，我发现AI编程（Vibe Coding）是件很有意",
-        "summary_status": "source_excerpt"
-      }
-    ],
-    "参考": [
-      {
-        "title": "Ask HN: Add flag for AI-generated articles",
-        "url": "https://news.ycombinator.com/item?id=48886741",
-        "score": 32.7,
-        "source": "Hacker News",
-        "summary": "150 评论",
-        "summary_status": "source_excerpt"
-      },
+    "精选": [
       {
         "title": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k",
         "url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
-        "score": 33.5,
+        "score": 85,
+        "raw_score": 84.8,
+        "score_components": {
+          "publishable_ai_base": 34.0,
+          "core_relevance": 15.0,
+          "extended_relevance": 0.0,
+          "title_keyword": 8.0,
+          "direct_ai_title": 6.0,
+          "exclusion_penalty": 0.0,
+          "public_heat": 10.8,
+          "source_reliability": 7.0,
+          "complete_source_digest": 4.0
+        },
         "source": "Hacker News",
-        "summary": "284 评论",
-        "summary_status": "source_excerpt"
+        "summary": "文章实测称，Claude Code 在读取用户提示前发送约 3.3 万个 token，而 OpenCode 约为 7000 个，显示不同 Agent 客户端存在显著上下文开销差异。",
+        "summary_status": "editor_verified_source_digest",
+        "audience": "pro",
+        "value_tags": [
+          "产品工具",
+          "变现机会",
+          "技术前沿"
+        ],
+        "beneficiary": "团队",
+        "maturity": "待验证",
+        "source_tier": "primary",
+        "source_group": "主热点源",
+        "signal_type": "付款信号",
+        "opportunity_signal": "付款信号：团队正在承担 Agent 上下文开销；受益者：成本观测、评测与上下文治理工具。",
+        "perspective": "Agent 成本要看总 token、工具开销、返工和结果质量，不能只看首轮输入。",
+        "action": "用同一任务复测：依次关闭闲置 MCP、压缩规则、减少子 Agent，并记录总成本。",
+        "editorial_status": "editor_reviewed"
       },
       {
         "title": "Migrating a production AI agent to GPT-5.6: 2.2x faster, 27% cheaper",
         "url": "https://ploy.ai/blog/migrating-a-production-ai-agent-to-gpt-5-6",
-        "score": 32.5,
+        "score": 78,
+        "raw_score": 77.9,
+        "score_components": {
+          "publishable_ai_base": 34.0,
+          "core_relevance": 10.0,
+          "extended_relevance": 0.0,
+          "title_keyword": 8.0,
+          "direct_ai_title": 6.0,
+          "exclusion_penalty": 0.0,
+          "public_heat": 8.9,
+          "source_reliability": 7.0,
+          "complete_source_digest": 4.0
+        },
         "source": "Hacker News",
-        "summary": "61 评论",
-        "summary_status": "source_excerpt"
-      },
-      {
-        "title": "AlephAITech/WorkBuddyGuide",
-        "url": "https://github.com/AlephAITech/WorkBuddyGuide",
-        "score": 38.6,
-        "source": "GitHub",
-        "summary": "A practical, open-source guide to mastering WorkBuddy through real-world workflows.开源的 WorkBuddy 实战蓝皮书：教程、真实工作流、Skills、MCP、自动化与多智能体实践。",
-        "summary_status": "source_excerpt"
-      },
-      {
-        "title": "AI家庭智能硬件公司获数千万元融资，首款产品今年上线海外｜硬氪首发",
-        "url": "https://36kr.com/p/3879780282495236?f=rss",
-        "score": 46,
-        "source": "36氪",
-        "summary": "\n \n \n  作者｜黄楠\n  编辑｜袁斯来\n  硬氪获悉，威联机器人科技（深圳）有限公司（以下简称“MOVA LINCO”）近日完成数千万元天使融资。融资资金将主要用于AI算法底层技术研发、完善产品量产体系，以及全球化渠道布局和家庭AI生态的持续建设。\n  MOVA LINCO核心团队来自头部网络通信与智能硬件企业，在路由器、NAS存储及AI算力设备等方面拥有深厚的技术积累与产品经验。公司产品矩阵以AI智能语音路由器、AI NAS及AI算力盒子三大品类为核心，构建“连接+存储+算力”三位一体的家庭AI基础设施架构，覆盖从智能家居中枢、数据存储及本地算力分配等全场景需求，专注为全球用户提供智能化",
-        "summary_status": "source_excerpt"
+        "summary": "Ploy 的迁移复盘称，生产环境 AI Agent 切换至 GPT-5.6 后速度提升 2.2 倍、成本下降 27%。",
+        "summary_status": "editor_verified_source_digest",
+        "audience": "pro",
+        "value_tags": [
+          "产品工具",
+          "技术前沿",
+          "变现机会"
+        ],
+        "beneficiary": "企业",
+        "maturity": "已验证",
+        "source_tier": "primary",
+        "source_group": "主热点源",
+        "signal_type": "付款信号",
+        "opportunity_signal": "付款信号：生产团队用延迟与成本验收模型；受益者：Agent 评测、路由与迁移服务。",
+        "perspective": "2.2 倍速度、27% 降本只是单场景结果；评测也可能偏向新模型。",
+        "action": "用真实样本并行评测失败 trace；质量、成本、延迟都过线再小流量切换。",
+        "editorial_status": "editor_reviewed"
       },
       {
         "title": "36氪首发 | 港中大博士、前大疆工程师创业消费级四足机器人，天使轮获正轩领投数千万元",
         "url": "https://36kr.com/p/3893473722514181?f=rss",
-        "score": 46,
+        "score": 73,
+        "raw_score": 73.0,
+        "score_components": {
+          "publishable_ai_base": 34.0,
+          "core_relevance": 15.0,
+          "extended_relevance": 0.0,
+          "title_keyword": 8.0,
+          "direct_ai_title": 6.0,
+          "exclusion_penalty": 0.0,
+          "public_heat": 0.0,
+          "source_reliability": 6.0,
+          "complete_source_digest": 4.0
+        },
         "source": "36氪",
-        "summary": "\n \n \n  作者&nbsp;|&nbsp;乔钰杰\n  编辑&nbsp;|&nbsp;袁斯来\n  硬氪获悉，深圳光之跃迁科技有限公司（Lumisition Robotics）（以下简称“光之跃迁”）近日完成近五千万元天使轮融资，由正轩领投，光点资本、力合资本、松禾资本、恒信未来等机构跟投。本轮资金将主要用于产品研发、算法迭代及量产准备。\n  光之跃迁成立于2026年2月，聚焦消费级四足机器人市场，希望以“全地形移动底盘”切入户外场景，解决搬运、辅助行动等体力劳动需求。公司瞄准拥有独栋住宅的欧美家庭、户外运动爱好者以及银发群体，希望让四足机器人从展示型产品转向具备实际生产力的消费级工具。\n  \n",
-        "summary_status": "source_excerpt"
+        "summary": "光之跃迁近日完成近五千万元天使轮融资，计划研发消费级四足机器人，以全地形移动底盘切入户外搬运、辅助行动等场景。",
+        "summary_status": "editor_verified_source_digest",
+        "audience": "general",
+        "value_tags": [
+          "投资风向",
+          "产业落地",
+          "技术前沿"
+        ],
+        "beneficiary": "产业链",
+        "maturity": "待验证",
+        "source_tier": "watch",
+        "source_group": "垂直观察源",
+        "signal_type": "资本信号",
+        "opportunity_signal": "资本信号：近五千万元进入消费级四足机器人；受益者：户外搬运与银发辅助场景。",
+        "perspective": "四足机器人从演示走向工具，要同时过高频任务、可靠性、安全、价格和售后五关。",
+        "action": "选一个场景，计算使用频次、失败后果和人工替代成本。",
+        "editorial_status": "editor_reviewed"
       },
       {
-        "title": "对话Om AI赵天成：多年坚守，押注物理AI原生的「流式」未来",
-        "url": "https://36kr.com/p/3893445208717826?f=rss",
-        "score": 38,
+        "title": "AlephAITech/WorkBuddyGuide",
+        "url": "https://github.com/AlephAITech/WorkBuddyGuide",
+        "score": 71,
+        "raw_score": 71.1,
+        "score_components": {
+          "publishable_ai_base": 34.0,
+          "core_relevance": 15.0,
+          "extended_relevance": 3.0,
+          "title_keyword": 0.0,
+          "direct_ai_title": 0.0,
+          "exclusion_penalty": 0.0,
+          "public_heat": 9.1,
+          "source_reliability": 6.0,
+          "complete_source_digest": 4.0
+        },
+        "source": "GitHub",
+        "summary": "WorkBuddyGuide 是一份开源实战指南，收录 WorkBuddy 教程、真实工作流、Skills、MCP、自动化与多智能体案例。",
+        "summary_status": "editor_verified_source_digest",
+        "audience": "pro",
+        "value_tags": [
+          "产品工具",
+          "变现机会",
+          "产业落地"
+        ],
+        "beneficiary": "团队",
+        "maturity": "需求上升",
+        "source_tier": "primary",
+        "source_group": "主热点源",
+        "signal_type": "需求信号",
+        "opportunity_signal": "需求信号：团队需要可复用的工作流资产；受益者：Skill、MCP 与交付培训服务。",
+        "perspective": "蓝皮书只有被复现、验收和交接，才从个人经验变成团队资产。",
+        "action": "挑一个重复任务，只记录输入、输出、验收标准和失败回退，再封装为最小 Skill。",
+        "editorial_status": "editor_reviewed"
+      }
+    ],
+    "推荐": [
+      {
+        "title": "AI家庭智能硬件公司获数千万元融资，首款产品今年上线海外｜硬氪首发",
+        "url": "https://36kr.com/p/3879780282495236?f=rss",
+        "score": 59,
+        "raw_score": 59.0,
+        "score_components": {
+          "publishable_ai_base": 34.0,
+          "core_relevance": 5.0,
+          "extended_relevance": 0.0,
+          "title_keyword": 4.0,
+          "direct_ai_title": 6.0,
+          "exclusion_penalty": 0.0,
+          "public_heat": 0.0,
+          "source_reliability": 6.0,
+          "complete_source_digest": 4.0
+        },
         "source": "36氪",
-        "summary": "\n \n \n  一个从未见过监控画面的多模态模型，却比在监控数据上练了多年的小模型“老将”更懂监控。这不是科幻电影，这是2023年Om AI联汇的一场“无心插柳”，也是CEO兼首席科学家赵天成博士更加坚信“多模态训练方式能为物理开放世界带来泛化性”的关键节点。彼时，AI行业正在追求以大语言模型为核心的生成式AI。\n  三年后，这个多模态模型演变成了VLX——全球首个面向物理AI的端侧流式多模态模型系列。首次提出“端侧原生流式多模态”这一全新模型架构，而通过这个从Day 1为端侧算力约束设计的架构，VLX模型首次在端侧打通“持续感知+精准定位+行动决策”的物理AI完整闭环。\n  \n  VLX概览图",
-        "summary_status": "source_excerpt"
+        "summary": "威联机器人科技近日完成数千万元天使融资，资金将用于 AI 算法研发、量产体系和全球渠道，并计划以路由器、NAS 与算力盒子搭建家庭 AI 基础设施。",
+        "summary_status": "editor_verified_source_digest",
+        "audience": "general",
+        "value_tags": [
+          "投资风向",
+          "产业落地",
+          "产品工具"
+        ],
+        "beneficiary": "产业链",
+        "maturity": "待验证",
+        "source_tier": "watch",
+        "source_group": "垂直观察源",
+        "signal_type": "资本信号",
+        "opportunity_signal": "资本信号：数千万元资金进入家庭 AI 基础设施；受益者：本地算力、存储与设备协同服务。",
+        "perspective": "家庭 AI 硬件的壁垒是离线可用、权限、互通和隐私；融资不等于用户价值。",
+        "action": "画一个家庭流程，标出数据去向、断网状态、权限和现有替代。",
+        "editorial_status": "editor_reviewed"
       },
       {
-        "title": "五一视界与环天智慧正式达成空天领域战略合作",
-        "url": "https://36kr.com/newsflashes/3893500374350338?f=rss",
-        "score": 38,
-        "source": "36氪",
-        "summary": "36氪获悉，五一视界公告，公司与环天智慧正式达成空天领域战略合作，将围绕高精度卫星遥感数据的采集与“物理级可用”数据资产重建展开合作，联合定制全球首颗专为物理AI训练与仿真应用设计的商业遥感卫星——地球克隆之星“ECS-1”。据公告显示，地球克隆之星“ECS-1”是全球首颗针对物理AI数据需求专项定制的商业遥感卫星。",
-        "summary_status": "source_excerpt"
-      },
-      {
-        "title": "韩国央行：全球半导体市场目前仍处于供不应求的状态，由AI驱动的芯片超级周期预计还将持续一段时间",
-        "url": "https://36kr.com/newsflashes/3893454854765059?f=rss",
-        "score": 38,
-        "source": "36氪",
-        "summary": "韩国央行在周一发布的一份报告中驳斥了投资者关于芯片周期已然见顶的担忧。该行表示，全球半导体市场目前仍处于供不应求的状态，由人工智能（AI）驱动的芯片超级周期预计还将持续一段时间。韩国央行认为，本轮芯片周期与以往不同，其驱动力是各大企业竞相投资，这些投资是基于对AI普及将引发产业生态系统根本性变革的预期。（财联社）",
-        "summary_status": "source_excerpt"
+        "title": "Ask HN: Add flag for AI-generated articles",
+        "url": "https://news.ycombinator.com/item?id=48886741",
+        "score": 59,
+        "raw_score": 58.5,
+        "score_components": {
+          "publishable_ai_base": 34.0,
+          "core_relevance": 0.0,
+          "extended_relevance": 0.0,
+          "title_keyword": 0.0,
+          "direct_ai_title": 6.0,
+          "exclusion_penalty": 0.0,
+          "public_heat": 9.5,
+          "source_reliability": 7.0,
+          "complete_source_digest": 2.0
+        },
+        "source": "Hacker News",
+        "summary": "一则 Hacker News 讨论建议为 AI 生成文章增加标识，相关帖子已形成 150 条评论。",
+        "summary_status": "editor_verified_source_digest",
+        "audience": "general",
+        "value_tags": [
+          "安全合规",
+          "产品工具"
+        ],
+        "beneficiary": "团队",
+        "maturity": "需求上升",
+        "source_tier": "primary",
+        "source_group": "主热点源",
+        "signal_type": "需求信号",
+        "opportunity_signal": "需求信号：社区要求 AI 内容可识别、可追溯；受益者：来源标注与内容审计工具。",
+        "perspective": "AI 内容的核心不是“像不像”，而是读者能否追溯来源、生成方式和人工责任。",
+        "action": "下一篇标出“来源摘录 / AI 辅助 / 本人判断”，并保留原链接与修改记录。",
+        "editorial_status": "editor_reviewed"
       },
       {
         "title": "'Billionaire Exodus? California Drew 10x More Venture Capital Than Any Other State This Year'",
         "url": "https://news.slashdot.org/story/26/07/12/2326225/billionaire-exodus-california-drew-10x-more-venture-capital-than-any-other-state-this-year?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-        "score": 45,
+        "score": 57,
+        "raw_score": 57.0,
+        "score_components": {
+          "publishable_ai_base": 34.0,
+          "core_relevance": 10.0,
+          "extended_relevance": 0.0,
+          "title_keyword": 4.0,
+          "direct_ai_title": 0.0,
+          "exclusion_penalty": 0.0,
+          "public_heat": 0.0,
+          "source_reliability": 5.0,
+          "complete_source_digest": 4.0
+        },
         "source": "Slashdot",
-        "summary": "California drew more than $335 billion in venture capital funding this year, reports the Los Angeles Times, citing data released Thursday by PitchBook on private market funding:\n\nIts next biggest competitor, New York, raised less than a tenth of California's total. Texas raised 1/40th of the amount.",
-        "summary_status": "source_excerpt"
+        "summary": "PitchBook 数据显示，加州今年吸引超过 3350 亿美元风投资金，规模超过纽约的十倍、约为得州的四十倍。",
+        "summary_status": "editor_verified_source_digest",
+        "audience": "general",
+        "value_tags": [
+          "投资风向",
+          "产业落地"
+        ],
+        "beneficiary": "团队",
+        "maturity": "需求上升",
+        "source_tier": "watch",
+        "source_group": "垂直观察源",
+        "signal_type": "资本信号",
+        "opportunity_signal": "资本信号：风投资金继续向高密度生态集中；受益者：能接触当地客户、人才与渠道的团队。",
+        "perspective": "3350 亿美元证明生态密度仍高，却不能替代具体赛道、阶段和个人资源判断。",
+        "action": "把数据拆到行业、轮次和头部交易，再对照你能触达的客户、人才与渠道。",
+        "editorial_status": "editor_reviewed"
+      },
+      {
+        "title": "AI编程从零开始：环境配置到开发调试",
+        "url": "https://www.williamlong.info/archives/7544.html",
+        "score": 55,
+        "raw_score": 55.0,
+        "score_components": {
+          "publishable_ai_base": 34.0,
+          "core_relevance": 5.0,
+          "extended_relevance": 0.0,
+          "title_keyword": 0.0,
+          "direct_ai_title": 6.0,
+          "exclusion_penalty": 0.0,
+          "public_heat": 0.0,
+          "source_reliability": 6.0,
+          "complete_source_digest": 4.0
+        },
+        "source": "月光博客",
+        "summary": "月光博客作者回顾了用 AI 在十分钟内完成 Chrome 浏览器插件，以及用 PictureBox 重写 VB6 进度条控件的两次实践。",
+        "summary_status": "editor_verified_source_digest",
+        "audience": "general",
+        "value_tags": [
+          "产品工具",
+          "产业落地"
+        ],
+        "beneficiary": "个人",
+        "maturity": "已验证",
+        "source_tier": "watch",
+        "source_group": "垂直观察源",
+        "signal_type": "需求信号",
+        "opportunity_signal": "需求信号：小工具与旧软件维护明显提速；受益者：能定义需求并验收交付的人。",
+        "perspective": "AI 把写出第一版变快了；真正稀缺的是定义需求、调试、验收和部署。",
+        "action": "做一个一小时小工具：先写 3 条验收标准，再亲自跑通、测异常、部署。",
+        "editorial_status": "editor_reviewed"
+      },
+      {
+        "title": "对话Om AI赵天成：多年坚守，押注物理AI原生的「流式」未来",
+        "url": "https://36kr.com/p/3893445208717826?f=rss",
+        "score": 55,
+        "raw_score": 55.0,
+        "score_components": {
+          "publishable_ai_base": 34.0,
+          "core_relevance": 5.0,
+          "extended_relevance": 0.0,
+          "title_keyword": 0.0,
+          "direct_ai_title": 6.0,
+          "exclusion_penalty": 0.0,
+          "public_heat": 0.0,
+          "source_reliability": 6.0,
+          "complete_source_digest": 4.0
+        },
+        "source": "36氪",
+        "summary": "Om AI 介绍了端侧流式多模态模型 VLX，目标是在端侧持续完成感知、定位和行动决策，形成面向物理世界的闭环。",
+        "summary_status": "editor_verified_source_digest",
+        "audience": "pro",
+        "value_tags": [
+          "技术前沿",
+          "产业落地",
+          "产品工具"
+        ],
+        "beneficiary": "产业链",
+        "maturity": "待验证",
+        "source_tier": "watch",
+        "source_group": "垂直观察源",
+        "signal_type": "需求信号",
+        "opportunity_signal": "需求信号：设备要在端侧连续感知与行动；受益者：端侧模型、芯片与物理 AI 集成商。",
+        "perspective": "物理 AI 转向持续感知与行动后，瓶颈是数据、端侧延迟、能耗和安全，不是演示。",
+        "action": "画出一个设备场景的“感知—判断—行动—纠错”闭环，并标出每一步的出错代价。",
+        "editorial_status": "editor_reviewed"
+      }
+    ],
+    "参考": [
+      {
+        "title": "韩国央行：全球半导体市场目前仍处于供不应求的状态，由AI驱动的芯片超级周期预计还将持续一段时间",
+        "url": "https://36kr.com/newsflashes/3893454854765059?f=rss",
+        "score": 48,
+        "raw_score": 48.0,
+        "score_components": {
+          "publishable_ai_base": 34.0,
+          "core_relevance": 0.0,
+          "extended_relevance": 0.0,
+          "title_keyword": 0.0,
+          "direct_ai_title": 6.0,
+          "exclusion_penalty": 0.0,
+          "public_heat": 0.0,
+          "source_reliability": 6.0,
+          "complete_source_digest": 2.0
+        },
+        "source": "36氪",
+        "summary": "韩国央行报告称全球半导体仍供不应求，并判断企业围绕 AI 的持续投资可能延长本轮芯片上行周期。",
+        "summary_status": "editor_verified_source_digest",
+        "audience": "pro",
+        "value_tags": [
+          "投资风向",
+          "技术前沿",
+          "产业落地"
+        ],
+        "beneficiary": "产业链",
+        "maturity": "需求上升",
+        "source_tier": "watch",
+        "source_group": "垂直观察源",
+        "signal_type": "付款信号",
+        "opportunity_signal": "付款信号：企业资本开支继续追逐 AI 算力；受益者：HBM、先进封装、供电与散热环节。",
+        "perspective": "央行判断是宏观信号，不是个股保证；收益会被 HBM、封装、供电等瓶颈重分配。",
+        "action": "持续跟踪 HBM/封装交付、云厂商资本开支和数据中心电力，至少两项同向再判断。",
+        "editorial_status": "editor_reviewed"
+      },
+      {
+        "title": "五一视界与环天智慧正式达成空天领域战略合作",
+        "url": "https://36kr.com/newsflashes/3893500374350338?f=rss",
+        "score": 47,
+        "raw_score": 47.0,
+        "score_components": {
+          "publishable_ai_base": 34.0,
+          "core_relevance": 0.0,
+          "extended_relevance": 3.0,
+          "title_keyword": 0.0,
+          "direct_ai_title": 0.0,
+          "exclusion_penalty": 0.0,
+          "public_heat": 0.0,
+          "source_reliability": 6.0,
+          "complete_source_digest": 4.0
+        },
+        "source": "36氪",
+        "summary": "五一视界与环天智慧宣布合作建设高精度卫星遥感数据资产，并计划定制面向物理 AI 训练与仿真的商业遥感卫星 ECS-1。",
+        "summary_status": "editor_verified_source_digest",
+        "audience": "pro",
+        "value_tags": [
+          "产业落地",
+          "技术前沿",
+          "产品工具"
+        ],
+        "beneficiary": "产业链",
+        "maturity": "待验证",
+        "source_tier": "watch",
+        "source_group": "垂直观察源",
+        "signal_type": "需求信号",
+        "opportunity_signal": "需求信号：物理 AI 需要可授权的真实世界数据；受益者：遥感数据、仿真与数字孪生服务。",
+        "perspective": "“首颗”只是计划；现实数据的价值取决于精度、更新频率、授权和真实客户。",
+        "action": "核对卫星状态、时间表、传感器指标、数据授权和已披露客户。",
+        "editorial_status": "editor_reviewed"
       }
     ]
   }
