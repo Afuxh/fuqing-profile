@@ -542,23 +542,24 @@ body.letter-mode{
   width:80%;height:75%;
   background:linear-gradient(135deg,#5D4037,#4E342E);
   border-radius:6px 6px 0 0;
-  box-shadow:inset 0 2px 6px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2)
+  box-shadow:inset 0 2px 6px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2);
+  z-index:3
 }
 .mailbox-slot{
   position:absolute;top:20%;left:50%;transform:translateX(-50%);
   width:70%;height:8%;background:#3E2723;border-radius:2px;
-  box-shadow:inset 0 2px 6px rgba(0,0,0,.5)
+  box-shadow:inset 0 2px 6px rgba(0,0,0,.5);z-index:5
 }
 .mailbox-roof{
   position:absolute;bottom:75%;left:50%;transform:translateX(-50%);
   width:100%;height:0;
   border-left:clamp(54px,15vw,74px) solid transparent;
   border-right:clamp(54px,15vw,74px) solid transparent;
-  border-bottom:clamp(42px,11vw,58px) solid #6D4C41
+  border-bottom:clamp(42px,11vw,58px) solid #6D4C41;z-index:2
 }
 .mailbox-post{
   position:absolute;bottom:0;left:50%;transform:translateX(-50%);
-  width:12%;height:30%;background:#5D4037;border-radius:2px
+  width:12%;height:30%;background:#5D4037;border-radius:2px;z-index:1
 }
 
 .mini-envelope{
@@ -566,27 +567,34 @@ body.letter-mode{
   background:linear-gradient(170deg,#F7EBD8,#E5C9A8);
   border-radius:0 0 3px 3px;
   box-shadow:0 3px 10px rgba(0,0,0,.3);
-  position:absolute;
-  animation:dropIn 1.4s cubic-bezier(.4,0,.2,1) forwards;
-  opacity:0;z-index:11
+  position:absolute;left:50%;top:-48%;
+  transform:translateX(-50%) rotate(-4deg) scale(.95);
+  opacity:0;z-index:4;pointer-events:none
 }
+.mini-envelope.dropIn{animation:dropIn 1.6s cubic-bezier(.4,0,.2,1) forwards}
 @keyframes dropIn{
-  0%{top:-20%;left:50%;transform:translateX(-50%) rotate(0);opacity:1}
-  50%{top:calc(50% - min(170px,40vw)*0.35);left:50%;transform:translateX(-50%) rotate(-6deg);opacity:1}
-  75%{top:calc(50% - min(170px,40vw)*0.25);left:50%;transform:translateX(-50%) rotate(4deg);opacity:1}
-  100%{top:calc(50% - min(170px,40vw)*0.3);left:50%;transform:translateX(-50%) rotate(0) scale(.2);opacity:0}
+  0%{top:-48%;transform:translateX(-50%) rotate(-4deg) scale(.95);opacity:0}
+  15%{top:-35%;transform:translateX(-50%) rotate(3deg) scale(1);opacity:1}
+  62%{top:27%;transform:translateX(-50%) rotate(-3deg) scale(.9);opacity:1}
+  82%{top:35%;transform:translateX(-50%) rotate(1deg) scale(.68);opacity:1}
+  100%{top:39%;transform:translateX(-50%) rotate(0) scale(.12);opacity:0}
 }
 
 .mailbox-text{
   margin-top:20px;font-size:clamp(15px,3.2vw,19px);
-  color:var(--brown);letter-spacing:.12em;line-height:2;text-align:center
+  color:var(--brown);letter-spacing:.12em;line-height:2;text-align:center;
+  opacity:0;transform:translateY(8px)
 }
 .reopen-btn{
   margin-top:clamp(14px,2.8vw,22px);padding:clamp(7px,1.8vw,10px) clamp(18px,4vw,26px);
   border:1px solid var(--gold);background:transparent;color:var(--brown);
   border-radius:22px;font-family:inherit;font-size:clamp(12px,2.5vw,13px);
-  cursor:pointer;letter-spacing:.06em;transition:all .3s
+  cursor:pointer;letter-spacing:.06em;transition:all .3s;
+  opacity:0;transform:translateY(8px);pointer-events:none
 }
+.mailbox-scene.delivered .mailbox-text{animation:deliveryResultIn .55s ease forwards}
+.mailbox-scene.delivered .reopen-btn{animation:deliveryResultIn .55s .12s ease forwards;pointer-events:auto}
+@keyframes deliveryResultIn{to{opacity:1;transform:translateY(0)}}
 .reopen-btn:hover{background:var(--warm);color:#fff;border-color:var(--warm)}
 
 /* Page flip - realistic paper bending effect */
@@ -683,8 +691,8 @@ body.letter-mode{
       <div class="mailbox-roof"></div>
       <div class="mailbox-body"><div class="mailbox-slot"></div></div>
       <div class="mailbox-post"></div>
+      <div class="mini-envelope" id="miniEnvelope"></div>
     </div>
-    <div class="mini-envelope" id="miniEnvelope"></div>
     <div class="mailbox-text">回信已寄出<br>心意正在路上 💌</div>
     <button class="reopen-btn" onclick="reopenLetter()">重新打开</button>
   </div>
@@ -949,12 +957,14 @@ function goToMailbox() {
   setTimeout(function(){ document.getElementById('sealStampAnim').classList.add('stamp'); }, 4300);
   setTimeout(function(){
     document.getElementById('foldAnim').style.display = 'none';
-    document.getElementById('stampEnvelope').style.opacity = '0';
+    document.getElementById('stampEnvelope').classList.remove('show');
+    document.getElementById('stampEnvelope').style.display = 'none';
     document.getElementById('stampFly').style.display = 'none';
     document.getElementById('sealStampAnim').style.display = 'none';
     document.getElementById('mailboxScene').classList.add('show');
   }, 5500);
   setTimeout(function(){ document.getElementById('miniEnvelope').classList.add('dropIn'); }, 6300);
+  setTimeout(function(){ document.getElementById('mailboxScene').classList.add('delivered'); }, 8100);
 }
 
 function reopenLetter() {
@@ -962,6 +972,7 @@ function reopenLetter() {
   document.getElementById('foldAnim').classList.remove('folding');
   document.getElementById('foldAnim').style.display = '';
   document.getElementById('stampEnvelope').classList.remove('show');
+  document.getElementById('stampEnvelope').style.display = '';
   document.getElementById('stampEnvelope').style.opacity = '';
   document.getElementById('stampFly').classList.remove('fly-in');
   document.getElementById('stampFly').style.display = '';
@@ -970,6 +981,7 @@ function reopenLetter() {
   document.getElementById('sealStampAnim').style.display = '';
   document.getElementById('sealStampAnim').style.opacity = '';
   document.getElementById('mailboxScene').classList.remove('show');
+  document.getElementById('mailboxScene').classList.remove('delivered');
   document.getElementById('mailboxScene').style.opacity = '';
   document.getElementById('miniEnvelope').classList.remove('dropIn');
   document.body.classList.add('letter-mode');
